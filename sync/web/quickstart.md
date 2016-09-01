@@ -2,21 +2,16 @@
 title: 快速起步
 ---
 
-## 快速起步
-
 快速起步可以让你快速掌握 Wilddog 实时数据同步的基本用法。如果你要用于实际开发，还需要参照[实时数据更新指南](/sync/web/guide/structure-data.html)以及 [API 文档](/sync/web/api.html)了解更多，并且还需要掌握使用 [规则表达式](/sync/rules/introduce-rule.html) 来保证你的数据安全。
 
 我们通过编写一个简单的天气应用例子来了解实时数据同步是如何使用的。
 通过这个例子，你将会学到：
 
-1. 向数据库中保存、修改数据。
+1. 向数据库中保存数据。
 2. 读取并且实时监听数据。
 
-![](http://7u2r36.com1.z0.glb.clouddn.com/16-8-18/29982723.jpg)
 
-
-
-### 创建应用
+### 1. 创建应用
 
 快速起步之前，需要先创建你的应用，如果你还不知道如何创建应用，请先阅读[控制台指南—快速起步](/console/index.html)
 
@@ -24,7 +19,7 @@ title: 快速起步
 
 ![testApp](http://7u2r36.com1.z0.glb.clouddn.com/aoo.png?imageView/2/w/300/q/100)
 
-### 引入 SDK
+### 2. 引入 SDK
 首先应该在页面中引入我们的 Wilddog SDK
 很简单，只需要在你的页面中加入一行 javascript 标签。
 
@@ -32,7 +27,7 @@ title: 快速起步
 <script src = "https://cdn.wilddog.com/js/client/v2/wilddog-web-database.js" ></script>
 ```
 
-### 创建Wilddog 引用
+### 3. 创建Wilddog 引用
 引入 Wilddog SDK 之后我们需要创建 Wilddog引用。有了 Wilddog 引用我们才能对数据进行操作。
 让我们来创建一个 Wilddog引用对象。
 
@@ -57,7 +52,7 @@ var childRef = ref.child("/成都/weather");
 
 现在我们操作的数据都在 Weather 节点下了。
 
-### 保存数据
+### 4. 保存数据
 
 创建了 Wilddog 对象之后，我们就能利用它对数据进行操作了。让我们先从写入数据开始。
 我们可以通过 Wilddog 提供的 set() 方法，写入**JSON**数据。
@@ -80,6 +75,7 @@ ref.set({
 你可以试试下面的例子，保存数据后，你可以在 wilddog 的数据预览中看到数据的变化。为了防止覆盖你的数据，最好使用一个空的应用。
 
 [保存数据示例](http://runjs.cn/code/epbvuu5c)
+![](http://7u2r36.com1.z0.glb.clouddn.com/16-8-18/29982723.jpg)
 
 如果保存不成功的话，有可能是因为你更改了**规则表达式**。有关规则表达式的内容，我们会在后面提到。
 
@@ -87,7 +83,7 @@ ref.set({
 
 
 
-### 读取与监听数据
+### 5. 读取与监听数据
 我们上一步已经把 成都的天气 的信息存入了数据库，那么我们就可以使用 on() 函数来读取存入的信息。
 例如我们要知道成都的天气信息，我们通过 on() 来读取 weather 字段：
 
@@ -125,7 +121,7 @@ console.log(snapshot.val());
 
 
 
-### 保护数据安全
+### 6. 保护数据安全
 
 到这一步，你已经可以完成基本的数据操作了，但是如果要将你的应用用于生产环境，你还需要注意应用的安全问题。每一个新创建的 App权限初始权限都为 **所有人都可以读写**，用于实际生产环境将会非常危险。
 
@@ -140,7 +136,7 @@ console.log(snapshot.val());
 
 你可以在应用中的实时数据同步配置规则表达式。虽然规则表达式配置灵活简单，但是要完全利用规则表达式的功能还需要一定的学习，你可以在[规则表达式简介](/sync/rules/introduce-rule.html)中开始学习如何配置规则表达式。
 
-![](http://7u2r36.com1.z0.glb.clouddn.com/wilddog-rule.png?imageView/2/w/500/q/100)
+![](http://ocpo37x5v.bkt.clouddn.com/2016-09-01-%E8%A7%84%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F.png)
 
 
 
