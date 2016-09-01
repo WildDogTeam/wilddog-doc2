@@ -12,7 +12,7 @@ Wilddog提供了一种类 javascript语法的规则表达式来解决你的安�
 
 你可以在控制台-实时数据库-读写权限中配置规则表达式。
 
-![img](https://dn-shimo-image.qbox.me/dyDkf9I24SM0anKa.png!thumbnail)
+![img](/images/rule-overview.png)
 
 规则表达式有四种类型，读、写以及校验，我们能够通过灵活配置这几个个规则，实现访问权限控制和数据校验还有建立索引。
 

@@ -17,7 +17,7 @@ title: 快速起步
 
 现在我们创建了一个新的应用，地址为 **gzztztestapp.wilddogio.com**。这个地址是该应用的根节点。
 
-![testApp](http://7u2r36.com1.z0.glb.clouddn.com/aoo.png?imageView/2/w/300/q/100)
+<img src="/images/testApp.jpeg" alt="testApp" width="300">
 
 ### 2. 引入 SDK
 首先应该在页面中引入我们的 Wilddog SDK

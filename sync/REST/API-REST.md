@@ -257,15 +257,15 @@ curl 'https://samplechat.wilddogio.com/.json?download=myfilename.txt'
 
 ## orderBy
 
-在 [完整文档 - 查询数据](/sync/REST/guide-REST.html#查询数据) 文档中获取更多信息。
+在 [完整文档 - 查询数据](/sync/rest/guide-rest.html#查询数据) 文档中获取更多信息。
 
 ## limitToFirst, limitToLast
 
-在 [完整文档 - 查询数据](/sync/REST/guide-REST.html#查询数据) 文档中获取更多信息。
+在 [完整文档 - 查询数据](/sync/rest/guide-rest.html#查询数据) 文档中获取更多信息。
 
 ## startAt, endAt, equalTo
 
-在 [完整文档 - 查询](/sync/REST/guide-REST.html#查询数据) 文档中获取更多信息。
+在 [完整文档 - 查询](/sync/rest/guide-rest.html#查询数据) 文档中获取更多信息。
 
 ---
 

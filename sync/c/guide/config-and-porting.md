@@ -8,9 +8,9 @@ SDK 包含条件编译选项和用户参数，可对 SDK 进行配置(Arduino SD
 
 Linux 和 Espressif 平台的编译选项在 make 时指定， WICED 平台的编译选项在 project/wiced/wiced.mk 中，MICO 平台则在工程的配置中。
 
-    APP_SEC_TYPE : 加密方式，目前支持轻量级加密库 tinydtls、ARM 官方加密库 mbedtls 和无加密 nosec；
+|APP_SEC_TYPE | 加密方式，目前支持轻量级加密库 tinydtls、ARM 官方加密库 mbedtls 和无加密 nosec；
 
-    PORT_TYPE : 运行的平台，目前支持 Linux 和 Espressif；
+   PORT_TYPE : 运行的平台，目前支持 Linux 和 Espressif；
 
 Linux 和 Espressif 平台在 make 时指定选项，进行不同的编译，如：
 
