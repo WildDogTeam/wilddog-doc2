@@ -2,24 +2,22 @@
 title: REST API
 ---
 
-# API
-
 我们可以使用任意的Wilddog应用的URL作为REST的结束点，我们只需要在URL的结尾处加上`.json`然后发送HTTPS请求即可。 HTTPS是必须的，Wilddog只会响应加密数据，所以你的数据是保证安全的。
 
 ## GET
 
-###### 说明
+说明
 
 通过HTTP发送GET请求就可以读取数据库中的数据 请求成功将会返回200 OK状态码。响应中会包含要查询的数据。
 
-###### 示例
+示例
 
 ```
 curl 'https://samplechat.wilddogio.com/users/jack/name.json'
 
 ```
 
-###### 返回值
+返回值
 
 ```
 { "first": "Jack", "last": "Sparrow" }
@@ -30,11 +28,11 @@ curl 'https://samplechat.wilddogio.com/users/jack/name.json'
 
 ## PUT
 
-###### 说明
+说明
 
 我们可以使用 `PUT` 请求写入数据
 
-###### 示例
+示例
 
 ```
 curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
@@ -42,7 +40,7 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 
 ```
 
-###### 返回值
+返回值
 
 ```
 { "first": "Jack", "last": "Sparrow" }
@@ -53,11 +51,11 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 
 ## POST
 
-###### 说明
+说明
 
 要实现js中`push()`方法类似的功能，我们可以使用`POST`请求
 
-###### 示例
+示例
 
 ```
 curl -X POST -d '{"user_id" : "jack", "text" : "Ahoy!"}' \
@@ -65,7 +63,7 @@ curl -X POST -d '{"user_id" : "jack", "text" : "Ahoy!"}' \
 
 ```
 
-###### 返回值
+返回值
 
 ```
 { "name": "-INOQPH-aV_psbk3ZXEX" }
@@ -76,11 +74,11 @@ curl -X POST -d '{"user_id" : "jack", "text" : "Ahoy!"}' \
 
 ## PATCH
 
-###### 说明
+说明
 
 我们可以使用`PATCH`请求来更新指定位置的数据而不覆盖其他已有的数据。`PATCH`请求中指定的节点数据会被覆盖，没有提到的节点不会被删除。该功能与js中的`update()`方法类似。
 
-###### 示例
+示例
 
 ```
 curl -X PATCH -d '{"last":"Jones"}' \
@@ -88,7 +86,7 @@ curl -X PATCH -d '{"last":"Jones"}' \
 
 ```
 
-###### 返回值
+返回值
 
 ```
 { "last": "Jones" }
@@ -99,11 +97,11 @@ curl -X PATCH -d '{"last":"Jones"}' \
 
 ## DELETE
 
-###### 说明
+说明
 
 我们可以使用`DELETE`请求来删除数据。
 
-###### 示例
+示例
 
 ```
 curl -X DELETE \
@@ -111,7 +109,7 @@ curl -X DELETE \
 
 ```
 
-###### 返回值
+返回值
 
 请求成功将会返回200 OK状态码。响应中会包含空的JSON
 
@@ -119,11 +117,11 @@ curl -X DELETE \
 
 ## 方法覆盖
 
-###### 说明
+说明
 
 如果我们发出REST调用的浏览器不支持上面的方法，我们可以覆盖请求方法，发送`POST`请求通过请求头中的`X-HTTP-Method-Override`设置要覆盖的方法。
 
-###### 示例
+示例
 
 ```
 curl -X POST -H "X-HTTP-Method-Override: DELETE" \
@@ -139,7 +137,7 @@ curl -X POST \
 
 ```
 
-###### 返回值
+返回值
 
 请求成功将会返回200 OK状态码。响应中会包含空的JSON
 
@@ -149,30 +147,13 @@ curl -X POST \
 
 Wilddog的REST API接收以下的查询参数和值
 
-## auth
-
-###### 说明
-
-所有的请求都支持。可以授权请求访问被规则表达式保护的数据。可以使用应用的密钥，也可以使用认证令牌。
-
-###### 示例
-
-```
-curl 'https://samplechat.wilddogio.com/users/jack/name.json?auth=CREDENTIAL'
-
-```
-
-如果`debug`标识位被设置打开，则会在响应的`X-Wilddog-Auth-Debug`头中看到调试信息。
-
----
-
 ## shallow
 
-###### 说明
+说明
 
 这是一个高级功能，目标是帮助处理大的数据集而不下载数据集的全部。设置 shallow=true 将限制数据返回的深度。如果返回的数据是JSON primitive \(string, number or boolean\)， 它的value将被返回。 如果数据的snapshot是 JSON object，每一个key的value将被截断成布尔类型`true`。
 
-###### 示例
+示例
 
 ```
 curl 'https://samplechat.wilddogio.com/.json?shallow=true'
@@ -185,11 +166,11 @@ curl 'https://samplechat.wilddogio.com/.json?shallow=true'
 
 ## count
 
-###### 说明
+说明
 
 查询当前节点下直接子节点的个数。设置 count=true 返回数量。可以与条件查询连用。与条件查询连用时，返回的是满足条件的节点的数量。
 
-###### 示例
+示例
 
 ```
 //查询 rest 节点下的子节点个数
@@ -204,7 +185,7 @@ curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"&equal
 
 ## print
 
-###### 说明
+说明
 
 格式化响应返回的数据。
 
@@ -213,7 +194,7 @@ curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"&equal
 | pretty     | GET, PUT, POST, PATCH, DELETE | 以易读的方式查看数据                               |
 | silent     | GET, PUT, POST, PATCH         | 写入数据的时候控制输出，响应返回的是空值，http状态码为204 No Content |
 
-###### 示例
+示例
 
 ```
 curl 'https://samplechat.wilddogio.com/users/jack/name.json?print=pretty'
@@ -226,11 +207,11 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 
 ## callback
 
-###### 说明
+说明
 
 仅支持 `get` 方式。为了让web客户端的rest请求实现跨域，你可以用JSONNP在JavaScript回调方法中封装一个响应。使用 `callback=` 让rest API在你指定的回调方法中封装返回的数据。
 
-###### 示例
+示例
 
 ```
 <script>
@@ -246,11 +227,11 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 
 ## format
 
-###### 说明
+说明
 
 在 get 数据时，若带有如下参数，响应数据中会包含priority信息
 
-###### 示例
+示例
 
 ```
 curl 'https://samplechat.wilddogio.com/.json?format=export'
@@ -261,11 +242,11 @@ curl 'https://samplechat.wilddogio.com/.json?format=export'
 
 ## download
 
-###### 说明
+说明
 
 仅支持 `get` 方式。如果你想从web客户端把你的数据下载到一个文件中，请使用 `download=` 参数。参数后加上一个合适的文件名以让客户端将数据保存到这个文件中。
 
-###### 示例
+示例
 
 ```
 curl 'https://samplechat.wilddogio.com/.json?download=myfilename.txt'
@@ -285,6 +266,58 @@ curl 'https://samplechat.wilddogio.com/.json?download=myfilename.txt'
 ## startAt, endAt, equalTo
 
 在 [完整文档 - 查询](/sync/REST/guide-REST.html#查询数据) 文档中获取更多信息。
+
+---
+
+# Auth
+
+## auth
+
+说明
+
+所有的请求都支持。可以授权请求访问被规则表达式保护的数据。可以使用应用的密钥，也可以使用认证令牌。
+
+示例
+
+```
+curl 'https://samplechat.wilddogio.com/users/jack/name.json?auth=CREDENTIAL'
+```
+
+
+---
+
+## customTokenToIdToken
+
+说明
+
+将 SDK 生成的 CustomToken 转换为 Wilddog IdToken。仅支持 `POST` 方式。
+
+示例
+
+```
+curl -X POST -d '{"token":"<YOUR CUSTOM TOKEN HERE>"}' \
+'https://<appid>.wilddogio.com/.auth/customTokenToIdToken.json'
+```
+
+返回值
+
+```json
+{
+    "idToken":"<IDTOEKN HERE>",
+    "expire":<EXPIRE TIME IN SECONDS>
+}
+```
+
+如果转换过程中出现错误，系统会返回如下格式结果：
+
+```json
+{
+    "error":{
+        "code":"<ERRER CODE>",
+        "errorMessage":"<ERROR MESSAGE>"
+    }
+}
+```
 
 ---
 
@@ -308,7 +341,7 @@ data: JSON encoded data payload
 
 ## put
 
-###### 说明
+说明
 
 data是json对象， 包含两个key： `path`和`data`。`path`是`data`相关的路径。客户端应该替换`path`的所有数据。
 
@@ -316,7 +349,7 @@ data是json对象， 包含两个key： `path`和`data`。`path`是`data`相关�
 
 ## patch
 
-###### 说明
+说明
 
 data是json对象， 包含两个key： `path` 和 `data`。`path`是`data`相关的路径。对于data的每一个key，客户端应该替换这个key对应的数据。
 
@@ -324,7 +357,7 @@ data是json对象， 包含两个key： `path` 和 `data`。`path`是`data`相�
 
 ## keep-alive
 
-###### 说明
+说明
 
 event的data为null，即无任何操作。
 
@@ -332,7 +365,7 @@ event的data为null，即无任何操作。
 
 ## auth\_revoked
 
-###### 说明
+说明
 
 此event的数据为一个字符串，该字符串表示该认证已过期。当提供的认证过期时，此event将被发送。
 
@@ -410,11 +443,11 @@ curl -X PUT -d '{".value": "Tom", ".priority": 1.0}' \
 
 # Server Values
 
-###### 说明
+说明
 
 服务端数值使用占位符： `.sv`。`.sv`的值就是我们期望的服务端数值类型。例如，当一个用户被创建的时候需要设置一个时间戳，我们应该如下操作：
 
-###### 示例
+示例
 
 ```
 curl -X PUT -d '{".sv": "timestamp"}' \
@@ -422,11 +455,11 @@ curl -X PUT -d '{".sv": "timestamp"}' \
 
 ```
 
-###### 说明
+说明
 
 当我们需要获取服务器的当前时间戳时，可以进行如下操作 :
 
-###### 示例
+示例
 
 ```
 curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
@@ -459,7 +492,7 @@ curl  'https://<appId>.wilddogio.com/.settings/rules.json?auth=WILDDOG_SECRET'
 
 ## 错误码
 
-###### 说明
+说明
 
 Wilddog的REST API将在以下情况返回错误码：
 
@@ -475,7 +508,7 @@ Wilddog的REST API将在以下情况返回错误码：
 
 ## 错误信息
 
-###### 说明
+说明
 
 Wilddog的REST API将在业务错误时返回值中返回error信息：
 

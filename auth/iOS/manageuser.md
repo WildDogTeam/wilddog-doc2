@@ -1,12 +1,12 @@
-title: 管理 Wilddog 中的用户
+title: 管理用户
 ---
 
-### 创建用户
+## 创建用户
 通过调用 `createUserWithEmail:password:completion:` 方法或首次使用第三方登录方式（如 QQ Sign-In 或 Weixin Login）登录一个用户，就可以在您的 Wilddog 项目中创建一个新用户。
 
 您也可以从 Wilddog 控制面板的身份“认证部分”的“用户”页面中创建新的密码验证用户。
 
-### 获取当前登录的用户
+## 获取当前登录的用户
 获取当前用户的推荐方法是在 Auth 对象上设置一个侦听器：
 
 ```Objective-C
@@ -35,7 +35,7 @@ if (user != nil) {
 ```
 注：`currentUser` 可能为空，这是因为 auth 对象尚未完成初始化。 如果您使用侦听器跟踪用户登录状态，您将无需处理该情况。
 
-### 获取用户个人资料
+## 获取用户个人资料
 要获取用户的个人资料信息，请使用 `WDGUser` 实例的属性。 例如：
 
 ```Objective-C
@@ -55,7 +55,7 @@ if (user != nil) {
 }
 ```
 
-### 获取用户的第三方登录的个人资料信息
+## 获取用户的第三方登录的个人资料信息
 要从已链接至用户的第三方登录中获取检索到的个人资料信息，请使用 providerData 属性。 例如：
 
 ```Objective-C
@@ -74,7 +74,7 @@ if (user != nil) {
 }
 ```
 
-###更新用户个人资料
+## 更新用户个人资料
 您可以使用`WDGUserProfileChangeRequest` 类来更新一个用户的基本个人资料信息 — 用户的显示名称和个人资料照片网址。 例如：
 
 ```Objective-C
@@ -93,7 +93,7 @@ changeRequest.photoURL =
 }];
 ```
 
-### 设置用户的电子邮件地址
+## 设置用户的电子邮件地址
 您可以用 `updateEmail:completion:` 方法设置用户的电子邮件地址。例如：
 
 ```objective-C
@@ -109,7 +109,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 ```
 重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份验证。
 
-### 设置用户密码
+## 设置用户密码
 您可以使用 `updatePassword:completion:` 方法设置用户密码。例如：
 
 ```Objective-C
@@ -126,7 +126,7 @@ NSString *newPassword = [yourApp getRandomSecurePassword];
 ```
 重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份验证。
 
-### 发送重设密码电子邮件
+## 发送重设密码电子邮件
 您可以用 `sendPasswordResetWithEmail:completion:` 方法向用户发送一封重设密码电子邮件。 例如：
 
 ```Objective-C
@@ -145,7 +145,7 @@ NSString *email = @"user@example.com";
 
 您也可以从 Wilddog 控制面板中发送重设密码电子邮件。
 
-### 删除用户
+## 删除用户
 
 您可以使用 `deleteWithCompletion` 方法删除用户帐户。例如：
 
@@ -165,7 +165,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 
 重要说明：要删除用户，该用户必须最近登录过。请参阅对用户重新进行身份验证。
 
-###对用户重新进行身份验证
+## 对用户重新进行身份验证
 有些安全敏感性操作—如删除帐户、设置主电子邮件地址和更改密码—需要用户最近登录过方可执行。
 
 如果您执行这些操作之一，而该用户在很久以前登录过，该操作便会失败，显示 `WDGAuthErrorCodeCredentialTooOld` 错误。

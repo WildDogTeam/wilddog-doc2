@@ -13,11 +13,11 @@ title: 实战教程
 
 ## 具体步骤
 
-### 引入 Wilddog iOS SDK TODO
+### 引入 Wilddog iOS SDK 
 
 SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 
-####第一种：使用 CocoaPods 
+#### 第一种：使用 CocoaPods 
 要将 Wilddog SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问 [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 
 
@@ -29,14 +29,14 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 
 然后在 Podfile 文件中添加以下语句
 
-	pod 'Wilddog/Sync'
+	pod 'Wilddog'
 	
 最后安装 SDK
 
 	$ pod install
 	$ open your-project.xcworkspace
 	
-####第二种：手动集成 
+#### 第二种：手动集成 
 
 1、下载 SDK。[下载地址](https://cdn.wilddog.com/ios/client/sync/WilddogSync.framework-2.0.0Beta.zip)         
 2、把 WilddogSync.Framework 拖到工程目录中。  
@@ -44,7 +44,7 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 4、点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
 
 
-###初始化
+### 初始化
 
 ```
 // 创建数据库引用。最好自己创建一个应用，把 danmu 即 `appId` 换成你自己的
@@ -52,8 +52,8 @@ _wilddog = [[Wilddog alloc] initWithUrl:@"https://danmu.wilddogio.com/message"];
 
 ```
 
-###发送弹幕
-这里用到 Wilddog 写入数据的一个 API [childByAutoId](/sync/ios/guide/save-data.html#用 childByAutoId 追加新节点), 它用来在当前节点下生成随机子节点，以保证键的不重复和有序。
+### 发送弹幕
+这里用到 Wilddog 写入数据的一个 API [childByAutoId](/sync/ios/guide/save-data.html#用childByAutoId追加新节点), 它用来在当前节点下生成随机子节点，以保证键的不重复和有序。
 
 ```
 // 获取输入框的数据， 将数据写到云端 message 节点下，childByAutoId 用来定位子节点

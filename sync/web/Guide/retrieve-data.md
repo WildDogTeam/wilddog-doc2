@@ -142,7 +142,7 @@ orderByPriority() | 按优先级对结果排序。
 
 **注意**：每次只能使用一种排序方法。对同一查询调用多个排序方法会引发错误。作为一种变通的方法，你可以先按一种方式查询，然后自行在结果集中进行第二次查询。
 
-下面这个示例演示了在[恐龙面板应用](https://dinosaur-facts.wilddogio.com)中如何按照恐龙的身高进行排序。
+下面这个示例演示了在[恐龙示例面板应用](https://dinosaur-facts.wilddogio.com)中如何按照恐龙的身高进行排序。
 ```js
 var config = {
   authDomain: "dinosaur-facts.wilddog.com",

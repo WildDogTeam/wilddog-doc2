@@ -1,3 +1,6 @@
+title: REST 完整指南
+---
+
 ## 使用入门
 
 在任何支持HTTPS的平台和语言中，都可以使用Wilddog REST API。在本指南中，我们使用命令行工具发送HTTPS请求。其他任何平台都可以参照该示例，使用 REST API。

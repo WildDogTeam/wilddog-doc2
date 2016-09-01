@@ -5,7 +5,7 @@ title: 微信登录
 
 登录的用户可以访问野狗实时数据库中用户登录受限的数据。
 
-### 开始前的准备工作
+## 开始前的准备工作
 
 1.将 `WilddogAuth` 添加至你的 Android 项目。
 
@@ -21,7 +21,7 @@ title: 微信登录
   *  在野狗控制面板中选择 ”身份认证“->登录方式。
   *  点击微信登录开关，点击配置，输入 微信帐号 APP ID 和 App Secret。
 
-### Wilddog 身份验证
+## Wilddog 身份验证
 
 1.参考 微信 `Android` 接入指南 将微信登录集成到你的应用中。
 
@@ -92,7 +92,7 @@ mauth.signInWithCredential(weixinAuthCredential).addOnCompleteListener(new OnCom
 });
 ```
 
-### 后续步骤
+## 后续步骤
 
 无论你采用哪种登录方式，用户第一次登录后，野狗服务器都会生成一个唯一的 Wilddog ID 来标识这个帐户，使用这个 Wilddog ID，可以在你 APP 中确认每个用户的身份。配合 规则表达式，auth 还可以控制野狗实时数据库的用户访问权限。
 

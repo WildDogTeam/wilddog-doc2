@@ -1,7 +1,7 @@
 title: 管理 Wilddog 中的用户
 ---
 
-### 创建用户
+## 创建用户
 
 通过调用 `createUserWithEmailAndPassword` 方法或首次使用第三方登录方式（如 `signInWithCredential(qqAuthCredential)`等）登录一个用户，就可以在您的 Wilddog 项目中创建一个新用户。
 
@@ -9,7 +9,7 @@ title: 管理 Wilddog 中的用户
 您也可以从 Wilddog 控制面板的身份“认证部分”的“用户”页面中创建新的密码验证用户。
 
 
-### 获取当前登录的用户
+## 获取当前登录的用户
 
 获取当前用户的推荐方法是在 WilddogAuth 对象上设置一个侦听器：
 
@@ -42,7 +42,7 @@ title: 管理 Wilddog 中的用户
 注：getCurrentUser 可能为空，这是因为 auth 对象尚未完成初始化。 如果您使用侦听器跟踪用户登录状态，您将无需处理该情况。
 
 
-### 获取用户个人资料
+## 获取用户个人资料
 
 要获取用户的个人资料信息，请使用 `WilddogUser` 实例的访问器方法。 例如：
 
@@ -66,7 +66,7 @@ title: 管理 Wilddog 中的用户
                  // No user is signed in.
                 }
 
-### 获取用户的第三方登录的个人资料信息
+## 获取用户的第三方登录的个人资料信息
 
 要从已链接至用户的第三方登录中获取检索到的个人资料信息，请使用 providerData 属性。 例如：
 
@@ -91,7 +91,7 @@ title: 管理 Wilddog 中的用户
                  // No user is signed in.
                 }
 
-### 更新用户个人资料
+## 更新用户个人资料
 
 您可以使用 `updateProfile` 方法更新用户的基本个人资料信息—用户的显示名称和个人资料照片网址。 例如：
 
@@ -112,7 +112,7 @@ title: 管理 Wilddog 中的用户
             }
         });
   
-### 设置用户的电子邮件地址
+## 设置用户的电子邮件地址
 
 您可以使用 `updateEmail` 方法设置用户的电子邮件地址。例如：
 
@@ -129,7 +129,7 @@ title: 管理 Wilddog 中的用户
         });
 重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份验证。
 
-### 设置用户密码
+## 设置用户密码
 您可以使用 'updatePassword' 方法设置用户密码。例如：
 
     WilddogUser user = auth.getCurrentUser();
@@ -146,7 +146,7 @@ title: 管理 Wilddog 中的用户
         });
 重要说明：要设置用户密码，该用户必须最近登录过。请参阅对用户重新进行身份验证。
 
-### 发送重设密码电子邮件
+## 发送重设密码电子邮件
 您可以用 `sendPasswordResetEmail` 方法向用户发送一封重设密码电子邮件。 例如：
 
 
@@ -166,7 +166,7 @@ title: 管理 Wilddog 中的用户
 您也可以从 `Wilddog` 控制面板中发送重设密码电子邮件。
 
 
-### 删除用户
+## 删除用户
 您可以使用 `delete` 方法删除用户帐户。例如：
 
     WilddogUser user = auth.getCurrentUser();
@@ -185,7 +185,7 @@ title: 管理 Wilddog 中的用户
 您可以从 Wilddog 控制面板的“用户认证”部分的“用户”页面中删除用户。
 
 
-### 对用户重新进行身份验证
+## 对用户重新进行身份验证
 有些安全敏感性操作—如删除帐户、设置主电子邮件地址和更改密码—需要用户最近登录过方可执行。
 
 如果您执行一项这种操作，而该用户只是在很久以前登录过，该操作便会失败并引发 `WilddogAuthRecentLoginRequiredException`。发生这种错误时，请从用户获取新登录凭据并将该凭据传输至 `reauthenticate`，对该用户重新进行身份验证。

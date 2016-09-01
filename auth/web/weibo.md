@@ -6,7 +6,7 @@ title:  新浪微博登录
 
 验证的用户可以访问野狗实时数据库中用户登录受限的数据。
 
-### 开始前的准备工作
+## 开始前的准备工作
 1. 在 [新浪微博开放平台管理中心](http://open.weibo.com/apps)，获取应用的 **App Key** 和 **App Secret**。
 
 2. 在野狗控制面板中打开新浪微博登录方式:
@@ -15,7 +15,7 @@ title:  新浪微博登录
 
  * 点击微博登录开关，点击配置，输入微信帐号 **APP ID** 和 **App Secret**。
 
-### Wilddog 身份认证
+## Wilddog 身份认证
 
 1. 导入 WilddogAuth 模块：
 
@@ -55,7 +55,7 @@ wilddog.auth().signInWithPopup(provider).then(function (result) {
  });
 ```
 
-### 后续步骤
+## 后续步骤
 
 无论你采用哪种登录方式，用户第一次登录后，野狗服务器都会生成一个唯一的 Wilddog ID 来标识这个帐户，使用这个 Wilddog ID，可以在您 APP 中确认每个用户的身份。配合 [规则表达式]()，`auth` 还可以控制野狗实时数据库的用户访问权限。
 
@@ -66,7 +66,7 @@ wilddog.auth().signInWithPopup(provider).then(function (result) {
 你还可以通过 [链接多种登录方式]() 来实现不同的登录方式登录同一个帐号。
 
 
-##### 调用 [signOut]() 退出登录：
+### 调用 [signOut]() 退出登录：
 
 ```
 wilddog.auth().signOut().then(function() {

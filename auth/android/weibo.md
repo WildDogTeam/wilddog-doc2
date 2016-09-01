@@ -5,7 +5,7 @@ title: 新浪微博登录
 
 验证的用户可以访问野狗实时数据库中用户登录受限的数据。
 
-### 开始前的准备工作
+## 开始前的准备工作
 
 1.将 `WilddogAuth` 的依赖项添加至你的应用级 build.gradle 文件：
 ```java 
@@ -21,7 +21,7 @@ compile 'com.wilddog.wilddogauth:wilddog-auth:1.0.0'
   *  点击微博登录开关，点击配置，输入 微信帐号 APP ID 和 App Secret。
 
 
-### Wilddog 身份认证
+## Wilddog 身份认证
 
 1 参考 新浪微博 Android 接入指南 将新浪微博登录集成到你的应用中。
 
@@ -103,7 +103,7 @@ mauth.signInWithCredential(weiboAuthCredential).addOnCompleteListener(new OnComp
 });
 ```
 
-### 后续步骤
+## 后续步骤
 
 无论你采用哪种登录方式，用户第一次登录后，野狗服务器都会生成一个唯一的 Wilddog ID 来标识这个帐户，使用这个 Wilddog ID，可以在你 APP 中确认每个用户的身份。配合 规则表达式，auth 还可以控制野狗实时数据库的用户访问权限。
 

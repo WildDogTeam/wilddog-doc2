@@ -1,9 +1,9 @@
 title:  匿名登录
 ---
 
-你可以在 Wilddog 身份认证中创建和使用临时匿名帐号来进行身份验证。如果你在应用中使用了规则表达式来保护数据的访问权限，即使用户未登录，使用临时匿名帐号也能正常访问数据。如果想长期保留临时匿名帐号，[可以绑定其它登录方式](https://wangjunpeng.gitbooks.io/wilddogauth/content/链接多种登录方式.html)。
+你可以在 Wilddog 身份认证中创建和使用临时匿名帐号来进行身份验证。如果你在应用中使用了规则表达式来保护数据的访问权限，即使用户未登录，使用临时匿名帐号也能正常访问数据。如果想长期保留临时匿名帐号，[可以绑定其它登录方式](/auth/web/link.html)。
 
-### 开始前的准备工作
+## 开始前的准备工作
 
 1. 在 Wilddog 控制面板中创建一个应用.
 
@@ -13,7 +13,7 @@ title:  匿名登录
 
  * 在｀登录方式｀标签中打开匿名登录方式。
 
-### 使用 Wilddog 匿名登录认证
+## 使用 Wilddog 匿名登录认证
 
 当一个未登录的用户想想使用一个 Wilddog 必须登录才能使用的特性，可以利用匿名登录，完成下面步骤：
 
@@ -49,13 +49,13 @@ var isAnonymous = user.anonymous;
 var uid = user.uid;
 ```
 
-### 将匿名帐号转变成永久帐号
+## 将匿名帐号转变成永久帐号
 
 当使用匿名登录时，你可能想下次在其它设备上还能登录这个帐号。比如你有一个新闻类的应用，用户在使用应用时，收藏了很多新闻，但是当换一个设备时，却访问不到这些数据。完成下面步骤可以将其转换为永久帐号：
 
 准备一个未在你的应用上登录过的邮箱或者第三方登录方式。
 
-##### 关联QQ登录
+#### 关联QQ登录
 
 ```
 var provider = new wilddog.auth.QQAuthProvider();
@@ -79,7 +79,7 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 });
 ```
 
-##### 关联微信登录
+#### 关联微信登录
 
 ```
 var provider = new wilddog.auth.WeixinAuthProvider();
@@ -104,7 +104,7 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
 ```
 
-##### 关联微博登录
+#### 关联微博登录
 
 ```
 
@@ -130,7 +130,7 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
 ```
 
-##### 关联微信公众账号登录
+#### 关联微信公众账号登录
 
 ```
 var provider = new wilddog.auth.WeixinmpAuthProvider();
@@ -154,7 +154,7 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 });
 ```
 
-##### 关联邮箱登录
+#### 关联邮箱登录
 
 ```
  var credentialEmail = wilddog.auth.EmailAuthProvider.credential("22443311@qq.com", "12345678");
@@ -168,6 +168,6 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 ```
 
 
-### 后续步骤
+## 后续步骤
 
-现在我们已经学会了使用野狗进行用户验证，你可以配置 [规则表达式]() 来控制野狗实时数据的访问权限。
+现在我们已经学会了使用野狗进行用户验证，你可以配置 [规则表达式](/sync/rules/introduce-rule.html) 来控制野狗实时数据的访问权限。

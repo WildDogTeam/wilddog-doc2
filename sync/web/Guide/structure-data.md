@@ -173,4 +173,3 @@ ref.once('value', function(snap) {
   console.log('Mary ' + result + ' a member of alpha group');
 });
 ```
-----

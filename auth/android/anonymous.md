@@ -2,7 +2,7 @@ title: 匿名登录
 ---
 你可以在 Wilddog 身份认证中创建和使用临时匿名帐号来进行身份验证。如果你在应用中使用了规则表达式来保护数据的访问权限，即使用户未登录，使用临时匿名帐号也能正常访问数据。如果想长期保留临时匿名帐号，可以绑定其它登录方式。
 
-### 开始前的准备工作
+## 开始前的准备工作
 
 1.将 `WilddogAuth` 的依赖项添加至你的应用级 build.gradle 文件：
     
@@ -16,7 +16,7 @@ title: 匿名登录
    * 在`登录方式`标签中打开匿名登录方式。
 
 
-### 使用 Wilddog 匿名登录认证
+## 使用 Wilddog 匿名登录认证
 
 当一个未登录的用户想想使用一个 `Wilddog` 必须登录才能使用的特性，可以利用匿名登录，完成下面步骤：
 
@@ -43,36 +43,36 @@ mauth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResul
 });
 ```
 
-### 将匿名帐号转变成永久帐号  
+## 将匿名帐号转变成永久帐号  
 使用匿名登录时，你可能想下次在其它设备上还能登录这个帐号。比如你有一个新闻类的应用，用户在使用应用时，收藏了很多新闻，但是当换一个设备时，却访问不到这些数据。完成下面步骤可以将其转换为永久帐号：
 准备一个未在你的应用上登录过的邮箱或者第三方登录方式。
 通过一种登录方式获取 AuthCredential：
 
-### QQ 登录
+## QQ 登录
 
 ```java
 AuthCredential qqAuthCredential= QQAuthProvider.getCredential(jsonObject.getString("access_token"));
 ```
 
-### 微信登录
+## 微信登录
 
 ```java
 AuthCredential weiXinAuthCredential= WeiXinAuthProvider.getCredential(code);
 ```
 
-### 微博登录
+## 微博登录
 
 ```java
 AuthCredential weiboAuthCredential= WeiboAuthProvider.getCredential(access_token,openid);
 ```
 
-### 邮箱登录
+## 邮箱登录
 
 ```java
 AuthCredential emailAuthCredential= EmailAuthProvider.getCredential("12345678@qq.com","password123");
 ```
 
-### 使用 `linkWithCredential` 方法来完成完成链接：
+## 使用 `linkWithCredential` 方法来完成完成链接：
 
 ```java
 user.linkWithCredential(authCredential);

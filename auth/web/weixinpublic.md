@@ -5,7 +5,7 @@ title: 微信公众账号登录
 
 验证的用户可以访问野狗实时数据库中用户登录受限的数据。
 
-### 开始前的准备工作
+## 开始前的准备工作
 
 1. 在 [微信公众开放平台管理中心](http://mp.weixin.qq.com/)，获取应用的 **App Key** 和 **App Secret**。
 
@@ -15,7 +15,7 @@ title: 微信公众账号登录
 
  * 点击微信登录开关，点击配置，输入微信帐号 **APP ID** 和 **App Secret**。
 
-### Wilddog 身份验证
+## Wilddog 身份验证
 
 1. 导入 WilddogAuth 模块：
  ```
@@ -60,19 +60,17 @@ title: 微信公众账号登录
          // ...
     });```
 
-### 后续步骤
+## 后续步骤
 
-无论你采用哪种登录方式，用户第一次登录后，野狗服务器都会生成一个唯一的 Wilddog ID 来标识这个帐户，使用这个 Wilddog ID，可以在你 APP 中确认每个用户的身份。配合 [规则表达式]()，`auth` 还可以控制野狗实时数据库的用户访问权限。
+无论你采用哪种登录方式，用户第一次登录后，野狗服务器都会生成一个唯一的 Wilddog ID 来标识这个帐户，使用这个 Wilddog ID，可以在你 APP 中确认每个用户的身份。配合 [规则表达式](/sync/rules/introduce-rule.html)，`auth` 还可以控制野狗实时数据库的用户访问权限。
 
+* 在你的应用中，你可以通过 Wilddog.auth().currentUser() 来获取用户的基本属性。参考 [管理用户](/auth/web/manageuser.html)。
 
+* 在你的野狗实时数据库 [规则表达式](/sync/rules/introduce-rule.html) 中，你可以获取到这个登录后生成的唯一用户 Wilddog ID， 通过他可以实现控制用户对数据的访问权限。
 
-* 在你的应用中，你可以通过 Wilddog.auth().currentUser() 来获取用户的基本属性。参考 [管理用户]()。
+你还可以通过 [链接多种登录方式](/auth/web/link.html) 来实现不同的登录方式登录同一个帐号。
 
-* 在你的野狗实时数据库 [规则表达式]() 中，你可以获取到这个登录后生成的唯一用户 Wilddog ID， 通过他可以实现控制用户对数据的访问权限。
-
-你还可以通过 [链接多种登录方式]() 来实现不同的登录方式登录同一个帐号。
-
-##### 调用 [signOut]() 退出登录：
+#### 调用 [signOut](/auth/web/api.html) 退出登录：
 
 ```
 wilddog.auth().signOut().then(function() {

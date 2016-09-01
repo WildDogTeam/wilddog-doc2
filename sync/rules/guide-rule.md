@@ -1,4 +1,3 @@
-
 title: 规则表达式指南
 ---
 
@@ -243,23 +242,72 @@ Wilddog只支持一部分正则表达式的功能，已经能够满足绝大部�
 
 ## 用户认证
 
-### 基本认证
+### 集成 Auth 身份认证
 
-![img](https://dn-shimo-image.qbox.me/MkrqEWKK7dwefEWW.png!thumbnail)
+Wilddog Auth 身份认证集成 Sync 实时数据同步，能允许你控制每个用户对数据的控制权限。
 
-auth
+**说明**
+用户通过身份认证后，云端会自动将用户的信息填入规则表达式的 `auth` 变量。信息包括标识用户身份的 `Wilddog ID`（即uid）及已关联帐户的资料，例如 QQ、
+微信资料或电子邮件。你还可以通过自定义 `Token` 加入自定义字段以完成定制功能。
 
-有关 auth的更多内容，可以使用我们的 [auth](http:/#)功能
+### auth 变量
 
-**自定义 Token**
+用户没有进行身份认证前，`auth` 变量为 null 。使用 Wilddog Auth 对用户进行身份认证后，该变量会含有以下属性：
 
-超级秘钥
+属性 | 含义 
+---- | -----------
+provider | 使用的身份认证方式（"password"、"anonymous"、"qq"、"weibo"、"weixin"或"weixinmp"）。
+uid | 标识用户唯一身份的 `Wilddog ID`。
 
-野狗的每个app都有自己的超级密钥，用于在集成用户已有的终端用户系统，为生成的token作签名校验，以保障安全。也可用于用户的服务端到野狗云的超级权限认证（使用超级密钥直接认证的终端为超级权限，不受规则表达式的限制, 超级密钥列表中只有第一个能生成合法的 Wilddog Token ）。
+如下，保证每个认证用户只能向特定路径写入数据：
 
-有关 auth的更多内容，可以使用我们的 [auth](http://http/#)功能
+```json
+{
+  "rules": {
+    "users": {
+      "$user_id": {
+        // 当认证用户的 uid 与 $user_id 这个 key 匹配时，
+        // 才能向此节点写入数据。
+        ".write": "$user_id === auth.uid"
+      }
+    }
+  }
+}
+```
+### 组织你的数据结构
 
+我们再次提到了组织数据，因为它与规则表达式相配合，使规则的配置更加容易。我们再来举个例子，与上例类似，我们把所有用户信息存在 `users` 节点中，该节点的子节点是每个用户的 `uid` 值。你希望限制这些数据的访问权限，且确保只有已登录用户才可以查看自己的数据，就可以这样配置：
 
+```json
+{
+  "rules": {
+    "users": {
+      "$uid": {
+        ".read": "auth != null && auth.uid == $uid"
+      }
+    }
+  }
+}
+```
+
+### 使用自定义 Token
+
+对于希望实现自定义认证的开发者，Wilddog Auth 也允许开发者[在其服务器上创建自己的自定义 Token 来进行认证](/auth/server/introduction.html)。
+你在创建自定义 Token 时，可以自定义额外的属性字段。这些额外的属性也会像 `uid`、`provider` 一样包含在 auth 变量中。
+下面是一个添加并使用 `isAdmin` 自定义属性的规则示例：
+
+```json
+{
+  "rules": {
+    "secret": {
+      // auth 里的 `isAdmin` 为 true 时才可以读取数据。
+      ".read": "auth.isAdmin == true"
+    }
+  }
+}
+```
+
+有关自定义 Token 的具体使用方法，参见[使用 Wilddog Server SDK 进行身份认证](/auth/server/server.html)。
 
 ## 数据索引
 

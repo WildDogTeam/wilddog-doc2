@@ -1,12 +1,12 @@
-title: 快速入门
+title: REST 快速入门
 ---
 
 
-## 第一步 创建账号和应用
+## 1. 创建账号和应用
 
 首先，注册并登录Wilddog账号，进入[控制面板](https://www.wilddog.com/dashboard)。然后，在控制面板中，添加一个新的应用。 你会得到一个应用的URL `https://.wilddogio.com/`。你可以把这个URL理解为云端数据库的地址。
 
-## 第二步 读写数据
+## 2. 读写数据
 
 我们可以在任何Wilddog的数据地址之后加上`.json`来作为URL，发送标准的HTTPS REST请求，实现对数据的读写操作。在本文档中，我们使用[cURL](https://en.wikipedia.org/wiki/CURL)工具发送HTTPS请求。
 

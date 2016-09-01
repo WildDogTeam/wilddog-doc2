@@ -3,7 +3,7 @@ title: 自定义身份认证
 
 你可以通过自定义身份认证系统来集成你的已有帐号系统，当用户登录到你的服务器时，生成 Custom Token 返回给客户端，Wilddog 身份认证系统利用它来进行身份认证。
 
-### 开始前的准备工作
+## 开始前的准备工作
 1.将 `WilddogAuth` 的依赖项添加至你的应用级 build.gradle 文件：
 ```
 compile 'com.wilddog.wilddogauth:wilddog-auth:1.0.0'
@@ -13,7 +13,7 @@ compile 'com.wilddog.wilddogauth:wilddog-auth:1.0.0'
 
 3.使用野狗超级密钥生成 Custom Token。
 
-### Wilddog 身份认证
+## Wilddog 身份认证
 
 1.初始化WilddogAuth对象
 ```
@@ -31,7 +31,7 @@ mauth.signInWithCustomToken("CUSTOMTOKEN").addOnCompleteListener(new OnCompleteL
     }
 });
 ```
-### 后续步骤
+## 后续步骤
 
 无论你采用哪种登录方式，用户第一次登录后，野狗服务器都会生成一个唯一的 Wilddog ID 来标识这个帐户，使用这个 Wilddog ID，可以在你 APP 中确认每个用户的身份。配合 规则表达式，auth 还可以控制野狗实时数据库的用户访问权限。
 

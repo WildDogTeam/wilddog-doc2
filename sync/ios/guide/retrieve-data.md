@@ -70,7 +70,7 @@ childrenCount    | 返回当前节点中子节点的个数
 exists     | 如果 snapshot 对象包含数据返回 true，否则返回false
 hasChildren     | 检查是否存在某个子节点
 
-更多更详细的用法说明参见 [API](/sync/ios/api.html#WDataSnapshot-Methods) 文档。
+更多更详细的用法说明参见 [WDataSnapshot](/sync/ios/api.html#WDataSnapshot-Methods) 的 API 文档。
 
 #### Child 事件
 当某个节点的子节点发生改变时（如通过 `childByAutoId` 方法添加子节点，或通过 `updateChildValues` 更新子节点），就会触发 Child 事件。
@@ -220,7 +220,7 @@ ref.removeAllObservers()
 
 ## 排序和查询数据
 
-你可以使用 [Query](/sync/ios/api.html#Query-Methods) 类 API 进行数据排序。Wilddog 支持按键、按值、按子节点的值或按优先级对数据进行排序。
+你可以使用 [WQuery](/sync/ios/api.html#WQuery-Methods) 类 API 进行数据排序。Wilddog 支持按键、按值、按子节点的值或按优先级对数据进行排序。
 只有在对数据排序之后，你才可以进行具体的查询操作，从而获取你想要的特定数据。
 
 **注意**：排序和过滤的开销可能会很大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/sync/rules/API-rule.html#indexOn) 规则，以便在服务器上添加索引以提高查询性能。详细操作参见[添加索引](/sync/rules/introduce-rule.html#数据索引)。
