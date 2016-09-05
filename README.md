@@ -7,6 +7,7 @@
 要有 node 环境
 
 具体步骤：
+
 1. clone 到本地
 2. $ npm install hexo-cli -g
 3. $ cd wilddog-doc4
