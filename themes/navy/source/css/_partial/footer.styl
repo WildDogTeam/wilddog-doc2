@@ -1,0 +1,43 @@
+#footer
+  clearfix()
+  position: absolute
+  bottom: 0
+  left: 50%
+  transform: translateX(-50%)
+  width: max-width
+  color: #666
+  font-family: font-title
+  text-align: center
+  display: none
+  border-top: 1px solid #e5e5e5
+  @media mq-normal
+    text-align: left
+    display: block
+  @media print
+    display: none
+  a
+    text-decoration: none
+    transition: all 0.2s
+
+#footer-copyright
+  line-height: 1.4
+  @media mq-normal
+    float: left
+  a
+    font-weight: bold
+
+#footer-links
+  margin-top: 18px
+  margin-bottom: 20px
+  text-align: center
+
+.footer-link
+    padding: 0 5px
+    font-size: 13px
+    color: #666
+    letter-spacing: 1px
+    margin-left: 26px
+    margin-right: 26px
+    &:hover
+      color: #e6501e;
+      border-bottom: 1px solid #e6501e

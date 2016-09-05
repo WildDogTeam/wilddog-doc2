@@ -1,0 +1,354 @@
+note-tip = hsl(40, 100%, 50%)
+note-info = hsl(200, 100%, 50%)
+note-warn = hsl(0, 100%, 50%)
+
+#content
+  clearfix()
+  position: relative
+  padding-top: 30px
+
+#content-inner
+  clearfix()
+  @media mq-normal
+    margin-left: 200px
+
+.article-container
+  position: relative
+  @media mq-normal
+    float: right
+    width: 100%
+
+.article-inner
+  clearfix()
+  @media mq-normal
+    margin-right: sidebar-width
+
+.article
+  float: left
+  width: 100%
+  padding: 70px 0 100px
+  @media print
+    padding: 0
+
+#article-toc
+  position: absolute
+  top: 0
+  right: 0;
+  display: none
+  float: right
+  margin-top: 70px
+  padding-left: 7px
+  width: 200px
+  border-left: 4px solid #e5e5e5
+  @media mq-normal
+    display: block
+  .sidebar-title
+    position: absolute
+    top: 0
+    left: -4px
+    z-index: 9
+    padding-left: 7px
+    border-left: 4px solid #e6501e
+    font-weight: 700
+
+#article-toc-inner
+  @extend .inner
+  overflow-x: hidden
+  overflow-y: auto
+  width: 179px
+  @media mq-normal
+    display: block
+
+.toc
+  padding-top: 28px
+
+.toc-link
+  display: block
+  color: color-default
+  text-decoration: none
+  padding-bottom: 10px
+  line-height: 1.5
+  font-size: 13px
+  position: relative
+  width: 100%
+  word-wrap: break-word;
+  &.current
+    color: #e6501e
+  &:hover
+    color: #e6501e
+
+.toc-text
+  word-wrap: break-word;
+
+.toc-child
+  padding-left: 1em
+  font-size: 0.9em
+
+#article-toc-top
+  margin-top: 2em
+  font-size: 0.9em
+  text-decoration: none
+  color: color-default
+  display: block
+  margin-bottom: 40px
+  &:hover
+    color: color-link-hover
+
+.article-header
+  clearfix()
+  padding-bottom: 20px
+
+.article-title
+  float: left
+  padding-bottom: 12px
+  font-size: 34px
+  color: #333
+  text-decoration: none
+  line-height: 1
+  font-weight: 300
+  transition: 0.2s
+  @media mq-normal
+    width: 100%
+    border-bottom: 1px solid #e5e5e5
+  a&:hover
+    color: color-link-hover
+  .post &
+    float: none
+
+.article-date
+  color: color-gray
+  text-decoration: none
+  display: inline-block
+  margin-top: 1em
+  &:hover
+    color: color-link-hover
+
+.edit-doc-source
+  float: right
+  position: relative
+  top: 5px
+  &:hover
+    .article-edit-link
+      color: #212121
+      border-color: #212121
+    .github
+      fill: #212121
+
+.article-edit-link
+  display: inline-block
+  position: relative
+  top: 2px
+  margin-left: 4px
+  font-size: 12px
+  vertical-align: middle
+  color: #bbb
+  border-bottom: 1px solid #ccc
+
+.article-anchor
+  margin-left: 10px
+  display: none
+  &:before
+    content: "#"
+  @media print
+    display: none !important
+  .article-heading:hover &
+    display: inline-block
+    
+.article-content
+  line-height: line-height
+  letter-spacing: 1px
+  color: color-default
+  &:before, &:after
+    content: " "
+    display: table
+    clear: both
+  @media print
+    font-size: 12pt
+  p, ol, ul, dl, table, blockquote, iframe, .highlight
+    margin: 1em 0
+  ol, ul 
+    margin: 0
+    padding: 0
+  h1
+    font-size: 2em
+  h2
+    font-size: 1.5em
+  h3
+    font-size: 1.3em
+  h1, h2, h3, h4, h5, h6
+    line-height: 1em
+    font-weight: 500
+    margin: 1em 0
+    color: #333
+  a
+    color: color-link
+    text-decoration: none
+    &:hover
+      color: color-link-hover
+      text-decoration: underline
+    @media print
+      color: color-default
+      text-decoration: underline
+      &:after
+        content: " (" attr(href) ")"
+        font-size: 80%
+  strong
+    font-weight: bold
+  em
+    font-style: italic
+  ul, ol, dl
+    margin-left: 20px
+    ul, ol, dl
+      margin-top: 0
+      margin-bottom: 0
+  ul
+    list-style: disc
+  ol
+    list-style: decimal
+  dl
+    list-style: square
+  li
+    p
+      margin: 0
+    table, blockquote, iframe, .highlight
+      margin: 1em 0
+  img, video
+    max-width: 100%
+  blockquote
+    padding: 0 20px
+    position: relative
+    border: 1px solid color-border
+    border-left: 5px solid #ddd
+    footer
+      margin: 1em 0
+      font-style: italic
+      cite
+        &:before
+          content: "¡ª"
+          padding: 0 0.3em
+        a
+          color: color-grey
+  .note
+    &.tip
+      border-left-color: note-tip
+    &.info
+      border-left-color: note-info
+    &.warn
+      border-left-color: note-warn
+  .note-title
+    margin: 1em 0
+    display: block
+    font-size: 1.3em
+    font-weight: bold
+  table
+    max-width: 100%
+    border: 1px solid color-border
+    th
+      font-weight: bold
+    th, td
+      padding: 5px 15px
+    tr
+      &:nth-child(2n)
+        background: #eee
+
+.article-footer
+  clearfix()
+  margin: 1em 0
+  border-top: 1px solid color-border
+  text-align: center
+  color: color-gray
+  line-height: 1em
+  padding-top: 1em
+  position: relative
+  @media print
+    display: none
+
+$article-footer-link
+  color: color-link
+  text-decoration: none
+  font-weight: bold
+  text-transform: uppercase
+  position: absolute
+  &:hover
+    color: color-link-hover
+  @media print
+    display: none
+  span
+    padding: 0 6px
+
+.article-footer-prev
+  @extend $article-footer-link
+  font-weight: 500
+  left: 0
+
+.article-footer-next
+  @extend $article-footer-link
+  font-weight: 500
+  right: 0
+
+.article-footer-updated
+  display: inline-block
+  padding-top: 20px
+  padding-bottom: 40px
+  line-height: 1
+  font-size: 12px
+  color: #999
+  font-style: italic
+
+#comments
+  @media print
+    display: none
+    
+.back-top-content
+  float: right
+
+.back-top
+  position: fixed;
+  bottom: 126px;
+  width: 40px;
+  height: 40px;
+  background-color: #999;
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  cursor: pointer
+  opacity: 0
+  transition: 0.2s
+  &:after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -3px
+    margin-left: -5px
+    width: 10px
+    height: 10px
+    border-top: 2px solid #fff
+    border-right: 2px solid #fff
+    transform: rotate(-45deg)
+
+.back-top-show
+  opacity: 1
+  
+.article-footer-next .page-ctrl-next
+  .arr-icon
+    position: relative
+    top: -1px
+    margin-left: 4px
+    border: 0
+    box-shadow: none
+    
+.article-footer-prev .page-ctrl-pre
+  .arr-icon
+    position: relative
+    top: -1px
+    margin-right: 4px
+    border: 0
+    box-shadow: none
+    
+.toc, .toc-item
+  list-style: none
+  

@@ -1,0 +1,36 @@
+.content-ctrl
+	display: inline-block
+	cursor: pointer
+
+.arrow
+	position: relative
+	top: 3px
+	margin-left: 4px
+	display: inline-block
+	width: 10px
+	height: 10px
+	line-height: 1
+	&:after
+		content: ''
+		display: inline-block
+		width: 0
+		height: 0
+		border: 6px solid transparent
+		border-top-color: #ccc
+		transform-origin: 50% 25%
+		transition: transform 0.1s linear
+		
+.arrow-hide
+	&:after
+		transform: rotate(180deg)
+
+.arrow-ctrl-content
+	transform: scale(1, 0)
+	height: 0
+	overflow: hidden
+	transform-origin: 0 0
+	transition: transform 0.1s linear
+
+.arrow-ctrl-content-show
+	transform: scale(1, 1)
+	height: auto
