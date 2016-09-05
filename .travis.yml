@@ -1,0 +1,7 @@
+nguage: node_js
+node_js:
+  - "6"
+  - "6.1"
+before_script:
+  - npm install -g hexo
+script: hexo generate
