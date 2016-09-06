@@ -46,7 +46,7 @@ wilddog.auth().signInAnonymously().then(function(res){
       // ...
 });
 ```
-如果登录成功，你可以在 `当前用户` 对象中获取登录用户的信息。
+如果登录成功，你可以在 `wilddog.auth().currentUser` 对象中获取登录用户的信息。
 ```js
 var isAnonymous = user.anonymous; 
 var uid = user.uid;
