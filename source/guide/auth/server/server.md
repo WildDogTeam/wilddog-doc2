@@ -11,7 +11,7 @@ title: 身份认证
 注：Wilddog Server SDK 中包含的 ID 令牌认证方法不能认证你用 Wilddog Server SDK 创建的自定义令牌。
 
 jar包下载地址:
-https://cdn.wilddog.com/sdk/java/2.0.1/wilddog-auth-sdk-2.0.1.jar
+https://cdn.wilddog.com/sdk/java/2.0.3/wilddog-auth-sdk-2.0.3.jar
 
 Maven 地址：
 
@@ -19,7 +19,7 @@ Maven 地址：
 <dependency>
     <groupId>com.wilddog</groupId>
     <artifactId>wilddog-auth-sdk</artifactId>
-    <version>2.0.1</version>
+    <version>2.0.3</version>
 </dependency>
 ```
 
@@ -100,7 +100,9 @@ wilddog.auth().currentUser.getToken(
 java
 
 ```java
- boolean result = IdTokenVerifier.verifyIdToken(idToken, appId);
+ VerifyResult result = IdTokenVerifier.verifyIdToken(idToken, appId);
+ boolean isValid = result.isValid();
+ Token token = result.getIdToken();
 
 ```
 
