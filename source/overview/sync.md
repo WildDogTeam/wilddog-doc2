@@ -1,6 +1,6 @@
 title: 实时数据同步
 ---
-## 简介
+<h2 id='简介' class="article-heading top-heading">简介</h2>
 **实时数据同步是野狗的核心。** 我们提供客户端和服务端的双向实时通信。
 
 ![](/images/introduction.png)

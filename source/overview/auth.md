@@ -1,7 +1,7 @@
 title: 身份认证
 ---
 
-## 简介
+<h2 id='简介' class="article-heading top-heading">简介</h2>
 野狗提供多种方式，帮助简化应用中用户认证流程的开发：
 
 ![](http://7u2r36.com1.z0.glb.clouddn.com/wilddog-auth.png)
