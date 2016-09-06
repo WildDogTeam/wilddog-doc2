@@ -104,7 +104,7 @@ resources:
       # 资源下载: /resources/sync/android.html
     iOS:
       实战教程: /resources/sync/ios/tutorial.html
-      # 资源下载: /resources/sync/android.html
+      资源下载: /resources/sync/ios/resources.html
     C/嵌入式:
       实战教程: /resources/sync/c/tutorial.html
       资源下载: /resources/sync/c/resources.html
