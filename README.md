@@ -5,7 +5,7 @@
 * 正式版文档 https://docs.wilddog.com
 * 预览版文档 https://wilddogteam.github.io
 
-注意：预览版文档对应于当前项目的master分支，每当master有更新，预览版文档会自动更新（延迟2分钟以内）
+注意：预览版文档对应于当前项目的master分支，每当master有更新，预览版文档会自动更新（延迟2分钟以内）不要直接编辑[预览版的github](https://github.com/WildDogTeam/WildDogTeam.github.io)
 
 ## 简介
 
