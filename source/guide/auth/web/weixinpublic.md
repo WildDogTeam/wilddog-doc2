@@ -36,7 +36,7 @@ title: 微信公众账号登录
 3.微信公众者账号登录(popup or redirect)
 
 ```
-    var provider = new wilddog.auth.WeiboAuthProvider();
+    var provider = new wilddog.auth.WeixinmpAuthProvider();
     
     popup登录
 

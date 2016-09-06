@@ -37,7 +37,7 @@ title:  微信登录
 3.微信登录(popup or redirect)
 
 ```
-    var provider = new wilddog.auth.QQAuthProvider();
+    var provider = new wilddog.auth.WeixinProvider();
     
 popup登录
 
