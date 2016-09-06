@@ -5,18 +5,23 @@ node_js:
 branches:
   only:
   - master
+
+cache:
+  directories:
+    - node_modules
 before_install:
 - openssl aes-256-cbc -K $encrypted_71d2c9545648_key -iv $encrypted_71d2c9545648_iv
-  -in id_rsa.enc -out ~\/.ssh/id_rsa -d
+  -in id_rsa.enc -out ~/.ssh/id_rsa -d
 - chmod 600 ~/.ssh/id_rsa
 - eval $(ssh-agent)
 - ssh-add ~/.ssh/id_rsa
-- cp .travis/ssh_config ~/.ssh/config
-before_script:
-- npm install -g hexo
-- npm install
+- cp ssh_config ~/.ssh/config
 - git config --global user.name 'stackOverMind'
 - git config --global user.email 'rzxgy@163.com'
+install:
+- npm install hexo-cli -g
+- npm install
+
 script: hexo generate
 after_success:
 - hexo deploy

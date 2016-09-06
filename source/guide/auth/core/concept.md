@@ -37,10 +37,58 @@ Auth监听器会在以下情况收到通知:
 执行野狗身份认证时,我们会出现三种身份认证令牌
 
 
-| Wilddog ID Token | 当用户登录野狗应用时由野狗创建,这个token签署了JWT,可在wilddog应用中安全地识别用户。其中Wilddog ID Token包含了用户的基本个人信息,包括WilddogId，其中WilddogId在对应应用内是唯一的。 |
+| Wilddog ID Token | 当用户登录野狗应用时由野狗创建,这个Token 签署了JWT,可在 Wilddog 应用中安全地识别用户。其中Wilddog ID Token包含了用户的基本个人信息,包括 Wilddog ID，其中 Wilddog Id 在对应应用内是唯一的。 |
 | -- | ----- |
-| **OAuth的accessToken** | **由OAuth提供商创建的一种Token,这些Token可以有不同的格式,但常用的是OAuth的accessToken,creditwilddog应用使用这些Token来确认用户已成功通过OAuth身份认证,然后将它转换成可供wilddog服务使用的credentials**|
-| **野狗的customToken** | **由自定义身份认证系统创建,用于允许用户可以自己实现身份系统登录野狗的应用。customToken是使用服务账户超级秘钥的JWT签名格式的Token** |
+| OAuth的accessToken | 由OAuth提供商创建的一种Token,这些Token可以有不同的格式,但常用的是OAuth的accessToken,creditwilddog应用使用这些 Token来确认用户已成功通过OAuth身份认证,然后将它转换成可供 Wilddog服务使用的credentials|
+| 野狗的 CustomToken | 由自定义身份认证系统创建,用于允许用户可以自己实现身份系统登录野狗的应用。CustomToken是使用服务账户超级秘钥的JWT签名格式的 Token |
+
+注意：Wilddog ID Token 现已升级为新版。新旧版 Wilddog ID Token 对比如下：
+
+旧版 Wilddog ID Token 格式：
+
+```
+{
+  "v": 0,
+   "iat": 1473131840,
+   "exp": 1473131840,
+   "d": {
+    "uid": "5fbb360743d26a40420cbb636b2e”,
+    “claim”:{}
+  }
+}
+```
+
+新版 Wilddog ID Token 格式：
+
+```
+{
+    "v":1,
+    "iss":"[https://%3Cappid/]https://<appid>.wilddogio.com"
+    "iat":132323223,
+    "exp":132323223,
+    "user_id":"3128736827jdmsdsd",
+    "provider_id": "anonymous", //只有匿名的时候有
+    "email":"xxx@wilddog.com",
+    "email_verified":false,
+    "name”:"xxx",
+    "picture":"http://picture.com/xxxxxx",
+    "wilddog":{
+        "identities": {
+            "google.com": [
+                "23232323243534543"
+                ],
+            "password":[
+                "juzhen@wilddog.com"
+                ]
+            },
+        "sign_in_provider": "password"
+    },
+    <claim1> : {},
+    <claim2> : {},
+    <option> : {}
+}
+```
+旧版的应用不能用新版的 Wilddog ID Token，同时新版的应用不能用旧版的 Wilddog ID Token。如需要升级，请参考文档[ SDK 2.0升级指南](https://z.wilddog.com/upgrade/webupgrade)
 
 ## 主邮箱使用
 本次auth升级 定义了主邮箱的定义

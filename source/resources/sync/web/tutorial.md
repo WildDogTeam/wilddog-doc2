@@ -82,7 +82,7 @@ var moveObj = function(obj) {
 	obj.css({
 		left : _left,
 		top : _top,
-		color : getReandomColor()  // 获取随机颜色，之后讲
+		color : getRandomColor()  // 获取随机颜色，之后讲
 	});
 	var time = 20000 + 10000 * Math.random();
 	// animate() 方法执行 CSS 属性集的自定义动画。逐渐改变的，这样就可以创建动画效果。
@@ -112,7 +112,7 @@ var getAndRun = function() {
 ### 生成随机颜色
 
 ```js
-var getReandomColor = function() {
+var getRandomColor = function() {
 	return '#' + (function(h) {
 		return new Array(7 - h.length).join("0") + h
 	})((Math.random() * 0x1000000 << 0).toString(16))
