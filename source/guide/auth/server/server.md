@@ -57,11 +57,11 @@ wilddog.auth.signInWithCustomToken(customToken).catch(function(error)){
 }
 ```
 
-## 校验Id Token
+## 校验ID Token
 
-如果你的 Wilddog 客户端 APP 与自己的后端服务器有业务关联，你也许需要在后端服务中校验当前登录用户的合法性。当客户端用户成功登陆后，将Wilddog服务返回的IdToken 使用 HTTPS 发送给自有后端服务器，在服务中，调用 Wilddog 提供的校验接口校验用户的合法性。
+如果你的 Wilddog 客户端 APP 与自己的后端服务器有业务关联，你也许需要在后端服务中校验当前登录用户的合法性。当客户端用户成功登陆后，将Wilddog服务返回的ID Token 使用 HTTPS 发送给自有后端服务器，在服务中，调用 Wilddog 提供的校验接口校验用户的合法性。
 
-**在客户端获取用户Idtoken**
+**在客户端获取用户ID Token**
 
 ```javascript
 wilddog.auth().currentUser.getToken(
@@ -74,7 +74,7 @@ wilddog.auth().currentUser.getToken(
 });
 ```
 
-**使用 Wilddog SDK 校验 IdToken**
+**使用 Wilddog SDK 校验 ID Token**
 
 我们将提供 java 和 Nodejs 两种语言的 Server SDK:
 
