@@ -98,16 +98,16 @@ resources:
   实时数据同步:
     Web:
       实战教程: /resources/sync/web/tutorial.html
-      # 资源下载: /resources/sync/web/resources.html
+      demo库: /resources/sync/web/resources.html
     # Android:
       # 实战教程: /resources/sync/web/tutorial.html
       # 资源下载: /resources/sync/android.html
     iOS:
       实战教程: /resources/sync/ios/tutorial.html
-      资源下载: /resources/sync/ios/resources.html
+      demo库: /resources/sync/ios/resources.html
     C/嵌入式:
       实战教程: /resources/sync/c/tutorial.html
-      资源下载: /resources/sync/c/resources.html
+      demo库: /resources/sync/c/resources.html
   # 身份认证:
   #   Web: /resources/auth/web.html
   #   Android: /resources/auth/android.html
