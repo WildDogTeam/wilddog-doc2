@@ -12,6 +12,7 @@
 {{ js('js/plugins') }}
 <!-- endbuild -->
 {% endif %}
+{{ partial('gtm') }}
 <!-- Algolia -->
 {% if config.algolia[page.lang] %}
 <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script>

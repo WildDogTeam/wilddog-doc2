@@ -27,12 +27,17 @@
                 {{ page_anchor(page.content) }}
                 <time class="article-footer-updated" datetime="{{ date_xml(page.updated) }}" itemprop="dateModified">{{ __('page.last_updated', date(page.updated)) }}</time>
               </div>
-              <aside id="article-toc" role="navigation">
-                <div id="article-toc-inner">
-                  <strong class="sidebar-title">{{ __('page.contents') }}</strong>
-                  {{ toc(page.content, {list_number: false}) }}
-                </div>
-              </aside>
+              <div class="toc-content">
+                <aside id="article-toc" role="navigation">
+                  <div class="toc-inner">
+                    <span class="slide-dot"></span>
+                    <div id="article-toc-inner">
+                      <strong class="sidebar-title">{{ __('page.contents') }}</strong>
+                      {{ toc(page.content, {list_number: false}) }}
+                    </div>
+                  </div>
+                </aside>
+              </div>
               <footer class="article-footer">
                 {{ page_nav() }}
               </footer>

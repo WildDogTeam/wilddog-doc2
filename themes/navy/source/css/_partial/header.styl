@@ -3,11 +3,15 @@ header-padding-max = 30px
 logo-size = 40px
 
 #header
-  position: relative
+  position: fixed
+  left: 0
+  top: 0
+  z-index: 999
   padding-top: 20px
+  width: 100%
+  max-width: 100%
   background-color: #fff
   box-shadow: 0 2px 10px #eee
-  max-width: 100%
   overflow: hidden
   @media print
     display: none
@@ -45,17 +49,22 @@ logo-size = 40px
   color: #333
   text-decoration: none
   line-height: 26px
-  padding-bottom: 14px
+  padding-bottom: 0
   transition: 0.2s
   font-family: font-title
-  font-size: 13px
+  border-bottom: 2px solid #fff
+  font-size: 15px
   display: inline-block
   margin-left: 56px
+  transition: 0.3s
   &:hover
     color: #e6501e
+    padding-bottom: 14px
+    border-bottom-color: #e6501e
   &.current
     color: #e6501e
-    border-bottom: 2px solid #e6501e
+    padding-bottom: 14px
+    border-bottom-color: #e6501e
 
 #search-input-wrap
   padding-left: 6px

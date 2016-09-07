@@ -23,7 +23,7 @@ title: 快速入门
 首先应该在页面中引入我们的 Wilddog SDK
 很简单，只需要在你的页面中加入一行 javascript 标签。
 
-```javascript
+```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js" ></script>
 ```
 

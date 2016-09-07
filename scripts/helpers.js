@@ -35,13 +35,13 @@ hexo.extend.helper.register('page_nav', function(){
   var result = '';
 
   if (index > 0){
-    result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(prefix + list[keys[index - 1]]) + '">' +
-      '<span class=\'page-ctrl-pre\'><img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'>' + this.__('page.prev') + '</span></a>';
+    result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(list[keys[index - 1]]) + '">' +
+      '<span class=\'page-title\'><img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'>' + this.__(list[keys[index - 1]]) + ' </span></a>';
   }
 
   if (index < keys.length - 1){
-    result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(prefix + list[keys[index + 1]]) + '">' +
-      '<span class=\'page-ctrl-next\'>' + this.__('page.next') + '<img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></span></a>';
+    result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(list[keys[index + 1]]) + '">' +
+      '<span class=\'page-title\'>' + this.__(list[keys[index + 1]]) + '<img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></span></a>';
   }
 
   return result;
@@ -72,7 +72,7 @@ hexo.extend.helper.register('doc_sidebar', function(className){
         _.each(link, function (url, content) {
           var currentClass = itemClass.replace(' current', '');
           if (url === path) {
-            listStart = listStart.replace('-title', '-title current');
+            listStart = listStart.replace('-title', '-title current select');
             subList = subList.replace('sublist', 'sublist current');
             subList = subList.replace('-title', '-title select');
             thirList = thirList.replace('sublist', 'sublist current');

@@ -5,7 +5,7 @@ note-warn = hsl(0, 100%, 50%)
 #content
   clearfix()
   position: relative
-  padding-top: 30px
+  padding-top: 102px
 
 #content-inner
   clearfix()
@@ -30,34 +30,51 @@ note-warn = hsl(0, 100%, 50%)
   @media print
     padding: 0
 
-#article-toc
+.toc-content
   position: absolute
   top: 0
   right: 0;
-  display: none
-  float: right
-  margin-top: 70px
-  padding-left: 7px
   width: 200px
-  border-left: 4px solid #e5e5e5
+
+#article-toc
+  position: fixed
+  top: 0
+  z-index: 9
+  padding-top: 172px
+  background-color: #fff
+  height: 100%
+  display: none
   @media mq-normal
     display: block
   .sidebar-title
     position: absolute
     top: 0
-    left: -4px
+    left: 0
     z-index: 9
     padding-left: 7px
-    border-left: 4px solid #e6501e
     font-weight: 700
+
+.toc-inner
+  max-height: 100%
+  position: relative
+  width: 179px
+  overflow-y: auto
 
 #article-toc-inner
   @extend .inner
-  overflow-x: hidden
-  overflow-y: auto
-  width: 179px
+  padding-left: 7px
+  border-left: 4px solid #e5e5e5
   @media mq-normal
     display: block
+
+.slide-dot
+  position: absolute
+  left: 0
+  top: 0
+  z-index: 99
+  width: 4px
+  height: 14px
+  background-color: #e6501e
 
 .toc
   padding-top: 28px
@@ -157,7 +174,7 @@ note-warn = hsl(0, 100%, 50%)
 .article-content
   line-height: line-height
   letter-spacing: 1px
-  color: color-default
+  color: #000
   &:before, &:after
     content: " "
     display: table
@@ -241,7 +258,6 @@ note-warn = hsl(0, 100%, 50%)
   clearfix()
   margin: 1em 0
   border-top: 1px solid color-border
-  text-align: center
   color: color-gray
   line-height: 1em
   padding-top: 1em
@@ -266,11 +282,15 @@ $article-footer-link
   @extend $article-footer-link
   font-weight: 500
   left: 0
+  .arr-icon
+    margin-right: 4px
 
 .article-footer-next
   @extend $article-footer-link
   font-weight: 500
   right: 0
+  .arr-icon
+    margin-left: 4px
 
 .article-footer-updated
   display: inline-block
@@ -341,3 +361,7 @@ $article-footer-link
 .top-heading
   margin-top: 14px
   margin-bottom: 0
+  
+.page-title
+  margin-top: 10px
+  display: block
