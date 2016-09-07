@@ -1,4 +1,4 @@
-title: Sync Sync
+title: 实时数据同步 Sync
 ---
 <h2 id='简介' class="article-heading top-heading">简介</h2>
 **Sync 是野狗的核心实时通信引擎。** 用户在设备上对数据的任何修改，云端会自动推送到所有连接设备，毫秒可达。
