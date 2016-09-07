@@ -175,6 +175,7 @@ title:  绑定多种登录方式
 
 
 ```
+重要说明:若使用customToken登录时,若customToken中admin属性为true,则不能进行关联操作.
 
 ## 解除一种登录方式
 

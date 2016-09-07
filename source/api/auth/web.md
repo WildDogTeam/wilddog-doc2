@@ -28,7 +28,7 @@ wilddog.auth().createUserWithEmailAndPassword(email, pwd).then(function (user) {
 示例：
 
 ```js
-    wilddog.auth().signInAnoymously().then(function (result){
+    wilddog.auth().signInAnonymously().then(function (result){
             console.info("signInAnouymously success", result)
         }).catch(function(err){
             console.info("signInAnouymously failed",err)
@@ -300,4 +300,4 @@ credential有两种形式
 
 例如微博登录方式
 
-`var credentail = wilddog.auth.WeiboAuthProvider.credential(Weibo.access_token)` 
+`var credential = wilddog.auth.WeiboAuthProvider.credential(Weibo.access_token,Weibo.uid)`

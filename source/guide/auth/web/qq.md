@@ -47,7 +47,7 @@ wilddog.auth().signInWithPopup(provider).then(function (result) {
  });
 
 redirect登录
-wilddog.auth().signInWithPopup(provider).then(function (result) {
+wilddog.auth().signInWithRedirect(provider).then(function (result) {
      console.log(result);
  }).catch(function (error) {
      // Handle Errors here.

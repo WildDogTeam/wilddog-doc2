@@ -10,27 +10,8 @@ title: 身份认证
 
 注：Wilddog Server SDK 中包含的 ID 令牌认证方法不能认证你用 Wilddog Server SDK 创建的自定义令牌。
 
-jar包下载地址:
-https://cdn.wilddog.com/sdk/java/2.0.1/wilddog-auth-sdk-2.0.1.jar
-
-Maven 地址：
-
-```xml
-<dependency>
-    <groupId>com.wilddog</groupId>
-    <artifactId>wilddog-auth-sdk</artifactId>
-    <version>2.0.1</version>
-</dependency>
-```
-
-checksum:
-
-md5:a71ce55d15462792bf921d172635515b
-
-sha1:5dc48d8c19fb1f2b3eddb1ad4aa70e9f61aa6dcd
-
-sha256:e732e758c16b73c3f9c7ca5d52c7a5f5b51113ee0546989f21671bd695cb7d04
-
+资源下载地址:
+https://www.wilddog.com/download/
 
 ## 创建Custom Token
 
@@ -76,11 +57,11 @@ wilddog.auth.signInWithCustomToken(customToken).catch(function(error)){
 }
 ```
 
-## 校验Id Token
+## 校验ID Token
 
-如果你的 Wilddog 客户端 APP 与自己的后端服务器有业务关联，你也许需要在后端服务中校验当前登录用户的合法性。当客户端用户成功登陆后，将Wilddog服务返回的IdToken 使用 HTTPS 发送给自有后端服务器，在服务中，调用 Wilddog 提供的校验接口校验用户的合法性。
+如果你的 Wilddog 客户端 APP 与自己的后端服务器有业务关联，你也许需要在后端服务中校验当前登录用户的合法性。当客户端用户成功登陆后，将Wilddog服务返回的ID Token 使用 HTTPS 发送给自有后端服务器，在服务中，调用 Wilddog 提供的校验接口校验用户的合法性。
 
-**在客户端获取用户Idtoken**
+**在客户端获取用户ID Token**
 
 ```javascript
 wilddog.auth().currentUser.getToken(
@@ -93,14 +74,16 @@ wilddog.auth().currentUser.getToken(
 });
 ```
 
-**使用 Wilddog SDK 校验 IdToken**
+**使用 Wilddog SDK 校验 ID Token**
 
 我们将提供 java 和 Nodejs 两种语言的 Server SDK:
 
 java
 
 ```java
- boolean result = IdTokenVerifier.verifyIdToken(idToken, appId);
+ VerifyResult result = IdTokenVerifier.verifyIdToken(idToken, appId);
+ boolean isValid = result.isValid();
+ Token token = result.getIdToken();
 
 ```
 
