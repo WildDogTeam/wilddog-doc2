@@ -88,7 +88,7 @@ wilddog.auth().currentUser.updateProfile({
      // An error happened.
  });
 ```
-
+重要说明:使用customToken登录时,若customToken中admin属性为true,则不能进行信息修改。
 ## 设置用户的电子邮件地址
 
 您可以用 `updateEmail:completion:` 方法设置用户的电子邮件地址。例如：
@@ -100,10 +100,12 @@ wilddog.auth().currentUser.updateEmail(email).then(function() {
      // An error happened.
      console.log(error);
  });
-
 ```
 
-重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+重要说明：
+
+ - 要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+ - 使用customToken登录时,若customToken中admin属性为true,则不能进行邮箱修改。
 
 
 ## 设置用户密码
@@ -118,10 +120,13 @@ wilddog.auth().currentUser.updatePassword("12345678").then(function() {
      console.log(error);
      // An error happened. 
 });
-
+注意:使用customToken登录时,若customToken中admin属性为true,则不能进行密码修改
 ```
 
-重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+重要说明：
+
+ - 要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+ - 使用customToken登录时,若customToken中admin属性为true,则不能进行密码修改。
 
 
 ## 发送重设密码电子邮件
@@ -149,10 +154,14 @@ wilddog.auth().sendPasswordResetEmail(email);
 
 ```
 wilddog.auth().currentUser.delete();
+注意:若使用customToken登录时,若customToken中admin属性为true,则不能进行用户删除
 ```
 您可以从 Wilddog 控制面板的“用户认证”部分的“用户”页面中删除用户。
 
-重要说明：要删除用户，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+重要说明：
+
+- 要删除用户，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+- 使用customToken登录时,若customToken中admin属性为true,则不能进行用户删除。
 
 
 
