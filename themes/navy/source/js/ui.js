@@ -109,7 +109,7 @@ window.onload = function () {
   };
 
   function currentLinkSelect (heading) {
-    var id = heading.getAttribute('id');
+    var id = heading.id;
     var index = tocLinksHref.indexOf(id);
     addClass(tocLinks[index], 'current');
     tocLinks.forEach(function (ele, eleIndex) {
