@@ -13,8 +13,6 @@ title: 身份认证
 资源下载地址:
 https://www.wilddog.com/download/
 
-Maven 地址：
-
 ## 创建Custom Token
 
 用户可以通过 Wilddog 的 Server SDK 对个人系统的用户生成 Custom Token。
