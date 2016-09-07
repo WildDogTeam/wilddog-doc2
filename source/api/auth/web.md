@@ -28,7 +28,7 @@ wilddog.auth().createUserWithEmailAndPassword(email, pwd).then(function (user) {
 示例：
 
 ```js
-    wilddog.auth().signInAnoymously().then(function (result){
+    wilddog.auth().signInAnonymously().then(function (result){
             console.info("signInAnouymously success", result)
         }).catch(function(err){
             console.info("signInAnouymously failed",err)
