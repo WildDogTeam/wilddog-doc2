@@ -6,14 +6,14 @@ title: 快速入门
 
 ## 1. 创建应用
 
-你首先需要在控制面板中创建应用，如果你还不知道如何创建应用，请先阅读[控制面板-创建应用](/console/creat.html)。
+你首先需要在控制面板中创建应用。如果你还不知道如何创建应用，请先阅读[控制面板-创建应用](/console/creat.html)。
 
 创建好的应用如下图，每个应用都有一个URL地址，这个地址是该应用的根节点位置。下面的示例应用地址为 yourapp.wilddogio.com，"yourapp” 是该应用的 appId。
 
 <img src="/images/demoapp.png" alt="yourApp" width="300">
 
 ## 2. 引入 SDK
-首先引入 Wilddog SDK，只需要在你的页面中加入一行 javascript 标签。
+首先引入 Wilddog SDK，在你的HTML页面中加入一行 javascript 标签。
 
 ```javascript
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js" ></script>
@@ -52,7 +52,7 @@ var childRef = ref.child("/weather/shanghai");
 
 创建了 Wilddog 引用之后可以通过该引用对数据进行操作。
 
- Wilddog 提供了set() 方法向节点写入 JSON 数据。 Wilddog的数据是以 [JSON](http://json.org) 格式存储的，并没有传统关系型数据库中的表和记录的概念。 
+set() 方法可以写入数据，野狗的数据是以 [JSON](http://json.org) 格式存储的。
 
 假设我们要存入北京和上海的天气信息：
 
@@ -118,7 +118,7 @@ console.log(snapshot.val());
 
 取出的数据会一直保持同步，当存储的数据更改的时候，不需要重新读取数据，终端的数据会自动更新。如果你只想读取一次，不监听数据变化，那么你可以使用once()函数替代on()函数。
 
-## 6. 保护数据安全
+## 6. 数据访问控制
 
 到这一步，你已经可以完成基本的数据操作了，但是如果要将你的应用用于生产环境，你还需要注意应用的安全问题。每一个新创建的应用权限初始权限都为 **所有人都可以读写**，用于实际生产环境将会非常危险。
 
