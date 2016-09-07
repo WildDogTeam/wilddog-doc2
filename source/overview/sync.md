@@ -57,7 +57,7 @@ title: 实时数据同步 Sync
 
 ![](/images/protect.png)
 
-野狗采用基于资源的数据访问控制列表(ACL)来进行数据保护。访问控制列表ACL采用类似JavaScript 语法的表达式。更多具体细节，请参考 [规则表达式](/guide/sync/rules/introduce.html) 的文档。
+野狗采用基于资源的数据访问控制列表(ACL)来进行数据保护。访问控制列表(ACL)采用类似JavaScript 语法的表达式。更多具体细节，请参考 [规则表达式](/guide/sync/rules/introduce.html) 的文档。
 
 
 
