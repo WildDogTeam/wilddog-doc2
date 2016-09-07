@@ -7,11 +7,11 @@ title: 实时数据同步
 
 首先通过 2 个例子，让你了解野狗实时同步的强大之处。
 
-打开 2 个浏览器，进入[在线画板](http://drawing.wilddogapp.com/)，这是通过野狗实现的在线画板，一个人画的画可以实时同步到其他连接的浏览器。
+第 1 个例子：打开 2 个浏览器，进入[在线画板](http://drawing.wilddogapp.com/)，这是通过野狗实现的在线画板，一个人画的画可以实时同步到其他连接的浏览器。
 
 ![](/images/sketchboard.png)
 
-打开浏览器，进入[多人外太空对战](https://www.wilddog.com/examples/game#)，这是通过野狗实现的 H5 实时游戏，扫描二维码，立刻可以体验实时多端对战。
+第 2 个例子：打开浏览器，进入[多人外太空对战](https://www.wilddog.com/examples/game#)，这是通过野狗实现的 H5 实时游戏，扫描二维码，立刻可以体验实时多端对战。
 
 ![](/images/starwar.png)
 
