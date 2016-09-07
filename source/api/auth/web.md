@@ -300,4 +300,4 @@ credential有两种形式
 
 例如微博登录方式
 
-`var credentail = wilddog.auth.WeiboAuthProvider.credential(Weibo.access_token)` 
+`var credential = wilddog.auth.WeiboAuthProvider.credential(Weibo.access_token,Weibo.uid)`
