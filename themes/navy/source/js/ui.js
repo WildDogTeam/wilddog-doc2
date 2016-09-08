@@ -76,12 +76,6 @@ window.onload = function () {
   tocLinks.forEach(function (ele, index) {
     var id = ele.getAttribute('href').replace('#', '');
     tocLinksHref.push(id);
-    ele.addEventListener('click', function (e) {
-      e.preventDefault();
-      window.scrollTo(0, (headingTops[index] + 1));
-      window.location.href = window.location.href.split("#")[0] + '#' + id;
-      return false
-    })
   });
   headings.forEach(function (ele) {
     var actualTop = ele.offsetTop;
@@ -90,7 +84,7 @@ window.onload = function () {
         actualTop += current.offsetTop;
         current = current.offsetParent;
     }
-    actualTop -= ele.offsetHeight;
+    actualTop -= 102;
     headingTops.push(actualTop);
   });
   var currentRangeStart = 0;
