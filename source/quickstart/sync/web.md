@@ -13,11 +13,22 @@ title: 快速入门
 <img src="/images/demoapp.png" alt="yourApp" width="300">
 
 ## 2. 引入 SDK
+
+### 使用标签
 首先引入 Wilddog SDK，只需要在你的页面中加入一行 javascript 标签。
 
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js" ></script>
 ```
+
+### 使用npm
+
+```
+npm install wilddog
+
+```
+
+
 
 ## 3. 创建 Wilddog 引用
 
