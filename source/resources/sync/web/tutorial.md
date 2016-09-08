@@ -6,8 +6,10 @@ title: 实战教程
 # 弹幕
 
 ## 示例说明
-示例的最终的展示效果如下：
+示例的最终的展示效果如下，可以进入[这里体验](http://danmu.wilddogapp.com/)
+
 ![](/images/display.jpg)
+
 
 与平常见到的弹幕一样，可多端互动。使用 Wilddog SDK，百余行代码即可完全实现。可见 Wilddog 在实时领域的简单与强大。
 
@@ -36,6 +38,7 @@ var text = $(".s_txt").val();
 ref.child('message').push(text);
 ```
 数据库中的数据结构就是这个样子的：
+
 ![](/images/data.jpg)
 
 ### “清屏”
