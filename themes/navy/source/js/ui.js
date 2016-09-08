@@ -132,7 +132,6 @@ window.onload = function () {
   windowScrollHandle();
   window.addEventListener('scroll', windowScrollHandle);
 
-
   backTop.addEventListener('click', function () {
     window.scrollTo(0, 0);
   });
