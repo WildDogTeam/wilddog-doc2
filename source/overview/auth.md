@@ -1,38 +1,75 @@
-title: 身份认证
+
+title: 身份认证 Auth
 ---
 
-<h2 id='简介' class="article-heading top-heading">简介</h2>
-野狗提供多种方式，帮助简化应用中用户认证流程的开发：
-
-![](http://7u2r36.com1.z0.glb.clouddn.com/wilddog-auth.png)
-
-如果应用没有开发登录注册流程，可以采用以下 3 种方式对用户进行身份认证：邮箱地址认证、匿名登录以及常见的第三方登录（包括 QQ 、微信、新浪微博等）。如果应用已有自己的用户系统，也可以方便地集成到野狗中。
+**身份认证(Auth)** 能够让你的应用快速集成安全和全面的身份认证功能。
 
 
-## 功能特性
-野狗提供以下 4 种方式，对用户进行身份认证。你可以通过 [快速入门](/quickstart/auth/web.html) 学会使用基本功能。
+## 多种认证方式
 
-### 电子邮箱与密码认证
+Auth 提供了多种认证方式，你可以使用在新系统上，也可以集成在已有系统上，根据不同情况快速接入相应的认证服务。用户经过 Auth 认证之后将会生成唯一的 Wilddog ID，不同的认证方式通过该 Wilddog ID 确认用户身份。
 
-野狗 SDK 提供使用电子邮件地址及密码登录进行管理，同时也支持重设密码电子邮件的发送。
+<img src="/images/manyway.png" alt="ways" >
 
-更多细节，请参考文档 [电子邮箱与密码](/guide/auth/web/password.html)
 
-### 第三方身份认证
 
-野狗 SDK 提供QQ、微信、微信公众账号、新浪微博等常见第三方对用户进行身份认证。
+### 使用 Auth 作为用户系统
 
-更多细节，请参考文档 [第三方身份认证](/guide/auth/web/qq.html)
 
-### 匿名用户
 
-野狗 SDK 提供创建临时匿名账户的功能。同时支持账号关联方式，匿名用户可以通过关联其他登录方式，成为一个可再次访问的用户。
+#### 邮箱认证
 
-更多细节，请参考文档 [匿名用户认证](/guide/auth/web/anonymous.html)
+让用户使用邮件和密码进行认证。
 
-### 集成已有身份认证
+<img src="/images/mail.png" alt="mail" >
 
-应用可以将已有的用户系统集成到野狗 SDK 中,来获取野狗的实时数据同步及其他服务的访问权限。
 
-更多细节，请参考文档 [自定义认证](/guide/auth/web/custom.html)
+
+#### 第三方认证 
+
+使用微信、微信公众号、微博、QQ 等第三方进行认证。
+
+<img src="/images/thirdpart.png" alt="thirdpart" >
+
+
+
+### 使用已有的用户系统
+
+#### 自定义认证
+
+基于已有的用户系统进行认证。
+
+<img src="/images/custom.png" alt="costom">
+
+
+
+### 实现匿名登录
+
+#### 匿名登录
+
+匿名登录允许一个未登录的用户获得登录用户的权限。
+
+<img src="/images/anonymous.png" alt="anonymous" >
+
+
+
+### 多种认证方式绑定
+
+一个用户可以绑定多种认证方式，Auth 凭借唯一的 Wilddog ID 确认用户的身份。
+
+<img src="/images/wilddogid.png" alt="wilddogid" >
+
+
+
+## 多平台支持
+
+  <img src="/images/platfomlogo.png" alt="platfom" width="400" >
+
+## 可拓展
+
+Auth 是野狗提供的最基础的服务, 与野狗其他服务紧密相关，你可以轻松接入[实时数据同步(Sync)](/overview/sync.html)。
+
+
+
+
 
