@@ -193,7 +193,7 @@ var config = {
   syncURL: "https://docs-examples.wilddogio.com"
 };
 wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes");
+var upvotesRef = wilddog.sync().ref("/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes");
 
 upvotesRef.transaction(function (currentValue) {
   return (currentValue || 0) + 1;
