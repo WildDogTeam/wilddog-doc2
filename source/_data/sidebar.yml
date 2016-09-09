@@ -57,7 +57,7 @@ guide:
       微博登录: /guide/auth/web/weibo.html
       自定义身份认证: /guide/auth/web/custom.html
       匿名身份认证: /guide/auth/web/anonymous.html
-      链接多种登录方式: /guide/auth/web/link.html
+      绑定多种登录方式: /guide/auth/web/link.html
     Android:
       管理用户: /guide/auth/android/manageuser.html
       邮箱登录: /guide/auth/android/password.html
@@ -66,7 +66,7 @@ guide:
       微博登录: /guide/auth/android/weibo.html
       自定义身份认证: /guide/auth/android/custom.html
       匿名身份认证: /guide/auth/android/anonymous.html
-      链接多种登录方式: /guide/auth/android/link.html
+      绑定多种登录方式: /guide/auth/android/link.html
     iOS:
       管理用户: /guide/auth/ios/manageuser.html
       邮箱登录: /guide/auth/ios/password.html
@@ -75,7 +75,7 @@ guide:
       微博登录: /guide/auth/ios/weibo.html
       自定义身份认证: /guide/auth/ios/custom.html
       匿名身份认证: /guide/auth/ios/anonymous.html
-      链接多种登录方式: /guide/auth/ios/link.html
+      绑定多种登录方式: /guide/auth/ios/link.html
     Server:
       简介: /guide/auth/server/introduction.html
       使用 Server SDK 进行认证: /guide/auth/server/server.html
