@@ -1,9 +1,9 @@
 title:  完整 API 文档
 ---
 
-# Wilddog (*Methods*)
+## Wilddog (*Methods*)
 
-## wilddog init
+### wilddog init
 
 定义
 
@@ -36,7 +36,7 @@ var rootRef = wilddog.sync().ref();
 ```
 ----
 
-## child()
+### child()
 
 定义
 
@@ -71,7 +71,7 @@ child_ref = ref.child("Beijing");
 
 ----
 
-## parent()
+### parent()
 
 定义
 
@@ -94,7 +94,7 @@ var parent_ref = ref.parent();
 
 ----
 
-## root()
+### root()
 
 定义
 
@@ -128,7 +128,7 @@ var path = root_ref.toString();
 
 -----
 
-## key()
+### key()
 
 定义
 
@@ -154,7 +154,7 @@ var key = child_ref.key();
 ```
 ----
 
-## toString()
+### toString()
 
 定义
 
@@ -178,7 +178,7 @@ var url = child_ref.toString();
 ```
 ----
 
-## set()
+### set()
 
 定义
 
@@ -222,7 +222,7 @@ ref.set({
 
 ----
 
-## update()
+### update()
 
 定义
 
@@ -257,7 +257,7 @@ ref.update({"temp":10,"pm25":500});
 ```
 ----
 
-## remove()
+### remove()
 
 定义
 
@@ -291,7 +291,7 @@ ref.remove()
 ```
 ----
 
-## push()
+### push()
 
 定义
 
@@ -329,7 +329,7 @@ var newKey = childref.key();
 ```
 --------
 
-## setWithPriority()
+### setWithPriority()
 
 定义
 
@@ -368,7 +368,7 @@ ref.setWithPriority(user,100);
 
 ----
 
-## setPriority()
+### setPriority()
 
 定义
 
@@ -405,7 +405,7 @@ ref.setPriority(1000);
 
 ----
 
-## transaction()
+### transaction()
 
 定义
 
@@ -478,7 +478,7 @@ wilmaRef.transaction(function(currentData) {
 ```
 -----
 
-## goOnline()
+### goOnline()
 
 定义
 
@@ -503,7 +503,7 @@ wilddog.sync().goOnline(); // All local Wildodg instances automatically reconnec
 
 -----
 
-## goOffline()
+### goOffline()
 定义
 
 Wilddog.goOffline()
@@ -526,9 +526,9 @@ wilddog.sync().goOffline(); // All local Wilddog instances are disconnected
 ```
 ---
 
-# Query (*Methods*)
+## Query (*Methods*)
 
-## on()
+### on()
 
 定义
 
@@ -570,7 +570,7 @@ ref.on('child_added',function(snapshot,prev){
 ```
 --------
 
-## off()
+### off()
 
 定义
 
@@ -602,7 +602,7 @@ wilddogRef.off('value', onValueChange);
 
 ------
 
-## once()
+### once()
 
 定义
 
@@ -643,7 +643,7 @@ ref.once('child_added',function(snapshot){
 
 ----
 
-## orderByChild() 
+### orderByChild() 
 
 定义
 
@@ -680,7 +680,7 @@ ref.orderByChild("height").on("child_added",function(snapshot){
 ```
 ----
 
-## orderByKey()
+### orderByKey()
 
 定义
 
@@ -712,7 +712,7 @@ ref.orderByKey().on("child_added",function(snapshot){
 
 ----
 
-## orderByValue() 
+### orderByValue() 
 
 定义
 
@@ -746,7 +746,7 @@ scoresRef.orderByValue().limitToLast(3).on("value", function(snapshot) {
 
 ----
 
-## orderByPriority()
+### orderByPriority()
 
 定义
 
@@ -777,7 +777,7 @@ ref.orderByPriority().on("child_added", function(snapshot) {
 ```
 ----
 
-## startAt()
+### startAt()
 
 定义
 
@@ -813,7 +813,7 @@ ref.orderByKey().startAt('jack').on("child_added",function(snapshot){
 
 ----
 
-## endAt()
+### endAt()
 
 定义
 
@@ -888,7 +888,7 @@ ref.orderByKey().equalTo('jack').on("child_added",function(snapshot){
 
 ----
 
-## limitToFirst()
+### limitToFirst()
 
 定义
 
@@ -923,7 +923,7 @@ ref.limitToFirst(10).on("child_added",function(snapshot){
 
 ----
 
-## limitToLast()
+### limitToLast()
 
 定义
 
@@ -961,7 +961,7 @@ ref.limitToLast(10).on("child_added",function(snapshot){
 
 ----
 
-## ref()
+### ref()
 
 定义
 
@@ -991,9 +991,9 @@ var locationRef=query.ref();//ref==locationRef
 
 -----
 
-# Wilddog.onDisconnect (*Methods*)
+## Wilddog.onDisconnect (*Methods*)
 
-## set()
+### set()
 
 定义
 
@@ -1026,7 +1026,7 @@ disconnectRef.onDisconnect().set('I disconnected!');
 ```
 ----
 
-## update()
+### update()
 
 定义
 
@@ -1060,7 +1060,7 @@ disconnectRef.onDisconnect().update({message:'I disconnected!'});
 
 ----
 
-## remove()
+### remove()
 
 定义
 
@@ -1129,7 +1129,7 @@ disconnectRef.onDisconnect().setWithPriority('I disconnected', 10);
 
 ----
 
-## cancel()
+### cancel()
 
 定义
 
@@ -1160,9 +1160,9 @@ fredOnlineRef.onDisconnect().cancel();
 
 -----
 
-# Wilddog.ServerValue (*Constants*)
+## Wilddog.ServerValue (*Constants*)
 
-## TIMESTAMP
+### TIMESTAMP
 
 定义
 
@@ -1291,7 +1291,7 @@ ref.update({"pm25":432})
 ```
 ----------
 
-## child()
+### child()
 
 定义
 
@@ -1334,7 +1334,7 @@ ref.update({"pm25":432})
 ```
 -----
 
-## forEach()
+### forEach()
 
 定义
 
@@ -1371,7 +1371,7 @@ ref.update({"pm25":432})
 
 ----
 
-## hasChild()
+### hasChild()
 
 定义
 
@@ -1417,7 +1417,7 @@ ref.update({"pm25":432})
 
 ----
 
-## hasChildren()
+### hasChildren()
 
 定义
 
@@ -1468,7 +1468,7 @@ ref.once("value", function(snapshot) {
 ```
 ----
 
-## key()
+### key()
 
 定义
 
@@ -1507,7 +1507,7 @@ ref.on('child_changed',function(snapshot){
 ```
 ----
 
-## numChildren()
+### numChildren()
 
 定义
 
@@ -1523,7 +1523,7 @@ numChildren()
 
 ----
 
-## ref()
+### ref()
 
 定义
 
@@ -1566,7 +1566,7 @@ ref.on('child_changed',function(snapshot){
 
 ----
 
-## getPriority()
+### getPriority()
 
 定义
 
@@ -1600,7 +1600,7 @@ ref.setWithPriority("fred", 500, function(error) {
 ----
 
 
-## exportVal()
+### exportVal()
 
 
 定义

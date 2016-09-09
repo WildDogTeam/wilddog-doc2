@@ -8,28 +8,15 @@ title: 快速入门
 
 首先在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
 
-## 2. 引入 SDK
-在应用中引入 Sync SDK，只需在页面中添加一行 JavaScript 代码。
-
-野狗为你提供了单独的 Sync SDK 和包含其他模块的完整 SDK，**任选其一引入即可**。
-
-​	1. 单独引入 Sync SDK：
+## 2. 安装 SDK
 
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Sync SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
-
-​	2. 引入完整 SDK：
-
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- 完整的 Wilddog SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js"</span> ></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
 `NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog JavaScript SDK:
 
 ```
 npm install wilddog
 ```
-
-**注意**:  `npm` 安装的是完整 SDK 而非单独的 Sync 模块。
-
-
 
 ## 3. 创建 Wilddog 实例
 
@@ -46,7 +33,7 @@ var ref = wilddog.sync().ref();
 
 ## 4. 保存数据
 
-set() 方法可以写入数据，野狗的数据是以 [JSON](http://json.org) 格式存储的。
+野狗的数据是以 [JSON](http://json.org) 格式存储的，set() 方法可以写入数据。
 
 例如在应用中存入北京和上海的天气信息：
 
@@ -63,7 +50,7 @@ ref.set({
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
-**删除数据**和**更新数据**等更多操作数据的用法与此类似，你可以在[完整指南](/guide/sync/web/save-data.html)或者 [API 文档](/api/sync/web.html)中查看具体用法。
+**删除数据**和**更新数据**等更多操作数据的用法与此类似，你可以在 [完整指南](/guide/sync/web/save-data.html) 或者 [API 文档](/api/sync/web.html) 中查看具体用法。
 
 ## 5. 读取与监听数据
 on() 方法可以读取并监听节点的数据。
