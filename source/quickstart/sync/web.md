@@ -91,7 +91,7 @@ console.log(snapshot.val());
 
 取出的数据会一直保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用once()函数替代on()函数。
 
-
+更多的数据读取方式可以查看[完整指南](/guide/sync/web/save-data.html)。
 
 
 
