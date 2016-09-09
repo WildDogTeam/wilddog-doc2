@@ -1,11 +1,11 @@
 title:  操作数据
 ---
 
-以下四种方法可用于将数据写入野狗云端：
+以下四种方法可以写入数据：
 
 方法 |  说明 
 ----|------
-set() | 将数据写入到指定的路径，如果指定路径已存在数据，那么数据将会被覆盖。 
+set() | 将数据写入到指定的路径。如果指定路径已存在数据，那么数据将会被覆盖。 
 push() | 添加数据到列表。向指定路径下添加数据，由野狗自动生成唯一key。例如向 /posts 路径下 push 数据，数据会写入到/posts/<unique-post-id>下。
 update() | 更新指定路径下的部分key的值，而不替换所有数据。 
 transaction() | 提供事务性更新，用于并发更新操作的场景。 
@@ -31,7 +31,7 @@ ref.child("Jone").set({
 });
 ```
 
-野狗采用的是一个“数据同步”的架构。本地拥有数据副本。对数据的写入操作，首先写入本地副本，然后SDK去将数据与云端进行同步。
+野狗采用的是一个“本地处理，云端同步”的架构。本地拥有数据副本。对数据的写入操作，首先写入本地副本，然后SDK去将数据与云端进行同步。
 也就是说，当 `set()` 方法返回的时候，数据可能还没有同步到云端。
 若要确保同步到云端完成，需要使用 `set()` 方法的第二个参数，该参数是一个回调函数，代码示例如下：
 
@@ -193,7 +193,7 @@ var config = {
   syncURL: "https://docs-examples.wilddogio.com"
 };
 wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes");
+var upvotesRef = wilddog.sync().ref("/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes");
 
 upvotesRef.transaction(function (currentValue) {
   return (currentValue || 0) + 1;

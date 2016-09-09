@@ -37,7 +37,7 @@ title:  微信登录
 3.微信登录(popup or redirect)
 
 ```
-    var provider = new wilddog.auth.WeixinProvider();
+    var provider = new wilddog.auth.WeixinAuthProvider();
     
 popup登录
 
@@ -50,7 +50,7 @@ popup登录
     });
   
 redirect登录
-    wilddog.auth().signInWithPopup(provider).then(function (result) {
+    wilddog.auth().signInWithRedirect(provider).then(function (result) {
          console.log(result);
     }).catch(function (error) {
          // Handle Errors here.

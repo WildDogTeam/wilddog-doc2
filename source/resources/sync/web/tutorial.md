@@ -6,8 +6,10 @@ title: 实战教程
 # 弹幕
 
 ## 示例说明
-示例的最终的展示效果如下：
+示例的最终的展示效果如下，可以进入[这里体验](http://danmu.wilddogapp.com/)
+
 ![](/images/display.jpg)
+
 
 与平常见到的弹幕一样，可多端互动。使用 Wilddog SDK，百余行代码即可完全实现。可见 Wilddog 在实时领域的简单与强大。
 
@@ -36,6 +38,7 @@ var text = $(".s_txt").val();
 ref.child('message').push(text);
 ```
 数据库中的数据结构就是这个样子的：
+
 ![](/images/data.jpg)
 
 ### “清屏”
@@ -82,7 +85,7 @@ var moveObj = function(obj) {
 	obj.css({
 		left : _left,
 		top : _top,
-		color : getReandomColor()  // 获取随机颜色，之后讲
+		color : getRandomColor()  // 获取随机颜色，之后讲
 	});
 	var time = 20000 + 10000 * Math.random();
 	// animate() 方法执行 CSS 属性集的自定义动画。逐渐改变的，这样就可以创建动画效果。
@@ -112,7 +115,7 @@ var getAndRun = function() {
 ### 生成随机颜色
 
 ```js
-var getReandomColor = function() {
+var getRandomColor = function() {
 	return '#' + (function(h) {
 		return new Array(7 - h.length).join("0") + h
 	})((Math.random() * 0x1000000 << 0).toString(16))
