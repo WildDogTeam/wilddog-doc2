@@ -2,22 +2,22 @@
 title: 快速入门
 ---
 
-快速入门通过编写一个简单的天气应用例子来让你了解实时数据同步如何使用。
+快速入门通过编写一个简单的天气应用让你了解实时数据同步如何使用。
 
 ## 1. 创建应用
 
-首先需要在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
+首先在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
 
 ## 2. 引入 SDK
 在应用中引入 Sync SDK，只需在页面中添加一行 Javascript 代码。
 
-野狗为你提供了单独的 Auth SDK 和包含其他模块的完整 SDK，**任选其一引入即可**。
+野狗为你提供了单独的 Sync SDK 和包含其他模块的完整 SDK，**任选其一引入即可**。
 
-1. 单独引入 Sync SDK：
+​	1. 单独引入 Sync SDK：
 
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Auth SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Sync SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
-2. 引入完整 SDK：
+​	2. 引入完整 SDK：
 
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- 完整的 Wilddog SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js"</span> ></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
@@ -27,7 +27,7 @@ title: 快速入门
 npm install wilddog
 ```
 
-**注意**:  `npm` 安装的是完整 SDK 而非单独的 Auth 模块。
+**注意**:  `npm` 安装的是完整 SDK 而非单独的 Sync 模块。
 
 
 
@@ -35,11 +35,11 @@ npm install wilddog
 
 ```javascript
 var config = {
-  authDomain: "<appId>.wilddog.com", //输入应用的
+  syncDomain: "<appId>.wilddog.com",
   syncURL: "https://<appId>.wilddogio.com" //输入节点 URL
 };
 wilddog.initializeApp(config);
-var ref = wilddog.sync().ref();
+var ref = wildd og.sync().ref();
 ```
 
 
