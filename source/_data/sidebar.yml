@@ -98,13 +98,10 @@ resources:
   实时数据同步:
     Web:
       实战教程: /resources/sync/web/tutorial.html
-
-  
       示例库: /resources/sync/web/resources.html
-      Android:
-       实战教程: /resources/sync/android/tutorial.html
-       示例库: /resources/sync/android/resources.html
-
+    Android:
+      实战教程: /resources/sync/android/tutorial.html
+      示例库: /resources/sync/android/resources.html
     iOS:
       实战教程: /resources/sync/ios/tutorial.html
       示例库:  /resources/sync/ios/resources.html
