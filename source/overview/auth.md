@@ -38,7 +38,7 @@ title: 身份认证 Auth
 
 用户使用邮箱和密码进行认证。
 
-<img src="/images/mail.jpg" alt="mail" >
+<img src="/images/authmail.jpg" alt="mail" >
 
 
 
