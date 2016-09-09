@@ -2,11 +2,11 @@
 title: 快速入门
 ---
 
-快速入门通过编写一个简单的天气应用例子来让你了解实时数据同步是如何使用的。
+快速入门通过编写一个简单的天气应用例子来让你了解实时数据同步如何使用。
 
 ## 1. 创建应用
 
-你首先需要在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
+首先需要在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
 
 ## 2. 引入 SDK
 在应用中引入 Sync SDK，只需在页面中添加一行 Javascript 代码。
@@ -14,9 +14,12 @@ title: 快速入门
 野狗为你提供了单独的 Auth SDK 和包含其他模块的完整 SDK，**任选其一引入即可**。
 
 1. 单独引入 Sync SDK：
-   <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Auth SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Auth SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
+
 2. 引入完整 SDK：
-   <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- 完整的 Wilddog SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js"</span> ></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
+
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- 完整的 Wilddog SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js"</span> ></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
 `NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Javascript SDK:
 
@@ -24,18 +27,16 @@ title: 快速入门
 npm install wilddog
 ```
 
-**注意**  `npm` 安装的是完整 SDK 而非单独的 Auth 模块。
+**注意**:  `npm` 安装的是完整 SDK 而非单独的 Auth 模块。
 
 
 
 ## 3. 创建 Wilddog 实例
 
-创建 Wilddog 实例:
-
 ```javascript
 var config = {
-  authDomain: "<appId>.wilddog.com", //输入应用的 URL
-  syncURL: "https://<appId>.wilddogio.com" //输入节点路径
+  authDomain: "<appId>.wilddog.com", //输入应用的
+  syncURL: "https://<appId>.wilddogio.com" //输入节点 URL
 };
 wilddog.initializeApp(config);
 var ref = wilddog.sync().ref();
@@ -75,7 +76,7 @@ console.log(snapshot.val());
 }
 ```
 
-取出的数据会一直保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用once()函数替代on()函数。
+取出的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用once()函数替代on()函数。
 
 更多的数据读取方式可以查看[完整指南](/guide/sync/web/save-data.html)。
 
