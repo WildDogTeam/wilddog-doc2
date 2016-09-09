@@ -12,7 +12,7 @@ title:  简介
 
 ![](/images/introduction.jpg)
 
-身份认证（Auth）用于控制用户访问数据的权限以及快速简化应用中用户认证流程的开发。
+身份认证（Auth）用于快速简化应用中用户认证流程的开发。
 
 ![](/images/wilddogid.jpg)
 
