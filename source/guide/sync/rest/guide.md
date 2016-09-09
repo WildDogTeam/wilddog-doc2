@@ -28,7 +28,7 @@ title: REST 完整指南
 
 通过REST API读取和写入数据时，我们在`curl`请求中包含一个指向数据地址的URL，这个URL会指向我们存储的所有数据。在这个示例中，我们将使用`https://docs-examples.wilddogio.com/web/data`这个地址。
 
-也可以直接访问子节点的数据，例如，要访问Mary Chen的name，只需要在URL之后追加`users/mchen/name`即可。
+也可以直接访问子节点的数据，例如，要访问Mary Chen的name，只需要在URL之后追加`users/mchen/name.json`即可。
 
 ```
 curl https://docs-examples.wilddogio.com/web/data/users/mchen/name.json
