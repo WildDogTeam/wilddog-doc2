@@ -24,7 +24,7 @@ title:  快速入门
 ```
 
 **使用Gradle获得 Android SDK：**
-要使用在 Android application使用 Gradle 或 Maven 添加 Wilddog 的依赖。 在你的build.gradle添加：
+要使用在 Android application使用 Gradle 或 Maven 添加 WilddogAuth 的依赖。 在你的build.gradle添加：
 
 ```
 dependencies {
@@ -45,10 +45,17 @@ android {
 
 ```
 
+需要在项目的 AndroidManifest.xml 中添加
 
-## 创建 Wilddog 引用
+```
+<uses-permission android:name="android.permission.INTERNET"/>
 
-引入 Wilddog Auth SDK 之后我们需要初始化 Wilddog 应用。
+```
+
+
+## 创建 WilddogAuth 引用
+
+引入 Wilddog Auth SDK 之后我们需要初始化 WilddogAuth 对象。
 
 ```java
 WilddogAuth mAuth=Wilddog.getInstance("gzztztestapp",context);
@@ -68,10 +75,61 @@ mAuth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResul
 			Log.d("success","Login success!");  // 登录成功
             Log.d("Anonymous",String.valueOf(var1.getResult().getWilddogUser().isAnonymous()));
 		} else {
-			Log.d("failure","reason:"+var1.getException()); // 登录失败及错误信息
+			Log.d("failure","reason:"+var1.getException().toString()); // 登录失败及错误信息
 		}
 	}
 });
 ```
 
-以上就是匿名登录的方式，我们还提供了其他各种登录方式。具体请看下面对应的文档。
+以上就是匿名登录的方式。
+
+## 使用邮箱方式登录
+
+1. 去野狗控制面板中打开邮箱登录开关：
+
+![](/images/openemail.png)
+
+2.生成合法用户的方式有两种：
+
+* 将账号密码填写到用户列表中，生成新的用户。
+
+![](/images/addemailuser.png)
+
+* 通过Android WilddogAuth SDK生成
+
+```
+     wilddogAuth.createUserWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+	@Override
+	public void onComplete(Task<AuthResult> var1) {
+		if(var1.isSuccessful()){
+		}
+		}
+		}
+```
+	 
+	 
+3. 调用 `signInWithEmailAndPassword()` 方法：
+
+```java
+mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+	@Override
+	public void onComplete(Task<AuthResult> var1) {
+		if(var1.isSuccessful()){
+			Log.d("success","Login success!");  // 登录成功
+            Log.d("Anonymous",String.valueOf(var1.getResult().getWilddogUser().isAnonymous()));
+		} else {
+			Log.d("failure","reason:"+var1.getException().toString()); // 登录失败及错误信息
+		}
+	}
+});
+```
+
+以上就是邮箱登录的方式，我们还提供了其他各种登录方式。
+
+## 退出登出
+
+你可以使用 `signOut:` 方法退出当前登录用户。例如：
+
+mAuth.signOut();
+
+具体请看下面对应的文档。
