@@ -45,7 +45,7 @@ wilddog.initializeApp(config);
 ## 使邮箱密码方式登录
 
 1. 首先在你 APP 的野狗控制面板确认邮箱登录功能已激活（默认是关闭状态）：
-![](/images/openanonymous.png)
+![](/images/openemail.png)
 2. 监听用户登录状态，我们建议你始终通过监听器来获取用户的登录信息尤其是用户登录状态：
 ```js
 wilddog.auth().onAuthStateChanged(function (userInfo) {
