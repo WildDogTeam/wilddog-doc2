@@ -70,7 +70,7 @@ WilddogAuth mAuth=Wilddog.getInstance("gzztztestapp",context);
 
 ![](/images/openemail.png)
 
-2.生成合法用户的方式有两种：
+2. 生成合法用户的方式有两种：
 
 * 将账号密码填写到用户列表中，生成新的用户。
 
@@ -91,7 +91,7 @@ WilddogAuth mAuth=Wilddog.getInstance("gzztztestapp",context);
 	   }
 	}
 ```
-	**注意** 创建用户成功，默认登录状态为登录中
+**注意** 创建用户成功，默认登录状态为登录中。
 	 
 3. 调用 `signInWithEmailAndPassword()` 方法：
 
@@ -119,4 +119,4 @@ mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteLis
 mAuth.signOut();
 ```
 
-具体请看下面对应的文档。
+具体请看下面对应的[文档](/guide/auth/android/manageuser.html)。
