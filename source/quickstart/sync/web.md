@@ -15,9 +15,7 @@ title: 快速入门
 ## 2. 引入 SDK
 首先引入 Wilddog SDK，在你的HTML页面中加入一行 javascript 标签。
 
-```javascript
-<script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js" ></script>
-```
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span><span class="attr">&nbsp;src</span> = <span class="string">&quot;https<span>://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js&quot;</span> &gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 ## 3. 创建 Wilddog 引用
 

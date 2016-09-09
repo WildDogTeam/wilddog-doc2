@@ -12,15 +12,9 @@ title: 快速入门
 如果你准备开发的是一个 WEB 应用，通过野狗官方提供的 CDN 源来引入是最佳选择，我们为你提供了单独的 Auth SDK 和包含其他模块的完整 SDK，**任选其中之一引入即可**。
 
 1. 单独引入 Auth SDK：
-```javascript
-<!— Wilddog Auth SDK —>
-<script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
-```
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Wilddog Auth SDK --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 2. 引入完整 SDK：
-```js
-<!— 完整的 Wilddog SDK —>
-<script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>
-```
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 完整的 Wilddog SDK --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js&quot;</span> &gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 `NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Javascript SDK:
 

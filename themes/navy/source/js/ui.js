@@ -58,6 +58,7 @@ window.onload = function () {
 
 // 侧边栏收起
   var sidebarTitle = getElementsByClassName('sidebar-title');
+  var sidebarItems = getElementsByClassName('sublist-item');
 
   sidebarTitle.forEach(function (ele) {
     ele.addEventListener('click', function () {
@@ -65,6 +66,17 @@ window.onload = function () {
       if (getSiblings(ele)[0]) {
         toggleClass(getSiblings(ele)[0], 'current');
       }
+      var index = sidebarItems.indexOf(ele.parentElement)
+      getSiblings(ele.parentElement).forEach(function (item, itemIndex) {
+        if (itemIndex !== index) {
+          [].slice.call(item.getElementsByClassName('sidebar-title')).forEach(function (title) {
+            removeClass(title, 'select')
+          });
+          [].slice.call(item.getElementsByClassName('sublist')).forEach(function (list) {
+            removeClass(list, 'current')
+          })
+        }
+      })
     })
   });
 
@@ -135,4 +147,21 @@ window.onload = function () {
   backTop.addEventListener('click', function () {
     window.scrollTo(0, 0);
   });
+
+  var jsVersionContent = getElementsByClassName('js-version');
+
+  if (jsVersionContent.length !== 0) {
+    var config = {
+      authDomain: "wd-download.wilddog.com",
+      syncURL: "https://wd-download.wilddogio.com"
+    };
+
+    wilddog.initializeApp(config);
+    var ref = wilddog.sync().ref();
+    ref.child('WilddogJavaScript/version').once('value', function (snap) {
+      jsVersionContent.forEach(function (ele) {
+        ele.textContent = snap.val();
+      })
+    })
+  }
 };
