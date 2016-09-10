@@ -1,3 +1,4 @@
+
 title: 快速入门
 ---
 
@@ -5,7 +6,7 @@ title: 快速入门
 
 ## 1. 创建应用
 
-你首先需要在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
+你首先需要在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 引入 SDK
 
@@ -23,12 +24,12 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 然后在 Podfile 文件中添加以下语句
 
 	pod 'Wilddog/Sync'
-	
+
 最后安装 SDK
 
 	$ pod install
 	$ open your-project.xcworkspace
-	
+
 ** 第二种：手动集成 **
 
 1、下载 SDK。[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.0/WilddogSync.framework-2.0.0.zip)         
@@ -128,6 +129,6 @@ myRootRef.observeEventType(.Value, withBlock: {
 
 `snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`observeSingleEventOfType`方法替代`observeEventType`方法。
 
-更多的数据读取方式可以查看[完整指南](/guide/sync/ios/save-data.html)。
+更多的数据读取方式可以查看 [完整指南](/guide/sync/ios/save-data.html)。
 
 

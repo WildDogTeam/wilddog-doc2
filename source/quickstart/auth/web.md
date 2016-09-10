@@ -6,13 +6,13 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
+首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Auth SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
-`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Javascript SDK:
+`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Auth SDK:
 
 ```
 npm install wilddog
@@ -20,7 +20,7 @@ npm install wilddog
 
 ## 3. 初始化 APP 对象
 
-使用野狗 JavaScript SDK 的任何模块之前，我们都需要首先初始化 APP，初始化代码如下：
+使用 Auth SDK 之前，需要先初始化 APP：
 
 ```javascript
 var config = {

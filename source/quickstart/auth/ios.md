@@ -1,3 +1,4 @@
+
 title: 快速入门
 ---
 
@@ -5,10 +6,10 @@ title: 快速入门
 
 开始之前，需要查看你的环境和了解支持版本：  
 *	Xcode 7.0 或更高版本。
-*	支持 iOS 7.0 或更高版本。
-	
-如果你尚无 Xcode 项目，而只想试用一下 Wilddog 功能，请下载一个[快速入门示例](https://github.com/WildDogTeam/wilddog-ios-quickstart)。
-注：如准备从 1.X 版升级 Wilddog SDK，请参阅我们的[iOS 升级指南](https://z.wilddog.com/upgrade/iosupgrade)开始升级。
+   *支持 iOS 7.0 或更高版本。
+
+如果你尚无 Xcode 项目，而只想试用一下 Wilddog 功能，请下载一个 [快速入门示例](https://github.com/WildDogTeam/wilddog-ios-quickstart)。
+注：如准备从 1.X 版升级 Wilddog SDK，请参阅我们的 [iOS 升级指南](https://z.wilddog.com/upgrade/iosupgrade) 开始升级。
 
 ## 二、SDK 导入
 
@@ -27,12 +28,12 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 然后在 Podfile 文件中添加以下语句
 
 	pod 'Wilddog/Auth'
-	
+
 最后安装 SDK
 
 	$ pod install
 	$ open your-project.xcworkspace
-	
+
 ### 第二种：手动集成 
 
 1、下载 SDK。[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.0/WilddogAuth.framework-2.0.0.zip)         

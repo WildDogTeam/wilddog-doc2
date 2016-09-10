@@ -1,3 +1,4 @@
+
 title: 快速入门
 ---
 
@@ -5,7 +6,7 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
+首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
@@ -32,7 +33,7 @@ Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。�
 
     $ cd wilddog-client-c
     $ make 
- 
+
 
 ## 3. 创建 Wdilddog 云端引用
 
@@ -144,4 +145,4 @@ int main(){
 ```
 当从云端第一次同步数据，以及数据发生变化时，回调函数 callback 会被触发。每当我们对云端数据进行修改，SDK 就会收到通知。
 
- Wilddog C/嵌入式 SDK 更全面的使用方法可以查看[完整指南](/guide/sync/c/config-and-porting.html)。
+ Wilddog C/嵌入式 SDK 更全面的使用方法可以查看 [完整指南](/guide/sync/c/config-and-porting.html)。
