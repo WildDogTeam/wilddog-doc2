@@ -19,14 +19,14 @@ runTransactionBlock | 提供事务性更新，用于并发更新操作的场景�
 Objective-C
 
 ```objectivec
-[[[_ref childByAppendingPath:@"users"] childByAppendingPath:user.uid] setValue:@{@"username": username}];
+[[[_ref child:@"users"] child:user.uid] setValue:@{@"username": username}];
 
 ```
 
 Swift
 
 ```swift     
-self.ref.childByAppendingPath("users").childByAppendingPath(user!.uid).setValue(["username": username])
+self.ref.child("users").child(user!.uid).setValue(["username": username])
 
 ```
 
@@ -35,14 +35,14 @@ self.ref.childByAppendingPath("users").childByAppendingPath(user!.uid).setValue(
 Objective-C
 
 ```objectivec
-[[[[_ref childByAppendingPath:@"users"] childByAppendingPath:user.uid] childByAppendingPath:@"username"] setValue:username];
+[[[[_ref child:@"users"] child:user.uid] child:@"username"] setValue:username];
     
 ```
 
 Swift
 
 ```swift
-self.ref.childByAppendingPath("users/(user.uid)/username").setValue(username)
+self.ref.child("users/(user.uid)/username").setValue(username)
 
 ```
 
@@ -56,19 +56,19 @@ self.ref.childByAppendingPath("users/(user.uid)/username").setValue(username)
 Objective-C
 
 ```objectivec
-Wilddog *postRef = [ref childByAppendingPath: @"posts"];
+WDGSyncReference *postRef = [ref child: @"posts"];
 NSDictionary *post1 = @{
     @"author": @"gracehop",
     @"title": @"Announcing COBOL, a New Programming Language"
 };
-Wilddog *post1Ref = [ref childByAutoId];
+WDGSyncReference *post1Ref = [ref childByAutoId];
 [post1Ref setValue: post1];
 
 NSDictionary *post2 = @{
     @"author": @"alanisawesome",
     @"title": @"The Turing Machine"
 };
-Wilddog *post2Ref = [ref childByAutoId];
+WDGSyncReference *post2Ref = [ref childByAutoId];
 [post2Ref setValue: post2];
 
 ```
@@ -76,7 +76,7 @@ Wilddog *post2Ref = [ref childByAutoId];
 Swift
 
 ```swift
-let postRef = ref.childByAppendingPath("posts")
+let postRef = ref.child("posts")
 let post1 = ["author": "gracehop", "title": "Announcing COBOL, a New Programming Language"]
 let post1Ref = postRef.childByAutoId()
 post1Ref.setValue(post1)
@@ -87,7 +87,7 @@ post2Ref.setValue(post2)
 
 ```
 
-由于使用了 `childByAutoId` 方法为每个博客 post 生成了基于时间戳的唯一标识，即使多个用户同时添加博客 post 也不会产生冲突。Wilddog 数据库中的数据结构如下：
+由于使用了 `childByAutoId` 方法为每个博客 post 生成了基于时间戳的唯一标识，即使多个用户同时添加博客 post 也不会产生冲突。Wilddog Sync 数据库中的数据结构如下：
 
 ```json
 {
@@ -115,7 +115,7 @@ post2Ref.setValue(post2)
 Objective-C
 
 ```objectivec
-NSString *key = [[_ref childByAppendingPath:@"posts"] childByAutoId].key;
+NSString *key = [[_ref child:@"posts"] childByAutoId].key;
 NSDictionary *post = @{@"uid": userID,
                        @"author": username,
                        @"title": title,
@@ -129,7 +129,7 @@ NSDictionary *childUpdates = @{[@"/posts/" stringByAppendingString:key]: post,
 Swift
 
 ```swift
-let key = ref.childByAppendingPath("posts").childByAutoId().key
+let key = ref.child("posts").childByAutoId().key
 let post = ["uid": userID,
             "author": username,
             "title": title,
@@ -159,15 +159,20 @@ ref.updateChildValues(childUpdates)
 Objective-C
 
 ```objectivec
-Wilddog *upvotesRef = [[Wilddog alloc] initWithUrl: @"https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes"];
+// 初始化 App 
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
+[WDGApp configureWithOptions:option];  
+
+// 获取一个 WDGSyncReference 对象
+WDGSyncReference *upvotesRef =[[WDGSync sync] referenceFromURL:@"https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes"];
     
-[upvotesRef runTransactionBlock:^WTransactionResult *(WMutableData *currentData) {
+[upvotesRef runTransactionBlock:^WDGTransactionResult *(WDGMutableData *currentData) {
     NSNumber *value = currentData.value;
     if (currentData.value == [NSNull null]) {
         value = 0;
     }
     [currentData setValue:[NSNumber numberWithInt:(1 + [value intValue])]];
-    return [WTransactionResult successWithValue:currentData];
+    return [WDGTransactionResult successWithValue:currentData];
 }];
 
 ```
@@ -175,16 +180,21 @@ Wilddog *upvotesRef = [[Wilddog alloc] initWithUrl: @"https://docs-examples.wild
 Swift
 
 ```swift
-let upvotesRef = Wilddog(url: "https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes")
+// 初始化 App 
+let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
+WDGApp.configureWithOptions(options)
+
+// 获取一个 WDGSyncReference 对象
+let upvotesRef = WDGSync.sync().referenceFromURL("https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes")
         
 upvotesRef.runTransactionBlock({
-     (currentData:WMutableData!) in
+     (currentData:WDGMutableData!) in
      var value = currentData.value as? Int
      if (value == nil) {
          value = 0
      }
      currentData.value = value! + 1
-     return WTransactionResult.successWithValue(currentData)
+     return WDGTransactionResult.successWithValue(currentData)
 })
 
 ```
