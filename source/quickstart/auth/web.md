@@ -31,7 +31,7 @@ wilddog.initializeApp(config);
 ```
 
 如果你的应用中并未用到 `Sync` 模块，代码中所示的 `syncURL` 项可以忽略。
-## 4. 使用邮箱密码方式认证
+## 4. 使用邮箱认证
 
 1. 首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
 
@@ -47,7 +47,7 @@ wilddog.auth().onAuthStateChanged(function (userInfo) {
     }
 });
 ```
-3. 调用 `createUserWithEmailAndPassword` 创建用户:
+3. 调用 `createUserWithEmailAndPassword()` 创建用户:
 ```js
 wilddog.auth().createUserWithEmailAndPassword(email,pwd)
 	.then(function (user) {
@@ -56,13 +56,13 @@ wilddog.auth().createUserWithEmailAndPassword(email,pwd)
     console.info("create user failed.", err);
 });
 ```
-4.  用户创建成功之后会自动登录，可以调用 `signOut` 登出：
+4.  用户创建成功之后会自动登录，可以调用 `signOut()` 登出：
 ```js
 wilddog.auth().signOut().then(function () {
     console.info("user sign out.");
 });
 ```
-5. 已经存在的用户通过 `signInWithEmailAndPassword` 登录：
+5. 已经存在的用户通过 `signInWithEmailAndPassword()` 方法登录：
 ```js
 wilddog.auth().signInWithEmailAndPassword(email, pwd)
     .then(function () {
