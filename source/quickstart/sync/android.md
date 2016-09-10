@@ -70,15 +70,15 @@ public void onCreate() {
 创建 Wilddog 实例的时候需要传入节点路径参数。
 
 ```java
-Wilddog Wilddog = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
+Wilddog ref = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
 ```
 
-使用 Child() 可以创建一个子节点实例。
+实例的 child() 方法可以创建一个子节点实例。
 
-例如在应用中创建`/weather`子节点：
+例如在 ref 下创建`/weather`子节点：
 
 ```java
-Wilddog Child = new Wilddog().Child("/weather")
+Wilddog child = ref.child("/weather")
 ```
 
 
@@ -98,7 +98,7 @@ child.setValue(data);
 
 存入的数据如下图：
 
-<img src="/images/saveapp.png" alt="savedata" >
+<img src="/images/saveapp.png" alt="savedata" width="300" >
 
 ## 7. 读取与同步数据
 
