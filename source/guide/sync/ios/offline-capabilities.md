@@ -8,13 +8,19 @@ Wilddog 内部的实现机制能使你的应用在弱网环境下仍能继续工
 Objective-C
 
 ```objectivec
-Wilddog *connectedRef = [[Wilddog alloc] initWithUrl:@"https://<YOUR-WILDDOG-APP>.wilddogio.com/.info/connected"];
-[connectedRef observeEventType:WEventTypeValue withBlock:^(WDataSnapshot *snapshot) {
-  if([snapshot.value boolValue]) {
-    NSLog(@"connected");
-  } else {
-    NSLog(@"not connected");
-  }
+//初始化 WDGApp，同一个 appID 初始化一次即可 
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appID>.wilddogio.com"];
+[WDGApp configureWithOptions:option];
+
+//创建一个指向根节点的 WDGSyncReference 实例
+WDGSyncReference *connectedRef = [[WDGSync sync] referenceFromURL:@"https://<appID>.wilddogio.com/.info/connected"];
+
+[connectedRef observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
+    if([snapshot.value boolValue]) {
+        NSLog(@"connected");
+    } else {
+        NSLog(@"not connected");
+    }
 }];
 
 ```
@@ -22,8 +28,14 @@ Wilddog *connectedRef = [[Wilddog alloc] initWithUrl:@"https://<YOUR-WILDDOG-APP
 Swift
 
 ```swift
-var connectedRef = Wilddog(url:"https://<YOUR-WILDDOG-APP>.wilddogio.com/.info/connected")
-connectedRef.observeEventType(.Value, withBlock: { snapshot in
+//初始化 WDGApp
+let options = WDGOptions.init(syncURL: "https://<appID>.wilddogio.com")
+WDGApp.configureWithOptions(options)
+
+//创建一个指向根节点的 WDGSyncReference 实例
+let connectedRef = WDGSync.sync().referenceFromURL("https://<appID>.wilddogio.com/.info/connected")
+
+connectedRef.observeEventType(.Value, withBlock: {snapshot in
     let connected = snapshot.value as? Bool
     if connected != nil && connected! {
         print("connected")
@@ -45,7 +57,8 @@ connectedRef.observeEventType(.Value, withBlock: { snapshot in
 Objective-C
 
 ```objectivec
-Wilddog *presenceRef = [[Wilddog alloc] initWithUrl:@"https://<YOUR-WILDDOG-APP>.wilddogio.com/disconnectmessage"];
+//创建一个指向根节点的 WDGSyncReference 实例
+WDGSyncReference *presenceRef = [[WDGSync sync] referenceFromURL:@"https://<appID>.wilddogio.com/disconnectmessage"];
 // 当客户端连接中断时，写入一个字符串
 [presenceRef onDisconnectSetValue:@"I disconnected!"];
 
@@ -54,7 +67,7 @@ Wilddog *presenceRef = [[Wilddog alloc] initWithUrl:@"https://<YOUR-WILDDOG-APP>
 Swift
 
 ```swift
-var presenceRef = Wilddog(url:"https://<YOUR-WILDDOG-APP>.wilddogio.com/disconnectmessage")
+var presenceRef = WDGSync.sync().referenceFromURL("https://<appID>.wilddogio.com/disconnectmessage")
 // 当客户端连接中断时，写入一个字符串
 presenceRef.onDisconnectSetValue("I disconnected!")
 
@@ -115,16 +128,16 @@ Wilddog 提供了一种将云端时间戳作为数据写入的机制。这个机
 Objective-C
 
 ```objectivec
-Wilddog *userLastOnlineRef = [[Wilddog alloc] initWithUrl:@"https://<YOUR-WILDDOG-APP>.wilddogio.com/users/joe/lastOnline"];
-[userLastOnlineRef onDisconnectSetValue:kWilddogServerValueTimestamp];
+WDGSyncReference *userLastOnlineRef = [[WDGSync sync] referenceFromURL:@"https://<appID>.wilddogio.com/users/joe/lastOnline"];
+[userLastOnlineRef onDisconnectSetValue:[WDGServerValue timestamp]];
 
 ```
 
 Swift
 
 ```swift
-var userLastOnlineRef = Wilddog(url:"https://<YOUR-WILDDOG-APP>.wilddogio.com/users/joe/lastOnline")
-userLastOnlineRef.onDisconnectSetValue([".sv": "timestamp"])
+var userLastOnlineRef = WDGSync.sync().referenceFromURL("https://<appID>.wilddogio.com/users/joe/lastOnline")
+userLastOnlineRef.onDisconnectSetValue(WDGServerValue.timestamp())
 
 ```
 

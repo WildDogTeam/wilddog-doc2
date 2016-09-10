@@ -3,6 +3,21 @@ title:  完整 API 文档
 
 # WDGAuth (*Methods*)
 
+## + auth
+ 
+ 定义
+
+`+ (nullable WDGAuth *)auth NS_SWIFT_NAME(auth())`
+
+ 说明
+
+以 appID 来获取 auth 对象。如果之前没有创建过 auth 对象，会自动创建一个。
+
+ 返回值
+ 
+应用的 appID。
+
+----
 ## + authWithApp:
 
  定义
