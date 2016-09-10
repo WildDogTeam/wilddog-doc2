@@ -46,7 +46,7 @@ WDGDataEventTypeChildMoved | 当有子节点排序发生变化时触发
 Objective-C 
 
 ```objectivec
-// 初始化 App (必要步骤)
+// 初始化 App，同一个 appID 初始化一次即可（必要步骤）
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 
@@ -65,7 +65,7 @@ WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://docs-examples
 Swift
 
 ```swift
-// 初始化 App (必要步骤)
+// 初始化 App，同一个 appID 初始化一次即可（必要步骤）
 let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
 WDGApp.configureWithOptions(options)  
 
@@ -294,7 +294,7 @@ queryOrderedByPriority | 按节点的指定优先级对结果排序。
 Objective-C
 
 ```objectivec
-// 初始化 App (必要步骤)
+// 初始化 App，同一个 appID 初始化一次即可（必要步骤）
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://dinosaur-facts.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 
@@ -311,7 +311,7 @@ WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://dinosaur-fact
 Swift
 
 ```swift
-//初始化 WDGApp (必要步骤)
+// 初始化 App，同一个 appID 初始化一次即可（必要步骤）
 let options = WDGOptions.init(syncURL: "https://dinosaur-facts.wilddogio.com")
 WDGApp.configureWithOptions(options)
 
@@ -432,7 +432,7 @@ queryEqualToValue | 返回等于指定的键、值或优先级的数据，具体
 Objective-C
 
 ```objectivec
-// 初始化 App (必要步骤)
+//初始化 App，同一个 appID 初始化一次即可（必要步骤）
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://dinosaur-facts.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 
@@ -449,7 +449,7 @@ WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://dinosaur-fact
 Swift
 
 ```swift
-//初始化 WDGApp (必要步骤)
+// 初始化 App，同一个 appID 初始化一次即可（必要步骤）
 let options = WDGOptions.init(syncURL: "https://dinosaur-facts.wilddogio.com")
 WDGApp.configureWithOptions(options)
 

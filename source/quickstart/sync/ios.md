@@ -59,7 +59,7 @@ Objective-C
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 
-//创建一个指向根节点的 WDGSyncReference 实例    
+//获取一个指向根节点的 WDGSyncReference 实例    
 WDGSyncReference *myRootRef = [[WDGSync sync] reference];
 ```
 
@@ -70,7 +70,7 @@ Swift
 let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 
-//创建一个指向根节点的 WDGSyncReference 实例
+//获取一个指向根节点的 WDGSyncReference 实例
 let myRootRef = WDGSync.sync().reference()
 ```
 
