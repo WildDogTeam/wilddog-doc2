@@ -36,7 +36,6 @@ Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。�
 
 ## 3. 创建 Wdilddog 云端引用
 
-要读写 Wilddog 云端数据，必须先创建 Wilddog 云端引用：
 ```c
 Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/");
 ```
@@ -52,7 +51,7 @@ SDK 提供了许多用于读写数据的方法。例如通过`wilddog_setValue()
 
 ## 4. 写入数据
 
-SDK 提供了一系列节点操作 API 对节点数据进行操作，在这里使用节点 create 函数族将`/users/Jack`节点值设置为字符串"beauty",并通过`wilddog_setValue()`将这个值写入到云端。你可以在 SDK 的`examples/linux`目录下新建一个 C 源文件，将下面代码复制进去,修改 `<appId>` 为你自己的 appId ，并在 SDK 根目录执行`make example`。生成的可执行文件在 SDK 的 bin 目录下。为了简略，下面代码未检查返回值。
+SDK 提供了一系列节点操作 API 对节点数据进行操作，在这里使用节点 create 函数将`/users/Jack`节点值设置为字符串"beauty",并通过`wilddog_setValue()`将这个值写入到云端。你可以在 SDK 的`examples/linux`目录下新建一个 C 源文件，将下面代码复制进去,修改 `<appId>` 为你自己的 appId ，并在 SDK 根目录执行`make example`。生成的可执行文件在 SDK 的 bin 目录下。为了简略，下面代码未检查返回值。
 ```c
 #include "wilddog.h"
 void callback(void* arg, Wilddog_Return_T err){
