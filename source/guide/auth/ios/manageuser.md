@@ -11,7 +11,7 @@ title: 管理用户
 
 Objective-C
 ```objectivec
-[[WDGAuth authWithAppID:@"your-wilddog-appid"]; addAuthStateDidChangeListener:^(WDGAuth *_Nonnull auth,
+[[WDGAuth authWithApp:@"your-wilddog-appid"]; addAuthStateDidChangeListener:^(WDGAuth *_Nonnull auth,
                                                 WDGUser *_Nullable user) {
   if (user != nil) {
     // User is signed in.

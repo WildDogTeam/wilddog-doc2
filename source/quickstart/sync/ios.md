@@ -31,10 +31,11 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 	
 ** 第二种：手动集成 **
 
-1、下载 SDK。[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.0/WilddogSync.framework-2.0.0.zip)         
-2、把 WilddogSync.Framework 拖到工程目录中。  
-3、选中 Copy items if needed 、Create Groups，点击 Finish。  
-4、点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
+1、下载 Sync SDK[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogSync.framework-2.0.1.zip)。 
+2、下载 Core SDK[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip)。        
+3、把 WilddogSync.framework 和 WilddogCore.framework 拖到工程目录中。  
+4、选中 Copy items if needed 、Create Groups，点击 Finish。  
+5、点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
 
 ## 3. 创建 Wilddog 实例
 成功集成 SDK 之后，我们就可以开发应用了。

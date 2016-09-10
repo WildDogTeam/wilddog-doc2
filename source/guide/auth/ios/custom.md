@@ -27,7 +27,7 @@ import WilddogAuth
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithAppID:@"your-wilddog-appid"];
+WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
 ```
 Swift
 ```swift
@@ -64,7 +64,7 @@ auth?.signInWithCustomToken(customToken) { (user, error) in
 Objective-C
 ```objectivec
 NSError *error;
-[[WDGAuth authWithAppID:@"your-wilddog-appid"] signOut:&error];
+[[WDGAuth authWithApp:@"your-wilddog-appid"] signOut:&error];
 if (!error) {
     // 退出登录成功
 }
