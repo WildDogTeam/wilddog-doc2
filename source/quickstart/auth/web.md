@@ -49,7 +49,7 @@ wilddog.auth().onAuthStateChanged(function (userInfo) {
     }
 });
 ```
-3. 调用 `createUserWithEmailAndPassword()` 创建用户:
+3. 调用 `createUserWithEmailAndPassword()` 创建用户，创建后的用户会自动登录。
 ```js
 wilddog.auth().createUserWithEmailAndPassword(email,pwd)
 	.then(function (user) {
@@ -58,13 +58,7 @@ wilddog.auth().createUserWithEmailAndPassword(email,pwd)
     console.info("create user failed.", err);
 });
 ```
-4.  用户创建成功之后会自动登录，可以调用 `signOut()` 登出：
-```js
-wilddog.auth().signOut().then(function () {
-    console.info("user sign out.");
-});
-```
-5. 已经存在的用户通过 `signInWithEmailAndPassword()` 方法登录：
+4.  已经存在的用户通过 `signInWithEmailAndPassword()` 方法登录：
 ```js
 wilddog.auth().signInWithEmailAndPassword(email, pwd)
     .then(function () {
@@ -73,6 +67,17 @@ wilddog.auth().signInWithEmailAndPassword(email, pwd)
         console.info('login failed ->',err);
     });
 ```
+
+## 5. 退出登录
+
+可以调用 `signOut()` 推出登录：
+
+```js
+wilddog.auth().signOut().then(function () {
+    console.info("user sign out.");
+});
+```
+
 
 
 野狗还提供了匿名认证、第三方认证等其他认证方式，详细信息请见 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/web.html)。
