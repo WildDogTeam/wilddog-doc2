@@ -25,7 +25,7 @@ WDGDataEventTypeChildChanged | 当某个子节点发生变化时触发
 WDGDataEventTypeChildRemoved	| 当有子节点被删除时触发
 WDGDataEventTypeChildMoved | 当有子节点排序发生变化时触发
 
-`WDGDataEventTypeChildAdded`、`WDGDataEventTypeChildRemoved` 和 `WDGDataEventTypeChildChanged`配合使用，就可以实时监听到别人对子节点数据的“增、删、改”的更改操作。
+`WDGDataEventTypeChildAdded`、`WDGDataEventTypeChildRemoved` 和 `WDGDataEventTypeChildChanged`配合使用，就可以实时监听到子节点数据下的“增、删、改”的更改操作。
 
 ** Value 事件 **
   
@@ -41,7 +41,7 @@ WDGDataEventTypeChildMoved | 当有子节点排序发生变化时触发
 **注意**：每当指定节点下的数据（包括更深层的子孙节点下数据）有改变时，都会触发 Value 事件。所以，为了聚焦你只关心的数据，应该把要监听的节点路径设置的更加精确。
 例如，如果不是必要，尽量不要在根节点设置 Value 监听。
 
-让我们重温一下前一篇文章中博客的例子，来理解我们是如何从 Wilddog Sync 数据库中读取数据的。我们的示例应用程序的博客文章是被存储在 url：`https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts `，若要了解博客实例展示的数据结构，请点击[博客实例数据库](https://docs-examples.wilddogio.com/web/saving-data)。为读取数据，我们可以这样做：
+重温一下前一篇文章中博客的例子，来理解我们是如何从 Wilddog Sync 数据库中读取数据的。我们的示例应用程序的博客文章是被存储在 url：`https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts `，若要了解博客实例展示的数据结构，请点击[博客实例数据库](https://docs-examples.wilddogio.com/web/saving-data)。为读取数据，我们可以这样做：
 
 Objective-C 
 
@@ -422,7 +422,7 @@ queryEqualToValue | 返回等于指定的键、值或优先级的数据，具体
 
 与排序依据方法使用方式不同，查询方法需要你更加灵活地使用和操作。
 例如，你可以结合使用 `queryStartingAtValue` 与 `queryEndingAtValue` 方法将结果限制在指定的范围内。
-你可以使用 `queryLimitedToFirst` 和 `lqueryLimitedToLast` 方法为某个给定的事件设置要监听的子节点的最大数量。 例如，如果你使用 `queryLimitedToFirst` 将限制个数设置为 100，那么一开始最多只能收到 100 个 `WDGDataEventTypeChildAdded` 事件，即只返回前100条数据的快照。
+你可以使用 `queryLimitedToFirst` 和 `queryLimitedToLast` 方法为某个给定的事件设置要监听的子节点的最大数量。 例如，如果你使用 `queryLimitedToFirst` 将限制个数设置为 100，那么一开始最多只能收到 100 个 `WDGDataEventTypeChildAdded` 事件，即只返回前100条数据的快照。
 当数据发生更改时，对于进入到前100的数据，你会接收到 `WDGDataEventTypeChildAdded` 回调，对于从前100中删除的数据，你才会接收到 `WDGDataEventTypeChildRemoved` 事件，也就是说只有这100条里的数据变化才会触发事件。
 
 #### LimitedToFirst 查询
