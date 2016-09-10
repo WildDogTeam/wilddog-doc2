@@ -24,7 +24,7 @@ C / RTOS SDK | Broadcom WICED : 例如 Broadcom 的 BCM943362WCD4、AMPAK 的 WS
 OpenWRT SDK | ar71xx 系列。
 Arduino SDK | Arduino Yun。
 
-在大部分平台下 C/嵌入式 SDK API 接口一致（Arduino 平台除外），因此下面我们以 Linux 平台为例，快速了解 SDK 的基本 API，其他平台可以参考 SDK 中的 docs 目录和 README。
+在大部分平台下 C/嵌入式 SDK 的 API 接口是一致（Arduino 平台除外），因此下面我们以 Linux 平台为例，快速了解 SDK 的基本 API，其他平台可以参考 SDK 中的 docs 目录和 README。
 
 ### 编译 SDK
 
