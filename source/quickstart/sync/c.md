@@ -145,4 +145,4 @@ int main(){
 ```
 当从云端第一次同步数据，以及数据发生变化时，回调函数 callback 会被触发。每当我们对云端数据进行修改，SDK 就会收到通知。
 
- Wilddog C/嵌入式 SDK 更多的使用方法可以查看[完整指南](/guide/sync/c/config-and-porting.html)。
+ Wilddog C/嵌入式 SDK 更全面的使用方法可以查看[完整指南](/guide/sync/c/config-and-porting.html)。
