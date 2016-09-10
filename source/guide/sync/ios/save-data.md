@@ -159,7 +159,7 @@ ref.updateChildValues(childUpdates)
 Objective-C
 
 ```objectivec
-// 初始化 App 
+// 初始化 App，同一个 appID 初始化一次即可
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
 [WDGApp configureWithOptions:option];  
 
@@ -180,7 +180,7 @@ WDGSyncReference *upvotesRef =[[WDGSync sync] referenceFromURL:@"https://docs-ex
 Swift
 
 ```swift
-// 初始化 App 
+// 初始化 App，同一个 appID 初始化一次即可
 let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
 WDGApp.configureWithOptions(options)
 

@@ -33,9 +33,9 @@ window.onload = function () {
 
 //右侧目录判断是否显示
   var airticleContent = document.querySelector('.article .inner');
-  var toc = document.getElementById('article-toc');
+  var toc = getElementsByClassName('toc-content')[0];
 
-  if(getElementsByClassName('toc-item').length < 1) {
+  if(getElementsByClassName('toc-item').length < 1 && airticleContent) {
     airticleContent.removeChild(toc)
   }
 
@@ -66,16 +66,13 @@ window.onload = function () {
       if (getSiblings(ele)[0]) {
         toggleClass(getSiblings(ele)[0], 'current');
       }
-      var index = sidebarItems.indexOf(ele.parentElement)
       getSiblings(ele.parentElement).forEach(function (item, itemIndex) {
-        if (itemIndex !== index) {
-          [].slice.call(item.getElementsByClassName('sidebar-title')).forEach(function (title) {
-            removeClass(title, 'select')
-          });
-          [].slice.call(item.getElementsByClassName('sublist')).forEach(function (list) {
-            removeClass(list, 'current')
-          })
-        }
+        [].slice.call(item.getElementsByClassName('sidebar-title')).forEach(function (title) {
+          removeClass(title, 'select')
+        });
+        [].slice.call(item.getElementsByClassName('sublist')).forEach(function (list) {
+          removeClass(list, 'current')
+        })
       })
     })
   });
@@ -117,7 +114,9 @@ window.onload = function () {
   function currentLinkSelect (heading) {
     var id = heading ? heading.id : tocLinksHref[0];
     var index = tocLinksHref.indexOf(id);
-    addClass(tocLinks[index], 'current');
+    if (index !== -1) {
+      addClass(tocLinks[index], 'current');
+    }
     tocLinks.forEach(function (ele, eleIndex) {
       if (eleIndex === index) return;
       removeClass(ele, 'current')
