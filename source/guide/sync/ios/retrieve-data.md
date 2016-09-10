@@ -422,7 +422,7 @@ queryEqualToValue | 返回等于指定的键、值或优先级的数据，具体
 
 与排序依据方法使用方式不同，查询方法需要你更加灵活地使用和操作。
 例如，你可以结合使用 `queryStartingAtValue` 与 `queryEndingAtValue` 方法将结果限制在指定的范围内。
-你可以使用 `queryLimitedToFirst` 和 `lqueryLimitedToLast` 方法为某个给定的事件设置要监听的子节点的最大数量。 例如，如果你使用 `queryLimitedToFirst` 将限制个数设置为 100，那么一开始最多只能收到 100 个 `WDGDataEventTypeChildAdded` 事件，即只返回前100条数据的快照。
+你可以使用 `queryLimitedToFirst` 和 `queryLimitedToLast` 方法为某个给定的事件设置要监听的子节点的最大数量。 例如，如果你使用 `queryLimitedToFirst` 将限制个数设置为 100，那么一开始最多只能收到 100 个 `WDGDataEventTypeChildAdded` 事件，即只返回前100条数据的快照。
 当数据发生更改时，对于进入到前100的数据，你会接收到 `WDGDataEventTypeChildAdded` 回调，对于从前100中删除的数据，你才会接收到 `WDGDataEventTypeChildRemoved` 事件，也就是说只有这100条里的数据变化才会触发事件。
 
 #### LimitedToFirst 查询
