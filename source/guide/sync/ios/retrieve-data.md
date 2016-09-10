@@ -25,7 +25,7 @@ WDGDataEventTypeChildChanged | 当某个子节点发生变化时触发
 WDGDataEventTypeChildRemoved	| 当有子节点被删除时触发
 WDGDataEventTypeChildMoved | 当有子节点排序发生变化时触发
 
-`WDGDataEventTypeChildAdded`、`WDGDataEventTypeChildRemoved` 和 `WDGDataEventTypeChildChanged`配合使用，就可以实时监听到别人对子节点数据的“增、删、改”的更改操作。
+`WDGDataEventTypeChildAdded`、`WDGDataEventTypeChildRemoved` 和 `WDGDataEventTypeChildChanged`配合使用，就可以实时监听到子节点数据下的“增、删、改”的更改操作。
 
 ** Value 事件 **
   
@@ -41,7 +41,7 @@ WDGDataEventTypeChildMoved | 当有子节点排序发生变化时触发
 **注意**：每当指定节点下的数据（包括更深层的子孙节点下数据）有改变时，都会触发 Value 事件。所以，为了聚焦你只关心的数据，应该把要监听的节点路径设置的更加精确。
 例如，如果不是必要，尽量不要在根节点设置 Value 监听。
 
-让我们重温一下前一篇文章中博客的例子，来理解我们是如何从 Wilddog Sync 数据库中读取数据的。我们的示例应用程序的博客文章是被存储在 url：`https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts `，若要了解博客实例展示的数据结构，请点击[博客实例数据库](https://docs-examples.wilddogio.com/web/saving-data)。为读取数据，我们可以这样做：
+重温一下前一篇文章中博客的例子，来理解我们是如何从 Wilddog Sync 数据库中读取数据的。我们的示例应用程序的博客文章是被存储在 url：`https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts `，若要了解博客实例展示的数据结构，请点击[博客实例数据库](https://docs-examples.wilddogio.com/web/saving-data)。为读取数据，我们可以这样做：
 
 Objective-C 
 
