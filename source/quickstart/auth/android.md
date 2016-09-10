@@ -52,9 +52,9 @@ android {
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-## 4. 初始化 WilddogAuth 对象
+## 4. 初始化实例
 
-引入 Wilddog Auth SDK 之后需要初始化 WilddogAuth 对象。
+引入 Wilddog Auth SDK 之后需要初始化 WilddogAuth 实例。
 
 ```java
 WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
@@ -67,7 +67,7 @@ WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
 
 ![](/images/openemail.png)
 
-2. 生成合法用户的方式有两种：
+2. 创建用户的方式有两种：
 
 * 将账号密码填写到用户列表中，创建新的用户。用户创建成功后会自动登录。
 

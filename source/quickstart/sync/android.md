@@ -7,7 +7,7 @@ title: 快速入门
 
 首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
-## 2. 引入 SDK
+## 2. 安装 SDK
 
 **使用Maven获得 Sync SDK：**
 

@@ -18,9 +18,9 @@ title: 快速入门
 npm install wilddog
 ```
 
-## 3. 初始化 APP 对象
+## 3. 初始化实例
 
-使用 Auth SDK 之前，需要先初始化 APP：
+使用 Auth SDK 之前，需要先初始化实例：
 
 ```javascript
 var config = {
@@ -33,7 +33,9 @@ wilddog.initializeApp(config);
 如果你的应用中并未用到 `Sync` 模块，代码中所示的 `syncURL` 项可以忽略。
 ## 4. 使用邮箱认证
 
-1. 首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
+1. 激活邮箱登录功能:
+
+   首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
 
    ![](/images/openemail.png)
 

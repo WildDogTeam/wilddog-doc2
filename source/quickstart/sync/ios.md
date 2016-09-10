@@ -8,12 +8,12 @@ title: 快速入门
 
 你首先需要在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
-## 2. 引入 SDK
+## 2. 安装 SDK
 
-SDK 的导入方式有两种，你可以选择下面方式的其中一种：
+SDK 的安装方式有两种，你可以选择下面方式的其中一种：
 
-** 第一种：使用 CocoaPods **
-要将 WilddogSync SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问 [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
+**第一种：使用 CocoaPods **
+要将 WilddogSync SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问  [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 
 打开工程目录，新建一个 Podfile 文件
 
@@ -30,31 +30,29 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 	$ pod install
 	$ open your-project.xcworkspace
 
-** 第二种：手动集成 **
+**第二种：手动集成 **
 
-1、下载 Sync SDK[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogSync.framework-2.0.1.zip)。 
-2、下载 Core SDK[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip)。        
+1、下载 Sync SDK [下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogSync.framework-2.0.1.zip)。 
+2、下载 Core SDK [下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip)。        
 3、把 WilddogSync.framework 和 WilddogCore.framework 拖到工程目录中。  
 4、选中 Copy items if needed 、Create Groups，点击 Finish。  
 5、点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
 
-## 3. 初始化
+## 3. 初始化实例
 成功集成 SDK 之后，我们就可以开发应用了。
 
-** 1、引入头文件 **
+**1.引入头文件**
 
-Objective-C 
+Objective-C: 
 
 	#import "Wilddog.h"
-
-
-Swift
+Swift:
 
 	import Wilddog
 
-** 2、初始化 **
+**2. 初始化**
 
-Objective-C 
+Objective-C: 
 
 ```objectivec
 //初始化 WDGApp
@@ -65,7 +63,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wildd
 WDGSyncReference *myRootRef = [[WDGSync sync] reference];
 ```
 
-Swift
+Swift:
 
 ```swift
 //初始化 WDGApp
@@ -80,7 +78,7 @@ let myRootRef = WDGSync.sync().reference()
 
 `setValue`方法可以写入数据，野狗的数据是以 [JSON](http://json.org) 格式存储的。
 
-Objective-C 
+Objective-C: 
 
 ```objectivec
 // 写数据
@@ -89,7 +87,7 @@ Objective-C
 
 ```
 
-Swift
+Swift:
 
 ```swift
 // 写数据
@@ -100,7 +98,7 @@ myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
-**删除数据**和**更新数据**等更多操作数据的用法与此类似，你可以在[完整指南](/guide/sync/ios/save-data.html)或者 [API 文档](/api/sync/ios.html)中查看具体用法。
+**删除数据**和**更新数据**等更多操作数据的用法与此类似，你可以在 [完整指南](/guide/sync/ios/save-data.html) 或者 [API 文档](/api/sync/ios.html) 中查看具体用法。
 
 ## 5. 读取与监听数据
 
@@ -108,7 +106,7 @@ myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 
 例如，从应用中获得天气信息:
 
-Objective-C 
+Objective-C:
 
 ```objectivec
 // 读数据并监听数据变化
@@ -118,7 +116,7 @@ Objective-C
 
 ```
 
-Swift
+Swift:
 ```swift
 // 读数据并监听数据变化
 myRootRef.observeEventType(.Value, withBlock: {
