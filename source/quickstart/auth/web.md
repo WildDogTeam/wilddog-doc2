@@ -1,46 +1,43 @@
+
 title: 快速入门
 ---
 
-快速入门可以让你快速掌握 Wilddog 身份认证的基本用法。
+快速入门以邮箱登录为例说明野狗身份认证的基本用法。
 
-## 创建应用
+## 1. 创建应用
 
-在使用 Wilddog 身份认证功能之前，首先需要创建你自己的应用，如果你还不知道如何创建应用，请先阅读[控制面板-创建应用](/console/creat.html)
+首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
-## 引入 SDK
+## 2. 安装 SDK
 
-如果你准备开发的是一个 WEB 应用，通过野狗官方提供的 CDN 源来引入是最佳选择，我们为你提供了单独的 Auth SDK 和包含其他模块的完整 SDK，**任选其中之一引入即可**。
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Auth SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
-1. 单独引入 Auth SDK：
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- Wilddog Auth SDK --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
-2. 引入完整 SDK：
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 完整的 Wilddog SDK --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js&quot;</span> &gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
-
-`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Javascript SDK:
+`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Auth SDK:
 
 ```
 npm install wilddog
 ```
 
-**注意**  `npm` 安装的是完整 SDK 而非单独的 Auth 模块。
-## 初始化 APP 对象
+## 3. 初始化 APP 对象
 
-从 Wilddog 2.0 开始，使用野狗 JavaScript SDK 的任何模块之前，我们都需要首先初始化 APP，初始化代码如下：
+使用 Auth SDK 之前，需要先初始化 APP：
 
 ```javascript
 var config = {
-  authDomain: "YOUR_APPID.wilddog.com",
+  authDomain: "<appId>.wilddog.com",
   syncURL: "https://YOUR_APPID.wilddogio.com" 
 };
 wilddog.initializeApp(config);
 ```
 
 如果你的应用中并未用到 `Sync` 模块，代码中所示的 `syncURL` 项可以忽略。
-## 使邮箱密码方式登录
+## 4. 使用邮箱密码方式认证
 
-1. 首先在你 APP 的野狗控制面板确认邮箱登录功能已激活（默认是关闭状态）：
-![](/images/openemail.png)
-2. 监听用户登录状态，我们建议你始终通过监听器来获取用户的登录信息尤其是用户登录状态：
+1. 首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
+
+   ![](/images/openemail.png)
+
+2. 监听用户登录状态:
 ```js
 wilddog.auth().onAuthStateChanged(function (userInfo) {
     if(userInfo) {
@@ -50,8 +47,7 @@ wilddog.auth().onAuthStateChanged(function (userInfo) {
     }
 });
 ```
-  **提示** 你也可以通过 `wilddog.auth().currentUser` 来获取当前登录用户信息，与监听器中返回的 `userInfo` 不同的是 `wilddog.auth().currentUser` 是一个 `wd.User` 对象，它不仅包含了用户所有的基本信息，也提供了一系列方法方便你维护用户，例如绑定第三方登录、修改用户昵称等操作。
-3. 调用 `createUserWithEmailAndPassword` 创建用户。 
+3. 调用 `createUserWithEmailAndPassword` 创建用户:
 ```js
 wilddog.auth().createUserWithEmailAndPassword(email,pwd)
 	.then(function (user) {
@@ -60,7 +56,7 @@ wilddog.auth().createUserWithEmailAndPassword(email,pwd)
     console.info("create user failed.", err);
 });
 ```
-4.  用户创建成功之后会自动登录，我们可以调用 `signOut` 登出：
+4.  用户创建成功之后会自动登录，可以调用 `signOut` 登出：
 ```js
 wilddog.auth().signOut().then(function () {
     console.info("user sign out.");
@@ -77,4 +73,4 @@ wilddog.auth().signInWithEmailAndPassword(email, pwd)
 ```
 
 
-通过邮箱登录的方式我们就介绍到这里，野狗还提供了匿名登录、OAuth 登录等其他登录方式，详细信息请参见 API 文档。
+野狗还提供了匿名认证、第三方认证等其他认证方式，详细信息请见 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/web.html)。
