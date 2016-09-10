@@ -60,14 +60,22 @@ Swift
 Objective-C 
 
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithAppID:@"your-wilddog-appid"];
+//初始化 WDGApp
+WDGOptions *options = [[WDGOptions alloc] initWithSyncURL:@"https://your-wilddog-appid.wilddogio.com"];
+[WDGApp configureWithOptions:options];
+
+WDGAuth *auth = [WDGAuth auth];
 
 ```
 
 Swift
 
 ```swift
-let auth = WDGAuth.auth(appID: "your-wilddog-appid")
+//初始化 WDGApp
+let options = WDGOptions.init(syncURL: "https://your-wilddog-appid.wilddogio.com")
+WDGApp.configureWithOptions(options)
+
+let auth = WDGAuth.auth()
 
 ```
 
@@ -130,7 +138,7 @@ Objective-C
 
 ```objectivec
 NSError *error;
-[[WDGAuth authWithAppID:@"your-wilddog-appid"] signOut:&error];
+[[WDGAuth auth] signOut:&error];
 if (!error) {
     // 退出登录成功
 }
@@ -140,6 +148,6 @@ if (!error) {
 Swift
 
 ```swift
-try! WDGAuth.auth(appID: "your-wilddog-appid")!.signOut()
+try! WDGAuth.auth()!.signOut()
 
 ```

@@ -57,7 +57,7 @@ guide:
       微博登录: /guide/auth/web/weibo.html
       自定义身份认证: /guide/auth/web/custom.html
       匿名身份认证: /guide/auth/web/anonymous.html
-      链接多种登录方式: /guide/auth/web/link.html
+      绑定多种登录方式: /guide/auth/web/link.html
     Android:
       管理用户: /guide/auth/android/manageuser.html
       邮箱登录: /guide/auth/android/password.html
@@ -66,7 +66,7 @@ guide:
       微博登录: /guide/auth/android/weibo.html
       自定义身份认证: /guide/auth/android/custom.html
       匿名身份认证: /guide/auth/android/anonymous.html
-      链接多种登录方式: /guide/auth/android/link.html
+      绑定多种登录方式: /guide/auth/android/link.html
     iOS:
       管理用户: /guide/auth/ios/manageuser.html
       邮箱登录: /guide/auth/ios/password.html
@@ -75,7 +75,7 @@ guide:
       微博登录: /guide/auth/ios/weibo.html
       自定义身份认证: /guide/auth/ios/custom.html
       匿名身份认证: /guide/auth/ios/anonymous.html
-      链接多种登录方式: /guide/auth/ios/link.html
+      绑定多种登录方式: /guide/auth/ios/link.html
     Server:
       简介: /guide/auth/server/introduction.html
       使用 Server SDK 进行认证: /guide/auth/server/server.html
@@ -99,18 +99,18 @@ resources:
     Web:
       实战教程: /resources/sync/web/tutorial.html
       示例库: /resources/sync/web/resources.html
-    # Android:
-      # 实战教程: /resources/sync/web/tutorial.html
-      # 资源下载: /resources/sync/android.html
+    Android:
+      实战教程: /resources/sync/android/tutorial.html
+      示例库: /resources/sync/android/resources.html
     iOS:
       实战教程: /resources/sync/ios/tutorial.html
       示例库:  /resources/sync/ios/resources.html
     C/嵌入式:
       实战教程: /resources/sync/c/tutorial.html
-      示例库:  /resources/sync/c/resources.html
-  # 身份认证:
+      示例库: /resources/sync/c/resources.html
+  身份认证:
   #   Web: /resources/auth/web.html
-  #   Android: /resources/auth/android.html
+      Android: /resources/auth/android/resources.html
   #   iOS: /resources/auth/ios.html
 
 console:
