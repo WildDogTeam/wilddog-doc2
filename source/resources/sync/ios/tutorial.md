@@ -49,7 +49,11 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 
 ```objectivec
 // 创建数据库引用。最好自己创建一个应用，把 danmu 即 `appId` 换成你自己的
-_wilddog = [[Wilddog alloc] initWithUrl:@"https://danmu.wilddogio.com/message"];
+//初始化 WDGApp
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:kWilddogUrl];
+[WDGApp configureWithOptions:option];
+//获取一个指向根节点的 WDGSyncReference 实例
+_wilddog = [[WDGSync sync] reference];
 
 ```
 
@@ -77,15 +81,18 @@ _wilddog = [[Wilddog alloc] initWithUrl:@"https://danmu.wilddogio.com/message"];
 {
     [super viewDidLoad];
     
-    //初始化
-    _wilddog = [[Wilddog alloc] initWithUrl:kWilddogUrl];
+    //初始化 WDGApp
+    WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:kWilddogUrl];
+    [WDGApp configureWithOptions:option];
+    //获取一个指向根节点的 WDGSyncReference 实例
+    _wilddog = [[WDGSync sync] reference];
     
     _snaps = [[NSMutableArray alloc] init];
     _originFrame = self.view.frame;
     
     // 设置监听
     // 绑定 WEventTypeChildAdded 事件，当 message 节点下有子节点新增时，就会触发回调，回调的 snapshot 对象包含了新增的数据
-    [self.wilddog observeEventType:WEventTypeChildAdded withBlock:^(WDataSnapshot *snapshot) {
+    [self.wilddog observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
         
         [self sendLabel:snapshot];
         [self.snaps addObject:snapshot];
@@ -106,7 +113,7 @@ _wilddog = [[Wilddog alloc] initWithUrl:@"https://danmu.wilddogio.com/message"];
         return;
     }
     int index = arc4random()%(self.snaps.count-1);
-    WDataSnapshot *snapshot = [self.snaps objectAtIndex:index];
+    WDGDataSnapshot *snapshot = [self.snaps objectAtIndex:index];
     [self sendLabel:snapshot];
 }
 
@@ -117,7 +124,7 @@ _wilddog = [[Wilddog alloc] initWithUrl:@"https://danmu.wilddogio.com/message"];
 
 ```objectivec
 //设置随机颜色，并显示在屏幕上
-- (UILabel *)sendLabel:(WDataSnapshot *)snapshot
+- (UILabel *)sendLabel:(WDGDataSnapshot *)snapshot
 {
     float top = (arc4random()% (int)self.view.frame.size.height)-100;
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(self.view.frame.size.width, top, 100, 30)];
