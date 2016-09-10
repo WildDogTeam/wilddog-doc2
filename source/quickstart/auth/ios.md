@@ -1,3 +1,4 @@
+
 title: 快速入门
 ---
 
@@ -75,11 +76,11 @@ let auth = WDGAuth.auth()
 
 ## 4. 使用邮箱密码方式认证
 
-1. 首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
+1.首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
 
 ![](/images/openemail.png)
 
-2. 创建新用户
+2.创建新用户
 
 Objective-C:
 
@@ -98,7 +99,7 @@ auth?.createUserWithEmail("user@example.com", password:"password", completion: {
     //...
 })
 ```
-3. 邮箱密码登录
+3.邮箱密码登录
 
 已存在用户可以使用 `signInWithEmail`方法登录
 
