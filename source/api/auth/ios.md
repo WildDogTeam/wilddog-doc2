@@ -22,7 +22,7 @@ title:  完整 API 文档
 
  定义
 
-`+ (nullable WDGAuth *)authWithAppID:(NSString *)appID NS_SWIFT_NAME(auth(appID:))`
+`+ (nullable WDGAuth *)authWithApp:(NSString *)appID NS_SWIFT_NAME(auth(appID:))`
 
  说明
 
