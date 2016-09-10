@@ -38,7 +38,7 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 4、选中 Copy items if needed 、Create Groups，点击 Finish。  
 5、点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
 
-## 3. 创建 Wilddog 实例
+## 3. 初始化
 成功集成 SDK 之后，我们就可以开发应用了。
 
 ** 1、引入头文件 **
