@@ -1,10 +1,10 @@
 title: 快速入门
-
 ---
+快速入门通过编写一个简单的天气应用例子来让你了解实时数据同步是如何使用的。
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考控制面板-创建应用。
+首先在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
 
 ## 2. 引入 SDK
 
@@ -39,8 +39,6 @@ android {
 }
 ```
 
-### 
-
 ## 3. Android 权限配置
 
 获取 android.permission.INTERNET 权限，你需要在 AndroidMainfest.xml 文件添加：
@@ -48,8 +46,6 @@ android {
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
-
-
 
 ## 4. 初始化 Context
 
@@ -80,8 +76,6 @@ Wilddog ref = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
 ```java
 Wilddog child = ref.child("/weather")
 ```
-
-
 
 ## 6. 保存数据
 
