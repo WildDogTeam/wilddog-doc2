@@ -1,9 +1,9 @@
-title:  保存数据
+title:  操作数据
 ---
 
-如果你刚接触 Wilddog，**强烈建议**先去阅读[快速入门](/quickstart/sync/android.html)，以对 Wilddog 的相关概念有个基本的了解。
+本篇文档，主要介绍操作数据的方法。
 
-以下四种方法可用于将数据写入野狗云端：
+以下四种方法可以写入数据：
 
 方法 |  说明 
 ----|------
@@ -91,6 +91,7 @@ usersRef.child("gracehop/birthYear").setValue(1906);
 }
 ```
 我们也可以不使用 User 对象，而使用 Map 来实现与上面相同的功能：
+
 ```java
 Wilddog usersRef = new Wilddog("https://samplechat.wilddogio.com/android/saving-data/wildblog/users");
 
@@ -108,6 +109,7 @@ users.put("gracehop", gracehopMap);
 
 usersRef.setValue(users);
 ```
+
 野狗采用的是一个“数据同步”的架构。本地拥有数据副本。对数据的写入操作，首先写入本地副本，然后 SDK 去将数据与云端进行同步。
 也就是说，当 `setValue()` 方法执行完的时候，数据可能还没有同步到云端。
 若要确保同步到云端完成，需要使用 `setValue()` 方法的第二个参数，该参数是一个回调函数，代码示例如下：
