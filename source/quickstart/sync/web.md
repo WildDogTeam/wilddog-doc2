@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-快速入门通过编写一个简单的天气应用例子来让你了解实时数据同步的用法。
+快速入门通过一个简单的天气应用例子来让你了解实时数据同步的用法。
 
 ## 1. 创建应用
 
@@ -18,7 +18,7 @@ title: 快速入门
 npm install wilddog
 ```
 
-## 3. 创建 Wilddog 实例
+## 3. 创建 Wilddog Sync 实例
 
 ```javascript
 var config = {
@@ -33,9 +33,9 @@ var ref = wilddog.sync().ref();
 
 ## 4. 保存数据
 
-野狗的数据是以 [JSON](http://json.org) 格式存储的，set() 方法可以写入数据。
+使用 Set() 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中存入北京和上海的天气信息：
+例如在应用中保存北京和上海的天气数据：
 
 ```javascript
 ref.set({
@@ -46,16 +46,16 @@ ref.set({
 });
 ```
 
-存入的数据如下图：
+保存的数据如下图：
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
-**删除数据**和**更新数据**等更多操作数据的用法与此类似，你可以在 [完整指南](/guide/sync/web/save-data.html) 或者 [API 文档](/api/sync/web.html) 中查看具体用法。
+**删除数据**和**更新数据**等更多操作数据的用法与此类似。你可以在 [完整指南](/guide/sync/web/save-data.html) 或者 [API 文档](/api/sync/web.html) 中查看具体用法。
 
 ## 5. 读取与监听数据
 on() 方法可以读取并监听节点的数据。
 
-例如从应用中获得天气信息:
+例如从应用中获得天气数据:
 
 ```javascript
 ref.on("value", function(snapshot) {

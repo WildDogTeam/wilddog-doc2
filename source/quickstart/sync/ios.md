@@ -1,8 +1,6 @@
-
 title: 快速入门
----
 
-快速入门通过编写一个简单的天气应用例子来让你了解实时数据同步的用法。
+快速入门通过一个简单的天气应用例子来让你了解实时数据同步的用法。
 
 ## 1. 创建应用
 
@@ -76,7 +74,7 @@ let myRootRef = WDGSync.sync().reference()
 
 ## 4. 保存数据
 
-`setValue`方法可以写入数据，野狗的数据是以 [JSON](http://json.org) 格式存储的。
+`setValue` 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
 Objective-C: 
 
@@ -94,17 +92,17 @@ Swift:
 myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 
 ```
-存入的数据如下图：
+保存的数据如下图：
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
-**删除数据**和**更新数据**等更多操作数据的用法与此类似，你可以在 [完整指南](/guide/sync/ios/save-data.html) 或者 [API 文档](/api/sync/ios.html) 中查看具体用法。
+**删除数据**和**更新数据**等更多操作数据的用法与此类似。你可以在 [完整指南](/guide/sync/ios/save-data.html) 或者 [API 文档](/api/sync/ios.html) 中查看具体用法。
 
 ## 5. 读取与监听数据
 
 `observeEventType` 方法可以读取并监听节点的数据。
 
-例如，从应用中获得天气信息:
+例如，从应用中获得天气数据:
 
 Objective-C:
 

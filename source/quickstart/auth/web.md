@@ -71,7 +71,7 @@ wilddog.auth().signInWithEmailAndPassword(email, pwd)
 
 ## 5. 退出登录
 
-可以调用 `signOut()` 推出登录：
+可以调用 `signOut()` 退出登录：
 
 ```js
 wilddog.auth().signOut().then(function () {

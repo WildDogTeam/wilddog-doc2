@@ -12,7 +12,7 @@ title:  快速入门
 
 ## 2. 安装 SDK
 
-**使用Maven获得 Android SDK：**
+**使用 Maven 安装 Android SDK：**
 
 ```xml
 <dependency>
@@ -22,7 +22,7 @@ title:  快速入门
 </dependency> 
 ```
 
-**使用Gradle获得 Auth SDK：**
+**使用 Gradle 安装 Auth SDK：**
  在build.gradle中添加：
 
 ```java
@@ -46,13 +46,13 @@ android {
 
 ## 3. Android 权限配置
 
-获取 android.permission.INTERNET 权限，你需要在 AndroidMainfest.xml 文件添加：
+在 AndroidMainfest.xml 文件中添加：
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-## 4. 初始化实例
+## 4. 初始化 Wilddog Auth 实例
 
 引入 Wilddog Auth SDK 之后需要初始化 WilddogAuth 实例。
 

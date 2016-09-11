@@ -1,7 +1,7 @@
 
 title: 快速入门
 ---
-快速入门通过编写一个简单的天气应用例子来让你了解实时数据同步的用法。
+快速入门通过一个简单的天气应用例子来让你了解实时数据同步的用法。
 
 ## 1. 创建应用
 
@@ -9,7 +9,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-**使用Maven获得 Sync SDK：**
+**使用 Maven 安装 Sync SDK：**
 
 ```xml
 <dependency>
@@ -19,7 +19,7 @@ title: 快速入门
 </dependency> 
 ```
 
-**使用Gradle获得 Sync SDK：**
+**使用 Gradle 安装 Sync SDK：**
  在build.gradle中添加：
 
 ```java
@@ -40,9 +40,9 @@ android {
 }
 ```
 
-## 3. Android 权限配置
+## 3. 配置 Android 权限
 
-获取 android.permission.INTERNET 权限，你需要在 AndroidMainfest.xml 文件添加：
+在 AndroidMainfest.xml 文件中添加：
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -80,9 +80,9 @@ Wilddog child = ref.child("/weather")
 
 ## 6. 保存数据
 
-setValue()方法可以写入数据。
+setValue() 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中`/weather`节点下存入天气信息
+例如在应用中`/weather`节点下保存天气数据
 
 ```java
 Map data = new HashMap();
@@ -91,13 +91,13 @@ data.put("shanghai","sunny");
 child.setValue(data);
 ```
 
-存入的数据如下图：
+保存的数据如下图：
 
 <img src="/images/saveapp.png" alt="savedata" width="300" >
 
 ## 7. 读取与同步数据
 
-`addValueEventListener()`方法可以读取存入的信息。
+`addValueEventListener()`方法可以读取保存的数据。
 
 ```java
 child.addValueEventListener(new ValueEventListener() {

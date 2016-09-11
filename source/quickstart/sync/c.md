@@ -50,9 +50,9 @@ SDK 提供了许多用于读写数据的方法。例如通过`wilddog_setValue()
 
 <hr>
 
-## 4. 写入数据
+## 4. 保存数据
 
-SDK 提供了一系列节点操作 API 对节点数据进行操作，在这里使用节点 create 函数将`/users/Jack`节点值设置为字符串"beauty",并通过`wilddog_setValue()`将这个值写入到云端。你可以在 SDK 的`examples/linux`目录下新建一个 C 源文件，将下面代码复制进去,修改 `<appId>` 为你自己的 appId ，并在 SDK 根目录执行`make example`。生成的可执行文件在 SDK 的 bin 目录下。为了简略，下面代码未检查返回值。
+SDK 提供了一系列节点操作 API 对节点数据进行操作，在这里使用节点 create 函数将`/users/Jack`节点值设置为字符串"beauty",并通过`wilddog_setValue()`将这个值保存到云端。你可以在 SDK 的`examples/linux`目录下新建一个 C 源文件，将下面代码复制进去,修改 `<appId>` 为你自己的 appId ，并在 SDK 根目录执行`make example`。生成的可执行文件在 SDK 的 bin 目录下。为了简略，下面代码未检查返回值。
 ```c
 #include "wilddog.h"
 void callback(void* arg, Wilddog_Return_T err){
@@ -70,7 +70,7 @@ int main(void){
     Wilddog_T ref = wilddog_initWithUrl((Wilddog_Str_T*)"https://<appId>.wilddogio.com/users/Jack");
     //将Jack节点的值设为"beauty"
     Wilddog_Node_T *node = wilddog_node_createUString(NULL, (Wilddog_Str_T*)"beauty");
-    //向云端写入
+    //向云端保存
     wilddog_setValue(ref, node, callback, (void*)&isFinish);
     //设置完毕，释放空间
     wilddog_node_delete(node);
@@ -90,7 +90,7 @@ int main(void){
 
 ## 5. 读取数据
 
-读取数据也是通过绑定回调函数来实现的。假设我们按照上面的代码写入了数据，那么可以使用`wilddog_getValue()`来读取`Jack`节点的值。
+读取数据也是通过绑定回调函数来实现的。假设我们按照上面的代码保存了数据，那么可以使用`wilddog_getValue()`来读取`Jack`节点的值。
 ```c
 #include "wilddog.h"
 void callback(const Wilddog_Node_T* p_snapshot, void* arg, Wilddog_Return_T err){
@@ -122,7 +122,7 @@ int main(void){
 
 ## 6. 监听数据
 
-同步数据也是通过绑定回调函数来实现的。假设我们按照上面的代码写入了数据，那么就可以使用`widdog_addObserver()`函数来实时同步`/users/Jack`的值。
+同步数据也是通过绑定回调函数来实现的。假设我们按照上面的代码保存了数据，那么就可以使用`widdog_addObserver()`函数来实时同步`/users/Jack`的值。
 ```c
 #include "wilddog.h"
 void callback(const Wilddog_Node_T* p_snapshot, void* arg, Wilddog_Return_T err){
