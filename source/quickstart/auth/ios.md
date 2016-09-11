@@ -38,7 +38,7 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种：
 3、把 WilddogAuth.framework 和 WilddogCore.framework 拖到工程目录中。  
 3、选中 Copy items if needed 、Create Groups，点击 Finish。  
 
-## 3. 初始化实例
+## 3. 初始化 Wilddog Auth 实例
 使用 Auth SDK 之前需要先进行初始化。
 
 **1. 引入头文件**

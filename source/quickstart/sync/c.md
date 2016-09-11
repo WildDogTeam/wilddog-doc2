@@ -35,7 +35,7 @@ Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。�
     $ make 
 
 
-## 3. 创建 Wdilddog 实例
+## 3. 创建 Wdilddog Sync 实例
 
 ```c
 Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/");

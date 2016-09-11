@@ -18,7 +18,7 @@ title: 快速入门
 npm install wilddog
 ```
 
-## 3. 初始化实例
+## 3. 初始化 Wilddog Auth 实例
 
 使用 Auth SDK 之前，需要先初始化实例：
 

@@ -62,7 +62,7 @@ public void onCreate() {
 }
 ```
 
-## 5. 创建 Wilddog 实例
+## 5. 创建 Wilddog Sync 实例
 
 创建 Wilddog 实例的时候需要传入节点路径参数。
 

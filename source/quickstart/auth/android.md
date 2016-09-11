@@ -44,7 +44,7 @@ android {
 
 ```
 
-## 3. Android 权限配置
+## 3. 配置 Android 权限
 
 在 AndroidMainfest.xml 文件中添加：
 
