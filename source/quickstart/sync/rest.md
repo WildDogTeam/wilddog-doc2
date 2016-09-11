@@ -9,7 +9,20 @@ title: 快速入门
 
 ## 2. 读取与保存数据
 
-可以在任何 Wilddog 节点,得到相对于根节点的路径作为数据地址,将数据地址后加上`.json`，作为 URL 发送标准的 HTTPS REST 请求，以此读取与保存数据。在本文档中，我们使用 [CURL](https://en.wikipedia.org/wiki/CURL) 工具发送 HTTPS 请求。
+对于 Wilddog 任何节点，你可以将该节点相对于根节点的路径作为数据地址，将数据地址后加上`.json`，作为 URL 发送标准的 HTTPS REST 请求，以此读取与保存数据。在本文档中，我们使用 [CURL](https://en.wikipedia.org/wiki/CURL) 工具发送 HTTPS 请求。
+
+假如我们已有数据是这样的
+
+```
+{
+  "rest": {
+    "quickstart": {
+      "users": {}
+    }
+  }
+}
+那么若要操作users节点的数据,数据路径为 /rest/quickstart/users
+```
 
 使用`PUT`请求保存数据:
 
