@@ -104,7 +104,9 @@ mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteLis
 });
 ```
 
-4.你可以使用 `signOut()` 方法退出当前登录用户:
+## 6. 退出登录
+
+你可以使用 `signOut()` 方法退出当前登录用户:
 
 ```
 mAuth.signOut();

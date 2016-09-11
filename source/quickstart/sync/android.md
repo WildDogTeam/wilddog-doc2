@@ -1,11 +1,11 @@
 
 title: 快速入门
 ---
-快速入门通过一个简单的天气应用例子来让你了解实时数据同步的用法。
+你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
@@ -95,7 +95,7 @@ child.setValue(data);
 
 <img src="/images/saveapp.png" alt="savedata" width="300" >
 
-## 7. 读取与同步数据
+## 7. 读取与监听数据
 
 `addValueEventListener()`方法可以读取保存的数据。
 
@@ -114,6 +114,7 @@ child.addValueEventListener(new ValueEventListener() {
     }
 });
 ```
-取出的数据会一直和云端保持同步。如果你只想读取一次，不同步数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
+
+取出的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
 
 更多的数据读取方式可以查看 [完整指南](/guide/sync/android/save-data.html)和 [API 文档](/api/sync/android.html)
