@@ -213,13 +213,13 @@ wilddog.auth().currentUser.updateProfile({
 
 ## wilddog.Promise
 
-*class static*
+*Promise定义*
   ```A Promise represents an eventual (asynchronous) value. A Promise should (eventually) either resolve or reject. When it does, it will call all the callback functions that have been assigned via the .then() or .catch() methods.```
 
-Constructor    
+构造器
 - new Promise(resolver)
 
-Main Methods
+核心方法
 - catch
     Assign a callback when the Promise rejects.
 - then
