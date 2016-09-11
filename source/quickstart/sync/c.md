@@ -1,12 +1,11 @@
 
 title: 快速入门
 ---
-
-快速入门让你了解如何在嵌入式设备上使用实时数据同步功能。
+你可以通过快速入门了解如何在嵌入式设备上使用实时数据同步功能。
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
@@ -48,11 +47,11 @@ Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
 
 SDK 提供了许多用于读写数据的方法。例如通过`wilddog_setValue()`、`wilddog_push()`、`wilddog_removeValue()`修改数据； 通过`wilddog_getValue()`读取数据；`wilddog_addObserver()`读取数据并监听该节点数据的变化。
 
-<hr>
 
 ## 4. 保存数据
 
 SDK 提供了一系列节点操作 API 对节点数据进行操作，在这里使用节点 create 函数将`/users/Jack`节点值设置为字符串"beauty",并通过`wilddog_setValue()`将这个值保存到云端。你可以在 SDK 的`examples/linux`目录下新建一个 C 源文件，将下面代码复制进去,修改 `<appId>` 为你自己的 appId ，并在 SDK 根目录执行`make example`。生成的可执行文件在 SDK 的 bin 目录下。为了简略，下面代码未检查返回值。
+
 ```c
 #include "wilddog.h"
 void callback(void* arg, Wilddog_Return_T err){
@@ -91,6 +90,7 @@ int main(void){
 ## 5. 读取数据
 
 读取数据也是通过绑定回调函数来实现的。假设我们按照上面的代码保存了数据，那么可以使用`wilddog_getValue()`来读取`Jack`节点的值。
+
 ```c
 #include "wilddog.h"
 void callback(const Wilddog_Node_T* p_snapshot, void* arg, Wilddog_Return_T err){
@@ -118,11 +118,11 @@ int main(void){
     return 0;
 }
 ```
-<hr>
 
 ## 6. 监听数据
 
 同步数据也是通过绑定回调函数来实现的。假设我们按照上面的代码保存了数据，那么就可以使用`widdog_addObserver()`函数来实时同步`/users/Jack`的值。
+
 ```c
 #include "wilddog.h"
 void callback(const Wilddog_Node_T* p_snapshot, void* arg, Wilddog_Return_T err){
