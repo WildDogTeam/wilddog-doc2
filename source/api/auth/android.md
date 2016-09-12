@@ -62,7 +62,7 @@ public interface **WilddogAuthProvider**
 提供Auth身份验证类型
 ----- 
 
-## PROVIDER_ID
+### PROVIDER_ID
 
 定义
 
@@ -74,7 +74,7 @@ public static final String **PROVIDER_ID**
           
 -----               
                
-# UserInfo
+## UserInfo
 
 定义
 
@@ -85,7 +85,7 @@ public interface **UserInfo**
 已知直接子类 WilddogUser 。获取一个用户的标准用户配置信息。可用于身份验证提供者返回的用户配置信息，例如QQ登录或者微信登录。
  
  
-## getDisplayName ()  
+### getDisplayName ()  
 定义
 
 public abstract String getDisplayName ()
@@ -96,7 +96,7 @@ public abstract String getDisplayName ()
    
 -----      
 
-## getEmail ()
+### getEmail ()
 
 定义   
 
@@ -107,7 +107,7 @@ public abstract String getEmail ()
 返回对应于指定提供者的用户帐户的电子邮件地址，包含可选。
 
 -----   
-## getPhotoUrl ()  
+### getPhotoUrl ()  
 
 定义
 
@@ -119,7 +119,7 @@ public abstract Uri getPhotoUrl ()
 
 -----    
 
-## getProviderId ()
+### getProviderId ()
  
 定义
  
@@ -131,7 +131,7 @@ public abstract String getProviderId ()
 
 -----  
  
-## getUid ()
+### getUid ()
 
 定义
  
@@ -144,7 +144,7 @@ public abstract String getUid ()
 ----                 
 
 
-## AuthCredential
+### AuthCredential
 
 定义
 
@@ -555,11 +555,15 @@ public UserProfileChangeRequest.Builder setPhotoUri (Uri photoUri)
 
 
 
-# WilddogAuth
+## WilddogAuth
+
+定义
 
 public abstract class WilddogAuth extends Object
 
-WilddogAuth SDK入口对象。
+说明
+
+WilddogAuth SDK 入口对象。
 
 首先通过调用 getInstance("appId",context)获取一个WilddogAuth实例对象。
 接着，可以使用一下方法进行用户登录认证：
@@ -572,93 +576,25 @@ WilddogAuth SDK入口对象。
 
 最后，调用 `getCurrentUser()`获取包含用户信息的WilddogUser对象.
 
-## Nested Class Summary
+### WilddogAuth.AuthStateListener
+
+定义
+	
 interface	WilddogAuth.AuthStateListener	
+
+说明
+
     当认证状态发生变化的时候调用
     
- ## Public Method Summary
+    ---
+   
+ ### addAuthStateListener ()
  
- void	addAuthStateListener(WilddogAuth.AuthStateListener listener)
- 
- 注册认证状态改变的监听.
- 
-
- 
- Task<```AuthResult```>	createUserWithEmailAndPassword(String email, String password)
- 
- 试图去创建一个新的邮箱密码的用户账号。
- 
-
- 
- Task<```ProviderQueryResult```>	fetchProvidersForEmail(String email)
- 
- 如果存在，则通过邮箱获取所有的认证类型。
- 
-
- 
- WilddogUser	getCurrentUser()
- 
- 
- 返回当前认证的用户信息，如果未认证返回null.
- 
-
- 
- static WilddogAuth	getInstance()
- 
- 返回初始化之后，可以用本方法获取WilddogAuth实例对象
- 
-
- 
- static WilddogAuth	getInstance(String appId，Context context)
- 
- 返回初始化WilddogAuth 实例对象。
- 
- 
-
- 
- void	removeAuthStateListener(WilddogAuth.AuthStateListener listener)
- 
- 注销曾经认证状态监听对象
- 
-
- 
- Task<Void>	sendPasswordResetEmail(String email)
- 
- 给当前应用中现有的绑定当前email的用户发送密码重置邮件.
- 
-
- Task<```AuthResult```>	signInAnonymously()
- 
- 使用匿名方法登录，不需要凭据，可以绑定其他认证方式.
- 
-
- 
- Task<```AuthResult```>	signInWithCredential(AuthCredential credential)
- 
- 通过AuthCredential进行用户认证，支持的认证方式：qq，微博，微信，密码
- 
-
- 
- Task<```AuthResult```>	signInWithCustomToken(String token)
- 
- 通过用户自定义的token进行用户认证。
- 
-
- 
- Task<```AuthResult```>	signInWithEmailAndPassword(String email, String password)
- 
- 通过用户邮箱密码的方式进行用户认证
- 
-
- 
- void	signOut()
- 
- 登出当前用户，清除登录数据
- 
- ## Public Methods
- 
+ 定义
  
  public void addAuthStateListener (WilddogAuth.AuthStateListener listener)
+ 
+ 说明
  
  注册一个认证状态的监听。一个WilddogAuth对象可以设置多个监听对象，也可以为不同的WilddogAuth添加监听对象。
  
@@ -673,10 +609,17 @@ interface	WilddogAuth.AuthStateListener
     推荐的做法总是监听注销事件，因为你可能要提示用户再次登录并且可能限制用户获取信息或者操作.
     
     可以使用`removeAuthStateListener(AuthStateListener)`注销监听.
+
+    ---
     
- 
+    ### createUserWithEmailAndPassword ()
+    
+    定义
     
   public Task<```AuthResult```> createUserWithEmailAndPassword (String email, String password)  
+  
+  说明
+  
   试图用给定的邮箱和密码创建一个用户账号，如果成功，这个用户也将登录成功。
   
   然后可以通过`getCurrentUser()`访问用户信息和进行用户操作.
@@ -685,99 +628,133 @@ interface	WilddogAuth.AuthStateListener
   
   **注意:** 你必须在Wilddog控制面板中打开这种登录认证方式。
   
-  ### 返回值
-
-返回带有AuthResult的操作结果对象Task
+  ---
 
 
+### fetchProvidersForEmail ()
+
+定义
 
 public Task<```ProviderQueryResult```> fetchProvidersForEmail (String email)
+
+说明
 
   返回通过绑定的主邮箱获取当前用户的认证方式列表
 
 当你绑定多种认证机制的时候，这个方法将会返回所有的认证方式列表。
 
-### Parameters
+---
 
-email
+### getCurrentUser ()
 
-用户返回登录认证方式列表的邮箱地址
-
-### 返回值
-
-返回带有AuthResult的操作结果对象Task
-
+定义
 
 public WilddogUser getCurrentUser ()
+
+说明
 
 如果有用户认证登录返回登录用户，如果没有登录，则返回为空。
 
 可以通过 `getCurrentUser() != null` 来判断当前是否有用户登录
 
 ### 返回值
-* 当前认证用户或者null
+* 当前认证用户或者 null
 
 
+### getInstance ()
 
+定义
 
 public static WilddogAuth getInstance ()
 
-
+说明
 
  返回初始化之后，可以用本方法获取当前WilddogAuth实例对象
+ 
+ ---
 
+### getInstance
 
+定义
 
  public static WilddogAuth getInstance(String appId，Context context)
+
+说明
  
   返回初始化WilddogAuth 实例对象。
+  
+  ---
  
-
+### removeAuthStateListener ()
+ 
+ 定义
  
  public void removeAuthStateListener (WilddogAuth.AuthStateListener listener)
  
+ 说明
+ 
  注销认证状态的监听
+
+ ---
  
+### sendPasswordResetEmail ()
  
+ 定义
  
  public Task<Void> sendPasswordResetEmail (String email)
+ 
+ 说明
  
   给当前应用中现有的绑定当前email的用户发送密码重置邮件.
   
   
   返回当前操作结果的Task对象
   
+  ---
 
+### signInWithCredential ()
+  
+  定义
   
   public Task<```AuthResult```> signInAnonymously ()
+  
+  说明
   
    使用匿名方法登录，不需要凭据，可以绑定其他认证方式.
    
    这个操作将在Wilddog创建一个匿名的用户账号，其中通过`getCurrentUser()`获取用户信息包含uid。
    
 一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法.
-   
-   
-  
+     
    
   **注意:** 你必须在Wilddog控制面板中打开这种登录认证方式。
+  
+  ---
     
-    
+### signInWithCredential ()
+ 
+ 定义
 
 public Task<AuthResult> signInWithCredential (AuthCredential credential)
+
+说明
 
 通过给定的`AuthCredential`对象进行相应的认证登录。其中包含QQ，微信，新浪微博和密码认证登录。
 
 所有`AuthCredential`都会创建一个用户账号。
 
 **注意:** 你必须在Wilddog控制面板中打开相应的登录认证方式。
-    
- ### 返回值
+     
 
-返回带有AuthResult的操作结果对象Task    
+---
 
+### signInWithCustomToken ()
+
+定义
 
 public Task<`AuthResult`> signInWithCustomToken (String token)
+
+说明
 
 通过用户自定义的token进行用户认证。
 
@@ -786,12 +763,16 @@ public Task<`AuthResult`> signInWithCustomToken (String token)
   一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法.
   
   阅读[自定义Token]()
+ 
+  ---
   
-### 返回值
+### signInWithEmailAndPassword ()
 
-返回带有AuthResult的操作结果对象Task   
+定义
 
 public Task<AuthResult> signInWithEmailAndPassword (String email, String password)
+
+说明
 
 通过邮箱和密码进行登录认证。
 
@@ -803,12 +784,15 @@ public Task<AuthResult> signInWithEmailAndPassword (String email, String passwor
   
   这个方法和`signInWithCredential（）`的`EmailAuthCredential`登录认证方式是等效的。
   
-### 返回值
+  ---
 
-返回带有AuthResult的操作结果对象Task
+### signOut ()
 
+定义
 
 public void signOut ()
+
+说明
 
 登出当前用户，清除登录数据
 
@@ -817,232 +801,218 @@ public void signOut ()
 
 ----
 
-# WilddogUser
+## WilddogUser
+
+定义
 
 public abstract class WilddogUser extends Object
 implements UserInfo
 
-获取用户在Wilddog Auth的个人资料信息。它还有辅助方法进行用户信息的修改和查询，以及管理用户的身份验证方式。
+说明
 
-## Public Constructor Summary
-WilddogUser（）
+获取用户在 Wilddog Auth的个人资料信息。它还有辅助方法进行用户信息的修改和查询，以及管理用户的身份验证方式。
 
-## Public Method Summary
+---
 
-Task<Void> delete()
+### delete ()
 
-从Wilddog Auth 系统中删除用户.
-
-
-
-abstract String	getDisplayName()
-
-获取在Wilddog Auth 系统中的用户的昵称.
-
-
-
-abstract String	getEmail()
-
-获取在Wilddog Auth 系统中的用户的邮箱.
-
-
-abstract Uri	getPhotoUrl()
-
-获取在Wilddog Auth 系统中的用户的头像的URL.
-
-
-
-abstract List<? extends UserInfo>	getProviderData()
-
-获取在Wilddog Auth 系统中用户绑定的所有认证类型的用户信息列表.
-
-
-
-abstract String	getProviderId()
-
-返回PROVIDER_ID，例如 "qq","weixin".
-
-
-
-Task<`GetTokenResult`>	getToken(boolean forceRefresh)
-
-获取Wilddog ID Token
-
-
-
-abstract String	getUid()
-
-获取在Wilddog Auth 系统中的用户的唯一标识.
-
-
-
-abstract boolean	isAnonymous()
-
-判断当前用户是否是匿名登录，表示当前未绑定其他登录认证方式。
-
-
-
-Task<`AuthResult`>	linkWithCredential(AuthCredential credential)
-
-将当前用户与给定的登录认证方式绑定。
-
-
-
-Task<`Void`>	reauthenticate(AuthCredential credential)
-
-用给定的登录认证方式重新认证。
-
-
-Task<`Void`>	reload()
-
-手动刷新当前用户的数据。（连接提供者，显示名称等等）
-
-
-
-Task<`AuthResult`>	unlink(String provider)
-
-将给定的登录认证类型从当前用户绑定列表中解除绑定.
-
-
-
-Task<`Void`>	updateEmail(String email)
-
-更新当前登录认证用户的邮箱信息.
-
-
-
-Task<`Void`>	updatePassword(String password)
-
-更新当前登录认证用户的密码信息.
-
-
-
-Task<`Void`>	updateProfile(UserProfileChangeRequest request)
-
-更新当前用户的昵称信息和头像URL
-
-
-
-## Public Constructors
-
-public WilddogUser ()
-
-
-
-
-## Public Methods
-
+定义
 
   public Task<`Void`> delete ()
+  
+说明  
   
   从Wilddog Auth 系统中删除用户.
   如果操作成功，用户将从登录系统中登出。
   这个是一个安全敏感操作，需要用户用户最近登录过才能操作成功，如果失败，请先使用`reauthenticate(AuthCredential)`方法.
   
+---
 
+  ### getDisplayName ()
+  
+  定义
   
   public abstract String getDisplayName ()
   
+  说明 
+  
     获取当前用户的昵称，如果是第三方登录方式，不能修改昵称信息，因此不会第三方登录平台昵称不会受到影响。使用`updateProfile(UserProfileChangeRequest)`方法会更新这个属性。
 
-如果使用`signInWithCredential （ AuthCredential ）`登录的时候包含这个属性，将在登录时候自动创建填充属性。
-  
+如果使用`signInWithCredential （ AuthCredential ）`登录的时候包含这个属性，将在登录时候自动创建填充属性。  
 
+---
+
+  ### getEmail ()
+  定义
   
   public abstract String getEmail ()
   
+  说明
   
   返回当前用户设置的邮箱地址，如果第三方登录中含有这个属性，将不能被修改。
   其他情况下可以通过`updateProfile(UserProfileChangeRequest)`方法会更新这个属性.
   
   这个属性将会在`signInWithCredential(AuthCredential)`的`EmailAuthCredential`或者`createUserWithEmailAndPassword(String, String)`填充这个属性.
   
+  ---
+  
+### getPhotoUrl ()
 
+定义
   
   public abstract Uri getPhotoUrl ()
   
+说明
+
   返回当前用户的头像的url，如果第三方登录中含有这个属性，将不能被修改。
    其他情况下可以通过`updateProfile(UserProfileChangeRequest)`方法会更新这个属性.
    
    如果使用`signInWithCredential （ AuthCredential ）`登录的时候包含这个属性，将在登录时候自动创建填充属性。
-   
 
-   
-  abstract List<? extends UserInfo>	getProviderData()
+  ---
 
-获取在Wilddog Auth 系统中用户绑定的所有认证类型的用户信息列表.
+### getProviderData ()  
+
+定义
+
+  abstract List<? extends UserInfo> getProviderData()
+
+说明
+
+获取在 Wilddog Auth 系统中用户绑定的所有认证类型的用户信息列表.
 
 
+---
 
+### getProviderId ()
+
+定义
 
 abstract String	getProviderId()
 
-返回PROVIDER_ID，例如 "qq","weixin"，"weibo"，"password"。
+说明
 
+返回 PROVIDER_ID，例如 "qq","weixin"，"weibo"，"password"。
+
+---
+
+### getToken ()
+
+定义
 
 public Task<`GetTokenResult`> getToken (boolean forceRefresh)
 
-获取Wilddog ID Token，使用我们的服务器SDK或按照官方文件安全地验证此token的完整性和有效性。
+说明
 
+获取 Wilddog ID Token，使用我们的服务器SDK或按照官方文件安全地验证此token的完整性和有效性。
 
-### 返回值
+---
 
-返回一个带有`GetTokenResult`信息的Task对象.
+### getUid ()
 
-
-
+定义
 
 public abstract String getUid ()
+
+说明
 
 获取在Wilddog Auth 系统中的用户的唯一标识.
    
 该标识符是不透明的，不一定对应于用户的电子邮件地址或任何其它属性.
 
+---
   
+### isAnonymous ()
 
+定义
 
 public abstract boolean isAnonymous ()
 
+说明
+
 判断当前用户是否是匿名登录，表示当前未绑定其他登录认证方式。
 
+---
 
+### linkWithCredential
+
+定义
 
 public Task<`AuthResult`> linkWithCredential (AuthCredential credential)
 
+说明
+
 将当前用户与给定的登录认证方式绑定。之后支持绑定的所有登录认证方式。
 
+---
+
+### reauthenticate ()
+
+定义
 
 public Task<`Void`> reauthenticate (AuthCredential credential)
 
+说明
+
 用给定的登录认证方式重新认证。
 
+---
+
+### reload ()
+
+定义
 
 
 Task<`Void`>	reload()
 
+说明
+
 手动刷新当前用户的数据。（连接提供者，显示名称等等）
 
+---
+
+### unlink ()
+
+定义
 
 Task<`AuthResult`>	unlink(String provider)
 
+说明
+
 将给定的登录认证类型从当前用户绑定列表中解除绑定.
 
+---
 
+### updateEmail ()
 
+定义
 
 Task<`Void`>	updateEmail(String email)
 
+说明
+
 更新当前登录认证用户的邮箱信息.
 
+---
 
+### updatePassword ()
+
+定义
 
 Task<`Void`>	updatePassword(String password)
 
+说明
 更新当前登录认证用户的密码信息.
 
+---
 
+### updateProfile ()
+
+定义
 
 Task<`Void`>	updateProfile(UserProfileChangeRequest request)
+
+说明
 
 更新当前用户的昵称信息和头像URL
 
