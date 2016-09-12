@@ -60,6 +60,7 @@ public interface **WilddogAuthProvider**
 说明
 
 提供Auth身份验证类型
+
 ----- 
 
 ### PROVIDER_ID
