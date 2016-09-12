@@ -6,7 +6,7 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
+首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
@@ -35,7 +35,7 @@ var ref = wilddog.sync().ref();
 
 使用`Set()`方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中写入北京和上海的天气数据：
+例如在应用的根节点下写入天气数据：
 
 ```javascript
 ref.set({

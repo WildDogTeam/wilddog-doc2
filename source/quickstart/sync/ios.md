@@ -77,7 +77,8 @@ let myRootRef = WDGSync.sync().reference()
 
 ## 4. 写入数据
 
-`setValue` 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+`setValue` 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org)。
+例如在应用的根节点下写入天气数据：
 
 Objective-C: 
 
