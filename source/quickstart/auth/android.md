@@ -52,7 +52,7 @@ android {
 
 ## 4. 初始化 Wilddog Auth 实例
 
-引入 Wilddog Auth SDK 之后需要初始化 WilddogAuth 实例。
+使用 Auth SDK 之前，需要先初始化实例：
 
 ```java
 WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);

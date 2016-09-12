@@ -6,7 +6,7 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
+首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
@@ -40,7 +40,7 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种：
 5. 点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
 
 ## 3. 初始化 Wilddog Sync 实例
-使用 Sync SDK 之前需要先初始化 Wilddog Sync 实例。
+使用 Sync SDK 之前，需要先初始化实例：
 
 **1.引入头文件**
 
