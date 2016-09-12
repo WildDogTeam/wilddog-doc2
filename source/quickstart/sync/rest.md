@@ -46,4 +46,4 @@ curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23
 
 以 cRUL 中的用法类似，在任何支持 HTTPS 的平台和编程语言中，都可以使用 Wilddog REST API。将来我们会提供各种编程语言的库，使 REST API 更加简便。
 
-更多具体细节，请参考 [完整指南](/guide/sync/rest/guide.md)。
+更多具体细节，请参考 [完整指南](/guide/sync/rest/guide.html)。

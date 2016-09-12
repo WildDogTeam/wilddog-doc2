@@ -66,7 +66,7 @@ Sync帮助企业和开发者快速实现三大功能：基础实时通信、实�
 
 ![](/images/protect.jpg)
 
-更多具体细节，请参考 [规则表达式](/guide/sync/rules/introduce.html) 的文档。
+更多具体细节，请参考文档 Sync [快速入门](/quickstart/sync/web.html) 。
 
 
 
