@@ -19,9 +19,8 @@ title: 实战教程
 
 ### 1. 引入 SDK
 
-```js
-<script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
-```
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Auth SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
+
 ### 2. 实现 “说点什么” 与 “发射” 功能
 
 使用写入数据的 API [push()](/guide/sync/web/save-data.html#追加新节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
