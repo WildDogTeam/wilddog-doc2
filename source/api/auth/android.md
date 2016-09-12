@@ -15,9 +15,6 @@ public abstract WilddogUser getUser ()
 
 当前帐号WilddogUser,如果没有则为null(即用户登出)。
 
-返回值
-
-WilddogUser
 
 ----
 ## WilddogAuth.AuthStateListener
@@ -350,15 +347,14 @@ public static final String **PROVIDER_ID**
 
 常量值: "weibo"
 
-
-## Public Methods
+### getCredential ()
 public static AuthCredential getCredential (String token,String openId)
 
 返回一个带有用户名和密码的用户凭证，当调用`signInWithCredential(AuthCredential)`或者`linkWithCredential(AuthCredential)`时候使用
 
 ----
 
-# WeiXinAuthCredential
+## WeiXinAuthCredential
 
 public class WeiboAuthCredential extends AuthCredential
 
@@ -384,7 +380,7 @@ public String getCode()
 
 ----
 
-# WeiXinAuthProvider
+## WeiXinAuthProvider
 
 public class **WeiXinAuthProvider** extends Object
 
@@ -400,14 +396,14 @@ public static final String **PROVIDER_ID**
 常量值: "weixin"
 
 
-## Public Methods
+### getCredential ()
 public static AuthCredential getCredential ( String code)
 
 返回一个带有code的用户凭证，当调用`signInWithCredential(AuthCredential)`或者`linkWithCredential(AuthCredential)`时候使用
 
 ----
 
-# GetTokenResult
+## GetTokenResult
 
 public class GetTokenResult extends Object
 
@@ -425,7 +421,7 @@ Wilddog ID Token. 身份认证成功后返回的Wilddog Id token字符串。用�
 
 ----
 
-# UserProfileChangeRequest
+## UserProfileChangeRequest
 
 定义
 
@@ -480,7 +476,7 @@ public Uri getPhotoUri ()
 
 ----
 
-# UserProfileChangeRequest.Builder
+## UserProfileChangeRequest.Builder
 
 
 
@@ -617,8 +613,6 @@ public WilddogUser getCurrentUser ()
 
 可以通过 `getCurrentUser() != null` 来判断当前是否有用户登录
 
-### 返回值
-* 当前认证用户或者 null
 
 
 ### getInstance ()
