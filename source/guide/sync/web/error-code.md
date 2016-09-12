@@ -1,12 +1,7 @@
 title:  错误码
 ---
 
-
-## 错误码说明
-
-
-
-错误码	|	解释	|  具体描述
+错误信息	|	解释	|  描述
 ---- | -------- | ---
 AUTHENTICATION_DISABLED |	验证请求不可用   |	该验证服务不可用于此 Wilddog App	
 EMAIL_TAKEN |	邮箱已存在 | 邮箱地址已存在(已注册)	
@@ -21,7 +16,7 @@ INVALID_TOKEN | 无效 Token	 | Wilddog ID Token 无效。可能是因为 token 
 INVALID_USER | 该用户不存在 | 该用户不存在	
 NETWORK_ERROR | 网络错误 | 尝试连接验证服务器时发生错误	
 PROVIDER_ERROR | 服务提供商错误 | 第三方验证提供商验证错误，请查看详细错误信息	
-<b>TRANSPORT_UNAVAILABLE</b> | <b>传输不可用</b> | <b>登录请求方法在用户的浏览器环境不可用。popups 不可用于 chrome for iOS, iOS预览窗以及 file://. PhoneGap/Cordova 或者本地， file:// URLs 不支持Redirects重定向</b>	
+TRANSPORT_UNAVAILABLE | 传输不可用 | 登录请求方法在用户的浏览器环境不可用。popups 不可用于 chrome for iOS, iOS预览窗以及 file://. PhoneGap/Cordova 或者本地， file:// URLs 不支持Redirects重定向
 UNKNOWN_ERROR | 未知错误 | 发生了未知错误。请查阅详细错误信息。	
 USER_CANCELLED | 用户取消操作 | 当前用户已取消验证操作	
 USER_DENIED | 用户被阻止 | 用户未被授权。这个错误会在用户取消 OAuth 验证请求时出现	
