@@ -447,6 +447,7 @@ public String getToken ()
 Wilddog ID Token. 身份认证成功后返回的Wilddog Id token字符串。用于验证之后操作的身份完整性和安全性。
 
 ----
+
 # UserProfileChangeRequest
 
 
