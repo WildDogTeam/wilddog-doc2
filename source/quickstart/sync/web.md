@@ -31,11 +31,11 @@ var ref = wilddog.sync().ref();
 
 
 
-## 4. 保存数据
+## 4. 写入数据
 
-使用`Set()`方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+使用`Set()`方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中保存北京和上海的天气数据：
+例如在应用中写入北京和上海的天气数据：
 
 ```javascript
 ref.set({
@@ -46,7 +46,7 @@ ref.set({
 });
 ```
 
-保存的数据如下图：
+写入的数据如下图：
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 

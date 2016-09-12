@@ -75,9 +75,9 @@ WDGApp.configureWithOptions(options)
 let myRootRef = WDGSync.sync().reference()
 ```
 
-## 4. 保存数据
+## 4. 写入数据
 
-`setValue` 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+`setValue` 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
 Objective-C: 
 
@@ -95,7 +95,7 @@ Swift:
 myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 
 ```
-保存的数据如下图：
+写入的数据如下图：
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 

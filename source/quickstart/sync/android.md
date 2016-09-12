@@ -79,11 +79,11 @@ Wilddog ref = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
 Wilddog child = ref.child("/weather")
 ```
 
-## 6. 保存数据
+## 6. 写入数据
 
-setValue() 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+setValue() 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中`/weather`节点下保存天气数据
+例如在应用中`/weather`节点下写入天气数据
 
 ```java
 Map data = new HashMap();
@@ -92,13 +92,13 @@ data.put("shanghai","sunny");
 child.setValue(data);
 ```
 
-保存的数据如下图：
+写入的数据如下图：
 
 <img src="/images/saveapp.png" alt="savedata" width="300" >
 
 ## 7. 读取与监听数据
 
-`addValueEventListener()`方法可以读取保存的数据。
+`addValueEventListener()`方法可以读取写入的数据。
 
 ```java
 child.addValueEventListener(new ValueEventListener() {
