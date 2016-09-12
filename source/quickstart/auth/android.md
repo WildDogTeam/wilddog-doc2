@@ -12,7 +12,7 @@ title:  快速入门
 
 ## 2. 安装 SDK
 
-**使用 Maven 安装 Android SDK：**
+- **使用 Maven 安装 Android SDK：**
 
 ```xml
 <dependency>
@@ -22,7 +22,8 @@ title:  快速入门
 </dependency> 
 ```
 
-**使用 Gradle 安装 Auth SDK：**
+- **使用 Gradle 安装 Auth SDK：**
+
  在build.gradle中添加：
 
 ```java
@@ -33,7 +34,7 @@ dependencies {
 
 如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions：
 
-```
+```java
 android {
     ...
     packagingOptions {
@@ -41,7 +42,6 @@ android {
         exclude 'META-INF/NOTICE'
     }
 }
-
 ```
 
 ## 3. 配置 Android 权限

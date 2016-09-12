@@ -9,7 +9,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-**使用 Maven 安装 Sync SDK：**
+* **使用 Maven 安装 Sync SDK：**
 
 ```xml
 <dependency>
@@ -19,7 +19,8 @@ title: 快速入门
 </dependency> 
 ```
 
-**使用 Gradle 安装 Sync SDK：**
+* **使用 Gradle 安装 Sync SDK：**
+
  在build.gradle中添加：
 
 ```java
