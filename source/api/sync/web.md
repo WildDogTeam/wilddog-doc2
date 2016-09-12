@@ -421,6 +421,8 @@ transaction(updateFunction, [onComplete], [applyLocally])
 
 注意：在相同的路径上 使用 set() 和 transaction() , 极端情况下将出现不可预料的结果。
 
+回调函数updateFunction可能在第一次调用时currentRank为null，请返回一个默认值。当回调函数第二次调用时， currentRank是云端的拉去的值。
+
 参数
 
 * updateFunction `function`
@@ -444,8 +446,13 @@ wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/users/fred/rank");
 
 ref.transaction(function(currentRank) {
-        // If /users/fred/rank 没有设置数据，currentRank 将会是 null 。
-	return currentRank+1;
+    // If currentRank = null, 直接返回默认值 0。
+    if (currentRank == null) {
+         return 0;
+    } else if (currentRank >  1000) {
+        return; // 大于1000, 退出事务 transaction, 直接return;
+    } 
+    return currentRank+1;
 });
 ```
 
