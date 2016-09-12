@@ -1,6 +1,7 @@
-title:  读取和查询数据
+title:  查询数据
 ---
-WilddogSync 的读取和查询数据的方法，有很高的灵活性和可操作性。在这篇文章里，我们主要介绍三点内容：  
+本篇文档，主要介绍查询数据的方法。
+Wilddog Sync 查询数据的方法，有很高的灵活性和可操作性。对于数据的查询，我们主要介绍以下三点内容：  
 1、读取数据；  
 2、数据排序；  
 3、查询数据。  
@@ -9,10 +10,13 @@ WilddogSync 的读取和查询数据的方法，有很高的灵活性和可操�
 
 ## 读取数据
 
-Wilddog Sync 主要有两种获取数据的方法：  
-1、实时性读取数据方法。即监听的节点下数据一有变化，会触发相应的监听方法，如类似`observeEventType`方法；  
-2、一次性读取数据方法。如类似`observeSingleEventOfType`方法。  
+Wilddog Sync 主要有两种读取数据的方法： 
 
+方法     | 描述
+-------- | ---
+observeEventType | 实时性读取数据方法。即正在监听的节点下数据一有变化，会触发相应的监听方法，监听方法的回调中会返回相应的数据
+observeSingleEventOfType | 一次性读取数据方法。即监听节点下的数据只返回一次，监听方法的回调以后不会再次触发
+ 
 用上面两种方法去获取数据，都需要添加一个监听事件，所以，我们先了解一下监听的事件类型：
 
 ### 监听的事件类型
@@ -204,7 +208,7 @@ ref.observeEventType(.ChildAdded, withBlock: { snapshot in
 // 一次性读取数据。
 // snapshot.childrenCount 等于 .ChildAdded 事件返回的 snapshot.value 数量的计数总和
 // .Value 是最后触发的
-ref.observeEventType(.Value, withBlock: { snapshot in
+ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
     print("initial data loaded! \(count == snapshot.childrenCount)")
 })
 
@@ -743,9 +747,9 @@ ref.childByAppendingPath("stegosaurus").childByAppendingPath("height")
 
 当使用`queryOrderedByKey`对数据进行排序时，数据将会按照下面的规则，以字段名升序排列返回。注意，节点名只能是字符串类型。
 
-1, 节点名能转换为 32-bit 整数的子节点优先，按数值型升序排列。
+1、节点名能转换为 32-bit 整数的子节点优先，按数值型升序排列。
 
-2, 接下来是字符串类型的节点名，按字典序排列。
+2、接下来是字符串类型的节点名，按字典序排列。
 
 #### Value 排序
 
@@ -776,6 +780,6 @@ ref.childByAppendingPath("stegosaurus").childByAppendingPath("height")
     "pterodactyl" : 93
 }
 ```
-<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用`queryOrderedByValue:`将搜索不到该数据。</em></p>
+<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用`queryOrderedByValue`将搜索不到该数据。</em></p>
 
 
