@@ -1,23 +1,20 @@
+
 title:  快速入门
 ---
 
-快速入门可以让你快速掌握 Wilddog 身份认证的基本用法。
+快速入门以邮箱登录为例说明野狗身份认证的基本用法。
 
 
 
-## 创建应用
+## 1. 创建应用
 
-你首先需要在控制面板中创建应用。如果你还不知道如何创建应用，请先阅读[控制面板-创建应用](/console/creat.html)。
+首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
-创建好的应用如下图，每个应用都有一个URL地址，这个地址是该应用的根节点位置。下面的示例应用地址为 yourapp.wilddogio.com，"yourapp” 是该应用的 appId。
+## 2. 安装 SDK
 
-<img src="/images/demoapp.png" alt="yourApp" width="300">
+- **使用 Maven 安装 Android SDK：**
 
-## 引入 SDK
-
-**使用Maven获得 Android SDK：**
-
-```
+```xml
 <dependency>
     <groupId>com.wilddog.client</groupId>
     <artifactId>wilddog-auth-android</artifactId>
@@ -25,18 +22,19 @@ title:  快速入门
 </dependency> 
 ```
 
-**使用Gradle获得 Android SDK：**
-要使用在 Android application使用 Gradle 或 Maven 添加 WilddogAuth 的依赖。 在你的build.gradle添加：
+- **使用 Gradle 安装 Auth SDK：**
 
-```
+ 在build.gradle中添加：
+
+```java
 dependencies {
     compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
 }
 ```
 
-如果出现由于文件重复的导致的编译错误，可以选择在build.grade中添加packingOptions：
+如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions：
 
-```
+```java
 android {
     ...
     packagingOptions {
@@ -44,35 +42,34 @@ android {
         exclude 'META-INF/NOTICE'
     }
 }
-
 ```
 
-需要在项目的 AndroidManifest.xml 中添加
+## 3. 配置 Android 权限
 
-```
+在 AndroidMainfest.xml 文件中添加：
+
+```xml
 <uses-permission android:name="android.permission.INTERNET"/>
-
 ```
 
+## 4. 初始化 Wilddog Auth 实例
 
-## 初始化 WilddogAuth 对象
-
-引入 Wilddog Auth SDK 之后我们需要初始化 WilddogAuth 对象。
+引入 Wilddog Auth SDK 之后需要初始化 WilddogAuth 实例。
 
 ```java
-WilddogAuth mAuth=Wilddog.getInstance("gzztztestapp",context);
+WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
 ```
 
 
-## 使用邮箱方式登录
+## 5. 使用邮箱认证
 
-1. 去野狗控制面板中打开邮箱登录开关：
+1.首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
 
 ![](/images/openemail.png)
 
-2. 生成合法用户的方式有两种：
+2.创建用户的方式有两种：
 
-* 将账号密码填写到用户列表中，生成新的用户。
+* 将账号密码填写到用户列表中，创建新的用户。用户创建成功后会自动登录。
 
 ![](/images/addemailuser.png)
 
@@ -89,11 +86,9 @@ WilddogAuth mAuth=Wilddog.getInstance("gzztztestapp",context);
 		Log.d("result","reason:"+var1.getException().toString())
 		    }
 	   }
-	}
+	}	 
 ```
-**注意** 创建用户成功，默认登录状态为登录中。
-	 
-3. 调用 `signInWithEmailAndPassword()` 方法：
+3.已存在的用户使用 `signInWithEmailAndPassword()` 方法登录:
 
 ```java
 mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -109,14 +104,12 @@ mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteLis
 });
 ```
 
-以上就是邮箱登录的方式，我们还提供了其他各种登录方式。
+## 6. 退出登录
 
-## 退出登录
-
-你可以使用 `signOut:` 方法退出当前登录用户。例如：
+你可以使用 `signOut()` 方法退出当前登录用户:
 
 ```
 mAuth.signOut();
 ```
 
-具体请看下面对应的[文档](/guide/auth/android/manageuser.html)。
+野狗还提供了匿名认证、第三方认证等其他认证方式，详细信息请见 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/android.html)。

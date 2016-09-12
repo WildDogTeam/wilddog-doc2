@@ -1,11 +1,11 @@
+
 title: 快速入门
 ---
-
-本教程让你在短时间内学会在你的嵌入式设备上使用 Wilddog C/嵌入式 SDK 读写和同步 Wilddog 云端数据。
+你可以通过快速入门了解如何在嵌入式设备上使用实时数据同步功能。
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
@@ -32,9 +32,9 @@ Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。�
 
     $ cd wilddog-client-c
     $ make 
- 
 
-## 3. 创建 Wdilddog 云端引用
+
+## 3. 创建 Wdilddog Sync 实例
 
 ```c
 Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/");
@@ -47,11 +47,11 @@ Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
 
 SDK 提供了许多用于读写数据的方法。例如通过`wilddog_setValue()`、`wilddog_push()`、`wilddog_removeValue()`修改数据； 通过`wilddog_getValue()`读取数据；`wilddog_addObserver()`读取数据并监听该节点数据的变化。
 
-<hr>
 
-## 4. 写入数据
+## 4. 保存数据
 
-SDK 提供了一系列节点操作 API 对节点数据进行操作，在这里使用节点 create 函数将`/users/Jack`节点值设置为字符串"beauty",并通过`wilddog_setValue()`将这个值写入到云端。你可以在 SDK 的`examples/linux`目录下新建一个 C 源文件，将下面代码复制进去,修改 `<appId>` 为你自己的 appId ，并在 SDK 根目录执行`make example`。生成的可执行文件在 SDK 的 bin 目录下。为了简略，下面代码未检查返回值。
+SDK 提供了一系列节点操作 API 对节点数据进行操作，在这里使用节点 create 函数将`/users/Jack`节点值设置为字符串"beauty",并通过`wilddog_setValue()`将这个值保存到云端。你可以在 SDK 的`examples/linux`目录下新建一个 C 源文件，将下面代码复制进去,修改 `<appId>` 为你自己的 appId ，并在 SDK 根目录执行`make example`。生成的可执行文件在 SDK 的 bin 目录下。为了简略，下面代码未检查返回值。
+
 ```c
 #include "wilddog.h"
 void callback(void* arg, Wilddog_Return_T err){
@@ -69,7 +69,7 @@ int main(void){
     Wilddog_T ref = wilddog_initWithUrl((Wilddog_Str_T*)"https://<appId>.wilddogio.com/users/Jack");
     //将Jack节点的值设为"beauty"
     Wilddog_Node_T *node = wilddog_node_createUString(NULL, (Wilddog_Str_T*)"beauty");
-    //向云端写入
+    //向云端保存
     wilddog_setValue(ref, node, callback, (void*)&isFinish);
     //设置完毕，释放空间
     wilddog_node_delete(node);
@@ -89,7 +89,8 @@ int main(void){
 
 ## 5. 读取数据
 
-读取数据也是通过绑定回调函数来实现的。假设我们按照上面的代码写入了数据，那么可以使用`wilddog_getValue()`来读取`Jack`节点的值。
+读取数据也是通过绑定回调函数来实现的。假设我们按照上面的代码保存了数据，那么可以使用`wilddog_getValue()`来读取`Jack`节点的值。
+
 ```c
 #include "wilddog.h"
 void callback(const Wilddog_Node_T* p_snapshot, void* arg, Wilddog_Return_T err){
@@ -117,11 +118,11 @@ int main(void){
     return 0;
 }
 ```
-<hr>
 
 ## 6. 监听数据
 
-同步数据也是通过绑定回调函数来实现的。假设我们按照上面的代码写入了数据，那么就可以使用`widdog_addObserver()`函数来实时同步`/users/Jack`的值。
+同步数据也是通过绑定回调函数来实现的。假设我们按照上面的代码保存了数据，那么就可以使用`widdog_addObserver()`函数来实时同步`/users/Jack`的值。
+
 ```c
 #include "wilddog.h"
 void callback(const Wilddog_Node_T* p_snapshot, void* arg, Wilddog_Return_T err){
@@ -144,4 +145,4 @@ int main(){
 ```
 当从云端第一次同步数据，以及数据发生变化时，回调函数 callback 会被触发。每当我们对云端数据进行修改，SDK 就会收到通知。
 
- Wilddog C/嵌入式 SDK 更全面的使用方法可以查看[完整指南](/guide/sync/c/config-and-porting.html)。
+ Wilddog C/嵌入式 SDK 更全面的使用方法可以查看 [完整指南](/guide/sync/c/config-and-porting.html)。

@@ -20,21 +20,20 @@ guide:
   实时数据同步:
     Web:
       操作数据: /guide/sync/web/save-data.html
-      读取和查询数据: /guide/sync/web/retrieve-data.html
+      查询数据: /guide/sync/web/retrieve-data.html
       离线功能: /guide/sync/web/offline-capabilities.html
     Android :
       操作数据: /guide/sync/android/save-data.html
-      读取和查询数据: /guide/sync/android/retrieve-data.html
+      查询数据: /guide/sync/android/retrieve-data.html
       离线功能: /guide/sync/android/offline-capabilities.html
     iOS:
       操作数据: /guide/sync/ios/save-data.html
-      读取和查询数据: /guide/sync/ios/retrieve-data.html
+      查询数据: /guide/sync/ios/retrieve-data.html
       离线功能: /guide/sync/ios/offline-capabilities.html
     C/嵌入式:
       配置和移植: /guide/sync/c/config-and-porting.html
-      组织数据: /guide/sync/c/structure-data.html
       操作数据: /guide/sync/c/save-data.html
-      读取和查询数据: /guide/sync/c/retrieve-data.html
+      查询数据: /guide/sync/c/retrieve-data.html
       离线功能: /guide/sync/c/offline-capabilities.html
     REST:
       完整指南: /guide/sync/rest/guide.html

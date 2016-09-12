@@ -1,14 +1,15 @@
-title: 快速入门
 
+title: 快速入门
 ---
+你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考控制面板-创建应用。
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
-## 2. 引入 SDK
+## 2. 安装 SDK
 
-**使用Maven获得 Sync SDK：**
+* **使用 Maven 安装 Sync SDK：**
 
 ```xml
 <dependency>
@@ -18,7 +19,8 @@ title: 快速入门
 </dependency> 
 ```
 
-**使用Gradle获得 Sync SDK：**
+* **使用 Gradle 安装 Sync SDK：**
+
  在build.gradle中添加：
 
 ```java
@@ -39,17 +41,13 @@ android {
 }
 ```
 
-### 
+## 3. 配置 Android 权限
 
-## 3. Android 权限配置
-
-获取 android.permission.INTERNET 权限，你需要在 AndroidMainfest.xml 文件添加：
+在 AndroidMainfest.xml 文件中添加：
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
-
-
 
 ## 4. 初始化 Context
 
@@ -65,29 +63,27 @@ public void onCreate() {
 }
 ```
 
-## 5. 创建 Wilddog 实例
+## 5. 创建 Wilddog Sync 实例
 
 创建 Wilddog 实例的时候需要传入节点路径参数。
 
 ```java
-Wilddog Wilddog = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
+Wilddog ref = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
 ```
 
-使用 Child() 可以创建一个子节点实例。
+实例的 child() 方法可以创建一个子节点实例。
 
-例如在应用中创建`/weather`子节点：
+例如在 ref 下创建`/weather`子节点：
 
 ```java
-Wilddog Child = new Wilddog().Child("/weather")
+Wilddog child = ref.child("/weather")
 ```
-
-
 
 ## 6. 保存数据
 
-setValue()方法可以写入数据。
+setValue() 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中`/weather`节点下存入天气信息
+例如在应用中`/weather`节点下保存天气数据
 
 ```java
 Map data = new HashMap();
@@ -96,13 +92,13 @@ data.put("shanghai","sunny");
 child.setValue(data);
 ```
 
-存入的数据如下图：
+保存的数据如下图：
 
-<img src="/images/saveapp.png" alt="savedata" >
+<img src="/images/saveapp.png" alt="savedata" width="300" >
 
-## 7. 读取与同步数据
+## 7. 读取与监听数据
 
-`addValueEventListener()`方法可以读取存入的信息。
+`addValueEventListener()`方法可以读取保存的数据。
 
 ```java
 child.addValueEventListener(new ValueEventListener() {
@@ -119,6 +115,7 @@ child.addValueEventListener(new ValueEventListener() {
     }
 });
 ```
-取出的数据会一直和云端保持同步。如果你只想读取一次，不同步数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
 
-更多的数据读取方式可以查看[完整指南](/guide/sync/android/save-data.html)和 [API 文档](/api/sync/android.html)
+取出的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
+
+更多的数据读取方式可以查看 [完整指南](/guide/sync/android/save-data.html)和 [API 文档](/api/sync/android.html)

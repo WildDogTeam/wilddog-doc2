@@ -1,23 +1,37 @@
+
 title: 快速入门
 ---
+快速入门以cURL工具为例，让你了解野狗实时同步的基本用法。
 
+## 1. 创建应用
 
-## 1. 创建账号和应用
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
-首先，注册并登录Wilddog账号，进入[控制面板](https://www.wilddog.com/dashboard)。然后，在控制面板中，添加一个新的应用。 你会得到一个应用的URL `https://<appid>.wilddogio.com/`，其中<appid>就是你的应用ID。
+## 2. 读取与保存数据
 
-## 2. 读写数据
+对于 Wilddog 任何节点，你可以将该节点相对于根节点的路径作为数据地址，将数据地址后加上`.json`，作为 URL 发送标准的 HTTPS REST 请求，以此读取与保存数据。在本文档中，我们使用 [CURL](https://en.wikipedia.org/wiki/CURL) 工具发送 HTTPS 请求。
 
-我们可以在任何Wilddog的数据地址之后加上`.json`来作为URL，发送标准的HTTPS REST请求，实现对数据的读写操作。在本文档中，我们使用[CURL](https://en.wikipedia.org/wiki/CURL)工具发送HTTPS请求。
+假如我们已有数据是这样的
 
-REST API中最基本的写入操作是`PUT`，使用`PUT`请求写入数据:
+```
+{
+  "rest": {
+    "quickstart": {
+      "users": {}
+    }
+  }
+}
+那么若要操作users节点的数据,数据路径为 /rest/quickstart/users
+```
+
+使用`PUT`请求保存数据:
 
 ```
 curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23, 1912" } }' 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 
 ```
 
-必须使用https。为了保障安全，Wilddog只支持加密的传输方式。 成功的请求会收到http状态码200 OK，响应中会包含我们写入Wilddog的数据。
+成功的请求会收到 HTTP 状态码200 ，返回值中包含我们保存Wilddog 的数据。
 
 ```
 {
@@ -26,9 +40,10 @@ curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23
     "name": "Alan Turing"
   }
 }
-
 ```
 
-在任何支持HTTPS的平台和编程语言中，都可以使用wilddog REST API。将来我们也会提供各种编程语言的库，使得REST API的使用更加简单和方便。
 
-现在你已经知道了REST API的基础知识，更多细节请参见 [完整指南](old/sync/rest/guide-rest.html)。
+
+以 cRUL 中的用法类似，在任何支持 HTTPS 的平台和编程语言中，都可以使用 Wilddog REST API。将来我们会提供各种编程语言的库，使 REST API 更加简便。
+
+更多具体细节，请参考 [完整指南](/guide/sync/rest/guide.html)。

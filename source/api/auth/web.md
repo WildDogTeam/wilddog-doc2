@@ -93,7 +93,7 @@ wilddog.auth().signInWithRedirect(weiboProvider).then(function () {
 
 `wilddog.auth().signInWithCustomToken(token) return` [wilddog.Promise](/api/auth/web.html#wilddog-Promise)
 
-* 监听用户状态
+## 监听用户状态
 
 `wilddog.auth().onAuthStateChanged`
 

@@ -1,10 +1,16 @@
 title:  离线功能
 ---
-Wilddog 内部的实现机制能使你的应用在弱网环境下仍能继续工作。此外，还能监听客户端的在线状态，以及设置离线事件。
+
+本篇文档主要介绍离线功能的实现。
+
+Wilddog 会为每一个初始化后的客户端建立一个长连接。任何操作和通信都基于这个连接。
+
+Wilddog 内部的实现机制能使你的应用在弱网环境下仍能继续工作。此外，还能监听客户端的连接状态，以及设置离线事件。
 
 ## 监控连接状态
 
-在许多应用场景下，客户端需要知道自己是否在线。Wilddog 客户端提供了一个特殊的数据地址：/.info/connected。每当客户端的连接状态发生改变时，这个地址的数据都会被更新。
+在许多应用场景下，客户端需要知道自己与云端的连接是否正常。Wilddog 客户端提供了一个特殊的节点：`/.info/connected`，来存储客户端的连接状态。每当客户端的连接状态发生改变时，这个地址的数据都会被更新。
+
 ``` js
 var config = {
   authDomain: "<appId>.wilddog.com",
@@ -21,15 +27,16 @@ connectedRef.on("value", function(snap) {
   }
 });
 ```
-/.info/connected的值是boolean类型的，它不会和云端进行同步。
+`/.info/connected` 的值是 boolean 类型的，它不会和云端进行同步。
 
 ## 离线事件
 
-如果你想在监听到客户端断线后自动触发一些事件。例如，当一个用户的网络连接中断时，希望标记这个用户为“离线”状态。Wilddog 提供的离线事件功能实现这一需求。
+云端监听到客户端断开连接后自动触发一些事件，称为离线事件。例如，当一个用户的网络连接中断时，自动标记这个用户为“离线”状态。
 
-离线事件能在云端检测到客户端连接断开时，将指定的数据写入云数据库中。不论是客户端主动断开，还是意外的网络中断，甚至是客户端应用崩溃，这些数据写入动作都将会被执行。因此我们可以依靠这个功能，在用户离线的时候，做一些数据清理工作。Wilddog 支持的所有数据写入动作，包括 set, update，remove，都可以设置在离线事件中执行。
+断开连接包括客户端主动断开连接，或者意外的网络中断，比如客户端应用崩溃等。触发事件可以理解为执行特定的数据操作。数据操作支持的所有数据写入动作，包括 set, update，remove。
 
-下面是一个例子，使用`onDisconnect()`方法，在离线的时候写入数据：
+使用`onDisconnect()`方法，设置离线事件：
+
 
 ```js
 var config = {
@@ -38,16 +45,11 @@ var config = {
 };
 wilddog.initializeApp(config);
 var presenceRef = wilddog.sync().ref("disconnectmessage");
-
 // 当客户端连接断开时，写入一个字符串
 presenceRef.onDisconnect().set("I disconnected!");
 ```
 
-**离线事件是如何工作的**
-
-当进行了一个`onDisconnect()`调用之后，这个事件将会被记录在云端。云端会监控每一个客户端的连接。如果发生了超时，或者客户端主动断开连接，云端就触发记录的离线事件。
-
-客户端可以通过回调方法，确保离线事件被云端成功记录了：
+通过数据操作的回调方法，判断离线事件是否被云端成功记录：
 
 ```js
 presenceRef.onDisconnect().remove( function(err) {
@@ -56,17 +58,17 @@ presenceRef.onDisconnect().remove( function(err) {
   }
 });
 ```
-
-要取消一个离线事件，可以使用`cancel()`方法：
+使用`cancel()`方法，取消离线事件：
 
 ```js
-var onDisconnectRef = presenceRef.onDisconnect();
-onDisconnectRef.set('I disconnected');
-// 要取消离线事件
-onDisconnectRef.cancel();
+// 设置离线事件
+presenceRef.onDisconnect().set("I disconnected!");
+// 取消离线事件
+presenceRef.cancel();
 ```
 ## 云端时间戳
-Wilddog 提供了一种将[云端时间戳](/api/sync/web.html#TIMESTAMP)作为数据写入的机制。这个机制和`onDisconnect()`方法组合起来，很容易实现记录客户端断线时间的功能：
+
+Wilddog 提供了一种将 [云端时间戳](/api/sync/web.html#TIMESTAMP) 作为数据写入的机制。
 
 ```js
 var config = {
@@ -76,10 +78,17 @@ var config = {
 wilddog.initializeApp(config);
 var userLastOnlineRef = wilddog.sync().ref("/users/joe/lastOnline");
 
+//存入当前云端时间戳
+userLastOnlineRef.set(wilddog.sync().ServerValue.TIMESTAMP);
+```
+
+与 `onDisconnect()` 方法组合使用，很容易实现记录客户端断线时间的功能：
+
+```js
 userLastOnlineRef.onDisconnect().set(wilddog.sync().ServerValue.TIMESTAMP);
 ```
 
-另外，Wilddog 提供一种查看本地时间和服务器时间差的机制。本地时间和客户端时间差保存在 `/.info/serverTimeOffset` 中,你可以通过`on` 或者`once` 监听 `value` 事件来获取这个数据:
+本地时间和云端的时间差保存在 `/.info/serverTimeOffset` 节点下，获取方法如下:
 
 ```js
 var config = {
@@ -89,15 +98,17 @@ var config = {
 wilddog.initializeApp(config);
 var serverTsRef = wilddog.sync().ref("/.info/serverTimeOffset");
 
-serverTsRef.on('value',function(snapshot){
+serverTsRef.once('value',function(snapshot){
+  // 获取时间差
   var offset = snapshot.val();
-  serverTime = (new Date).getTime() + offset ; // 获取当前服务端时间
+  // 可进一步计算出云端时间
+  serverTime = (new Date).getTime() + offset;
 })
 ```
-如果你只是想简单的获取服务器时间，可以用 REST API [Server Values](https://z.wilddog.com/rest/api#Server-Values0)。即向 `https://<appId>.wilddogio.com/.json?sv=timestamp` 发一个 `GET` 请求即可。
+如果只想获取云端时间，并不想存入，可以用 REST API [Server Values](https://z.wilddog.com/rest/api#Server-Values0)。即向 `https://<appId>.wilddogio.com/.json?sv=timestamp` 发一个 `GET` 请求即可。
 
 ## 手动建立或断开连接
-Wilddog 也提供了手动建立或者断开连接的方法。示例如下：
+Wilddog 也提供了手动建立或者断开连接的方法，分别为 `goOnline()`，`goOffline()`，如下：
 
 ```js
 var config = {
@@ -125,11 +136,14 @@ setTimeout(function(){
   },3000);
 },3000);
 ```
-另外，需要说明的是，一个客户端可以实例化多个 Wilddog 对象，但多个对象不会创建多个连接，会复用同一个长连接。 并且 `goOffline` 和 `goOnline` 会控制`全局`的在线和离线。 
+**注意**：一个客户端可以实例化多个 Wilddog 对象，但多个对象不会创建多个连接，会复用同一个长连接。 并且 `goOffline()` 和 `goOnline()` 会控制全局的在线和离线。 
 
 ## 离线功能的实现机制
 
-Wilddog 云端会每隔 20s 发一个心跳包给客户端，用于检测与客户端的连接是否正常。如果一些异常情况，如程序崩溃、断电、手机没有信号等导致客户端断开连接，服务端无法立即感知到客户端断开，只能等到心跳超时后才确定客户端已经离线。此时才会执行一些操作，如执行离线事件（如果设置的有），重试连接等。
+Wilddog 云端会每隔 20s 发一个心跳包给客户端，用于检测与客户端的连接是否正常。
+
+如果一些异常情况，如程序崩溃、断电、手机没有信号等导致客户端断开连接，服务端无法立即感知到客户端断开，只能等到心跳超时后才确定客户端已经离线。此时才会执行一些操作，如执行离线事件（如果设置了），重试连接等。
+
 另外，重试连接连上之后，之前设置的监听仍然有效。
 
 

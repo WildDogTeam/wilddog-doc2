@@ -2,23 +2,23 @@
 title: 快速入门
 ---
 
-快速入门通过编写一个简单的天气应用让你了解实时数据同步如何使用。
+你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考[控制面板-创建应用](/console/creat.html)。
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Sync SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
-`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog JavaScript SDK:
+`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Sync SDK:
 
 ```
 npm install wilddog
 ```
 
-## 3. 创建 Wilddog 实例
+## 3. 创建 Wilddog Sync 实例
 
 ```javascript
 var config = {
@@ -33,9 +33,9 @@ var ref = wilddog.sync().ref();
 
 ## 4. 保存数据
 
-野狗的数据是以 [JSON](http://json.org) 格式存储的，set() 方法可以写入数据。
+使用`Set()`方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中存入北京和上海的天气信息：
+例如在应用中保存北京和上海的天气数据：
 
 ```javascript
 ref.set({
@@ -46,16 +46,16 @@ ref.set({
 });
 ```
 
-存入的数据如下图：
+保存的数据如下图：
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
-**删除数据**和**更新数据**等更多操作数据的用法与此类似，你可以在 [完整指南](/guide/sync/web/save-data.html) 或者 [API 文档](/api/sync/web.html) 中查看具体用法。
+**删除数据**和**更新数据**等更多操作数据的用法与此类似。你可以在 [完整指南](/guide/sync/web/save-data.html) 或者 [API 文档](/api/sync/web.html) 中查看具体用法。
 
 ## 5. 读取与监听数据
-on() 方法可以读取并监听节点的数据。
+`on()`方法可以读取并监听节点的数据。
 
-例如从应用中获得天气信息:
+例如从应用中获得天气数据:
 
 ```javascript
 ref.on("value", function(snapshot) {
@@ -63,11 +63,12 @@ console.log(snapshot.val());
 }
 ```
 
-取出的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用once() 函数替代on()函数。
+取出的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`once()`函数替代`on()`函数。
 
-更多的数据读取方式可以查看[完整指南](/guide/sync/web/save-data.html)。
-
-
+更多的数据读取方式可以查看 [完整指南](/guide/sync/web/save-data.html)。
 
 
 
+
+
+　

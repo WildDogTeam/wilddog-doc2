@@ -67,7 +67,7 @@ let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, passwor
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithAppID:@"your-wilddog-appid"];
+WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
 [auth.currentUser linkWithCredential:credential
                                       completion:^(WDGUser *_Nullable user,
                                                    NSError *_Nullable error) {
@@ -92,7 +92,7 @@ WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser?.linkWithCredential(crede
 
 Objective-C
 ```objectivec
-WDGUser *currentUser = [WDGAuth authWithAppID:@"your-appid"].currentUser;
+WDGUser *currentUser = [WDGAuth authWithApp:@"your-appid"].currentUser;
 [currentUser unlinkFromProvider:providerId
                      completion:^(WDGUser *user, NSError *error) {
                        if (error == nil) {

@@ -31,7 +31,7 @@ import WilddogAuth
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithAppID:@"your-wilddog-appid"];
+WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
 ```
 Swift
 ```swift
@@ -123,7 +123,7 @@ let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, passwor
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithAppID:@"your-wilddog-appid"];
+WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
 [auth.currentUser linkWithCredential:credential completion:^(WDGUser *_Nullable user,NSError *_Nullable error) {
       // ...
 }];

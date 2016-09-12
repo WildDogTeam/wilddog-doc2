@@ -1,28 +1,31 @@
 title: 实战教程
 ---
 
-本部分内容将给出一些详尽的示例教程。一些基础教程如创建应用、读写数据这里不再重复，不了解的话请先阅读[快速入门](/quickstart/sync/web.html)。
+本文档将给出一些详尽的示例教程。
 
-# 弹幕
+如需了解创建应用、读写数据等基础操作，请参考文档[快速入门](/quickstart/sync/web.html)。
+
 
 ## 示例说明
+
+本教程以弹幕为例，讲解如何通过 Wilddog Sync 实现多端实时互动。百余行代码即可完全实现该功能，可见 Sync 的简单与强大。
+
 示例的最终的展示效果如下，可以进入[这里体验](http://danmu.wilddogapp.com/)
 
 ![](/images/display.jpg)
 
 
-与平常见到的弹幕一样，可多端互动。使用 Wilddog SDK，百余行代码即可完全实现。可见 Wilddog 在实时领域的简单与强大。
-
 ## 具体步骤
 
-### 引入 Wilddog js SDK
+### 1. 引入 SDK
 
 ```js
 <script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
 ```
-### “说点什么” 与 “发射”
+### 2. 实现 “说点什么” 与 “发射” 功能
 
-这里用到 Wilddog 写入数据的一个 API [push()](/guide/sync/web/save-data.html#追加新节点), 它用来在当前节点下生成随机子节点，以保证键的不重复和有序。
+使用写入数据的 API [push()](/guide/sync/web/save-data.html#追加新节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
+
 ```js
 // 创建数据库引用。最好自己创建一个应用，把 danmu 即 `appId` 换成你自己的
 var config = {
@@ -37,18 +40,20 @@ var text = $(".s_txt").val();
 // 将数据写到云端 message 节点下，child 用来定位子节点
 ref.child('message').push(text);
 ```
+
 数据库中的数据结构就是这个样子的：
 
 ![](/images/data.jpg)
 
-### “清屏”
-就是删除数据，定位到节点下调用 API `remove()` 即可。
+### 3.  “清屏”功能
+
+清屏即删除数据，定位到节点下调用 `remove()` 即可。
 
 ```js
 ref.remove();
 ```
-### 在窗口显示
-即读取数据，Wilddog [获取数据](/guide/sync/web/retrieve-data.html)是先绑定监听事件，然后在回调函数中获取数据：
+### 4. 在窗口显示
+在窗口显示即读取数据，Wilddog [获取数据](/guide/sync/web/retrieve-data.html)是先绑定监听事件，然后在回调函数中获取数据：
 
 ```js
 // 绑定 'child_added' 事件，当 message 节点下有子节点新增时，就会触发回调，回调的 `snapshot` 对象包含了新增的数据
@@ -56,19 +61,21 @@ ref.child('message').on('child_added', function(snapshot) {
 	var text = snapshot.val();
 });
 ```
-如果有人“清屏”了，如何获取这个事件呢？与上面的 `'child_added'` 类似，有个 `'child_removed'` 事件：
+如果有人“清屏”了，通过 `child_removed` 获取事件：
+
 ```js
 ref.on('child_removed', function(snapshot) {
 
 });
 ```
+
 用到的相关 Wilddog API 就这么多，接下来就是弹幕相关的特定实现了。
 
 
-### 画出页面轮廓
-只是牵涉到 web 页面的基础知识，这里不再叙述，可直接到最下方查看源码。
+### 5. 画出页面轮廓
+只是牵涉到 Web 页面的基础知识，这里不再叙述，可直接到最下方查看源码。
 
-### 滚动及逐行显示
+### 6. 滚动及逐行显示
 
 ```js
 var arr = [];						// 此数组用来存放所有的消息元素
@@ -97,7 +104,7 @@ var moveObj = function(obj) {
 }
 ```
 
-### 每3s随机选取一条消息播放
+### 7. 每 3s 随机选取一条消息播放
 
 ```js
 var getAndRun = function() {
@@ -112,7 +119,7 @@ var getAndRun = function() {
 }
 ```
 
-### 生成随机颜色
+### 8. 生成随机颜色
 
 ```js
 var getRandomColor = function() {
