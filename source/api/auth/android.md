@@ -1,153 +1,167 @@
 title:  完整 API 文档
 ---
 
-# AuthResult
+## AuthResult
 
 public interface **AuthResult**
 
 结果对象获得的操作会影响认证状态。包含一个方法,在操作完成后返回当前登录用户。
 
-## Public Method Summary
-
-WilddogUser  abstract  getUser() 
-
-
-## Public Methods
+定义
 
 public abstract WilddogUser getUser ()
 
-返回值
+说明
 
 当前帐号WilddogUser,如果没有则为null(即用户登出)。
 
+返回值
+
+WilddogUser
+
 ----
-# WilddogAuth.AuthStateListener
+## WilddogAuth.AuthStateListener
 
-public static interface **WilddogAuth.AuthStateListener**
+定义
 
-当身份验证状态有一个变化的时候调用。
+public static interface WilddogAuth.AuthStateListener
 
-使用`addAuthStateListener(AuthStateListener)`和`removeAuthStateListener(AuthStateListener)`来注册或者注销监听
-## Public Method Summary
-void    abstract      onAuthStateChanged(WilddogAuth auth)
+说明
 
-         当状态发生变化的时候，这个方法在UI线程中调用
+当身份验证状态有一个变化的时候调用。使用`addAuthStateListener(AuthStateListener)`和`removeAuthStateListener(AuthStateListener)`来注册或者注销监听
 
-               * 注册监听的时候
-               * 用户登录的时候
-               * 用户登出的时候
-               * 当前用户改变的时候
-               * 当前用户的token改变的时候
 
-## Public Methods
+定义
 
 public abstract void onAuthStateChanged (WilddogAuth auth)
 
+说明
 
  当状态发生变化的时候，这个方法在UI线程中调用：
 
-               * 注册监听的时候
-               * 用户登录的时候
-               * 用户登出的时候
-               * 当前用户改变的时候
-               * 当前用户的token改变的时候
+* 注册监听的时候
+* 用户登录的时候
+* 用户登出的时候
+* 当前用户改变的时候
+* 当前用户的token改变的时候
 
+参数
 
-### Parameters
-auth  当前WilddogAuth 对象，用来进行Auth相关操作。  
-
+auth 当前 WilddogAuth 对象，用来进行 Auth 相关操作。  
 
 ----
              
-# WilddogAuthProvider
+## WilddogAuthProvider
+
+定义
 
 public interface **WilddogAuthProvider**
 
+说明
+
 提供Auth身份验证类型
+----- 
 
-## Constant Summary
+## PROVIDER_ID
 
-String  PROVIDER_ID	  身份验证类型唯一字符标识。
-
-## Constants
+定义
 
 public static final String **PROVIDER_ID**
-Unique string identifier for this provider type.
 
-Constant Value: "wilddog"    
+说明
+
+登录方式的 ID。例如: "qq"    
           
 -----               
                
 # UserInfo
 
+定义
 
 public interface **UserInfo**
 
-已知直接子类
+说明
 
-WilddogUser
-
-  获取一个用户的标准用户配置信息。可用于身份验证提供者返回的用户配置信息，例如QQ登录或者微信登录。
-  
-## Public Method Summary
-
-  abstract String getDisplayName()
-  
-  如果可用，返回用户昵称。
-  
-  abstract String getEmail()
-  
-  如果可用，返回指定认证提供类型的电子邮箱地址
-  
-  abstract Uri	getPhotoUrl()
-  
-  如果可用，返回用户设置的形象照片的URL
-  
-  abstract String getProviderId()
-  
- 返回提供者类型实例的唯一标识符
-
-  abstract String	getUid()
-  
-  返回一个身份验证提供者指定的用户标识符。
-  
-## Public Methods
+已知直接子类 WilddogUser 。获取一个用户的标准用户配置信息。可用于身份验证提供者返回的用户配置信息，例如QQ登录或者微信登录。
+ 
+ 
+## getDisplayName ()  
+定义
 
 public abstract String getDisplayName ()
-  
+
+说明  
+
 如果可用，返回用户昵称。
    
-   
+-----      
+
+## getEmail ()
+
+定义   
+
 public abstract String getEmail ()
   
+说明  
+
 返回对应于指定提供者的用户帐户的电子邮件地址，包含可选。
-  
+
+-----   
+## getPhotoUrl ()  
+
+定义
+
 public abstract Uri getPhotoUrl ()
+
+说明
   
 如果可用，返回用户形象照片。
-  
+
+-----    
+
+## getProviderId ()
+ 
+定义
+ 
 public abstract String getProviderId ()
   
+说明
+
 返回提供者类型实例的唯一标识符，例如QQ，weixin。
-  
+
+-----  
+ 
+## getUid ()
+
+定义
+ 
 public abstract String getUid ()
   
+说明
+
 返回一个身份验证提供者指定的用户标识符。例如，如果是qq返回qq的uid，如果是微博，返回微博的openId。
 
 ----                 
 
 
-# AuthCredential
-public abstract class **AuthCredential** extends Object
+## AuthCredential
+
+定义
+
+public abstract class AuthCredential extends Object
+
+说明
 
 已知直接子类
-EmailAuthCredential，QQAuthCredential，WeiboAuthCredential，WeiXinAuthCredential
-
-代表Wilddog支持的身份认证的方式的认证凭据。
+EmailAuthCredential，QQAuthCredential，WeiboAuthCredential，WeiXinAuthCredential代表Wilddog支持的身份认证的方式的认证凭据。
 
 ## Public Method Summary
 
+定义
+
 abstract String    getProvider\(\)
+
+说明
 
 返回使用的认证方式的类型唯一标识。
 
@@ -158,13 +172,19 @@ public abstract String getProvider \(\)
 返回使用的认证方式的类型唯一标识。例如："weixin"，"qq"，"weibo"，"password"
 
 ----
-# EmailAuthCredential
 
-public class **EmailAuthCredential** extends AuthCredential
+## EmailAuthCredential
+
+定义
+
+public class EmailAuthCredential extends AuthCredential
+
+说明
 
 包含邮箱和密码的身份认证方式
 
 ## Public Method Summary
+
 String	getProvider()
 
 返回使用的认证方式的类型唯一标识。
@@ -174,127 +194,155 @@ String	getProvider()
 返回类型为"password"类型的认证方式唯一标识。
 
 ----
-# EmailAuthProvider
+## EmailAuthProvider
+ 
+定义
 public class **EmailAuthProvider** extends Object
+
+说明
 
 代表了电子邮件和密码身份验证机制，使用这个类来获取EmailAuthCredential。
 
-## Constant Summary
-String	PROVIDER_ID	认证类型的唯一字符串标识。
+----
 
-## Public Method Summary
-static AuthCredential	getCredential(String email, String password)
 
-返回一个带有用户名和密码的用户凭证，用于后续的登录或者绑定邮箱认证方式。
+### PROVIDER_ID
 
-## Constants
+定义
 
 public static final String **PROVIDER_ID**
 
-认证方式的唯一字符串标识
+说明
 
-常量值: "password"
+认证方式的唯一字符串标识。例如："password"
 
 
-## Public Methods
+### getCredential()
+定义
+
 public static AuthCredential getCredential (String email, String password)
+
+说明
 
 返回一个带有用户名和密码的用户凭证，当调用`signInWithCredential(AuthCredential)`或者`linkWithCredential(AuthCredential)`时候使用
 
 ----
-# QQAuthCredential 
+## QQAuthCredential 
+
+### AuthCredential
+定义
+
 public class QQAuthCredential extends AuthCredential
+
+说明
 
 包含qq accessToken的认证凭据
 
-## Public Method Summary
 
-String	getProvider()
-
-返回身份认证的唯一标识 "qq"
-
-public String getAccessToken()
-
-返回要上传的token信息
-
-## Public Methods
+### getProvider()
+定义
 
 public String getProvider ()
 
+说明
 返回身份认证的唯一标识 "qq"
 
+### getAccessToken()
+
+定义
 public String getAccessToken()
 
+说明
 返回要上传的token信息
 
 ----
-# QQAuthProvider
+## QQAuthProvider
+
+### QQAuthProvider
+
+定义
 
 public class **QQAuthProvider** extends Object
 
-代表了QQ身份认证机制，使用这个类来获取QQAuthCredential。
+说明
 
-## Constant Summary
-String	PROVIDER_ID	认证类型的唯一字符串标识。
+代表了 QQ 身份认证机制，使用这个类来获取 QQAuthCredential。
 
-## Public Method Summary
-static AuthCredential	getCredential(String token)
+----
 
-返回一个带有accessToken的QQ用户凭证，用于后续的登录或者绑定邮箱认证方式。
+### PROVIDER_ID
 
-## Constants
+定义
 
 public static final String **PROVIDER_ID**
 
-认证方式的唯一字符串标识
 
-常量值: "qq"
+说明
+认证方式的唯一字符串标识。值为 "qq"
 
+----
 
-## Public Methods
+### getCredential
+
+定义
 public static AuthCredential getCredential (String token)
+
 
 返回一个带有用户名和密码的用户凭证，当调用`signInWithCredential(AuthCredential)`或者`linkWithCredential(AuthCredential)`时候使用
 
-----
-# WeiboAuthCredential
+---
 
+## WeiboAuthCredential
+
+定义
 public class WeiboAuthCredential extends AuthCredential
 
-包含微博 accessToken和uid的认证凭据
+说明
+包含微博 accessToken 和 uid 的认证凭据
 
-## Public Method Summary
+---
 
-String	getProvider()
+### getProvider ()
 
-返回身份认证的唯一标识 "weibo"
-
-public String getAccessToken()
-
-返回要上传的token信息
-
- public String getUid()
- 
- 返回要上传的微博平台唯一标识uid。
-
-## Public Methods
+定义
 
 public String getProvider ()
 
+说明
+
 返回身份认证的唯一标识 "weibo"
+
+---
+
+### getAccessToken()
+
+定义
 
 public String getAccessToken()
 
+说明
+
 返回要上传的token信息
 
-public String getUid()
+---
+
+
+### getUid()
  
+定义
+
+public String  getUid()
+
+说明
+
 返回要上传的微博平台唯一标识uid。
 
 ----
-# WeiboAuthProvider
 
-public class **WeiboAuthProvider** extends Object
+## WeiboAuthProvider
+
+定义
+public class WeiboAuthProvider extends Object
 
 代表了新浪微博身份认证机制，使用这个类来获取WeiboAuthCredential。
 
