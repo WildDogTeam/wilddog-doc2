@@ -1,9 +1,9 @@
 title:  C/OpenWRT API 文档
 ---
 
-# Wilddog (*Methods*)
+## Wilddog (*Methods*)
 
-## wilddog\_initWithUrl()
+### wilddog\_initWithUrl()
 
 定义
 
@@ -37,7 +37,7 @@ int main(){
 ```
 ----
 
-## wilddog\_destroy()
+### wilddog\_destroy()
 
 定义
 
@@ -65,7 +65,7 @@ wilddog_destroy(&wilddog);
 ```
 ----
 
-## wilddog\_getValue()
+### wilddog\_getValue()
 
 定义
 
@@ -125,7 +125,7 @@ int main(void){
 }
 ```
 ----
-## wilddog\_setValue()
+### wilddog\_setValue()
 
 定义
 
@@ -187,7 +187,7 @@ int main(void){
 }
 ```
 ----
-## wilddog\_push()
+### wilddog\_push()
 
  定义
 
@@ -257,7 +257,7 @@ int main(void){
 ```
 ----
 
-## wilddog\_removeValue()
+### wilddog\_removeValue()
 
 定义
 
@@ -312,7 +312,7 @@ int main(void){
 ```
 ----
 
-## wilddog\_addObserver()
+### wilddog\_addObserver()
 
 定义
 
@@ -378,7 +378,7 @@ int main(void){
 ```
 ----
 
-## wilddog\_removeObserver()
+### wilddog\_removeObserver()
 定义
 
 Wilddog\_Return\_T wilddog\_removeObserver(Wilddog\_T \*p\_wilddog, Wilddog\_EventType\_T event)
@@ -402,7 +402,7 @@ Wilddog\_Return\_T wilddog\_removeObserver(Wilddog\_T \*p\_wilddog, Wilddog\_Eve
 
 ----
 
-## wilddog\_onDisconnectSetValue()
+### wilddog\_onDisconnectSetValue()
 
 定义
 
@@ -462,7 +462,7 @@ int main(void){
 }
 ```
 ----
-## wilddog\_onDisconnectPush()
+### wilddog\_onDisconnectPush()
 
  定义
 
@@ -521,7 +521,7 @@ int main(void){
 ```
 ----
 
-## wilddog\_onDisconnectRemoveValue()
+### wilddog\_onDisconnectRemoveValue()
 
 定义
 
@@ -574,7 +574,7 @@ int main(void){
 ```
 ----
 
-## wilddog\_cancelDisconnectOperations()
+### wilddog\_cancelDisconnectOperations()
 
 定义
 
@@ -626,7 +626,7 @@ int main(void){
 }
 ```
 ----
-## wilddog_goOffline()
+### wilddog_goOffline()
 
  定义
 
@@ -641,7 +641,7 @@ void wilddog_goOffline(void)
 void
 
 ----
-## wilddog_goOnline()
+### wilddog_goOnline()
 
  定义
 
@@ -657,7 +657,7 @@ void
 
 ----
 
-## wilddog\_trySync()
+### wilddog\_trySync()
 
  定义
 
@@ -673,7 +673,7 @@ void
 
 ----
 
-## wilddog\_increaseTime()
+### wilddog\_increaseTime()
 
 定义
 
@@ -701,9 +701,9 @@ void timer_isr()
 }
 ```
 ----
-# Wilddog(*Properties*)
+## Wilddog(*Properties*)
 
-## wilddog\_getParent()
+### wilddog\_getParent()
 
  定义
 
@@ -730,7 +730,7 @@ Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy
 Wilddog_T parent = wilddog_getParent(wilddog);
 ```
 ----
-## wilddog\_getRoot()
+### wilddog\_getRoot()
 
  定义
 
@@ -758,7 +758,7 @@ Wilddog_T root = wilddog_getRoot(wilddog);
 ```
 ----
 
-## wilddog\_getChild()
+### wilddog\_getChild()
 
  定义
 
@@ -788,7 +788,7 @@ Wilddog_T child = wilddog_getChild(wilddog, "aaa");
 ```
 ----
 
-## wilddog\_getKey()
+### wilddog\_getKey()
 
  定义
 
@@ -816,7 +816,7 @@ Wilddog_Str_T *key = wilddog_getKey(wilddog);
 ```
 ----
 
-## wilddog\_getHost()
+### wilddog\_getHost()
 
  定义
 
@@ -844,7 +844,7 @@ Wilddog_Str_T *host = wilddog_getHost(wilddog);
 ```
 ----
 
-## wilddog\_getPath()
+### wilddog\_getPath()
 
  定义
 
@@ -872,9 +872,9 @@ Wilddog_Str_T *path = wilddog_getPath(wilddog);
 ```
 ----
 
-# Node(*Methods*)
+## Node(*Methods*)
 
-##wilddog\_node\_createObject()
+### wilddog\_node\_createObject()
 
  定义
 
@@ -899,7 +899,7 @@ Wilddog_Node_T *p_node = wilddog_node_createObject((Wilddog_Str_T *)"123");
 
 ----
 
-## wilddog\_node\_createUString()
+### wilddog\_node\_createUString()
 
  定义
 
@@ -925,7 +925,7 @@ Wilddog_Node_T *p_node = wilddog_node_createUString((Wilddog_Str_T *)"this is ke
 
 ----
 
-##wilddog\_node\_createBString()
+### wilddog\_node\_createBString()
 
  定义
 
@@ -954,7 +954,7 @@ Wilddog_Node_T *p_node = wilddog_node_createBString((Wilddog_Str_T *)"this is ke
 
 ----
 
-## wilddog\_node\_createFloat()
+### wilddog\_node\_createFloat()
 
  定义
 
@@ -981,7 +981,7 @@ Wilddog_Node_T *p_node = wilddog_node_createFloat((Wilddog_Str_T *)"this is key"
 
 ----
 
-## wilddog\_node\_createNum()
+### wilddog\_node\_createNum()
 
  定义
 
@@ -1008,7 +1008,7 @@ Wilddog_Node_T *p_node = wilddog_node_createNum((Wilddog_Str_T *)"this is key", 
 
 ----
 
-## wilddog\_node\_createNull()
+### wilddog\_node\_createNull()
 
  定义
 
@@ -1033,7 +1033,7 @@ Wilddog_Node_T *p_node = wilddog_node_createNull((Wilddog_Str_T *)"this is key")
 
 ----
 
-## wilddog\_node\_createTrue()
+### wilddog\_node\_createTrue()
 
  定义
 
@@ -1058,7 +1058,7 @@ Wilddog_Node_T *p_node = wilddog_node_createTrue((Wilddog_Str_T *)"this is key")
 
 ----
 
-## wilddog\_node\_createFalse()
+### wilddog\_node\_createFalse()
 
  定义
 
@@ -1083,7 +1083,7 @@ Wilddog_Node_T *p_node = wilddog_node_createFalse((Wilddog_Str_T *)"this is key"
 
 ----
 
-## wilddog\_node\_addChild()
+### wilddog\_node\_addChild()
 
  定义
 
@@ -1111,7 +1111,7 @@ wilddog_node_addChild(p_father, p_child);
 
 ----
 
-## wilddog\_node\_delete()
+### wilddog\_node\_delete()
 
  定义
 
@@ -1140,7 +1140,7 @@ wilddog_node_delete(p_father); //会将 p_father 和子节点 p_child 全部删�
 
 ----
 
-## wilddog\_node\_clone()
+### wilddog\_node\_clone()
 
  定义
 
@@ -1169,7 +1169,7 @@ Wilddog_Node_T *p_clone = wilddog_node_clone(p_father); //会复制一个一模�
 
 ----
 
-## wilddog\_node\_find()
+### wilddog\_node\_find()
 
  定义
 
@@ -1199,7 +1199,7 @@ Wilddog_Node_T *p_find = wilddog_node_find(p_father, "this is key"); //p_find和
 
 ----
 
-## wilddog\_node\_getValue()
+### wilddog\_node\_getValue()
 
  定义
 
@@ -1229,7 +1229,7 @@ value = (s32)(*p_data);
 
 ----
 
-## wilddog\_node\_setValue()
+### wilddog\_node\_setValue()
 
  定义
 
@@ -1258,9 +1258,9 @@ wilddog_node_setValue(p_father, &value, len);
 ```
 
 ----
-# AuthData (*Methods*)
+## AuthData (*Methods*)
 
-## wilddog\_auth()
+### wilddog\_auth()
 
  定义
 
@@ -1305,7 +1305,7 @@ wilddog_auth("aaa.wilddogio.com", newToken, strlen(newToken), myOnAuthFunc, NULL
 ```
 ----
 
-## wilddog\_unauth()
+### wilddog\_unauth()
 
  定义
 

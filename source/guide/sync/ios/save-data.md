@@ -144,13 +144,40 @@ ref.updateChildValues(childUpdates)
 
 ```
 
-此示例使用 `childByAutoId` 在节点（其中包含 `/posts/$postid` 内所有用户博文）中创建一篇博文，同时使用 `getKey` 检索相应键。
+此示例使用 `childByAutoId` 在节点（其中包含 `/posts/postid` 内所有用户博文）中创建一篇博文，同时使用 `getKey` 检索相应键。
 
-然后，可以使用该键在用户博文（位于 `/user-posts/$userid/$postid` 内）中创建第二个条目。
+然后，可以使用该键在用户博文（位于 `/user-posts/userid/postid` 内）中创建第二个条目。
 
 通过使用这些路径，只需调用 `updateChildValues` 一次即可同步更新 JSON 树中的多个位置，例如，该示例如何在两个位置同时创建新博文。
 
 通过这种方式同步更新具有原子性：要么所有更新全部成功，要么全部失败。
+
+## 删除数据
+
+删除数据最简单的方法是调用 `removeValue`。
+
+Objective-C
+
+```objectivec
+WDGSyncReference *ref = [[WDGSync sync] reference];
+[ref setValue:@{@"name" : @"Jone", @"age" : @"23"}];
+
+//删除上面写入的数据
+[ref removeValue];
+```
+Swift
+
+```swift
+let ref = WDGSync.sync().reference()
+[ref.setValue(["name" : "Jone", "age" : "23"])
+
+//删除上面写入的数据
+messagesRef.removeValue()
+```
+
+此外，还可以通过写入 nil 值（例如，`setValue:nil` 或 `updateChildValues:nil`）来删除数据。 
+
+**注意**：Wilddog 不会保存值为 nil 节点。如果某节点的值被设为 nil，云端就会把这个节点删除。
 
 ## 事务操作
 
@@ -201,8 +228,17 @@ upvotesRef.runTransactionBlock({
 
 ```
 
-我们使用 currentValue || 0 来判断计数器是否为空或者是自增加。 如果上面的代码没有使用事务, 那么两个客户端同时试图累加时，结果可能是为数字 1 而非数字 2。
+如果上面的代码没有使用事务, 那么两个客户端同时试图累加时，结果可能是为数字 1 而非数字 2。
 
-注意：transaction() 可能被多次被调用，必须处理 currentData 变量为 null 的情况。
+注意：`runTransactionBlock:` 可能被多次被调用，必须处理 currentData 变量为 null 的情况。
 
 当执行事务时，云端有数据存在，但是本地可能没有缓存，此时 currentData 为 null。
+
+**事务操作原理**
+
+更新函数会获取当前值作为参数，当你的数据提交到服务端时，会判断你调用的更新函数传递的当前值是否与实际当前值相等
+
+如果相等，则更新数据为你提交的数据；如果不相等，则返回新的当前值。更新函数将使用新的当前值和你提交的数据重复尝试更新，直到成功为止。
+
+
+更多使用，请参考 [- runTransactionBlock:](https://docs.wilddog.com/api/sync/ios.html#–-runTransactionBlock)。
