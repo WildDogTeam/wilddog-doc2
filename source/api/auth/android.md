@@ -14,9 +14,9 @@ WilddogUser  abstract  getUser()
 
 ## Public Methods
 
-public abstract FirebaseUser getUser ()
+public abstract WilddogUser getUser ()
 
-### returns
+返回值
 
 当前帐号WilddogUser,如果没有则为null(即用户登出)。
 
@@ -477,7 +477,7 @@ public UserProfileChangeRequest.Builder ()
 
 public UserProfileChangeRequest build ()
 
-### returns
+### 返回值
 
 * 一个UserProfileChangeRequest实例
 
@@ -487,7 +487,7 @@ public UserProfileChangeRequest.Builder setDisplayName (String displayName)
 
 设置要修改的昵称。
 
-### returns
+### 返回值
 
 * 一个可以链式调用的UserProfileChangeRequest.Builder对象
 
@@ -498,7 +498,7 @@ public UserProfileChangeRequest.Builder setPhotoUri (Uri photoUri)
 设置要修改的头像的URL。
 
 
-### returns
+### 返回值
 
 * 一个可以链式调用的UserProfileChangeRequest.Builder对象
 
@@ -530,7 +530,7 @@ interface	WilddogAuth.AuthStateListener
     
  ## Public Method Summary
  
- void	addAuthStateListener(FirebaseAuth.AuthStateListener listener)
+ void	addAuthStateListener(WilddogAuth.AuthStateListener listener)
  
  注册认证状态改变的监听.
  
@@ -610,7 +610,7 @@ interface	WilddogAuth.AuthStateListener
  ## Public Methods
  
  
- public void addAuthStateListener (FirebaseAuth.AuthStateListener listener)
+ public void addAuthStateListener (WilddogAuth.AuthStateListener listener)
  
  注册一个认证状态的监听。一个WilddogAuth对象可以设置多个监听对象，也可以为不同的WilddogAuth添加监听对象。
  
@@ -637,7 +637,7 @@ interface	WilddogAuth.AuthStateListener
   
   **注意:** 你必须在Wilddog控制面板中打开这种登录认证方式。
   
-  ### returns
+  ### 返回值
 
 返回带有AuthResult的操作结果对象Task
 
@@ -655,7 +655,7 @@ email
 
 用户返回登录认证方式列表的邮箱地址
 
-### returns
+### 返回值
 
 返回带有AuthResult的操作结果对象Task
 
@@ -666,7 +666,7 @@ public WilddogUser getCurrentUser ()
 
 可以通过 `getCurrentUser() != null` 来判断当前是否有用户登录
 
-### returns
+### 返回值
 * 当前认证用户或者null
 
 
@@ -724,7 +724,7 @@ public Task<AuthResult> signInWithCredential (AuthCredential credential)
 
 **注意:** 你必须在Wilddog控制面板中打开相应的登录认证方式。
     
- ### returns
+ ### 返回值
 
 返回带有AuthResult的操作结果对象Task    
 
@@ -739,7 +739,7 @@ public Task<`AuthResult`> signInWithCustomToken (String token)
   
   阅读[自定义Token]()
   
-### returns
+### 返回值
 
 返回带有AuthResult的操作结果对象Task   
 
@@ -755,7 +755,7 @@ public Task<AuthResult> signInWithEmailAndPassword (String email, String passwor
   
   这个方法和`signInWithCredential（）`的`EmailAuthCredential`登录认证方式是等效的。
   
-### returns
+### 返回值
 
 返回带有AuthResult的操作结果对象Task
 
@@ -937,7 +937,7 @@ public Task<`GetTokenResult`> getToken (boolean forceRefresh)
 获取Wilddog ID Token，使用我们的服务器SDK或按照官方文件安全地验证此token的完整性和有效性。
 
 
-### returns
+### 返回值
 
 返回一个带有`GetTokenResult`信息的Task对象.
 
