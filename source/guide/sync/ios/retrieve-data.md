@@ -329,6 +329,12 @@ ref.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: { snapshot in
 
 ```
 
+当使用`queryOrderedByKey`对数据进行排序时，数据将会按照下面的规则，以字段名升序排列返回。注意，节点名只能是字符串类型。
+
+1.节点名能转换为 32-bit 整数的子节点优先，按数值型升序排列。
+
+2.接下来是字符串类型的节点名，按字典序排列。
+
 #### Value 排序
 
 使用`queryOrderedByValue`方法，我们可以按照子节点的值进行排序。假设恐龙们进行了一场运动会，我们统计到它们的得分数据：
@@ -370,6 +376,35 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 
 ```
 
+当使用`queryOrderedByValue`时，按照直接子节点的 value 进行排序。仅当 value 为单一的数据类型时，排序有意义。如果子节点包含多种数据类型时，排序不固定，此时不建议使用`queryOrderedByValue`获取全量数据，例如，
+
+```json
+{
+  "scores": {
+    "tyrannosaurus" : "120",
+    "bruhathkayosaurus" : 55,
+    "lambeosaurus" : 21,
+    "linhenykus" : 80,
+    "pterodactyl" : 93,
+    "stegosaurus" : 5,
+    "triceratops" : 22,
+    "brontosaurus" : true
+  }
+}
+
+```
+
+霸王龙的分数是 `NSString`类型，雷龙的分数是 `BOOL` 类型，而其他恐龙的分数是 `NSNumber` 类型，此时使用 `queryOrderedByValue` 获得全量数据时，是一个看似固定的排序结果；但是配合使用`queryLimitedToFirst:`时，将获得不确定的结果。`NSObject`类型数据的 value 值为 null，不会出现在结果中。
+当配合使用`queryStartingAtValue:`、`queryEndingAtValue:`和`queryEqualToValue:`时，如果子节点的 value 包含多种数据类型，将按照这些函数的参数的类型排序，即只能返回这个类型的有序数据。上面的数据如果使用`[[[ref queryOrderedByValue]queryStartingAtValue:@60]queryLimitedToFirst:4]`将得到下面的结果：
+
+```json
+{
+    "linhenykus" : 80,
+    "pterodactyl" : 93
+}
+```
+<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用`queryOrderedByValue`将搜索不到该数据。</em></p>
+
 #### Child 排序
 
 通过将子节点的路径名作为参数传递给`queryOrderedByChild:`，可以实现按指定子节点排序。例如，在恐龙的例子中，要按照 height 进行排序，可以这样做：
@@ -397,6 +432,67 @@ ref.queryOrderedByChild("height").observeEventType(.ChildAdded, withBlock: { sna
 })
 
 ```
+
+当使用`queryOrderedByChild:`时，按照子节点的公有属性 key 的 value 进行排序。仅当 value 为单一的数据类型时，排序有意义。如果 key 属性有多种数据类型时，排序不固定，此时不建议使用`queryOrderedByChild:`获取全量数据，例如，
+
+```json
+{
+  "scores": {
+    "no1" : {
+        "name" : "tyrannosaurus",
+        "score" : "120"
+    },
+    "no2" : {
+        "name" : "bruhathkayosaurus",
+        "score" : 55
+    },
+    "no3" : {
+        "name" : "lambeosaurus",
+        "score" : 21
+    },
+    "no4" : {
+        "name" : "linhenykus",
+        "score" : 80
+    }, 
+    "no5" : {
+        "name" : "pterodactyl",
+        "score" : 93
+    }, 
+    "no6" : {
+        "name" : "stegosaurus",
+        "score" : 5
+    }, 
+    "no7" : {
+        "name" : "triceratops",
+        "score" : 22
+    }, 
+    "no8" : {
+        "name" : "brontosaurus",
+        "score" : true
+    }
+  }
+}
+
+```
+
+霸王龙的分数是`NString`类型，雷龙的分数是`BOOL`类型，而其他恐龙的分数是`NSNumber`类型，此时使用`queryOrderedByChild:`获得全量数据时，是一个看似固定的排序结果；但是配合使用`queryLimitedToFirst:`时，将获得不确定的结果。`NSObject`类型数据的 value 值为 null，不会出现在结果中。
+当配合使用`queryStartingAtValue:`、`queryEndingAtValue:`和`queryEqualToValue:`时，如果子节点的公有属性 key 包含多种数据类型，将按照这些函数的参数的类型排序，即只能返回这个类型的有序数据。上面的数据如果使用 `[[[ref queryOrderedByChild:@"score"]queryStartingAtValue:@60]queryLimitedToFirst:4]` 将得到下面的结果：
+
+```json
+{
+   "no4" : {
+       "name" : "linhenykus",
+       "score" : 80
+   },
+   "no5" : {
+       "name" : "pterodactyl",
+       "score" : 93
+   }
+}
+  
+```
+
+<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用 `queryOrderedByChild:` 将查询不到该数据。</em></p>
 
 #### Priority 排序
 
@@ -675,111 +771,3 @@ ref.childByAppendingPath("stegosaurus").childByAppendingPath("height")
     })
 
 ```
-
-## 数据排序扩展
-
-本小节介绍在使用各种排序方式时，数据究竟是如何排序的。
-
-#### Child 排序
-
-当使用`queryOrderedByChild:`时，按照子节点的公有属性 key 的 value 进行排序。仅当 value 为单一的数据类型时，排序有意义。如果 key 属性有多种数据类型时，排序不固定，此时不建议使用`queryOrderedByChild:`获取全量数据，例如，
-
-```json
-{
-  "scores": {
-    "no1" : {
-        "name" : "tyrannosaurus",
-        "score" : "120"
-    },
-    "no2" : {
-        "name" : "bruhathkayosaurus",
-        "score" : 55
-    },
-    "no3" : {
-        "name" : "lambeosaurus",
-        "score" : 21
-    },
-    "no4" : {
-        "name" : "linhenykus",
-        "score" : 80
-    }, 
-    "no5" : {
-        "name" : "pterodactyl",
-        "score" : 93
-    }, 
-    "no6" : {
-        "name" : "stegosaurus",
-        "score" : 5
-    }, 
-    "no7" : {
-        "name" : "triceratops",
-        "score" : 22
-    }, 
-    "no8" : {
-        "name" : "brontosaurus",
-        "score" : true
-    }
-  }
-}
-
-```
-
-霸王龙的分数是`NString`类型，雷龙的分数是`BOOL`类型，而其他恐龙的分数是`NSNumber`类型，此时使用`queryOrderedByChild:`获得全量数据时，是一个看似固定的排序结果；但是配合使用`queryLimitedToFirst:`时，将获得不确定的结果。`NSObject`类型数据的 value 值为 null，不会出现在结果中。
-当配合使用`queryStartingAtValue:`、`queryEndingAtValue:`和`queryEqualToValue:`时，如果子节点的公有属性 key 包含多种数据类型，将按照这些函数的参数的类型排序，即只能返回这个类型的有序数据。上面的数据如果使用 `[[[ref queryOrderedByChild:@"score"]queryStartingAtValue:@60]queryLimitedToFirst:4]` 将得到下面的结果：
-
-```json
-{
-   "no4" : {
-       "name" : "linhenykus",
-       "score" : 80
-   },
-   "no5" : {
-       "name" : "pterodactyl",
-       "score" : 93
-   }
-}
-  
-```
-
-<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用 `queryOrderedByChild:` 将查询不到该数据。</em></p>
-
-#### Key 排序
-
-当使用`queryOrderedByKey`对数据进行排序时，数据将会按照下面的规则，以字段名升序排列返回。注意，节点名只能是字符串类型。
-
-1.节点名能转换为 32-bit 整数的子节点优先，按数值型升序排列。
-
-2.接下来是字符串类型的节点名，按字典序排列。
-
-#### Value 排序
-
-当使用`queryOrderedByValue`时，按照直接子节点的 value 进行排序。仅当 value 为单一的数据类型时，排序有意义。如果子节点包含多种数据类型时，排序不固定，此时不建议使用`queryOrderedByValue`获取全量数据，例如，
-
-```json
-{
-  "scores": {
-    "tyrannosaurus" : "120",
-    "bruhathkayosaurus" : 55,
-    "lambeosaurus" : 21,
-    "linhenykus" : 80,
-    "pterodactyl" : 93,
-    "stegosaurus" : 5,
-    "triceratops" : 22,
-    "brontosaurus" : true
-  }
-}
-
-```
-
-霸王龙的分数是 `NSString`类型，雷龙的分数是 `BOOL` 类型，而其他恐龙的分数是 `NSNumber` 类型，此时使用 `queryOrderedByValue` 获得全量数据时，是一个看似固定的排序结果；但是配合使用`queryLimitedToFirst:`时，将获得不确定的结果。`NSObject`类型数据的 value 值为 null，不会出现在结果中。
-当配合使用`queryStartingAtValue:`、`queryEndingAtValue:`和`queryEqualToValue:`时，如果子节点的 value 包含多种数据类型，将按照这些函数的参数的类型排序，即只能返回这个类型的有序数据。上面的数据如果使用`[[[ref queryOrderedByValue]queryStartingAtValue:@60]queryLimitedToFirst:4]`将得到下面的结果：
-
-```json
-{
-    "linhenykus" : 80,
-    "pterodactyl" : 93
-}
-```
-<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用`queryOrderedByValue`将搜索不到该数据。</em></p>
-
-
