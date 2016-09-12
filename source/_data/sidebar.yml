@@ -22,19 +22,23 @@ guide:
       操作数据: /guide/sync/web/save-data.html
       查询数据: /guide/sync/web/retrieve-data.html
       离线功能: /guide/sync/web/offline-capabilities.html
+      错误码: /guide/sync/web/error-code.html
     Android :
       操作数据: /guide/sync/android/save-data.html
       查询数据: /guide/sync/android/retrieve-data.html
       离线功能: /guide/sync/android/offline-capabilities.html
+      错误码: /guide/sync/android/error-code.html
     iOS:
       操作数据: /guide/sync/ios/save-data.html
       查询数据: /guide/sync/ios/retrieve-data.html
       离线功能: /guide/sync/ios/offline-capabilities.html
+      错误码: /guide/sync/iOS/error-code.html
     C/嵌入式:
       配置和移植: /guide/sync/c/config-and-porting.html
       操作数据: /guide/sync/c/save-data.html
       查询数据: /guide/sync/c/retrieve-data.html
       离线功能: /guide/sync/c/offline-capabilities.html
+      错误码: /guide/sync/c/error-code.html
     REST:
       完整指南: /guide/sync/rest/guide.html
       其他平台: /guide/sync/rest/library.html
@@ -57,6 +61,7 @@ guide:
       自定义身份认证: /guide/auth/web/custom.html
       匿名身份认证: /guide/auth/web/anonymous.html
       绑定多种登录方式: /guide/auth/web/link.html
+      错误码: /guide/auth/iOS/error-code.html
     Android:
       管理用户: /guide/auth/android/manageuser.html
       邮箱登录: /guide/auth/android/password.html
@@ -75,6 +80,7 @@ guide:
       自定义身份认证: /guide/auth/ios/custom.html
       匿名身份认证: /guide/auth/ios/anonymous.html
       绑定多种登录方式: /guide/auth/ios/link.html
+      错误码: /guide/auth/iOS/error-code.html
     Server:
       简介: /guide/auth/server/introduction.html
       使用 Server SDK 进行认证: /guide/auth/server/server.html
