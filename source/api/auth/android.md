@@ -156,17 +156,8 @@ public abstract class AuthCredential extends Object
 已知直接子类
 EmailAuthCredential，QQAuthCredential，WeiboAuthCredential，WeiXinAuthCredential代表Wilddog支持的身份认证的方式的认证凭据。
 
-## Public Method Summary
 
-定义
-
-abstract String    getProvider\(\)
-
-说明
-
-返回使用的认证方式的类型唯一标识。
-
-## Public Methods
+### getProvider ()
 
 public abstract String getProvider \(\)
 
@@ -184,13 +175,15 @@ public class EmailAuthCredential extends AuthCredential
 
 包含邮箱和密码的身份认证方式
 
-## Public Method Summary
 
-String	getProvider()
 
-返回使用的认证方式的类型唯一标识。
+### getProvider ()
 
-## public String getProvider ()
+定义
+
+ public String getProvider ()
+
+说明
 
 返回类型为"password"类型的认证方式唯一标识。
 
@@ -347,15 +340,9 @@ public class WeiboAuthProvider extends Object
 
 代表了新浪微博身份认证机制，使用这个类来获取WeiboAuthCredential。
 
-## Constant Summary
-String	PROVIDER_ID	认证类型的唯一字符串标识。
 
-## Public Method Summary
- static AuthCredential getCredential( String token,String openId) 
 
-返回一个带有token和openId的用户凭证，用于后续的登录或者绑定邮箱认证方式。
-
-## Constants
+### PROVIDER_ID
 
 public static final String **PROVIDER_ID**
 
@@ -377,23 +364,21 @@ public class WeiboAuthCredential extends AuthCredential
 
 包含微信code的认证凭据
 
-## Public Method Summary
+### getProvider ()
 
-String	getProvider()
-
-返回身份认证的唯一标识 "weixin"
-
-public String getCode()
-
-返回微信授权认证返回的code。
-
-## Public Methods
+定义
 
 public String getProvider ()
 
+说明
+
 返回身份认证的唯一标识 "weixin"
 
+定义
+
 public String getCode()
+
+说明
 
 返回微信授权认证返回的code。
 
@@ -405,15 +390,8 @@ public class **WeiXinAuthProvider** extends Object
 
 代表了微信身份认证机制，使用这个类来获取WeiXinAuthCredential。
 
-## Constant Summary
-String	PROVIDER_ID	认证类型的唯一字符串标识。
 
-## Public Method Summary
- static AuthCredential getCredential( String code) 
-
-返回一个带有code的用户凭证，用于后续的登录或者绑定邮箱认证方式。
-
-## Constants
+### PROVIDER_ID
 
 public static final String **PROVIDER_ID**
 
@@ -435,15 +413,13 @@ public class GetTokenResult extends Object
 
 返回WilddogIdToken结果对象
 
-## Public Method Summary
+### getToken ()
 
-String	getToken()
-
-Wilddog ID Token.
-
-## Public Methods
+定义
 
 public String getToken ()
+
+说明
 
 Wilddog ID Token. 身份认证成功后返回的Wilddog Id token字符串。用于验证之后操作的身份完整性和安全性。
 
@@ -451,41 +427,54 @@ Wilddog ID Token. 身份认证成功后返回的Wilddog Id token字符串。用�
 
 # UserProfileChangeRequest
 
-
+定义
 
 public class UserProfileChangeRequest extends Object
 implements SafeParcelable
 
+说明
+
 用来更新用户信息的请求对象
 
 
-## Nested Class Summary
+### getDisplayName ()
 
-class	UserProfileChangeRequest.Builder	
-
-构建请求的内部类
-
-
-
-
-## Public Method Summary
+定义
 
 String	getDisplayName()
 
+说明
+
 返回要修改的昵称信息
 
+### getPhotoUri ()
+
+定义
+
 Uri	getPhotoUri()
+
+说明
 
 返回要修改的头像URL
 
 
-## Public Methods
+### getPhotoUri ()
+
+定义
 
 public String getDisplayName ()
 
+说明
+
 返回要修改的昵称信息
 
+### getPhotoUri ()
+
+定义
+
 public Uri getPhotoUri ()
+
+说明
 
 返回要修改的头像URL
 
@@ -500,57 +489,26 @@ public static class UserProfileChangeRequest.Builder extends Object
 
 请求构建器
 
-## Public Constructor Summary
 
-UserProfileChangeRequest.Builder()
+### setDisplayName ()
 
-## Public Method Summary
-
-UserProfileChangeRequest	build()
-
-构建一个修改用户信息的请求对象
-
-UserProfileChangeRequest.Builder setDisplayName(String displayName)
-
-设置要更新的昵称
-
-UserProfileChangeRequest.Builder setPhotoUri(Uri photoUri)
-
-设置要更新头像的URL.
-
-
-## Public Constructors
-
-public UserProfileChangeRequest.Builder ()
-
-## Public Methods
-
-public UserProfileChangeRequest build ()
-
-### 返回值
-
-* 一个UserProfileChangeRequest实例
-
-
+定义
 
 public UserProfileChangeRequest.Builder setDisplayName (String displayName)
 
+说明
+
 设置要修改的昵称。
 
-### 返回值
+### setPhotoUri ()
 
-* 一个可以链式调用的UserProfileChangeRequest.Builder对象
-
-
+定义
 
 public UserProfileChangeRequest.Builder setPhotoUri (Uri photoUri)
 
+说明
+
 设置要修改的头像的URL。
-
-
-### 返回值
-
-* 一个可以链式调用的UserProfileChangeRequest.Builder对象
 
 ----
 
