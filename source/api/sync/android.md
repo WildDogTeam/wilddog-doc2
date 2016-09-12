@@ -1,9 +1,9 @@
 title:  完整 API 文档
 ---
 
-# Wilddog (*Methods*)
+## Wilddog (*Methods*)
 
-##  setAndroidContext()
+###  setAndroidContext()
 
 定义
 
@@ -23,7 +23,7 @@ void
 
 ----
 
-##  setDefaultConfig()
+###  setDefaultConfig()
 
 定义
 static void setDefaultConfig(Config config)
@@ -39,7 +39,7 @@ void
 
 ---
 
-## getDefaultConfig()
+### getDefaultConfig()
 
 定义
 static Config getDefaultConfig()
@@ -65,7 +65,7 @@ WilddogApp getApp()
 
 ----
 
-## child()
+### child()
 
 定义
 Wilddog child(String path)
@@ -93,7 +93,7 @@ Wilddog ref4 = ref.child("a").child("b");
 ```
 ----
 
-## push()
+### push()
 
 定义
 Wilddog push()
@@ -125,7 +125,7 @@ ref.child("heros").push().setValue(hero);
 
 
 
-## setValue(Object)
+### setValue(Object)
 
 定义
 void setValue(Object value)
@@ -169,7 +169,7 @@ ref.child("dota/heros/SF").setValue(hero);
 ```
 ----
 
-## setValue(Object, CompletionListener)
+### setValue(Object, CompletionListener)
 
 定义
 void setValue(Object value, Wilddog.CompletionListener listener)
@@ -237,7 +237,7 @@ ref.child("dota/heros/SF").setValue(hero, new Wilddog.CompletionListener() {
 
 ----
 
-##  setPriority()
+###  setPriority()
 
 定义
 void setPriority(Object)
@@ -263,7 +263,7 @@ void
 
 ----
 
-##  setPriority(Object, CompletionListener)
+###  setPriority(Object, CompletionListener)
 
 定义
 void setPriority(Object, Wilddog.CompletionListener)
@@ -290,7 +290,7 @@ void
 
 ----
 
-## updateChildren()
+### updateChildren()
 
 定义
 void updateChildren(Map value)
@@ -319,7 +319,7 @@ ref.child("a/b").updateChildren(children);
 
 ----
 
-## updateChildren(Map, CompletionListener)
+### updateChildren(Map, CompletionListener)
 
 定义
 void updateChildren(Map children, Wilddog.CompletionListener listener)
@@ -358,7 +358,7 @@ ref.child("a/b").updateChildren(children, handler);
 
 ----
 
-## removeValue()
+### removeValue()
 
 定义
 void removeValue()
@@ -378,7 +378,7 @@ ref.child("a/b").removeValue();
 ```
 ----
 
-## removeValue(CompletionListener)
+### removeValue(CompletionListener)
 
 定义
 void removeValue(CompletionListener listener)
@@ -405,7 +405,7 @@ ref.child("a/b").removeValue(handler);
 
 ----
 
-## runTransaction(Transaction.Handler)
+### runTransaction(Transaction.Handler)
 
 定义
 void runTransaction(Transaction.Handler handler)
@@ -442,7 +442,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
 ```
 ____
 
-##  onDisconnect()
+###  onDisconnect()
 
 定义
 OnDisconnect onDisconnect()
@@ -455,7 +455,7 @@ OnDisconnect onDisconnect()
 
 ----
 
-##  goOffline()
+###  goOffline()
 
 定义
 static void goOffline()
@@ -469,7 +469,7 @@ void
 
 ----
 
-##  goOnline()
+###  goOnline()
 
 定义
 static void goOnline()
@@ -482,7 +482,7 @@ void
 
 ----
 
-## getKey()
+### getKey()
 
 定义
 String getKey()
@@ -495,7 +495,7 @@ String getKey()
 
 ----
 
-## getParent()
+### getParent()
 
 定义
 Wilddog getParent()
@@ -520,7 +520,7 @@ Wilddog ref3 = ref.getParent().getParent();
 
 ----
 
-##  getRoot()
+###  getRoot()
 
 定义
 Wilddog getRoot()
@@ -532,7 +532,7 @@ Wilddog getRoot()
 
 ----
 
-## getSdkVersion()
+### getSdkVersion()
 
 定义
 static String getSdkVersion()
@@ -545,9 +545,9 @@ SDK版本。
 
 ----
 
-# Wilddog.CompletionListener (*Methods*)
+## Wilddog.CompletionListener (*Methods*)
 
-##  onComplete()
+###  onComplete()
 
 定义
 void onComplete(WilddogError error,
@@ -564,9 +564,9 @@ void
 
 ----
 
-# Wilddog.AuthStateListener (*Methods*)
+## Wilddog.AuthStateListener (*Methods*)
 
-## onAuthStateChanged()
+### onAuthStateChanged()
 
 定义
 void onAuthStateChanged(AuthData authData)
@@ -582,9 +582,9 @@ void
 
 ----
 
-# Wilddog.AuthResultHandler (*Methods*)
+## Wilddog.AuthResultHandler (*Methods*)
 
-## onAuthenticated()
+### onAuthenticated()
 
 定义
 void onAuthenticated(AuthData authData)
@@ -600,7 +600,7 @@ void
 
 ----
 
-##  onAuthenticationError()
+###  onAuthenticationError()
 
 定义
 void onAuthenticationError(WilddogError error)
@@ -616,9 +616,9 @@ void
 
 ----
 
-# Wilddog.ResultHandler (*Methods*)
+## Wilddog.ResultHandler (*Methods*)
 
-##  onError()
+###  onError()
 
 定义
 void onError(WilddogError error)
@@ -634,7 +634,7 @@ void
 
 ----
 
-##  onSuccess()
+###  onSuccess()
 
 定义
 void onSuccess()
@@ -647,9 +647,9 @@ void
 
 ----
 
-# ChildEventListener (*Methods*)
+## ChildEventListener (*Methods*)
 
-##  onCancelled()
+###  onCancelled()
 
 定义
 void onCancelled(WilddogError error)
@@ -665,7 +665,7 @@ void
 
 ----
 
-##  onChildAdded()
+###  onChildAdded()
 
 定义
 void onChildAdded(DataSnapshot snapshot,
@@ -683,7 +683,7 @@ void
 
 ----
 
-##  onChildChanged()
+###  onChildChanged()
 
 定义
 void onChildChanged(DataSnapshot snapshot,
@@ -701,7 +701,7 @@ void
 
 ----
 
-##  onChildMoved()
+###  onChildMoved()
 
 定义
 void onChildMoved(DataSnapshot snapshot,
@@ -719,7 +719,7 @@ void
 
 ----
 
-## onChildRemoved()
+### onChildRemoved()
 
 定义
 void onChildRemoved(DataSnapshot snapshot)
@@ -735,9 +735,9 @@ void
 
 ----
 
-# ValueEventListener (*Methods*)
+## ValueEventListener (*Methods*)
 
-##  onCancelled()
+###  onCancelled()
 
 定义
 void onCancelled(WilddogError error)
@@ -753,7 +753,7 @@ void
 
 ----
 
-##  onDataChange()
+###  onDataChange()
 
 定义
 void onDataChange(DataSnapshot snapshot)
@@ -768,9 +768,9 @@ void
 
 ----
 
-# Query (*Methods*)
+## Query (*Methods*)
 
-## addValueEventListener()
+### addValueEventListener()
 
 定义
 void addValueEventListener(ValueEventListener listener)
@@ -809,12 +809,9 @@ ValueEventListener listener = ref.addValueEventListener(new ValueEventListener()
 
   }
 
-});
-```
+});```
 
-----
-
-## addChildEventListener()
+### addChildEventListener()
 
 定义
 void addChildEventListener(ChildEventListener listener)
@@ -871,7 +868,7 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
 ```
 ----
 
-##  addListenerForSingleValueEvent()
+###  addListenerForSingleValueEvent()
 
 定义
 void addListenerForSingleValueEvent(ValueEventListener listener)
@@ -887,7 +884,7 @@ void
 
 ----
 
-## removeEventListener(ValueEventListener)
+### removeEventListener(ValueEventListener)
 
 定义
 void removeEventListener(ValueEventListener listener)
@@ -903,7 +900,7 @@ void
 
 ----
 
-## removeEventListener(ChildEventListener)
+### removeEventListener(ChildEventListener)
 
 定义
 void removeEventListener(ChildEventListener listener)
@@ -919,7 +916,7 @@ void
 
 ---
 
-## orderByChild()
+### orderByChild()
 
 定义
 Query orderByChild(String childKey)
@@ -935,7 +932,7 @@ Query 查询器类。
 
 ----
 
-## orderByKey()
+### orderByKey()
 
 定义
 Query orderByKey()
@@ -948,7 +945,7 @@ Query 查询器类
 
 ---
 
-## orderByValue()
+### orderByValue()
 
 定义
 Query orderByValue()
@@ -962,7 +959,7 @@ Query 查询器类。
 
 ----
 
-## orderByPriority()
+### orderByPriority()
 
 定义
 Query orderByPriority()
@@ -975,7 +972,7 @@ Query 查询器类。
 
 ----
 
-## startAt()
+### startAt()
 
 定义
 Object startAt(String value), Object startAt(double value), Object startAt(boolean value)
@@ -991,7 +988,7 @@ Query 查询器类。
 
 ----
 
-## endAt()
+### endAt()
 
 定义
 Object endAt(String value)，Object endAt(double value)，Object endAt(boolean value)
@@ -1006,7 +1003,7 @@ value `String` `double` `boolean`。
 Query 查询器类。
 
 ----
-## equalTo()
+### equalTo()
 
 定义
 Object equalTo(String value)，Object equalTo(double value)，Object equalTo(boolean value)
@@ -1022,7 +1019,7 @@ Query 查询器类。
 
 ----
 
-## limitToFirst()
+### limitToFirst()
 
 定义
 Query limitToFirst(int count)
@@ -1038,7 +1035,7 @@ Query 查询器类。
 
 ----
 
-## limitToLast()
+### limitToLast()
 
 定义
 Query limitToLast(int count)
@@ -1054,7 +1051,7 @@ Query 查询器类。
 
 ----
 
-## getRef()
+### getRef()
 
 定义
 Wilddog getRef()
@@ -1067,9 +1064,9 @@ Wilddog getRef()
 
 ----
 
-# DataSnapshot (*Methods*)
+## DataSnapshot (*Methods*)
 
-## child()
+### child()
 
 定义
 Wilddog child(String node)
@@ -1085,7 +1082,7 @@ node `String`  子节点名称。
 
 ----
 
-## exists()
+### exists()
 
 定义
 boolean exists()
@@ -1098,7 +1095,7 @@ boolean exists()
 
 ----
 
-## getChildren()
+### getChildren()
 
 定义
 Iterable<DataSnapshot> getChildren()
@@ -1111,7 +1108,7 @@ Iterable<DataSnapshot> getChildren()
 
 ----
 
-## getChildrenCount()
+### getChildrenCount()
 
 定义
 long getChildrenCount()
@@ -1124,7 +1121,7 @@ long getChildrenCount()
 
 ----
 
-## getKey()
+### getKey()
 
 定义
 String getKey()
@@ -1137,7 +1134,7 @@ String getKey()
 
 ----
 
-## getPriority()
+### getPriority()
 
 定义
 Object getPriority()
@@ -1150,7 +1147,7 @@ Object getPriority()
 
 ----
 
-## getRef()
+### getRef()
 
 定义
 Wilddog getRef()。
@@ -1163,7 +1160,7 @@ Wilddog getRef()。
 
 ----
 
-## getValue()
+### getValue()
 
 定义
 Object getValue()
@@ -1176,7 +1173,7 @@ Object getValue()
 
 ----
 
-## hasChild()
+### hasChild()
 
 定义
 boolean hasChild(String key)
@@ -1192,7 +1189,7 @@ boolean hasChild(String key)
 
 ----
 
-## hasChildren()
+### hasChildren()
 
 定义
 boolean hasChildren()
@@ -1350,9 +1347,9 @@ void
 -->
 ----
 
-# AuthData (*Methods*)
+## AuthData (*Methods*)
 
-## getAuth()
+### getAuth()
 
 定义
 Map getAuth()
@@ -1365,7 +1362,7 @@ Map getAuth()
 
 ----
 
-##  getExpires()
+###  getExpires()
 
 定义
 long getExpires()
@@ -1378,7 +1375,7 @@ token的过期时间。
 
 ----
 
-##  getProvider()
+###  getProvider()
 
 定义
 String getProvider()
@@ -1391,7 +1388,7 @@ String getProvider()
 
 ----
 
-##  getProviderData()
+###  getProviderData()
 
 定义
 Map<String,Object> getProviderData()
@@ -1403,7 +1400,7 @@ Map<String,Object> getProviderData()
 
 ----
 
-##  getToken()
+###  getToken()
 
 定义
 String getToken()
@@ -1415,7 +1412,7 @@ String getToken()
 
 ----
 
-##  getUid()
+### getUid()
 
 定义
 String getUid()
@@ -1427,7 +1424,7 @@ uid或者null。
 
 ----
 
-# WilddogError (*Constants*)
+## WilddogError (*Constants*)
 
 ## AUTHENTICATION_PROVIDER_DISABLED
 
