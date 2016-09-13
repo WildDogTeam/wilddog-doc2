@@ -8,8 +8,8 @@ title: 操作数据
 | 方法 | 说明 |
 | :------- | :--------------------------------------- |
 | PUT      | 写入或更新路径下的数据，如 `messages/users/user1/<data>` |
-| PATCH    | 更新指定路径下的部分key值，但是不影响其他的数据                |
 | POST     | 在Wilddog数据库中增加一个节点，每次发送一个POST请求都会生成一个独一无二的ID，如`messages/users/<unique-id>/<data>` |
+| PATCH    | 更新指定路径下的部分key值，但是不影响其他的数据                |
 | DELETE   | 删除指定数据路径下的数据                             |
 
 
