@@ -2,7 +2,7 @@ title: iOS API 文档
 ---
 ## WDGSync (*Methods*)
 
-## + sync
+### + sync
 
  定义
 
@@ -17,7 +17,7 @@ title: iOS API 文档
 一个 WDGSync 实例
 
 ----
-## + syncForApp:
+### + syncForApp:
 
  定义
 
@@ -36,7 +36,7 @@ app 用于得到 WDGSync 的 WDGApp
 一个 WDGSync 实例
 
 ----
-## app
+### app
 
  定义
 
@@ -47,7 +47,7 @@ app 用于得到 WDGSync 的 WDGApp
 WDGSync 拥有的 WDGApp 实例。
 
 ----
-## reference
+### reference
 
  定义
 
@@ -58,7 +58,7 @@ WDGSync 拥有的 WDGApp 实例。
 得到一个 Wilddog Sync 根路径的 WDGSyncReference 引用。
 
 ----
-## - referenceWithPath:
+### - referenceWithPath:
 
  定义
 
@@ -77,7 +77,7 @@ path 指向 Wilddog Sync 数据库节点的一个路径
 指定路径节点的 WDGSyncReference 引用
 
 ----
-## - referenceFromURL:
+### - referenceFromURL:
 
  定义
 
@@ -98,7 +98,7 @@ path 指向 Wilddog Sync 数据库节点的一个路径
 指定路径节点的 WDGSyncReference 引用
 
 ----
-## – goOffline
+### – goOffline
 
  定义
 
@@ -109,7 +109,7 @@ path 指向 Wilddog Sync 数据库节点的一个路径
 断开与 Wilddog Sync 后台服务器的连接，可以用 `goOnline` 恢复连接。
 
 ----
-## – goOnline
+### – goOnline
 
  定义
 
@@ -120,7 +120,7 @@ path 指向 Wilddog Sync 数据库节点的一个路径
 恢复与 Wilddog Sync 后台服务器的连接，可以用 `goOffline` 断开连接。
 
 ----
-## persistenceEnabled
+### persistenceEnabled
 
  定义
 
@@ -131,7 +131,7 @@ path 指向 Wilddog Sync 数据库节点的一个路径
 默认情况下，在你的应用程序正在运行时，Wilddog Sync 客户端会将数据保存在内存中，当应用被重新启动时数据就没有了。把这个值设置为 YES 时，数据将被保存到设备，并且当应用程序重新启动时（即使在重新启动程序时没有网络连接），这些存储的数据也是可以用的。请注意，此属性必须在创建第一个 Sync 引用之前设置，并且每次启用应用程序只需要调用一次即可。  
 
 ----
-## callbackQueue
+### callbackQueue
 
  定义
 
@@ -142,7 +142,7 @@ path 指向 Wilddog Sync 数据库节点的一个路径
 设置所有被触发事件的队列。默认队列为主队列。
 
 ----
-## + setLoggingEnabled:
+### + setLoggingEnabled:
 
  定义
 
@@ -157,7 +157,7 @@ path 指向 Wilddog Sync 数据库节点的一个路径
 enabled 设为 YES 为打印。默认为 NO，不打印
 
 ----
-## + sdkVersion
+### + sdkVersion
 
  定义
 
@@ -172,9 +172,9 @@ enabled 设为 YES 为打印。默认为 NO，不打印
 Wilddog Sync SDK 版本号
 
 ----
-# WDGSyncReference (*Methods*)
+## WDGSyncReference (*Methods*)
 
-## – child:
+### – child:
  
  定义
 
@@ -194,7 +194,7 @@ pathString 从这个节点到要设定的子节点的相对路径
 指定节点位置的 WDGSyncReference 对象
 
 ----
-## – childByAppendingPath:
+### – childByAppendingPath:
  
  定义
 
@@ -213,7 +213,7 @@ pathString 从这个节点到要设定的子节点的相对路径
 指定节点位置的 WDGSyncReference 对象
 
 ----
-## – childByAutoId
+### – childByAutoId
 
  定义
 
@@ -228,7 +228,7 @@ pathString 从这个节点到要设定的子节点的相对路径
 指定节点位置的 WDGSyncReference 对象
 
 ----
-## – setValue:
+### – setValue:
 
  定义
 
@@ -257,7 +257,7 @@ pathString 从这个节点到要设定的子节点的相对路径
 value 将被写入的值
 
 ----
-## – setValue:withCompletionBlock:
+### – setValue:withCompletionBlock:
 
  定义
 
@@ -272,7 +272,7 @@ value 将被写入的值
 block 写操作提交到 Wilddog Sync 数据库服务器后回调的 block
 
 ----
-## – setValue:andPriority:
+### – setValue:andPriority:
 
  定义
 
@@ -287,7 +287,7 @@ value 要写入的数值
 priority 这个数值的优先级
 
 ----
-## – setValue:andPriority:withCompletionBlock:
+### – setValue:andPriority:withCompletionBlock:
 
  定义
 
@@ -303,7 +303,7 @@ priority 这个数值的优先级
 block 当写操作被提交到服务器，将被触发的 block
 
 ----
-## – removeValue
+### – removeValue
 
  定义
 
@@ -316,7 +316,7 @@ block 当写操作被提交到服务器，将被触发的 block
 当删除被提交到 Wilddog Sync 数据库后，删除的效果会立即显现。
 
 ----
-## – removeValueWithCompletionBlock:
+### – removeValueWithCompletionBlock:
 
  定义
 
@@ -331,7 +331,7 @@ block 当写操作被提交到服务器，将被触发的 block
 block 删除操作提交到 Wilddog Sync 数据库服务器后，这个 block 会被回调
 
 ----
-## – setPriority:
+### – setPriority:
 
  定义
 
@@ -355,7 +355,7 @@ block 删除操作提交到 Wilddog Sync 数据库服务器后，这个 block �
 priority  指定节点的优先级。
 
 ----
-## – setPriority:withCompletionBlock:
+### – setPriority:withCompletionBlock:
 
  定义
 
@@ -371,7 +371,7 @@ priority 指定节点的优先级
 block 当 priority 操作被提交到 Wilddog Sync 数据库服务器之后，回调的 block
 
 ----
-## – updateChildValues:
+### – updateChildValues:
 
  定义
 
@@ -390,7 +390,7 @@ block 当 priority 操作被提交到 Wilddog Sync 数据库服务器之后，�
 values 包含要合并子节点的对象
 
 ----
-## – updateChildValues:withCompletionBlock:
+### – updateChildValues:withCompletionBlock:
 
  定义
 
@@ -406,7 +406,7 @@ values 包含要合并子节点的对象
 block updateChildValues操作提交到 Wilddog Sync 数据库服务器后，返回的 block
 
 ----
-## – observeEventType:withBlock:
+### – observeEventType:withBlock:
 
  定义
 
@@ -430,7 +430,7 @@ block     当监听到某事件时，回调 block
 一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block
 
 ----
-## – observeEventType:andPreviousSiblingKeyWithBlock:
+### – observeEventType:andPreviousSiblingKeyWithBlock:
 
  定义
 
@@ -452,7 +452,7 @@ block     当监听到初始数据和初始数据发生变化时，这个 block 
 一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block
 
 ----
-## – observeEventType:withBlock:withCancelBlock:
+### – observeEventType:withBlock:withCancelBlock:
 
  定义
 
@@ -475,7 +475,7 @@ cancelBlock 如果客户端没有权限去接受这些事件，这个 block 将�
 一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block
 
 ----
-## – observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:
+### – observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:
 
  定义
 
@@ -501,7 +501,7 @@ cancelBlock 如果客户端没有权限去接受这些事件，这个 block 将�
 一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block
 
 ----
-## – observeSingleEventOfType:withBlock:
+### – observeSingleEventOfType:withBlock:
 
  定义
 
@@ -517,7 +517,7 @@ eventType 监听的事件类型
 block     当监听到某事件时，回调 block
 
 ----
-## – observeSingleEventOfType:andPreviousSiblingKeyWithBlock:
+### – observeSingleEventOfType:andPreviousSiblingKeyWithBlock:
 
  定义
 
@@ -533,7 +533,7 @@ eventType 监听的事件类型
 block     当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key
 
 ----
-## – observeSingleEventOfType:withBlock:withCancelBlock:
+### – observeSingleEventOfType:withBlock:withCancelBlock:
 
  定义
 
@@ -550,7 +550,7 @@ block       当监听到某事件时，回调 block
 cancelBlock 如果您没有权限访问此数据，将调用该 cancelBlock
 
 ----
-## – observeSingleEventOfType:andPreviousSiblingKeyWithBlock:withCancelBlock:
+### – observeSingleEventOfType:andPreviousSiblingKeyWithBlock:withCancelBlock:
 
  定义
 
@@ -567,7 +567,7 @@ block       将传输一个 WDGDataSnapshot 类型的数据和前一个子节点
 cancelBlock 如果您没有权限访问此数据，将调用该 cancelBlock
 
 ----
-## – removeObserverWithHandle:
+### – removeObserverWithHandle:
 
  定义
 
@@ -582,7 +582,7 @@ cancelBlock 如果您没有权限访问此数据，将调用该 cancelBlock
 handle 由 observeEventType:withBlock:返回的 WDGSyncHandle
 
 ----
-## – removeAllObservers
+### – removeAllObservers
 
  定义
 
@@ -593,7 +593,7 @@ handle 由 observeEventType:withBlock:返回的 WDGSyncHandle
 取消之前由 observeEventType:withBlock:方法注册的监听事件。
 
 ----
-## – onDisconnectSetValue:
+### – onDisconnectSetValue:
 
  定义
 
@@ -611,7 +611,7 @@ onDisconnectSetValue: 方法对实现在线系统是很有用的，这个在线�
 value 断开连接后要设置的值
 
 ----
-## – onDisconnectSetValue:withCompletionBlock:
+### – onDisconnectSetValue:withCompletionBlock:
 
  定义
 
@@ -627,7 +627,7 @@ value 断开连接后要设置的值
 block 当设置值的操作成功排队到 Wilddog Sync 数据库服务器上，这个 block 就会被触发
 
 ----
-## – onDisconnectSetValue:andPriority:
+### – onDisconnectSetValue:andPriority:
 
  定义
 
@@ -645,7 +645,7 @@ value 断开连接后要设置的值
 priority 断开连接后要设置的优先级
 
 ----
-## – onDisconnectSetValue:andPriority:withCompletionBlock:
+### – onDisconnectSetValue:andPriority:withCompletionBlock:
 
  定义
 
@@ -662,7 +662,7 @@ priority 连接断开后要设置的优先级
 block 当设置值的操作成功排队到 Wilddog Sync 服务器上，这个 block 就会被触发
 
 ----
-## – onDisconnectRemoveValue
+### – onDisconnectRemoveValue
 
  定义
 
@@ -675,7 +675,7 @@ block 当设置值的操作成功排队到 Wilddog Sync 服务器上，这个 bl
 当客户端失去连接（因为关闭 app，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被删除。onDisconnectRemoveValue 对实施在线系统很有用
 
 ----
-## – onDisconnectRemoveValueWithCompletionBlock:
+### – onDisconnectRemoveValueWithCompletionBlock:
 
  定义
 
@@ -690,7 +690,7 @@ block 当设置值的操作成功排队到 Wilddog Sync 服务器上，这个 bl
 block 当删除值的操作成功排队到 Wilddog Sync 数据库服务器上，这个 block 就会被触发
 
 ----
-## – onDisconnectUpdateChildValues:
+### – onDisconnectUpdateChildValues:
 
  定义
 
@@ -707,7 +707,7 @@ block 当删除值的操作成功排队到 Wilddog Sync 数据库服务器上，
 values 在连接断开之后，一个包含子节点键和值的字典
 
 ----
-## – onDisconnectUpdateChildValues:withCompletionBlock:
+### – onDisconnectUpdateChildValues:withCompletionBlock:
 
  定义
 
@@ -723,7 +723,7 @@ values 在连接断开之后，一个包含子节点键和值的字典
 block 当更新值的操作成功排队到 Wilddog Sync 数据库服务器上，这个 block 就会被触发
 
 ----
-## – cancelDisconnectOperations
+### – cancelDisconnectOperations
 
  定义
 
@@ -735,7 +735,7 @@ block 当更新值的操作成功排队到 Wilddog Sync 数据库服务器上，
 如果你之前调用了 onDisconnectSetValue:,onDisconnectRemoveValue:, 或者 onDisconnectUpdateChildValues: 方法, 并且当连接断开时，不想再更新数值，这时候就调用 cancelDisconnectOperations:方法。
 
 ----
-## – cancelDisconnectOperationsWithCompletionBlock:
+### – cancelDisconnectOperationsWithCompletionBlock:
 
  定义
 
@@ -751,7 +751,7 @@ block 当更新值的操作成功排队到 Wilddog Sync 数据库服务器上，
 block 当 Wilddog Sync 数据库服务器接受到 cancel 请求，触发的 block
 
 ----
-## + goOffline
+### + goOffline
 
  定义
 
@@ -762,7 +762,7 @@ block 当 Wilddog Sync 数据库服务器接受到 cancel 请求，触发的 blo
 手动建立连接，开启自动重连。
 
 ----
-## + goOnline
+### + goOnline
 
  定义
 
@@ -773,7 +773,7 @@ block 当 Wilddog Sync 数据库服务器接受到 cancel 请求，触发的 blo
 手动断开连接，关闭自动重连。
 
 ----
-## – runTransactionBlock:
+### – runTransactionBlock:
 
  定义
 
@@ -805,7 +805,7 @@ return [WDGTransactionResult successWithValue:currentData];
 block 块(block)接收的当前数据(currentData)，然后返回一个WDGTransactionResult对象
 
 ----
-## – runTransactionBlock:andCompletionBlock:
+### – runTransactionBlock:andCompletionBlock:
 
  定义
 
@@ -825,7 +825,7 @@ block 块(block)接收的当前数据(currentData)，然后返回一个WDGTransa
 completionBlock 当事务完成时这个块将被触发，无论成功与否
 
 ----
-## – runTransactionBlock:andCompletionBlock:withLocalEvents:
+### – runTransactionBlock:andCompletionBlock:withLocalEvents:
 
  定义
 
@@ -846,7 +846,7 @@ completionBlock 当事务完成时这个块将被触发，无论成功与否
 localEvents  将其设置为 NO 来阻止触发中间状态的事件，只触发最终状态事件
 
 ----
-## – description
+### – description
 
  定义
 
@@ -861,7 +861,7 @@ localEvents  将其设置为 NO 来阻止触发中间状态的事件，只触发
 当前 Wilddog Sync 数据库节点的绝对 URL
 
 ----
-## parent
+### parent
 
  定义
 
@@ -872,7 +872,7 @@ localEvents  将其设置为 NO 来阻止触发中间状态的事件，只触发
 获取父节点的引用。如果当前节点就是 root 节点，方法执行后返回的依然是 root 节点的引用。
 
 ----
-## root
+### root
 
  定义
 
@@ -883,7 +883,7 @@ localEvents  将其设置为 NO 来阻止触发中间状态的事件，只触发
 获得 WDGSyncReference 根结点的引用。
 
 ----
-## key
+### key
 
  定义
 
@@ -894,7 +894,7 @@ localEvents  将其设置为 NO 来阻止触发中间状态的事件，只触发
 获得当前路径下节点的名称。
 
 ----
-## URL
+### URL
 
  定义
 
@@ -905,7 +905,7 @@ localEvents  将其设置为 NO 来阻止触发中间状态的事件，只触发
 获取这个引用所属的指向 Wilddog Sync 数据库节点的 URL。
 
 ----
-## sync
+### sync
 
  定义
 
@@ -916,9 +916,9 @@ localEvents  将其设置为 NO 来阻止触发中间状态的事件，只触发
 根据这个引用获得 WDGSync 实例。
 
 ----
-# WDGSyncQuery (*Methods*)
+## WDGSyncQuery (*Methods*)
 
-## – observeEventType:withBlock:
+### – observeEventType:withBlock:
 
  定义
 
@@ -942,7 +942,7 @@ block     当监听到某事件时，回调 block
 一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block
 
 ----
-## – observeEventType:andPreviousSiblingKeyWithBlock:
+### – observeEventType:andPreviousSiblingKeyWithBlock:
 
  定义
 
@@ -964,7 +964,7 @@ block     当监听到初始数据和初始数据发生变化时，这个 block 
 一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block
 
 ----
-## – observeEventType:withBlock:withCancelBlock:
+### – observeEventType:withBlock:withCancelBlock:
 
  定义
 
@@ -987,7 +987,7 @@ cancelBlock 如果客户端没有权限去接受这些事件，这个 block 将�
 一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block
 
 ----
-## – observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:
+### – observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:
 
  定义
 
@@ -1013,7 +1013,7 @@ cancelBlock 如果客户端没有权限去接受这些事件，这个 block 将�
 一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block
 
 ----
-## – observeSingleEventOfType:withBlock:
+### – observeSingleEventOfType:withBlock:
 
  定义
 
@@ -1029,7 +1029,7 @@ eventType 监听的事件类型
 block     当监听到某事件时，回调 block  
 
 ----
-## – observeSingleEventOfType:andPreviousSiblingKeyWithBlock:
+### – observeSingleEventOfType:andPreviousSiblingKeyWithBlock:
 
  定义
 
@@ -1045,7 +1045,7 @@ eventType 监听的事件类型
 block     当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block 将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key
 
 ----
-## – observeSingleEventOfType:withBlock:withCancelBlock:
+### – observeSingleEventOfType:withBlock:withCancelBlock:
 
  定义
 
@@ -1062,7 +1062,7 @@ block       当监听到某事件时，回调 block
 cancelBlock 如果您没有权限访问此数据，将调用该 cancelBlock  
 
 ----
-## – observeSingleEventOfType:andPreviousSiblingKeyWithBlock:withCancelBlock:
+### – observeSingleEventOfType:andPreviousSiblingKeyWithBlock:withCancelBlock:
 
  定义
 
@@ -1079,7 +1079,7 @@ block       将传输一个 WDGDataSnapshot 类型的数据和前一个子节点
 cancelBlock 如果您没有权限访问此数据，将调用该 cancelBlock  
 
 ----
-## – removeObserverWithHandle:
+### – removeObserverWithHandle:
 
  定义
 
@@ -1099,7 +1099,7 @@ block     当监听到某事件时，回调 block
 handle 由 observeEventType:withBlock:返回的 WDGSyncHandle
 
 ----
-## – removeAllObservers
+### – removeAllObservers
 
  定义
 
@@ -1110,7 +1110,7 @@ handle 由 observeEventType:withBlock:返回的 WDGSyncHandle
 取消之前由 observeEventType:withBlock:注册的所有的监听事件。
 
 ----
-## – keepSynced:
+### – keepSynced:
 
  定义
 
@@ -1125,7 +1125,7 @@ handle 由 observeEventType:withBlock:返回的 WDGSyncHandle
 keepSynced 参数设置为 YES，则在此节点处同步数据，设置为 NO，停止同步
 
 ----
-## – queryLimitedToFirst:
+### – queryLimitedToFirst:
 
  定义
 
@@ -1145,7 +1145,7 @@ limit 这次查询能够获取的子节点的最大数量
 返回一个 WDGSyncQuery 查询器类，最多指定(limit)个数的数据
 
 ----
-## – queryLimitedToLast:
+### – queryLimitedToLast:
 
  定义
 
@@ -1165,7 +1165,7 @@ limit 这次查询能够获取的子节点的最大数量
 返回一个 WDGSyncQuery 查询器类，最多指定(limit)个数的数据
 
 ----
-## – queryOrderedByChild:
+### – queryOrderedByChild:
 
  定义
 
@@ -1185,7 +1185,7 @@ key 指定用来排序的子节点的 key
 返回一个按指定的子节点 key 排序生成的 WDGSyncQuery 查询器类
 
 ----
-## – queryOrderedByKey
+### – queryOrderedByKey
 
  定义
 
@@ -1201,7 +1201,7 @@ queryOrderedByKey 用于产生一个新 WDGSyncQuery 引用，是按照特定子
 返回一个按指定的子节点 key 排序生成的 WDGSyncQuery 查询器类
 
 ----
-## – queryOrderedByValue
+### – queryOrderedByValue
 
  定义
 
@@ -1217,7 +1217,7 @@ queryOrderedByValue 用于产生一个新 WDGSyncQuery 引用，是按照当前�
 handle 由 observeEventType:withBlock:返回的 WDGSyncHandle
 
 ----
-## – queryOrderedByPriority
+### – queryOrderedByPriority
 
  定义
 
@@ -1233,7 +1233,7 @@ queryOrderedByPriority 用于产生一个新 WDGSyncQuery 引用，是按照当�
 handle 由observeEventType:withBlock:返回的 WDGSyncHandle
 
 ----
-## – queryStartingAtValue:
+### – queryStartingAtValue:
 
  定义
 
@@ -1252,7 +1252,7 @@ startValue query 查询到的值均大于等于 startValue
 返回一个 WDGSyncQuery 查询器类，用于响应在数据值大于或等于 startValue 的节点事件
 
 ----
-## – queryStartingAtValue:childKey:
+### – queryStartingAtValue:childKey:
 
  定义
 
@@ -1272,7 +1272,7 @@ childKey query查询到的 key 均大于等于 childKey
 返回一个 WDGSyncQuery 查询器类，用于响应在数据值大于 startValue，或等于 startValue 的值并且 key 大于或等于 childKey 的节点事件
 
 ----
-## – queryEndingAtValue:
+### – queryEndingAtValue:
 
  定义
 
@@ -1291,7 +1291,7 @@ endValue query查询到的值均小于等于 endValue
 返回一个 WDGSyncQuery 查询器类，用于响应在数据值均小于或等于 endValue 的节点事件
 
 ----
-## – queryEndingAtValue:childKey:
+### – queryEndingAtValue:childKey:
 
  定义
 
@@ -1311,7 +1311,7 @@ childKey query查询到的 key 均小于等于 childKey
 返回一个 WDGSyncQuery 查询器类，用于响应在查询到的数据值小于 endValue，或者数据值等于 endValue 并且 key 小于等于 childKey 的节点事件
 
 ----
-## – queryEqualToValue:
+### – queryEqualToValue:
 
  定义
 
@@ -1330,7 +1330,7 @@ value query查询到的值都等于 value
 返回一个 WDGSyncQuery 查询器类，用于响应与 value 相等数值的节点事件
 
 ----
-## – queryEqualToValue:childKey:
+### – queryEqualToValue:childKey:
 
  定义
 
@@ -1350,7 +1350,7 @@ childKey  query查询到的 key 都等于 childKey
 返回一个 WDGSyncQuery 查询器类，用于响应这个与之相等数值和 key 节点事件
 
 ----
-## ref
+### ref
 
  定义
 
@@ -1361,9 +1361,9 @@ childKey  query查询到的 key 都等于 childKey
 获取这个查询节点处的 WDGSyncReference 引用。
 
 ----
-# WDGDataSnapshot (*Methods*)
+## WDGDataSnapshot (*Methods*)
 
-## – childSnapshotForPath:
+### – childSnapshotForPath:
  定义
 
 `- (WDGDataSnapshot *) childSnapshotForPath:(NSString *)childPathString`
@@ -1386,7 +1386,7 @@ childPathString 节点数据的相对路径
 指定节点位置的 WDGDataSnapshot
 
 ----
-## – hasChild:
+### – hasChild:
 
  定义
 
@@ -1405,7 +1405,7 @@ childPathString 相对路径
 如果指定路径下存在子节点，返回 YES，否则返回 NO
 
 ----
-## – hasChildren
+### – hasChildren
 
  定义
 
@@ -1420,7 +1420,7 @@ childPathString 相对路径
 如果这个 Datasnapshot 有任何子节点返回 YES
 
 ----
-## – exists
+### – exists
 
  定义
 
@@ -1435,7 +1435,7 @@ childPathString 相对路径
 如果 DataSnapshot 包含一个非空数据，就返回 YES 
 
 ----
-## – valueInExportFormat
+### – valueInExportFormat
 
  定义
 
@@ -1446,7 +1446,7 @@ childPathString 相对路径
 返回该节点的原始数据
 
 ----
-## value
+### value
 
  定义
 
@@ -1459,7 +1459,7 @@ childPathString 相对路径
 返回的数据类型有:NSDictionary、NSArray、NSNumber (包含 Bool 类型)、NSString
 
 ----
-## childrenCount
+### childrenCount
 
  定义
 
@@ -1470,7 +1470,7 @@ childPathString 相对路径
 获得 DataSnapshot 的子节点的总数。
 
 ----
-## ref
+### ref
 
  定义
 
@@ -1481,7 +1481,7 @@ childPathString 相对路径
 从 DataSnapshot 中，获得当前节点的引用。
 
 ----
-## key
+### key
 
  定义
 
@@ -1492,7 +1492,7 @@ childPathString 相对路径
 从 DataSnapshot 中，获取当前节点的名称。
 
 ----
-## children
+### children
 
  定义
 
@@ -1510,7 +1510,7 @@ for (WDGDataSnapshot* child in snapshot.children) {
 ```
 
 ----
-## priority
+### priority
 
  定义
 
@@ -1525,9 +1525,9 @@ for (WDGDataSnapshot* child in snapshot.children) {
 优先级是一个字符串，若没有设置优先级，则返回 nil
 
 ----
-# WDGMutableData (*Methods*)
+## WDGMutableData (*Methods*)
 
-## – hasChildren
+### – hasChildren
 
  定义
 
@@ -1542,7 +1542,7 @@ for (WDGDataSnapshot* child in snapshot.children) {
 YES 为存在子节点，NO 为不存在
 
 ----
-## – hasChildAtPath:
+### – hasChildAtPath:
 
  定义
 
@@ -1561,7 +1561,7 @@ path 可以是类似'child'的单层级路径，也可以是类似'a/deeper/chil
 如果在指定的相对路径下，该 WDGMutableData 包含子节点，则返回YES
 
 ----
-## – childDataByAppendingPath:
+### – childDataByAppendingPath:
 
  定义
 
@@ -1580,7 +1580,7 @@ path 可以是类似'child'的单层级路径，也可以是类似'a/deeper/chil
 指定路径下的 WDGMutableData 实例
 
 ----
-## value
+### value
 
  定义
 
@@ -1601,7 +1601,7 @@ path 可以是类似'child'的单层级路径，也可以是类似'a/deeper/chil
 获得当前节点的数据
 
 ----
-## priority
+### priority
 
  定义
 
@@ -1619,7 +1619,7 @@ path 可以是类似'child'的单层级路径，也可以是类似'a/deeper/chil
 获得当前节点的优先级
 
 ----
-## childrenCount
+### childrenCount
 
  定义
 
@@ -1630,7 +1630,7 @@ path 可以是类似'child'的单层级路径，也可以是类似'a/deeper/chil
 获得子节点的总数
 
 ----
-## children
+### children
 
  定义
 
@@ -1652,7 +1652,7 @@ for (WDGMutableData* child in data.children) {
 获取当前节点下所有子节点的 WDGMutableData 实例的迭代器
 
 ----
-## key
+### key
 
  定义
 
@@ -1663,9 +1663,9 @@ for (WDGMutableData* child in data.children) {
 获取当前节点的 key，最上层的节点的 key 是 nil
 
 ----
-# WDGServerValue (*Methods*)
+## WDGServerValue (*Methods*)
 
-## + timestamp:
+### + timestamp:
 
  定义
 
@@ -1683,7 +1683,7 @@ for (WDGMutableData* child in data.children) {
 # WDGTransactionResult (*Methods*)
 
 
-## + successWithValue:
+### + successWithValue:
 
  定义
 
@@ -1698,7 +1698,7 @@ for (WDGMutableData* child in data.children) {
 返回一个 WDGTransactionResult 实例，它可以作为给 runTransactionBlock: 方法中 block 的一个返回值
 
 ----
-## + abort
+### + abort
 
  定义
 
@@ -1713,10 +1713,10 @@ for (WDGMutableData* child in data.children) {
 返回一个 WDGTransactionResult 实例，它可以作为给 runTransactionBlock: 方法中 block 的一个返回值
 
 ----
-# WDGApp (*Methods*)
+## WDGApp (*Methods*)
 
 
-## + configureWithOptions:
+### + configureWithOptions:
 
  定义
 
@@ -1732,7 +1732,7 @@ for (WDGMutableData* child in data.children) {
 options 配置 Wilddog 应用所需的实例
 
 ----
-## + configureWithName:options:
+### + configureWithName:options:
 
  定义
 
@@ -1749,7 +1749,7 @@ name 开发者自己起名的应用名称。这个名字只能包含字母、数
 options 配置 Wilddog 应用所需的 WDGOptions 实例
 
 ----
-## + defaultApp
+### + defaultApp
 
  定义
 
@@ -1764,7 +1764,7 @@ options 配置 Wilddog 应用所需的 WDGOptions 实例
 返回一个默认的 WDGApp 实例。
 
 ----
-## + appNamed:
+### + appNamed:
 
  定义
 
@@ -1780,7 +1780,7 @@ options 配置 Wilddog 应用所需的 WDGOptions 实例
 name 开发者自己起名的应用名称。
 
 ----
-## + allApps
+### + allApps
 
  定义
 
@@ -1796,7 +1796,7 @@ name 开发者自己起名的应用名称。
 含有 WDGApp 的字典
 
 ----
-## - deleteApp:
+### - deleteApp:
 
  定义
 
@@ -1812,7 +1812,7 @@ name 开发者自己起名的应用名称。
 completion 删除成功与否的回调
 
 ----
-## - init
+### - init
 
  定义
 
@@ -1824,7 +1824,7 @@ WDGWilddogApp 实例不能直接初始化。 请用 |WDGApp configure|, 或者
 |WDGApp configureWithOptions:|, 或者 |WDGApp configureWithNames:options| 初始化。
 
 ----
-## name
+### name
 
  定义
 
@@ -1835,7 +1835,7 @@ WDGWilddogApp 实例不能直接初始化。 请用 |WDGApp configure|, 或者
 获取这个 app 的 name。
 
 ----
-## options
+### options
 
  定义
 
@@ -1846,9 +1846,9 @@ WDGWilddogApp 实例不能直接初始化。 请用 |WDGApp configure|, 或者
 获取这个 app 的 options。
 
 ----
-# WDGOptions (*Methods*)
+## WDGOptions (*Methods*)
 
-## syncURL
+### syncURL
 
  定义
 
@@ -1859,7 +1859,7 @@ WDGWilddogApp 实例不能直接初始化。 请用 |WDGApp configure|, 或者
 Sync 的根路径 URL, e.g. @"http://your-appid.wilddogio.com".
 
 ----
-## - initWithSyncURL:
+### - initWithSyncURL:
 
  定义
 
