@@ -18,30 +18,35 @@ transaction() | 用于并发场景下的事务处理。
 
 `set()` 可以传入数据类型有 `string`, `number`, `boolean`, `object`。
 
-例如，存入 `Jone` 的 `name` 和 `age` ：
+例如，存入 `gracehop` 的 `date_of_birth ` 、`full_name ` 和 `nickname`：
 
 ```js
 // 初始化
 var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
+  authDomain: "docs-examples.wilddog.com",
+  syncURL: "https://docs-examples.wilddogio.com"
 };
 wilddog.initializeApp(config);
-var ref = wilddog.sync().ref();
+var ref = wilddog.sync().ref("/web/saving-data/wildblog/users");
 
 // child() 用来定位到某个节点。
-ref.child("Jone").set({
-    "name": "Jone",
-    "age": 23
+ref.child("gracehop").set({
+    "date_of_birth": "December 9, 1906",
+    "full_name": "Grace Hopper",
+    "nickname": "Amazing Grace"
 });
 ```
+访问 [博客数据页面](https://docs-examples.wilddogio.com/web/saving-data/wildblog/users/gracehop)，将会看到刚才写入的数据。
+
+**注意**：`https://docs-examples.wilddogio.com` 这个示例应用，数据为只读模式，主要用于野狗博客示例的数据展示。如果你想要体验写数据操作，可以将 `docs-examples` 替换成自己应用的 AppID。
 
 `set()` 还有一个可选参数，此参数是一个回调方法，用来获取操作的结果：
 
 ```js
-ref.child("Jone").set({
-    "name": "Jone",
-    "age": 23
+ref.child("gracehop").set({
+    "date_of_birth": "December 9, 1906",
+    "full_name": "Grace Hopper",
+    "nickname": "Amazing Grace"
 }, function(error) {
     if (error == null){
         // 数据同步到野狗云端成功完成

@@ -1,5 +1,6 @@
 title:  操作数据
 ---
+本篇文档介绍操作数据的方法。
 
 以下两种方法用于写入数据：
 
@@ -54,7 +55,6 @@ int main(void){
     wilddog_destroy(&wilddog);
 }
 ```
-----
 
 ## 追加子节点
 
@@ -108,7 +108,6 @@ int main(void){
     wilddog_destroy(&wilddog);
 }
 ```
-----
 
 **获取追加数据的 key**
 新增数据对应的`key`既为回调函数中的第一个入参`p_path` ，
@@ -163,4 +162,4 @@ int main(void){
     wilddog_destroy(&wilddog);
 }
 ```
-----
+
