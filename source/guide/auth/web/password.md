@@ -1,3 +1,4 @@
+
 title:  邮箱登录
 ---
 
@@ -13,9 +14,9 @@ title:  邮箱登录
 
 
 
- * 在野狗控制面板中选择身份认证选项。
+* 在野狗控制面板中选择身份认证选项。
 
- * 在`登录方式`标签中打开邮箱登录方式。
+* 在`登录方式`标签中打开邮箱登录方式。
 
 
 
@@ -25,10 +26,10 @@ title:  邮箱登录
 
 
 1. 导入 Wilddog Auth 模块:
- 
+
  ```
 <script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
-```
+ ```
 
 2. 以 Wilddog AppId 初始化 Wilddog应用。
 
@@ -65,27 +66,29 @@ wilddog.auth().createUserWithEmailAndPassword("wangxiaoliang@wilddog.com", "1234
 
 1. 导入 Wilddog Auth 模块:
     ```
-<script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
+   <script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
     ```
 
 2. 初始化 `Wilddog` 应用实例。
-    ```
- var config = {
+```
+    var config = {
      authDomain: "<appId>.wilddog.com",
      syncURL: "https://<appId>.wilddogio.com"
- };
- wilddog.initializeApp(config, "DEFAULT");
-```
+    };
+    wilddog.initializeApp(config, "DEFAULT");
+    ```
 
 3. 将该用户的电子邮件地址和密码传递到 `signInWithEmailAndPassword(email:password)`,即可在你应用中登录此用户。
-    ```
+
+```
 wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(function(res){
      console.log(res);
  }).catch(function (error) {
      // Handle Errors here.
      console.log(error)
  });
-    ```
+```
+
 
 如果该用户成功登录，你就可以从回调方法的用户对象中获得该用户的帐户数据。
 
@@ -104,8 +107,7 @@ wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(fu
 
 你还可以通过 [链接多种登录方式](/guide/auth/web/link.html) 来实现不同的登录方式登录同一个帐号。
 
-
-### 调用 [signOut](/guide/auth/web/api.html#signout) 退出登录：
+调用 [signOut](/guide/auth/web/api.html#signout) 退出登录：
 
 ```
  wilddog.auth().signOut().then(function() {

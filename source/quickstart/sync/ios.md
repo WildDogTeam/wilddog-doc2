@@ -136,6 +136,6 @@ myRootRef.observeEventType(.Value, withBlock: {
 
 `snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`observeSingleEventOfType`方法替代`observeEventType`方法。
 
-更多的数据读取方式可以查看 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
+更多的数据读取方式，请参考 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
 
 

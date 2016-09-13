@@ -1,3 +1,4 @@
+
 title: 管理用户
 ---
 
@@ -6,7 +7,7 @@ title: 管理用户
 
 你也可以从 Wilddog 控制面板的身份“认证部分”的“用户”页面中创建新的密码认证用户。
 
-## 获取当前登录的用户
+## 获取当前登录用户
 获取当前用户的推荐方法是在 Auth 对象上设置一个侦听器：
 
 Objective-C
@@ -58,7 +59,7 @@ if let user = WDGAuth.auth()?.currentUser {
 
 注：`currentUser` 可能为空，这是因为 auth 对象尚未完成初始化。 如果你使用侦听器跟踪用户登录状态，你将无需处理该情况。
 
-## 获取用户个人资料
+## 获取个人资料
 要获取用户的个人资料信息，请使用 `WDGUser` 实例的属性。 例如：
 
 Objective-C
@@ -95,7 +96,7 @@ if let user = WDGAuth.auth()?.currentUser {
 
 ```
 
-## 获取用户的其它登录方式的个人资料信息
+## 获取第三方个人资料信息
 要获取已链接至用户的其它登录方式的个人资料信息，请使用 providerData 属性。 例如：
 
 Objective-C
@@ -130,7 +131,7 @@ if let user = WDGAuth.auth()?.currentUser {
 
 ```
 
-## 更新用户个人资料
+## 更新个人资料
 你可以使用`WDGUserProfileChangeRequest` 类来更新一个用户的基本个人资料信息 — 用户的显示名称和个人资料照片网址。 例如：
 
 Objective-C
@@ -169,7 +170,7 @@ if let user = user {
 
 ```
 
-## 设置用户的电子邮件地址
+## 设置邮箱地址
 你可以用 `updateEmail:completion:` 方法设置用户的电子邮件地址。如果这个用户已经存在邮箱，则更新它，之后需要使用新的邮箱地址进行登录。例如：
 
 Objective-C
@@ -233,7 +234,7 @@ user?.updatePassword(newPassword) { error in
 
 重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
 
-## 发送重设密码电子邮件
+## 发送重设密码邮件
 你可以用 `sendPasswordResetWithEmail:completion:` 方法向用户发送一封重设密码电子邮件。 例如：
 
 Objective-C
@@ -300,7 +301,7 @@ user?.deleteWithCompletion { error in
 
 重要说明：要删除用户，该用户必须最近登录过。请参阅对用户重新进行身份认证。
 
-## 对用户重新进行身份认证
+## 重新进行身份认证
 有些安全敏感性操作—如删除帐户、设置主电子邮件地址和更改密码—需要用户最近登录过方可执行。
 
 如果你执行这些操作之一，而该用户在很久以前登录过，该操作便会失败，显示 `WDGAuthErrorCodeCredentialTooOld` 错误。
