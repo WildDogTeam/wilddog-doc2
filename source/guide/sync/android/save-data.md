@@ -8,20 +8,282 @@ title:  操作数据
 方法 |  说明 
 ----|------
 setValue() | 将数据写入到指定的路径，如果指定路径已存在数据，那么数据将会被覆盖。 
-push() | 在当前路径下新增一个子节点, 并返回子节点的引用。这个子节点的 key 是利用服务端的当前时间生成的随机字符串, 与 setValue() 配合使用，用于将数据新增到此路径下。
+push() | 在当前路径下新增一个子节点, 并返回子节点的实例。这个子节点的 key 是利用服务端的当前时间生成的随机字符串, 与 setValue() 配合使用，用于将数据新增到此路径下。
 updateChildren() | 对子节点进行合并操作。不存在的子节点将会被新增，存在的子节点将会被替换。
 runTransaction() | 提供事务性更新，用于并发更新操作的场景。
 
 ## 写入数据
 
-`setValue()` 是最基本的写数据操作，它会将数据写入当前引用指向的节点。该节点如果已有数据，任何原有数据都将被删除和覆盖，包括其子节点的数据。
-`setValue()` 可以传入几种数据类型 `string`, `number`, `boolean`, `null`, `map`或满足 JavaBean 规范的实体做为参数。
-为了更好地理解该方法，我们建立一个[示例应用](https://samplechat.wilddogio.com)举例说明。我们打算将定义一个 User 对象保存在下面引用对应的路径中：
+使用 `setValue()` 向某个节点写入数据。若节点已有数据，原有数据会被覆盖，包括其子节点的数据。
+`setValue()`  可以传入数据类型有 `string`, `number`, `boolean`, `null`, `map` 或满足 JavaBean 规范的实体做为参数。
+例如，存入 ｀Jone` 的 ｀name｀ 和 ｀age｀：
 
 ```java
-Wilddog ref = new Wilddog("https://samplechat.wilddogio.com/android/saving-data/wildblog");
+    // 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
+    // 获取 SyncReference 实例
+    SyncReference ref = WilddogSync.getInstance().getReference();
+    // 创建 Map 对象
+    HashMap<String, Object> jone = new HashMap<>();
+    jone.put("name", "Jone");
+    jone.put("age", "23");
+    // child() 用来定位到某个节点。
+    ref.child("Jone").setValue(jone);
 ```
-我们添加一些用户，为每个用户保存唯一的用户名，同时保存全名和出生日期。由于每个用户的用户名都是独一无二的，所以最好使用  `setValue()`方法，而不是 `push()` 方法，因为我们已经有了独一无二的用户名作为 key 值，不需要在添加的时候重新生成唯一标识。
+
+你可以使用 setValue() 的第二个参数来获取操作的结果：
+
+```java
+    ref.child("Jone").setValue(jone, new SyncReference.CompletionListener() {
+        @Override
+        public void onComplete(SyncError error, SyncReference ref) {
+            if (error != null) {
+                Log.d("error", error.toString());
+            } else {
+                Log.d("success", "setValue success");
+            }
+        }
+    });
+```
+## 追加子节点
+多个用户同时在一个节点下新增子节点时，如果子节点的 key 已存在，之前的数据会被覆盖。可以通过 push() 解决这个问题。
+
+`push` 生成唯一 ID 作为 key ，它保证每条数据的 key 一定不同。这个 key 基于时间戳和随机算法生成，即使生成在同一毫秒也不会重复，将按时间先后标明。
+
+使用 `push` 追加内容：
+```java
+SyncReference postsRef = ref.child("posts");
+HashMap<String, Object> aNews = new HashMap<>();
+aNews.put("author", "gracehop");
+aNews.put("title", "Announcing COBOL, a New Programming Language");
+postsRef.push(aNews);
+HashMap<String, Object> anotherNews = new HashMap<>();
+anotherNews.put("author", "alanisawesome");
+anotherNews.put("title", "The Turing Machine");
+postsRef.push(anotherNews);
+```
+产生的数据如下：
+```json
+{
+
+  "posts": {
+    "-JRHTHaIs-jNPLXO": {
+      "author": "gracehop",
+      "title": "Announcing COBOL, a New Programming Language"
+    },
+
+    "-JRHTHaKuITFIhnj": {
+      "author": "alanisawesome",
+      "title": "The Turing Machine"
+    }
+  }
+}
+```
+可以看到，每个数据都有一个唯一 ID 作为数据的 key 。
+
+**获取唯一ID**
+
+你可以通过调用 `getKey()` 来获取这个唯一 ID ：
+
+```java
+HashMap<String, Object> news = new HashMap<>();
+news.put("author", "gracehop");
+news.put("title", "Announcing COBOL, a New Programming Language");
+SyncReference newPostsRef = postsRef.push(news);
+// 获取 push() 生成的唯一 ID
+String postID = newPostRef.getKey();
+```
+
+## 更新数据
+
+如果想只更新指定子节点，而不影响其它的子节点，可以使用 `update()`方法:
+```json
+//原数据如下
+{
+    "gracehop": {
+        "nickname": "Nice Grace",
+        "date_of_birth": "December 9, 1906",
+        "full_name ": "Grace Lee"
+    }
+}
+```
+```java
+// 只更新 gracehop 的 nickname
+SyncReference hopperRef = ref.child("gracehop");
+HashMap<String, Object> user = new HashMap<>();
+user.put("nickname", "Amazing grace");
+hopperRef.update(user);
+```
+如果用 `set()` 而不是 `update()`，那么 `date_of_birth` 和 `full_name` 都会被删除。
+
+**多路径更新**
+
+`update` 也支持多路径更新，即可以同时更新不同路径下的数据。用法上有些特殊，举例如下:
+
+```json
+//原数据如下
+{
+    "a": {
+        "b": {
+            "c": "cc",
+            "d": "dd"
+        },
+        "x": {
+            "y": "yy",
+            "z": "zz"
+        }
+    }
+}
+```
+
+```java
+// 同时更新 b 节点下的 d，和 x 节点下的 z
+HashMap<String, Object> map = new HashMap<>();
+map.put("b/d", "updateD");
+map.put("x/z", "updateZ");
+ref.update(map);
+```
+
+可以看到，标识路径时，要用 `b/d`, 和 `x/z` ,而**不能**这样写：
+
+```java
+// 错误的多路径更新写法！！
+Map<String,Map<String,String>> map = new HashMap<>();
+Map<String,String> bMap = new HashMap<>();
+Map<String,String> xMap = new HashMap<>();
+map.put("b", bMap.put("d","updateD");
+map.put("x", xMap.put("z","updateZ");
+ref.update(map);
+```
+以上相当于 `set()` 操作，会覆盖以前数据。
+
+## 删除数据
+
+删除数据最简单的方法是调用 `remove()`。
+
+```
+HashMap<String, Object> map = new HashMap<>();
+map.put("name", "Jone");
+map.put("age", "23");
+ref.set(map);
+
+//删除上面写入的数据
+ref.remove();
+```
+
+此外，还可以通过写入 null 值（例如，`set(null)` 或 `update(null)`）来删除数据。 
+
+**注意**：Wilddog 不会保存值为 null 节点。如果某节点的值被设为 null，云端就会把这个节点删除。
+
+## 事务操作
+
+处理可能因并发更新而损坏的数据（例如，增量计数器）时，可以使用事务操作。你可以为此操作提供更新函数和完成后的回调（可选）。
+
+比如要实现一个记录点赞数量的功能，可能存在多人同时点赞的情况，就可以这样写一个事务：
+
+```java
+
+SyncReference upvotesRef = WilddogSync.getInstance().getReference("/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes");
+upvotesRef.runTransaction(new Transaction.Handler() {
+    public Transaction.Result doTransaction(MutableData currentData) {
+        if(currentData.getValue() == null) {
+            currentData.setValue(1);
+        } else {
+            currentData.setValue((Long) currentData.getValue() + 1);
+        }
+
+        return Transaction.success(currentData); 
+        // 也可以这样中止事务 Transaction.abort()
+    }
+    public void onComplete(WilddogError wilddogError, boolean committed, DataSnapshot currentData) {
+        // 事务完成后调用一次，获取事务完成的结果
+    }
+});
+
+```
+
+我们使用 `currentValue || 0` 来判断计数器是否为空或者是自增加。 如果上面的代码没有使用事务, 那么两个客户端同时试图累加时，结果可能是为数字 1 而非数字 2。
+
+注意：`transaction()` 可能被多次被调用，必须处理 currentData 变量为 null 的情况。
+
+当执行事务时，云端有数据存在，但是本地可能没有缓存，此时 currentData 为 null。
+
+**事务操作原理**
+
+更新函数会获取当前值作为参数，当你的数据提交到服务端时，会判断你调用的更新函数传递的当前值是否与实际当前值相等。
+
+如果相等，则更新数据为你提交的数据；如果不相等，则返回新的当前值。更新函数将使用新的当前值和你提交的数据重复尝试更新，直到成功为止。
+
+
+更多使用，请参考 [transaction()](/api/sync/android.html#transaction)。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+我们添加一些用户，为每个用户保存唯一的用户名，同时保存全名和出生日期。由于每个用户的用户名都是独一无二的，所以最好使用  `setValue()` 方法，而不是 `push()` 方法，因为我们已经有了独一无二的用户名作为 key 值，不需要在添加的时候重新生成唯一标识。
+
+
+
+
+
+
+
+
+
 
 首先，我们编写 User 类代码，将 User 对象以用户名作为 key 值添加到 Map 中。然后，为用户数据所在路径创建引用，调用 `setValue()` 方法将 Map 中的每个用户添加到数据库中。
 

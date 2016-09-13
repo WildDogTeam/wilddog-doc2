@@ -18,7 +18,7 @@ title:  快速入门
 <dependency>
     <groupId>com.wilddog.client</groupId>
     <artifactId>wilddog-auth-android</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
 </dependency> 
 ```
 
@@ -28,7 +28,7 @@ title:  快速入门
 
 ```java
 dependencies {
-    compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
+    compile 'com.wilddog.client:wilddog-auth-android:2.0.1'
 }
 ```
 

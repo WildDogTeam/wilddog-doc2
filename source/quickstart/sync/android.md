@@ -15,7 +15,7 @@ title: 快速入门
 <dependency>
     <groupId>com.wilddog.client</groupId>
     <artifactId>wilddog-sync-android</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
 </dependency> 
 ```
 
@@ -25,7 +25,7 @@ title: 快速入门
 
 ```java
 dependencies {
-    compile 'com.wilddog.client:wilddog-sync-android:2.0.0'
+    compile 'com.wilddog.client:wilddog-sync-android:2.0.1'
 }
 ```
 
@@ -49,70 +49,53 @@ android {
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-## 4. 初始化 Context
-
-在创建 Wilddog 实例之前，必须先设置 Context，进行一次初始化。
-
-你可以在 android.app.Application 或者 Activity的onCreate 方法中设置 Context:
+## 4. 初始化 SDK
 
 ```java
 @Override
 public void onCreate() {
     super.onCreate();
-    Wilddog.setAndroidContext(this);
+    // 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
 }
 ```
 
-## 5. 创建 Wilddog Sync 实例
-
-创建 Wilddog 实例的时候需要传入节点路径参数。
-
-```java
-Wilddog ref = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
-```
-
-实例的 child() 方法可以创建一个子节点实例。
-
-例如在 ref 下创建`/weather`子节点：
-
-```java
-Wilddog child = ref.child("/weather")
-```
-
-## 6. 保存数据
+## 5. 保存数据
 
 setValue() 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中`/weather`节点下保存天气数据
+例如在应用中 `weather` 节点下保存天气数据
 
 ```java
+SyncReference myRef = WilddogSync.getInstance().getReference("weather")
 Map data = new HashMap();
 data.put("beijing","rain");
 data.put("shanghai","sunny");
-child.setValue(data);
+myRef.setValue(data);
 ```
 
 保存的数据如下图：
 
 <img src="/images/saveapp.png" alt="savedata" width="300" >
 
-## 7. 读取与监听数据
+## 6. 读取与监听数据
 
 `addValueEventListener()`方法可以读取保存的数据。
 
 ```java
-child.addValueEventListener(new ValueEventListener() {
+myRef.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
         if(dataSnapshot.getValue()!=null){
-        Log.d("onDataChange",dataSnapshot.toString());
+        	Log.d("onDataChange",dataSnapshot.toString());
         }
     }
     @Override
-    public void onCancelled(WilddogError wilddogError) {
-        if(wilddogError!=null){
-     Log.d("onCancelled",wilddogError.toString());}
-    }
+    public void onCancelled(SyncError syncError) {
+        if(syncError!=null){
+     		Log.d("onCancelled",syncError.toString());}
+        }
 });
 ```
 
