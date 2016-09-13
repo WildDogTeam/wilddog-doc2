@@ -1,7 +1,7 @@
 
 title: 快速入门
 ---
-你可以通过快速入门了解如何在嵌入式设备上使用实时数据同步功能。
+你可以通过快速入门了解在嵌入式设备上实时数据同步的用法。
 
 ## 1. 创建应用
 
@@ -9,9 +9,9 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-### 获取 SDK
+1.获取 SDK
 
-- 从该网页下载 SDK： [https://www.wilddog.com/download/](https://www.wilddog.com/download/)
+从该网页下载 SDK： [https://www.wilddog.com/download/](https://www.wilddog.com/download/)
 
 Wilddog C/嵌入式 SDK 分为 C/RTOS、OpenWRT、Arduino 三种，具体支持的平台如下：
 
@@ -26,7 +26,7 @@ Arduino SDK | Arduino Yun。
 
 在大部分平台下 C/嵌入式 SDK 的 API 接口是一致（Arduino 平台除外），因此下面我们以 Linux 平台为例，快速了解 SDK 的基本 API，其他平台可以参考 SDK 中的 docs 目录和 README。
 
-### 编译 SDK
+2.编译 SDK
 
 Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。使用时需要在源文件中包含 wilddog.h ，将 SDK 的 include 文件夹拷贝到你的工程中，且在编译选项中增加该 lib 库。
 
