@@ -1,9 +1,9 @@
 title: 操作数据
 ---
 
-## 操作数据
+本篇文档介绍操作数据的方法。
 
-### 操作数据的方式
+以下四种方法用于写入数据：
 
 | 方法 | 说明 |
 | :------- | :--------------------------------------- |
@@ -16,11 +16,9 @@ title: 操作数据
 
 ## 写入数据
 
-REST API使用`PUT`写入数据。为了演示数据存储，我们将建立一个博客应用，应用的所有数据都存储在Wilddog应用对应的URl`https://docs-examples.wilddogio.com/rest/saving-data/wildblog`中。
+`PUT`请求向某个节点写入数据。若节点已有数据，会覆盖原有数据，包括其子节点的数据
 
-下面来存储一些用户的数据到数据库中，我们存储每个用户的唯一用户名，还存储全名和出生日期。由于用户名是独一无二的，所以适合使用`PUT`而不是`POST`方法，因为我们已经有作为key值的字段，不需要生成。
-
-使用`PUT`方法，我们可以写入`string`, `number`, `boolean`,`array`或者任意的JSON对象到我们的数据库，这里我们将传递一个JSON对象：
+使用`PUT`请求，我们可以写入`string`, `number`, `boolean`,`array`或者任意的JSON对象到我们的数据库，这里我们将传递一个JSON对象：
 
 ```javascript
 curl -X PUT -d '{
@@ -58,38 +56,9 @@ curl -X PUT -d '"June 23, 1912"' \
 
 成功的请求将返回HTTP 200 OK状态码，并且响应中会包含存储到数据库中的数据。上面的两个例子中，对于关注数据变化的其它客户端，第一个例子的做法仅仅触发一个事件，而第二个例子将触发两个事件。注意，如果要写入的路径节点下已经存在数据，第一种方法会覆盖已有的数据，而第二种方法只是修改两个子节点的值，而不会影响已有的其他子节点的数据。`PUT`方法等同于JavaScript SDK的`set()`方法。
 
-## 更新数据
+## 追加子节点
 
-REST API使用`PATCH`来更新数据。例如使用`PATCH`请求为Turing添加nickname：
-
-```
-curl -X PATCH -d '{
-  "nickname": "ACE"
-}' \
-  'https://docs-examples.wilddogio.com/rest/saving-data/users/alanisawesome.json'
-
-```
-
-上面的请求将`nickname`添加到`alanisawesome`对象而不删除子节点`name`和`birthday`。如果使用的是`PUT`请求，`name`和`birthday`将会被删除，因为他们没有出现在请求中。执行完`PATCH`请求之后，数据库中的数据如下：
-
-```
-{
-  "users": {
-    "alanisawesome": {
-      "date_of_birth": "June 23, 1912",
-      "full_name": "Alan Turing",
-      "nickname": "ACE"
-    }
-  }
-}
-
-```
-
-成功的请求将返回HTTP 200 OK状态码，并且响应中会包含更新到数据库中的数据。
-
-## 新增数据
-
-REST API使用`POST`新增数据。对于我们的`users`路径，我们自行定义user数据的key是很有必要的，因为每个用户都有有唯一用户名。但是当用户发表博客时，我们可以使用`POST`请求为博客数据自动生成key。
+`POST`请求会生成唯一 ID 作为 key ，要写入的数据作为 value ，进行数据写入。这个 key 基于时间戳和随机算法生成，即使生成在同一毫秒也不会重复，它标明了时间的先后。
 
 ```
 curl -X POST -d '{
@@ -120,9 +89,38 @@ curl -X POST -d '{
 
 ```
 
+## 更新数据
+
+`PATCH`请求用于更新指定子节点，而不影响其他节点。
+
+```
+curl -X PATCH -d '{
+  "nickname": "ACE"
+}' \
+  'https://docs-examples.wilddogio.com/rest/saving-data/users/alanisawesome.json'
+
+```
+
+上面的请求将`nickname`添加到`alanisawesome`对象而不删除子节点`name`和`birthday`。如果使用的是`PUT`请求，`name`和`birthday`将会被删除，因为他们没有出现在请求中。执行完`PATCH`请求之后，数据库中的数据如下：
+
+```
+{
+  "users": {
+    "alanisawesome": {
+      "date_of_birth": "June 23, 1912",
+      "full_name": "Alan Turing",
+      "nickname": "ACE"
+    }
+  }
+}
+
+```
+
+成功的请求将返回HTTP 200 OK状态码，并且响应中会包含更新到数据库中的数据。
+
 ## 删除数据
 
-REST API使用`DELETE`删除数据。下面的命令将删除`users`路径上的`alanisawesome`：
+`DELETE`请求用于删除数据
 
 ```
 curl -X DELETE \
