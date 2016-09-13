@@ -31,6 +31,7 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种
 	$ pod install
 	$ open your-project.xcworkspace
 
+
 - **手动集成 **
 
 1. 下载 Sync SDK [下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogSync.framework-2.0.1.zip)。 
@@ -41,16 +42,18 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种
 
 ## 3. 创建 Wilddog Sync 实例
 
-1. 引入头文件
+1.引入头文件
 
 Objective-C: 
 
 	#import "Wilddog.h"
+
 Swift:
 
 	import Wilddog
 
-2. 初始化
+
+2.初始化
 
 Objective-C: 
 
@@ -119,6 +122,7 @@ Objective-C：
 ```
 
 Swift:
+
 ```swift
 // 读数据并监听数据变化
 myRootRef.observeEventType(.Value, withBlock: {

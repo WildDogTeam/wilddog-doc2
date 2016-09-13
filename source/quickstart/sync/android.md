@@ -70,18 +70,13 @@ public void onCreate() {
 ```java
 Wilddog ref = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
 ```
-
 实例的 child() 方法可以创建一个子节点实例。
 
-例如在 ref 下创建`/weather`子节点：
 
-```java
-Wilddog child = ref.child("/weather")
-```
 
 ## 6. 写入数据
 
-setValue() 方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org) 。
+`setValue()`方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org) 。
 
 例如，在应用的根节点下写入天气数据 
 
