@@ -1,4 +1,4 @@
-title: 身份认证
+title: 使用 Server SDK 进行认证
 ---
 
 你可以使用 Wilddog Server SDK 创建并认证用于在客户端应用与服务器之间对身份认证信息进行安全通信的令牌（Token）。
