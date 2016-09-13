@@ -40,7 +40,8 @@ guide:
       离线功能: /guide/sync/c/offline-capabilities.html
       
     REST:
-      完整指南: /guide/sync/rest/guide.html
+      操作数据: /guide/sync/rest/save-data.html
+      查询数据: /guide/sync/rest/retrieve-data.html
       其他平台: /guide/sync/rest/library.html
     规则表达式:
       简介: /guide/sync/rules/introduce.html
