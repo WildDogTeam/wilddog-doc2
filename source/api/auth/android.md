@@ -1,11 +1,17 @@
 title:  Android API 文档
 ---
 
-## AuthResult
+## AuthResult (*Methods*)
+
+定义
 
 public interface **AuthResult**
 
+说明
+
 结果对象获得的操作会影响认证状态。包含一个方法,在操作完成后返回当前登录用户。
+
+## getUser ()
 
 定义
 
