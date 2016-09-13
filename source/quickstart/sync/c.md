@@ -9,7 +9,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-1.获取 SDK
+**1.获取 SDK**
 
 从该网页下载 SDK[https://www.wilddog.com/download/](https://www.wilddog.com/download/)
 
@@ -26,14 +26,14 @@ Arduino SDK | Arduino Yun。
 
 在大部分平台下 C/嵌入式 SDK 的 API 接口是一致（Arduino 平台除外），因此下面我们以 Linux 平台为例，快速了解 SDK 的基本 API，其他平台可以参考 SDK 中的 docs 目录和 README。
 
-2.编译 SDK
+**2.编译 SDK**
 
 Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。使用时需要在源文件中包含 wilddog.h ，将 SDK 的 include 文件夹拷贝到你的工程中，且在编译选项中增加该 lib 库。
 
     $ cd wilddog-client-c
     $ make 
 
-3.编译应用
+**3.编译应用**
 
 把你的源码 C 文件放到 SDK 的`examples/linux`目录下，并在 SDK 根目录执行`make example`，会在 `bin`目录下生成你应用的可执行文件。
 

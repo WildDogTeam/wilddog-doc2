@@ -22,11 +22,9 @@ SDK 的安装方式有两种，你可以任选其一
 </dependency> 
 ```
 
-</br>
-
 - **使用 Gradle **
 
- 在build.gradle中添加
+在build.gradle中添加
 
 ```java
 dependencies {

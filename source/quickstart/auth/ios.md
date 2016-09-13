@@ -44,7 +44,7 @@ SDK 的安装方式有两种，你可以任选其一
 ## 3. 初始化 Wilddog Auth 实例
 使用 Auth SDK 之前，需要先初始化实例。
 
-1. 引入头文件
+1. **引入头文件**
 
 Objective-C
 
@@ -53,7 +53,7 @@ Swift:
 
 	import Wilddog
 
-2. 下载 Core SDK
+2. **下载 Core SDK**
 
 Objective-C
 

@@ -12,7 +12,7 @@ title: 快速入门
 
 SDK 的安装方式有两种，你可以任选其一
 
-- 使用 CocoaPods 
+- **使用 CocoaPods** 
 
 要将 WilddogSync SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问  [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 
@@ -34,7 +34,7 @@ SDK 的安装方式有两种，你可以任选其一
 </br>
 
 
-- 手动集成 
+- **手动集成** 
 
 1. 下载 Sync SDK [下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogSync.framework-2.0.1.zip)。 
 2. 下载 Core SDK [下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip)。        
@@ -44,7 +44,7 @@ SDK 的安装方式有两种，你可以任选其一
 
 ## 3. 创建 Wilddog Sync 实例
 
-1.引入头文件
+**1.引入头文件**
 
 Objective-C
 
@@ -55,7 +55,7 @@ Swift
 	import Wilddog
 
 
-2.初始化
+**2.初始化**
 
 Objective-C
 
