@@ -3,11 +3,21 @@ title:  完整 API 文档
 
 # WDGAuth (*Methods*)
 
+## + auth
+
+ 定义
+
+`+ (nullable WDGAuth *)auth`
+
+ 说明
+
+初始化 WADApp 之后，来获取默认的 auth 对象。
+
 ## + authWithApp:
 
  定义
 
-`+ (nullable WDGAuth *)authWithApp:(NSString *)appID NS_SWIFT_NAME(auth(appID:))`
+`+ (nullable WDGAuth *)authWithApp:(WDGApp *)app NS_SWIFT_NAME(init(app:))`
 
  说明
 

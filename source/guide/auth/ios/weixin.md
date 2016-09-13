@@ -86,15 +86,17 @@ Swift
 import WilddogAuth
 ```
 
-3、 初始化 `WDGAuth` 对象：
+3、 初始化 WDGApp:
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
+[WDGApp configureWithOptions:option];
 ```
 Swift
 ```swift
-let auth = WDGAuth.auth(appID: "your-wilddog-appid")
+let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
+WDGApp.configureWithOptions(options)
 ```
 
 4、 微信登录成功后，在 `onResp:` 方法中得到的 code 来生成 Wilddog 凭据：
@@ -113,14 +115,14 @@ let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
 
 Objective-C
 ```objectivec
-[auth signInWithCredential:credential
+[[WDGAuth auth] signInWithCredential:credential
                 completion:^(WDGUser *user, NSError *error) {
                             // ...
                           }];
 ```
 Swift
 ```swift
-auth?.signInWithCredential(credential){(user, error) in
+WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
     // ...
 }
 ```
@@ -139,7 +141,7 @@ auth?.signInWithCredential(credential){(user, error) in
 Objective-C
 ```objectivec
 NSError *error;
-[[WDGAuth authWithApp:@"your-wilddog-appid"] signOut:&error];
+[[WDGAuth auth] signOut:&error];
 if (!error) {
     // 退出登录成功
 }
@@ -147,7 +149,7 @@ if (!error) {
 ```
 Swift
 ```swift
-try! WDGAuth.auth(appID: "your-wilddog-appid")!.signOut()
+try! WDGAuth.auth()!.signOut()
 
 ```
 可能发生的错误，请参考 [处理错误](/guide/auth/ios/errorcode.html)。

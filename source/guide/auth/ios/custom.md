@@ -23,21 +23,25 @@ Swift
 ```swift
 import WilddogAuth
 ```
-2、 初始化 WDGAuth 对象：
+2、 初始化 WDGApp:
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
+[WDGApp configureWithOptions:option];
 ```
 Swift
 ```swift
-let auth = WDGAuth.auth(appID: "your-wilddog-appid")
+let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
+WDGApp.configureWithOptions(options)
 ```
+
 3、 当用户登录你的应用时，发送他们的凭据（比如邮箱密码的方式）到你的服务器上。然后服务器检查凭据的正确性并返回 Custom Token。
 4、 从服务器收到 Custom Token 后，传到 `signInWithCustomToken:` 方法中进行登录：
 
 Objective-C
 ```objectivec
+WDGAuth *auth = [WDGAuth auth];
 [auth signInWithCustomToken:customToken
                  completion:^(WDGUser *_Nullable user, NSError *_Nullable error) {
                         // ...
@@ -45,6 +49,7 @@ Objective-C
 ```
 Swift
 ```swift
+let auth = WDGAuth.auth()
 auth?.signInWithCustomToken(customToken) { (user, error) in
   // ...
 }
@@ -64,7 +69,7 @@ auth?.signInWithCustomToken(customToken) { (user, error) in
 Objective-C
 ```objectivec
 NSError *error;
-[[WDGAuth authWithApp:@"your-wilddog-appid"] signOut:&error];
+[[WDGAuth auth] signOut:&error];
 if (!error) {
     // 退出登录成功
 }
@@ -72,7 +77,7 @@ if (!error) {
 ```
 Swift
 ```swift
-try! WDGAuth.auth(appID: "your-wilddog-appid")!.signOut()
+try! WDGAuth.auth()!.signOut()
 
 ```
 可能发生的错误，请参考 [处理错误](/guide/auth/ios/errorcode.html)。
