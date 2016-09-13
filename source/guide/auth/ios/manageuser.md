@@ -11,7 +11,7 @@ title: 管理用户
 
 Objective-C
 ```objectivec
-[[WDGAuth authWithApp:@"your-wilddog-appid"]; addAuthStateDidChangeListener:^(WDGAuth *_Nonnull auth,
+[[WDGAuth auth] addAuthStateDidChangeListener:^(WDGAuth *_Nonnull auth,
                                                 WDGUser *_Nullable user) {
   if (user != nil) {
     // User is signed in.
@@ -22,7 +22,7 @@ Objective-C
 ```
 Swift
 ```swift
-WDGAuth.auth(appID: "your-wilddog-appid")?.addAuthStateDidChangeListener{ auth, user in
+WDGAuth.auth()?.addAuthStateDidChangeListener{ auth, user in
     if let user = user {
         // User is signed in.
     } else {
@@ -48,7 +48,7 @@ if (user != nil) {
 ```
 Swift
 ```swift
-if let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser {
+if let user = WDGAuth.auth()?.currentUser {
     // User is signed in.
 } else {
     // No user is signed in.
@@ -80,7 +80,7 @@ if (user != nil) {
 ```
 Swift
 ```swift
-if let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser {
+if let user = WDGAuth.auth()?.currentUser {
     let name = user.displayName
     let email = user.email
     let photoUrl = user.photoURL
@@ -116,7 +116,7 @@ if (user != nil) {
 ```
 Swift
 ```swift
-if let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser {
+if let user = WDGAuth.auth()?.currentUser {
     for profile in user.providerData {
         let providerID = profile.providerID
         let uid = profile.uid;  // Provider-specific UID
@@ -151,7 +151,7 @@ changeRequest.photoURL =
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 if let user = user {
     let changeRequest = user.profileChangeRequest()
     
@@ -186,7 +186,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 
 user?.updateEmail("user@example.com") { error in
     if let error = error {
@@ -218,7 +218,7 @@ NSString *newPassword = [yourApp getRandomSecurePassword];
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 let newPassword = getRandomSecurePassword()
 
 user?.updatePassword(newPassword) { error in
@@ -253,7 +253,7 @@ Swift
 ```swift
 let email = "user@example.com"
 
-WDGAuth.auth(appID: "your-wilddog-appid")?.sendPasswordResetWithEmail(email) { error in
+WDGAuth.auth()?.sendPasswordResetWithEmail(email) { error in
     if let error = error {
         // An error happened.
     } else {
@@ -285,7 +285,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 
 user?.deleteWithCompletion { error in
     if let error = error {
@@ -324,7 +324,7 @@ WDGAuthCredential *credential; // 需要初始化
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 var credential: WDGAuthCredential // 需要初始化
 
 // Prompt the user to re-provide their sign-in credentials
