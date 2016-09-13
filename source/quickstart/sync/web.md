@@ -9,11 +9,14 @@ title: 快速入门
 首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
+
+安装完整 SDK(包含 Sync 和 Auth)
+
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>
 ```
 
-如果不需要身份认证也可以单独安装sync
+如果你想独立安装 Sync，可以按照下面的方式
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
 ```
