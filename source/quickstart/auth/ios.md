@@ -10,7 +10,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以任选其一
+SDK 的安装方式有两种，你可以选择下面方式的其中一种
 
 - **使用 CocoaPods**
 
@@ -32,8 +32,6 @@ SDK 的安装方式有两种，你可以任选其一
 	$ pod install
 	$ open your-project.xcworkspace
 
-</br>
-
 * **手动集成**
 
 1. 下载 Auth SDK [下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogAuth.framework-2.0.1.zip)。
@@ -44,7 +42,7 @@ SDK 的安装方式有两种，你可以任选其一
 ## 3. 初始化 Wilddog Auth 实例
 使用 Auth SDK 之前，需要先初始化实例。
 
-1. **引入头文件**
+1. 引入头文件
 
 Objective-C
 
@@ -53,7 +51,7 @@ Swift:
 
 	import Wilddog
 
-2. **下载 Core SDK**
+2. 下载 Core SDK
 
 Objective-C
 
@@ -80,7 +78,8 @@ let auth = WDGAuth.auth()
 ## 4. 使用邮箱认证
 
 1.打开邮箱登录
-首先确认应用的邮箱登录功能已激活（默认是关闭状态）
+
+首先确认应用的邮箱登录功能已激活（默认是关闭状态）。
 
 ![](/images/openemail.png)
 
