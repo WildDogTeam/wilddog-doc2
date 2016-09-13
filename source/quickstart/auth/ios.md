@@ -6,11 +6,11 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以选择下面方式的其中一种：
+SDK 的安装方式有两种，你可以选择下面方式的其中一种
 
 - **使用 CocoaPods**
 
@@ -40,20 +40,20 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种：
 4. 选中 Copy items if needed 、Create Groups，点击 Finish。  
 
 ## 3. 初始化 Wilddog Auth 实例
-使用 Auth SDK 之前，需要先初始化实例：
+使用 Auth SDK 之前，需要先初始化实例。
 
-**1. 引入头文件**
+1. 引入头文件
 
-Objective-C: 
+Objective-C
 
 	@import Wilddog;
 Swift:
 
 	import Wilddog
 
-**2. 初始化 Auth**
+2. 下载 Core SDK
 
-Objective-C: 
+Objective-C
 
 ```objectivec
 //初始化 WDGApp
@@ -64,7 +64,7 @@ WDGAuth *auth = [WDGAuth auth];
 
 ```
 
-Swift:
+Swift
 
 ```swift
 //初始化 WDGApp
@@ -77,13 +77,13 @@ let auth = WDGAuth.auth()
 
 ## 4. 使用邮箱认证
 
-1.首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
+1.首先确认应用的邮箱登录功能已激活（默认是关闭状态）
 
 ![](/images/openemail.png)
 
 2.创建新用户
 
-Objective-C:
+Objective-C
 
 ```objectivec
 //创建一个基于密码的帐户，创建成功后会自动登录
@@ -92,7 +92,7 @@ Objective-C:
 }];
 ```
 
-Swift:
+Swift
 
 ```swift
 //创建一个基于密码的帐户，创建成功后会自动登录
@@ -112,7 +112,7 @@ auth?.createUserWithEmail("user@example.com", password:"password", completion: {
 }];
 ```
 
-Swift:
+Swift
 
 ```swift
 auth?.signInWithEmail(email, password: password) { (user, error) in
@@ -124,7 +124,7 @@ auth?.signInWithEmail(email, password: password) { (user, error) in
 
 你可以使用 `signOut` 方法退出当前登录用户
 
-Objective-C:
+Objective-C
 
 ```objectivec
 NSError *error;
@@ -134,7 +134,7 @@ if (!error) {
 }
 ```
 
-Swift:
+Swift
 
 ```swift
 try! WDGAuth.auth()!.signOut()

@@ -5,11 +5,13 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
-* **使用 Maven 安装 Sync SDK：**
+SDK 的安装方式有两种，你可以选择下面方式的其中一种
+
+* **使用 Maven**
 
 ```xml
 <dependency>
@@ -19,9 +21,9 @@ title: 快速入门
 </dependency> 
 ```
 
-* **使用 Gradle 安装 Sync SDK：**
+* **使用 Gradle**
 
- 在build.gradle中添加：
+ 在build.gradle中添加
 
 ```java
 dependencies {
@@ -29,7 +31,7 @@ dependencies {
 }
 ```
 
-如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions：
+如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions
 
 ```java
 android {
@@ -65,8 +67,6 @@ public void onCreate() {
 
 ## 5. 创建 Wilddog Sync 实例
 
-创建 Wilddog 实例的时候需要传入节点路径参数。
-
 ```java
 Wilddog ref = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
 ```
@@ -81,9 +81,9 @@ Wilddog child = ref.child("/weather")
 
 ## 6. 写入数据
 
-setValue() 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+setValue() 方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中`/weather`节点下写入天气数据
+例如，在应用的根节点下写入天气数据 
 
 ```java
 Map data = new HashMap();
@@ -98,7 +98,7 @@ child.setValue(data);
 
 ## 7. 读取与监听数据
 
-`addValueEventListener()`方法可以读取写入的数据。
+`addValueEventListener()`方法可以读取并监听节点的数据。
 
 ```java
 child.addValueEventListener(new ValueEventListener() {
@@ -116,6 +116,6 @@ child.addValueEventListener(new ValueEventListener() {
 });
 ```
 
-取出的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
+`snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
 
 更多的数据读取方式可以查看 [完整指南](/guide/sync/android/save-data.html)和 [API 文档](/api/sync/android.html)。

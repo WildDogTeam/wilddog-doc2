@@ -6,13 +6,13 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Sync SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
-`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Sync SDK:
+`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Sync SDK
 
 ```
 npm install wilddog
@@ -33,9 +33,9 @@ var ref = wilddog.sync().ref();
 
 ## 4. 写入数据
 
-使用`Set()`方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+`Set()`方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用的根节点下写入天气数据：
+例如，在应用的根节点下写入天气数据
 
 ```javascript
 ref.set({
@@ -46,7 +46,7 @@ ref.set({
 });
 ```
 
-写入的数据如下图：
+写入的数据如下图
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
@@ -55,7 +55,7 @@ ref.set({
 ## 5. 读取与监听数据
 `on()`方法可以读取并监听节点的数据。
 
-例如从应用中获得天气数据:
+例如，从应用中获得天气数据
 
 ```javascript
 ref.on("value", function(snapshot) {
@@ -63,7 +63,7 @@ console.log(snapshot.val());
 }
 ```
 
-取出的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`once()`函数替代`on()`函数。
+`snapshot` 里面的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`once()`方法替代`on()`方法。
 
 更多的数据读取方式可以查看 [完整指南](/guide/sync/web/save-data.html)。
 
