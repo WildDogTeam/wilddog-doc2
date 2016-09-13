@@ -83,7 +83,7 @@ usersRef.setValue(users)
 
 现在，我们访问[博客实例数据库](https://docs-examples.wilddogio.com/web/saving-data/wildblog/users)，将会看到刚才写入的数据。
 
-**注意**：`https://docs-examples.wilddogio.com`这个数据库是只读数据库，主要用于野狗博客实例数据展示。如果你想要体验写数据操作，可以将 `docs-examples` 替换成自己应用的 AppID。如果没有应用，请点击 [控制面板-创建应用](/console/creat.html)。
+**注意**：`https://docs-examples.wilddogio.com`这个数据库是只读数据库，主要用于野狗博客实例数据展示。如果你想要体验写数据操作，可以将 `docs-examples` 替换成自己应用的 AppID。
 
 ## 追加子节点
 
@@ -263,6 +263,6 @@ upvotesRef.runTransactionBlock({
 
 如果上面的代码没有使用事务, 那么两个客户端同时试图累加时，结果可能是为数字 1 而非数字 2。
 
-**注意**：`runTransactionBlock:` 的回调可能会多次被调用，必须处理 currentData.value 变量为 nil 的情况。当执行事务时，云端有数据存在，但是本地可能没有缓存，此时 currentValue.value 为 nil。
+**注意**：`runTransactionBlock` 的回调可能会多次被调用，必须处理 currentData.value 变量为 nil 的情况。当执行事务时，云端有数据存在，但是本地可能没有缓存，此时 currentValue.value 为 nil。
 
 更多使用，请参考 [- runTransactionBlock:](https://docs.wilddog.com/api/sync/ios.html#–-runTransactionBlock)。
