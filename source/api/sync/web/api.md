@@ -1,4 +1,4 @@
-title:  完整 API 文档
+title:  Web API 文档
 ---
 
 ## Wilddog (*Methods*)
@@ -1527,6 +1527,33 @@ numChildren()
 返回值
  
 `string` 子节点的个数
+
+示例
+
+```js
+var config = {
+  authDomain: "<appId>.wilddog.com",
+  syncURL: "https://<appId>.wilddogio.com"
+};
+wilddog.initializeApp(config);
+var data = {
+  "name": {
+    "first": "Fred",
+    "last": "Flintstone"
+  }};
+var ref = wilddog.sync().ref("/users/fred");
+ref.set(data);
+
+ref.once("value", function(snapshot) {
+  var a = snapshot.numChildren();
+  // a === 1 ("name")
+  var b = snapshot.child("name").numChildren();
+  // b === 2 ("first", "last")
+  var c = snapshot.child("name/first").numChildren();
+  // c === 0 (since "Fred" is a string)
+});
+
+```
 
 ----
 

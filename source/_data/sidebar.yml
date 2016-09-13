@@ -22,19 +22,23 @@ guide:
       操作数据: /guide/sync/web/save-data.html
       查询数据: /guide/sync/web/retrieve-data.html
       离线功能: /guide/sync/web/offline-capabilities.html
+      
     Android :
       操作数据: /guide/sync/android/save-data.html
       查询数据: /guide/sync/android/retrieve-data.html
       离线功能: /guide/sync/android/offline-capabilities.html
+      
     iOS:
       操作数据: /guide/sync/ios/save-data.html
       查询数据: /guide/sync/ios/retrieve-data.html
       离线功能: /guide/sync/ios/offline-capabilities.html
+      
     C/嵌入式:
       配置和移植: /guide/sync/c/config-and-porting.html
       操作数据: /guide/sync/c/save-data.html
       查询数据: /guide/sync/c/retrieve-data.html
       离线功能: /guide/sync/c/offline-capabilities.html
+      
     REST:
       完整指南: /guide/sync/rest/guide.html
       其他平台: /guide/sync/rest/library.html
@@ -57,6 +61,7 @@ guide:
       自定义身份认证: /guide/auth/web/custom.html
       匿名身份认证: /guide/auth/web/anonymous.html
       绑定多种登录方式: /guide/auth/web/link.html
+      
     Android:
       管理用户: /guide/auth/android/manageuser.html
       邮箱登录: /guide/auth/android/password.html
@@ -75,23 +80,36 @@ guide:
       自定义身份认证: /guide/auth/ios/custom.html
       匿名身份认证: /guide/auth/ios/anonymous.html
       绑定多种登录方式: /guide/auth/ios/link.html
+      
     Server:
       简介: /guide/auth/server/introduction.html
       使用 Server SDK 进行认证: /guide/auth/server/server.html
 
 api:
   实时数据同步:
-    Web: /api/sync/web.html
-    Android: /api/sync/android.html
-    iOS: /api/sync/ios.html
-    C/嵌入式: /api/sync/c.html
+    Web: 
+      API 文档: /api/sync/web/api.html
+      错误码: /api/sync/web/error-code.html
+    Android: 
+      API 文档: /api/sync/android/api.html
+      错误码: /api/sync/android/error-code.html
+    iOS: 
+      API 文档: /api/sync/ios/api.html
+      错误码: /api/sync/ios/error-code.html
+    C/嵌入式: 
+      API 文档: /api/sync/c/api.html
+      错误码: /api/sync/c/error-code.html
     Arduino: /api/sync/arduino.html
     REST: /api/sync/rest.html
     规则表达式: /api/sync/rule.html
   身份认证:
-    Web: /api/auth/web.html
-    Android: /api/auth/android.html
-    iOS: /api/auth/ios.html
+    Web: 
+      API 文档: /api/auth/web/api.html
+      错误码: /api/auth/web/error-code.html
+    Android: /api/auth/android/api.html
+    iOS:
+      API 文档: /api/auth/ios/api.html
+      错误码: /api/auth/ios/error-code.html
 
 resources:
   实时数据同步:
@@ -108,9 +126,10 @@ resources:
       实战教程: /resources/sync/c/tutorial.html
       示例库: /resources/sync/c/resources.html
   身份认证:
-  #   Web: /resources/auth/web.html
-      Android: /resources/auth/android/resources.html
-  #   iOS: /resources/auth/ios.html
+  # Web: /resources/auth/web.html
+    Android:
+      示例库: /resources/auth/android/resources.html
+  # iOS: /resources/auth/ios.html
 
 console:
   控制面板:

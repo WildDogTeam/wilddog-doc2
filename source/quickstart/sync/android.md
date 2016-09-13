@@ -9,7 +9,9 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-* **使用 Maven 安装 Sync SDK：**
+SDK 的安装方式有两种，你可以选择下面方式的其中一种。
+
+* **使用 Maven**
 
 ```xml
 <dependency>
@@ -19,9 +21,9 @@ title: 快速入门
 </dependency> 
 ```
 
-* **使用 Gradle 安装 Sync SDK：**
+* **使用 Gradle**
 
- 在build.gradle中添加：
+ 在build.gradle中添加
 
 ```java
 dependencies {
@@ -29,7 +31,7 @@ dependencies {
 }
 ```
 
-如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions：
+如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions
 
 ```java
 android {
@@ -43,7 +45,7 @@ android {
 
 ## 3. 配置 Android 权限
 
-在 AndroidMainfest.xml 文件中添加：
+在 AndroidMainfest.xml 文件中添加
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -53,7 +55,7 @@ android {
 
 在创建 Wilddog 实例之前，必须先设置 Context，进行一次初始化。
 
-你可以在 android.app.Application 或者 Activity的onCreate 方法中设置 Context:
+你可以在 android.app.Application 或者 Activity的onCreate 方法中设置 Context
 
 ```java
 @Override
@@ -65,25 +67,15 @@ public void onCreate() {
 
 ## 5. 创建 Wilddog Sync 实例
 
-创建 Wilddog 实例的时候需要传入节点路径参数。
-
 ```java
 Wilddog ref = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
 ```
 
-实例的 child() 方法可以创建一个子节点实例。
+## 6. 写入数据
 
-例如在 ref 下创建`/weather`子节点：
+`setValue()`方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org) 。
 
-```java
-Wilddog child = ref.child("/weather")
-```
-
-## 6. 保存数据
-
-setValue() 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
-
-例如在应用中`/weather`节点下保存天气数据
+例如，在应用的根节点下写入天气数据 
 
 ```java
 Map data = new HashMap();
@@ -92,13 +84,13 @@ data.put("shanghai","sunny");
 child.setValue(data);
 ```
 
-保存的数据如下图：
+写入的数据如下图
 
 <img src="/images/saveapp.png" alt="savedata" width="300" >
 
 ## 7. 读取与监听数据
 
-`addValueEventListener()`方法可以读取保存的数据。
+`addValueEventListener()`方法可以读取并监听节点的数据。
 
 ```java
 child.addValueEventListener(new ValueEventListener() {
@@ -116,6 +108,6 @@ child.addValueEventListener(new ValueEventListener() {
 });
 ```
 
-取出的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
+`snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
 
-更多的数据读取方式可以查看 [完整指南](/guide/sync/android/save-data.html)和 [API 文档](/api/sync/android.html)
+更多的数据读取方式可以查看 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android.html)。

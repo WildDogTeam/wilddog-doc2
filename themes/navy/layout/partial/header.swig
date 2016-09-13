@@ -7,8 +7,8 @@
       <a href="/overview/index.html" class="main-nav-link">概览</a>
       <a href="/quickstart/sync/web.html" class="main-nav-link">快速入门</a>
       <a href="/guide/sync/web/save-data.html" class="main-nav-link">完整指南</a>
-      <a href="/api/sync/web.html" class="main-nav-link">API 文档</a>
-      <a href="/resources/sync/web/tutorial.html" class="main-nav-link">示例源码</a>
+      <a href="/api/sync/web/api.html" class="main-nav-link">API 文档</a>
+      <a href="/resources/sync/web/tutorial.html" class="main-nav-link">参考资源</a>
       <a href="/console/creat.html" class="main-nav-link">控制面板指南</a>
     </nav>
     <a class="old-doc-link" href="https://z.wilddog.com/overview/introduction">回到旧版文档</a>

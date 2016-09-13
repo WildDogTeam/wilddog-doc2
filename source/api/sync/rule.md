@@ -1,8 +1,8 @@
 
-title: 规则表达式API 文档
+title: 规则表达式 API 文档
 ---
 
-# Rule (*Type*)
+## Rule (*Type*)
 
 ## .read
 

@@ -76,7 +76,7 @@ var user = wilddog.auth().currentUser;
 
 ## 更新用户个人资料
 
-您可以使用`WDGUserProfileChangeRequest` 类来更新一个用户的基本个人资料信息 — 用户的显示名称和个人资料照片网址。 例如：
+您可以使用`updateProfile` 来更新一个用户的基本个人资料信息 — 用户的显示名称和个人资料照片网址。 例如：
 
 ```
 wilddog.auth().currentUser.updateProfile({
@@ -110,7 +110,7 @@ wilddog.auth().currentUser.updateEmail(email).then(function() {
 
 ## 设置用户密码
 
-您可以使用 `updatePassword:completion:` 方法设置用户密码。例如：
+您可以使用 `updatePassword` 方法设置用户密码。例如：
 
 ```
 wilddog.auth().currentUser.updatePassword("12345678").then(function() {
@@ -132,7 +132,7 @@ wilddog.auth().currentUser.updatePassword("12345678").then(function() {
 ## 发送重设密码电子邮件
 
 
-您可以用 `sendPasswordResetWithEmail:completion:` 方法向用户发送一封重设密码电子邮件。 例如：
+您可以用 `sendPasswordResetWithEmail` 方法向用户发送一封重设密码电子邮件。 例如：
 
 
 

@@ -27,26 +27,30 @@ Swift
 ```swift
 import WilddogAuth
 ```
-2、 以 Wilddog AppId 初始化 WDGAuth。
+2、 初始化 WDGApp:
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
+[WDGApp configureWithOptions:option];
 ```
 Swift
 ```swift
-let auth = WDGAuth.auth(appID: "your-wilddog-appid")
+let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
+WDGApp.configureWithOptions(options)
 ```
 3、 调用 `signInAnonymouslyWithCompletion:`方法：
 
 Objective-C
 ```objectivec
+WDGAuth *auth = [WDGAuth auth];
 [auth signInAnonymouslyWithCompletion:^(WDGUser *_Nullable user, NSError *_Nullable error) {
    // ...
 }];
 ```
 Swift
 ```swift
+let auth = WDGAuth.auth()
 auth?.signInAnonymouslyWithCompletion(){(user, error) in
    //...
 }
@@ -123,7 +127,7 @@ let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, passwor
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
+WDGAuth *auth = [WDGAuth auth];
 [auth.currentUser linkWithCredential:credential completion:^(WDGUser *_Nullable user,NSError *_Nullable error) {
       // ...
 }];
@@ -131,7 +135,7 @@ WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
 
 Swift
 ```swift
-let auth = WDGAuth.auth(appID: "your-wilddog-appid")
+let auth = WDGAuth.auth()
 auth!.currentUser?.linkWithCredential(credential) { (user, error) in
      // ...
 }

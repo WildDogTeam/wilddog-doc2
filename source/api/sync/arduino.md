@@ -1,7 +1,7 @@
 title:  Arduino API 文档
 ---
 
-# Wilddog (*Methods*)
+## Wilddog (*Methods*)
 
 ## new Wilddog
 

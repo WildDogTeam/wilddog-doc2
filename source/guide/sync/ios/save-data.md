@@ -1,20 +1,23 @@
-title:  保存数据
+title:  操作数据
 ---
+本篇文档介绍操作数据的方法。
 
-以下四种方法可用于将数据写入野狗云端：
+以下四种方法可以写入数据：
 
 方法 |  说明 
 ----|------
-setValue | 将数据写入到指定的路径，如果指定路径已存在数据，那么数据将会被覆盖。 
-childByAutoId | 添加到数据列表。每次调用 `childByAutoId` 时，Wilddog 均会生成唯一 ID，如 `user-posts/<user-id>/<unique-post-id>`。
-updateChildValues | 更新节点的数据。不存在的子节点将会被新增，存在子节点依然存在。 
-runTransactionBlock | 提供事务性更新，用于并发更新操作的场景。 
+setValue |向某个节点写入数据。若此节点已存在数据，数据会被覆盖。
+childByAutoId | 向某个节点添加子节点。子节点的 key 由野狗自动生成并保证唯一，value 是你要写入的数据。
+updateChildValues | 更新节点下指定 key 的值，而不影响其他数据。
+runTransactionBlock | 用于并发场景下的事务处理。
 
-## 用 setValue 写入数据
+## 写入数据
 
-`setValue` 是最基本的写数据操作，它会将数据写入当前引用指向的节点。该节点如果已有数据，任何原有数据都将被删除和覆盖，包括其子节点的数据。
-`setValue` 可以传入几种数据类型 `NSString`, `NSNumber`, `NSDictionary`, `NSArray` 做为参数。
-例如，可以使用 `setValue` 方法来添加用户，如下所示：
+使用`setValue` 向某个节点写入数据。若节点已有数据，原有数据会被覆盖，包括其子节点的数据。
+
+`setValue` 可以传入数据类型有 `NSString`, `NSNumber`, `NSDictionary`, `NSArray` 。
+
+例如，使用 `setValue` 方法来添加用户：
 
 Objective-C
 
@@ -46,12 +49,13 @@ self.ref.child("users/(user.uid)/username").setValue(username)
 
 ```
 
-## 用 childByAutoId 追加新节点
+## 追加子节点
 
-当多个用户同时试图在一个节点下新增一个子节点的时候，这时，数据就会被重写覆盖。
-为了解决这个问题，Wilddog `childByAutoId` 采用了生成唯一 ID 作为 key 的方式。通过这种方式，多个用户同时在一个节点下面调用 `childByAutoId`方法写数据，他们的 key 一定是不同的。这个 key 是通过一个基于时间戳和随机算法生成的，即使在一毫秒内也不会相同，并且表明了时间的先后，Wilddog 采用了足够多的位数保证唯一性。
+多个用户同时在一个节点下新增子节点时，如果子节点的 key 已存在，之前的数据会被覆盖，可以通过`childByAutoId` 解决这个问题。
 
-我们可以通过下面的方式来向博客 app 写入 posts 数据：
+`childByAutoId` 生成唯一 ID 作为 key ，它保证每条数据的 key 一定不同。这个 key 基于时间戳和随机算法生成，即使生成在同一毫秒也不会重复，将按时间先后标明。
+
+使用`childByAutoId` 追加内容，例如我们向博客 app 写入 posts 数据：
 
 Objective-C
 
@@ -86,8 +90,7 @@ let post2Ref = postRef.childByAutoId()
 post2Ref.setValue(post2)
 
 ```
-
-由于使用了 `childByAutoId` 方法为每个博客 post 生成了基于时间戳的唯一标识，即使多个用户同时添加博客 post 也不会产生冲突。Wilddog Sync 数据库中的数据结构如下：
+产生的数据如下：
 
 ```json
 {
@@ -105,12 +108,13 @@ post2Ref.setValue(post2)
 
 ```
 
-## 用 updateChildValues 更新数据
+可以看到，每个数据都有一个唯一 ID 作为数据的 key 。即使多个用户同时添加博客 post 也不会产生冲突。
 
-要同时向一个节点的特定子节点写入数据，而不覆盖其他子节点，请使用 `updateChildValues` 方法。
+## 更新数据
 
-例如，社交博客应用可能要创建一篇博文，同时将其更新为最新的活动源和发布用户的活动源。  
-为此，该博客应用使用如下代码
+如果想只更新指定子节点，而不影响其它的子节点，可以使用`updateChildValues` 方法。
+
+例如，博客应用要创建一篇博文，同时将其更新为最新的活动源和发布用户的活动源。 该博客应用使用如下代码
 
 Objective-C
 
@@ -140,21 +144,46 @@ ref.updateChildValues(childUpdates)
 
 ```
 
-此示例使用 `childByAutoId` 在节点（其中包含 `/posts/$postid` 内所有用户博文）中创建一篇博文，同时使用 `getKey` 检索相应键。
+此示例使用 `childByAutoId` 在节点（其中包含 `/posts/postid` 内所有用户博文）中创建一篇博文，同时使用 `getKey` 检索相应键。
 
-然后，可以使用该键在用户博文（位于 `/user-posts/$userid/$postid` 内）中创建第二个条目。
+然后，可以使用该键在用户博文（位于 `/user-posts/userid/postid` 内）中创建第二个条目。
 
 通过使用这些路径，只需调用 `updateChildValues` 一次即可同步更新 JSON 树中的多个位置，例如，该示例如何在两个位置同时创建新博文。
 
 通过这种方式同步更新具有原子性：要么所有更新全部成功，要么全部失败。
 
+## 删除数据
+
+删除数据最简单的方法是调用 `removeValue`。
+
+Objective-C
+
+```objectivec
+WDGSyncReference *ref = [[WDGSync sync] reference];
+[ref setValue:@{@"name" : @"Jone", @"age" : @"23"}];
+
+//删除上面写入的数据
+[ref removeValue];
+```
+Swift
+
+```swift
+let ref = WDGSync.sync().reference()
+[ref.setValue(["name" : "Jone", "age" : "23"])
+
+//删除上面写入的数据
+messagesRef.removeValue()
+```
+
+此外，还可以通过写入 nil 值（例如，`setValue:nil` 或 `updateChildValues:nil`）来删除数据。 
+
+**注意**：Wilddog 不会保存值为 nil 节点。如果某节点的值被设为 nil，云端就会把这个节点删除。
+
 ## 事务操作
 
-处理可能因并发修改而损坏的数据（例如，增量计数器）时，可以使用事务处理操作。你可以为此操作提供更新函数和完成后的回调（可选）。
+处理可能因并发更新而损坏的数据（例如，增量计数器）时，可以使用事务操作。你可以为此操作提供更新函数和完成后的回调（可选）。
 
-更新函数会获取当前值作为参数，当你的数据提交到服务端时，会判断你调用的更新函数传递的当前值是否与实际当前值相等，如果相等，则更新数据为你提交的数据，如果不相等，则返回新的当前值，更新函数使用新的当前值和你提交的数据重复尝试更新，直到成功为止。
-
-例如，在示例社交微博应用中，如果记录某篇微博的点赞数，使用事务处理可防止加点赞数时计数出错，保证数据的安全性和准确性，如下所示：
+比如要实现一个记录点赞数量的功能，可能存在多人同时点赞的情况，就可以这样写一个事务：
 
 Objective-C
 
@@ -198,3 +227,18 @@ upvotesRef.runTransactionBlock({
 })
 
 ```
+
+如果上面的代码没有使用事务, 那么两个客户端同时试图累加时，结果可能是为数字 1 而非数字 2。
+
+注意：`runTransactionBlock:` 可能被多次被调用，必须处理 currentData 变量为 null 的情况。
+
+当执行事务时，云端有数据存在，但是本地可能没有缓存，此时 currentData 为 null。
+
+**事务操作原理**
+
+更新函数会获取当前值作为参数，当你的数据提交到服务端时，会判断你调用的更新函数传递的当前值是否与实际当前值相等
+
+如果相等，则更新数据为你提交的数据；如果不相等，则返回新的当前值。更新函数将使用新的当前值和你提交的数据重复尝试更新，直到成功为止。
+
+
+更多使用，请参考 [- runTransactionBlock:](https://docs.wilddog.com/api/sync/ios.html#–-runTransactionBlock)。
