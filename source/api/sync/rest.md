@@ -1,5 +1,5 @@
 
-title: REST API
+title: REST API 文档
 ---
 
 我们可以使用任意的Wilddog应用的URL作为REST的结束点，我们只需要在URL的结尾处加上`.json`然后发送HTTPS请求即可。 HTTPS是必须的，Wilddog只会响应加密数据，所以你的数据是保证安全的。

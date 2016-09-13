@@ -1,4 +1,4 @@
-title:  完整 API 文档
+title:  Android API 文档
 ---
 
 ## AuthResult

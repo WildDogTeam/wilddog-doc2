@@ -1,4 +1,4 @@
-title:  完整 API 文档
+title:  Web API 文档
 ---
 
 ## Wilddog (*Methods*)

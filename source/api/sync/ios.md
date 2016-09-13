@@ -1,6 +1,6 @@
-title:  完整 API 文档
+title: iOS API 文档
 ---
-# WDGSync (*Methods*)
+## WDGSync (*Methods*)
 
 ## + sync
 
