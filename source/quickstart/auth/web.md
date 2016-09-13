@@ -34,11 +34,13 @@ wilddog.initializeApp(config);
 
 ## 4. 使用邮箱认证
 
-1.首先确认应用的邮箱登录功能已激活（默认是关闭状态）
+**1.开启邮箱登录**
+
+在 控制面板—身份认证—登录方式 中开启邮箱登录功能
 
 ![](/images/openemail.png)
 
-2.监听用户登录状态
+**2.监听用户登录状态**
 
 ```js
 wilddog.auth().onAuthStateChanged(function (userInfo) {
@@ -49,7 +51,7 @@ wilddog.auth().onAuthStateChanged(function (userInfo) {
     }
 });
 ```
-3.创建新用户
+**3.创建新用户**
 
 ```js
 wilddog.auth().createUserWithEmailAndPassword(email,pwd)
@@ -60,7 +62,7 @@ wilddog.auth().createUserWithEmailAndPassword(email,pwd)
 });
 ```
 
-4.邮箱密码登录
+**4.邮箱密码登录**
 
 已经存在的用户可以使用 `signInWithEmailAndPassword()` 方法登录。
 

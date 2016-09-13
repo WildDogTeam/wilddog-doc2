@@ -63,11 +63,13 @@ WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
 
 ## 5. 使用邮箱认证
 
-1.首先确认应用的邮箱登录功能已激活（默认是关闭状态）
+**1.开启邮箱登录**
+
+在 控制面板—身份认证—登录方式 中开启邮箱登录功能
 
 ![](/images/openemail.png)
 
-2.创建新用户
+**2.创建新用户**
 
 ```
      wilddogAuth.createUserWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -82,7 +84,7 @@ WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
 	   }
 	}	 
 ```
-3.邮箱密码登录
+**3.邮箱密码登录**
 
 已存在的用户使用 `signInWithEmailAndPassword()` 方法登录
 
