@@ -1,159 +1,81 @@
 title:  查询数据
 ---
 
-## 读取数据
+本篇文档介绍查询数据的基础知识，以及如何对数据进行排序和过滤。
 
-### 读取数据
+## 查询数据
 
-REST API使用`GET`读取数据，让我们继续博客的示例，读取全部的博客数据。
+### 查询数据
+
+使用`GET`请求查询数据:
 
 ```
 curl 'https://docs-examples.wilddogio.com/rest/saving-data/wdblog/posts.json?print=pretty'
 
 ```
 
-成功的请求将返回HTTP 200 OK状态码，并且响应中会包含读取到的数据。
+成功的请求将返回 HTTP 200 OK 状态码，并且返回值会包含读取到的数据。
 
-### **读取服务端时间戳**
+### 查询服务端时间戳
 
-当我们需要获取服务器的当前时间戳时，可以进行如下操作:
+使用`GET`请求获取服务器的当前时间戳时:
 
 ```
 curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
 
 ```
 
-服务端数值现在只支持时间戳，关于unix时间戳的百科，请参考[百科](http://baike.baidu.com/link?url=VQMFk3ej6ORZFtAhKYF5P6ow_p1XqZ5RgzFHNQFJNgc5U_DCT4nH6MVXkIvSmvO5gLP5DrB7ZsrnZc-2cT5bHa)。
+服务端数值现在只支持[时间戳](http://baike.baidu.com/link?url=VQMFk3ej6ORZFtAhKYF5P6ow_p1XqZ5RgzFHNQFJNgc5U_DCT4nH6MVXkIvSmvO5gLP5DrB7ZsrnZc-2cT5bHa)。
 
-## 排序和查询数据
+## 数据排序
 
 
-### 数据排序
+### 排序方法
 
-对数据排序前，要先指定按照键、值、子节点的值或按优先级这四种的哪一种排序。对应的方法如下：
+Wilddog Sync 支持按 Key、按 Value、按子节点的 Value 或按 priority 对数据进行排序。
 
 参数 | 用法
 ----  | ----
 orderBy=$child | 按指定子节点的值对结果排序。
-orderBy="$key" | 按键对结果排序。
+orderBy="$key" | 按键($key)对结果排序。
 orderBy="$value" | 按值对结果排序。
 orderBy="$priority" | 按优先级对结果排序。
 
-这一部分主要介绍在使用各种排序方式时，数据究竟是如何排序的。
+例如：[恐龙应用数据页面](https://dinosaur-facts.wilddogio.com) 中演示如何按照每个恐龙的身高（"height"节点的值）进行排序。
 
-**orderBy**当使用`orderBy`参数时，按照子节点的公有属性key的value进行排序。仅当value为单一的数据类型时，排序有意义。如果key属性有多种数据类型，则排序不固定，此时不建议使用`orderBy`参数获取全量数据。例如，
+curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
 
-```
-{
-  "scores": {
-    "no1" : {
-        "name" : "tyrannosaurus",
-        "score" : "120"
-    },
-    "no2" : {
-        "name" : "bruhathkayosaurus",
-        "score" : 55
-    },
-    "no3" : {
-        "name" : "lambeosaurus",
-        "score" : 21
-    },
-    "no4" : {
-        "name" : "linhenykus",
-        "score" : 80
-    },
-    "no5" : {
-        "name" : "pterodactyl",
-        "score" : 93
-    },
-    "no6" : {
-        "name" : "stegosaurus",
-        "score" : 5
-    },
-    "no7" : {
-        "name" : "triceratops",
-        "score" : 22
-    },
-    "no8" : {
-        "name" : "brontosaurus",
-        "score" : true
-    }
-  }
-}
+**注意**：
 
-```
+- 排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作参见 [添加索引](/guide/sync/rules/guide.html#数据索引)。
 
-霸王龙的分数是`string`类型，雷龙的分数是`boolean`类型，而其他恐龙的分数是`numberic`类型，此时使用 `orderBy`参数获得全量数据，返回的是一个看似固定的排序结果；但是配合使用`limitToFirst`或`limitToLast`时，将获得不确定的结果。
+- 每次只能使用一种排序方法。对同一查询调用多个排序方法会引发错误。
 
-当配合使用`startAt`、`endAt`和`equalTo`参数时，如果子节点的公有属性key包含多种数据类型，将按照参数的类型排序，即只能返回这个类型的有序数据。 上面的数据如果使用 `orderBy="score"&startAt=60` 将得到下面的结果：
+### 排序规则
 
-```
-  {
-    "no4" : {
-        "name" : "linhenykus",
-        "score" : 80
-    },
-    "no5" : {
-        "name" : "pterodactyl",
-        "score" : 93
-    }
-  }
+**orderByChild**
+使用 `orderByChild()`，按照以下规则进行升序排列：
 
-```
+1. 子节点的指定 key 对应的值为 `null` 排在最前面。
+2. 子节点的指定 key 对应的值为 `false` 次之。如果有多个值为 `false`，则按子节点的 key 以 [字典序](http://baike.baidu.com/view/4670107.htm) 进行升序排列。
+3. 子节点的指定 key 对应的值为 `true` 次之。如果有多个值为 `true`，则按子节点的 key 以字典序进行升序排列。
+4. 子节点的指定 key 对应的值为 `number` 次之。如果有多个 `number` 相等，则按子节点的 key 以字典序进行升序排列。
+5. 子节点的指定 key 对应的值为 `String` 次之。如果有多个 `String` 相等，则按子节点的 key 以字典序进行升序排列。
+6. 子节点的指定 key 对应的值为 `Objects` 次之。如果有多个 `Objects` 相等，则按子节点的 key 以字典序进行升序排列。
 
-`Object`类型数据的 value 值为 null，不会出现在结果中。
+**orderByKey**
 
-_注意：如果path与value的总长度超过1000字节时，使用_`orderBy`_参数将搜索不到该数据。_
+当使用 `orderBy="$key"` 对数据进行排序时，系统会按 key 以字典序进行升序排列。
 
-**orderBy="$key"**当使用`orderBy="$key"`参数对数据进行排序时，数据将会按照key值增序排列。注意，key值只能是字符型。
+**orderByValue**
 
-1. 1.key值能够被解析成数字的节点排在最前面，增序排列
-2. 2.接下来是字符型key值，按照字典顺序增序排列
+当使用`orderBy="$value"`时，按照子节点的值进行排序。排序规则和 `orderByChild` 一样，唯一不同的是将子节点指定的 key 改为子节点的值。
 
-**orderBy="$value"**当使用`orderBy="$value"`参数时，按照直接子节点的 value 进行排序。仅当 value 为单一的数据类型时，排序有意义。如果子节点包含多种数据类型，则排序不固定， 此时不建议使用`orderBy="$value"`获取全量数据，例如，
 
-```
-{
-  "scores": {
-    "tyrannosaurus" : "120",
-    "bruhathkayosaurus" : 55,
-    "lambeosaurus" : 21,
-    "linhenykus" : 80,
-    "pterodactyl" : 93,
-    "stegosaurus" : 5,
-    "triceratops" : 22,
-    "brontosaurus" : true
-  }
-}
 
-```
+## 数据过滤
 
-霸王龙的分数是`string`类型，雷龙的分数是`boolean`类型，而其他恐龙的分数是`numberic`类型，此时使用 `orderBy="$value"`参数获得全量数据，返回的是一个看似固定的排序结果；但是配合使用`limitToFirst`或`limitToLast`参数时，将获得不确定的结果。
-
-当配合使用`startAt`、`endAt`和`equalTo`时，如果子节点的value包含多种数据类型，将按照参数的类型排序，即只能返回这个类型的有序数据。 上面的数据如果使用 `orderBy="$value"&startAt=60` 将得到下面的结果：
-
-```
-{
-    "linhenykus" : 80,
-    "pterodactyl" : 93
-}
-
-```
-
-`Object`类型数据的 value 值为 null，不会出现在结果中。
-
-_注意：如果path与value的总长度超过1000字节时，使用_`orderBy="$value"`_参数将搜索不到该数据。_
-
-**orderBy="$priority"**当使用`orderBy="$priority"`参数对数据进行排序时，数据的顺序取决于优先级以及key值。注意，优先级的值只能是数字型或字符型。
-
-1. 1.没有优先级的节点放在最前面
-2. 2.接着是数字型的优先级，按照优先级从小到大的顺序排列
-3. 3.接下来是字符型的优先级，按照优先级的字典顺序排列
-4. 4.当两个节点的优先级相同，就按照key值排序，数字型key在前（数值排序），其余类型的key在后（字典排序）
-
-关于优先级更多的内容，请参见 [API文档](/api/sync/rest.html#Priorities)。
-
-### 查询数据
+只有对数据进行排序之后，才能过滤数据，你可以结合以下方法来构造查找的条件。
 
 方法 | 用法
 ---- | ----
@@ -163,119 +85,28 @@ orderBy=startAt | 返回大于或等于指定的键、值或优先级的数据�
 orderBy=endAt | 返回小于或等于指定的键、值或优先级的数据，具体取决于所选的排序方法。
 orderBy=equalTo | 返回等于指定的键、值或优先级的数据，具体取决于所选的排序方法。可用于精确查询。
 
-下面我们来举例如何进行数据查询。假设现在有一些关于恐龙的数据如下：
+**限制返回节点数量**
+
+使用 `limitToFirst()` 和 `limitToLast()` 方法限制返回节点的最大数量。 例如，使用 `limitToFirst(100)` 过滤数据，那么第一次返回节点数最多为 100。
+
+继续上面示例，如果你只想知道最高的是哪三条恐龙，就可以这样写：
 
 ```
-{
-  "lambeosaurus": {
-    "height": 2.1,
-    "length": 12.5,
-    "weight": 5000
-  },
-  "stegosaurus": {
-    "height": 4,
-    "length": 9,
-    "weight": 2500
-  }
-}
+curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy=%22height%22&limitToLast=3&print=pretty'
 
 ```
 
-有四种方式对数据进行查询：按照子节点的value值，按照节点名称key，按照节点value值和节点优先级priority。查询条件以其中一个参数开头，后面必须与`limitToFirst`，`limitToLast`，`startAt`，`endAt`和`equalTo`这些参数配合使用。
-
-**按照子节点value值排序**将子节点的名称传给`orderBy`参数，就可以按照指定子节点的value值进行排序。 例如，想要查询所有的高度大于等于3米的恐龙，我们可以使用以下参数查询：
+或者你只关心哪些 [恐龙](https://dinosaur-facts.wilddogio.com/scores) 的得分超过 60 了：
 
 ```
-curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"&startAt=3&print=pretty'
+curl 'https://dinosaur-facts.wilddogio.com/scores.json?orderBy=%22$value%22&startAt=60&print=pretty'
 
 ```
 
-注意： 如果你想要在应用中按照某个子节点的value值排序，你需要在规则表达式中配置`".indexOn":"<childkey>"`。详细的文档请参考规则表达式API文档中关于 [.indexOn](/api/sync/rule.html#indexOn) 的介绍。
-
-**按照数据节点名称排序**可以通过使用`orderBy="$key"`参数来按照节点名称查询数据。 下面的例子将返回名称在a到m之间所有的节点：
-
-```
-curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="$key"&startAt="a"&endAt="m"&print=pretty'
-
-```
-
-**按照节点的value值排序**我们可以按照节点的value值进行排序。 例如，恐龙举办运动会，我们按照以下格式记录恐龙的成绩：
-
-```
-{
-  "scores": {
-    "bruhathkayosaurus": 55,
-    "lambeosaurus": 21,
-    "linhenykus": 80,
-    "pterodactyl": 93,
-    "stegosaurus": 5,
-    "triceratops": 22
-  }
-}
-
-```
-
-要查询所有成绩高于50分的恐龙，我们可以使用以下参数查询：
-
-```
-curl 'https://dinosaur-facts.wilddogio.com/scores.json?orderBy="$value"&startAt=50&print=pretty'
-
-```
-
-### 复杂查询
-
-可以将多个参数进行组合使用，实现更复杂的查询功能。
-
-**limit查询**`limitToFirst`和`limitToLast`参数用来设置返回结果集的大小。例如，查询条件限制为100，如果记录数小于100，则会返回所有的数据，如果记录数超过100，则会返回其中的100条记录，使用`limitToFirst`得到最前面的100条记录，使用`limitToLast`得到最后面的100条记录。
-
-在恐龙数据库中使用`orderBy`和`limitToLast`，我们可以得到体重最重的两头恐龙的信息：
-
-```
-curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="weight"&limitToLast=2&print=pretty'
-
-```
-
-同样，我们可以使用`limitToFirst`参数来得到高度最小的两头恐龙的信息：
-
-```
-curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"&limitToFirst=2&print=pretty'
-
-```
-
-我们可以将`limitToLast`参数与`orderBy="$value"`参数配合使用。例如，我们给恐龙运动会创建一个排行榜，查询分数最高的三头恐龙，则可以使用以下参数查询：
-
-```
-curl 'https://dinosaur-facts.wilddogio.com/scores.json?orderBy="$value"&limitToLast=3&print=pretty'
-
-```
-
-**range查询**使用`startAt`，`endAt`和`equalTo`参数来设置查询范围的起点和终点。例如，我们想要查询至少3米高的恐龙，可以使用`orderBy`和`startAt`的组合查询：
-
-```
-curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"&startAt=3&print=pretty'
-
-```
-
-我们可以使用`endAt`参数来查询名字的字典顺序在Pterodactyl之前的所有的恐龙：
-
-```
-curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="$key"&endAt="pterodactyl"&print=pretty'
-
-```
-
-我们可以使用`startAt`和`endAt`的组合来控制我们查询的范围。下面的例子是查询名字以b开头的所有的恐龙：
-
-```
-curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="$key"&startAt="b"&endAt="b~"&print=pretty'
-
-```
-
-波浪线在ASCII中的编码是126，它排在ASCII中常规字符的后面，查询返回的是所有b开头的字符串。
-
-范围查询在分页中非常有用。
+如上例所示，使用 `startAt()`、`endAt()` 和 `equalTo()` 为查询选择任意起点、终点或等量点。这可以用于 `数据分页` 和 `精确查询`。
 
 
-### Streaming
+## Streaming
 
 Wilddog REST端点支持 [EventSource\/Server-Sent Events](http://www.w3.org/TR/eventsource/) 协议，使客户端可以持续得到指定节点下数据发生的变化。
 
