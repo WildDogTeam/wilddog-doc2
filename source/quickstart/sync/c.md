@@ -33,24 +33,24 @@ Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。�
     $ cd wilddog-client-c
     $ make 
 
+3.编译应用
 
-## 3. 创建 Wdilddog Sync 实例
+把你的源码 C 文件放到 SDK 的`examples/linux`目录下，并在 SDK 根目录执行`make example`，会在 `bin`目录下生成你应用的可执行文件。
 
-```c
-Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/");
-```
-创建引用的时候，需要传入数据的 URL 做为参数，把`<appId>`替换成你应用的 appId 。上面的代码定位到了数据库的根节点。URL 地址也可以包含数据路径，例如：
+    $ cd wilddog-client-c
+    $ make example
+    $ ls bin
+    demo  my_app
+
+## 3. 创建 Wdilddog Sync 引用
+
 ```c
 Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
 ```
-上面的代码定位到了数据库的`/users/Jack`节点上。
-
-SDK 提供了许多用于读写数据的方法。例如通过`wilddog_setValue()`、`wilddog_push()`、`wilddog_removeValue()`修改数据； 通过`wilddog_getValue()`读取数据；`wilddog_addObserver()`读取数据并监听该节点数据的变化。
-
 
 ## 4. 写入数据
 
-SDK 提供了一系列节点操作 API 对节点数据进行操作，在这里使用节点 create 函数将`/users/Jack`节点值设置为字符串"beauty",并通过`wilddog_setValue()`将这个值写入到云端。你可以在 SDK 的`examples/linux`目录下新建一个 C 源文件，将下面代码复制进去,修改 `<appId>` 为你自己的 appId ，并在 SDK 根目录执行`make example`。生成的可执行文件在 SDK 的 bin 目录下。为了简略，下面代码未检查返回值。
+使用 `wilddog_setValue()` 方法可向云端写入数据。
 
 ```c
 #include "wilddog.h"
@@ -83,45 +83,14 @@ int main(void){
     return 0;
 }
 ```
-当收到云端返回或者超时后，回调函数 callback 会被触发。
+当收到云端返回或者接收超时时，回调函数 callback 会被触发。
+写入的数据如下图：
 
-<hr>
+ <img src="/images/c_quickstart.png" >
 
-## 5. 读取数据
+## 5. 读取与监听 
 
-读取数据也是通过绑定回调函数来实现的。假设我们按照上面的代码写入了数据，那么可以使用`wilddog_getValue()`来读取`Jack`节点的值。
-
-```c
-#include "wilddog.h"
-void callback(const Wilddog_Node_T* p_snapshot, void* arg, Wilddog_Return_T err){
-    *(BOOL*)arg = TRUE;
-    if(p_snapshot){
-        wilddog_debug_printnode(p_snapshot);
-        printf("\ngetValue success!\n");
-    }
-    return;
-}
-int main(void){
-    //作为设置是否完成的标志为传入回调函数中.
-    BOOL isFinish = FALSE;
-    //初始化Wilddog引用，需要将<appId>修改为你自己的appId
-    Wilddog_T ref = wilddog_initWithUrl((Wilddog_Str_T*)"https://<appId>.wilddogio.com/users/Jack");
-    //从云端读取
-    wilddog_getValue(ref, callback, (void*)&isFinish);
-    while(1){
-        //和云端同步
-        wilddog_trySync();
-        if(TRUE == isFinish)//设置完成，退出
-            break;
-    }
-    wilddog_destroy(&ref);
-    return 0;
-}
-```
-
-## 6. 监听数据
-
-同步数据也是通过绑定回调函数来实现的。假设我们按照上面的代码写入了数据，那么就可以使用`widdog_addObserver()`函数来实时同步`/users/Jack`的值。
+`widdog_addObserver()` 方法可以监听节点的数据。
 
 ```c
 #include "wilddog.h"
@@ -143,6 +112,6 @@ int main(){
     wilddog_destroy(&ref);
 }
 ```
-当从云端第一次同步数据，以及数据发生变化时，回调函数 callback 会被触发。每当我们对云端数据进行修改，SDK 就会收到通知。
+回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想读取一次，请使用 `wilddog_setValue()` 方法。
 
  Wilddog C/嵌入式 SDK 更全面的使用方法可以查看 [完整指南](/guide/sync/c/config-and-porting.html)。
