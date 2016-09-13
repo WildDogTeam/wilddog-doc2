@@ -1,19 +1,20 @@
 title:  操作数据
 ---
 
-以下两种方法可用于将数据写入野狗云端：
+以下两种方法用于写入数据：
 
 方法 |  说明 
 ----|------
-wilddog_setValue() | 将数据写入当前节点，如果指节点已存在数据，那么数据将会被覆盖。 
-wilddog_push() | 添加数据到列表。向当前节点下添加数据，由野狗自动生成唯一key。例如向 /posts 路径下 push 数据，数据会写入到/posts/<unique-post-id>下。
+wilddog_setValue() | 向某个节点写入数据。若此节点已存在数据，会覆盖这些数据。 
+wilddog_push() | 向某个节点添加子节点。子节点的 key 由野狗自动生成并保证唯一，value 是你要写入的数据。
  
 
-## 用 wilddog_setValue() 写入数据
+## 写入数据
 
 
-`wilddog_setValue()`是最基本的写数据操作，它会立即将数据写入当前引用指向的节点，你可以在回调函数中检测是否修改成功。该节点下任何原有数据都将被删除和覆盖，包括其子节点的数据。
-例如，为房间利用`wilddog_setValue()`修改 led 状态信息，如下所示：
+`wilddog_setValue()` 方法向某个节点写入数据。若节点已有数据，会覆盖原有数据，包括其子节点的数据。注册的回调函数用于判断写入操作是否成功。
+
+例如，为房间利用 `wilddog_setValue()` 修改 led 状态信息，如下所示 ：
 
 ```c
 STATIC void onSetCallback(void* arg, Wilddog_Return_T err){
@@ -55,12 +56,11 @@ int main(void){
 ```
 ----
 
-## 使用 wilddog_push() 追加新节点
+## 追加子节点
 
-当多个用户同时试图在一个节点下新增一个子节点的时候，这时，数据就会被重写覆盖。
-为了解决这个问题，`wilddog_push()`采用了生成唯一 ID 作为`key`的方式。通过这种方式，多个用户同时在一个节点下面`push`数据，他们的 key 一定是不同的。这个`key`是通过一个基于时间戳和随机算法生成的，即使在一毫秒内也不会相同，并且表明了时间的先后，Wilddog 采用了足够多的位数保证唯一性。
+`wilddog_push()` 方法会生成唯一 ID 作为 key ，要写入的数据作为 value ，进行数据写入。这个 key 基于时间戳和随机算法生成，即使生成在同一毫秒也不会重复，它标明了时间的先后。注册的回调函数用于判断追加操作是否成功。
+例如，用户用`wilddog_push()`向`message`节点追加内容 ：
 
-用户可以用`wilddog_push()`向`message`节点写新内容：
 ```c
 STATIC void onPushCallback(u8 *p_path,void* arg, Wilddog_Return_T err){
     if(err < WILDDOG_HTTP_OK || err >= WILDDOG_HTTP_NOT_MODIFIED){
@@ -110,8 +110,8 @@ int main(void){
 ```
 ----
 
-**获取唯一ID**
-新增数据对应的`key`既为`wilddog_push()`所注册的回调函数中的第一个入参`p_path`，
+**获取追加数据的 key**
+新增数据对应的`key`既为回调函数中的第一个入参`p_path` ，
 
 ```c
 // 在回调中获取新增数据对应的 key
@@ -127,8 +127,10 @@ STATIC void onPushCallback(u8 *p_path,void* arg, Wilddog_Return_T err){
 
 ```
 ## 删除数据
-删除引用所指向节点的所有数据通过调用`wilddog_removeValue()`实现，同时必须注册一个回调函数以判断删除操作是否成功。
-以下例子删除`/room/`节点下的所有数据，并在`onDeleteCallback()`中判断删除操作是否成功。
+
+`wilddog_removeValue()` 用于删除引用所指向节点的所有数据。注册的回调函数用于判断删除操作是否成功。
+
+例如，删除`/room/`节点下的所有数据：
 
 ```c
 STATIC void onDeleteCallback(void* arg, Wilddog_Return_T err){
