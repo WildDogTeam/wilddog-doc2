@@ -11,26 +11,26 @@ title:  iOS API 文档
 
  说明
 
-以 appID 来获取 auth 对象。如果之前没有创建过 auth 对象，会自动创建一个。
+获取初始化的 WDGApp 所对应的 WDGAuth。
 
  返回值
  
-应用的 appID。
+WDGAuth 对象。
 
 ----
 ## + authWithApp:
 
  定义
 
-`+ (nullable WDGAuth *)authWithApp:(NSString *)appID NS_SWIFT_NAME(auth(appID:))`
+`+ (nullable WDGAuth *)authWithApp:(WDGApp *)app`
 
  说明
 
-以 appID 来获取 auth 对象。如果之前没有创建过 auth 对象，会自动创建一个。
+用自己创建的 WDGApp 获取对应的 WDGAuth 对象。
 
  参数
 
-appID 应用的 appID。
+WDGAuth 对象。
 
  描述
 

@@ -15,7 +15,6 @@ public abstract WilddogUser getUser ()
 
 当前帐号WilddogUser,如果没有则为null(即用户登出)。
 
-
 ----
 ## WilddogAuth.AuthStateListener
 
