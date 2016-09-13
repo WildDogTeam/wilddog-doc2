@@ -37,7 +37,7 @@ SDK 的安装方式有两种，你可以任选其一
 * **手动集成**
 
 1. 下载 Auth SDK [点此下载](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogAuth.framework-2.0.1.zip)。
-2. 下载 Core SDK [点此下载](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip)。        
+2. 下载 Core SDK [点此下载](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip)。
 3. 把 WilddogAuth.framework 和 WilddogCore.framework 拖到工程目录中。  
 4. 选中 Copy items if needed 、Create Groups，点击 Finish。  
 

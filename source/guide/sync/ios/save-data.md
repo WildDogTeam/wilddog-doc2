@@ -81,9 +81,9 @@ usersRef.setValue(users)
 
 ```
 
-现在，我们访问[博客实例数据库](https://docs-examples.wilddogio.com/web/saving-data/wildblog/users)，将会看到刚才写入的数据。
+访问 [博客数据页面](https://docs-examples.wilddogio.com/web/saving-data/wildblog/users)，将会看到刚才写入的数据。
 
-**注意**：`https://docs-examples.wilddogio.com`这个数据库是只读数据库，主要用于野狗博客实例数据展示。如果你想要体验写数据操作，可以将 `docs-examples` 替换成自己应用的 AppID。
+**注意**：`https://docs-examples.wilddogio.com`这个示例应用，数据为只读模式，主要用于野狗博客示例的数据展示。如果你想要体验写数据操作，可以将 `docs-examples` 替换成自己应用的 AppID。
 
 ## 追加子节点
 
