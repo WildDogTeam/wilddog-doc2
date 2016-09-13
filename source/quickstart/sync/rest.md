@@ -1,7 +1,8 @@
 
 title: 快速入门
 ---
-快速入门以 cURL 工具为例，让你了解野狗实时同步的基本用法。
+
+你可以通过 cURL 工具的例子来了解实时数据同步的用法。
 
 ## 1. 创建应用
 
@@ -44,6 +45,6 @@ curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23
 
 
 
-以 cRUL 中的用法类似，在任何支持 HTTPS 的平台和编程语言中，都可以使用 Wilddog REST API。将来我们会提供各种编程语言的库，使 REST API 更加简便。
+与 cRUL 中的用法类似，在任何支持 HTTPS 的平台和编程语言中，都可以使用 Wilddog REST API。将来我们会提供各种编程语言的库，使 REST API 更加简便。
 
 更多的数据读取方式可以查看 [完整指南](/guide/sync/rest/guide.html) 和 [API文档](/api/sync/rest.html)。

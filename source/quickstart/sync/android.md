@@ -9,7 +9,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以选择下面方式的其中一种
+SDK 的安装方式有两种，你可以选择下面方式的其中一种。
 
 * **使用 Maven**
 
@@ -45,7 +45,7 @@ android {
 
 ## 3. 配置 Android 权限
 
-在 AndroidMainfest.xml 文件中添加：
+在 AndroidMainfest.xml 文件中添加
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -55,7 +55,7 @@ android {
 
 在创建 Wilddog 实例之前，必须先设置 Context，进行一次初始化。
 
-你可以在 android.app.Application 或者 Activity的onCreate 方法中设置 Context:
+你可以在 android.app.Application 或者 Activity的onCreate 方法中设置 Context
 
 ```java
 @Override
@@ -70,9 +70,6 @@ public void onCreate() {
 ```java
 Wilddog ref = new Wilddog("https://<appId>.wilddogio.com");//传入节点路径
 ```
-实例的 child() 方法可以创建一个子节点实例。
-
-
 
 ## 6. 写入数据
 
@@ -87,7 +84,7 @@ data.put("shanghai","sunny");
 child.setValue(data);
 ```
 
-写入的数据如下图：
+写入的数据如下图
 
 <img src="/images/saveapp.png" alt="savedata" width="300" >
 
@@ -113,4 +110,4 @@ child.addValueEventListener(new ValueEventListener() {
 
 `snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
 
-更多的数据读取方式可以查看 [完整指南](/guide/sync/android/save-data.html)和 [API 文档](/api/sync/android.html)。
+更多的数据读取方式可以查看 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android.html)。

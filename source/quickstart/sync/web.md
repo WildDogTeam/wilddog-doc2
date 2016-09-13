@@ -30,10 +30,9 @@ var ref = wilddog.sync().ref();
 ```
 
 
-
 ## 4. 写入数据
 
-`Set()`方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+`Set()`方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org)。
 
 例如，在应用的根节点下写入天气数据
 
@@ -49,8 +48,6 @@ ref.set({
 写入的数据如下图
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
-
-**删除数据**和**更新数据**等更多操作数据的用法与此类似。你可以在 [完整指南](/guide/sync/web/save-data.html) 或者 [API 文档](/api/sync/web.html) 中查看具体用法。
 
 ## 5. 读取与监听数据
 `on()`方法可以读取并监听节点的数据。

@@ -10,9 +10,9 @@ title:  快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以选择下面方式的其中一种：
+SDK 的安装方式有两种，你可以选择下面方式的其中一种
 
-- **使用 Maven：**
+- **使用 Maven **
 
 ```xml
 <dependency>
@@ -22,9 +22,9 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种：
 </dependency> 
 ```
 
-- **使用 Gradle ：**
+- **使用 Gradle **
 
- 在build.gradle中添加：
+ 在build.gradle中添加
 
 ```java
 dependencies {
@@ -32,7 +32,7 @@ dependencies {
 }
 ```
 
-如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions：
+如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions
 
 ```java
 android {
@@ -46,7 +46,7 @@ android {
 
 ## 3. 配置 Android 权限
 
-在 AndroidMainfest.xml 文件中添加：
+在 AndroidMainfest.xml 文件中添加
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -54,7 +54,7 @@ android {
 
 ## 4. 初始化 Wilddog Auth 实例
 
-使用 Auth SDK 之前，需要先初始化实例：
+使用 Auth SDK 之前，需要先初始化实例
 
 ```java
 WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
@@ -63,7 +63,7 @@ WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
 
 ## 5. 使用邮箱认证
 
-1.首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
+1.首先确认应用的邮箱登录功能已激活（默认是关闭状态）
 
 ![](/images/openemail.png)
 
@@ -84,7 +84,7 @@ WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
 ```
 3.邮箱密码登录
 
-已存在的用户使用 `signInWithEmailAndPassword()` 方法登录：
+已存在的用户使用 `signInWithEmailAndPassword()` 方法登录
 
 ```java
 mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -102,7 +102,7 @@ mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteLis
 
 ## 6. 退出登录
 
-你可以使用 `signOut()` 方法退出当前登录用户：
+你可以使用 `signOut()` 方法退出当前登录用户
 
 ```
 mAuth.signOut();
