@@ -36,11 +36,12 @@ Wilddog Sync 支持按 Key、按 Value、按子节点的 Value 或按 priority �
 
 参数 | 用法
 ----  | ----
-orderBy=$child | 按指定子节点的值对结果排序。
+orderBy="{childValue}" | 按指定子节点的值对结果排序。
 orderBy="$key" | 按键($key)对结果排序。
 orderBy="$value" | 按值对结果排序。
 orderBy="$priority" | 按优先级对结果排序。
 
+其中{childValue}为子节点的名称
 例如：[恐龙应用数据页面](https://dinosaur-facts.wilddogio.com) 中演示如何按照每个恐龙的身高（"height"节点的值）进行排序。
 
 curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
@@ -71,6 +72,18 @@ curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
 
 当使用`orderBy="$value"`时，按照子节点的值进行排序。排序规则和 `orderByChild` 一样，唯一不同的是将子节点指定的 key 改为子节点的值。
 
+**orderByPriority**
+当使用`orderBy="$priority"`对数据进行排序时，子节点数据将按照优先级和字段名进行排序。
+**注意**：优先级的值只能是数值型或字符串。
+
+- １. 没有设置优先级的数据（默认优先级为 null）优先。
+
+- ２. 接下来是优先级为数值型的子节点。它们按照优先级数值排序，由小到大。
+
+- ３. 接下来是优先级为字符串的子节点。它们按照优先级的字典序排列。
+
+- ４. 当多个子节点拥有相同的优先级时（包括没有优先级的情况），它们按照节点名排序。节点名可以转换为数值类型的子节点优先（数值排序），接下来是剩余的子节点（字典序排列）。
+
 
 
 ## 数据过滤
@@ -92,14 +105,14 @@ orderBy=equalTo | 返回等于指定的键、值或优先级的数据，具体�
 继续上面示例，如果你只想知道最高的是哪三条恐龙，就可以这样写：
 
 ```
-curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy=%22height%22&limitToLast=3&print=pretty'
+curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"&limitToLast=3&print=pretty'
 
 ```
 
 或者你只关心哪些 [恐龙](https://dinosaur-facts.wilddogio.com/scores) 的得分超过 60 了：
 
 ```
-curl 'https://dinosaur-facts.wilddogio.com/scores.json?orderBy=%22$value%22&startAt=60&print=pretty'
+curl 'https://dinosaur-facts.wilddogio.com/scores.json?orderBy="$value"&startAt=60&print=pretty'
 
 ```
 
