@@ -59,7 +59,8 @@ int main(void){
 ## 追加子节点
 
 `wilddog_push()` 方法会生成唯一 ID 作为 key ，要写入的数据作为 value ，进行数据写入。这个 key 基于时间戳和随机算法生成，即使生成在同一毫秒也不会重复，它标明了时间的先后。注册的回调函数用于判断追加操作是否成功。
-例如，用户用`wilddog_push()`向`message`节点追加内容 ：
+
+例如，追加子节点到 `message`节点 ：
 
 ```c
 STATIC void onPushCallback(u8 *p_path,void* arg, Wilddog_Return_T err){
@@ -109,8 +110,7 @@ int main(void){
 }
 ```
 
-**获取追加数据的 key**
-新增数据对应的`key`既为回调函数中的第一个入参`p_path` ，
+`push` 回调函数中第一个参数为新增数据的路径。
 
 ```c
 // 在回调中获取新增数据对应的 key
@@ -119,7 +119,7 @@ STATIC void onPushCallback(u8 *p_path,void* arg, Wilddog_Return_T err){
         wilddog_debug("push failed");
         return;
     }
-    wilddog_debug("new key is %s", p_path);
+    wilddog_debug("new path is %s", p_path);
     *(BOOL*)arg = TRUE;
     return;
 }
@@ -127,8 +127,7 @@ STATIC void onPushCallback(u8 *p_path,void* arg, Wilddog_Return_T err){
 ```
 ## 删除数据
 
-`wilddog_removeValue()` 用于删除引用所指向节点的所有数据。注册的回调函数用于判断删除操作是否成功。
-
+`wilddog_removeValue()` 方法用于删除数据：
 例如，删除`/room/`节点下的所有数据：
 
 ```c
@@ -163,3 +162,4 @@ int main(void){
 }
 ```
 
+**注意**：Sync 不会保存 value 为 null 的节点。如果某节点的值为 null，云端会删除这个节点。
