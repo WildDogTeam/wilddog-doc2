@@ -19,7 +19,7 @@ title: 快速入门
 ```
 
 
-`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Sync SDK
+`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog  SDK
 
 ```
 npm install wilddog
