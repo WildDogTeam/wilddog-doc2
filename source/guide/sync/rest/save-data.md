@@ -71,8 +71,7 @@ curl -X POST -d '{
 ```
 curl -X PATCH -d '{
   "nickname": "ACE"
-}' \
-  'https://docs-examples.wilddogio.com/rest/saving-data/users/alanisawesome.json'
+}' 'https://docs-examples.wilddogio.com/rest/saving-data/users/alanisawesome.json'
 
 ```
 
