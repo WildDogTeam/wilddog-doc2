@@ -129,4 +129,4 @@ var getRandomColor = function() {
 ```
 
 
-
+源码地址：https://github.com/WildDogTeam/demo-js-danmu
