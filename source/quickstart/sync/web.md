@@ -29,7 +29,7 @@ npm install wilddog
 
 ```javascript
 var config = {
-  syncDomain: "<appId>.wilddog.com",
+  authDomain: "<appId>.wilddog.com",
   syncURL: "https://<appId>.wilddogio.com" //输入节点 URL
 };
 wilddog.initializeApp(config);
