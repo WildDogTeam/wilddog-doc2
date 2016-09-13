@@ -10,13 +10,14 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-安装完整 SDK(包含 Sync 和 Auth)
+安装完整 Wilddog SDK  
 
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>
 ```
 
-如果你想独立安装 Sync，可以按照下面的方式
+独立安装 Sync  SDK
+
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
 ```
@@ -72,7 +73,7 @@ console.log(snapshot.val());
 
 `snapshot` 里面的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`once()`方法替代`on()`方法。
 
-更多的数据读取方式可以查看 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。 
+更多的数据读取方式，请参考 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。 
 
 
 
