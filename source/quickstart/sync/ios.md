@@ -10,7 +10,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以选择下面方式的其中一种。
+SDK 的安装方式有两种，你可以任选其一
 
 - 使用 CocoaPods 
 
@@ -30,6 +30,8 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种。
 
 	$ pod install
 	$ open your-project.xcworkspace
+
+</br>
 
 
 - 手动集成 
@@ -132,6 +134,6 @@ myRootRef.observeEventType(.Value, withBlock: {
 
 `snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`observeSingleEventOfType`方法替代`observeEventType`方法。
 
-更多的数据读取方式可以查看 [完整指南] (/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
+更多的数据读取方式可以查看 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
 
 
