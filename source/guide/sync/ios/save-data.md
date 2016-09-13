@@ -13,7 +13,7 @@ runTransactionBlock | 用于并发场景下的事务处理。
 
 ## 写入数据
 
-使用`setValue` 向某个节点写入数据。若节点已有数据，原有数据会被覆盖，包括其子节点的数据。
+`setValue` 方法向某个节点写入数据。若节点已有数据，会覆盖原有数据，包括其子节点的数据。
 
 `setValue` 可以传入数据类型有 `NSString`, `NSNumber`, `NSDictionary`, `NSArray` 。
 
@@ -87,11 +87,9 @@ usersRef.setValue(users)
 
 ## 追加子节点
 
-`childByAutoId` 生成唯一 ID 作为 key ，它保证每条数据的 key 一定不同。这个 key 基于时间戳和随机算法生成，即使生成在同一毫秒也不会重复，将按时间先后标明。
+`childByAutoId` 方法会生成唯一 ID 作为 key ，要写入的数据作为 value ，进行数据写入。这个 key 基于时间戳和随机算法生成，即使生成在同一毫秒也不会重复，它标明了时间的先后。
 
-例如：多个用户同时在一个节点下新增子节点时，如果子节点的 key 已存在，之前的数据会被覆盖，可以通过`childByAutoId` 解决这个问题。
-
-使用`childByAutoId` 追加内容，例如我们向博客应用中写入 posts 数据：
+例如，追加子节点到 `posts` 节点：
 
 Objective-C
 
@@ -144,13 +142,22 @@ post2Ref.setValue(post2)
 
 ```
 
-可以看到，每个数据都有一个唯一 ID 作为数据的 key 。即使多个用户同时添加博客 post 也不会产生冲突。
+可以看到，每个数据都有一个唯一 ID 作为数据的 key 。
 
 ## 更新数据
 
 `updateChildValues` 方法用于更新指定子节点，而不影响其他节点。
 
-例如，要例子中的 `/gracehop`节点下更新数据：
+```json
+//原数据如下
+{
+    "gracehop": {
+        "nickname": "Nice Grace",
+        "date_of_birth": "December 9, 1906",
+        "full_name ": "Grace Lee"
+    }
+}
+```
 
 Objective-C
 
@@ -160,7 +167,7 @@ WDGSyncReference *hopperRef = [usersRef child: @"gracehop"];
 NSDictionary *nickname = @{
     @"nickname": @"Amazing Grace",
 };
- 
+//只更新 gracehop 的 nickname
 [hopperRef updateChildValues: nickname];
 
 ```
@@ -171,16 +178,16 @@ Swift
 
 var hopperRef = usersRef.child("gracehop")
 var nickname = ["nickname": "Amazing Grace"]
-
+//只更新 gracehop 的 nickname
 hopperRef.updateChildValues(nickname)
 
 ```
 
-`updateChildValues`方法不会删除节点下已经存在的数据。如果用 `setValue` 而不是 `updateChildValues`，则会删除 `date_of_birth` 和 `full_name`。
+如果用 `setValue` 而不是 `updateChildValues`，则会删除 `date_of_birth` 和 `full_name`。
 
 ## 删除数据
 
-删除数据最简单的方法是调用 `removeValue`。
+`removeValue`方法用于删除数据：
 
 Objective-C
 
@@ -203,7 +210,7 @@ messagesRef.removeValue()
 
 此外，还可以通过写入 nil 值（例如，`setValue:nil`）来删除数据。 
 
-**注意**：Wilddog 不会保存值为 nil 节点。如果某节点的值被设为 nil，云端就会把这个节点删除。
+**注意**：Sync 不会保存值为 nil 节点。如果某节点的值被设为 nil，云端就会把这个节点删除。
 
 ## 事务
 
