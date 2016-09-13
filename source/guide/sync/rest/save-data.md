@@ -29,7 +29,7 @@ curl -X PUT -d '{
 }' 'https://docs-examples.wilddogio.com/rest/saving-data/wildblog/users.json'
 ```
 
-成功的请求将返回HTTP 200 OK状态码，并且响应中会包含写入的数据。。
+成功的请求将返回HTTP 200 OK状态码，并且响应中会包含写入的数据。
 
 ## 追加子节点
 
@@ -91,7 +91,7 @@ curl -X PATCH -d '{
 
 ```
 
-成功的请求将返回HTTP 200 OK状态码，并且响应中会包含更新到数据库中的数据。
+成功的请求将返回HTTP 200 OK状态码。
 
 ## 删除数据
 
