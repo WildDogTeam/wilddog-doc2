@@ -2,8 +2,6 @@ title:  Web API 文档
 ---
 野狗 Auth 模块的 API 按照 Promise 风格设计，如果你对 Promise 编程尚不了解，请[参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 的教程。
 
-<br>
-
 ## wilddog.App
 
 App 对象是野狗 Web SDK 的核心，它维护着应用的全局上下文数据，不同模块之间需要通过它来进行交互。同时 App 实例也是我们访问野狗各个功能模块的入口，所以初始化 App 实例是我们使用其他任何 API 接口的前提。
@@ -31,7 +29,7 @@ var a = wilddog.initializeApp(configA, APP_A);
 //a.auth().signInXxx().then(...)
 ```
 
-## auth
+### auth
 
 获取 wilddog.Auth 实例，wilddog.Auth 实例只能通过此方法获取。
 
@@ -47,7 +45,7 @@ _无_
 
 [wilddog.Auth](/api/auth/web.html#wilddog-Auth)
 
-## sync
+### sync
 
 获取 wilddog.Sync 实例，wilddog.Sync 实例只能通过此方法获取。
 
@@ -63,9 +61,9 @@ _无_
 
 [wilddog.Sync](/api/sync/web.html#wilddog-Sync)
 
-<br>
 
-# wilddog.Auth
+
+## wilddog.Auth
 
 Auth 对象负责用户认证及密码找回等功能，它不能直接创建，只能通过 wilddog.App 实例的 [auth](/api/auth/web.html#auth) 方法获得。
 
@@ -77,7 +75,7 @@ var auth = wilddog.auth()
 
 
 
-## onAuthStateChanged
+### onAuthStateChanged
 
 监听用户的登录状态。
 
@@ -127,7 +125,7 @@ stopListen();
 
 ```
 
-## createUserWithEmailAndPassword
+### createUserWithEmailAndPassword
 
 根据邮箱和密码创建用户，创建成功之后自动登录。
 
@@ -159,7 +157,7 @@ wilddog.auth().createUserWithEmailAndPassword(email, pwd)
      });
 ```
 
-## signInAnonymously
+### signInAnonymously
 
 匿名登录
 
@@ -188,7 +186,7 @@ wilddog.auth().signInAnonymously()
     });
 ```
 
-## signInWithEmailAndPassword
+### signInWithEmailAndPassword
 
 通过电子邮箱和密码登录
 
@@ -221,7 +219,7 @@ wilddog.auth().signInWithEmailAndPassword(email,pwd)
     });
 ```
 
-## signInWithPopup
+### signInWithPopup
 
 通过弹出窗口的方式进行 OAuth 登录。
 
@@ -252,7 +250,7 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function (user) {
 });
 ```
 
-## signInWithRedirect
+### signInWithRedirect
 
 通过浏览器跳转的方式进行 OAuth 登录。
 
@@ -283,7 +281,7 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
 });
 ```
 
-## signInWithCustomToken
+### signInWithCustomToken
 
 使用自定义 token 的方式登录，token 的格式需符合野狗的规范，具体教程[参见这里](/guide/auth/core/concept.html#身份认证令牌)。
 
@@ -313,7 +311,7 @@ wilddog.auth().signInWithCustomToken(token).then(function () {
 ```
 
 
-## signInWithCredential
+### signInWithCredential
 
 使用 [wilddog.auth.Credential](/api/auth/web.html#wilddog-auth-Credential) 实例登录
 
@@ -348,7 +346,7 @@ wilddog.auth().signInWithCredential(credential)
 ```
 
 
-## sendPasswordResetEmail
+### sendPasswordResetEmail
 
 通过邮件重置密码
 
@@ -367,7 +365,7 @@ sendPasswordResetEmail(email)
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
  
 
-## signOut
+### signOut
 
 使当前用户退出登录
 
@@ -390,9 +388,9 @@ _无_
         console.info('user sign out');
      });
 ```
-<br>
 
-# wilddog.User
+
+## wilddog.User
 
 User 对象包含所有维护用户个人信息的接口，我们不能直接创建此对象，只能通过 `wilddog.auth().currrentUser` 或者部分登录接口来获取 User 的实例。
 
@@ -406,7 +404,7 @@ User 对象包含所有维护用户个人信息的接口，我们不能直接创
 
 ```
 
-## link
+### link
 
 使用 [wilddog.auth.Credential](/api/auth/web.html#wilddog-auth-Credential) 实例为用户关联新的登录方式。
 
@@ -437,7 +435,7 @@ wilddog.auth().currentUser
     });
 
 ```
-## linkWithPopup
+### linkWithPopup
 
 通过弹出窗口的形式为用户关联新的 Oauth 登录方式。
 
@@ -472,7 +470,7 @@ wilddog.auth().currentUser
     });
 ```
 
-## linkWithRedirect
+### linkWithRedirect
 
 通过浏览器跳转的形式为用户关联新的 Oauth 登录方式。
 
@@ -507,7 +505,7 @@ wilddog.auth().currentUser
 
 ```
 
-## unlink
+### unlink
 
 取消账户的特定登录方式
 
@@ -540,7 +538,7 @@ wilddog.auth().currentUser
     });
 
 ```
-## delete
+### delete
 
 删除当前用户，删除成功之后会退出登录
 
@@ -557,7 +555,7 @@ _无_
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
 
 
-## updateProfile
+### updateProfile
 
 更新用户个人信息
 
@@ -591,7 +589,7 @@ wilddog.auth().currentUser
     });
 
 ```
-## updateEmail
+### updateEmail
 
 修改当前用户的邮箱，修改成功之后会触发 [onAuthStateChanged](/api/auth/web.html#onAuthStateChanged)
 
@@ -610,7 +608,7 @@ updateEmail(email)
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
 
 
-## updatePassword
+### updatePassword
 
 修改当前用户的密码，修改成功之后会触发 [onAuthStateChanged](/api/auth/web.html#onAuthStateChanged)
 
@@ -628,7 +626,7 @@ updatePassword(password)
  
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
 
-## reauthenticate
+### reauthenticate
 
 使用 [wilddog.auth.Credential](/api/auth/web.html#wilddog-auth-Credential) 为用户重新认证，某些敏感操作（比如更新用户密码）对用户认证时间有较为严格的要求，这个时候你可以调用这个方法来刷新用户的认证信息。
 
@@ -661,7 +659,7 @@ wilddog.auth().currentUser
 
 ```
 
-## sendEmailVerification
+### sendEmailVerification
 
 为当前用户发送邮箱确认邮件
 
@@ -677,15 +675,15 @@ _无_
 
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
  
-<br>
 
-# wilddog.Promise
+
+## wilddog.Promise
 
 *static*
 
 一个 Promise 对象表示一个事件（异步的）的值。Promsie 事件应当被完成（resovle）或者拒绝（reject），这个时候它会回调我们通过 then() 和 catch() 指派给它的回调函数。更多关于 Promise 编程规范的信息请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 
 
-## then
+### then
 为当前 Promise 对象指定一个 resolved 之后的回调函数。
 
 **定义**
@@ -703,7 +701,7 @@ then(onResolved,[onReject])
 
 wilddog.Promise
 
-## catch
+### catch
 为当前 Promise 对象指定一个 rejected 或异常后的回调函数。
 
 **定义**
@@ -720,9 +718,9 @@ catch(onReject)
 
 [Void](/api/auth/web.html#Void)
 
-<br>
 
-# wilddog.auth.Provider
+
+## wilddog.auth.Provider
 
 Provider 对象是本次 Auth 新增的接口，它的不同实现代表着不同的用户登录方式。野狗目前提供以下几种 Provider 实现：
 
@@ -734,7 +732,7 @@ Provider 对象是本次 Auth 新增的接口，它的不同实现代表着不�
 |weixinmq | WeixinmqAuthProvider | 微信公众号登录 |
 |qq | QQAuthProvider | 通过 QQ 登录 |
 
-## credential
+### credential
 *static*
 **定义**
 
@@ -762,9 +760,7 @@ var email_credential = wilddog.auth.EmailAuthProvider.credential(email, password
 ```
 
 
-<br>
-
-# wilddog.auth.Credential
+## wilddog.auth.Credential
 
 Credential 表示特定登录方式下的用户认证凭据，我们可以通过 [wilddog.auth.Provider](/api/auth/web.html#wilddog-auth-Provider) 的 [credential](/api/auth/web.html#credential) 方法来创建它。当前的 credential有两种形式：
 - 账号密码 
@@ -772,8 +768,8 @@ Credential 表示特定登录方式下的用户认证凭据，我们可以通过
 - OAuth
     通过各类第三方以 OAuth 认证的方式登录，野狗当前支持的第三方有微博、微信、微信公众号以及腾讯 QQ。
 
-<br>
 
-# Void
+
+## Void
 
 Promise 或 callback 指向 Void 时表示无参数回传。
