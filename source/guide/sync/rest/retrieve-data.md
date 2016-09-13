@@ -3,9 +3,9 @@ title:  查询数据
 
 ## 读取与监听数据
 
-### 使用GET方法读取数据
+### 读取数据
 
-我们可以发送`GET`请求到数据的URL来读取数据，让我们继续博客的示例，读取全部的博客数据。
+REST API使用`GET`读取数据，让我们继续博客的示例，读取全部的博客数据。
 
 ```
 curl 'https://docs-examples.wilddogio.com/rest/saving-data/wdblog/posts.json?print=pretty'
@@ -14,72 +14,7 @@ curl 'https://docs-examples.wilddogio.com/rest/saving-data/wdblog/posts.json?pri
 
 成功的请求将返回HTTP 200 OK状态码，并且响应中会包含读取到的数据。
 
-### 添加URI参数
-
-当我们从数据库中读取数据的时候，REST API可以接受多个参数。下面是最常用的参数。想了解全部的参数，请参见 [REST API文档](/api/sync/rest.html)。
-
-**auth**`auth`参数允许访问受Wilddog规则表达式保护的数据，并且支持所有的请求方式。`auth`参数的值可以是Wilddog应用的超级密钥，也可以是一个认证token。下面的例子中我们发送一个包含`auth`参数的`POST`请求，参数的值CREDENTIAL可以是超级密钥，也可以是认证token。
-
-```
-curl -X POST -d '{"Authenticated POST request"}' \
-  'https://docs-examples.wilddogio.com/rest/saving-data/auth-example.json?auth=CREDENTIAL'
-
-```
-
-**print**指定`print=pretty`返回易读格式的数据。
-
-```
-curl 'https://<appId>.wilddogio.com/users/jack/name.json?print=pretty'
-
-```
-
-指定`print=silent`返回204 No Content状态码
-
-```
-curl 'https://<appId>.wilddogio.com/users/jack/name.json?print=silent'
-
-```
-
-**callback**为了让来自web客户端的rest请求实现跨域，你可以用JSONP将响应封装到JavaScript回调方法中。使用 `callback=` 让REST API将返回的数据封装到你指定的回调方法中。
-
-```
-<script>
-  function gotData(data) {
-    console.log(data);
-  }
-</script>
-<script src="https://<appId>.wilddogio.com/.json?callback=gotData"></script>
-
-```
-
-**shallow**这是一个高级功能，目标是帮助处理大的数据集而不下载数据集的全部。设置 `shallow=true` 将限制数据返回的深度。如果返回的数据是JSON原始类型 \(如string, number 或 boolean\)， 它的value将被返回。 如果数据的snapshot是 JSON 对象，每一个key的value都将被截断成布尔类型`true`。
-
-```
-{
-  "message": {
-    "user": {
-      "name": "Chris"
-    },
-    "body": "Hello!"
-  }
-}
-
-// REST请求路径为 /message.json?shallow=true
-// 返回的数据如下:
-{
-  "user": true,
-  "body": true
-}
-
-// REST请求路径为 /message/body.json?shallow=true
-// 返回的数据如下:
-"Hello!"
-
-```
-
-使用shallow参数后， 将不能使用其他查询参数。
-
-#### **读取服务端时间戳**
+### **读取服务端时间戳**
 
 当我们需要获取服务器的当前时间戳时，可以进行如下操作:
 
@@ -89,6 +24,8 @@ curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
 ```
 
 服务端数值现在只支持时间戳，关于unix时间戳的百科，请参考[百科](http://baike.baidu.com/link?url=VQMFk3ej6ORZFtAhKYF5P6ow_p1XqZ5RgzFHNQFJNgc5U_DCT4nH6MVXkIvSmvO5gLP5DrB7ZsrnZc-2cT5bHa)。
+
+##查询数据
 
 ### 查询数据
 

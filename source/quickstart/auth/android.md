@@ -10,7 +10,7 @@ title:  快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以选择下面方式的其中一种
+SDK 的安装方式有两种，你可以任选其一
 
 - **使用 Maven **
 
@@ -24,7 +24,7 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种
 
 - **使用 Gradle **
 
- 在build.gradle中添加
+在build.gradle中添加
 
 ```java
 dependencies {

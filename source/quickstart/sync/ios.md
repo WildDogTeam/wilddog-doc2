@@ -10,9 +10,9 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以选择下面方式的其中一种。
+SDK 的安装方式有两种，你可以任选其一
 
-- 使用 CocoaPods 
+- **使用 CocoaPods** 
 
 要将 WilddogSync SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问  [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 
@@ -31,8 +31,10 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种。
 	$ pod install
 	$ open your-project.xcworkspace
 
+</br>
 
-- 手动集成 
+
+- **手动集成** 
 
 1. 下载 Sync SDK [下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogSync.framework-2.0.1.zip)。 
 2. 下载 Core SDK [下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip)。        
@@ -42,7 +44,7 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种。
 
 ## 3. 创建 Wilddog Sync 实例
 
-1.引入头文件
+**1.引入头文件**
 
 Objective-C
 
@@ -53,7 +55,7 @@ Swift
 	import Wilddog
 
 
-2.初始化
+**2.初始化**
 
 Objective-C
 
@@ -132,6 +134,6 @@ myRootRef.observeEventType(.Value, withBlock: {
 
 `snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`observeSingleEventOfType`方法替代`observeEventType`方法。
 
-更多的数据读取方式可以查看 [完整指南] (/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
+更多的数据读取方式可以查看 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
 
 
