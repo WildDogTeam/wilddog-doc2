@@ -6,13 +6,12 @@ SDK 包含条件编译选项和用户参数，可对 SDK 进行配置(Arduino SD
 
 #### 配置条件编译选项
 
-Linux 和 Espressif 平台的编译选项在 make 时指定， WICED 平台的编译选项在 project/wiced/wiced.mk 中，MICO 平台则在工程的配置中。
+Linux 和 Espressif 平台的编译选项在 make 时指定， WICED 平台的编译选项在 project/wiced/wiced.mk 中，MICO 平台则在工程的配置中，需要配置项如下 ：
 
-|APP_SEC_TYPE | 加密方式，目前支持轻量级加密库 tinydtls、ARM 官方加密库 mbedtls 和无加密 nosec；
+    APP_SEC_TYPE : 加密方式，目前支持轻量级加密库 tinydtls、ARM 官方加密库 mbedtls 和无加密 nosec;
+    PORT_TYPE : 运行的平台，目前支持 Linux 和 Espressif;
 
-   PORT_TYPE : 运行的平台，目前支持 Linux 和 Espressif；
-
-Linux 和 Espressif 平台在 make 时指定选项，进行不同的编译，如：
+Linux 和 Espressif 平台在 make 时指定选项，进行不同的编译，如 ：
 
     make APP_SEC_TYPE=nosec PORT_TYPE=linux
 
@@ -20,7 +19,7 @@ Linux 和 Espressif 平台在 make 时指定选项，进行不同的编译，如
 
 #### 配置用户参数
 
-用户参数在SDK 的 include 目录下 wilddog_config.h 中，包含如下参数：
+用户参数在 SDK 的 include 目录下 wilddog_config.h 中，包含如下参数：
 
 `WILDDOG_LITTLE_ENDIAN` : 目标机字节序，如果为小端则该宏定义的值为1；
 
@@ -30,7 +29,7 @@ Linux 和 Espressif 平台在 make 时指定选项，进行不同的编译，如
 
 `WILDDOG_REQ_QUEUE_NUM` : 请求队列的长度；
 
-`WILDDOG_RETRANSMITE_TIME` : 单次请求超时时间，单位为ms，超过该值没有收到服务端回应则触发回调函数,并返回超时。返回码参见`Wilddog_Return_T`；
+`WILDDOG_RETRANSMITE_TIME` : 单次请求超时时间，单位为ms，超过该值没有收到服务端回应则触发回调函数,并提示接收超时。返回码参见`Wilddog_Return_T`；
 
 `WILDDOG_RECEIVE_TIMEOUT` : 接收数据最大等待时间，单位为ms。
 

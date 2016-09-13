@@ -1,4 +1,4 @@
-title: 服务端身份认证
+title: 简介
 ---
 
 使用 Wilddog，你可以将你自己的已有服务与 Wilddog Auth 集成起来。
