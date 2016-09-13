@@ -6,7 +6,7 @@ title:  操作数据
 
 方法 |  说明 
 ----|------
-setValue |向某个节点写入数据。若此节点已存在数据，数据会被覆盖。
+setValue |向某个节点写入数据。若此节点已存在数据，会覆盖这些数据。
 childByAutoId | 向某个节点添加子节点。子节点的 key 由野狗自动生成并保证唯一，value 是你要写入的数据。
 updateChildValues | 更新节点下指定 key 的值，而不影响其他数据。
 runTransactionBlock | 用于并发场景下的事务处理。
@@ -39,12 +39,11 @@ WDGApp.configureWithOptions(options)
 
 ```
 
-接下来，开始写数据：
+接下来，开始写入数据：
 
 Objective-C
 
 ```objectivec
-// 写数据
 // 获取一个 WDGSyncReference 对象
 WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com//web/saving-data/wildblog"];
 NSDictionary *alanisawesome = @{
@@ -55,11 +54,13 @@ NSDictionary *gracehop = @{
                            @"full_name" : @"Grace Hopper",
                            @"date_of_birth": @"December 9, 1906"
                            };
+                           
 Wilddog *usersRef = [ref child: @"users"];
 NSDictionary *users = @{
                         @"alanisawesome": alanisawesome,
                         @"gracehop": gracehop
                         };
+// 写入数据
 [usersRef setValue: users];
 
 ```
@@ -67,7 +68,6 @@ NSDictionary *users = @{
 Swift
 
 ```swift  
-// 写数据
 // 获取一个 WDGSyncReference 对象
 let ref = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com//web/saving-data/wildblog")           
 var alanisawesome = ["full_name": "Alan Turing", "date_of_birth": "June 23, 1912"]
@@ -76,6 +76,7 @@ var gracehop = ["full_name": "Grace Hopper", "date_of_birth": "December 9, 1906"
 var usersRef = ref.child("users")
 
 var users = ["alanisawesome": alanisawesome, "gracehop": gracehop]
+// 写入数据
 usersRef.setValue(users)
 
 ```
