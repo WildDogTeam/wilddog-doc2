@@ -9,14 +9,14 @@ title:  错误码
 | -2   | WILDDOG_ERR_INVALID              | 遇到非法值                                    |
 | -3   | WILDDOG_ERR_SENDERR              | 发送出错                                     |
 | -4   | WILDDOG_ERR_OBSERVEERR           | 监听错误                                     |
-| -5   | WILDDOG_ERR_SOCKETERR            | soketc 错误                                |
-| -6   | WILDDOG_ERR_NOTAUTH              | 客户端未被认证，需要调用 wilddog_auth() 进行认证         |
-| -7   | WILDDOG_ERR_QUEUEFULL            | 请求队列溢出，可以过一段时间等 sdk 处理完 queue 中的请求，再发起新的请求。也可以增大 wilddog_config.h 中 WILDDOG_REQ_QUEUE_NUM 的值 |
-| -8   | WILDDOG_ERR_MAXRETRAN            | 重传错误                                     |
-| -9   | WILDDOG_ERR_RECVTIMEOUT          | 传输超时，客户端未接收到云端的回应。有两方面引起该错误，一方面是客户端断网，请求没有发送出去，另一方面是网络环境差，传输中的数据包丢失。需要抓包确定 |
-| -10  | WILDDOG_ERR_RECVNOMATCH          | 接收超时，等待云端回复超时，超时时间可以在 wilddog_config.h 中设置。 |
-| -11  | WILDDOG_ERR_CLIENTOFFLINE        | 客户端离线                                    |
-| -12  | WILDDOG_ERR_RECONNECT            | 重连提示，会话已经断线重连，并且重新获取监听数据，本次获取的数据可能是已经推送过的数据(重连后不能确定断线过程中监听的数据是否有过修改)，需要用户去甄别数据是已经推送过，还是新的数据。 |
+| -5   | WILDDOG_ERR_SOCKETERR            | socket 错误                                |
+| -7   | WILDDOG_ERR_NOTAUTH              | 客户端未被认证，需要调用 wilddog_auth() 进行认证         |
+| -8   | WILDDOG_ERR_QUEUEFULL            | 请求队列溢出，可以过一段时间等 sdk 处理完 queue 中的请求，再发起新的请求。也可以增大 wilddog_config.h 中 WILDDOG_REQ_QUEUE_NUM 的值 |
+| -9   | WILDDOG_ERR_MAXRETRAN            | 重传错误                                     |
+| -10   | WILDDOG_ERR_RECVTIMEOUT          | 传输超时，客户端未接收到云端的回应。有两方面引起该错误，一方面是客户端断网，请求没有发送出去，另一方面是网络环境差，传输中的数据包丢失。需要抓包确定 |
+| -11  | WILDDOG_ERR_RECVNOMATCH          | 收到的数据不匹配。                           |
+| -12  | WILDDOG_ERR_CLIENTOFFLINE        | 客户端离线                                    |
+| -13  | WILDDOG_ERR_RECONNECT            | 重连提示，会话已经断线重连，并且重新获取监听数据，本次获取的数据可能是已经推送过的数据(重连后不能确定断线过程中监听的数据是否有过修改)，需要用户去甄别数据是已经推送过，还是新的数据。 |
 | 200  | WILDDOG_HTTP_OK                  | 请求已成功                                    |
 | 201  | WILDDOG_HTTP_CREATED             | 请求已经被实现，而且有一个新的资源已经依据请求的需要而创建            |
 | 204  | WILDDOG_HTTP_NO_CONTENT          | 服务端成功处理了请求，但无需返回任何内容                     |
