@@ -1,8 +1,6 @@
 title:  参考资源
 ---
 
-## 示例源码
-
 | 示例 | 贡献者 | 说明 | 
 |----|----|----| 
 |<a href="https://github.com/WildDogTeam/demo-android-chat" target="_blank">实时聊天</a>|野狗官方 | Wilddog开源实时聊天应用。 |
