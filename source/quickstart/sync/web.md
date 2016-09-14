@@ -12,19 +12,19 @@ title: 快速入门
 
 根据需要选择以下一种方式安装：
 
-* 安装完整 Wilddog SDK(推荐，包含 Sync 和 Auth)
+* **安装完整 Wilddog SDK (推荐，包含 Sync 和 Auth)**
 
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>
 ```
 
-* 独立安装 Sync SDK
+* **独立安装 Sync SDK**
 
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
 ```
 
-* `NodeJS` 或者 `ReactNative` 项目请使用 `npm` 方式
+* **`NodeJS` 或者 `ReactNative` 项目请使用 `npm` 方式**
 
 ```
 npm install wilddog
