@@ -1,29 +1,22 @@
+
 title:  查询数据
 ---
 本篇文档介绍查询数据的基础知识，以及如何对数据进行排序和过滤。
 
-查询数据前确保 SDK 已初始化：
-```js
-var config = {
-  authDomain: "docs-examples.wilddog.com",
-  syncURL: "https://docs-examples.wilddogio.com"
-};
-wilddog.initializeApp(config);
-```
 ## 设置监听
 
 
 数据的查询以事件监听的方式来完成。事件监听可以让你客户端的数据一直保持与云端同步。你可以设置两种类型的事件监听，“Value 事件” 和 “Child 事件”：
 
-监听器 | 事件     | 描述
---- | ----- | ---
-on() 或 once() | value | 当程序初始化时或有任何数据发生变化时触发
+| 监听器           | 事件    | 描述                   |
+| ------------- | ----- | -------------------- |
+| on() 或 once() | value | 当程序初始化时或有任何数据发生变化时触发 |
 | child_added    | 当程序初始化时或有新增子节点时触发
 | child_changed     | 当某个子节点发生变化时触发
 | child_removed	    | 当有子节点被删除时触发
 | child_moved     | 当有子节点排序发生变化时触发
 
-使用 `value` 事件监听当前路径下的所有数据。使用 `child_added_*` 事件监听当前路径下的子节点数据。
+使用 `value` 事件监听当前路径下的所有数据。使用 `child_*` 事件监听当前路径下的子节点数据。
 
 ### Value 事件 
 
@@ -110,12 +103,12 @@ ref.once("value", function(data) {
 
 你可以使用 [Query](/api/sync/web.html#Query-Methods) 类的方法进行数据排序。Wilddog Sync 支持按 Key、按 Value、按子节点的 Value 或按 priority 对数据进行排序。
 
-方法 | 用法
-----  | ----
-orderByChild() | 按指定子节点的值对结果排序。
-orderByKey() | 按键（key）对结果排序。
-orderByValue() | 按值对结果排序。
-orderByPriority() | 按优先级对结果排序。
+| 方法                | 用法             |
+| ----------------- | -------------- |
+| orderByChild()    | 按指定子节点的值对结果排序。 |
+| orderByKey()      | 按键（key）对结果排序。  |
+| orderByValue()    | 按值对结果排序。       |
+| orderByPriority() | 按优先级对结果排序。     |
 
 例如：[恐龙应用数据页面](https://dinosaur-facts.wilddogio.com) 中演示如何按照每个恐龙的身高（"height"节点的值）进行排序。
 
@@ -157,13 +150,13 @@ ref.orderByChild("height").on("child_added", function(snapshot) {
 
 只有对数据进行排序之后，才能过滤数据，你可以结合以下方法来构造查找的条件。
 
-方法 | 用法
----- | ----
-limitToFirst() | 设置从第一条开始，一共返回多少个节点。
-limitToLast() | 设置从最后一条开始，一共返回多少个节点（返回结果仍是升序，降序要自己处理）。
-startAt() | 返回大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
-endAt() | 返回小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
-equalTo() | 返回等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。
+| 方法             | 用法                                       |
+| -------------- | ---------------------------------------- |
+| limitToFirst() | 设置从第一条开始，一共返回多少个节点。                      |
+| limitToLast()  | 设置从最后一条开始，一共返回多少个节点（返回结果仍是升序，降序要自己处理）。   |
+| startAt()      | 返回大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 |
+| endAt()        | 返回小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 |
+| equalTo()      | 返回等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。 |
 
 你可以结合不同的方法来过滤节点。例如，你可以结合使用 `startAt()` 与 `endAt()` 方法将结果限制在指定的范围内。
 
