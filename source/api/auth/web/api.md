@@ -1,6 +1,8 @@
 title:  Web API 文档
 ---
-野狗 Auth 模块的 API 按照 Promise 风格设计，如果你对 Promise 编程尚不了解，请[参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 的教程。
+野狗 Auth 模块的 API 按照 Promise 风格设计，如果你对 Promise 编程尚不了解，请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 的教程。
+
+---
 
 ## wilddog.App
 
@@ -28,6 +30,7 @@ var a = wilddog.initializeApp(configA, APP_A);
 //通过 a 来访问 auth
 //a.auth().signInXxx().then(...)
 ```
+---
 
 ### auth
 
@@ -45,6 +48,8 @@ _无_
 
 [wilddog.Auth](/api/auth/web.html#wilddog-Auth)
 
+---
+
 ### sync
 
 获取 wilddog.Sync 实例，wilddog.Sync 实例只能通过此方法获取。
@@ -61,7 +66,7 @@ _无_
 
 [wilddog.Sync](/api/sync/web.html#wilddog-Sync)
 
-
+---
 
 ## wilddog.Auth
 
@@ -73,6 +78,7 @@ var auth = wilddog.auth()
 
 ```
 
+---
 
 
 ### onAuthStateChanged
@@ -87,27 +93,7 @@ onAuthStateChanged(callback)
 
 | 参数名 | 类型 | 属性 | 说明 |
 |---|---|---|---|
-| callback | function |  | 回调函数 |
-
----
-
-**参数** callback 的详细说明
-
-_callback 定义_
-
-function(user)
-
-_callback 参数_ 
-
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| user | [wilddog.User](/api/auth/web.html#wilddog-User) | nullable | auth 状态变为登录状态时传回 user 对象，auth 状态变为登出时返回值为 null |
-
-_callback 返回_
-
-[Void](/api/auth/web.html#Void)
-
----
+| callback | [callback](/api/auth/web/api.html#callback) |  | 回调函数 |
 
 **返回**
 
@@ -124,6 +110,28 @@ var stopListen = wilddog.auth().onAuthStateChanged(function (user) {
 stopListen();
 
 ```
+
+---
+
+#### callback
+
+[onAuthStateChanged](/api/auth/web/api.html#onAuthStateChanged) 回调函数的详细说明。
+
+**定义**
+
+function(user)
+
+**参数** 
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| user | [wilddog.User](/api/auth/web.html#wilddog-User) | nullable | auth 状态变为登录状态时传回 user 对象，auth 状态变为登出时返回值为 null |
+
+**返回**
+
+[Void](/api/auth/web.html#Void)
+
+---
 
 ### createUserWithEmailAndPassword
 
@@ -156,6 +164,7 @@ wilddog.auth().createUserWithEmailAndPassword(email, pwd)
          console.info("create user failed.", err.code, err);
      });
 ```
+---
 
 ### signInAnonymously
 
@@ -185,6 +194,8 @@ wilddog.auth().signInAnonymously()
         console.info("signInAnouymously failed",err)
     });
 ```
+
+---
 
 ### signInWithEmailAndPassword
 
@@ -218,6 +229,7 @@ wilddog.auth().signInWithEmailAndPassword(email,pwd)
         console.info('login failed ->', err);
     });
 ```
+---
 
 ### signInWithPopup
 
@@ -249,6 +261,7 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function (user) {
     console.info("login failed", err)
 });
 ```
+---
 
 ### signInWithRedirect
 
@@ -280,10 +293,11 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
     console.info("login failed", err)
 });
 ```
+---
 
 ### signInWithCustomToken
 
-使用自定义 token 的方式登录，token 的格式需符合野狗的规范，具体教程[参见这里](/guide/auth/core/concept.html#身份认证令牌)。
+使用自定义 token 的方式登录，token 的格式需符合野狗的规范，具体教程 [参见这里](/guide/auth/core/concept.html#身份认证令牌)。
 
 **定义**
 
@@ -310,6 +324,7 @@ wilddog.auth().signInWithCustomToken(token).then(function () {
 });
 ```
 
+---
 
 ### signInWithCredential
 
@@ -345,6 +360,7 @@ wilddog.auth().signInWithCredential(credential)
 
 ```
 
+---
 
 ### sendPasswordResetEmail
 
@@ -364,6 +380,7 @@ sendPasswordResetEmail(email)
 
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
  
+---
 
 ### signOut
 
@@ -389,6 +406,7 @@ _无_
      });
 ```
 
+---
 
 ## wilddog.User
 
@@ -403,6 +421,7 @@ User 对象包含所有维护用户个人信息的接口，我们不能直接创
     }
 
 ```
+---
 
 ### link
 
@@ -435,6 +454,9 @@ wilddog.auth().currentUser
     });
 
 ```
+
+---
+
 ### linkWithPopup
 
 通过弹出窗口的形式为用户关联新的 Oauth 登录方式。
@@ -469,6 +491,7 @@ wilddog.auth().currentUser
         console.info(err);
     });
 ```
+---
 
 ### linkWithRedirect
 
@@ -504,6 +527,7 @@ wilddog.auth().currentUser
     });
 
 ```
+---
 
 ### unlink
 
@@ -538,6 +562,9 @@ wilddog.auth().currentUser
     });
 
 ```
+
+---
+
 ### delete
 
 删除当前用户，删除成功之后会退出登录
@@ -554,6 +581,7 @@ _无_
  
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
 
+---
 
 ### updateProfile
 
@@ -589,6 +617,9 @@ wilddog.auth().currentUser
     });
 
 ```
+
+---
+
 ### updateEmail
 
 修改当前用户的邮箱，修改成功之后会触发 [onAuthStateChanged](/api/auth/web.html#onAuthStateChanged)
@@ -607,6 +638,7 @@ updateEmail(email)
  
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
 
+---
 
 ### updatePassword
 
@@ -625,6 +657,9 @@ updatePassword(password)
 **返回**
  
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
+
+
+---
 
 ### reauthenticate
 
@@ -658,6 +693,7 @@ wilddog.auth().currentUser
     });
 
 ```
+---
 
 ### sendEmailVerification
 
@@ -675,7 +711,7 @@ _无_
 
  [wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
  
-
+---
 
 ## wilddog.Promise
 
@@ -683,7 +719,10 @@ _无_
 
 一个 Promise 对象表示一个事件（异步的）的值。Promsie 事件应当被完成（resovle）或者拒绝（reject），这个时候它会回调我们通过 then() 和 catch() 指派给它的回调函数。更多关于 Promise 编程规范的信息请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 
 
+---
+
 ### then
+
 为当前 Promise 对象指定一个 resolved 之后的回调函数。
 
 **定义**
@@ -700,6 +739,8 @@ then(onResolved,[onReject])
 **返回**
 
 wilddog.Promise
+
+---
 
 ### catch
 为当前 Promise 对象指定一个 rejected 或异常后的回调函数。
@@ -719,6 +760,7 @@ catch(onReject)
 [Void](/api/auth/web.html#Void)
 
 
+---
 
 ## wilddog.auth.Provider
 
@@ -731,6 +773,8 @@ Provider 对象是本次 Auth 新增的接口，它的不同实现代表着不�
 |weixin | WeixinAuthProvider | 通过微信登录 |
 |weixinmq | WeixinmqAuthProvider | 微信公众号登录 |
 |qq | QQAuthProvider | 通过 QQ 登录 |
+
+---
 
 ### credential
 *static*
@@ -759,6 +803,7 @@ var email_credential = wilddog.auth.EmailAuthProvider.credential(email, password
 
 ```
 
+---
 
 ## wilddog.auth.Credential
 
@@ -769,6 +814,7 @@ Credential 表示特定登录方式下的用户认证凭据，我们可以通过
     通过各类第三方以 OAuth 认证的方式登录，野狗当前支持的第三方有微博、微信、微信公众号以及腾讯 QQ。
 
 
+---
 
 ## Void
 

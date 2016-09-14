@@ -8,3 +8,4 @@ title:  示例库
 |<a href="https://github.com/WildDogTeam/demo-c-airmonitor" target="_blank">空气监测demo</a>|野狗官方 | 使用野狗 Arduino SDK 开发的一个空气监测demo |
 
 
+[更多示例](https://github.com/WildDogTeam/awesome-wilddog)

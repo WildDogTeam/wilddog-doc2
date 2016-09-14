@@ -1,382 +1,491 @@
 title:  Web API 文档
 ---
+野狗 Sync 模块的 API 按照 Promise 风格设计，如果你对 Promise 编程尚不了解，请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 的教程。
 
-## Wilddog (*Methods*)
+---
 
-### wilddog init
+## wilddog.App
 
-定义
-
-wilddog.initializeApp(config)
-
-说明
-
-初始化一个Wilddog客户端。
-
-参数
-
-wilddogUrl `string` 应用url 如：`https://<appId>.wilddogio.com`
-authDomain `string` Auth域 目前只支持`<appId>.wilddog.com`
-
- 返回值
-
-Wilddog 对象的引用
-
- 示例
+App 对象是野狗 Web SDK 的核心，它维护着应用的全局上下文数据，不同模块之间需要通过它来进行交互。同时 App 实例也是我们访问野狗各个功能模块的入口，所以初始化 App 实例是我们使用其他任何 API 接口的前提。
+要使用野狗实时数据同步服务，你的初始化参数中必须包含 `syncURL`， 代码如下：
 
 ```js
 var config = {
-  authDomain: "<appId>.wilddog.com",
+  syncURL: "<appId>.wilddogio.com"
+};
+wilddog.initializeApp(config);
+    
+```
+
+初始化多个 App 实例：
+
+```js
+//上面的代码相当于如下初始化动作
+var wilddog = wilddog.initializeApp(config,DEFAULT);
+//我们还可以使用不同配置声明多个不同的 App 实例
+var configA = {
+  authDomain: "<appId-a>.wilddog.com"
+};
+var a = wilddog.initializeApp(configA, APP_A);
+//通过 a 来访问 auth
+//a.auth().signInXxx().then(...)
+```
+
+---
+
+### auth
+
+获取 wilddog.Auth 实例，wilddog.Auth 实例只能通过此方法获取。
+
+**定义**
+
+auth()
+
+**参数**
+
+_无_
+
+**返回**
+
+[wilddog.Auth](/api/auth/web.html#wilddog-Auth)
+
+---
+
+### sync
+
+获取 wilddog.Sync 实例，wilddog.Sync 实例只能通过此方法获取。
+
+**定义**
+
+sync()
+
+**参数**
+
+_无_
+
+**返回**
+
+[wilddog.Sync](/api/sync/web.html#wilddog-Sync)
+
+---
+
+## wilddog.Sync
+
+Sync 对象的实例是我们访问野狗实时数据同步 Web SDK 的入口。我们不能直接初始化 Sync 实例，而必须要通过 wilddog.App 实例的 [sync](/api/sync/web.html#sync) 方法来获取它。
+
+---
+
+### ServerValue
+
+_constant static_
+
+{TIMESTAMP: non-null Object}
+
+TIMESTAMP 是一个用于在我们的数据中插入服务器当前时间的占位符，时间格式为自 [Unix epoch](https://en.wikipedia.org/wiki/Unix_time) 开始的的毫秒数。
+
+**示例**
+
+```js
+var sessionsRef = wilddog.sync().ref("sessions");
+var mySessionRef = sessionsRef.push();
+mySessionRef.onDisconnect().update({ 
+    endedAt: wilddog.sync().ServerValue.TIMESTAMP
+});
+mySessionRef.update({ 
+    startedAt: wilddog.sync().ServerValue.TIMESTAMP 
+});
+```
+---
+
+### ref
+
+获取指向 `path` 的 [wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference) 对象实例。
+
+**定义**
+
+ref(path)
+
+**参数** 
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| path | string | nullable | path 相对 App 初始化参数 `syncURL` 而言的相对路径 |
+
+**返回**
+
+[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
+
+**示例**
+
+```js
+var config = {
   syncURL: "https://<appId>.wilddogio.com"
 };
 wilddog.initializeApp(config);
 var rootRef = wilddog.sync().ref();
-//Good, 我们已经创建了一个野狗客户端。
+var refToA = wilddog.sync().ref('/a');
 
 ```
-----
+---
 
-### child()
+### goOffline
 
-定义
+手动断开连接，关闭自动重连。
 
-child ( path )
+**定义**
 
-说明
+Wilddog.goOffline()
+
+**参数**
+
+_无_
+
+**返回**
+
+[Void](/api/sync/web.html#Void)
+
+---
+
+### goOnline
+
+手动建立连接，开启自动重连。
+
+**定义**
+
+goOnline()
+
+**参数**
+
+_无_
+
+**返回**
+
+[Void](/api/sync/web.html#Void)
+
+**示例**
+
+```js
+// 当前 app 实例下的所有 Sync 实例都将离线
+wilddog.sync().goOffline(); 
+// 当前 app 实例下的所有 Sync 实例都将重连
+wilddog.sync().goOnline(); 
+```
+---
+
+## wilddog.sync.Reference
+
+一个 Reference 实例表示要操作的特定数据节点，你可以通过它来读写数据。Reference 是 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 的子类。
+
+---
+
+### child
 
 根据相对路径，来获取当前节点下子节点的引用
 
-参数
+**定义**
 
-path `String` 
+child ( path )
 
-path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。如果path为空或null则返回当前引用。如果直接选取下一级节点，可以使用无分隔符(/)的节点名称表示，例如“a”。如果定位的path不存在，依然可以定位，后续数据操作的时候，将延迟动态创建不存在的路径节点。
+**参数**
 
-返回值
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| path | string | non-null | path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。如果path为空或null则返回当前引用。如果直接选取下一级节点，可以使用无分隔符(/)的节点名称表示，例如“a”。如果定位的path不存在，依然可以定位，后续数据操作的时候，将延迟动态创建不存在的路径节点。|
 
-`Wilddog`子节点的引用。
+**返回**
+
+[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
 
 ```js
 var config = {
   authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
 };
 wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("city");
-//ref refer to node <appId>.wilddogio.com/city
+// ref 指向 <appId>.wilddogio.com/city
 
-child_ref = ref.child("Beijing");
-//now child_ref refer to "<appId>.wilddogio.com/city/Beijing"
+var childRef = wilddog.sync().ref("city").child("Beijing");
+// childRef 指向 <appId>.wilddogio.com/city/Beijing
 ```
+---
 
-----
-
-### parent()
-
-定义
-
-parent()
-
-说明
+### parent
 
 获取父节点的引用。如果当前节点就是root节点，方法执行后返回的依然是root节点的引用。
 
-返回值
+**定义**
 
-`String` Wilddog 父节点的引用
+parent()
 
-示例
+**参数**
 
-```js
-var parent_ref = ref.parent();
-//返回值 the refer to the father node of current
-```
+_无_
 
-----
+**返回**
 
-### root()
+[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
 
-定义
-
-root()
-
-说明
-
-获得`wilddog`根结点的引用
-
-返回值
-
-`String` wilddog根节点的引用
-
-示例
+**示例**
 
 ```js
 var config = {
   authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
 };
 wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("city");
-//ref refer to node <appId>.wilddogio.com/city
+// ref 指向 <appId>.wilddogio.com/city
 
-var root_ref = ref.root();
-var path = root_ref.toString();
-//path is now 'https://<appId>.wilddogio.com'
+var childRef = wilddog.sync().ref("city").child("Beijing");
+// childRef 指向 <appId>.wilddogio.com/city/Beijing
 
+var parentRef = childRef.parent();
+// parentRef 指向 <appId>.wilddogio.com/city
 ```
+---
 
+### root
 
------
+获得根结点的引用。
 
-### key()
+**定义**
 
-定义
+root()
 
-key()
+**参数**
 
-说明
+_无_
+
+**返回**
+
+[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
+
+---
+
+### key
 
 获得当前路径下节点的名称。
 
-返回值
+**定义**
 
-`String` 节点名称
+key()
 
-示例
+**参数**
+
+_无_
+
+**返回**
+
+string 节点名称
+
+**示例**
 
 
 ```js
-child_ref = ref.child("Beijing");
-
-//返回值 the key to current node
+var child_ref = wilddog.sync().ref().child("Beijing");
 var key = child_ref.key();
-//key is 'Bejing'
+//key == 'Bejing'
 ```
-----
+---
 
-### toString()
+### toString
 
-定义
+获取当前节点的的完整URL。
+
+**定义**
 
 toString()
 
-说明
-获取当前节点的应用URL。
+**参数**
 
-返回值
+_无_
 
-`String` 当前节点的应用URL。
+**返回**
 
-示例
+string 当前节点的完整URL。
 
-```js
-child_ref = ref.child("/city/Beijing");
-//返回值 the key to current node
-
-var url = child_ref.toString();
-//url should be https://<appId>.wilddogio.com/city/Beijing
-```
-----
-
-### set()
-
-定义
-
- set ( value , [oncomplete] )
-
-说明
-
-设置一个节点的值。
-如果`value != null` ,当前节点上的数据会被value覆盖，如果中间路径不存在,Wilddog 会自动将中间路径补全。如果`value == null`,效果等同于remove操作。
-
-参数
-
-* value `object|string|number|boolean|null` 将被写入的值。
-* onComplete `function(error)` 如果操作成功 `error`为`null`；否则,error为包含错误码`code`的对象。
-
-示例
+**示例**
 
 ```js
 var config = {
   authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
 };
 wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/city/Beijing");
+var ref = wilddog.sync().ref("city");
+var url = ref.toString();
+// url == 'https://<appId>.wilddogio.com/city'
+```
+---
 
-//the initial value is {"temp":23,"humidity":30,"wind":2}
+### set
 
-ref.set({"temp":10,"pm25":500});
-//the expected value of https://<appId>.wilddogio.com/city/Beijing should be {"temp":10,"pm25":500}
-// or 
-ref.set({
-    "temp":10,
-    "pm25":500
-}, function(error) {
-    if (error == null){
-        // set 数据到野狗云端成功
-    }
-});
+设置一个节点的值。
+
+**定义**
+
+set(value)
+
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | object<br>string<br>number<br>boolean<br>null | | 如果`value != null` ,当前节点上的数据会被value覆盖，如果中间路径不存在,Wilddog 会自动将中间路径补全。如果`value == null`,效果等同于remove操作。|
+
+**返回**
+
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
+
+**示例**
+
+```js
+wilddog.sync().ref('city').set({"temp":10,"pm25":500})
+    .then(function(){
+        console.info('set data success.')
+    })
+    .catch(function(err){
+        console.info('set data failed', err.code, err);
+    });
 
 ```
+---
 
-----
-
-### update()
-
-定义
-
-update ( value , [onComplete] )
-
-说明
+### update
 
 将输入对象的子节点合并到当前数据中。不存在的子节点将会被新增，存在子节点将会被替换。
 与`set`操作不同,`update` 不会直接覆盖原来的节点,而是将`value` 中的所有子节点插入到已有的节点中,如果已有的节点中已经有同名子节点,则覆盖原有的子节点。
-<br>
 e.g. update之前 `{"l1":"on","l3":"off"}` ,`value={"l1":"off","l2":"on"}` update 后期望的数据是 `{"l1":"off","l2":"on","l3":"off"}`。
 
+**定义**
 
-参数
+update(value)
 
-* value `object`包含要合并子节点的对象
-* onComplete `function(error)` 如果操作成功 `error`为`null`；否则,err为包含错误码`code`的对象。
+**参数**
 
-示例
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | object | | 包含要合并子节点的对象 |
 
-```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/city/Beijing");
-//the initial value is {"temp":23,"humidity":30,"wind":2}
+**返回**
 
-ref.update({"temp":10,"pm25":500});
-//the expected value of https://<appId>.wilddogio.com/city/Beijing should be {"temp":10,"pm25":500,"humidity":30,"wind":2}
-```
-----
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
 
-### remove()
-
-定义
-
-remove ( [onComplete] )
-
-说明
-
-删除当前节点,效果等同于 `set(null,[onComplete])`,
-如果父级节点只有当前节点一个子节点, 会递归删除父级节点。
-
-参数
-
-onComplete `function(error)`  如果操作成功 `error`为`null`；否则,err为包含错误码`code`的对象。
-
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/city/Beijing");
-
-//the initial value of https://<appId>.wilddogio.com is 
-//{"city":{"Beijing":{"temp":23,"humidity":30,"wind":2}}}
-
-ref.remove()
-// value of https://<appId>.wilddogio.com is {}
-
+wilddog.sync().ref('city').update({"temp":20,"pm25":5000})
+    .then(function(){
+        console.info('update data success.')
+    })
+    .catch(function(err){
+        console.info('update data failed', err.code, err);
+    });
 ```
-----
+---
 
-### push()
+### remove
 
-定义
+删除当前节点,效果等同于 `set(null)`，如果父级节点只有当前节点一个子节点, 会递归删除父级节点。
 
-push (value , [oncomplete] )
+**定义**
 
-说明
+remove()
+
+**参数**
+
+_无_
+
+**返回**
+
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
+
+**示例**
+
+```js
+wilddog.sync().ref('city').remove()
+    .then(function(){
+        console.info('remove node success.')
+    })
+    .catch(function(err){
+        console.info('remove node failed', err.code, err);
+    });
+```
+---
+
+### push
 
 在当前节点下生成一个子节点，并返回子节点的引用。子节点的key利用服务端的当前时间生成，可作为排序使用。
 
-参数
+**定义**
 
-* value `object|string|number|boolean|null` 用户希望在当前节点下新增的数据.
-* onComplete `function(error)`  如果操作成功 `error`为`null`；否则,err为包含错误码`code`的对象。
+push(value)
 
-返回值
+**参数**
 
-`String` 新插入子节点的引用
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | object<br>string<br>number<br>boolean | non-null | 用户希望在当前节点下新增的数据。|
 
-示例
+**返回**
+
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)>
+
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("users");
-
-var childref = ref.push({"name":"Thor","planet":"Asgard"});
-
-var newKey = childref.key();
-//newKey shoud look like a base64-like series eg -JmRhjbYk73IFRZ7
-//th url of newKey shoud be https://<appId>.wilddogio.com/users/-JmRhjbYk73IFRZ7
+wilddog.sync().ref("city").push('chengdu')
+    .then(function(newRef){
+       // newRef 的地址类似下面： 
+       // https://<appId>.wilddogio.com/city/-JmRhjbYk73IFRZ7
+       console.info(newRef.toString());
+    })
+    .catch(function(err){
+       console.info('remove node failed', err.code, err);  
+    });
 
 ```
---------
+---
 
-### setWithPriority()
+### setWithPriority
 
-定义
+把数据写到当前位置，类似 [set](/api/sync/web.html#set)，不同之处是需要指定一个优先级。默认排序按照优先级排序（参考 [orderByPriority](/guide/sync/web/retrieve-data.html#排序规则)）。
 
-setWithPriority ( value , priority , [oncomplete] )
+**定义**
 
-说明
+setWithPriority (value, priority)
 
-把数据写到当前位置，类似set,不同之处是需要指定一个优先级。默认排序按照优先级排序。(参考排序规则的 [orderByPriority](/guide/sync/web/retrieve-data.html#排序规则) )
+**参数**
 
-参数
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | object<br>string<br>number<br>boolean<br>null |  | 将被写入的值。|
+| priority | string<br>number| non-null | 优先级数据，节点的优先级是默认排序的依据。|
 
-* value `Object|String|Number|Boolean|Null` 将被写入的值。
-* priority `String|Number` 优先级数据，节点的优先级是默认排序的依据。
-* onComplete `function(error)`  如果操作成功 `error`为`null`；否则,err为包含错误码`code`的对象。
+**返回**
 
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
 
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/users/jack");
-
 var user = {
   name: {
     first: 'jack',
     last: 'Lee'
   }
 };
+wilddog.sync().ref().setWithPriority(user,100)
+    .then(function(){
+        console.info('set data success.')
+    })
+    .catch(function(err){
+        console.info('set data failed', err.code, err);
+    });
 
-ref.setWithPriority(user,100);
 ```
+---
 
-----
+### setPriority
 
-### setPriority()
-
-定义
-
-setPriority ( priority , [onComplete] )
-
-说明
-
-设置当前节点的优先级，优先级可以是`Number`,也可以是`String` 。用来改当前节点在兄弟节点中的排序位置。这个排序会影响Snapshot.forEach()的顺序，同样也会影响`child_added`和`child_moved`事件中`prevChildName`参数。
+设置当前节点的优先级，优先级可以是`Number`，也可以是`String` 。用来改当前节点在兄弟节点中的排序位置。这个排序会影响Snapshot.forEach()的顺序，同样也会影响`child_added`和`child_moved`事件中`prevChildName`参数。
 
 **节点按照如下规则排序**
 
@@ -385,67 +494,68 @@ setPriority ( priority , [onComplete] )
 * 有字符串 priority的排最后，按照字母表的顺序排列
 * 当两个子节点有相同的 priority，它们按照名字进行排列，数字排在最先，字符串排最后
 
-参数
+**定义**
 
-* priority `String|Number` 优先级
-* onComplete `function(error)` 如果操作成功 `error`为`null`；否则,error 为包含错误码`code`的对象。
+setPriority(priority)
 
-示例
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| priority | string<br>number| non-null | 优先级数据，节点的优先级是默认排序的依据。|
+
+**返回**
+
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
+
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/users/jack");
-
-ref.setPriority(1000);
+wilddog.sync().ref('user').setWithPriority(100)
+    .then(function(){
+        console.info('set priority success.')
+    })
+    .catch(function(err){
+        console.info('set priority failed', err.code, err);
+    });
 ```
 
-----
+---
 
-### transaction()
+### transaction
 
-定义
+当多个客户端并发修改同一节点的数据时，使用 [set](/api/sync/web.html#set) 极有可能造成数据不一致，而 transaction 能够避免这一情况的发生。
 
-transaction(updateFunction, [onComplete], [applyLocally])
+为了达到这个目的， 你必须通过 transaction 的更新函数来进行数据修改操作。更新函数接收一个` current value` 作为参数，并在此参数的基础之上为当前节点返回新的值 `new value`。多个客户端同时调用 transaction 修改同一节点的数据时，更新函数能够保证后续 transaction 拿到的 `current value` 中的数据与最近成功的 `transaction` 所返回的 `new value` 中的数据一致。
 
-说明
-
-在当前路径下，自动修改数据。与 set() 不同，直接覆盖以前的数据，transaction() 能够确保不同客户端在相同时间没有修改冲突。
-
-为了到达目的， 你通过 transaction() 的更新函数将的作用是把 current value 转换成 new value。当另外一个客户端在你之前先成功，你的更新函数将重新调用并带有 new current value。这过程一直重复直到写入成功或者不返回 value 来中止事务。
+在 transaction 的执行过程中你的客户端可能会重复写入直到成功，当更新函数没有返回 value 时，事务终止。
 
 如果需要， 你的 onComplete callback 将在事务完成后异步被调用。
 
-注意：在相同的路径上 使用 set() 和 transaction() , 极端情况下将出现不可预料的结果。
+**注意：** 相同的数据节点上并发执行 set() 和 transaction() , 极端情况下仍会出现不可预料的结果。
 
-回调函数updateFunction可能在第一次调用时currentRank为null，请返回一个默认值。当回调函数第二次调用时， currentRank是云端的拉去的值。
+**定义**
 
-参数
+transaction(updateFunction)
 
-* updateFunction `function`
-  更新数据的函数
+**参数**
 
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| updateFunction | [updateFunction](/api/sync/web.html#updateFunction) | non-null | 更新函数。|
 
-* onComplete `function(error, committed, snapshot)` 
- 如果操作成功 `error`为`null`；否则,err为包含错误码`code`的对象。
- committed `boolean`  提交成功。
- snapshot `DataSnapShot` 事务完成后的数据快照。
+**返回**
+ 
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[TransactionResult](/api/sync/web.html#TransactionResult) | [TransactionResult](/api/sync/web.html#TransactionResult)[]> 
 
-示例
+**注意** 只有当 updateFunction 返回的是一个包含多个节点的 object 时，transaction 才会返回给 Promise 一个 [TransactionResult](/api/sync/web.html#TransactionResult) 数组。
+
+**示例**
 
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/users/fred/rank");
-
-ref.transaction(function(currentRank) {
+// 实现一个累加器
+wilddog.sync().ref("/users/john/rank").transaction(function(currentRank) {
     // If currentRank = null, 直接返回默认值 0。
     if (currentRank == null) {
          return 0;
@@ -454,176 +564,124 @@ ref.transaction(function(currentRank) {
     } 
     return currentRank+1;
 });
-```
-
-```js
-// 试图创建 wilma 的用户， 如果你的用户 'wilma' 已经存在，那退出事务
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var wilmaRef = wilddog.sync().ref("/samplechat/users/wilma");
-
+//
+//
+// 创建一个名叫 wilma 的用户， 如果 'wilma' 已经存在，那退出事务
+var wilmaRef = wilddog.sync().ref("/users/wilma");
 wilmaRef.transaction(function(currentData) {
   if (currentData === null) {
     return { name: { first: 'Wilma', last: 'Flintstone' } };
   } else {
-    console.log('用户 wilma 已经存在。');
+    console.log('wilma is exist.');
     return; // 退出事务
   }
-}, function(error, committed, snapshot) {
-  if (error) {
-    console.log('Transaction 失败了!', error);
-  } else if (!committed) {
-    console.log('我们退出事务，因为用户wilma 已经存在。');
+}).then(function(result) {
+  if (!result.committed) {
+    console.log('transaction commit failed ,wilma has been exist.');
   } else {
-    console.log('用户 wilma 已经添加!');
+    console.log('transaction commit success!');
   }
-  console.log("Wilma's data: ", snapshot.val());
+  console.log("Wilma's data: ", result.snapshot.val());
+}).catch(function(err){
+    console.log('transaction failed.', error);
 });
 ```
------
 
-### goOnline()
-
-定义
-
-Wilddog.goOnline()
-
-说明
-
-手动建立连接，开启自动重连。
-
-示例
-
-```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-
-wilddog.sync().goOffline(); // All local Wilddog instances are disconnected
-wilddog.sync().goOnline(); // All local Wildodg instances automatically reconnect
-```
-
------
-
-### goOffline()
-定义
-
-Wilddog.goOffline()
-
-说明
-
-手动断开连接，关闭自动重连。
-
-
-示例
-
-```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-
-wilddog.sync().goOffline(); // All local Wilddog instances are disconnected
-```
 ---
 
-## Query (*Methods*)
+#### updateFunction 
 
-### on()
+用于 [transaction](/api/sync/web.html#transaction) 的更新函数。
 
-定义
+**定义**
 
-on ( type , callback , [cancelCallback] ， [context] )
+ function(currentValue)
+ 
+**参数**
 
-说明
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| currentValue | function| object<br>string<br>number<br>boolean<br>null | 第一次调用时 currentValue 为null，你应当返回一个默认值。当回调函数第二次调用时， currentValue 是云端的最新值。 |
 
-监听某个事件,注册回调函数。
+**返回**
 
-参数
+newValue {object|string|number|boolean|null} 要写入当前节点的的新值。
 
-* type `String`
+当返回的是一个包含多个节点的 object 时，transaction 会返回给 Promise 一个 [TransactionResult](/api/sync/web.html#TransactionResult) 数组。
 
->|事件|说明|
-|----|----|
-|value| 当有数据请求或有任何数据发生变化时触发|
-|child_added| 当有新增子节点时触发|
-|child_changed|当某个子节点发生变化时触发 |
-|child_removed|当有子节点被删除时触发 |
-|child_moved|当有子节排序发生变化时触发 |
+---
 
+#### TransactionResult
 
-**callback** `function(snapshot[,prev])` 
-`snapshot`  为`Snapshot` 类型,当监听到某事件时callback 会被执行. 在child_* 事件中会有prev参数。表示当前节点的上一个节点的key
+执行 [transaction](/api/sync/web.html#transaction) 成功之后返回给 Promise 的结果，包含`committed` 和 `snapshot` 两个属性。
 
-**cancelCallback** `function(error)`
-如果操作失败，这个函数会被调用。传入一个 `Error` 对象，包含为何失败的信息。
+{committed: boolean}
 
-**context** `Object`
-如果指定，你的回调函数中的this将代表这个对象
+是否提交成功。
 
-示例
+{snapshot: [wilddog.sync.DataSnapshot](/api/sync/web.html#wilddog-sync-DataSnapshot)}
+
+事务完成后的数据快照。
+
+---
+
+### onDisconnect
+
+获取与当前数据节点关联的离线事件对象。
+
+**定义**
+
+onDisconnect
+
+**参数**
+
+_无_
+
+**返回**
+
+[wilddog.sync.OnDisconnect](/api/sync/web.html#wilddog-sync-OnDisconnect)
+
+---
+
+## wilddog.sync.Query
+
+Query 对象包含了所有与我们数据查询及监听的 API，同时它也是 [wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference) 的父类。
+
+### on
+
+监听当前节点的指定事件,注册回调函数。
+
+**定义**
+
+on(type, onEvent, [cancelCallback], [context])
+
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| type | string | non-null |事件类型参见 [EventType](/api/sync/web.html#EventType)。 |
+| onEvent | [onEvent](/api/sync/web.html#onEvent) | non-null | 事件发生时的回调函数 。|
+| cancelCallback | [cancelCallback](/api/sync/web.html#cancelCallback) | optional | 如果操作失败，这个函数会被调用。 |
+| context | object | optional | 如果指定，你的回调函数中的this将代表这个对象。 |
+
+**返回**
+
+[Void](/api/sync/web.html#Void)
+
+**示例**
 
 ```js
-ref.on('child_added',function(snapshot,prev){
+wilddog.sync().ref('city').on('child_added',function(snapshot,prev){
   console.log(snapshot.val());
   console.log("the previous key is",prev)
 });
 ```
---------
+---
+#### EventType
 
-### off()
+Query [on](/api/sync/web.html#on) 和 [once](/api/sync/web.html#once) 所支持的事件列表。
 
-定义
-
-off ( [type] , [callback] , [context] )
-
-说明
-
-取消监听事件。取消之前用`on()`注册的回调函数。
-
-参数
-
-* type `String` `value`,`child_added`,`child_changed`,`child_removed`,`child_moved`  之一
-* callback `function(snapshot)`  `on()` 中被传入的函数
-* context `Object`  `on()` 中被传入的context
-
-示例
-
-```js
-var onValueChange = function(dataSnapshot) { /* handle... */ };
-wilddogRef.on('value', onValueChange);
-// Sometime later...
-wilddogRef.off('value', onValueChange);
-```
-```js
-var onValueChange = wilddogRef.on('value', function(dataSnapshot) { /* handle... */ });
-// Sometime later...
-wilddogRef.off('value', onValueChange);
-```
-
-------
-
-### once()
-
-定义
-
-once ( type , callback , [cancelCallbak] , [context] )
-
-说明
-
-同on 类似,不同之处在于 once中的回调函数只被执行一次。
-
-参数
-
-* type `String`
-
->|事件|说明|
+|名称|说明|
 |----|----|
 |value| 当有数据请求或有任何数据发生变化时触发|
 |child_added| 当有新增子节点时触发|
@@ -631,816 +689,752 @@ once ( type , callback , [cancelCallbak] , [context] )
 |child_removed|当有子节点被删除时触发 |
 |child_moved|当有子节排序发生变化时触发 |
 
+---
 
+#### onEvent
 
-**callback** `function(snapshot[,prev])` 
-`snapshot`  为`Snapshot` 类型,当监听到某事件时callback 会被执行. 在child_* 事件中会有prev参数。表示当前节点的上一个节点的key
-**cancelCallback** `function(error)`
-如果操作失败，这个函数会被调用。传入一个 `Error` 对象，包含为何失败的信息。
-**context** `Object`
- 如果指定，你的回调函数中的this将代表这个对象
+事件发生时所触发的回调函数
 
-示例
+**定义**
+
+function(snapshot, [prev])
+
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| snapshot | [wilddog.sync.DataSnapshot]('/api/sync/web.html#wilddog-sync-DataSnapshot') | non-null |事件发生后当前节点的数据快照|
+| prev | string |  |在 child_* 事件中会有 prev 参数。表示当前节点的上一个节点的 key |
+
+**返回**
+
+[Void](/api/sync/web.html#Void)
+
+---
+
+#### cancelCallback
+
+如果操作失败，这个函数会被调用。
+
+**定义**
+
+function(err)
+
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| err | object | non-null | 一个 `Error` 对象，包含了 `code` 属性 |
+
+**返回**
+
+[Void](/api/sync/web.html#Void)
+
+---
+
+### off
+
+取消监听事件。取消之前用 [on](/api/sync/web.html#on) 注册的回调函数。
+
+**定义**
+
+off([type], [callback], [context])
+
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| type | string | non-null |事件类型参见 [EventType](/api/sync/web.html#EventType)。 |
+| onEvent | [onEvent](/api/sync/web.html#onEvent) | non-null | 在 [on](/api/sync/web.html#on) 中所传入的回调函数 。|
+| context | object | optional | 在 [on](/api/sync/web.html#on) 中所传入的 context。 |
+
+**示例**
 
 ```js
-ref.once('child_added',function(snapshot){
-  console.log(snapshot.val());
+var onValueChange = wilddog.sync().ref('city').on('value', 
+    function(dataSnapshot) { /* handle... */ 
 });
+// Sometime later...
+wilddogRef.off('value', onValueChange);
 ```
+---
 
-----
+### once
 
-### orderByChild() 
+同 [on](/api/sync/web.html#on) 类似,不同之处在于 once 中的回调函数只被执行一次。
 
-定义
+**定义**
 
-orderByChild ( key )
+once(type)
 
-说明
+**参数**
 
-产生一个新`Query`对象，按照特定子节点的值进行排序。排序的详情请参考[数据排序](/guide/sync/web/retrieve-data.html#数据排序)。
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| type | string | non-null |事件类型参见 [EventType](/api/sync/web.html#EventType)。 |
 
-参数
+**返回**
 
-* key `String`
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[wilddog.sync.DataSnapshot]('/api/sync/web.html#wilddog-sync-DataSnapshot')>
 
-指定用来排序的子节点的key
-
-返回值
-
-* 新生成的`Query` 对象的引用
-
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("student");
+wilddog.sync().ref('city').once('child_added')
+    .then(function(snapshot){
+        console.log(snapshot.val());
+    })
+    .catch(function(err){
+        console.info(err);
+    });
+```
+---
 
+### orderByChild
+
+产生一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，按照特定子节点的值进行排序。排序的详情请参考[数据排序](/guide/sync/web/retrieve-data.html#数据排序)。
+
+**定义**
+
+orderByChild(key)
+
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| type | string | non-null | 指定用来排序的子节点的key。 |
+
+
+**返回**
+
+[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+
+**示例**
+
+```js
+var ref = wilddog.sync().ref("student");
+// 创建一个新的 Query 对象，并在它上面建立监听
 ref.orderByChild("height").on("child_added",function(snapshot){
   console.log(snapshot.key() + "is" + snapshot.val().height +"meters tall");
 });
 
 ```
-----
+---
 
-### orderByKey()
+### orderByKey
 
-定义
+产生一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，按照当前节点的key进行排序。
+
+**定义**
 
 orderByKey()
 
-说明
+**参数**
 
-产生一个新`Query`对象，按照当前节点的key进行排序。
+_无_
 
-返回值
+**返回**
 
-新生成的`Query` 对象的引用
+[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
 
-示例
+**示例**
 
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("student");
-
 ref.orderByKey().on("child_added",function(snapshot){
   console.log(snapshot.key());
 });
 ```
 
-----
+---
 
-### orderByValue() 
+### orderByValue 
 
-定义
+产生一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，按照当前节点的值进行排序。排序的详情请参考[数据排序](/guide/sync/web/retrieve-data.html#数据排序)。
+
+**定义**
 
 orderByValue()
 
-说明
+**参数**
 
-产生一个新`Query`对象，按照当前节点的值进行排序。排序的详情请参考[数据排序](/guide/sync/web/retrieve-data.html#数据排序)。
+_无_
 
-返回值
+**返回**
 
-* 新生成的`Query` 对象的引用
+[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
 
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "dinosaur-facts.wilddog.com",
-  syncURL: "https://dinosaur-facts.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var scoresRef = wilddog.sync().ref("scores");
-
 scoresRef.orderByValue().limitToLast(3).on("value", function(snapshot) {
   snapshot.forEach(function(data) {
     console.log("The " + data.key() + " score is " + data.val());
   });
-}
+});
 
 ```
+---
 
-----
+### orderByPriority
 
-### orderByPriority()
+产生一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，按照当前节点的优先级排序。
 
-定义
+**定义**
 
 orderByPriority()
 
-说明
+**参数**
 
-产生一个新`Query`对象，按照当前节点的优先级排序。
+_无_
 
+**返回**
 
-返回值
+[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
 
-新生成的`Query` 对象的引用。
-
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref();
-
 ref.orderByPriority().on("child_added", function(snapshot) {
   console.log(snapshot.key());
 });
 ```
-----
+---
 
-### startAt()
+### startAt
 
-定义
+创建一个大于等于的范围查询，可配合 `orderBy*` 方式使用。
 
-startAt ( value , [key] )
+**定义**
 
-说明
+startAt(value, [key])
 
-创建一个大于等于的范围查询，可配合orderBy方式使用。
+**参数**
 
-参数
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | string<br>number<br>boolean<br>null |  | 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
+| key | string | optional | 起始子节点的key，只有在 `orderByPriority()`时有效。 |
 
-* value `String |Number|Null|Boolean`  查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。
-* key `String`  起始子节点的key，只有在 `orderByPriority()`时有效。
+**返回**
 
-返回值
+[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
 
-新生成的`Query` 对象的引用。
-
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("student");
-
 ref.orderByKey().startAt('jack').on("child_added",function(snapshot){
   console.log(snapshot.key());
 });
 ```
+---
 
-----
+### endAt
 
-### endAt()
+创建一个小于等于的范围查询，可配合 `orderBy*` 方式使用。
 
-定义
+**定义**
 
-endAt ( value , [key] )
+endAt(value, [key])
 
-说明
+**参数**
 
-创建一个小于等于的范围查询，可配合orderBy方式使用。
-
-参数
-
-* value `String|Number|Null|Boolean` 查询的结束值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定时一个`String`。
-* key `String` 起始子节点的key，只有在 `orderByPriority()`时有效。
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | string<br>number<br>boolean<br>null |  | 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
+| key | string | optional | 起始子节点的key，只有在 `orderByPriority()`时有效。 |
 
 
-返回值
+**返回**
 
-新生成的`Query` 对象
+[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
 
-示例
-
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("student");
-
 ref.orderByKey().endAt('jack').on("child_added",function(snapshot){
   console.log(snapshot.key());
 });
 ```
+---
 
-----
-
-## equalTo()
-
-定义
-
-equalTo ( value , [key] )
-
-说明
+### equalTo
 
 创建一个等于的精确查询。
 
-参数
+**定义**
 
-* value `String|Number|Null|Boolean` 需要匹配的数值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。
-* key `String` 起始子节点的key，只有在 `orderByPriority()`时有效。
+equalTo(value, [key])
 
+**参数**
 
-返回值
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | string<br>number<br>boolean<br>null |  | 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
+| key | string | optional | 起始子节点的key，只有在 `orderByPriority()`时有效。 |
 
-新生成的`Query` 对象。
+**返回**
 
-示例
+[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("student");
-
 ref.orderByKey().equalTo('jack').on("child_added",function(snapshot){
   console.log(snapshot.key());
 });
 ```
+---
 
-----
+### limitToFirst
 
-### limitToFirst()
+创建一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，获取从第一条（或 [startAt](/api/sync/web.html#startAt) 指定的位置）开始指定数量的子节点。
 
-定义
+**定义**
 
-limitToFirst ( limit )
+limitToFirst (limit)
 
-说明
+**参数**
 
-创建一个新`Query`对象，获取从第一条（或startAt指定的位置）开始指定数量的子节点。
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| limit | number| non-null | 这次查询能够获取的子节点的最大数量。 |
 
-参数
+**返回**
 
-limit `Number` 这次查询能够获取的子节点的最大数量。
+[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
 
-返回值
-
-新生成的`Query` 对象的引用。
-
-示例
+**示例**
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("student");
-
 ref.limitToFirst(10).on("child_added",function(snapshot){
   console.log(snapshot.key());
 });
 ```
+---
 
+### limitToLast
 
-----
+创建一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，获取从最后一条（或 [endAt](/api/sync/web.html#endAt) 指定的位置）开始向前指定数量的子节点。
 
-### limitToLast()
+**定义**
 
-定义
+limitToFirst(limit)
 
-limitToLast ( limit )
+**参数**
 
-说明
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| limit | number| non-null | 这次查询能够获取的子节点的最大数量。 |
 
-创建一个新`Query`对象，获取从最后一条（或endAt指定的位置）开始向前指定数量的子节点。
+**返回**
 
-参数
+[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
 
-limit `Number` 这次查询能够获取的子节点的最大数量。
-
-
-返回值
-
-新生成的`Query` 对象的引用。
-
-
-
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("student");
-
 ref.limitToLast(10).on("child_added",function(snapshot){
   console.log(snapshot.key());
 });
 ```
+---
 
-----
+## wilddog.sync.OnDisconnect
 
-### ref()
+OnDisconnect 类允许你在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 
-定义
+---
 
-ref()
+### set
 
-说明
+当客户端断开连接后，向当前的数据节点设置一个指定的值。
 
-获取这个查询的 `Wilddog` 引用
+**定义**
 
-返回值
+set(value)
 
- `Wilddog` 引用
+**参数**
 
-示例
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | object<br>string<br>number<br>boolean<br>null |  | 在连接中断时需要写入当前位置的值。|
 
-```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("student");
+**返回**
 
-var query=ref.limitToLast(10);
-var locationRef=query.ref();//ref==locationRef
-```
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise)<[Void](/api/sync/web.html#Void)>
 
------
-
-## Wilddog.onDisconnect (*Methods*)
-
-### set()
-
-定义
-
-set (value,[onComplete])
-
-说明
-
-当客户端断开连接后，保证在地址上的数据被设置到一个指定的值。
-
-参数
-
-* value `Object,String,Number,Boolean,Null` 在连接中断时需要写入当前位置的值（可以是对象，数组，字符串，数组，布尔型或null）
-* onComplete `Function *optional` 一个可选参数。当与服务端同步结束后会被调用，函数被调用时会传入一个参数：传入null代表成功，传入一个Error对象代表失败。
-
-返回值
-
-没有返回值
-
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var disconnectRef = wilddog.sync().ref("disconnectMessage");
-
-disconnectRef.onDisconnect().set('I disconnected!');
+disconnectRef.onDisconnect().set('I disconnected!')
+    .then(function(){
+        console.info('disconnect operation has been executed.');
+    })
+    .catch(function(err){
+        console.info('disconnect operation is failed.');
+    });
 ```
 ----
 
-### update()
-
-定义
-
-update(value,[onComplete])
-
-说明
+### update
 
 当客户端断开连接后，指定的子节点将被写入到当前位置的子节点集合中。
 
-参数
+**定义**
 
-* value `Object` 包含要写入当前位置子节点的集合。
-* onComplete `Function *optional` 一个可选参数。当与服务端同步结束后会被调用，函数被调用时会传入一个参数：传入null代表成功，传入一个Error对象代表失败。
+update(value)
 
-返回值
+**参数**
 
-无返回值
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | object |  | 包含要写入当前位置子节点的集合。|
 
-示例
+**返回**
+
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise)<[Void](/api/sync/web.html#Void)>
+
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var disconnectRef = wilddog.sync().ref("disconnectMessage");
-
-disconnectRef.onDisconnect().update({message:'I disconnected!'});
+disconnectRef.onDisconnect().update({"message":'I disconnected!'})
+    .then(function(){
+        console.info('disconnect operation has been executed.');
+    })
+    .catch(function(err){
+        console.info('disconnect operation is failed.');
+    });
 ```
 
 ----
 
-### remove()
-
-定义
-
-remove([onComplete])
-
-说明
+### remove
 
 当客户端断开连接后，删除当前位置上的数据。
 
-参数
+**定义**
 
-onComplete `Function *optional` 一个可选参数。当与服务端同步结束后会被调用，函数被调用时会传入一个参数：传入null代表成功，传入一个Error对象代表失败。
+remove()
 
+**参数**
 
-返回值
+_无_
 
-无返回值
+**返回**
 
-示例
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise)<[Void](/api/sync/web.html#Void)>
+
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var disconnectRef = wilddog.sync().ref("disconnectMessage");
-
-disconnectRef.onDisconnect().remove();
+disconnectRef.onDisconnect().remove()
+    .then(function(){
+            console.info('disconnect operation has been executed.');
+    })
+    .catch(function(err){
+        console.info('disconnect operation is failed.');
+    });
 ```
 
 ----
 
-## setWithPriority()
+### setWithPriority
 
-定义
-
-setWithPriority(value, priority, [onComplete])
-
-说明
 当客户端断开连接后，指定的数据和其优先级会被写入当前位置。
 
+**定义**
 
-参数
+setWithPriority(value, priority)
 
-* value `Object`, `String`, `Number`, `Boolean`, `Null` 在连接中断时需要写入当前位置的值（可以是对象，数组，字符串，数组，布尔型或null）
-* priority `String`,`Number` value的优先级
-* onComplete `Function *optional` 一个可选参数。当与服务端同步结束后会被调用，函数被调用时会传入一个参数：传入null代表成功，传入一个Error对象代表失败。
+**参数**
 
-返回值
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| value | object<br>string<br>number<br>boolean<br>null |  | 将被写入的值。|
+| priority | string<br>number| non-null | 优先级数据，节点的优先级是默认排序的依据。|
 
-无返回值
+**返回**
 
-示例
+[wilddog.Promise](/api/sync/web.html#wilddog-Promise)<[Void](/api/sync/web.html#Void)>
+
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var disconnectRef = wilddog.sync().ref("disconnectMessage");
-
-disconnectRef.onDisconnect().setWithPriority('I disconnected', 10);
+disconnectRef.onDisconnect().setWithPriority('I disconnected', 10)
+    .then(function(){
+            console.info('disconnect operation has been executed.');
+    })
+    .catch(function(err){
+        console.info('disconnect operation is failed.');
+    });
 ```
 
 ----
 
-### cancel()
-
-定义
-
-cancel()
-
-说明
+### cancel
 
 取消之前所有注册的离线操作。
 
-返回值
+**定义**
 
-无返回值
+cancel()
 
-示例
+**参数**
 
-```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var fredOnlineRef = wilddog.sync().ref("/users/fred/online");
+_无_
 
-fredOnlineRef.onDisconnect().set(false);
-// cancel the previously set onDisconnect().set() event
-fredOnlineRef.onDisconnect().cancel();
-```
+**返回**
 
------
+[Void](/api/sync/web.html#Void)
 
-## Wilddog.ServerValue (*Constants*)
-
-### TIMESTAMP
-
-定义
-
-wilddog.sync().ServerValue.TIMESTAMP
-
-说明
-
-获取当前服务端的时间戳。
-
-
-返回值
-
-无返回值
-
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var sessionsRef = wilddog.sync().ref("sessions");
-
-var mySessionRef = sessionsRef.push();
-mySessionRef.onDisconnect().update({ endedAt: wilddog.sync().ServerValue.TIMESTAMP });
-mySessionRef.update({ startedAt: wilddog.sync().ServerValue.TIMESTAMP });
+var disconnectRef = wilddog.sync().ref("disconnectMessage");
+// 之前所有注册在该节点下的离线事件都将取消
+disconnectRef.onDisconnect().cancel();
 ```
-----
+
+---
 
 
-# DataSnapshot (*Methods*)
+## wilddog.sync.DataSnapshot
 
-DataSnapshot是当前时间,某个节点数据的副本,Snapshot不会随当前节点数据的变化而发生改变.
-用户不会主动创建一个DataSnapshot,而是和 on或once 配合使用.
+DataSnapshot 是当前时指定节点下数据的副本，Snapshot 不会随当前节点数据的变化而发生改变。我们无法直接创建这个对象，而应当在 [on](/api/sync/web.html#on) 或 [once](/api/sync/web.html#once) 的回调函数中来获取它。
 
-## exists()
+### exists
 
-定义
+当前 DataSnapshot 实例中是否包含数据。
+
+**定义**
 
 exists()
 
-说明
+**参数**
 
-如果Datasnapshot对象包含数据返回 true，否则返回false
+_无_
 
-返回值
+**返回**
 
-Datasnapshot是否包含数据
+boolean 
 
-示例
+**示例**
 
-假如我们有以下数据：
 
+假设我们有以下数据：
 ``` json
+
 {
   "name" : {
     "first" : "Jim",
     "last" : "Gordon"
   } 
 }
-
 ```
-
-我们可以用exists检测是否包含特定字节点
-
-``` js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/samplechat/users/jim");
-
-ref.once("value", function(snapshot) {
-  var a = snapshot.exists();
-  // a === true
-
-  var b = snapshot.child("name").exists();
-  // b === true
-
-  var c = snapshot.child("name/first").exists();
-  // c === true
-
-  var d = snapshot.child("name/middle").exists();
-  // d === false (because there is no "name/middle" child in the data snapshot)
-});
-
+用 exists 检测是否包含特定子节点：
+```js
+wilddog.sync().ref("/samplechat/users/jim").once("value")
+    .then(function(snapshot) {
+      var a = snapshot.exists();
+      // a === true
+      var b = snapshot.child("name").exists();
+      // b === true
+      var c = snapshot.child("name/first").exists();
+      // c === true
+      var d = snapshot.child("name/middle").exists();
+      // d === false (because there is no "name/middle" child in the data snapshot)
+    });
 
 ```
 
 ----
 
-## val()
+### val
 
-定义
+返回当前快照的数据。
+
+**定义**
 
 val()
 
-说明
+**参数**
 
-返回当前快照的数据
+_无_
 
-返回值 
+**返回**
 
 `object|string|null|number|boolean` 当前快照的真实数据。
 
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/city/Beijing");
+wilddog.sync().ref("/city/Beijing").on('child_changed',
+    function(snapshot){
+        console.log(snapshot.val());
+        // 这里将在 update 执行成功之后输出： {"pm25":432}
+    });
+wilddog.sync().ref("/city/Beijing").update({"pm25":432});
 
-ref.on('child_changed',function(snapshot){
-	console.log(snapshot.val());
-	//should output {"pm25":432}
-})
-```
-
-``` js
-ref.update({"pm25":432})
 ```
 ----------
 
-### child()
+### child
 
-定义
+根据相对路径，来获取当前节点下子节点的数据快照。
 
-child ( path )
+**定义**
 
-说明
+child(path)
 
-根据相对路径，来获取当前节点下子节点的快照。
+**参数**
 
-参数
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| path | string | non-null | path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。|
 
-path `string` path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。
 
-返回值 
+**返回** 
 
-子节点的快照
+[wilddog.sync.DataSnapshot](/api/sync/web.html#wilddog-sync-DataSnapshot)
 
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/city/Beijing");
-
 ref.on('child_changed',function(snapshot){
 	if(snapshot.val() == null){
-		//has been deleted
-	}
-	else{
+		// has been deleted
+	}else{
 		var pm25=snapshot.child('pm25');
 		console.log("The pm25 of Bejing is",pm25.val())
+		// 这里将会输出：432
 	}
 })
-```
-``` js
 ref.update({"pm25":432})
 ```
------
+---
 
-### forEach()
+### forEach
 
-定义
+遍历数据快照中的每一个子节点。
 
-forEach ( callback )
+**定义**
 
-说明
+forEach(callback)
 
-遍历快照中每一个子节点,执行回调函数
+**参数**
 
-参数
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| callback | [callback](/api/sync/web.html#callback) | non-null | 遍历每一个子节时的回调函数。|
 
-callback `function(snap)`， snap:子节点快照
+**返回**
 
-示例
+[Void](/api/sync/web.html#Void)
+
+**示例**
 
 ``` js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/city/Beijing");
-
 ref.on("value",function(snapshot){
 		snapshot.forEach(function(snap){
 		console.log("the",snap.key(),"of Bejing is:",snap.val());
      });
 });
-
-```
-``` js
 ref.update({"pm25":432})
 ```
 
-----
+---
 
-### hasChild()
+#### callback
 
-定义
+forEach 的遍历时的回调函数。
 
-hasChild ( key )
+**定义**
 
-说明
+function(snap)
 
-检查是否存在某个子节点
+**参数**
 
-参数
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| snap | [wilddog.sync.DataSnapshot](/api/sync/web.html#wilddog-sync-DataSnapshot) | non-null | 子节点的数据快照。|
 
-key 输入参数,关注子节点的key
 
-返回值 
- `boolean`   `true` 子节点存在；`false` 子节点不存在
+**返回**
 
-示例
+[Void](/api/sync/web.html#Void)
+
+---
+
+### hasChild
+
+检查是否存在某个指定的子节点。
+
+**定义**
+
+hasChild(key)
+
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| key | string | non-null | 要检查的key。|
+
+**返回** 
+
+boolean
+
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/city/Beijing");
-
 ref.on('child_changed',function(snapshot){
 	if(snapshot.val() == null){
 		//has been deleted
-	}
-	else {
+	}else{
 		if(snapshot.hasChild('pm25')){
 			var pm25=snapshot.child('pm25');
 			console.log("The pm25 of Bejing is",pm25.val());
 		}	
 	}
 })
-```
-
-``` js
-ref.update({"pm25":432})
+ref.update({"pm25":432});
 ```
 
 ----
 
-### hasChildren()
+### hasChildren
 
-定义
+如果 `Datasnapshot` 有任何子节点返回 true，否则返回 false。
+
+**定义**
 
 hasChildren()
 
-说明
+**参数**
 
-如果 `Datasnapshot` 有任何子节点返回true，否则false。
+_无_
 
-返回值
+**返回**
 
-`boolean` 如果snapshot 有任何子节点 `true` ,否则 `false`
+boolean
 
-示例
+**示例**
 
-假设我们已经有如下的数据
+假设我们已经有如下的数据：
 
 ``` json
 {
@@ -1452,140 +1446,125 @@ hasChildren()
 
 ```
 
-我们可以用 `hasChildren` 检测 `DataSnapshot` 是否包含任何子节点：
+用 `hasChildren` 检测 `DataSnapshot` 是否包含任何子节点：
 
 ``` js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/samplechat/users/jim");
-
-ref.once("value", function(snapshot) {
+ref.once("value").then(function(snapshot) {
   var a = snapshot.hasChildren();
   // a === true
-
   var b = snapshot.child("name").hasChildren();
   // b === true
-
   var c = snapshot.child("name/first").hasChildren();
-  // c === false (because "Fred" is a string and therefore has no children)
+  // c === false （ 因为 first 的值是一个 string，自然它没有任何子节点）
+}).catch(function(err)){
+    console.error('get value failed', err);
 });
 ```
 ----
 
-### key()
+### key
 
-定义
+返回当前数据快照所属节点的 key。
 
- key()
+**定义**
 
-说明
+key()
 
-返回当前节点的key
+**参数**
 
-返回值 
+_无_
 
-`string` 当前节点的key值
+**返回** 
 
-示例
+string
+
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/city/Beijing");
-
-ref.on('child_changed',function(snapshot){
-	if(snapshot.val() == null){
-		//has been deleted
-	}
-	else {
-		if(snapshot.hasChild('pm25')){
-			var pm25=snapshot.child('pm25');
-			var key=snapshot.key();
-			console.log("The ",pm25.key() ," of Bejing is",pm25.val());
-		}	
-	}
+wilddog.sync().ref("/city/Beijing").on('child_changed',
+    function(snapshot){
+        if(snapshot.val() == null){
+            //has been deleted
+        } else {
+            if(snapshot.hasChild('pm25')){
+                var pm25=snapshot.child('pm25');
+                var key=snapshot.key();
+                console.log("The ",pm25.key() ,
+                    " of Bejing is",pm25.val());
+            }	
+        }
 })
 ```
 ----
 
-### numChildren()
+### numChildren
 
-定义
+返回当前节点中子节点的个数。
+
+**定义**
 
 numChildren()
 
-说明
+**参数**
 
-返回当前节点中子节点的个数
+_无_
 
-返回值
+**返回**
  
-`string` 子节点的个数
+number 
 
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var data = {
   "name": {
     "first": "Fred",
     "last": "Flintstone"
   }};
 var ref = wilddog.sync().ref("/users/fred");
-ref.set(data);
-
-ref.once("value", function(snapshot) {
+// 这里我们用了 Promise 的链式写法来保证 once 必定在 set 完成之后才会执行
+ref.set(data).then(function(){
+    return ref.once("value");
+}).then(function(snapshot) {
   var a = snapshot.numChildren();
   // a === 1 ("name")
   var b = snapshot.child("name").numChildren();
   // b === 2 ("first", "last")
   var c = snapshot.child("name/first").numChildren();
   // c === 0 (since "Fred" is a string)
-});
+}).catch(function(err){
+    console.error('operation is failed ', err);
+})
 
 ```
 
 ----
 
-### ref()
+### ref
 
-定义
+返回当前数据节点所关联的 [wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference) 实例。
+
+**定义**
 
 ref()
 
-说明
+**参数**
 
-返回当前Wilddog实例的引用
+_无_
 
-返回值 
+**返回**
 
-当前Wilddog实例的引用
+[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
 
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/city/Beijing");
-
 ref.on('child_changed',function(snapshot){
 	if(snapshot.val() == null){
 		//has been deleted
-	}
-	else {
+	}else{
 		if(snapshot.hasChild('pm25')){
 			var pm25=snapshot.child('pm25');
 			var key=snapshot.key();
@@ -1600,30 +1579,26 @@ ref.on('child_changed',function(snapshot){
 
 ----
 
-### getPriority()
+### getPriority
 
-定义
+获取当前节点的优先级。
+
+**定义**
 
 getPriority()
 
-说明
+**参数**
 
-获取当前节点的优先级
+_无_
 
-返回值
+**返回**
 
-Stirng , Number , Null 优先级，或者不存在
+`stirng|number|null` 不存在优先级时返回 null。
 
-示例
+**示例**
 
 ```js
-var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
-};
-wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/samplechat/users");
-
 ref.setWithPriority("fred", 500, function(error) {
   ref.once("value", function(snapshot) {
     var priority = snapshot.getPriority();
@@ -1634,35 +1609,90 @@ ref.setWithPriority("fred", 500, function(error) {
 ----
 
 
-### exportVal()
+### exportVal
 
+导出 `DataSnapshot` 中的内容到 Javascript 对象，与 [val](/api/sync/web.html#val) 类似，不同之处在于 `exportVal` 导出的数据**包含优先级**。
 
-定义
+**定义**
 
 exportVal()
 
-说明
+**参数**
 
-导出DataSnapshot中的内容到Javascript 对象，与 `val()`类似，不同之处在于exportVal 导出的数据包含优先级。
+_无_
 
-返回值
+**返回**
 
-DataSnapshot 的内容
+数据节点的值和优先级。
 
-示例
+**示例**
 
 ``` js
-ref.setWithPriority("hello", 500, function(error) {
-  ref.once("value", function(snapshot) {
+ref.setWithPriority("hello", 500).then(function(){
+    return ref.once('value');
+}).then(function(snap){
     var data = snapshot.exportVal();
     // data is { ".value": "hello", ".priority": 500 }
     // data[".value"] === "hello"
     // data[".priority"] ===  500
-  });
+}).catch(function(err) {
+    console.error(err)
 });
 ```
 
+---
 
+## wilddog.Promise
+
+*static*
+
+一个 Promise 对象表示一个事件（异步的）的值。Promsie 事件应当被完成（resovle）或者拒绝（reject），这个时候它会回调我们通过 then() 和 catch() 指派给它的回调函数。更多关于 Promise 编程规范的信息请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 
+
+---
+
+### then
+
+为当前 Promise 对象指定一个 resolved 之后的回调函数。
+
+**定义**
+
+then(onResolved,[onReject])
+
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| onResolved | function | _non-null_ | Promise resolved 时的回调函数，回传参数是 Promise 事件的返回值 |
+| onReject | function | optional | Promise rejected 时的回调函数，回传参数是一个 error 对象 |
+
+**返回**
+
+wilddog.Promise
+
+---
+
+### catch
+为当前 Promise 对象指定一个 rejected 或异常后的回调函数。
+
+**定义**
+
+catch(onReject)
+
+**参数**
+
+| 参数名 | 类型 | 属性 | 说明 |
+|---|---|---|---|
+| onReject | function | _non-null_ | Promise rejected 时的回调函数，回传参数是一个 error 对象 |
+
+**返回**
+
+[Void](/api/sync/web.html#Void)
+
+---
+
+## Void
+
+Promise 或 callback 指向 Void 时表示无参数回传。
 
 
 
