@@ -14,7 +14,7 @@ title:  简介
 
 身份认证（Auth）用于简化新应用中账号系统的开发，以及帮助开发者快速将身份认证体系接入到野狗的其他产品。
 
-![](/images/wilddogid.jpg)
+![](/images/wilddogauth.jpg)
 
 我们即将推出实时推送、实时音视频通话、多人在线会议、IM 的 SDK 和场景化 API。
 

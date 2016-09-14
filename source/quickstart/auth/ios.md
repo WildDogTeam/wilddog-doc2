@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-快速入门以邮箱登录为例说明野狗身份认证的基本用法。
+你可以通过邮箱登录的例子来了解身份认证的基本用法。
 
 ## 1. 创建应用
 
@@ -40,7 +40,7 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种：
 4. 选中 Copy items if needed 、Create Groups，点击 Finish。  
 
 ## 3. 初始化 Wilddog Auth 实例
-使用 Auth SDK 之前需要先初始化 Wilddog Auth 实例。
+使用 Auth SDK 之前，需要先初始化实例：
 
 **1. 引入头文件**
 

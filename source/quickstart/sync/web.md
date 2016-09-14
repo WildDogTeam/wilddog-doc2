@@ -6,11 +6,11 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
+首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Sync SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">"<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="comment"><!-- Wilddog Sync SDK --></span></div><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">src</span> = <span class="string">&quot;<span>htt</span>ps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
 `NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog Sync SDK:
 
@@ -31,11 +31,11 @@ var ref = wilddog.sync().ref();
 
 
 
-## 4. 保存数据
+## 4. 写入数据
 
-使用`Set()`方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+使用`Set()`方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
 
-例如在应用中保存北京和上海的天气数据：
+例如在应用的根节点下写入天气数据：
 
 ```javascript
 ref.set({
@@ -46,7 +46,7 @@ ref.set({
 });
 ```
 
-保存的数据如下图：
+写入的数据如下图：
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 

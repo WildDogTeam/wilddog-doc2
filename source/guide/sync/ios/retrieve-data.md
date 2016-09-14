@@ -1,18 +1,22 @@
-title:  读取和查询数据
+title:  查询数据
 ---
-WilddogSync 的读取和查询数据的方法，有很高的灵活性和可操作性。在这篇文章里，我们主要介绍三点内容：  
-1、读取数据；  
-2、数据排序；  
-3、查询数据。  
+本篇文档，主要介绍查询数据的方法。
+Wilddog Sync 查询数据的方法，有很高的灵活性和可操作性。对于数据的查询，我们主要介绍以下三点内容：  
+1. 读取数据；  
+2. 数据排序；  
+3. 查询数据。  
 
 须知：WilddogSync SDK 的数据读取都是建立在监听事件的基础上，在监听事件的回调函数中会返回你要读取的数据。
 
 ## 读取数据
 
-Wilddog Sync 主要有两种获取数据的方法：  
-1、实时性读取数据方法。即监听的节点下数据一有变化，会触发相应的监听方法，如类似`observeEventType`方法；  
-2、一次性读取数据方法。如类似`observeSingleEventOfType`方法。  
+Wilddog Sync 主要有两种读取数据的方法： 
 
+方法     | 描述
+-------- | ---
+observeEventType | 实时性读取数据方法。即正在监听的节点下数据一有变化，会触发相应的监听方法，监听方法的回调中会返回相应的数据
+observeSingleEventOfType | 一次性读取数据方法。即监听节点下的数据只返回一次，监听方法的回调以后不会再次触发
+ 
 用上面两种方法去获取数据，都需要添加一个监听事件，所以，我们先了解一下监听的事件类型：
 
 ### 监听的事件类型
@@ -32,8 +36,8 @@ WDGDataEventTypeChildMoved | 当有子节点排序发生变化时触发
 使用 `WDGDataEventTypeValue` 事件可以用来读取当前节点下的所有数据，监听当前节点下所有数据的变化。
 
 触发时机：  
-1、此监听事件在函数初始化时会触发一次；  
-2、此后在指定节点下每当有数据（包括任何子节点）变化都会被再次触发。
+1. 此监听事件在函数初始化时会触发一次；  
+2. 此后在指定节点下每当有数据（包括任何子节点）变化都会被再次触发。
     
 初始化时，如果没有任何数据，则 `snapshot` 返回的 `value` 为 nil；  
 监听节点下的数据（包括子节点的数据）会以函数回调的形式返回，返回值以一个快照 `WDGDataSnapshot` 对象返回。  
@@ -102,8 +106,8 @@ hasChildren     | 检查是否存在个子节点
 
 `WDGDataEventTypeChildAdded` 事件  
 触发时机：  
-1、函数初始化时，将针对节点下拥有的每一个子节点均触发一次(例如：列表拥有10个子节点，那么该方法就会触发10次)；  
-2、之后每当增加子节点时就会再次触发。在回调中只获取新增的子节点数据。
+1. 函数初始化时，将针对节点下拥有的每一个子节点均触发一次(例如：列表拥有10个子节点，那么该方法就会触发10次)；  
+2. 之后每当增加子节点时就会再次触发。在回调中只获取新增的子节点数据。
 
 ** ChildChanged 事件 ** 
 
@@ -204,7 +208,7 @@ ref.observeEventType(.ChildAdded, withBlock: { snapshot in
 // 一次性读取数据。
 // snapshot.childrenCount 等于 .ChildAdded 事件返回的 snapshot.value 数量的计数总和
 // .Value 是最后触发的
-ref.observeEventType(.Value, withBlock: { snapshot in
+ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
     print("initial data loaded! \(count == snapshot.childrenCount)")
 })
 
@@ -325,6 +329,12 @@ ref.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: { snapshot in
 
 ```
 
+当使用`queryOrderedByKey`对数据进行排序时，数据将会按照下面的规则，以字段名升序排列返回。注意，节点名只能是字符串类型。
+
+1.节点名能转换为 32-bit 整数的子节点优先，按数值型升序排列。
+
+2.接下来是字符串类型的节点名，按字典序排列。
+
 #### Value 排序
 
 使用`queryOrderedByValue`方法，我们可以按照子节点的值进行排序。假设恐龙们进行了一场运动会，我们统计到它们的得分数据：
@@ -366,6 +376,35 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 
 ```
 
+当使用`queryOrderedByValue`时，按照直接子节点的 value 进行排序。仅当 value 为单一的数据类型时，排序有意义。如果子节点包含多种数据类型时，排序不固定，此时不建议使用`queryOrderedByValue`获取全量数据，例如，
+
+```json
+{
+  "scores": {
+    "tyrannosaurus" : "120",
+    "bruhathkayosaurus" : 55,
+    "lambeosaurus" : 21,
+    "linhenykus" : 80,
+    "pterodactyl" : 93,
+    "stegosaurus" : 5,
+    "triceratops" : 22,
+    "brontosaurus" : true
+  }
+}
+
+```
+
+霸王龙的分数是 `NSString`类型，雷龙的分数是 `BOOL` 类型，而其他恐龙的分数是 `NSNumber` 类型，此时使用 `queryOrderedByValue` 获得全量数据时，是一个看似固定的排序结果；但是配合使用`queryLimitedToFirst:`时，将获得不确定的结果。`NSObject`类型数据的 value 值为 null，不会出现在结果中。
+当配合使用`queryStartingAtValue:`、`queryEndingAtValue:`和`queryEqualToValue:`时，如果子节点的 value 包含多种数据类型，将按照这些函数的参数的类型排序，即只能返回这个类型的有序数据。上面的数据如果使用`[[[ref queryOrderedByValue]queryStartingAtValue:@60]queryLimitedToFirst:4]`将得到下面的结果：
+
+```json
+{
+    "linhenykus" : 80,
+    "pterodactyl" : 93
+}
+```
+<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用`queryOrderedByValue`将搜索不到该数据。</em></p>
+
 #### Child 排序
 
 通过将子节点的路径名作为参数传递给`queryOrderedByChild:`，可以实现按指定子节点排序。例如，在恐龙的例子中，要按照 height 进行排序，可以这样做：
@@ -394,17 +433,78 @@ ref.queryOrderedByChild("height").observeEventType(.ChildAdded, withBlock: { sna
 
 ```
 
+当使用`queryOrderedByChild:`时，按照子节点的公有属性 key 的 value 进行排序。仅当 value 为单一的数据类型时，排序有意义。如果 key 属性有多种数据类型时，排序不固定，此时不建议使用`queryOrderedByChild:`获取全量数据，例如，
+
+```json
+{
+  "scores": {
+    "no1" : {
+        "name" : "tyrannosaurus",
+        "score" : "120"
+    },
+    "no2" : {
+        "name" : "bruhathkayosaurus",
+        "score" : 55
+    },
+    "no3" : {
+        "name" : "lambeosaurus",
+        "score" : 21
+    },
+    "no4" : {
+        "name" : "linhenykus",
+        "score" : 80
+    }, 
+    "no5" : {
+        "name" : "pterodactyl",
+        "score" : 93
+    }, 
+    "no6" : {
+        "name" : "stegosaurus",
+        "score" : 5
+    }, 
+    "no7" : {
+        "name" : "triceratops",
+        "score" : 22
+    }, 
+    "no8" : {
+        "name" : "brontosaurus",
+        "score" : true
+    }
+  }
+}
+
+```
+
+霸王龙的分数是`NString`类型，雷龙的分数是`BOOL`类型，而其他恐龙的分数是`NSNumber`类型，此时使用`queryOrderedByChild:`获得全量数据时，是一个看似固定的排序结果；但是配合使用`queryLimitedToFirst:`时，将获得不确定的结果。`NSObject`类型数据的 value 值为 null，不会出现在结果中。
+当配合使用`queryStartingAtValue:`、`queryEndingAtValue:`和`queryEqualToValue:`时，如果子节点的公有属性 key 包含多种数据类型，将按照这些函数的参数的类型排序，即只能返回这个类型的有序数据。上面的数据如果使用 `[[[ref queryOrderedByChild:@"score"]queryStartingAtValue:@60]queryLimitedToFirst:4]` 将得到下面的结果：
+
+```json
+{
+   "no4" : {
+       "name" : "linhenykus",
+       "score" : 80
+   },
+   "no5" : {
+       "name" : "pterodactyl",
+       "score" : 93
+   }
+}
+  
+```
+
+<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用 `queryOrderedByChild:` 将查询不到该数据。</em></p>
+
 #### Priority 排序
 
 当使用`queryOrderedByPriority`对数据进行排序时，子节点数据将按照优先级和字段名进行排序。注意，优先级的值只能是数值型或字符串。
 
-1、 没有优先级的数据（默认）优先。
+1. 没有优先级的数据（默认）优先。
 
-2、 接下来是优先级为数值型的子节点。它们按照优先级数值排序，由小到大。
+2. 接下来是优先级为数值型的子节点。它们按照优先级数值排序，由小到大。
 
-3、 接下来是优先级为字符串的子节点。它们按照优先级的字典序排列。
+3. 接下来是优先级为字符串的子节点。它们按照优先级的字典序排列。
 
-4、 当多个子节点拥有相同的优先级时（包括没有优先级的情况），它们按照节点名排序。节点名可以转换为数值类型的子节点优先（数值排序），接下来是剩余的子节点（字典序排列）。
+4. 当多个子节点拥有相同的优先级时（包括没有优先级的情况），它们按照节点名排序。节点名可以转换为数值类型的子节点优先（数值排序），接下来是剩余的子节点（字典序排列）。
 
 ## 查询数据
 
@@ -671,111 +771,3 @@ ref.childByAppendingPath("stegosaurus").childByAppendingPath("height")
     })
 
 ```
-
-## 数据排序扩展
-
-本小节介绍在使用各种排序方式时，数据究竟是如何排序的。
-
-#### Child 排序
-
-当使用`queryOrderedByChild:`时，按照子节点的公有属性 key 的 value 进行排序。仅当 value 为单一的数据类型时，排序有意义。如果 key 属性有多种数据类型时，排序不固定，此时不建议使用`queryOrderedByChild:`获取全量数据，例如，
-
-```json
-{
-  "scores": {
-    "no1" : {
-        "name" : "tyrannosaurus",
-        "score" : "120"
-    },
-    "no2" : {
-        "name" : "bruhathkayosaurus",
-        "score" : 55
-    },
-    "no3" : {
-        "name" : "lambeosaurus",
-        "score" : 21
-    },
-    "no4" : {
-        "name" : "linhenykus",
-        "score" : 80
-    }, 
-    "no5" : {
-        "name" : "pterodactyl",
-        "score" : 93
-    }, 
-    "no6" : {
-        "name" : "stegosaurus",
-        "score" : 5
-    }, 
-    "no7" : {
-        "name" : "triceratops",
-        "score" : 22
-    }, 
-    "no8" : {
-        "name" : "brontosaurus",
-        "score" : true
-    }
-  }
-}
-
-```
-
-霸王龙的分数是`NString`类型，雷龙的分数是`BOOL`类型，而其他恐龙的分数是`NSNumber`类型，此时使用`queryOrderedByChild:`获得全量数据时，是一个看似固定的排序结果；但是配合使用`queryLimitedToFirst:`时，将获得不确定的结果。`NSObject`类型数据的 value 值为 null，不会出现在结果中。
-当配合使用`queryStartingAtValue:`、`queryEndingAtValue:`和`queryEqualToValue:`时，如果子节点的公有属性 key 包含多种数据类型，将按照这些函数的参数的类型排序，即只能返回这个类型的有序数据。上面的数据如果使用 `[[[ref queryOrderedByChild:@"score"]queryStartingAtValue:@60]queryLimitedToFirst:4]` 将得到下面的结果：
-
-```json
-{
-   "no4" : {
-       "name" : "linhenykus",
-       "score" : 80
-   },
-   "no5" : {
-       "name" : "pterodactyl",
-       "score" : 93
-   }
-}
-  
-```
-
-<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用 `queryOrderedByChild:` 将查询不到该数据。</em></p>
-
-#### Key 排序
-
-当使用`queryOrderedByKey`对数据进行排序时，数据将会按照下面的规则，以字段名升序排列返回。注意，节点名只能是字符串类型。
-
-1, 节点名能转换为 32-bit 整数的子节点优先，按数值型升序排列。
-
-2, 接下来是字符串类型的节点名，按字典序排列。
-
-#### Value 排序
-
-当使用`queryOrderedByValue`时，按照直接子节点的 value 进行排序。仅当 value 为单一的数据类型时，排序有意义。如果子节点包含多种数据类型时，排序不固定，此时不建议使用`queryOrderedByValue`获取全量数据，例如，
-
-```json
-{
-  "scores": {
-    "tyrannosaurus" : "120",
-    "bruhathkayosaurus" : 55,
-    "lambeosaurus" : 21,
-    "linhenykus" : 80,
-    "pterodactyl" : 93,
-    "stegosaurus" : 5,
-    "triceratops" : 22,
-    "brontosaurus" : true
-  }
-}
-
-```
-
-霸王龙的分数是 `NSString`类型，雷龙的分数是 `BOOL` 类型，而其他恐龙的分数是 `NSNumber` 类型，此时使用 `queryOrderedByValue` 获得全量数据时，是一个看似固定的排序结果；但是配合使用`queryLimitedToFirst:`时，将获得不确定的结果。`NSObject`类型数据的 value 值为 null，不会出现在结果中。
-当配合使用`queryStartingAtValue:`、`queryEndingAtValue:`和`queryEqualToValue:`时，如果子节点的 value 包含多种数据类型，将按照这些函数的参数的类型排序，即只能返回这个类型的有序数据。上面的数据如果使用`[[[ref queryOrderedByValue]queryStartingAtValue:@60]queryLimitedToFirst:4]`将得到下面的结果：
-
-```json
-{
-    "linhenykus" : 80,
-    "pterodactyl" : 93
-}
-```
-<p style='color:red'><em>注意：如果 path 与 value 的总长度超过1000字节时，使用`queryOrderedByValue:`将搜索不到该数据。</em></p>
-
-

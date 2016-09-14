@@ -1,4 +1,4 @@
-title:  读取和查询数据
+title:  查询数据
 ---
 本篇文档，介绍如何读取数据以及如何对数据进行排序和查询。
 
@@ -54,7 +54,7 @@ numChildren()    | 返回当前节点中子节点的个数
 exists()     | 如果 snapshot 对象包含数据返回 true，否则返回false
 hasChild()     | 检查是否存在某个子节点
 
-更多更详细的用法说明参见 [API](/api/sync/web.html#DataSnapshot-Methods) 文档。
+更多更详细的用法说明参考 [API](/api/sync/web.html#DataSnapshot-Methods) 文档。
 
 #### child 事件
 当某个节点的子节点发生改变时（如通过 `push()` 方法添加子节点，或通过 `update()` 更新子节点），就会触发 `child 事件`。

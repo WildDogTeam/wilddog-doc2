@@ -5,7 +5,7 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
+首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
@@ -63,9 +63,10 @@ public void onCreate() {
 
 ## 5. 保存数据
 
-setValue() 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+setValue() 方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org) 。
 
 例如在应用中 `weather` 节点下保存天气数据
+
 
 ```java
 SyncReference myRef = WilddogSync.getInstance().getReference("weather")
@@ -75,13 +76,13 @@ data.put("shanghai","sunny");
 myRef.setValue(data);
 ```
 
-保存的数据如下图：
+写入的数据如下图：
 
 <img src="/images/saveapp.png" alt="savedata" width="300" >
 
 ## 6. 读取与监听数据
 
-`addValueEventListener()`方法可以读取保存的数据。
+`addValueEventListener()`方法可以读取写入的数据。
 
 ```java
 myRef.addValueEventListener(new ValueEventListener() {
@@ -101,4 +102,4 @@ myRef.addValueEventListener(new ValueEventListener() {
 
 取出的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`addListenerForSingleValueEvent()`方法替代 `addValueEventListener()`方法。
 
-更多的数据读取方式可以查看 [完整指南](/guide/sync/android/save-data.html)和 [API 文档](/api/sync/android.html)
+更多的数据读取方式可以查看 [完整指南](/guide/sync/android/save-data.html)和 [API 文档](/api/sync/android.html)。

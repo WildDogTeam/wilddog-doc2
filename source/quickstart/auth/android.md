@@ -2,9 +2,7 @@
 title:  快速入门
 ---
 
-快速入门以邮箱登录为例说明野狗身份认证的基本用法。
-
-
+你可以通过邮箱登录的例子来了解身份认证的基本用法。
 
 ## 1. 创建应用
 
@@ -54,10 +52,12 @@ android {
 
 ## 4. 初始化 Wilddog Auth 实例
 
-引入 Wilddog Auth SDK 之后需要初始化 WilddogAuth 实例。
+使用 Auth SDK 之前，需要先初始化实例：
 
 ```java
-WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
+WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+WilddogApp.initializeApp(this, options);
+WilddogAuth wilddogAuth = WilddogAuth.getInstance();
 ```
 
 

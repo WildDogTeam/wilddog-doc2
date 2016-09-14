@@ -6,7 +6,7 @@ title: 快速入门
 
 ## 1. 创建应用
 
-首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
+首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
@@ -40,7 +40,7 @@ SDK 的安装方式有两种，你可以选择下面方式的其中一种：
 5. 点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
 
 ## 3. 初始化 Wilddog Sync 实例
-使用 Sync SDK 之前需要先初始化 Wilddog Sync 实例。
+使用 Sync SDK 之前，需要先初始化实例：
 
 **1.引入头文件**
 
@@ -75,9 +75,10 @@ WDGApp.configureWithOptions(options)
 let myRootRef = WDGSync.sync().reference()
 ```
 
-## 4. 保存数据
+## 4. 写入数据
 
-`setValue` 方法可以保存数据。Sync的数据存储格式采用 [JSON](http://json.org) 。
+`setValue` 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org)。
+例如在应用的根节点下写入天气数据：
 
 Objective-C: 
 
@@ -95,7 +96,7 @@ Swift:
 myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 
 ```
-保存的数据如下图：
+写入的数据如下图：
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
