@@ -9,4 +9,7 @@ title:  参考资源
 |<a href="https://github.com/WildDogTeam/demo-android-drawing" target="_blank">实时画图</a>|野狗官方 | Drawing 是一个基于 Wilddog Android SDK 开发的实时画图 demo，可多终端登录来一起画画，同步显示图画效果。 |
 
 
+[更多示例](https://github.com/WildDogTeam/awesome-wilddog)
+
+
 

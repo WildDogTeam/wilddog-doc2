@@ -10,20 +10,21 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-安装完整 Wilddog SDK(包含 Sync 和 Auth)
+根据需要选择以下一种方式安装：
+
+* **安装完整 Wilddog SDK (推荐，包含 Sync 和 Auth)**
 
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>
 ```
 
-独立安装 Sync  SDK
+* **独立安装 Sync SDK**
 
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
 ```
 
-
-`NodeJS` 或者 `ReactNative` 项目可以采用 `npm` 方式来安装最新的 Wilddog  SDK
+* **`NodeJS` 或者 `ReactNative` 项目请使用 `npm` 方式**
 
 ```
 npm install wilddog
