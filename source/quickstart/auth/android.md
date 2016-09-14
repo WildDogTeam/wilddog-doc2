@@ -71,7 +71,7 @@ WilddogAuth mAuth = Wilddog.getInstance("<appId>",context);
 
 **2.创建新用户**
 
-```
+```java
      wilddogAuth.createUserWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 	@Override
 	public void onComplete(Task<AuthResult> var1) {

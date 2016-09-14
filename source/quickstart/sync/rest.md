@@ -14,7 +14,7 @@ title: 快速入门
 
 假如我们已有数据是这样的
 
-```
+```javascript
 {
   "rest": {
     "quickstart": {
@@ -27,14 +27,13 @@ title: 快速入门
 
 使用`PUT`请求写入数据:
 
-```
+```javascript
 curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23, 1912" } }' 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
-
 ```
 
 成功的请求会收到 HTTP 状态码 200 ，返回值中包含我们写入Wilddog 的数据。
 
-```
+```javascript
 {
   "alanisawesome": {
     "birthday": "June 23, 1912",

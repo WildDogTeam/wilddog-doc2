@@ -10,7 +10,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-安装完整 Wilddog SDK  
+安装完整 Wilddog SDK(包含 Sync 和 Auth)
 
 ```html
 <script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>

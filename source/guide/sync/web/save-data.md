@@ -214,7 +214,7 @@ upvotesRef.transaction(function (currentValue) {
 ```
 如果上面的代码没有使用事务, 那么两个客户端同时试图累加时，结果可能是为数字 1 而非数字 2。
 
-**注意**：`transaction()` 可能被多次被调用，必须处理 currentValue 变量为 null 的情况。当执行事务时，云端有数据存在，但是本地可能没有缓存，此时 currentValue 为 null。
+**注意**：当云端有数据存在，本地还未缓存时，此时回调方法的变量为 null，必须要处理这种情况。
 
 更多使用，请参考 [transaction()](/api/sync/web.html#transaction)。
 
