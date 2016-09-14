@@ -1,3 +1,4 @@
+
 title: 实战教程
 ---
 
@@ -129,4 +130,7 @@ var getRandomColor = function() {
 ```
 
 
-源码地址：https://github.com/WildDogTeam/demo-js-danmu
+
+## 获取示例源码
+
+点此获取完整的[示例源码](https://github.com/WildDogTeam/demo-js-danmu)

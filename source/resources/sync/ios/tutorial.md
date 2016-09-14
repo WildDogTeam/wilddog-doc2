@@ -1,3 +1,4 @@
+
 title: 实战教程
 ---
 
@@ -32,12 +33,12 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 然后在 Podfile 文件中添加以下语句
 
 	pod 'Wilddog'
-	
+
 最后安装 SDK
 
 	$ pod install
 	$ open your-project.xcworkspace
-	
+
 ** 第二种：手动集成 **
 
 1、下载 Sync SDK[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogSync.framework-2.0.1.zip)。
@@ -142,9 +143,11 @@ _wilddog = [[WDGSync sync] referenceWithPath:@"message"];
 }
 ```
 
-## 获取源码
-本示例只是弹幕的一种简单实现方式，你可以开动大脑，做出更优雅的实现。
-点此处获取[示例源码](https://github.com/WildDogTeam/demo-ios-danmu)。
+
+
+## 获取示例源码
+
+点此获取完整的[示例源码](https://github.com/WildDogTeam/demo-ios-danmu)。
 
 
 
