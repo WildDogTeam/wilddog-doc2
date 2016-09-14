@@ -44,7 +44,9 @@ orderBy="$priority" | 按优先级对结果排序。
 其中{childValue}为子节点的名称
 例如：[恐龙应用数据页面](https://dinosaur-facts.wilddogio.com) 中演示如何按照每个恐龙的身高（"height"节点的值）进行排序。
 
+```
 curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
+```
 
 **注意**：
 
