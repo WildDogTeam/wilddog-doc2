@@ -11,7 +11,7 @@ Wilddog\_T wilddog\_initWithUrl(Wilddog\_Str\_T \*url)
 
 说明
 
-初始化应用 URL 对应的 Wilddog 引用。
+初始化应用 URL 对应的 Wilddog 引用，并与 URL 建立会话。
 
 参数
 * Wilddog\_Str\_T *`url` : 应用URL。Wilddog 中任何数据都能够通过一个URL来进行访问，如`coap[s]://<appId>.wilddogio.com/<path>` 
@@ -192,9 +192,10 @@ int main(void){
  定义
 
 Wilddog\_Return\_T wilddog\_push( Wilddog\_T wilddog, Wilddog\_Node\_T \*p\_node, onPushFunc callback, void \*arg)
+
 说明
 
-在当前节点下生成一个子节点，并返回子节点的引用。子节点的key利用服务端的当前时间生成。
+在当前节点下追加一个子节点，并在回调中返回该子节点的完整路径 。子节点的 key 由服务端根据当前时间生成。
 
 参数 
 
@@ -205,7 +206,7 @@ Wilddog\_Return\_T wilddog\_push( Wilddog\_T wilddog, Wilddog\_Node\_T \*p\_node
 
  返回值
 
-`Wilddog_Return_T` 返回 `0`:成功 `<0`:失败，返回码见`wilddog.h`。
+`Wilddog_Return_T` 返回 `0`:成功 `<0`:失败，返回码见 `wilddog.h`。
 
  示例
 ```c
@@ -320,7 +321,7 @@ Wilddog\_Return\_T wilddog\_addObserver(Wilddog\_T wilddog, Wilddog\_EventType\_
 
 说明
 
-监听某节点的数据变化。一旦该数据发生改变, `onDataChange`函数将被调用。
+监听节点的数据变化。一旦该数据发生改变, `onDataChange`函数将被调用。
 
 参数
 
@@ -410,7 +411,7 @@ Wilddog\_Return\_T wilddog\_onDisconnectSetValue(Wilddog\_T wilddog, Wilddog\_No
 
 说明
 
-当该客户端离线时，云端自动执行该操作，设置当前节点的数据，数据格式为`Wilddog_Node_T`。
+当该客户端离线时，云端自动执行该操作，设置当前节点的数据，数据格式为`Wilddog_Node_T`。回调函数用于判断该离线事件是否成功注册。
  
  参数
 
@@ -470,7 +471,7 @@ Wilddog\_Return\_T wilddog\_onDisconnectPush( Wilddog\_T wilddog, Wilddog\_Node\
 
 说明
 
-当该客户端离线时，云端自动执行该操作，在当前节点下生成一个子节点。子节点的key利用服务端的当前时间生成。
+当该客户端离线时，云端自动执行该操作，在当前节点下生成一个子节点。子节点的key利用服务端的当前时间生成。回调函数用于判断该离线事件是否成功注册。
 
 参数 
 
@@ -529,7 +530,7 @@ Wilddog\_Return\_T wilddog\_onDisconnectRemoveValue(Wilddog\_T wilddog, onDisCon
 
 说明
 
-当该客户端离线时，云端自动执行该操作，删除当前节点及节点下所有数据。
+当该客户端离线时，云端自动执行该操作，删除当前节点及节点下所有数据。回调函数用于判断该离线事件是否成功注册。
 
  参数
 
@@ -634,7 +635,7 @@ void wilddog_goOffline(void)
 
 说明
 
-通过调用`wilddog_goOffline` 断开客户端和云端的连接，之前若注册了离线事件则云端会触发断线事件。
+通过调用`wilddog_goOffline` 断开客户端和云端的连接，之前若注册了离线事件则云端会触发离线事件。
 
  返回值
 
@@ -649,7 +650,7 @@ void wilddog_goOnline(void)
 
 说明
 
-通过调用`wilddog_goOnline` 若客户端处于离线状态，则重新连接云端服务，之前若注册了监听事件，则 SDK 回重新发送监听请求，这时候需要注意监听回调的触发并非代表云端数据有修改，而重连时获取的数据。
+通过调用`wilddog_goOnline` 若客户端处于离线状态，则重新连接云端服务，之前若注册了监听事件，则 SDK 回重新发送监听请求，注意重连时监听回调会触发返回当前的数据。
 
  返回值
 
@@ -665,7 +666,7 @@ void wilddog\_trySync(void)
 
 说明
 
-通过调用`wilddog_trySync`来向Wilddog云端同步数据。每次调用都会处理来自云端的推送和请求超时的重发、长连接的维持 ，触发用户注册的回调函数。
+当前网络情况的探测，连接的维持，数据的重发，数据的重发和接收，回调函数的触发均都在 `wilddog_trySync` 中实现，应当在程序空闲时不断调用该函数。
 
  返回值
 
@@ -681,7 +682,7 @@ void wilddog\_increaseTime(u32 ms)。
 
  说明
 
-用于校准 Wilddog 的时钟(可以在定时器中调用)。一般情况下 Wilddog 会根据自己推算的时间执行业务操作，这个时间的推算会有偏差，我们可以通过传入一个时间增量来校准 Wilddog 时钟。
+用于校准 Wilddog 的时钟(可以在定时器中调用)。一般情况下 `wilddog_trySync()` 会根据自己推算的时间执行业务操作，这个时间的推算会有偏差，我们可以通过传入一个时间增量来校准 Wilddog 时钟。
 
  参数
 
@@ -693,11 +694,12 @@ void
 
  示例
 ```c
-void timer_isr()
-{
-    //this isr is been called per ms。
 
-    wilddog_increaseTime(1);
+while(1){
+    sleep(1);
+    //this isr is been called per ms。
+    wilddog_increaseTime(1000);
+    wilddog_trySync();
 }
 ```
 ----
@@ -766,7 +768,7 @@ Wilddog\_T wilddog\_getChild(Wilddog\_T wilddog, Wilddog\_Str\_T \*childName)
 
  说明
 
-获取当前引用下名字为childName的子节点引用的id。
+获取当前引用下名字为 childName 的子节点引用的id。
 
  参数
 
@@ -886,11 +888,11 @@ Wilddog\_Node\_T \* wilddog\_node\_createObject(Wilddog_Str\_T \*key)
 
  参数
 
-* key `Wilddog_Str_T* ` : 节点的key值。
+* key `Wilddog_Str_T* ` : 节点的 key 值。
 
  返回值
 
-创建成功则返回该节点的指针，失败返回NULL。
+创建成功则返回该节点的指针，失败返回 NULL。
 
  示例
 ```c
