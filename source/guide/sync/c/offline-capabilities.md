@@ -63,6 +63,33 @@ int main(void){
     wilddog_destroy(&wilddog);
 }
 ```
+## 手动建立或断开连接
+
+Sync 也提供了手动建立或者断开连接的方法，分别为 `wilddog_goOffline()`，`wilddog_goOnline()`，如下 ：
+
+```c
+
+int main(void){
+    //计数器，自加到1000 主动断线。
+    int cnt = 0;
+    Wilddog_T wilddog = 0;
+
+    //<url>即希望设置数据的url，如coaps://<appid>.wilddogio.com/a/
+    wilddog = wilddog_initWithUrl("<url>");
+    
+    wilddog_goOnline();
+    while(1){
+        if( ++cnt > 1000){
+            wilddog_goOffline();
+            break;
+        }
+        wilddog_trySync();
+    }
+    wilddog_destroy(&wilddog);
+}
+```
+
+
 ## 离线功能的实现机制
 
 客户端每隔 20s 给云端发一个心跳包，云端用此检测与客户端的连接是否正常。
