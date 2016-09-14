@@ -9,4 +9,6 @@ title:  示例库
 |<a href="https://github.com/WildDogTeam/demo-ios-danmu" target="_blank">Danmu</a>|野狗官方 | Danmu 是一个基于 Wilddog iOS SDK 实现的弹幕 |
 |<a href="https://github.com/WildDogTeam/demo-ios-wildchat" target="_blank">WildChat</a> |野狗官方 | WildChat 是一个基于 Wilddog iOS SDK 实现的简单聊天通讯类 APP |
 
+[更多示例](https://github.com/WildDogTeam/awesome-wilddog)
+
 
