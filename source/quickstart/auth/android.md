@@ -6,11 +6,13 @@ title:  快速入门
 
 ## 1. 创建应用
 
-首先在控制面板中创建应用，请参考 [控制面板-创建应用](/console/creat.html)。
+首先，你需要在控制面板中创建应用。请参考  [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
 
-- **使用 Maven 安装 Android SDK：**
+SDK 的安装方式有两种，你可以任选其一
+
+- **使用 Maven **
 
 ```xml
 <dependency>
@@ -20,9 +22,9 @@ title:  快速入门
 </dependency> 
 ```
 
-- **使用 Gradle 安装 Auth SDK：**
+- **使用 Gradle **
 
- 在build.gradle中添加：
+在build.gradle中添加
 
 ```java
 dependencies {
@@ -30,7 +32,7 @@ dependencies {
 }
 ```
 
-如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions：
+如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions
 
 ```java
 android {
@@ -44,7 +46,7 @@ android {
 
 ## 3. 配置 Android 权限
 
-在 AndroidMainfest.xml 文件中添加：
+在 AndroidMainfest.xml 文件中添加
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -52,7 +54,7 @@ android {
 
 ## 4. 初始化 Wilddog Auth 实例
 
-使用 Auth SDK 之前，需要先初始化实例：
+使用 Auth SDK 之前，需要先初始化实例
 
 ```java
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
@@ -63,19 +65,15 @@ WilddogAuth wilddogAuth = WilddogAuth.getInstance();
 
 ## 5. 使用邮箱认证
 
-1.首先确认应用的邮箱登录功能已激活（默认是关闭状态）：
+**1.开启邮箱登录**
+
+在 控制面板—身份认证—登录方式 中开启邮箱登录功能
 
 ![](/images/openemail.png)
 
-2.创建用户的方式有两种：
+**2.创建新用户**
 
-* 将账号密码填写到用户列表中，创建新的用户。用户创建成功后会自动登录。
-
-![](/images/addemailuser.png)
-
-* 通过Android WilddogAuth SDK生成
-
-```
+```java
      wilddogAuth.createUserWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 	@Override
 	public void onComplete(Task<AuthResult> var1) {
@@ -88,7 +86,9 @@ WilddogAuth wilddogAuth = WilddogAuth.getInstance();
 	   }
 	}	 
 ```
-3.已存在的用户使用 `signInWithEmailAndPassword()` 方法登录:
+**3.邮箱密码登录**
+
+已存在的用户使用 `signInWithEmailAndPassword()` 方法登录
 
 ```java
 mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -106,7 +106,7 @@ mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteLis
 
 ## 6. 退出登录
 
-你可以使用 `signOut()` 方法退出当前登录用户:
+你可以使用 `signOut()` 方法退出当前登录用户
 
 ```
 mAuth.signOut();

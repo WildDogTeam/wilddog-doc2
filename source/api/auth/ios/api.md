@@ -1,9 +1,9 @@
-title:  完整 API 文档
+title:  iOS API 文档
 ---
 
-# WDGAuth (*Methods*)
+## WDGAuth (*Methods*)
 
-## + auth
+### + auth
  
  定义
 
@@ -11,33 +11,33 @@ title:  完整 API 文档
 
  说明
 
-以 appID 来获取 auth 对象。如果之前没有创建过 auth 对象，会自动创建一个。
+获取初始化的 WDGApp 所对应的 WDGAuth。
 
  返回值
  
-应用的 appID。
+WDGAuth 对象。
 
 ----
-## + authWithApp:
+### + authWithApp:
 
  定义
 
-`+ (nullable WDGAuth *)authWithApp:(NSString *)appID NS_SWIFT_NAME(auth(appID:))`
+`+ (nullable WDGAuth *)authWithApp:(WDGApp *)app`
 
  说明
 
-以 appID 来获取 auth 对象。如果之前没有创建过 auth 对象，会自动创建一个。
+用自己创建的 WDGApp 获取对应的 WDGAuth 对象。
 
  参数
 
-appID 应用的 appID。
+WDGAuth 对象。
 
  描述
 
 能确保线程安全。
 
 ----
-## currentUser
+### currentUser
  
  定义
 
@@ -48,7 +48,7 @@ appID 应用的 appID。
 同步的获取当前缓存的用户，如果没有登录用户则为 null。
 
 ----
-## - fetchProvidersForEmail:completion:
+### - fetchProvidersForEmail:completion:
 
  定义
 
@@ -72,7 +72,7 @@ completion 可以为空；返回用户的登录方式列表或者错误信息。
  - See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
-## - signInWithEmail:password:completion:
+### - signInWithEmail:password:completion:
 
  定义
 
@@ -100,7 +100,7 @@ completion 可以为空；当用户登录成功或者发生错误时触发。异
  - See WDGAuthErrors API 调用可能发生的所有错误。
  
 ----
-## - signInWithCredential:completion:
+### - signInWithCredential:completion:
 
  定义
 
@@ -127,7 +127,7 @@ completion 可以为空；当用户登录成功或者发生错误时触发。异
  - See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
-## - signInAnonymouslyWithCompletion:
+### - signInAnonymouslyWithCompletion:
 
  定义
 
@@ -150,7 +150,7 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  - See WDGAuthErrors API 调用可能发生的所有错误。
  
 ---- 
-## - signInWithCustomToken:completion:
+### - signInWithCustomToken:completion:
 
  定义
 
@@ -176,7 +176,7 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  - See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
-## - createUserWithEmail:password:completion:
+### - createUserWithEmail:password:completion:
 
  定义
 `- (void)createUserWithEmail:(NSString *)email
@@ -204,7 +204,7 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  - See WDGAuthErrors API 调用可能发生的所有错误。
  
 ----
-## - sendPasswordResetWithEmail:completion:
+### - sendPasswordResetWithEmail:completion:
 
  定义
 
@@ -227,7 +227,7 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
 - See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
-## - signOut:
+### - signOut:
 
  定义
 
@@ -246,7 +246,7 @@ error 可以为空；如果发生错误，会以 NSError 的方式返回错误�
 YES 表示退出登录成功。NO 表示失败
 
 ----
-## - addAuthStateDidChangeListener:
+### - addAuthStateDidChangeListener:
 
  定义
 
@@ -273,7 +273,7 @@ listener 状态变化时调用的 block。异步等待，会在主线程中回�
 这个方法被调用时就会触发 block 的回调。之后会一直处于监听状态，并且 block 会被 WDGAuth 持有，直到移除这个监听。需要防止引用循环。
 
 ----
-## - removeAuthStateDidChangeListener:
+### - removeAuthStateDidChangeListener:
 
  定义
 
@@ -288,9 +288,9 @@ listener 状态变化时调用的 block。异步等待，会在主线程中回�
 listenerHandle WDGAuth.addAuthStateDidChangeListener: 返回的句柄。
 
 ----
-# WDGAuthCredential (*Methods*)
+## WDGAuthCredential (*Methods*)
 
-## provider
+### provider
 
  定义
 
@@ -301,9 +301,9 @@ listenerHandle WDGAuth.addAuthStateDidChangeListener: 返回的句柄。
 获取凭证的 id 名。
 
 ----
-# WDGEmailPasswordAuthProvider (*Methods*)
+## WDGEmailPasswordAuthProvider (*Methods*)
 
-## + credentialWithEmail: password:
+### + credentialWithEmail: password:
 
  定义
 
@@ -323,9 +323,9 @@ password 用户的登录密码。
 WDGAuthCredential 对象，里面包含 email & password 登录方式凭证。
 
 ----
-# WDGQQAuthProvider (*Methods*)
+## WDGQQAuthProvider (*Methods*)
 
-## + credentialWithAccessToken:
+### + credentialWithAccessToken:
 
  定义
 
@@ -344,9 +344,9 @@ accessToken QQ OAuth access token.
 WDGAuthCredential 对象，里面包含 qq 登录凭证。
 
 ----
-# WDGSinaAuthProvider (*Methods*)
+## WDGSinaAuthProvider (*Methods*)
 
-## + credentialWithAccessToken: userID:
+### + credentialWithAccessToken: userID:
 
  定义
 
@@ -366,9 +366,9 @@ userID Sina OAuth 的 userID。
 WDGAuthCredential 对象，里面包含 Sina 登录凭证。
 
 ----
-# WDGWeiXinAuthProvider (*Methods*)
+## WDGWeiXinAuthProvider (*Methods*)
 
-## + credentialWithCode:
+### + credentialWithCode:
 
  定义
 
@@ -387,9 +387,9 @@ code Weixin OAuth code.
 WDGAuthCredential 对象，里面包含 WeiXin 登录凭证。
 
 ----
-# WDGUser (*Methods*)
+## WDGUser (*Methods*)
 
-## anonymous
+### anonymous
 
  定义
 
@@ -400,7 +400,7 @@ WDGAuthCredential 对象，里面包含 WeiXin 登录凭证。
 如果为 YES 则表明为匿名用户。
 
 ----
-## emailVerified
+### emailVerified
  
  定义
 
@@ -411,7 +411,7 @@ WDGAuthCredential 对象，里面包含 WeiXin 登录凭证。
 如果为 YES 则表示和这个帐号关联的邮箱已经验证过。
 
 ----
-## providerData
+### providerData
  
  定义
 
@@ -426,7 +426,7 @@ WDGAuthCredential 对象，里面包含 WeiXin 登录凭证。
 不同登录方式之间可以相互绑定，绑定之后可以以任意一种登录方式登录主帐号
 
 ----
-## - updateEmail:completion:
+### - updateEmail:completion:
 
  定义
 
@@ -452,7 +452,7 @@ completion 可以为空；返回用户的登录方式列表或者错误信息。
  - See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
-## - updatePassword:completion:
+### - updatePassword:completion:
 
  定义
 
@@ -478,7 +478,7 @@ completion 可以为空；当用户登录成功或者发生错误时触发。异
  - See WDGAuthErrors API 调用可能发生的所有错误。
  
 ----
-## profileChangeRequest
+### profileChangeRequest
 
  定义
 
@@ -497,7 +497,7 @@ completion 可以为空；当用户登录成功或者发生错误时触发。异
 返回一个可以用来原子性的修改用户信息的对象。也就是说不会单独某个属性修改成功，而其它的修改失败。
 
 ----
-## - reloadWithCompletion:
+### - reloadWithCompletion:
 
  定义
 
@@ -520,7 +520,7 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  - See WDGAuthErrors API 调用可能发生的所有错误。
  
 ----
-## - reauthenticateWithCredential:completion:
+### - reauthenticateWithCredential:completion:
 
  定义
 
@@ -550,7 +550,7 @@ completion 可以为空；重新登录成功时会被调用这个 block，block 
  - See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
-## - getTokenWithCompletion:
+### - getTokenWithCompletion:
 
  定义
 `- (void)getTokenWithCompletion:(nullable WDGAuthTokenCallback)completion`
@@ -570,7 +570,7 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  - See WDGAuthErrors API 调用可能发生的所有错误。
 
 ---- 
-## - linkWithCredential:completion:
+### - linkWithCredential:completion:
 
  定义
 
@@ -597,7 +597,7 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  - See 更多错误请参考 WDGAuthErrors。
 
 ----
-## - unlinkFromProvider:completion:
+### - unlinkFromProvider:completion:
 
  定义
 
@@ -622,7 +622,7 @@ completion 可以为空；请求成功后会被调用的 block，异步等待，
  - See 更多错误请参考 WDGAuthErrors。
 
 ----
-## - sendEmailVerificationWithCompletion:
+### - sendEmailVerificationWithCompletion:
 
  定义
 
@@ -644,7 +644,7 @@ completion 可以为空；当请求成功或失败时会调用这个 block，异
  - See 更多错误请参考 WDGAuthErrors。
  
 ----
-## - deleteWithCompletion:
+### - deleteWithCompletion:
 
  定义
 
@@ -666,9 +666,9 @@ completion 可以为空；删除帐号成功或失败时调用这个 block，异
  - See 更多错误请参考 WDGAuthErrors。
  
 ----
-# WDGUserProfileChangeRequest (*Methods*)
+## WDGUserProfileChangeRequest (*Methods*)
 
-## displayName
+### displayName
 
  定义
 
@@ -683,7 +683,7 @@ completion 可以为空；删除帐号成功或失败时调用这个 block，异
 必须在使用  WDGUserProfileChangeRequest.commitChangesWithCallback: 方法前设置这个参数。
 
 ----
-## photoURL
+### photoURL
 
  定义
 
@@ -698,7 +698,7 @@ completion 可以为空；删除帐号成功或失败时调用这个 block，异
 必须在使用  WDGUserProfileChangeRequest.commitChangesWithCallback: 方法前设置这个参数。
 
 ----
-## - commitChangesWithCompletion:
+### - commitChangesWithCompletion:
 
  定义
 
@@ -717,9 +717,9 @@ completion 可以为空；请求成功或失败时调用这个 block。异步等
 修改属性必须在这个方法调用之前。
 
 ----
-# WDGUserInfo (*protocol*)
+## WDGUserInfo (*protocol*)
 
-## providerID
+### providerID
 
  定义
 
@@ -730,7 +730,7 @@ completion 可以为空；请求成功或失败时调用这个 block。异步等
 用户登录方式。
 
 ----
-## uid
+### uid
  
  定义
 
@@ -741,7 +741,7 @@ completion 可以为空；请求成功或失败时调用这个 block。异步等
 用户 id。
 
 ----
-## displayName
+### displayName
 
  定义
 
@@ -752,7 +752,7 @@ completion 可以为空；请求成功或失败时调用这个 block。异步等
 用户名。
 
 ----
-## photoURL
+### photoURL
  
  定义
 
@@ -763,7 +763,7 @@ completion 可以为空；请求成功或失败时调用这个 block。异步等
 用户头像。
 
 ----
-## email
+### email
  
  定义
 
@@ -774,9 +774,9 @@ completion 可以为空；请求成功或失败时调用这个 block。异步等
 用户邮箱地址。
 
 ----
-# WDGAuthErrors (*Methods*)
+## WDGAuthErrors (*Methods*)
 
-## WDGAuthErrorCode
+### WDGAuthErrorCode
 
  定义
 

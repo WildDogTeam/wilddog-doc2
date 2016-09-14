@@ -1,10 +1,10 @@
 
-title: REST API
+title: REST API 文档
 ---
 
 我们可以使用任意的Wilddog应用的URL作为REST的结束点，我们只需要在URL的结尾处加上`.json`然后发送HTTPS请求即可。 HTTPS是必须的，Wilddog只会响应加密数据，所以你的数据是保证安全的。
 
-## GET
+### GET
 
 说明
 
@@ -26,7 +26,7 @@ curl 'https://samplechat.wilddogio.com/users/jack/name.json'
 
 ---
 
-## PUT
+### PUT
 
 说明
 
@@ -49,7 +49,7 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 
 ---
 
-## POST
+### POST
 
 说明
 
@@ -72,7 +72,7 @@ curl -X POST -d '{"user_id" : "jack", "text" : "Ahoy!"}' \
 
 ---
 
-## PATCH
+### PATCH
 
 说明
 
@@ -95,7 +95,7 @@ curl -X PATCH -d '{"last":"Jones"}' \
 
 ---
 
-## DELETE
+### DELETE
 
 说明
 
@@ -115,7 +115,7 @@ curl -X DELETE \
 
 ---
 
-## 方法覆盖
+### 方法覆盖
 
 说明
 
@@ -143,11 +143,11 @@ curl -X POST \
 
 ---
 
-# Query
+## Query
 
 Wilddog的REST API接收以下的查询参数和值
 
-## shallow
+### shallow
 
 说明
 
@@ -164,7 +164,7 @@ curl 'https://samplechat.wilddogio.com/.json?shallow=true'
 
 ---
 
-## count
+### count
 
 说明
 
@@ -183,7 +183,7 @@ curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"&equal
 
 ---
 
-## print
+### print
 
 说明
 
@@ -205,7 +205,7 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 
 ---
 
-## callback
+### callback
 
 说明
 
@@ -225,7 +225,7 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 
 ---
 
-## format
+### format
 
 说明
 
@@ -240,7 +240,7 @@ curl 'https://samplechat.wilddogio.com/.json?format=export'
 
 ---
 
-## download
+### download
 
 说明
 
@@ -255,23 +255,23 @@ curl 'https://samplechat.wilddogio.com/.json?download=myfilename.txt'
 
 ---
 
-## orderBy
+### orderBy
 
-在 [完整文档 - 查询数据](/guide/sync/rest/guide.html#查询数据) 文档中获取更多信息。
+在 [完整文档 - 查询数据](/guide/sync/rest/guide.html##查询数据) 文档中获取更多信息。
 
-## limitToFirst, limitToLast
+### limitToFirst, limitToLast
 
-在 [完整文档 - 查询数据](/guide/sync/rest/guide.html#查询数据) 文档中获取更多信息。
+在 [完整文档 - 查询数据](/guide/sync/rest/guide.html##查询数据) 文档中获取更多信息。
 
-## startAt, endAt, equalTo
+### startAt, endAt, equalTo
 
-在 [完整文档 - 查询](/guide/sync/rest/guide.html#查询数据) 文档中获取更多信息。
+在 [完整文档 - 查询](/guide/sync/rest/guide.html##查询数据) 文档中获取更多信息。
 
 ---
 
-# Auth
+## Auth
 
-## auth
+### auth
 
 说明
 
@@ -286,7 +286,7 @@ curl 'https://samplechat.wilddogio.com/users/jack/name.json?auth=CREDENTIAL'
 
 ---
 
-## customTokenToIdToken
+### customTokenToIdToken
 
 说明
 
@@ -321,7 +321,7 @@ curl -X POST -d '{"token":"<YOUR CUSTOM TOKEN HERE>"}' \
 
 ---
 
-# Streaming
+## Streaming
 
 Wilddog REST API支持 [EventSource \/ Server-Sent Events ](http://www.w3.org/TR/eventsource/)协议。在Wilddog数据库使用 Server-Sent Events（简写 SSE）， 你需要准备以下：
 
@@ -340,7 +340,7 @@ data: JSON encoded data payload
 
 下面是云端返回的数据协议：
 
-## put
+### put
 
 说明
 
@@ -348,7 +348,7 @@ data是json对象， 包含两个key： `path`和`data`。`path`是`data`相关�
 
 ---
 
-## patch
+### patch
 
 说明
 
@@ -356,7 +356,7 @@ data是json对象， 包含两个key： `path` 和 `data`。`path`是`data`相�
 
 ---
 
-## keep-alive
+### keep-alive
 
 说明
 
@@ -364,7 +364,7 @@ event的data为null，即无任何操作。
 
 ---
 
-## auth\_revoked
+### auth\_revoked
 
 说明
 
@@ -372,7 +372,7 @@ event的data为null，即无任何操作。
 
 ---
 
-## 示例
+### 示例
 
 先开启一个端口用于查看云端发送的event，下面是云端发送的event示例:
 
@@ -413,7 +413,7 @@ curl -X PUT -d '{"path": "/", "data": {"a": 1, "b": 2}}' 'https://<appId>.wilddo
 
 ---
 
-# Priorities
+## Priorities
 
 某个节点的优先级信息会被一个名为 .priority 的虚拟节点储存。优先级可以通过REST请求读取或写入。例如，下面的请求用来检索 users\/tom 节点的优先级信息：
 
@@ -442,7 +442,7 @@ curl -X PUT -d '{".value": "Tom", ".priority": 1.0}' \
 
 ---
 
-# Server Values
+## Server Values
 
 说明
 
@@ -473,7 +473,7 @@ curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
 
 ---
 
-# 规则表达式
+## 规则表达式
 
 REST API可以用来查询和更改规则表达式。该操作必须使用应用的超级密钥，你可以在应用的控制面板--超级密钥页面获取超级密钥。
 
@@ -489,9 +489,9 @@ curl  'https://<appId>.wilddogio.com/.settings/rules.json?auth=WILDDOG_SECRET'
 
 ---
 
-# 错误原因
+## 错误原因
 
-## 错误码
+### 错误码
 
 说明
 
@@ -507,7 +507,7 @@ Wilddog的REST API将在以下情况返回错误码：
 | 400 Bad Request        | REST API调用路径中包含非法的子节点名字 |
 | 403 Forbidden          | 请求违反规则表达式               |
 
-## 错误信息
+### 错误信息
 
 说明
 

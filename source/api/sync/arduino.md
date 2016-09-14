@@ -1,9 +1,9 @@
 title:  Arduino API 文档
 ---
 
-# Wilddog (*Methods*)
+## Wilddog (*Methods*)
 
-## new Wilddog
+### new Wilddog
 
  定义
 
@@ -28,7 +28,7 @@ ref = new Wilddog("https://<appId>.wilddogio.com/a/b/c");
 
 ----
 
-## getValue()
+### getValue()
 
  定义
 
@@ -75,7 +75,7 @@ void loop(){
 
 ----
 
-## setValue()
+### setValue()
 
  定义
 
@@ -123,7 +123,7 @@ void loop(){
 
 ----
 
-## push()
+### push()
 
  定义
 
@@ -172,7 +172,7 @@ void loop(){
 
 ----
 
-## removeValue()
+### removeValue()
 
  定义
 
@@ -219,7 +219,7 @@ void loop(){
 
 ----
 
-## addObserver()
+### addObserver()
 
  定义
 
@@ -268,7 +268,7 @@ void loop(){
 
 ----
 
-## removeObserver()
+### removeObserver()
 
  定义
 
@@ -324,7 +324,7 @@ void loop(){
 
 ----
 
-## trySync()
+### trySync()
 
  定义
 
@@ -346,7 +346,7 @@ void trySync()
 
 # AuthData (*Methods*)
 
-## auth()
+### auth()
 
  定义
 

@@ -1,10 +1,10 @@
 
-title: 规则表达式API 文档
+title: 规则表达式 API 文档
 ---
 
-# Rule (*Type*)
+## Rule (*Type*)
 
-## .read
+### .read
 
 定义
 
@@ -24,7 +24,7 @@ title: 规则表达式API 文档
 
 ------
 
-## .write
+### .write
 
 定义
 
@@ -40,7 +40,7 @@ title: 规则表达式API 文档
 
 ------
 
-## .validate
+### .validate
 
 定义
 
@@ -61,7 +61,7 @@ title: 规则表达式API 文档
 
 ------
 
-## .indexOn
+### .indexOn
 
 定义
 
@@ -82,13 +82,13 @@ title: 规则表达式API 文档
 
 ```
 
-.indexOn 规则的值类型是字符串，或者是字符串数组。 节点的名称key和优先级priority默认建立索引，不需要额外设置。 关于 .indexOn 规则更多介绍，请参考规则表达式文档 [数据索引](/guide/sync/rules/guide.html#数据索引) 部分。
+.indexOn 规则的值类型是字符串，或者是字符串数组。 节点的名称key和优先级priority默认建立索引，不需要额外设置。 关于 .indexOn 规则更多介绍，请参考规则表达式文档 [数据索引](/guide/sync/rules/guide.html##数据索引) 部分。
 
 ------
 
-# Rule (*Variables*)
+## Rule (*Variables*)
 
-## auth
+### auth
 
 定义
 
@@ -146,7 +146,7 @@ Wilddog 认证
 
 ------
 
-## $location
+### $location
 
 定义
 
@@ -174,7 +174,7 @@ Wilddog 认证
 
 ------
 
-## now
+### now
 
 定义
 
@@ -201,7 +201,7 @@ Wilddog 认证
 
 ------
 
-## root
+### root
 
 定义
 
@@ -224,7 +224,7 @@ root变量标识的`RuleDataSnapshot`，对应着你的Wilddog数据库根节点
 
 ------
 
-## newData
+### newData
 
 定义
 
@@ -265,9 +265,9 @@ newData变量在.read规则中不可用，因为没有新数据被写入，只�
 
 ------
 
-# RuleDataSnapshot (*Methods*)
+## RuleDataSnapshot (*Methods*)
 
-## val()
+### val()
 
 定义
 
@@ -290,7 +290,7 @@ String, Number, Boolean, Null RuleDataSnapshot 的原生类型数据。
 
 ------
 
-## child()
+### child()
 
 定义
 
@@ -317,7 +317,7 @@ RuleDataSnapshot child()
 
 ------
 
-## parent()
+### parent()
 
 定义
 
@@ -333,7 +333,7 @@ RuleDataSnapshot parent()
 
 ------
 
-## hasChild()
+### hasChild()
 
 定义
 
@@ -360,7 +360,7 @@ Boolean 存在返回`true`，否则`false`
 
 ------
 
-## hasChildren()
+### hasChildren()
 
 定义
 
@@ -394,7 +394,7 @@ pathList List 路径数组 一组子节点路径，例如['a','b','c']
 
 ------
 
-## exists()
+### exists()
 
 定义
 
@@ -417,7 +417,7 @@ Boolean 包含返回`true`，否则返回`false`。
 
 ------
 
-## getPriority()
+### getPriority()
 
 定义
 
@@ -440,7 +440,7 @@ String, Number, Null
 
 ------
 
-## isNumber()
+### isNumber()
 
 定义
 
@@ -463,7 +463,7 @@ Boolean 是数字为`true` 否则返回 `false`.
 
 ------
 
-## isString()
+### isString()
 
 定义
 
@@ -486,7 +486,7 @@ Boolean 是字符串为`true` 否则返回 `false`.
 
 ------
 
-## isBoolean()
+### isBoolean()
 
 定义
 
@@ -509,9 +509,9 @@ Boolean 是布尔为`true` 否则返回 `false`.
 
 ------
 
-# String (*Methods*)
+## String (*Methods*)
 
-## length()
+### length()
 
 定义
 
@@ -534,7 +534,7 @@ Number
 
 ------
 
-## contains()
+### contains()
 
 定义
 
@@ -561,7 +561,7 @@ Boolean
 
 ------
 
-## beginsWith()
+### beginsWith()
 
 定义
 
@@ -583,7 +583,7 @@ Boolean
 
 ------
 
-## endsWith()
+### endsWith()
 
 定义
 
@@ -605,7 +605,7 @@ Boolean
 
 ------
 
-## replace()
+### replace()
 
 定义
 
@@ -661,7 +661,7 @@ String 返回替换后的新字符串。
 
 ------
 
-## toLowerCase()
+### toLowerCase()
 
 定义
 
@@ -679,7 +679,7 @@ String toLowerCase()
 
 ------
 
-## toUpperCase()
+### toUpperCase()
 
 定义
 
@@ -697,7 +697,7 @@ String toUpperCase()
 
 ------
 
-## matches()
+### matches()
 
 定义
 
@@ -767,9 +767,9 @@ Boolean 如果满足正则表达式返回true,否则返回false。
 
 ------
 
-# Operators (*Methods*)
+## Operators (*Methods*)
 
-## +
+### +
 
 符号
 
@@ -795,7 +795,7 @@ Boolean 如果满足正则表达式返回true,否则返回false。
 
 ------
 
-## -
+### -
 
 符号
 
@@ -823,7 +823,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## *
+### *
 
 符号
 
@@ -844,7 +844,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## /
+### /
 
 符号
 
@@ -865,7 +865,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## %
+### %
 
 符号
 
@@ -888,7 +888,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## ==
+### ==
 
 符号
 
@@ -911,7 +911,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## !=
+### !=
 
 符号
 
@@ -930,7 +930,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## &&
+### &&
 
 符号
 
@@ -951,7 +951,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## ||
+### ||
 
 符号
 
@@ -972,7 +972,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## !
+### !
 
 符号
 
@@ -993,7 +993,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## >
+### >
 
 符号
 
@@ -1014,7 +1014,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## <
+### <
 
 符号
 
@@ -1035,7 +1035,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## >=
+### >=
 
 符号
 
@@ -1056,7 +1056,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## <=
+### <=
 
 符号
 
@@ -1077,7 +1077,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 ------
 
-## ?
+### ?
 
 符号
 

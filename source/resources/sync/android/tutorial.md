@@ -1,10 +1,11 @@
+
 title: 实战教程
 ---
 本文档将给出一些详尽的示例教程。
 
 如需了解创建应用、读写数据等基础操作，请参考文档[快速入门](/quickstart/sync/android.html)。
 
-## 示例说明
+## 教程说明
 
 示例说明
 
@@ -60,10 +61,10 @@ dependencies {
     mListener = this.mRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
-
+    
                 T model = (T) dataSnapshot.getValue(WilddogListAdapter.this.mModelClass);
                 String key = dataSnapshot.getKey();
-
+    
                 // Insert into the correct location, based on previousChildName
                 if (previousChildName == null) {
                     mModels.add(0, model);
@@ -79,38 +80,38 @@ dependencies {
                         mKeys.add(nextIndex, key);
                     }
                 }
-
+    
                 notifyDataSetChanged();
             }
-
+    
             @Override
             public void onChildChanged(DataSnapshot dataSnapshot, String s) {
                 // One of the mModels changed. Replace it in our list and name mapping
                 String key = dataSnapshot.getKey();
                 T newModel = (T) dataSnapshot.getValue(WilddogListAdapter.this.mModelClass);
                 int index = mKeys.indexOf(key);
-
+    
                 mModels.set(index, newModel);
-
+    
                 notifyDataSetChanged();
             }
-
+    
             @Override
             public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+    
                 // A model was removed from the list. Remove it from our list and the name mapping
                 String key = dataSnapshot.getKey();
                 int index = mKeys.indexOf(key);
-
+    
                 mKeys.remove(index);
                 mModels.remove(index);
-
+    
                 notifyDataSetChanged();
             }
-
+    
             @Override
             public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-
+    
                 // A model changed position in the list. Update our list accordingly
                 String key = dataSnapshot.getKey();
                 T newModel = (T) dataSnapshot.getValue(WilddogListAdapter.this.mModelClass);
@@ -133,12 +134,12 @@ dependencies {
                 }
                 notifyDataSetChanged();
             }
-
+    
             @Override
             public void onCancelled(WilddogError wilddogError) {
                 Log.e("WilddogListAdapter", "Listen was cancelled, no more updates will occur");
             }
-
+    
         });
 
 
@@ -175,9 +176,7 @@ dependencies {
     }
 
 ## 获取示例源码
-本示例只是一个简单的实时聊天示例，展示如何利用 Wilddog Android Sync SDK 构建一个文本聊天的实时应用，你可以动手利用 Wilddog 构建更加有意思的实时应用。
-
-点此查看完整的[示例源码](https://github.com/WildDogTeam/demo-android-chat)。
+点此获取完整的[示例源码](https://github.com/WildDogTeam/demo-android-chat)。
 
 
 

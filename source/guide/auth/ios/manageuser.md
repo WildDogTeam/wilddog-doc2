@@ -1,3 +1,4 @@
+
 title: 管理用户
 ---
 
@@ -6,12 +7,12 @@ title: 管理用户
 
 你也可以从 Wilddog 控制面板的身份“认证部分”的“用户”页面中创建新的密码认证用户。
 
-## 获取当前登录的用户
+## 获取当前登录用户
 获取当前用户的推荐方法是在 Auth 对象上设置一个侦听器：
 
 Objective-C
 ```objectivec
-[[WDGAuth authWithApp:@"your-wilddog-appid"]; addAuthStateDidChangeListener:^(WDGAuth *_Nonnull auth,
+[[WDGAuth auth] addAuthStateDidChangeListener:^(WDGAuth *_Nonnull auth,
                                                 WDGUser *_Nullable user) {
   if (user != nil) {
     // User is signed in.
@@ -22,7 +23,7 @@ Objective-C
 ```
 Swift
 ```swift
-WDGAuth.auth(appID: "your-wilddog-appid")?.addAuthStateDidChangeListener{ auth, user in
+WDGAuth.auth()?.addAuthStateDidChangeListener{ auth, user in
     if let user = user {
         // User is signed in.
     } else {
@@ -48,7 +49,7 @@ if (user != nil) {
 ```
 Swift
 ```swift
-if let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser {
+if let user = WDGAuth.auth()?.currentUser {
     // User is signed in.
 } else {
     // No user is signed in.
@@ -58,7 +59,7 @@ if let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser {
 
 注：`currentUser` 可能为空，这是因为 auth 对象尚未完成初始化。 如果你使用侦听器跟踪用户登录状态，你将无需处理该情况。
 
-## 获取用户个人资料
+## 获取个人资料
 要获取用户的个人资料信息，请使用 `WDGUser` 实例的属性。 例如：
 
 Objective-C
@@ -80,7 +81,7 @@ if (user != nil) {
 ```
 Swift
 ```swift
-if let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser {
+if let user = WDGAuth.auth()?.currentUser {
     let name = user.displayName
     let email = user.email
     let photoUrl = user.photoURL
@@ -95,7 +96,7 @@ if let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser {
 
 ```
 
-## 获取用户的其它登录方式的个人资料信息
+## 获取第三方个人资料信息
 要获取已链接至用户的其它登录方式的个人资料信息，请使用 providerData 属性。 例如：
 
 Objective-C
@@ -116,7 +117,7 @@ if (user != nil) {
 ```
 Swift
 ```swift
-if let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser {
+if let user = WDGAuth.auth()?.currentUser {
     for profile in user.providerData {
         let providerID = profile.providerID
         let uid = profile.uid;  // Provider-specific UID
@@ -130,7 +131,7 @@ if let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser {
 
 ```
 
-## 更新用户个人资料
+## 更新个人资料
 你可以使用`WDGUserProfileChangeRequest` 类来更新一个用户的基本个人资料信息 — 用户的显示名称和个人资料照片网址。 例如：
 
 Objective-C
@@ -151,7 +152,7 @@ changeRequest.photoURL =
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 if let user = user {
     let changeRequest = user.profileChangeRequest()
     
@@ -169,7 +170,7 @@ if let user = user {
 
 ```
 
-## 设置用户的电子邮件地址
+## 设置邮箱地址
 你可以用 `updateEmail:completion:` 方法设置用户的电子邮件地址。如果这个用户已经存在邮箱，则更新它，之后需要使用新的邮箱地址进行登录。例如：
 
 Objective-C
@@ -186,7 +187,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 
 user?.updateEmail("user@example.com") { error in
     if let error = error {
@@ -218,7 +219,7 @@ NSString *newPassword = [yourApp getRandomSecurePassword];
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 let newPassword = getRandomSecurePassword()
 
 user?.updatePassword(newPassword) { error in
@@ -233,7 +234,7 @@ user?.updatePassword(newPassword) { error in
 
 重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
 
-## 发送重设密码电子邮件
+## 发送重设密码邮件
 你可以用 `sendPasswordResetWithEmail:completion:` 方法向用户发送一封重设密码电子邮件。 例如：
 
 Objective-C
@@ -253,7 +254,7 @@ Swift
 ```swift
 let email = "user@example.com"
 
-WDGAuth.auth(appID: "your-wilddog-appid")?.sendPasswordResetWithEmail(email) { error in
+WDGAuth.auth()?.sendPasswordResetWithEmail(email) { error in
     if let error = error {
         // An error happened.
     } else {
@@ -285,7 +286,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 
 user?.deleteWithCompletion { error in
     if let error = error {
@@ -300,7 +301,7 @@ user?.deleteWithCompletion { error in
 
 重要说明：要删除用户，该用户必须最近登录过。请参阅对用户重新进行身份认证。
 
-## 对用户重新进行身份认证
+## 重新进行身份认证
 有些安全敏感性操作—如删除帐户、设置主电子邮件地址和更改密码—需要用户最近登录过方可执行。
 
 如果你执行这些操作之一，而该用户在很久以前登录过，该操作便会失败，显示 `WDGAuthErrorCodeCredentialTooOld` 错误。
@@ -324,7 +325,7 @@ WDGAuthCredential *credential; // 需要初始化
 ```
 Swift
 ```swift
-let user = WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser
+let user = WDGAuth.auth()?.currentUser
 var credential: WDGAuthCredential // 需要初始化
 
 // Prompt the user to re-provide their sign-in credentials

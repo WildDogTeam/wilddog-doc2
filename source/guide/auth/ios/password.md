@@ -1,4 +1,4 @@
-title: 邮箱密码登录
+title: 邮箱登录
 ---
 
 你可以使用 Wilddog Auth 让你的用户用电子邮件地址和密码进行 Wilddog 身份认证，而且可以通过他来管理你的应用帐户。
@@ -30,20 +30,24 @@ Swift
 ```swift
 import WilddogAuth
 ```
-2、 以 Wilddog AppId 初始化 WDGAuth。
+2、 初始化 WDGApp:
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
+[WDGApp configureWithOptions:option];
 ```
+
 Swift
 ```swift
-let auth = WDGAuth.auth(appID: "your-wilddog-appid")
+let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
+WDGApp.configureWithOptions(options)
 ```
+
 3、 通过将该新用户的电子邮件地址和密码传递到 createUserWithEmail:email:password:completion: 来创建新帐户。 
 Objective-C
 ```objectivec
-[auth createUserWithEmail:email
+[[WDGAuth auth] createUserWithEmail:email
                  password:password
                completion:^(WDGUser *_Nullable user,
                           NSError *_Nullable error) {
@@ -52,7 +56,7 @@ Objective-C
              ```
 Swift
 ```swift
-auth?.createUserWithEmail(email, password: password) { (user, error) in
+WDGAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) in
   // ...
 }
 ```
@@ -73,21 +77,25 @@ Swift
 ```swift
 import WilddogAuth
 ```
-2、 以 Wilddog AppId 初始化 WDGAuth。
+2、 初始化 WDGApp:
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
+[WDGApp configureWithOptions:option];
 ```
+
 Swift
 ```swift
-let auth = WDGAuth.auth(appID: "your-wilddog-appid")
+let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
+WDGApp.configureWithOptions(options)
 ```
+
 3、 将该用户的电子邮件地址和密码传递到 `signInWithEmail:email:password:completion:`,即可在你应用中登录此用户。
 
 Objective-C
 ```objectivec
-[auth signInWithEmail:_emailField.text
+[[WDGAuth auth] signInWithEmail:_emailField.text
                        password:_passwordField.text
                      completion:^(WDGUser *user, NSError *error) {
                        // ...
@@ -95,7 +103,7 @@ Objective-C
 ```
 Swift
 ```swift
-auth?.signInWithEmail(email, password: password) { (user, error) in
+WDGAuth.auth()?.signInWithEmail(email, password: password) { (user, error) in
   // ...
 }
 ```
@@ -116,7 +124,7 @@ auth?.signInWithEmail(email, password: password) { (user, error) in
 Objective-C
 ```objectivec
 NSError *error;
-[[WDGAuth authWithApp:@"your-wilddog-appid"] signOut:&error];
+[[WDGAuth auth] signOut:&error];
 if (!error) {
     // 退出登录成功
 }
@@ -124,7 +132,7 @@ if (!error) {
 ```
 Swift
 ```swift
-try! WDGAuth.auth(appID: "your-wilddog-appid")!.signOut()
+try! WDGAuth.auth()!.signOut()
 
 ```
 可能发生的错误，请参考 [处理错误](/guide/auth/ios/errorcode.html)。

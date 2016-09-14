@@ -67,7 +67,7 @@ let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, passwor
 
 Objective-C
 ```objectivec
-WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
+WDGAuth *auth = [WDGAuth auth];
 [auth.currentUser linkWithCredential:credential
                                       completion:^(WDGUser *_Nullable user,
                                                    NSError *_Nullable error) {
@@ -77,7 +77,7 @@ WDGAuth *auth = [WDGAuth authWithApp:@"your-wilddog-appid"];
 
 Swift
 ```swift
-WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser?.linkWithCredential(credential, completion: { (user, error) in
+WDGAuth.auth()?.currentUser?.linkWithCredential(credential, completion: { (user, error) in
     // ...
 })
 
@@ -92,7 +92,7 @@ WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser?.linkWithCredential(crede
 
 Objective-C
 ```objectivec
-WDGUser *currentUser = [WDGAuth authWithApp:@"your-appid"].currentUser;
+WDGUser *currentUser = [WDGAuth auth].currentUser;
 [currentUser unlinkFromProvider:providerId
                      completion:^(WDGUser *user, NSError *error) {
                        if (error == nil) {
@@ -103,7 +103,7 @@ WDGUser *currentUser = [WDGAuth authWithApp:@"your-appid"].currentUser;
 
 Swift
 ```swift
-WDGAuth.auth(appID: "your-wilddog-appid")?.currentUser?.unlinkFromProvider(providerId, completion: { (user, error) in
+WDGAuth.auth()?.currentUser?.unlinkFromProvider(providerId, completion: { (user, error) in
     // ...
 })
 

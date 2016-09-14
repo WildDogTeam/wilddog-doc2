@@ -40,7 +40,8 @@ guide:
       离线功能: /guide/sync/c/offline-capabilities.html
       
     REST:
-      完整指南: /guide/sync/rest/guide.html
+      操作数据: /guide/sync/rest/save-data.html
+      查询数据: /guide/sync/rest/retrieve-data.html
       其他平台: /guide/sync/rest/library.html
     规则表达式:
       简介: /guide/sync/rules/introduce.html
@@ -87,45 +88,49 @@ guide:
 
 api:
   实时数据同步:
-    Web: /api/sync/web.html
-    Android: /api/sync/android.html
-    iOS: /api/sync/ios.html
-    C/嵌入式: /api/sync/c.html
+    Web: 
+      API 文档: /api/sync/web/api.html
+      错误码: /api/sync/web/error-code.html
+    Android: 
+      API 文档: /api/sync/android/api.html
+      错误码: /api/sync/android/error-code.html
+    iOS: 
+      API 文档: /api/sync/ios/api.html
+      错误码: /api/sync/ios/error-code.html
+    C/嵌入式: 
+      API 文档: /api/sync/c/api.html
+      错误码: /api/sync/c/error-code.html
     Arduino: /api/sync/arduino.html
     REST: /api/sync/rest.html
     规则表达式: /api/sync/rule.html
   身份认证:
-    Web: /api/auth/web.html
-    Android: /api/auth/android.html
-    iOS: /api/auth/ios.html
+    Web: 
+      API 文档: /api/auth/web/api.html
+      错误码: /api/auth/web/error-code.html
+    Android: /api/auth/android/api.html
+    iOS:
+      API 文档: /api/auth/ios/api.html
+      错误码: /api/auth/ios/error-code.html
 
 resources:
   实时数据同步:
     Web:
       实战教程: /resources/sync/web/tutorial.html
       示例库: /resources/sync/web/resources.html
-      错误码: /resources/sync/web/error-code.html
     Android:
       实战教程: /resources/sync/android/tutorial.html
       示例库: /resources/sync/android/resources.html
-      错误码: /resources/sync/android/error-code.html
     iOS:
       实战教程: /resources/sync/ios/tutorial.html
       示例库:  /resources/sync/ios/resources.html
-      错误码: /resources/sync/ios/error-code.html
     C/嵌入式:
       实战教程: /resources/sync/c/tutorial.html
       示例库: /resources/sync/c/resources.html
-      错误码: /resources/sync/c/error-code.html
   身份认证:
-  #   Web: /resources/auth/web.html
-    Web:
-      错误码: /resources/auth/web/error-code.html
+  # Web: /resources/auth/web.html
     Android:
       示例库: /resources/auth/android/resources.html
-    iOS:
-      错误码: /resources/auth/ios/error-code.html
-  #   iOS: /resources/auth/ios.html
+  # iOS: /resources/auth/ios.html
 
 console:
   控制面板:
