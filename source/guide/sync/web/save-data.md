@@ -4,7 +4,7 @@ title:  操作数据
 
 本篇文档介绍如何写入、更新、删除数据。
 
-包含以下五种方法：
+包含以下五种方法
 
 | 方法            | 说明                                       |
 | ------------- | ---------------------------------------- |
@@ -18,9 +18,9 @@ title:  操作数据
 
 `set()` 方法向某个节点写入数据。若此节点已有数据，会覆盖原有数据，包括其子节点的数据。
 
-`set()` 可以写入的数据类型有 `string`, `number`, `boolean`, `object`。
+`set()` 方法可以写入的数据类型有 `string`, `number`, `boolean`, `object`。
 
-例如，向 `gracehop` 节点下写入 `date_of_birth ` 、`full_name ` 和 `nickname`：
+例如，向 `gracehop` 节点下写入 `date_of_birth ` 、`full_name ` 和 `nickname`
 
 ```js
 // 初始化
@@ -42,7 +42,7 @@ ref.child("gracehop").set({
 
 **注意**：`https://docs-examples.wilddogio.com` 是示例应用，数据为只读模式，主要用于野狗博客示例的数据展示。如果你想写入数据，可以将 `docs-examples` 替换成自己应用的 AppID。
 
-`set()` 还有一个可选参数，此参数是一个回调方法，用来获取操作的结果：
+`set()` 方法还有一个可选参数，此参数是一个回调方法，用来获取操作的结果
 
 ```js
 ref.child("gracehop").set({
@@ -60,7 +60,7 @@ ref.child("gracehop").set({
 
 `push()` 方法向某个节点添加子节点。子节点的 key 由 Sync 自动生成并保证唯一。 这个 key 基于时间戳和随机算法生成，它标明了时间的先后。
 
-例如，追加子节点到 `posts` 节点：
+例如，追加子节点到 `posts` 节点
 
 ```js
   var postsRef = ref.child("posts");
@@ -76,7 +76,7 @@ ref.child("gracehop").set({
   });
 ```
 
-产生的数据如下：
+产生的数据如下
 
 ```json
 {
@@ -95,7 +95,7 @@ ref.child("gracehop").set({
 }
 ```
 
-你可以通过调用 `key()` 方法来获取这个唯一 ID ：
+你可以通过调用 `key()` 方法来获取这个唯一 ID 
 
 ```js
 var newPostRef = postsRef.push({
@@ -176,7 +176,7 @@ ref.update({
 
 ## 删除数据
 
-`remove()` 方法用于删除指定节点
+`remove()` 方法用于删除指定节点。
 
 ```
 ref.set({
