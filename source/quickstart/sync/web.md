@@ -71,7 +71,7 @@ ref.on("value", function(snapshot) {
     console.log(snapshot.val());
 });
 // 如果你只想读取一次，不监听数据变化，那么你可以使用 once()
-ref.once('value').then(function(snapshot){
+ref.once("value").then(function(snapshot){
     console.info(snapshot.val());
 }).catch(function(err){
     console.error(err);
