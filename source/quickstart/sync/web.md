@@ -10,31 +10,30 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-根据需要选择以下一种方式安装：
+Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用时任选以下两种方式之一即可：
 
 * **安装完整 Wilddog SDK (推荐，包含 Sync 和 Auth)**
 
 ```html
-<script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>
+<script src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>
 ```
 
 * **独立安装 Sync SDK**
 
 ```html
-<script src = "https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
+<script src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
 ```
 
-* **`NodeJS` 或者 `ReactNative` 项目请使用 `npm` 方式**
+如果是 `NodeJS` 或者 `ReactNative` 项目，请使用 `npm` 方式：
 
 ```
-npm install wilddog
+npm install wilddog --save
 ```
 
 ## 3. 创建 Wilddog Sync 实例
 
 ```javascript
 var config = {
-  syncDomain: "<appId>.wilddog.com",
   syncURL: "https://<appId>.wilddogio.com" //输入节点 URL
 };
 wilddog.initializeApp(config);
@@ -62,17 +61,23 @@ ref.set({
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
 ## 5. 读取与监听数据
-`on()`方法可以读取并监听节点的数据。
+使用 [on](/api/sync/web/api.html#on) 或 [once](/api/sync/web/api.html#once) 方法可以读取并监听节点的数据。
 
 例如，从应用中获得天气数据
 
 ```javascript
+// snapshot 里面的数据会一直和云端保持同步
 ref.on("value", function(snapshot) {
-console.log(snapshot.val());
-}
+    console.log(snapshot.val());
+});
+// 如果你只想读取一次，不监听数据变化，那么你可以使用 once()
+ref.once('value').then(function(snapshot){
+    console.info(snapshot.val());
+}).catch(function(err){
+    console.error(err);
+})
 ```
 
-`snapshot` 里面的数据会一直和云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`once()`方法替代`on()`方法。
 
 更多的数据读取方式，请参考 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。 
 
