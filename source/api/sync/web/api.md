@@ -11,7 +11,7 @@ App 对象是野狗 Web SDK 的核心，它维护着应用的全局上下文数�
 
 ```js
 var config = {
-  syncURL: "<appId>.wilddogio.com"
+  syncURL: "https://<appId>.wilddogio.com"
 };
 wilddog.initializeApp(config);
     
@@ -24,11 +24,11 @@ wilddog.initializeApp(config);
 var wilddog = wilddog.initializeApp(config,DEFAULT);
 //我们还可以使用不同配置声明多个不同的 App 实例
 var configA = {
-  authDomain: "<appId-a>.wilddog.com"
+  synURL: "https://<appId-a>.wilddogio.com"
 };
 var a = wilddog.initializeApp(configA, APP_A);
-//通过 a 来访问 auth
-//a.auth().signInXxx().then(...)
+//通过 a 来访问 sync
+//a.sync().update().then(...)
 ```
 
 ---
