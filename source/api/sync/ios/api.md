@@ -1736,7 +1736,7 @@ options 配置 Wilddog 应用所需的实例
 
  定义
 
-`+ (void)configureWithOptions:(WDGOptions *)options`
+`+ (void)configureWithName:(NSString *)name options:(WDGOptions *)options`
 
  说明
 

@@ -32,12 +32,8 @@ SDK 的安装方式有两种，你可以任选其一
 	$ open your-project.xcworkspace
 
 </br>
-
-
 - **手动集成** 
-
-   
-
+</br>
 1. 下载 Sync SDK [点此下载](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogSync.framework-2.0.1.zip)。 
 2. 下载 Core SDK [点此下载](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip)。        
 3. 把 WilddogSync.framework 和 WilddogCore.framework 拖到工程目录中。  
