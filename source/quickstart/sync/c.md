@@ -51,7 +51,7 @@ Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
 ## 4. 写入数据
 
 使用 `wilddog_setValue()` 方法可向云端写入数据。
-
+例如，设置 Jack 为 beauty 描述
 ```c
 #include "wilddog.h"
 void callback(void* arg, Wilddog_Return_T err){
