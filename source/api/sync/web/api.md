@@ -47,7 +47,7 @@ _无_
 
 **返回**
 
-[wilddog.Auth](/api/auth/web.html#wilddog-Auth)
+[wilddog.Auth](/api/auth/web/api.html#wilddog-Auth)
 
 ---
 
@@ -65,13 +65,13 @@ _无_
 
 **返回**
 
-[wilddog.Sync](/api/sync/web.html#wilddog-Sync)
+[wilddog.Sync](/api/sync/web/api.html#wilddog-Sync)
 
 ---
 
 ## wilddog.Sync
 
-Sync 对象的实例是我们访问野狗实时数据同步 Web SDK 的入口。我们不能直接初始化 Sync 实例，而必须要通过 wilddog.App 实例的 [sync](/api/sync/web.html#sync) 方法来获取它。
+Sync 对象的实例是我们访问野狗实时数据同步 Web SDK 的入口。我们不能直接初始化 Sync 实例，而必须要通过 wilddog.App 实例的 [sync](/api/sync/web/api.html#sync) 方法来获取它。
 
 ---
 
@@ -99,7 +99,7 @@ mySessionRef.update({
 
 ### ref
 
-获取指向 `path` 的 [wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference) 对象实例。
+获取指向 `path` 的 [wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference) 对象实例。
 
 **定义**
 
@@ -113,7 +113,7 @@ ref(path)
 
 **返回**
 
-[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
+[wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference)
 
 **示例**
 
@@ -142,7 +142,7 @@ _无_
 
 **返回**
 
-[Void](/api/sync/web.html#Void)
+[Void](/api/sync/web/api.html#Void)
 
 ---
 
@@ -160,7 +160,7 @@ _无_
 
 **返回**
 
-[Void](/api/sync/web.html#Void)
+[Void](/api/sync/web/api.html#Void)
 
 **示例**
 
@@ -174,7 +174,7 @@ wilddog.sync().goOnline();
 
 ## wilddog.sync.Reference
 
-一个 Reference 实例表示要操作的特定数据节点，你可以通过它来读写数据。Reference 是 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 的子类。
+一个 Reference 实例表示要操作的特定数据节点，你可以通过它来读写数据。Reference 是 [wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query) 的子类。
 
 ---
 
@@ -194,7 +194,7 @@ child ( path )
 
 **返回**
 
-[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
+[wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference)
 
 ```js
 var config = {
@@ -223,7 +223,7 @@ _无_
 
 **返回**
 
-[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
+[wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference)
 
 **示例**
 
@@ -257,7 +257,7 @@ _无_
 
 **返回**
 
-[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
+[wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference)
 
 ---
 
@@ -332,7 +332,7 @@ set(value)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[Void](/api/sync/web/api.html#Void)>
 
 **示例**
 
@@ -354,6 +354,8 @@ wilddog.sync().ref('city').set({"temp":10,"pm25":500})
 与`set`操作不同,`update` 不会直接覆盖原来的节点,而是将`value` 中的所有子节点插入到已有的节点中,如果已有的节点中已经有同名子节点,则覆盖原有的子节点。
 e.g. update之前 `{"l1":"on","l3":"off"}` ,`value={"l1":"off","l2":"on"}` update 后期望的数据是 `{"l1":"off","l2":"on","l3":"off"}`。
 
+**重要** update 支持多路径更新。需要同时向多个节点写入数据时，你应该优先考虑使用 update 而不是 [transaction](/api/sync/web/api.html#transaction)，具体使用方法参见下方示例。
+
 **定义**
 
 update(value)
@@ -366,11 +368,12 @@ update(value)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[Void](/api/sync/web/api.html#Void)>
 
 **示例**
 
 ```js
+// 普通更新
 wilddog.sync().ref('city').update({"temp":20,"pm25":5000})
     .then(function(){
         console.info('update data success.')
@@ -378,6 +381,19 @@ wilddog.sync().ref('city').update({"temp":20,"pm25":5000})
     .catch(function(err){
         console.info('update data failed', err.code, err);
     });
+    
+//多路径更新
+wilddog.sync().ref('/yourPath').update({
+         "users/john": {"name": "john", "group": "a"},
+         "groups/a/john": true
+    })
+    .then(function(){
+        console.info('update data success.')
+    })
+    .catch(function(err){
+        console.info('update data failed', err.code, err);
+    });
+// 在上面的例子中我们同时更新了两个节点，这是一个原子操作    
 ```
 ---
 
@@ -395,7 +411,7 @@ _无_
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[Void](/api/sync/web/api.html#Void)>
 
 **示例**
 
@@ -426,7 +442,7 @@ push(value)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference)>
 
 **示例**
 
@@ -446,7 +462,7 @@ wilddog.sync().ref("city").push('chengdu')
 
 ### setWithPriority
 
-把数据写到当前位置，类似 [set](/api/sync/web.html#set)，不同之处是需要指定一个优先级。默认排序按照优先级排序（参考 [orderByPriority](/guide/sync/web/retrieve-data.html#排序规则)）。
+把数据写到当前位置，类似 [set](/api/sync/web/api.html#set)，不同之处是需要指定一个优先级。默认排序按照优先级排序（参考 [orderByPriority](/guide/sync/web/retrieve-data.html#排序规则)）。
 
 **定义**
 
@@ -461,7 +477,7 @@ setWithPriority (value, priority)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[Void](/api/sync/web/api.html#Void)>
 
 **示例**
 
@@ -506,7 +522,7 @@ setPriority(priority)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[Void](/api/sync/web.html#Void)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[Void](/api/sync/web/api.html#Void)>
 
 **示例**
 
@@ -524,7 +540,7 @@ wilddog.sync().ref('user').setWithPriority(100)
 
 ### transaction
 
-当多个客户端并发修改同一节点的数据时，使用 [set](/api/sync/web.html#set) 极有可能造成数据不一致，而 transaction 能够避免这一情况的发生。
+当多个客户端并发修改同一节点的数据时，使用 [set](/api/sync/web/api.html#set) 极有可能造成数据不一致，而 transaction 能够避免这一情况的发生。
 
 为了达到这个目的， 你必须通过 transaction 的更新函数来进行数据修改操作。更新函数接收一个` current value` 作为参数，并在此参数的基础之上为当前节点返回新的值 `new value`。多个客户端同时调用 transaction 修改同一节点的数据时，更新函数能够保证后续 transaction 拿到的 `current value` 中的数据与最近成功的 `transaction` 所返回的 `new value` 中的数据一致。
 
@@ -532,7 +548,9 @@ wilddog.sync().ref('user').setWithPriority(100)
 
 如果需要， 你的 onComplete callback 将在事务完成后异步被调用。
 
-**注意：** 相同的数据节点上并发执行 set() 和 transaction() , 极端情况下仍会出现不可预料的结果。
+**注意** 
++ 相同的数据节点上并发执行 set() 和 transaction()，极端情况下仍会出现不可预料的结果。
++ 如果只是需要同时向多个节点写入数据，请优先考虑使用 [update](/api/sync/web/api.html#update) 的多路径更新特性。
 
 **定义**
 
@@ -542,13 +560,13 @@ transaction(updateFunction)
 
 | 参数名 | 类型 | 属性 | 说明 |
 |---|---|---|---|
-| updateFunction | [updateFunction](/api/sync/web.html#updateFunction) | non-null | 更新函数。|
+| updateFunction | [updateFunction](/api/sync/web/api.html#updateFunction) | non-null | 更新函数。|
 
 **返回**
  
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[TransactionResult](/api/sync/web.html#TransactionResult) | [TransactionResult](/api/sync/web.html#TransactionResult)[]> 
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[TransactionResult](/api/sync/web/api.html#TransactionResult) | [TransactionResult](/api/sync/web/api.html#TransactionResult)[]> 
 
-**注意** 只有当 updateFunction 返回的是一个包含多个节点的 object 时，transaction 才会返回给 Promise 一个 [TransactionResult](/api/sync/web.html#TransactionResult) 数组。
+**注意** 只有当 updateFunction 返回的是一个包含多个节点的 object 时，transaction 才会返回给 Promise 一个 [TransactionResult](/api/sync/web/api.html#TransactionResult) 数组。
 
 **示例**
 
@@ -591,7 +609,7 @@ wilmaRef.transaction(function(currentData) {
 
 #### updateFunction 
 
-用于 [transaction](/api/sync/web.html#transaction) 的更新函数。
+用于 [transaction](/api/sync/web/api.html#transaction) 的更新函数。
 
 **定义**
 
@@ -607,19 +625,19 @@ wilmaRef.transaction(function(currentData) {
 
 newValue {object|string|number|boolean|null} 要写入当前节点的的新值。
 
-当返回的是一个包含多个节点的 object 时，transaction 会返回给 Promise 一个 [TransactionResult](/api/sync/web.html#TransactionResult) 数组。
+当返回的是一个包含多个节点的 object 时，transaction 会返回给 Promise 一个 [TransactionResult](/api/sync/web/api.html#TransactionResult) 数组。
 
 ---
 
 #### TransactionResult
 
-执行 [transaction](/api/sync/web.html#transaction) 成功之后返回给 Promise 的结果，包含`committed` 和 `snapshot` 两个属性。
+执行 [transaction](/api/sync/web/api.html#transaction) 成功之后返回给 Promise 的结果，包含`committed` 和 `snapshot` 两个属性。
 
 {committed: boolean}
 
 是否提交成功。
 
-{snapshot: [wilddog.sync.DataSnapshot](/api/sync/web.html#wilddog-sync-DataSnapshot)}
+{snapshot: [wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot)}
 
 事务完成后的数据快照。
 
@@ -639,13 +657,13 @@ _无_
 
 **返回**
 
-[wilddog.sync.OnDisconnect](/api/sync/web.html#wilddog-sync-OnDisconnect)
+[wilddog.sync.OnDisconnect](/api/sync/web/api.html#wilddog-sync-OnDisconnect)
 
 ---
 
 ## wilddog.sync.Query
 
-Query 对象包含了所有与我们数据查询及监听的 API，同时它也是 [wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference) 的父类。
+Query 对象包含了所有与我们数据查询及监听的 API，同时它也是 [wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference) 的父类。
 
 ### on
 
@@ -659,14 +677,14 @@ on(type, onEvent, [cancelCallback], [context])
 
 | 参数名 | 类型 | 属性 | 说明 |
 |---|---|---|---|
-| type | string | non-null |事件类型参见 [EventType](/api/sync/web.html#EventType)。 |
-| onEvent | [onEvent](/api/sync/web.html#onEvent) | non-null | 事件发生时的回调函数 。|
-| cancelCallback | [cancelCallback](/api/sync/web.html#cancelCallback) | optional | 如果操作失败，这个函数会被调用。 |
+| type | string | non-null |事件类型参见 [EventType](/api/sync/web/api.html#EventType)。 |
+| onEvent | [onEvent](/api/sync/web/api.html#onEvent) | non-null | 事件发生时的回调函数 。|
+| cancelCallback | [cancelCallback](/api/sync/web/api.html#cancelCallback) | optional | 如果操作失败，这个函数会被调用。 |
 | context | object | optional | 如果指定，你的回调函数中的this将代表这个对象。 |
 
 **返回**
 
-[Void](/api/sync/web.html#Void)
+[Void](/api/sync/web/api.html#Void)
 
 **示例**
 
@@ -679,7 +697,7 @@ wilddog.sync().ref('city').on('child_added',function(snapshot,prev){
 ---
 #### EventType
 
-Query [on](/api/sync/web.html#on) 和 [once](/api/sync/web.html#once) 所支持的事件列表。
+Query [on](/api/sync/web/api.html#on) 和 [once](/api/sync/web/api.html#once) 所支持的事件列表。
 
 |名称|说明|
 |----|----|
@@ -703,12 +721,12 @@ function(snapshot, [prev])
 
 | 参数名 | 类型 | 属性 | 说明 |
 |---|---|---|---|
-| snapshot | [wilddog.sync.DataSnapshot]('/api/sync/web.html#wilddog-sync-DataSnapshot') | non-null |事件发生后当前节点的数据快照|
+| snapshot | [wilddog.sync.DataSnapshot]('/api/sync/web/api.html#wilddog-sync-DataSnapshot') | non-null |事件发生后当前节点的数据快照|
 | prev | string |  |在 child_* 事件中会有 prev 参数。表示当前节点的上一个节点的 key |
 
 **返回**
 
-[Void](/api/sync/web.html#Void)
+[Void](/api/sync/web/api.html#Void)
 
 ---
 
@@ -728,13 +746,13 @@ function(err)
 
 **返回**
 
-[Void](/api/sync/web.html#Void)
+[Void](/api/sync/web/api.html#Void)
 
 ---
 
 ### off
 
-取消监听事件。取消之前用 [on](/api/sync/web.html#on) 注册的回调函数。
+取消监听事件。取消之前用 [on](/api/sync/web/api.html#on) 注册的回调函数。
 
 **定义**
 
@@ -744,9 +762,9 @@ off([type], [callback], [context])
 
 | 参数名 | 类型 | 属性 | 说明 |
 |---|---|---|---|
-| type | string | non-null |事件类型参见 [EventType](/api/sync/web.html#EventType)。 |
-| onEvent | [onEvent](/api/sync/web.html#onEvent) | non-null | 在 [on](/api/sync/web.html#on) 中所传入的回调函数 。|
-| context | object | optional | 在 [on](/api/sync/web.html#on) 中所传入的 context。 |
+| type | string | non-null |事件类型参见 [EventType](/api/sync/web/api.html#EventType)。 |
+| onEvent | [onEvent](/api/sync/web/api.html#onEvent) | non-null | 在 [on](/api/sync/web/api.html#on) 中所传入的回调函数 。|
+| context | object | optional | 在 [on](/api/sync/web/api.html#on) 中所传入的 context。 |
 
 **示例**
 
@@ -761,7 +779,7 @@ wilddogRef.off('value', onValueChange);
 
 ### once
 
-同 [on](/api/sync/web.html#on) 类似,不同之处在于 once 中的回调函数只被执行一次。
+同 [on](/api/sync/web/api.html#on) 类似,不同之处在于 once 中的回调函数只被执行一次。
 
 **定义**
 
@@ -771,11 +789,11 @@ once(type)
 
 | 参数名 | 类型 | 属性 | 说明 |
 |---|---|---|---|
-| type | string | non-null |事件类型参见 [EventType](/api/sync/web.html#EventType)。 |
+| type | string | non-null |事件类型参见 [EventType](/api/sync/web/api.html#EventType)。 |
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise).<[wilddog.sync.DataSnapshot]('/api/sync/web.html#wilddog-sync-DataSnapshot')>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[wilddog.sync.DataSnapshot]('/api/sync/web/api.html#wilddog-sync-DataSnapshot')>
 
 **示例**
 
@@ -792,7 +810,7 @@ wilddog.sync().ref('city').once('child_added')
 
 ### orderByChild
 
-产生一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，按照特定子节点的值进行排序。排序的详情请参考[数据排序](/guide/sync/web/retrieve-data.html#数据排序)。
+产生一个新 [wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query) 对象，按照特定子节点的值进行排序。排序的详情请参考[数据排序](/guide/sync/web/retrieve-data.html#数据排序)。
 
 **定义**
 
@@ -807,7 +825,7 @@ orderByChild(key)
 
 **返回**
 
-[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+[wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query)
 
 **示例**
 
@@ -823,7 +841,7 @@ ref.orderByChild("height").on("child_added",function(snapshot){
 
 ### orderByKey
 
-产生一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，按照当前节点的key进行排序。
+产生一个新 [wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query) 对象，按照当前节点的key进行排序。
 
 **定义**
 
@@ -835,7 +853,7 @@ _无_
 
 **返回**
 
-[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+[wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query)
 
 **示例**
 
@@ -851,7 +869,7 @@ ref.orderByKey().on("child_added",function(snapshot){
 
 ### orderByValue 
 
-产生一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，按照当前节点的值进行排序。排序的详情请参考[数据排序](/guide/sync/web/retrieve-data.html#数据排序)。
+产生一个新 [wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query) 对象，按照当前节点的值进行排序。排序的详情请参考[数据排序](/guide/sync/web/retrieve-data.html#数据排序)。
 
 **定义**
 
@@ -863,7 +881,7 @@ _无_
 
 **返回**
 
-[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+[wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query)
 
 **示例**
 
@@ -880,7 +898,7 @@ scoresRef.orderByValue().limitToLast(3).on("value", function(snapshot) {
 
 ### orderByPriority
 
-产生一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，按照当前节点的优先级排序。
+产生一个新 [wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query) 对象，按照当前节点的优先级排序。
 
 **定义**
 
@@ -892,7 +910,7 @@ _无_
 
 **返回**
 
-[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+[wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query)
 
 **示例**
 
@@ -921,7 +939,7 @@ startAt(value, [key])
 
 **返回**
 
-[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+[wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query)
 
 **示例**
 
@@ -951,7 +969,7 @@ endAt(value, [key])
 
 **返回**
 
-[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+[wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query)
 
 **示例**
 
@@ -980,7 +998,7 @@ equalTo(value, [key])
 
 **返回**
 
-[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+[wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query)
 
 **示例**
 
@@ -994,7 +1012,7 @@ ref.orderByKey().equalTo('jack').on("child_added",function(snapshot){
 
 ### limitToFirst
 
-创建一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，获取从第一条（或 [startAt](/api/sync/web.html#startAt) 指定的位置）开始指定数量的子节点。
+创建一个新 [wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query) 对象，获取从第一条（或 [startAt](/api/sync/web/api.html#startAt) 指定的位置）开始指定数量的子节点。
 
 **定义**
 
@@ -1008,7 +1026,7 @@ limitToFirst (limit)
 
 **返回**
 
-[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+[wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query)
 
 **示例**
 ```js
@@ -1021,7 +1039,7 @@ ref.limitToFirst(10).on("child_added",function(snapshot){
 
 ### limitToLast
 
-创建一个新 [wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query) 对象，获取从最后一条（或 [endAt](/api/sync/web.html#endAt) 指定的位置）开始向前指定数量的子节点。
+创建一个新 [wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query) 对象，获取从最后一条（或 [endAt](/api/sync/web/api.html#endAt) 指定的位置）开始向前指定数量的子节点。
 
 **定义**
 
@@ -1035,7 +1053,7 @@ limitToFirst(limit)
 
 **返回**
 
-[wilddog.sync.Query](/api/sync/web.html#wilddog-sync-Query)
+[wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query)
 
 **示例**
 
@@ -1069,7 +1087,7 @@ set(value)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise)<[Void](/api/sync/web.html#Void)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/api.html#Void)>
 
 **示例**
 
@@ -1101,7 +1119,7 @@ update(value)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise)<[Void](/api/sync/web.html#Void)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/api.html#Void)>
 
 **示例**
 
@@ -1132,7 +1150,7 @@ _无_
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise)<[Void](/api/sync/web.html#Void)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/api.html#Void)>
 
 **示例**
 
@@ -1166,7 +1184,7 @@ setWithPriority(value, priority)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web.html#wilddog-Promise)<[Void](/api/sync/web.html#Void)>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/api.html#Void)>
 
 **示例**
 
@@ -1197,7 +1215,7 @@ _无_
 
 **返回**
 
-[Void](/api/sync/web.html#Void)
+[Void](/api/sync/web/api.html#Void)
 
 **示例**
 
@@ -1212,7 +1230,7 @@ disconnectRef.onDisconnect().cancel();
 
 ## wilddog.sync.DataSnapshot
 
-DataSnapshot 是当前时指定节点下数据的副本，Snapshot 不会随当前节点数据的变化而发生改变。我们无法直接创建这个对象，而应当在 [on](/api/sync/web.html#on) 或 [once](/api/sync/web.html#once) 的回调函数中来获取它。
+DataSnapshot 是当前时指定节点下数据的副本，Snapshot 不会随当前节点数据的变化而发生改变。我们无法直接创建这个对象，而应当在 [on](/api/sync/web/api.html#on) 或 [once](/api/sync/web/api.html#once) 的回调函数中来获取它。
 
 ### exists
 
@@ -1307,7 +1325,7 @@ child(path)
 
 **返回** 
 
-[wilddog.sync.DataSnapshot](/api/sync/web.html#wilddog-sync-DataSnapshot)
+[wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot)
 
 **示例**
 
@@ -1338,11 +1356,11 @@ forEach(callback)
 
 | 参数名 | 类型 | 属性 | 说明 |
 |---|---|---|---|
-| callback | [callback](/api/sync/web.html#callback) | non-null | 遍历每一个子节时的回调函数。|
+| callback | [callback](/api/sync/web/api.html#callback) | non-null | 遍历每一个子节时的回调函数。|
 
 **返回**
 
-[Void](/api/sync/web.html#Void)
+[Void](/api/sync/web/api.html#Void)
 
 **示例**
 
@@ -1370,12 +1388,12 @@ function(snap)
 
 | 参数名 | 类型 | 属性 | 说明 |
 |---|---|---|---|
-| snap | [wilddog.sync.DataSnapshot](/api/sync/web.html#wilddog-sync-DataSnapshot) | non-null | 子节点的数据快照。|
+| snap | [wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot) | non-null | 子节点的数据快照。|
 
 
 **返回**
 
-[Void](/api/sync/web.html#Void)
+[Void](/api/sync/web/api.html#Void)
 
 ---
 
@@ -1543,7 +1561,7 @@ ref.set(data).then(function(){
 
 ### ref
 
-返回当前数据节点所关联的 [wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference) 实例。
+返回当前数据节点所关联的 [wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference) 实例。
 
 **定义**
 
@@ -1555,7 +1573,7 @@ _无_
 
 **返回**
 
-[wilddog.sync.Reference](/api/sync/web.html#wilddog-sync-Reference)
+[wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference)
 
 **示例**
 
@@ -1611,7 +1629,7 @@ ref.setWithPriority("fred", 500, function(error) {
 
 ### exportVal
 
-导出 `DataSnapshot` 中的内容到 Javascript 对象，与 [val](/api/sync/web.html#val) 类似，不同之处在于 `exportVal` 导出的数据**包含优先级**。
+导出 `DataSnapshot` 中的内容到 Javascript 对象，与 [val](/api/sync/web/api.html#val) 类似，不同之处在于 `exportVal` 导出的数据**包含优先级**。
 
 **定义**
 
@@ -1686,7 +1704,7 @@ catch(onReject)
 
 **返回**
 
-[Void](/api/sync/web.html#Void)
+[Void](/api/sync/web/api.html#Void)
 
 ---
 
