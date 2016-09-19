@@ -1,41 +1,96 @@
+
 title:  离线功能
 ---
-本篇文档介绍离线功能的实现。
-
-Sync 会为每一个初始化后的客户端建立一个长连接。任何操作和通信都基于这个连接。
-
-Sync 内部的实现机制使你的应用在弱网环境下仍能继续工作。此外，还能监听客户端的连接状态，以及设置离线事件。
+本篇文档介绍离线功能的相关特性和具体实现。它是 Sync 应对复杂网络的一种机制，包括数据持久化、离线事件、监控连接状态和离线时间等功能。
 
 ## 数据持久化
 
-Sync 会保存应用数据到设备中，来应对应用在没网或者弱网情况下数据读取。
+数据持久化会在每个设备上维护一个数据副本。当数据被更改时，优先对本地数据进行操作，再同步到云端。它具有以下特性：
 
-### 持久化操作
+| 特性     | 说明                      |
+| ------ | ----------------------- |
+| 离线查询   | 应用在无网环境时依然可以查询数据。       |
+| 发送离线数据 | 应用在无网情况下操作的数据会在重新连接时发送。 |
+| 提前同步   | 应用在查询数据前自动同步指定节点下的数据。   |
 
-默认情况下，在你的应用程序正在运行时，Sync 客户端会将数据保存在内存中，当重新启动应用时数据就没有了。这个值设置为 YES 时，Sync 会将数据保存到设备，并且当应用程序重新启动时（即使在重新启动程序时没有网络连接），这些存储的数据也是可以用的。
 
-打开数据持久化：
+
+使用  `setPersistenceEnabled` 方法开启数据持久化
 
 Objective-C
 
 ```objectivec
 [WDGSync sync].persistenceEnabled = YES;
-
 ```
 
 Swift
 
 ```swift
 WDGSync.sync().persistenceEnabled = true
-
 ```
 
-**注意**：此属性必须在创建第一个 Sync 引用之前设置，并且每次启用应用程序只需要调用一次即可。 
+**注意**：必须在创建第一个 Sync 实例之前开启持久化。 
 
-### 同步最新数据
 
-在没有设置监听的情况下，Sync 提供一种方法可以自动地同步某个节点下的数据，并且将同步的数据保存到设备中。
-例如，自动同步 [恐龙实例应用](https://dinosaur-facts.wilddogio.com/scores) scores 节点下的数据
+
+### 离线查询
+
+开启数据持久化，Sync 会将查询到的数据存储到设备。在无网环境时，应用仍然可以查询之前存储的数据。
+
+例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙。
+
+Objective-C
+
+```objectivec
+WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
+[[[scoresRef queryOrderedByValue] queryLimitedToLast:4]
+    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
+    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
+}];
+```
+
+Swift
+
+```swift
+let scoresRef = WDGSync.sync().referenceWithPath("scores")
+scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
+    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
+})
+```
+
+然后网络断开，重新启动应用去查询得分最高的两条恐龙。
+
+Objective-C
+
+```objectivec
+[[[scoresRef queryOrderedByValue] queryLimitedToLast:2]
+    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
+    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
+}];
+```
+
+Swift
+
+```swift
+let scoresRef = WDGSync.sync().referenceWithPath("scores")
+scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
+    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
+})
+```
+
+如上例所示，在离线情况下，仍然成功的查询到了数据。
+
+
+
+### 发送离线数据
+
+当打开数据持久化功能，在无网环境下，客户端的所有数据操作都会自动保存，即使重启应用，这些数据操作依然有效，当客户端重新连接网络，这些数据将重新发送到云端。
+
+### 提前同步
+
+Sync 可以在查询数据前同步指定节点下的数据，并将数据存储到设备中，以此提升访问速度。
+
+例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/scores) 中提前同步 `scores` 节点下的数据
 
 Objective-C
 
@@ -53,76 +108,11 @@ scoresRef.keepSynced(true)
 
 ```
 
-用下面方法关闭同步最新数据：
 
-Objective-C
 
-```objectivec
-[scoresRef keepSynced:NO];
+## 监听连接状态
 
-```
-
-Swift
-
-```swift
-scoresRef.keepSynced(false)
-
-```
-
-### 查询离线数据
-
-在离线情况下，设置查询条件，Sync 监听回调会返回本地存储的相应查询数据。
-
-例如，有网络时，返回后四个恐龙的分数数据：
-
-Objective-C
-
-```objectivec
-WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
-[[[scoresRef queryOrderedByValue] queryLimitedToLast:4]
-    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
-    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
-}];
-
-```
-
-Swift
-
-```swift
-let scoresRef = WDGSync.sync().referenceWithPath("scores")
-scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
-    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
-})
-
-```
-
-假定，现在关了网络，重新启动应用去取最后两个恐龙的分数数据：
-
-Objective-C
-
-```objectivec
-[[[scoresRef queryOrderedByValue] queryLimitedToLast:2]
-    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
-    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
-}];
-
-```
-
-Swift
-
-```swift
-let scoresRef = WDGSync.sync().referenceWithPath("scores")
-scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
-    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
-})
-
-```
-
-正如上面的例子所示，在离线情况下，通过本地持久化，成功的取到了离线数据。
-
-## 监控连接状态
-
-Sync 客户端提供了一个特殊的路径：`/.info/connected`，用于存储客户端与云端的连接状态。连接状态发生改变时，都会更新这个路径的值。  
+Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这个路径，客户端可以感知是否连接到服务器。
 
 Objective-C
 
@@ -141,7 +131,6 @@ WDGSyncReference *connectedRef = [[WDGSync sync] referenceWithPath:@".info/conne
         NSLog(@"not connected");
     }
 }];
-
 ```
 
 Swift
@@ -162,17 +151,16 @@ connectedRef.observeEventType(.Value, withBlock: {snapshot in
         print("not connected")
     }
 })
-
 ```
-`/.info/connected` 的值是 BOOL 类型的，它不会和云端进行同步。
+**注意：** `/.info/connected` 的值是 BOOL 类型。
 
 ## 离线事件
 
-云端监听到客户端断开连接后自动触发一些事件，称为离线事件。例如，当一个用户的网络连接中断时，自动标记这个用户为“离线”状态。
+云端监听到客户端断开连接后会自动触发事件，称为离线事件。例如，当用户的网络连接中断时，云端自动标记这个用户为“离线”状态。
 
-断开连接包括客户端主动断开连接，或者意外的网络中断，比如客户端应用崩溃等。触发事件可以理解为执行特定的数据操作。数据操作支持所有数据写入动作，包括 `set`，`update`，`remove`。
+断开连接包括客户端主动断开连接，或者意外的网络中断。触发事件即执行特定的数据操作，它支持 `setValue: `，`updateValues:`，`removeValue:` 方法。
 
-使用 `onDisconnectSetValue` 方法，设置离线事件：
+使用 `onDisconnectSetValue` 方法，设置离线事件
 
 Objective-C
 
@@ -181,7 +169,6 @@ Objective-C
 WDGSyncReference *presenceRef = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com/disconnectmessage"];
 // 当客户端连接中断时，写入一个字符串
 [presenceRef onDisconnectSetValue:@"I disconnected!"];
-
 ```
 
 Swift
@@ -193,7 +180,7 @@ presenceRef.onDisconnectSetValue("I disconnected!")
 
 ```
 
-通过数据操作的回调方法，判断离线事件是否被云端成功记录：
+通过回调方法判断离线事件是否被云端成功记录
 
 Objective-C
 
@@ -217,7 +204,7 @@ presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
 
 ```
 
-使用`cancel`方法，取消离线事件：
+`cancel` 方法用于取消离线事件
 
 Objective-C
 
@@ -237,10 +224,11 @@ presenceRef.cancelDisconnectOperations()
 
 ```
 
-## 延迟处理
+## 处理时间延迟
 
 ### 云端时间戳
-Sync 提供了一个将 [云端时间戳](/api/sync/ios/api.html#+timestamp) 作为值写入节点的功能：
+
+Sync 提供了 [云端时间戳](/api/sync/ios/api.html#+timestamp) 机制，它可以将云端时间写入到指定节点。结合离线事件的方法，很容易记录客户端的离线时间。
 
 Objective-C
 
@@ -248,7 +236,6 @@ Objective-C
 WDGSyncReference *userLastOnlineRef = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com/users/joe/lastOnline"];
 //存入当前云端时间戳
 [userLastOnlineRef setValue:[WDGServerValue timestamp]];
-
 ```
 
 Swift
@@ -257,11 +244,13 @@ Swift
 var userLastOnlineRef = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com/users/joe/lastOnline")
 //存入当前云端时间戳
 userLastOnlineRef.setValue(WDGServerValue.timestamp())
-
 ```
 
 ### 时钟偏差
-本地时间和云端的时间差保存在 /.info/serverTimeOffset 节点下，获取方法如下：
+
+时钟偏差是本地时间和云端时间的差值，保存在 ` /.info/serverTimeOffset` 节点下。
+
+例如，利用时钟偏差获取服务端的时间
 
 Objective-C
 
@@ -271,7 +260,6 @@ WDGSyncReference *offsetRef = [[WDGSync sync] referenceWithPath:@".info/serverTi
   offset = [(NSNumber *)snapshot.value doubleValue];
   double estimatedServerTimeMs = [[NSDate date] timeIntervalSince1970] * 1000.0 + offset;
 }];
-
 ```
 
 Swift
@@ -287,7 +275,7 @@ offsetRef.observeEventType(.Value, withBlock: { snapshot in
 ```
 
 ## 手动建立或断开连接
-Sync 也提供了手动建立或者断开连接的方法，分别为 `goOnline`，`goOffline`，如下：
+Sync 也提供手动建立或者断开连接的方法，分别为 `goOnline`方法、`goOffline`方法，如下：
 
 Objective-C
 
@@ -303,13 +291,7 @@ let ref = WDGSync.sync().reference
 ref.goOnline()
 ```
 
-**注意**：一个客户端可以实例化多个 Sync 对象，但多个对象不会创建多个连接，会复用同一个长连接。 并且 `goOffline` 和 `goOnline` 会控制全局的在线和离线。 
+**注意**：一个客户端可以创建多个 Sync 实例，但多个实例不会创建多个连接，会复用同一个长连接。 并且 `goOffline`方法 和 `goOnline`方法会控制全局的在线和离线。 
 
-## 离线功能的实现机制
 
-客户端每隔 20s 给云端发一个心跳包，云端用此检测与客户端的连接是否正常。
-
-一些异常情况，如程序崩溃、断电、手机没有信号等导致客户端断开连接，云端只能等到心跳超时后才确定客户端已经离线。此时才会执行一些操作，如执行离线事件（如果设置的有）等。
-
-另一方面，客户端在网络恢复正常后，会自动尝试与云端建连，一旦成功，之前设置的监听仍然有效。
 
