@@ -90,7 +90,7 @@ int main(void){
 
 ## 5. 读取与监听 
 
-`widdog_addObserver()` 方法可以监听节点的数据。
+`wilddog_addObserver()` 方法可以监听节点的数据。
 
 ```c
 #include "wilddog.h"
