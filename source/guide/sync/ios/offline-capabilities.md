@@ -8,7 +8,11 @@ Sync 内部的实现机制使你的应用在弱网环境下仍能继续工作。
 
 ## 数据持久化
 
-默认情况下，在你的应用程序正在运行时，Wilddog Sync 客户端会将数据保存在内存中，当重新启动应用时数据就没有了。这个值设置为 YES 时，Sync 会将数据保存到设备，并且当应用程序重新启动时（即使在重新启动程序时没有网络连接），这些存储的数据也是可以用的。
+Sync 会保存应用数据到设备中，来应对应用在没网或者弱网情况下数据读取。
+
+### 持久化操作
+
+默认情况下，在你的应用程序正在运行时，Sync 客户端会将数据保存在内存中，当重新启动应用时数据就没有了。这个值设置为 YES 时，Sync 会将数据保存到设备，并且当应用程序重新启动时（即使在重新启动程序时没有网络连接），这些存储的数据也是可以用的。
 
 打开数据持久化：
 
@@ -28,6 +32,94 @@ WDGSync.sync().persistenceEnabled = true
 
 **注意**：此属性必须在创建第一个 Sync 引用之前设置，并且每次启用应用程序只需要调用一次即可。 
 
+### 同步最新数据
+
+在没有设置监听的情况下，Sync 提供一种方法可以自动地同步某个节点下的数据，并且将同步的数据保存到设备中。
+例如，自动同步 [恐龙实例应用](https://dinosaur-facts.wilddogio.com/scores) scores 节点下的数据
+
+Objective-C
+
+```objectivec
+WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
+[scoresRef keepSynced:YES];
+
+```
+
+Swift
+
+```swift
+let scoresRef = WDGSync.sync().referenceWithPath("scores")
+scoresRef.keepSynced(true)
+
+```
+
+用下面方法关闭同步最新数据：
+
+Objective-C
+
+```objectivec
+[scoresRef keepSynced:NO];
+
+```
+
+Swift
+
+```swift
+scoresRef.keepSynced(false)
+
+```
+
+### 查询离线数据
+
+在离线情况下，设置查询条件，Sync 监听回调会返回本地存储的相应查询数据。
+
+例如，有网络时，返回后四个恐龙的分数数据：
+
+Objective-C
+
+```objectivec
+WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
+[[[scoresRef queryOrderedByValue] queryLimitedToLast:4]
+    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
+    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
+}];
+
+```
+
+Swift
+
+```swift
+let scoresRef = WDGSync.sync().referenceWithPath("scores")
+scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
+    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
+})
+
+```
+
+假定，现在关了网络，重新启动应用去取最后两个恐龙的分数数据：
+
+Objective-C
+
+```objectivec
+[[[scoresRef queryOrderedByValue] queryLimitedToLast:2]
+    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
+    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
+}];
+
+```
+
+Swift
+
+```swift
+let scoresRef = WDGSync.sync().referenceWithPath("scores")
+scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
+    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
+})
+
+```
+
+正如上面的例子所示，在离线情况下，通过本地持久化，成功的取到了离线数据。
+
 ## 监控连接状态
 
 Sync 客户端提供了一个特殊的路径：`/.info/connected`，用于存储客户端与云端的连接状态。连接状态发生改变时，都会更新这个路径的值。  
@@ -40,7 +132,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://samplechat.wi
 [WDGApp configureWithOptions:option];
 
 //创建一个指向根节点的 WDGSyncReference 实例
-WDGSyncReference *connectedRef = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com/.info/connected"];
+WDGSyncReference *connectedRef = [[WDGSync sync] referenceWithPath:@".info/connected"];
 
 [connectedRef observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
     if([snapshot.value boolValue]) {
@@ -60,7 +152,7 @@ let options = WDGOptions.init(syncURL: "https://samplechat.wilddogio.com")
 WDGApp.configureWithOptions(options)
 
 //创建一个指向根节点的 WDGSyncReference 实例
-let connectedRef = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com/.info/connected")
+let connectedRef = WDGSync.sync().referenceWithPath(".info/connected")
 
 connectedRef.observeEventType(.Value, withBlock: {snapshot in
     let connected = snapshot.value as? Bool
@@ -145,7 +237,9 @@ presenceRef.cancelDisconnectOperations()
 
 ```
 
-## 云端时间戳
+## 延迟处理
+
+### 云端时间戳
 Sync 提供了一个将 [云端时间戳](/api/sync/ios/api.html#+timestamp) 作为值写入节点的功能：
 
 Objective-C
@@ -163,6 +257,32 @@ Swift
 var userLastOnlineRef = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com/users/joe/lastOnline")
 //存入当前云端时间戳
 userLastOnlineRef.setValue(WDGServerValue.timestamp())
+
+```
+
+### 时钟偏差
+本地时间和云端的时间差保存在 /.info/serverTimeOffset 节点下，获取方法如下：
+
+Objective-C
+
+```objectivec
+WDGSyncReference *offsetRef = [[WDGSync sync] referenceWithPath:@".info/serverTimeOffset"];
+[offsetRef observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
+  offset = [(NSNumber *)snapshot.value doubleValue];
+  double estimatedServerTimeMs = [[NSDate date] timeIntervalSince1970] * 1000.0 + offset;
+}];
+
+```
+
+Swift
+
+```swift
+let offsetRef = WDGSync.sync().referenceWithPath(".info/serverTimeOffset")
+offsetRef.observeEventType(.Value, withBlock: { snapshot in
+    if let offset = snapshot.value as? Double {
+        let estimatedServerTimeMs = NSDate().timeIntervalSince1970 * 1000.0 + offset
+    }
+})
 
 ```
 
