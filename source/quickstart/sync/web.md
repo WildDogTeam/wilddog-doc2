@@ -14,15 +14,11 @@ Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用�
 
 * **安装完整 Wilddog SDK (推荐，包含 Sync 和 Auth)**
 
-```html
-<script src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog.js"></script>
-```
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 * **独立安装 Sync SDK**
 
-```html
-<script src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-sync.js"></script>
-```
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 如果是 `NodeJS` 或者 `ReactNative` 项目，请使用 `npm` 方式：
 
