@@ -148,8 +148,12 @@ window.onload = function () {
   });
 
   var jsVersionContent = getElementsByClassName('js-version');
-
-  if (jsVersionContent.length !== 0) {
+  var androidSyncVersionContent = getElementsByClassName('android-sync-version');
+  var androidAuthVersionContent = getElementsByClassName('android-auth-version');
+  var iosDownLoadSync = getElementsByClassName('ios-download-sync');
+  var iosDownLoadAuth = getElementsByClassName('ios-download-auth');
+  var iosDownLoadCore = getElementsByClassName('ios-download-core');
+//https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip
     var config = {
       authDomain: "wd-download.wilddog.com",
       syncURL: "https://wd-download.wilddogio.com"
@@ -157,10 +161,30 @@ window.onload = function () {
 
     wilddog.initializeApp(config);
     var ref = wilddog.sync().ref();
-    ref.child('WilddogJavaScript/version').once('value', function (snap) {
+    ref.once('value', function (snap) {
+      var jsVersion = snap.val().WilddogJavaScript.version;
+      var iosAuthVersion = snap.val().WilddogAuthiOS.version;
+      var iosSyncVersion = snap.val().WilddogSynciOS.version;
+      var androidSyncVersion = snap.val().WilddogSyncAndroid.version;
+      var androidAuthVersion = snap.val().WilddogAuthAndroid.version;
+      console.log(snap.val())
       jsVersionContent.forEach(function (ele) {
-        ele.textContent = snap.val();
-      })
+        ele.textContent = jsVersion;
+      });
+      androidSyncVersionContent.forEach(function (ele) {
+        ele.textContent = androidSyncVersion;
+      });
+      androidAuthVersionContent.forEach(function (ele) {
+        ele.textContent = androidAuthVersion;
+      });
+      iosDownLoadSync.forEach(function (ele) {
+        ele.setAttribute('href', snap.val().WilddogAuthiOS.cdn);
+      });
+      iosDownLoadAuth.forEach(function (ele) {
+        ele.setAttribute('href', snap.val().WilddogSynciOS.cdn);
+      });
+      iosDownLoadCore.forEach(function (ele) {
+        ele.setAttribute('href', 'https://cdn.wilddog.com/sdk/ios/' + iosAuthVersion + '/WilddogCore.framework-' + iosAuthVersion + '.zip');
+      });
     })
-  }
 };

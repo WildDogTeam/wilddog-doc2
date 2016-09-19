@@ -13,23 +13,13 @@ SDK 的安装方式有两种，你可以任选其一
 
 * **使用 Maven**
 
-```xml
-<dependency>
-    <groupId>com.wilddog.client</groupId>
-    <artifactId>wilddog-sync-android</artifactId>
-    <version>2.0.1</version>
-</dependency> 
-```
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="android-sync-version"></span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 * **使用 Gradle**
 
 在build.gradle中添加
 
-```java
-dependencies {
-    compile 'com.wilddog.client:wilddog-sync-android:2.0.1'
-}
-```
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:<span class="android-sync-version"></span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions
 
