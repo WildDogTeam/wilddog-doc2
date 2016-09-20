@@ -209,7 +209,7 @@ ref.removeAllObservers()
 
 ```
 
-**注意**：在父节点上调用 `removeAllObservers` 时不会移除在其子节点上添加的监听。
+**注意**：在父节点上调用 `removeAllObservers` 方法时不会移除在其子节点上添加的监听。
 
 
 ## 数据排序
