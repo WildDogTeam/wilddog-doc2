@@ -32,7 +32,7 @@ NSDictionary *gracehop = @{
                            @"full_name" : @"Grace Hopper",
                            @"nickname": @"Amazing Grace"
                            };
-// child: 用来定位到某个节点。                           
+// child 用来定位到某个节点。                           
 WDGSyncReference *usersRef = [ref child: @"gracehop"];
 [usersRef setValue: gracehop];
 
@@ -48,7 +48,7 @@ WDGApp.configureWithOptions(options)
 let ref = WDGSync.sync().referenceWithPath("/web/saving-data/wildblog/users")
 var gracehop = ["date_of_birth": "December 9, 1906", "full_name": "Grace Hopper","nickname": "Amazing Grace"]
 
-// child() 用来定位到某个节点。
+// child 用来定位到某个节点。
 var usersRef = ref.child("gracehop")
 usersRef.setValue(gracehop)
 
@@ -56,6 +56,34 @@ usersRef.setValue(gracehop)
 
 `setValue` 方法可以写入的数据类型有 `NSString`, `NSNumber`, `NSDictionary`, `NSArray` 。
 
+`setValue` 方法还有一个可选参数，此参数是一个回调方法，用来获取操作的结果
+
+Objective-C
+
+```objectivec
+NSDictionary *gracehop = @{
+                           @"date_of_birth": @"December 9, 1906",
+                           @"full_name" : @"Grace Hopper",
+                           @"nickname": @"Amazing Grace"
+                           };
+[[ref child: @"gracehop"] setValue:gracehop withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+    if (error == nil) {
+        // 数据同步到野狗云端成功完成
+    }
+}];
+
+```
+
+Swift
+
+```swift 
+ref.child("gracehop").setValue(gracehop, withCompletionBlock: { error, ref in
+    if error == nil{
+    	   // 数据同步到野狗云端成功完成
+    }
+})
+
+```
 
 ## 追加子节点
 
