@@ -235,7 +235,7 @@ Objective-C
 ```objectivec
 WDGSyncReference *userLastOnlineRef = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com/users/joe/lastOnline"];
 //存入当前云端时间戳
-[userLastOnlineRef setValue:[WDGServerValue timestamp]];
+[userLastOnlineRef onDisconnectSetValue:[WDGServerValue timestamp]];
 ```
 
 Swift
@@ -243,12 +243,12 @@ Swift
 ```swift
 var userLastOnlineRef = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com/users/joe/lastOnline")
 //存入当前云端时间戳
-userLastOnlineRef.setValue(WDGServerValue.timestamp())
+userLastOnlineRef.onDisconnectSetValue(WDGServerValue.timestamp())
 ```
 
 ### 时钟偏差
 
-时钟偏差是本地时间和云端时间的差值，保存在 ` /.info/serverTimeOffset` 节点下。
+时钟偏差是本地时间和云端时间的差值，保存在 `/.info/serverTimeOffset` 节点下。
 
 例如，利用时钟偏差获取服务端的时间
 
