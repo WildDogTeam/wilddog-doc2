@@ -66,7 +66,7 @@ ref.on('value', function(snapshot, error) {
 
 **注意**：每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
-更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html)。
+更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
 
 **Child 事件**
 

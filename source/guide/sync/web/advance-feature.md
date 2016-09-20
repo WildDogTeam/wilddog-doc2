@@ -5,7 +5,7 @@ title: 高级特性
 
 ## 云端时间戳
 
-Wilddog Sync 提供了 [云端时间戳](/api/sync/web/api.html#TIMESTAMP) 机制，它可以将云端时间戳写入到指定节点。
+Wilddog Sync 提供了 [云端时间戳](/api/sync/web/api.html#ServerValue) 机制，它可以将云端时间戳写入到指定节点。
 
 ```js
 var config = {
