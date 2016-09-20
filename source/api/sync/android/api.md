@@ -2061,3 +2061,11 @@ WilddogOptions.Builder setSyncUrl (String syncUrl)
 
 syncURL Sync 的根路径 URL, e.g. `http://your-appid.wilddogio.com`
 
+----
+## ServerValue(*Constants*)
+
+### TIMESTAMP
+
+说明
+
+返回一个map集合，通过写数据的方式将这个map写到野狗数据库里，会在该节点处得到服务器的时间。
