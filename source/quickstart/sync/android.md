@@ -39,6 +39,16 @@ android {
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
+<application 
+...
+>
+<receiver android:name="com.wilddog.client.receiver.WilddogAuthCastReceiver">
+            <intent-filter>
+                <action android:name="com.wilddog.wilddogauth.signinsuccess"/>
+                <action android:name="com.wilddog.wilddogauth.signoutsuccess"/>
+            </intent-filter>
+        </receiver>
+</application>		
 ```
 
 ## 4. 创建 Wilddog Sync 实例
