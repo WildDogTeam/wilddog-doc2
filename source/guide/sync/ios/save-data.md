@@ -27,16 +27,14 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wildd
 [WDGApp configureWithOptions:option];
 // 获取一个 WDGSyncReference 实例
 WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"/web/saving-data/wildblog/users"];
-
 NSDictionary *gracehop = @{
-										 @"date_of_birth": @"December 9, 1906",
+                           @"date_of_birth": @"December 9, 1906",
                            @"full_name" : @"Grace Hopper",
                            @"nickname": @"Amazing Grace"
                            };
 // child 用来定位到某个节点。                           
 WDGSyncReference *usersRef = [ref child: @"gracehop"];
 [usersRef setValue: gracehop];
-
 ```
 
 Swift
@@ -72,7 +70,6 @@ NSDictionary *gracehop = @{
         // 数据同步到野狗云端成功完成
     }
 }];
-
 ```
 
 Swift
