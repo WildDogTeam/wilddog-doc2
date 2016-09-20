@@ -133,13 +133,13 @@ ref.off();
 
 ## 数据排序
 
-Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。
+Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。
 
 数据排序包含以下四种排序方法	
 
 | 方法                | 说明                    |
 | ----------------- | --------------------- |
-| orderByChild()    | 按指定子节点的值（Value）对结果排序。 |
+| orderByChild()    | 按指定子节点的值（value）对结果排序。 |
 | orderByKey()      | 按键（key）对结果排序。         |
 | orderByValue()    | 按值（value）对结果排序。       |
 | orderByPriority() | 按优先级（priority）对结果排序。  |
@@ -265,7 +265,7 @@ ref.orderByValue().startAt(60).on("child_added", function(snapshot) {
   console.log(snapshot.key() + " is " + snapshot.val());
 });
 ```
-**注意：** range 筛选中，当节点的 value 相同时，会按照 key 进行排序。
+**注意：** 范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
 
-range 筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
+范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
 

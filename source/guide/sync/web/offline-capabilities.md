@@ -1,15 +1,13 @@
 title:  离线功能
 ---
 
-本篇文档介绍离线功能的实现。
+本篇文档介绍离线功能的相关特性和具体实现。
 
-Sync 会为每一个初始化后的客户端建立一个长连接。任何操作和通信都基于这个连接。
+离线功能让应用在无网环境下仍可以操作数据。它包括离线事件、监控连接状态等特性。
 
-Sync 内部的实现机制使你的应用在弱网环境下仍能继续工作。此外，还能监听客户端的连接状态，以及设置离线事件。
+## 监听连接状态
 
-## 监控连接状态
-
-Sync 客户端提供了一个特殊的路径：`/.info/connected`，用于存储客户端与云端的连接状态。连接状态发生改变时，都会更新这个路径的值。
+Wilddog Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这个路径，客户端可以监测是否连接到云端。
 
 ``` js
 var config = {
@@ -27,16 +25,17 @@ connectedRef.on("value", function(snap) {
   }
 });
 ```
-`/.info/connected` 的值是 boolean 类型的，它不会和云端进行同步。
+`/.info/connected` 的值是 boolean 类型。
 
 ## 离线事件
 
-云端监听到客户端断开连接后自动触发一些事件，称为离线事件。例如，当一个用户的网络连接中断时，自动标记这个用户为“离线”状态。
+离线事件是云端与客户端断开连接时自动触发的事件。
 
 断开连接包括客户端主动断开连接，或者意外的网络中断，比如客户端应用崩溃等。触发事件可以理解为执行特定的数据操作。数据操作支持所有数据写入动作，包括 `set()`，`update()`，`remove()`。
 
-使用 `onDisconnect()` 方法，设置离线事件：
+使用 `onDisconnect()` 方法，设置离线事件。
 
+例如，当用户的网络连接中断时，记录这个用户已经离线
 
 ```js
 var config = {
@@ -49,7 +48,7 @@ var presenceRef = wilddog.sync().ref("disconnectmessage");
 presenceRef.onDisconnect().set("I disconnected!");
 ```
 
-通过数据操作的回调方法，判断离线事件是否被云端成功记录：
+通过回调方法判断离线事件是否被云端成功记录
 
 ```js
 presenceRef.onDisconnect().remove( function(err) {
@@ -58,7 +57,7 @@ presenceRef.onDisconnect().remove( function(err) {
   }
 });
 ```
-使用`cancel()`方法，取消离线事件：
+`cancel()` 方法用于取消离线事件
 
 ```js
 // 设置离线事件
@@ -68,7 +67,8 @@ presenceRef.cancel();
 ```
 
 ## 手动建立或断开连接
-Sync 也提供了手动建立或者断开连接的方法，分别为 `goOnline()`，`goOffline()`，如下：
+
+Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline()`，`goOffline()`，如下
 
 ```js
 var config = {
@@ -96,7 +96,7 @@ setTimeout(function(){
   },3000);
 },3000);
 ```
-**注意**：一个客户端可以实例化多个 Sync 对象，但多个对象不会创建多个连接，会复用同一个长连接。 并且 `goOffline()` 和 `goOnline()` 会控制全局的在线和离线。 
+**注意**：一个客户端可以实例化多个 Wilddog Sync 对象，但多个对象不会创建多个连接，会复用同一个长连接。 并且 `goOffline()` 和 `goOnline()` 会控制全局的在线和离线。 
 
 ## 离线功能的实现机制
 
