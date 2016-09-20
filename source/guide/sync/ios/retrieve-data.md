@@ -326,7 +326,7 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 
 `queryOrderedByPriority`方法用于根据子节点的优先级（priority）进行排序。
 
-首先你需要 [设置节点的优先级](/api/sync/ios/api.html#-setPriority) ，然后使用`queryOrderedByPriority`方法按 [优先级排序](/api/sync/ios/api.html#queryOrderedByPriority)。
+首先你需要 [设置节点的优先级](/api/sync/ios/api.html#–-setPriority) ，然后使用`queryOrderedByPriority`方法按 [优先级排序](/api/sync/ios/api.html#–-queryOrderedByPriority)。
 
 **注意**：
 

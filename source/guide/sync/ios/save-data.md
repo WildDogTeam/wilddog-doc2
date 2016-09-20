@@ -340,4 +340,4 @@ upvotesRef.runTransactionBlock({
 
 **注意**：当云端有数据存在，本地还未缓存时，此时回调方法的变量为 nil，所以要判断变量是否为空。
 
-更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/api.html#–runTransactionBlock)。
+更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/api.html#–-runTransactionBlock)。
