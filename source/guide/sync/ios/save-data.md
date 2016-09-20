@@ -88,7 +88,7 @@ ref.child("gracehop").setValue(gracehop, withCompletionBlock: { error, ref in
 
 ## 追加子节点
 
-`childByAutoId` 方法向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 这个 key 基于时间戳和随机算法生成，它标明了时间的先后。
+`childByAutoId` 方法向任意节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
 
 例如，追加子节点到 `posts` 节点
 
