@@ -1,16 +1,17 @@
+
 title:  操作数据
 ---
 本篇文档介绍如何操作数据，分为写入，更新和删除数据。
 
 操作数据包含以下五种方法
 
-| 方法            | 说明                                       |
-| ------------- | ---------------------------------------- |
-| setValue        | 向任意节点写入数据。若此节点已存在数据，会覆盖原有数据。   |     
-| childByAutoId        | 向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 |
-| updateChildValues      | 更新指定子节点。|
-| removeValue      | 删除指定节点。|
-| runTransactionBlock | 并发操作时保证数据一致性。                        |
+| 方法                  | 说明                                       |
+| ------------------- | ---------------------------------------- |
+| setValue            | 向任意节点写入数据。若此节点已存在数据，会覆盖原有数据。             |
+| childByAutoId       | 向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 |
+| updateChildValues   | 更新指定子节点。                                 |
+| removeValue         | 删除指定节点。                                  |
+| runTransactionBlock | 并发操作时保证数据一致性。                            |
 
 ## 写入数据
 
@@ -222,7 +223,7 @@ hopperRef.updateChildValues(nickname)
     }
 }
 ```
-希望同时更新 b 节点下的 d 和 x 节点下的 z。标识路径时，要用 `b/d`, 和 `x/z` 
+希望同时更新 b 节点下的 d 和 x 节点下的 z。注意标识路径时，要用 `b/d`, 和 `x/z` 
 
 Objective-C
 
