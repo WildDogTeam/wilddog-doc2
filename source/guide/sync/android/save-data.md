@@ -1,4 +1,3 @@
-
 title:  操作数据
 ---
 
@@ -6,12 +5,12 @@ title:  操作数据
 
 操作数据包含以下五种方法
 
-| 方法               | 说明                                       |
-| ---------------- | ---------------------------------------- |
+| 方法            | 说明                                       |
+| ------------- | ---------------------------------------- |
 | setValue()       | 向任意节点写入数据。若此节点已存在数据，会覆盖原有数据。             |
-| push()           | 向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 |
-| updateChildren() | 更新指定子节点。                                 |
-| removeValue()    | 删除指定节点。                                  |
+| push()        | 向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 |
+| updateChildren()      | 更新指定子节点。|
+| removeValue()     | 删除指定节点。|
 | runTransaction() | 并发操作时保证数据一致性。                            |
 
 
@@ -68,11 +67,11 @@ SyncReference postsRef = ref.child("posts");
 HashMap<String, Object> aNews = new HashMap<>();
 aNews.put("author", "gracehop");
 aNews.put("title", "Announcing COBOL, a New Programming Language");
-postsRef.push(aNews);
+postsRef.push().setValue(aNews);
 HashMap<String, Object> anotherNews = new HashMap<>();
 anotherNews.put("author", "alanisawesome");
 anotherNews.put("title", "The Turing Machine");
-postsRef.push(anotherNews);
+postsRef.push().setValue(anotherNews);
 ```
 产生的数据如下：
 ```json
@@ -217,7 +216,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
 });
 ```
 
-**注意**：要进行并发更新的数据在云端有值，但本地还未获取这个值时，此时 `transaction()` 的回调方法中的变量为 null。这种情况下，直接使用此变量进行逻辑处理会引发错误，所以必须对变量进行判空处理。
+**注意**：当云端有数据存在，本地还未缓存时，此时回调方法的变量为 null，所以要判断变量是否为空。
 
 更多使用，请参考 [runTransaction()](/api/sync/android/api.html#runTransaction-Transaction-Handler)。
 
