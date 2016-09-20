@@ -86,7 +86,7 @@ scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdd
 
 
 
-### 发送离线数据
+### 发送离线数据
 
 开启数据持久化，在无网环境下，应用的所有数据操作都会自动保存，当应用重新连接网络，这些数据将自动发送到云端。
 
