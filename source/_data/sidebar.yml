@@ -22,6 +22,7 @@ guide:
       操作数据: /guide/sync/web/save-data.html
       查询数据: /guide/sync/web/retrieve-data.html
       离线功能: /guide/sync/web/offline-capabilities.html
+      高级特性: /guide/sync/web/advance-feature.html
       
     Android :
       操作数据: /guide/sync/android/save-data.html
