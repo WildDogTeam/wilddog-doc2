@@ -3,36 +3,35 @@ title:  查询数据
 ---
 本篇文档介绍查询数据的基础知识，以及如何对数据进行排序和筛选。
 
-Sync 查询数据建立在事件监听基础上，在监听的回调方法中完成数据的查询。
+Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方法中完成数据的查询。
 
 ## 事件监听
 
-完成事件监听，需要设置监听，并为这种监听方法中指定一种事件类型。
+事件监听需要完成两个步骤，设置监听方法和指定事件类型。
 
-### 设置监听
+### 设置监听方法
 
-设置监听包含以下两个方法
+设置监听包含以下两个方法，根据需求任选其一。
 
-| 方法            | 说明                                   |
-| ------------- | ---------------------------------------- |
-| observeEventType          | 监听当前节点的指定事件，添加回调方法。  监听一直持续，直到被主动取消。          |
-| observeSingleEventOfType        |  监听当前节点的指定事件，添加回调方法。但回调方法只被执行一次，然后监听立即被取消。|
+| 方法     | 说明                          |
+| ------ | --------------------------- |
+| observeEventType   | 持续监听指定节点的数据变化。              |
+| observeSingleEventOfType | 单次监听指定节点的数据变化，用于只读取一次数据的情景。 |
 
-使用 `observeEventType` 方法设置监听，可使客户端的数据与云端一直保持同步。使用 `observeSingleEventOfType` 方法设置单次监听，用于只读取一次数据的情景。
 
 ### 指定事件类型
 
-监听指定的事件类型分为 Value 事件和 Child 事件两大类，使用 `value` 事件监听节点下的所有数据，使用 `child_*` 事件监听当前节点下的子节点数据。
+指定的事件类型分为 Value 事件和 Child 事件两大类，使用 `value` 事件监听指定节点下的所有数据变化，使用 `child_*` 事件监听指定节点下子节点的数据变化。
 
 事件类型包含以下五种
 
-| 事件类型                         | 说明                        |
-| ---------------------------- | ------------------------- |
-| WDGDataEventTypeValue        | 程序初始化时或有任何数据发生变化时触发。      |
-| WDGDataEventTypeChildAdded   | 程序初始化时或有新增子节点时触发。         |
-| WDGDataEventTypeChildChanged | 节点下某个子节点或子节点的更深节点发生变化时触发。 |
-| WDGDataEventTypeChildRemoved | 节点下某个子节点被删除时触发。           |
-| WDGDataEventTypeChildMoved   | 节点下某个子节点排序发生变化时触发。        |
+| 事件类型          | 说明                    |
+| ------------- | --------------------- |
+| WDGDataEventTypeValue         | 初次监听或指定节点及子节点发生变化时触发。 |
+| WDGDataEventTypeChildAdded   | 初次监听或有新增子节点时触发。       |
+| WDGDataEventTypeChildChanged | 子节点发生更改时触发。           |
+| WDGDataEventTypeChildRemoved | 子节点被删除时触发。            |
+| WDGDataEventTypeChildMoved   | 子节点排序发生变化时触发。         |
 
 
 **Value 事件**
@@ -44,10 +43,12 @@ Sync 查询数据建立在事件监听基础上，在监听的回调方法中完
 Objective-C 
 
 ```objectivec
+// 初始化 
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
+[WDGApp configureWithOptions:option];  
 // 获取一个 WDGSyncReference 实例
-WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://docs-examples.wilddogio.com/web/saving-data/wildblog/users/gracehop"];
+WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"web/saving-data/wildblog/users/gracehop"];
 
-// 绑定一个 block 去读取数据
 [ref observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
     NSLog(@"%@", snapshot.value);
 } withCancelBlock:^(NSError *error) {
@@ -59,10 +60,12 @@ WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://docs-examples
 Swift
 
 ```swift
+// 初始化 
+let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
+WDGApp.configureWithOptions(options)
 // 获取一个 WDGSyncReference 实例
-let ref = WDGSync.sync().referenceFromURL("https://docs-examples.wilddogio.com/web/saving-data/wildblog/users/gracehop")
+let ref = WDGSync.sync().referenceWithPath("web/saving-data/wildblog/users/gracehop")
 
-// 绑定一个 block 去读取数据
 ref.observeEventType(.Value, withBlock: { snapshot in
     print(snapshot.value)
 }, withCancelBlock: { error in
@@ -71,10 +74,6 @@ ref.observeEventType(.Value, withBlock: { snapshot in
 ```
 
 之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
-
-回调方法接收一个 `snapshot` 对象，它是云端数据的快照，包含了事件触发时指定节点的数据。调用 `snapshot.value` 方法来获取 `snapshot` 中的数据。如果数据为空，则返回 null。
-
-回调方法中的 `error` 参数是可选的。查询数据失败时，可以通过 `error` 对象获取错误信息。
 
 **注意**：每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
@@ -92,6 +91,7 @@ Child 事件监听当前节点下的子节点数据。当子节点发生改变�
 
 - `child_moved`事件在节点下的数据顺序发生变化时触发。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
 
+
 例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过设置 Child 事件来监听博客的状态变化
 
 Objective-C 
@@ -100,7 +100,6 @@ Objective-C
 // 获取一个 WDGSyncReference 实例
 WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts"];
 
-// 设置监听
 [ref observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
   NSLog(@"%@", snapshot.value[@"author"]);
   NSLog(@"%@", snapshot.value[@"title"]);
@@ -114,7 +113,6 @@ Swift
 // 获取一个 WDGSyncReference 实例
 let ref = WDGSync.sync().referenceFromURL("https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts")
 
-// 设置监听
 ref.observeEventType(.ChildAdded, withBlock: { snapshot in
     print(snapshot.value!.objectForKey("author"))
     print(snapshot.value!.objectForKey("title"))
@@ -195,12 +193,28 @@ ref.removeObserverWithHandle(handle)
 
 ```
 
-**注意**：在父节点上调用 `removeObserverWithHandle` 时不会移除在其子节点上添加的监听。
+在该节点调用 `removeAllObservers`方法，将移除该节点位置的所有监听。
+
+Objective-C
+
+```objectivec
+[ref removeAllObservers];
+
+```
+
+Swift
+
+```swift
+ref.removeAllObservers()
+
+```
+
+**注意**：在父节点上调用 `removeAllObservers` 时不会移除在其子节点上添加的监听。
 
 
 ## 数据排序
 
-Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。
+Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。
 
 数据排序包含以下四种排序方法	
 
@@ -225,7 +239,7 @@ Objective-C
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://dinosaur-facts.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 // 使用 orderByChild 进行排序
-WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://dinosaur-facts.wilddogio.com/dinosaurs"];
+WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"dinosaurs"];
 [[ref queryOrderedByChild:@"height"]
     observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
 
@@ -241,7 +255,7 @@ Swift
 let options = WDGOptions.init(syncURL: "https://dinosaur-facts.wilddogio.com")
 WDGApp.configureWithOptions(options)
 // 使用 orderByChild 进行排序
-let ref = WDGSync.sync().referenceFromURL("https://dinosaur-facts.wilddogio.com/dinosaurs")
+let ref = WDGSync.sync().referenceWithPath("dinosaurs")
 ref.queryOrderedByChild("height").observeEventType(.ChildAdded, withBlock: { snapshot in
     if let height = snapshot.value!["height"] as? Double {
         print("\(snapshot.key) was \(height) meters tall")
@@ -259,7 +273,7 @@ ref.queryOrderedByChild("height").observeEventType(.ChildAdded, withBlock: { sna
 Objective-C
 
 ```objectivec
-WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://dinosaur-facts.wilddogio.com/dinosaurs"];
+WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"dinosaurs"];
 [[ref queryOrderedByKey]
     observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
 
@@ -271,7 +285,7 @@ WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://dinosaur-fact
 Swift
 
 ```swift
-let ref = WDGSync.sync().referenceFromURL("https://dinosaur-facts.wilddogio.com/dinosaurs")
+let ref = WDGSync.sync().referenceWithPath("dinosaurs")
 ref.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: { snapshot in
     if let height = snapshot.value!["height"] as? Double {
         print("\(snapshot.key) was \(height)")
@@ -289,7 +303,7 @@ ref.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: { snapshot in
 Objective-C
 
 ```objectivec
-WDGSyncReference *scoresRef = [[WDGSync sync] referenceFromURL:@"https://dinosaur-facts.wilddogio.com/scores"];
+WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 [[scoresRef queryOrderedByValue] observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
     NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
 }];
@@ -299,7 +313,7 @@ WDGSyncReference *scoresRef = [[WDGSync sync] referenceFromURL:@"https://dinosau
 Swift
 
 ```swift
-let scoresRef = WDGSync.sync().referenceFromURL("https://dinosaur-facts.wilddogio.com/scores")
+let scoresRef = WDGSync.sync().referenceWithPath("scores")
 scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snapshot in
     if let score = snapshot.value as? Int {
         print("The \(snapshot.key) dinosaur's score is \(score)")
@@ -339,7 +353,9 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 
 **limit 筛选**
 
-`queryLimitedToFirst`方法 和 `queryLimitedToLast` 方法限制返回节点的最大数量。 
+`queryLimitedToFirst`方法获取从第一条（或 startAt() 方法指定的位置）开始向后指定数量的子节点。 
+
+ `queryLimitedToLast` 方法获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。 
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中，如果你只想知道最高的是哪三条恐龙
 
@@ -347,7 +363,7 @@ Objective-C
 
 ```objectivec
 
-WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://dinosaur-facts.wilddogio.com/dinosaurs"];
+WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"dinosaurs"];
 [[[ref queryOrderedByChild:@"height"] queryLimitedToLast:3]
     observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
 
@@ -360,7 +376,7 @@ Swift
 
 ```swift
 
-let ref = WDGSync.sync().referenceFromURL("https://dinosaur-facts.wilddogio.com/dinosaurs")
+let ref = WDGSync.sync().referenceWithPath("dinosaurs")
 ref.queryOrderedByChild("height").queryLimitedToLast(3)
     .observeEventType(.ChildAdded, withBlock: { snapshot in
         print(snapshot.key)
@@ -379,7 +395,7 @@ ref.queryOrderedByChild("height").queryLimitedToLast(3)
 Objective-C
 
 ```objectivec
-WDGSyncReference *scoresRef = [[WDGSync sync] referenceFromURL:@"https://dinosaur-facts.wilddogio.com/scores"];
+WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 [[[scoresRef queryOrderedByValue] queryStartingAtValue:@60]
     observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
 
@@ -391,7 +407,7 @@ WDGSyncReference *scoresRef = [[WDGSync sync] referenceFromURL:@"https://dinosau
 Swift
 
 ```swift
-let scoresRef = Wilddog(url:"https://dinosaur-facts.wilddogio.com/scores")
+let ref = WDGSync.sync().referenceWithPath("scores")
 scoresRef.queryOrderedByValue().queryStartingAtValue(60).observeEventType(.ChildAdded, withBlock: { snapshot in
     
     print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")

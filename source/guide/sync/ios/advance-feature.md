@@ -4,8 +4,6 @@ title: 高级特性
 本篇文档介绍 Wilddog Sync 的高级特性，用于实现更丰富的场景需求。
 
 
-
-
 ## 云端时间戳
 
 Wilddog Sync 提供了 [云端时间戳](/api/sync/ios/api.html#+timestamp) 机制，它可以将云端时间戳写入到指定节点。

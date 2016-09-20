@@ -185,7 +185,7 @@ presenceRef.onDisconnectSetValue("I disconnected!")
 Objective-C
 
 ```objectivec
-[presenceRef onDisconnectRemoveValueWithCompletionBlock:^(NSError* error, Wilddog* ref) {
+[presenceRef onDisconnectRemoveValueWithCompletionBlock:^(NSError* error, WDGSyncReference* ref) {
     if (error != nil) {
         NSLog(@"Could not establish onDisconnect event: %@", error);
     }

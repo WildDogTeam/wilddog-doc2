@@ -1,22 +1,20 @@
 title:  操作数据
 ---
-本篇文档介绍如何写入、更新、删除数据。
+本篇文档介绍如何操作数据，分为写入，更新和删除数据。
 
-包含以下五种方法
+操作数据包含以下五种方法
 
 方法 |  说明 
 ----|------
-setValue |向某个节点写入数据。若此节点已存在数据，会覆盖原有数据。
-childByAutoId | 向某个节点添加子节点。子节点的 key 由 Sync 自动生成并保证唯一。
+setValue | 向任意节点写入数据。若此节点已存在数据，会覆盖原有数据。
+childByAutoId | 向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。
 updateChildValues | 更新指定子节点。
-removeValue | 删除指定子节点。
-runTransactionBlock | 数据并发操作时保证数据一致性。
+removeValue | 删除指定节点。
+runTransactionBlock | 并发操作时保证数据一致性。
 
 ## 写入数据
 
-`setValue` 方法向某个节点写入数据。若此节点已有数据，会覆盖原有数据，包括其子节点的数据。
-
-`setValue` 方法可以写入的数据类型有 `NSString`, `NSNumber`, `NSDictionary`, `NSArray` 。
+`setValue` 方法用于向任意节点写入数据。若此节点已有数据，会覆盖原有（包括其子节点）的数据。
 
 例如，向 `gracehop` 节点下写入 `date_of_birth ` 、`full_name ` 和 `nickname`
 
@@ -24,55 +22,44 @@ Objective-C
 
 ```objectivec
 // 初始化 
-WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 // 获取一个 WDGSyncReference 实例
-WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com//web/saving-data/wildblog"];
-NSDictionary *alanisawesome = @{
-                                @"full_name" : @"Alan Turing",
-                                @"date_of_birth": @"June 23, 1912"
-                                };
+WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"/web/saving-data/wildblog/users"];
+
 NSDictionary *gracehop = @{
+										 @"date_of_birth": @"December 9, 1906",
                            @"full_name" : @"Grace Hopper",
-                           @"date_of_birth": @"December 9, 1906"
+                           @"nickname": @"Amazing Grace"
                            };
-                           
-Wilddog *usersRef = [ref child: @"users"];
-NSDictionary *users = @{
-                        @"alanisawesome": alanisawesome,
-                        @"gracehop": gracehop
-                        };
-// 写入数据
-[usersRef setValue: users];
+// child: 用来定位到某个节点。                           
+WDGSyncReference *usersRef = [ref child: @"gracehop"];
+[usersRef setValue: gracehop];
 
 ```
 
 Swift
 
 ```swift 
-//初始化 
-let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
-WDGApp.configureWithOptions(options) 
+//初始化
+let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
+WDGApp.configureWithOptions(options)
 // 获取一个 WDGSyncReference 实例
-let ref = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com//web/saving-data/wildblog")           
-var alanisawesome = ["full_name": "Alan Turing", "date_of_birth": "June 23, 1912"]
-var gracehop = ["full_name": "Grace Hopper", "date_of_birth": "December 9, 1906"]
+let ref = WDGSync.sync().referenceWithPath("/web/saving-data/wildblog/users")
+var gracehop = ["date_of_birth": "December 9, 1906", "full_name": "Grace Hopper","nickname": "Amazing Grace"]
 
-var usersRef = ref.child("users")
-
-var users = ["alanisawesome": alanisawesome, "gracehop": gracehop]
-// 写入数据
-usersRef.setValue(users)
+// child() 用来定位到某个节点。
+var usersRef = ref.child("gracehop")
+usersRef.setValue(gracehop)
 
 ```
 
-访问 [博客数据页面](https://docs-examples.wilddogio.com/web/saving-data/wildblog/users/gracehop)，将会看到刚才写入的数据。
+`setValue` 方法可以写入的数据类型有 `NSString`, `NSNumber`, `NSDictionary`, `NSArray` 。
 
-**注意**：`https://docs-examples.wilddogio.com` 是示例应用，数据为只读模式，主要用于野狗博客示例的数据展示。如果你想写入数据，可以将 `docs-examples` 替换成自己应用的 AppID。
 
 ## 追加子节点
 
-`childByAutoId` 方法向某个节点添加子节点。子节点的 key 由 Sync 自动生成并保证唯一。 这个 key 基于时间戳和随机算法生成，它标明了时间的先后。
+`childByAutoId` 方法向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 这个 key 基于时间戳和随机算法生成，它标明了时间的先后。
 
 例如，追加子节点到 `posts` 节点
 
@@ -186,7 +173,7 @@ hopperRef.updateChildValues(nickname)
 
 ```
 
-如果用 `setValue` 而不是 `updateChildValues`，则会删除 `date_of_birth` 和 `full_name`。
+与 `setValue` 方法对比：如果用 `setValue` 而不是 `updateChildValues`，则会删除 `date_of_birth` 和 `full_name`。
 
 **多路径更新**
 
@@ -246,7 +233,7 @@ newPostRef.updateChildValues(["b":["d":"updateD"],"x":["z":"updateZ"]])
 
 ## 删除数据
 
-`removeValue`方法用于删除数据：
+`removeValue`方法用于删除指定节点。
 
 Objective-C
 
@@ -269,26 +256,26 @@ messagesRef.removeValue()
 
 此外，还可以通过写入 nil 值（例如，`setValue:nil`）来删除数据。 
 
-**注意**：Sync 不会保存 value 为 nil 的节点。如果某节点的 value 为 nil，云端会删除这个节点。
+**注意**：如果某个节点的 value 为 nil ,云端会直接删除该节点。
 
 ## 事务处理
 
-`runTransactionBlock` 方法用于数据并发操作时保证数据一致性。
+`runTransactionBlock` 方法用于并发操作时保证数据一致性。
 
-例如，要实现一个记录点赞数量的功能，它可能存在多人同时点赞的情况。如果不用事务处理，那么两个客户端同时试图累加时，结果可能是为数字 1 而非数字 2。
+例如，要实现一个记录点赞数量的功能，它可能存在多人同时点赞的情况。如果不用事务处理，那么两个客户端呈现的最终数据可能不一致。
 
-使用事务处理可以避免这种情况
+使用事务处理能避免这种情况
 
 
 Objective-C
 
 ```objectivec
-// 初始化 WDGApp
+// 初始化 
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
 [WDGApp configureWithOptions:option];  
 
 // 获取一个 WDGSyncReference 实例
-WDGSyncReference *upvotesRef =[[WDGSync sync] referenceFromURL:@"https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes"];
+WDGSyncReference *upvotesRef =[[WDGSync sync] referenceWithPath:@"/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes"];
     
 [upvotesRef runTransactionBlock:^WDGTransactionResult *(WDGMutableData *currentData) {
     NSNumber *value = currentData.value;
@@ -304,12 +291,12 @@ WDGSyncReference *upvotesRef =[[WDGSync sync] referenceFromURL:@"https://docs-ex
 Swift
 
 ```swift
-// 初始化 WDGApp
+// 初始化 
 let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
 WDGApp.configureWithOptions(options)
 
 // 获取一个 WDGSyncReference 实例
-let upvotesRef = WDGSync.sync().referenceFromURL("https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes")
+let upvotesRef = WDGSync.sync().referenceWithPath("/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes")
         
 upvotesRef.runTransactionBlock({
      (currentData:WDGMutableData!) in
@@ -323,6 +310,6 @@ upvotesRef.runTransactionBlock({
 
 ```
 
-**注意**：当云端有数据存在，本地还未缓存时，此时回调方法的变量为 null，所以要判断变量是否为空。
+**注意**：当云端有数据存在，本地还未缓存时，此时回调方法的变量为 nil，所以要判断变量是否为空。
 
 更多使用，请参考 [- runTransactionBlock:](https://docs.wilddog.com/api/sync/ios.html#–-runTransactionBlock)。
