@@ -14,7 +14,7 @@ Objective-C
 
 ```objectivec
 WDGSyncReference *currentServerTimeRef = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com/servertimestamp"];
-//存入当前云端时间戳
+//写入当前云端时间戳
 [currentServerTimeRef setValue:[WDGServerValue timestamp]];
 ```
 
@@ -22,7 +22,7 @@ Swift
 
 ```swift
 var currentServerTimeRef = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com/servertimestamp")
-//存入当前云端时间戳
+//写入当前云端时间戳
 currentServerTimeRef.setValue(WDGServerValue.timestamp())
 ```
 

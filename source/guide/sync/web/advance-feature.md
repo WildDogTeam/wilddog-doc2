@@ -1,3 +1,4 @@
+
 title: 高级特性
 ---
 
@@ -6,6 +7,8 @@ title: 高级特性
 ## 云端时间戳
 
 Wilddog Sync 提供了 [云端时间戳](/api/sync/web/api.html#ServerValue) 机制，它可以将云端时间戳写入到指定节点。
+
+例如，在`servertimestamp`节点下记录当前云端时间
 
 ```js
 var config = {
@@ -19,18 +22,20 @@ var currentServerTime = wilddog.sync().ref("servertimestamp");
 currentServerTime.set(wilddog.sync().ServerValue.TIMESTAMP);
 ```
 
-与 `onDisconnect()` 方法组合使用，很容易实现记录客户端断线时间的功能
+云端时间戳可以与 Wilddog Sync 的其他特性结合使用。
+
+例如，结合离线事件，可以记录客户端的离线时间
 
 ```js
 var userLastOnlineRef = wilddog.sync().ref("/users/joe/lastOnline");
 userLastOnlineRef.onDisconnect().set(wilddog.sync().ServerValue.TIMESTAMP);
 ```
 
-如果只想获取云端时间，并不想存入，向 `https://<appId>.wilddogio.com/.json?sv=timestamp` 发一个 `GET` 请求即会返回云端时间戳。
-
 ## 时钟偏差
 
 时钟偏差是本地时间和云端时间的差值，自动保存在 `/.info/serverTimeOffset` 节点下，可以通过查询该节点获取时钟偏差。
+
+例如，利用时钟偏差可以计算云端时间
 
 ```js
 var config = {
