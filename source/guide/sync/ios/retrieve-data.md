@@ -13,10 +13,10 @@ Sync 查询数据建立在事件监听基础上，在监听的回调方法中完
 
 设置监听包含以下两个方法
 
-| 方法            | 说明
-| ------------- | ---------------------------------------- 
-| observeEventType          | 监听当前节点的指定事件，添加回调方法。  监听一直持续，直到被主动取消。          
-| observeSingleEventOfType        |  监听当前节点的指定事件，添加回调方法。但回调方法只被执行一次，然后监听立即被取消。
+| 方法            | 说明                                   |
+| ------------- | ---------------------------------------- |
+| observeEventType          | 监听当前节点的指定事件，添加回调方法。  监听一直持续，直到被主动取消。          |
+| observeSingleEventOfType        |  监听当前节点的指定事件，添加回调方法。但回调方法只被执行一次，然后监听立即被取消。|
 
 使用 `observeEventType` 方法设置监听，可使客户端的数据与云端一直保持同步。使用 `observeSingleEventOfType` 方法设置单次监听，用于只读取一次数据的情景。
 
@@ -26,9 +26,9 @@ Sync 查询数据建立在事件监听基础上，在监听的回调方法中完
 
 事件类型包含以下五种
 
-| 事件类型          | 说明                        |
-| ------------- | ------------------------- |
-| WDGDataEventTypeValue         | 程序初始化时或有任何数据发生变化时触发。      |
+| 事件类型                         | 说明                        |
+| ---------------------------- | ------------------------- |
+| WDGDataEventTypeValue        | 程序初始化时或有任何数据发生变化时触发。      |
 | WDGDataEventTypeChildAdded   | 程序初始化时或有新增子节点时触发。         |
 | WDGDataEventTypeChildChanged | 节点下某个子节点或子节点的更深节点发生变化时触发。 |
 | WDGDataEventTypeChildRemoved | 节点下某个子节点被删除时触发。           |
@@ -204,12 +204,12 @@ Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按�
 
 数据排序包含以下四种排序方法	
 
-| 方法                | 用法             |
-| ----------------- | -------------- |
+| 方法                     | 用法                    |
+| ---------------------- | --------------------- |
 | queryOrderedByChild    | 按指定子节点的值（Value）对结果排序。 |
-| queryOrderedByKey      | 按键（key）对结果排序。  |
-| queryOrderedByValue    | 按值（value）对结果排序。      |
-| queryOrderedByPriority | 按优先级（priority）对结果排序。    |
+| queryOrderedByKey      | 按键（key）对结果排序。         |
+| queryOrderedByValue    | 按值（value）对结果排序。       |
+| queryOrderedByPriority | 按优先级（priority）对结果排序。  |
 
 **queryOrderedByChild**
 
@@ -330,7 +330,7 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 | 方法                   | 用法                                       |
 | -------------------- | ---------------------------------------- |
 | queryLimitedToFirst  | 设置从第一条开始，一共返回多少个节点。                      |
-| queryLimitedToLast   | 设置从最后一条开始，一共返回多少个节点（返回结果仍是升序，降序要自己处理）。  |
+| queryLimitedToLast   | 设置从最后一条开始，一共返回多少个节点（返回结果仍是升序，降序要自己处理）。   |
 | queryStartingAtValue | 返回大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 |
 | queryEndingAtValue   | 返回小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 |
 | queryEqualToValue    | 返回等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。 |
@@ -340,8 +340,6 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 **limit 筛选**
 
 `queryLimitedToFirst`方法 和 `queryLimitedToLast` 方法限制返回节点的最大数量。 
-
-如果使用 `queryLimitedToFirst:100` 筛选数据，那么第一次返回节点数最多为 100 个。当数据发生更改时，对于进入到前 100 个的节点，你会接收到 `WDGDataEventTypeChildAdded` 事件。对于从前 100 个中消失的节点，你会接收到 `WDGDataEventTypeChildRemoved` 事件。
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中，如果你只想知道最高的是哪三条恐龙
 
@@ -369,6 +367,8 @@ ref.queryOrderedByChild("height").queryLimitedToLast(3)
 })
 
 ```
+
+如果使用 `queryLimitedToFirst:100` 筛选数据，那么第一次返回节点数最多为 100 个。当数据发生更改时，对于进入到前 100 个的节点，你会接收到 `WDGDataEventTypeChildAdded` 事件。对于从前 100 个中消失的节点，你会接收到 `WDGDataEventTypeChildRemoved` 事件。
 
 **range 筛选**
 
