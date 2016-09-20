@@ -1,3 +1,4 @@
+
 title:  查询数据
 ---
 本篇文档介绍查询数据的基础知识，以及如何对数据进行排序和筛选。
@@ -27,14 +28,14 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 事件类型包含以下五种
 
-| 事件类型          | 说明                    |
-| ------------- | --------------------- |
-| onDataChange()         | 初次监听或指定节点及子节点发生变化时触发。 |
+| 事件类型             | 说明                    |
+| ---------------- | --------------------- |
+| onDataChange()   | 初次监听或指定节点及子节点发生变化时触发。 |
 | onChildAdded()   | 初次监听或有新增子节点时触发。       |
 | onChildChanged() | 子节点发生更改时触发。           |
 | onChildRemoved() | 子节点被删除时触发。            |
-| onChildMoved()   | 子节点排序发生变化时触发。         |         
-                   
+| onChildMoved()   | 子节点排序发生变化时触发。         |
+
 
 **Value 事件**
 
@@ -387,9 +388,9 @@ queryRef.startAt(60).addChildEventListener(new ChildEventListener() {
 
 });
 ```
-**注意：** range 筛选中，当节点的 value 相同时，会按照 key 进行排序。
+**注意：** 范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
 
-range 筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
+范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
 
 
 

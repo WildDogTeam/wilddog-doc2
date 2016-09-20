@@ -97,7 +97,7 @@ WilddogSync.setPersistenceEnabled(true)
 
 如上例所示，在离线情况下，仍然成功的查询到了数据。
 
-### 发送离线数据
+### 发送离线数据
 
 开启数据持久化，在无网环境下，应用的所有数据操作都会自动保存，当应用重新连接网络，这些数据将自动发送到云端。
 
@@ -176,11 +176,11 @@ onDisconnectRef.cancel();
 更多离线事件的方法，请参考 [API 文档](/api/sync/android/api.html#onDisconnect)。
 
 ## 手动建立或断开连接
-Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline`方法、`goOffline`方法，如下
+Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline()`方法、`goOffline()`方法，如下
 
 ```java
 SyncReference presenceRef = WilddogSync.getInstance().getReference();
 presenceRef.goOnline();
 ```
 
-**注意**：一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline`方法 和 `goOnline`方法会控制全局的在线和离线。 
+**注意**：一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline()`方法 和 `goOnline()`方法会控制全局的在线和离线。 
