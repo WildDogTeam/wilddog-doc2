@@ -15,7 +15,10 @@ title: 管理用户
 获取当前用户的推荐方法是在 WilddogAuth 对象上设置一个侦听器：
 
 ```java
-WilddogAuth auth=WilddogAuth.getInstance("YOURAPPID"，context);
+// 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
+WilddogAuth auth=WilddogAuth.getInstance();
 WilddogAuth.AuthStateListener authStateListener=new WilddogAuth.AuthStateListener(){
     @Override
     public void onAuthStateChanged(WilddogAuth wilddogAuth) {

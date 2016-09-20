@@ -656,15 +656,15 @@ public static WilddogAuth getInstance ()
 返回初始化之后，可以用本方法获取当前WilddogAuth实例对象
  
 ---
-### getInstance(String appId，Context context)
+### getInstance(WilddogApp wilddogapp)
 
 定义
 
-public static WilddogAuth getInstance(String appId，Context context)
+public static WilddogAuth getInstance(WilddogApp wilddogapp)
 
 说明
  
-返回初始化WilddogAuth 实例对象。
+返回制定的WilddogAuth 实例对象。
   
 ---
 ### removeAuthStateListener ()

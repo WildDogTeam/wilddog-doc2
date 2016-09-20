@@ -9,7 +9,7 @@ title: 微博登录
 
 1.将 `WilddogAuth` 的依赖项添加至你的应用级 build.gradle 文件：
 ```java 
-compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
+compile 'com.wilddog.client:wilddog-auth-android:2.0.1'
 ```
 2.如果你还没有创建Wilddog应用，请到官网控制面板去创建应用。
 

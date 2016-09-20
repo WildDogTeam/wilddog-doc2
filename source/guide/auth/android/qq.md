@@ -10,7 +10,7 @@ title:  QQ 登录
 
 2.将 WilddogAuth 的依赖项添加至你的应用级 build.gradle 文件：
     
-    compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
+    compile 'com.wilddog.client:wilddog-auth-android:2.0.1'
 3.如果你还没有创建Wilddog应用，请到官网控制面板去创建应用。
 
 4.在 [QQ 开放平台管理中心](http://op.open.qq.com/)，获取应用的 App ID 和 App Secret。

@@ -98,7 +98,7 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
     public void onChildRemoved(DataSnapshot snapshot) {
     }
   
-    public void onCancelled(WilddogError error) {
+    public void onCancelled(SyncError error) {
     }
 
 });
@@ -126,7 +126,7 @@ ref.addListenerForSingleValueEvent(new ValueEventListener(){
   // 执行业务处理，此回调方法只会被调用一次,之后就取消
   }
 
-  public void onCancelled(WilddogError error) {
+  public void onCancelled(SyncError error) {
     if(error != null){
       System.out.println(error.getCode());
     }
@@ -161,7 +161,7 @@ queryRef.addChildEventListener(new ChildEventListener() {
         System.out.println(snapshot.getKey() + " was " + height + " meters tall");
     }
 
-    public void onCancelled(WilddogError arg0) {
+    public void onCancelled(SyncError arg0) {
     }
 
     public void onChildChanged(DataSnapshot arg0, String arg1) {
@@ -238,7 +238,7 @@ queryRef.limitToLast(3).addChildEventListener(new ChildEventListener() {
         System.out.println(snapshot.getKey() + " was " + height + " meters tall");
     }
 
-    public void onCancelled(WilddogError arg0) {
+    public void onCancelled(SyncError arg0) {
     }
 
     public void onChildChanged(DataSnapshot arg0, String arg1) {
@@ -266,7 +266,7 @@ queryRef.startAt(60).addChildEventListener(new ChildEventListener() {
         System.out.println(snapshot.getKey() + " is " + score);
     }
     
-    public void onCancelled(WilddogError arg0) {
+    public void onCancelled(SyncError arg0) {
     }
 
     public void onChildChanged(DataSnapshot arg0, String arg1) {

@@ -9,7 +9,7 @@ title: 邮箱登录
 
 2.将 WilddogAuth 的依赖项添加至你的应用级 build.gradle 文件：
     
-    compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
+    compile 'com.wilddog.client:wilddog-auth-android:2.0.1'
 3.如果你还没有创建Wilddog应用，请到官网控制面板去创建应用。
 
 4.在野狗应用控制面板中打开邮箱登录方式:
@@ -27,8 +27,11 @@ title: 邮箱登录
 
 ```java
     private WilddogAuth mAuth;
-    // ...
-    mAuth = WilddogAuth.getInstance("YOURAPPID",this);
+    // 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
+    
+    mAuth = WilddogAuth.getInstance();
     设置一个响应用户的登录状态变化的 AuthStateListener：
     private WilddogAuth.AuthStateListener mAuthListener;
 
@@ -104,7 +107,7 @@ title: 邮箱登录
 ```java
     private WilddogAuth mAuth;
     // ...
-    mAuth = WilddogAuth.getInstance("YOURAPPID",this);
+    mAuth = WilddogAuth.getInstance();
 ```
 
 2.设置一个响应用户的登录状态变化的 AuthStateListener：
