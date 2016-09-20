@@ -4,13 +4,13 @@ title:  操作数据
 
 操作数据包含以下五种方法
 
-方法 |  说明 
-----|------
-setValue | 向任意节点写入数据。若此节点已存在数据，会覆盖原有数据。
-childByAutoId | 向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。
-updateChildValues | 更新指定子节点。
-removeValue | 删除指定节点。
-runTransactionBlock | 并发操作时保证数据一致性。
+| 方法            | 说明                                       |
+| ------------- | ---------------------------------------- |
+| setValue        | 向任意节点写入数据。若此节点已存在数据，会覆盖原有数据。   |     
+| childByAutoId        | 向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 |
+| updateChildValues      | 更新指定子节点。|
+| removeValue      | 删除指定节点。|
+| runTransactionBlock | 并发操作时保证数据一致性。                        |
 
 ## 写入数据
 
