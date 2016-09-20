@@ -185,7 +185,6 @@ NSDictionary *nickname = @{
 };
 //只更新 gracehop 的 nickname
 [hopperRef updateChildValues: nickname];
-
 ```
 
 Swift
@@ -203,7 +202,7 @@ hopperRef.updateChildValues(nickname)
 
 **多路径更新**
 
-`updateChildValues` 方法也支持多路径更新，即同时更新不同路径下的数据。举例如下
+`updateChildValues` 方法也支持多路径更新，即同时更新不同路径下的数据。例如
 
 ```js
 //原数据如下
@@ -237,7 +236,7 @@ newPostRef.updateChildValues(["b/d":"updateD","x/z":"updateZ"])
 
 ```
 
-而**不能**这样写
+而**不能**写成
 
 Objective-C
 
@@ -311,7 +310,6 @@ WDGSyncReference *upvotesRef =[[WDGSync sync] referenceWithPath:@"/web/saving-da
     [currentData setValue:[NSNumber numberWithInt:(1 + [value intValue])]];
     return [WDGTransactionResult successWithValue:currentData];
 }];
-
 ```
 
 Swift
@@ -336,6 +334,6 @@ upvotesRef.runTransactionBlock({
 
 ```
 
-**注意**：当云端有数据存在，本地还未缓存时，此时回调方法的变量为 nil，所以要判断变量是否为空。
+**注意**：要进行并发更新的数据在云端有值，但本地还未获取这个值时，此时 `runTransactionBlock` 的回调方法中的变量为 nil。这种情况下，直接使用此变量进行逻辑处理会引发错误，所以必须对变量进行判空处理。
 
 更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/api.html#–-runTransactionBlock)。
