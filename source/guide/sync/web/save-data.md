@@ -56,7 +56,7 @@ ref.child("gracehop").set({
 
 ## 追加子节点
 
-`push()` 方法向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 这个 key 基于时间戳和随机算法生成，它标明了时间的先后。
+`push()` 方法向任意节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
 
 例如，追加子节点到 `posts` 节点
 
@@ -126,7 +126,7 @@ hopperRef.update({
   "nickname": "Amazing grace"
 });
 ```
-与 `set()` 方法对比：如果此处用`set()` 而不是 `update()`方法，则会删除 `date_of_birth` 和 `full_name`。
+与 `set()` 方法对比：如果此处用`set()` 方法而不是 `update()`方法，则会删除 `date_of_birth` 和 `full_name`。
 
 **多路径更新**
 
@@ -215,6 +215,6 @@ upvotesRef.transaction(function (currentValue) {
 
 **注意**：要进行并发更新的数据在云端有值，但本地还未获取这个值时，此时 `transaction()` 的回调方法中的变量为 null。这种情况下，直接使用此变量进行逻辑处理会引发错误，所以必须对变量进行判空处理。
 
-更多使用，请参考 [transaction()](/api/sync/web.html#transaction)。
+更多使用，请参考 [transaction()](/api/sync/web/api.html#transaction)。
 
 
