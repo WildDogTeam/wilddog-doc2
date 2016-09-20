@@ -6,7 +6,7 @@ title: 自定义身份认证
 ## 开始前的准备工作
 1.将 `WilddogAuth` 的依赖项添加至你的应用级 build.gradle 文件：
 ```java
-compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
+compile 'com.wilddog.client:wilddog-auth-android:2.0.1'
 ```
 2.如果你还没有创建Wilddog应用，请到官网控制面板去创建应用。
 
@@ -17,7 +17,10 @@ compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
 
 1.初始化WilddogAuth对象
 ```java
-WilddogAuth mauth=WilddogAuth.getInstance("YOURAPPID",context);
+// 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
+WilddogAuth mauth=WilddogAuth.getInstance();
 ```
     
 2.当用户登录你的应用时，发送他们的凭据（比如邮箱密码的方式）到你的服务器上。然后服务器检查凭据的正确性并返回 Custom Token。   

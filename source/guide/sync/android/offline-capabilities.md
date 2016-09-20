@@ -25,7 +25,7 @@ connectedRef.addValueEventListener(new ValueEventListener() {
         }
     }
 
-    public void onCancelled(WilddogError error) {
+    public void onCancelled(SyncError error) {
         System.err.println("监听失败或被取消。");
     }
 });
@@ -37,7 +37,7 @@ connectedRef.addValueEventListener(new ValueEventListener() {
 
 云端监听到客户端断开连接后自动触发一些事件，称为离线事件。例如，当一个用户的网络连接中断时，自动标记这个用户为“离线”状态。
 
-断开连接包括客户端主动断开连接，或者意外的网络中断，比如客户端应用崩溃等。触发事件可以理解为执行特定的数据操作。数据操作支持的所有数据写入动作，包括 set, update，remove。
+断开连接包括客户端主动断开连接，或者意外的网络中断，比如客户端应用崩溃等。触发事件可以理解为执行特定的数据操作。数据操作支持的所有数据写入动作，包括 setValue, updateChildren，removeValue。
 
 使用 `onDisconnect()` 方法，设置离线事件：
 
@@ -57,7 +57,7 @@ presenceRef.onDisconnect().removeValue("I disconnected!");
 // 设置离线事件
 presenceRef.onDisconnect().setValue("I disconnected!");
 // 取消离线事件
-presenceRef.cancel();
+presenceRef.onDisconnect().cancel();
 ```
 
 ## 云端时间戳
@@ -72,13 +72,13 @@ WilddogApp.initializeApp(this, options);
 SyncReference userLastOnlineRef = WilddogSync.getInstance().getReference("users/joe/lastOnline");
 
 //存入当前云端时间戳
-userLastOnlineRef.setValue(ServerValue.createServerValuePlaceholder(TIMESTAMP));
+userLastOnlineRef.setValue(ServerValue.TIMESTAMP);
 ```
 
 与 `onDisconnect()` 方法组合使用，很容易实现记录客户端断线时间的功能：
 
 ```java
-userLastOnlineRef.onDisconnect().setValue(ServerValue.createServerValuePlaceholder(TIMESTAMP));
+userLastOnlineRef.onDisconnect().setValue(ServerValue.TIMESTAMP);
 ```
 
 本地时间和云端的时间差保存在 `/.info/serverTimeOffset` 节点下，获取方法如下:
@@ -89,7 +89,6 @@ WilddogApp.initializeApp(this, options);
 SyncReference serverTsRef = WilddogSync.getInstance().getReference(".info/serverTimeOffset");
 serverTsRef.addListenerForSingleValueEvent(new ValueEventListener(){
 
-  public void onDataChange(DataSnapshot snapshot) {
   	public void onDataChange(DataSnapshot snapshot) {
 
         long timeDiff = (Long) snapshot.getValue();
@@ -100,12 +99,10 @@ serverTsRef.addListenerForSingleValueEvent(new ValueEventListener(){
 
     }
 
-    public void onCancelled(WilddogError error) {
-    }
 
   }
 
-  public void onCancelled(WilddogError error) {
+  public void onCancelled(SyncError error) {
     if(error != null){
       System.out.println(error.getCode());
     }

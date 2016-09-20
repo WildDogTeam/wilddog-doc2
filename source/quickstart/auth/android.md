@@ -81,7 +81,7 @@ WilddogAuth wilddogAuth = WilddogAuth.getInstance();
 已存在的用户使用 `signInWithEmailAndPassword()` 方法登录
 
 ```java
-mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+wildoogAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteListener(new OnCompleteListener<AuthResult>() {
 	@Override
 	public void onComplete(Task<AuthResult> var1) {
 		if(var1.isSuccessful()){
@@ -99,7 +99,7 @@ mAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompleteLis
 你可以使用 `signOut()` 方法退出当前登录用户
 
 ```
-mAuth.signOut();
+wilddogAuth.signOut();
 ```
 
 野狗还提供了匿名认证、第三方认证等其他认证方式，详细信息请见 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/android.html)。

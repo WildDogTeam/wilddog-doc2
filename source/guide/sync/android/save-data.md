@@ -57,11 +57,11 @@ SyncReference postsRef = ref.child("posts");
 HashMap<String, Object> aNews = new HashMap<>();
 aNews.put("author", "gracehop");
 aNews.put("title", "Announcing COBOL, a New Programming Language");
-postsRef.push(aNews);
+postsRef.push().setValue(aNews);
 HashMap<String, Object> anotherNews = new HashMap<>();
 anotherNews.put("author", "alanisawesome");
 anotherNews.put("title", "The Turing Machine");
-postsRef.push(anotherNews);
+postsRef.push().setValue(anotherNews);
 ```
 产生的数据如下：
 ```json
@@ -90,14 +90,14 @@ postsRef.push(anotherNews);
 HashMap<String, Object> news = new HashMap<>();
 news.put("author", "gracehop");
 news.put("title", "Announcing COBOL, a New Programming Language");
-SyncReference newPostsRef = postsRef.push(news);
+SyncReference newPostsRef = postsRef.push().setValue(news);
 // 获取 push() 生成的唯一 ID
 String postID = newPostRef.getKey();
 ```
 
 ## 更新数据
 
-如果想只更新指定子节点，而不影响其它的子节点，可以使用 `update()`方法:
+如果想只更新指定子节点，而不影响其它的子节点，可以使用 `updateChildren()`方法:
 ```json
 //原数据如下
 {
@@ -113,13 +113,13 @@ String postID = newPostRef.getKey();
 SyncReference hopperRef = ref.child("gracehop");
 HashMap<String, Object> user = new HashMap<>();
 user.put("nickname", "Amazing grace");
-hopperRef.update(user);
+hopperRef.updateChildren(user);
 ```
-如果用 `set()` 而不是 `update()`，那么 `date_of_birth` 和 `full_name` 都会被删除。
+如果用 `setValue()` 而不是 `updateChildren()`，那么 `date_of_birth` 和 `full_name` 都会被删除。
 
 **多路径更新**
 
-`update` 也支持多路径更新，即可以同时更新不同路径下的数据。用法上有些特殊，举例如下:
+`updateChildren` 也支持多路径更新，即可以同时更新不同路径下的数据。用法上有些特殊，举例如下:
 
 ```json
 //原数据如下
@@ -142,7 +142,7 @@ hopperRef.update(user);
 HashMap<String, Object> map = new HashMap<>();
 map.put("b/d", "updateD");
 map.put("x/z", "updateZ");
-ref.update(map);
+ref.updateChildren(map);
 ```
 
 可以看到，标识路径时，要用 `b/d`, 和 `x/z` ,而**不能**这样写：
@@ -154,25 +154,25 @@ Map<String,String> bMap = new HashMap<>();
 Map<String,String> xMap = new HashMap<>();
 map.put("b", bMap.put("d","updateD");
 map.put("x", xMap.put("z","updateZ");
-ref.update(map);
+ref.updateChildren(map);
 ```
-以上相当于 `set()` 操作，会覆盖以前数据。
+以上相当于 `setValue()` 操作，会覆盖以前数据。
 
 ## 删除数据
 
-删除数据最简单的方法是调用 `remove()`。
+删除数据最简单的方法是调用 `removeValue()`。
 
 ```
 HashMap<String, Object> map = new HashMap<>();
 map.put("name", "Jone");
 map.put("age", "23");
-ref.set(map);
+ref.setValue(map);
 
 //删除上面写入的数据
-ref.remove();
+ref.removeValue();
 ```
 
-此外，还可以通过写入 null 值（例如，`set(null)` 或 `update(null)`）来删除数据。 
+此外，还可以通过写入 null 值（例如，`setValue(null)` 或 `updateChildren(null)`）来删除数据。 
 
 **注意**：Wilddog 不会保存值为 null 节点。如果某节点的值被设为 null，云端就会把这个节点删除。
 
@@ -196,7 +196,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
         return Transaction.success(currentData); 
         // 也可以这样中止事务 Transaction.abort()
     }
-    public void onComplete(WilddogError wilddogError, boolean committed, DataSnapshot currentData) {
+    public void onComplete(SyncError error, boolean committed, DataSnapshot currentData) {
         // 事务完成后调用一次，获取事务完成的结果
     }
 });
@@ -315,7 +315,7 @@ Map<String, User> users = new HashMap<String, User>();
 users.put("alanisawesome", alanisawesome);
 users.put("gracehop", gracehop);
 
-Wilddog usersRef = ref.child("users");
+SyncReference usersRef = ref.child("users");
 
 usersRef.setValue(users);
 ```
@@ -328,7 +328,7 @@ usersRef.setValue(users);
 
 还有一种等价的操作方式，即直接保存数据到指定的路径，如下：
 ```java
-Wilddog usersRef = new Wilddog("https://samplechat.wilddogio.com/android/saving-data/wildblog/users");
+SyncReference usersRef = WilddogSync.getInstance().getReference("https://samplechat.wilddogio.com/android/saving-data/wildblog/users");
 // 使用父节点引用的child()方法，获得指向子数据节点的引用。
 usersRef.child("alanisawesome").child("fullName").setValue("Alan Turing");
 usersRef.child("alanisawesome").child("birthYear").setValue(1912);
@@ -355,7 +355,7 @@ usersRef.child("gracehop/birthYear").setValue(1906);
 我们也可以不使用 User 对象，而使用 Map 来实现与上面相同的功能：
 
 ```java
-Wilddog usersRef = new Wilddog("https://samplechat.wilddogio.com/android/saving-data/wildblog/users");
+SyncReference usersRef = WilddogSync.getInstance().getReference("https://samplechat.wilddogio.com/android/saving-data/wildblog/users");
 
 Map<String, String> alanisawesomeMap = new HashMap<String, String>();
 alanisawesomeMap.put("birthYear", "1912");
@@ -377,9 +377,9 @@ usersRef.setValue(users);
 若要确保同步到云端完成，需要使用 `setValue()` 方法的第二个参数，该参数是一个回调函数，代码示例如下：
 
 ```java
-var ref = new Wilddog("https://samplechat.wilddogio.com/android/saving-data");
+SyncReference ref = WilddogSync.getInstance().getReference("https://samplechat.wilddogio.com/android/saving-data");
 ref.child("setValue").setValue("hello", new Wilddog.CompletionListener() {
-  public void onComplete(WilddogError error, Wilddog ref) {
+  public void onComplete(SyncError error, SyncReference ref) {
     if (error == null) {
       System.out.println("数据已成功保存到云端");
     }
@@ -430,7 +430,7 @@ hopperRef.updateChildren(children);
 ```
 ```java
 // 同时更新 b 节点下的 d，和 x 节点下的 z
-Wilddog ref = new Wilddog("https://<appId>.wilddogio.com/a");
+SyncReference ref = WilddogSync.getInstance().getReference("https://<appId>.wilddogio.com/a");
 Map<String, Object> children = new HashMap<String, Object>();
 
 children.put("b/d", "vvv");
@@ -441,7 +441,7 @@ ref.updateChildren(children);
 可以看到，标识路径的时候，这里必须要用 `b/d`, 和 `x/z` ,而**不能**这样写：
 ```java
 // 错误的多路径更新写法！！！
-Wilddog ref = new Wilddog("https://<appId>.wilddogio.com/a");
+SyncReference ref = WilddogSync.getInstance().getReference("https://<appId>.wilddogio.com/a");
 
 Map<String, Object> children = new HashMap<String, Object>();
 Map<String, Object> children1 = new HashMap<String, Object>();
@@ -465,13 +465,13 @@ ref.updateChildren(children);
 用户可以用 `push` 向[博客应用](https://docs-examples.wilddogio.com/android/saving-data/wildblog)中写新内容：
 
 ```java
-Wilddog ref = new Wilddog("https://docs-examples.wilddogio.com/android/saving-data/wildblog/posts");
+SyncReference ref = WilddogSync.getInstance().getReference("https://docs-examples.wilddogio.com/android/saving-data/wildblog/posts");
 
-Wilddog newRef1 = ref.push();
+SyncReference newRef1 = ref.push();
 newRef1.child("author").setValue("gracehop");
 newRef1.child("title").setValue("Announcing COBOL, a New Programming Language");
 
-Wilddog newRef2 = ref.push();
+SyncReference newRef2 = ref.push();
 newRef2.child("author").setValue("alanisawesome");
 newRef2.child("title").setValue("The Turing Machine");
 ```
@@ -498,7 +498,7 @@ newRef2.child("title").setValue("The Turing Machine");
 
 ```java
 // 通过push()来获得一个新的数据库地址
-Wilddog newRef1 = ref.push();
+SyncReference newRef1 = ref.push();
 
 // 获取push()生成的唯一ID
 String postID = newRef1.getKey();
@@ -506,14 +506,14 @@ String postID = newRef1.getKey();
 ## 删除数据
 删除数据最简单的方法是在引用上对这些数据所处的位置调用 `removeValue()`,这会把该路径下的所有数据删除:
 ```java
-Wilddog ref = new Wilddog("https://<appId>.wilddogio.com/removeValue");
+SyncReference ref = WilddogSync.getInstance().getReference("https://<appId>.wilddogio.com/removeValue");
 // 不带回调    
 ref.removeValue();
 
 // 或带回调，效果同上。
-ref.removeValue(new Wilddog.CompletionListener(){
+ref.removeValue(new SyncReference.CompletionListener(){
 
-        public void onComplete(WilddogError error, Wilddog ref) {
+        public void onComplete(SyncError error, SyncReference ref) {
             if(error != null) {
                 System.out.println(error.getCode());
             }
@@ -535,7 +535,7 @@ ref.removeValue(new Wilddog.CompletionListener(){
 举例说明，如果我们想在一个的博文上计算点赞的数量，可以这样写一个事务：
 
 ```java
-var upvotesRef = new Wilddog('https://docs-examples.wilddogio.com/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes');
+SyncReference upvotesRef = WilddogSync.getInstance().getReference('https://docs-examples.wilddogio.com/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes');
 
 upvotesRef.runTransaction(new Transaction.Handler() {
     public Transaction.Result doTransaction(MutableData currentData) {
@@ -548,7 +548,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
         return Transaction.success(currentData); 
         // 也可以这样中止事务 Transaction.abort()
     }
-    public void onComplete(WilddogError wilddogError, boolean committed, DataSnapshot currentData) {
+    public void onComplete(SyncError syncError, boolean committed, DataSnapshot currentData) {
         // 事务完成后调用一次，获取事务完成的结果
     }
 });
