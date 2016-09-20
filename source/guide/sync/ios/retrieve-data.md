@@ -13,9 +13,9 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 设置监听包含以下两个方法，根据需求任选其一。
 
-| 方法     | 说明                          |
-| ------ | --------------------------- |
-| observeEventType   | 持续监听指定节点的数据变化。              |
+| 方法                       | 说明                          |
+| ------------------------ | --------------------------- |
+| observeEventType         | 持续监听指定节点的数据变化。              |
 | observeSingleEventOfType | 单次监听指定节点的数据变化，用于只读取一次数据的情景。 |
 
 
@@ -25,9 +25,9 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 事件类型包含以下五种
 
-| 事件类型          | 说明                    |
-| ------------- | --------------------- |
-| WDGDataEventTypeValue         | 初次监听或指定节点及子节点发生变化时触发。 |
+| 事件类型                         | 说明                    |
+| ---------------------------- | --------------------- |
+| WDGDataEventTypeValue        | 初次监听或指定节点及子节点发生变化时触发。 |
 | WDGDataEventTypeChildAdded   | 初次监听或有新增子节点时触发。       |
 | WDGDataEventTypeChildChanged | 子节点发生更改时触发。           |
 | WDGDataEventTypeChildRemoved | 子节点被删除时触发。            |
@@ -81,7 +81,7 @@ ref.observeEventType(.Value, withBlock: { snapshot in
 
 **Child 事件**
 
-Child 事件监听当前节点下的子节点数据。当子节点发生改变时（如通过 `push()` 方法添加子节点，或通过 `update()` 方法更新子节点），就会触发相应的 Child 事件。
+Child 事件监听当前节点下的子节点数据。当子节点发生改变时（如通过 `childByAutoId` 方法添加子节点，或通过 `updateChildValues` 方法更新子节点），就会触发相应的 Child 事件。
 
 - `child_added`事件在程序初始化时会针对每个子节点触发一次，以获取所有子节点；之后每当有子节点增加时会再次触发，以获取新增的子节点。常用来获取当前节点下的子节点列表。
 
@@ -351,7 +351,7 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 
 你可以结合不同的方法来筛选数据。例如，结合 `queryStartingAtValue` 方法与 `queryEndingAtValue` 方法将结果限制在指定的范围内。
 
-**limit 筛选**
+**数量筛选**
 
 `queryLimitedToFirst`方法获取从第一条（或 startAt() 方法指定的位置）开始向后指定数量的子节点。 
 
@@ -386,7 +386,7 @@ ref.queryOrderedByChild("height").queryLimitedToLast(3)
 
 如果使用 `queryLimitedToFirst:100` 筛选数据，那么第一次返回节点数最多为 100 个。当数据发生更改时，对于进入到前 100 个的节点，你会接收到 `WDGDataEventTypeChildAdded` 事件。对于从前 100 个中消失的节点，你会接收到 `WDGDataEventTypeChildRemoved` 事件。
 
-**range 筛选**
+**范围筛选**
 
 `queryStartingAtValue`方法、`queryEndingAtValue`方法 和 `queryEqualToValue` 方法为查询选择任意起点、终点或等量点。
 
@@ -414,5 +414,5 @@ scoresRef.queryOrderedByValue().queryStartingAtValue(60).observeEventType(.Child
 })
 
 ```
-**注意：** range 筛选中，当节点的 value 相同时，会按照 key 进行排序。
+**注意：** 范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
 
