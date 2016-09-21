@@ -31,7 +31,7 @@ wilddog.auth().onAuthStateChanged(function(user) {
 
 ```
 var user = wilddog.auth().currentUser;
-if (user != nil) {
+if (user != null) {
      // User is signed in.
 } else {
      // No user is signed in.
