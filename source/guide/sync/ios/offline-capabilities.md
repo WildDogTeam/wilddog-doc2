@@ -5,131 +5,6 @@ title:  离线功能
 
 离线功能让应用在无网环境下仍可以操作数据。它包括数据持久化、离线事件、监控连接状态等特性。
 
-## 数据持久化
-
-数据持久化是针对移动网络开发的功能特性，它在每个设备上维护一个数据副本，当数据被更改时，优先对本地数据进行操作，再同步到云端。即使设备在无网环境下，也可以操作数据。
-
-数据持久化包含以下三个特性
-
-| 特性     | 说明                      |
-| ------ | ----------------------- |
-| 离线查询   | 应用在无网环境时仍然可以查询数据。       |
-| 发送离线数据 | 应用在无网环境时操作的数据会在重新连接时发送。 |
-| 提前同步   | 应用在查询数据前自动同步指定节点下的数据。   |
-
-
-
-使用  `setPersistenceEnabled` 方法开启数据持久化
-
-<div class="slide">
-<div class='slide-title'>
-  <span class="slide-tab tab-current">Objective-C</span>
-  <span class="slide-tab">Swift</span>
-</div>
-<div class="slide-content slide-content-show">
-```objectivec
-[WDGSync sync].persistenceEnabled = YES;
-```
-</div>
-<div class="slide-content">
-```swift
-WDGSync.sync().persistenceEnabled = true
-```
-</div>
-</div>
-
->**注意：** 必须在创建第一个 Wilddog Sync 实例之前开启持久化。 
-
-
-
-### 离线查询
-
-开启数据持久化，Wilddog Sync 会将查询到的数据存储到设备。在无网环境时，应用仍然可以查询之前存储的数据。
-
-例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙
-
-<div class="slide">
-<div class='slide-title'>
-  <span class="slide-tab tab-current">Objective-C</span>
-  <span class="slide-tab">Swift</span>
-</div>
-<div class="slide-content slide-content-show">
-```objectivec
-WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
-[[[scoresRef queryOrderedByValue] queryLimitedToLast:4]
-    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
-    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
-}];
-```
-</div>
-<div class="slide-content">
-```swift
-let scoresRef = WDGSync.sync().referenceWithPath("scores")
-scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
-    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
-})
-```
-</div>
-</div>
-
-然后网络断开，重新启动应用去查询得分最高的两条恐龙
-
-<div class="slide">
-<div class='slide-title'>
-  <span class="slide-tab tab-current">Objective-C</span>
-  <span class="slide-tab">Swift</span>
-</div>
-<div class="slide-content slide-content-show">
-```objectivec
-[[[scoresRef queryOrderedByValue] queryLimitedToLast:2]
-    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
-    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
-}];
-```
-</div>
-<div class="slide-content">
-```swift
-let scoresRef = WDGSync.sync().referenceWithPath("scores")
-scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
-    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
-})
-```
-</div>
-</div>
-
-如上例所示，在离线情况下，仍然成功的查询到了数据。
-
-
-
-### 发送离线数据
-
-开启数据持久化，在无网环境下，应用的所有数据操作都会自动保存，当应用重新连接网络，这些数据将自动发送到云端。
-
-### 提前同步
-
-Wilddog Sync 可以在查询数据前同步指定节点下的数据，并将数据存储到设备中，以此提升访问速度。
-
-例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/scores) 中提前同步 `scores` 节点下的数据
-
-<div class="slide">
-<div class='slide-title'>
-  <span class="slide-tab tab-current">Objective-C</span>
-  <span class="slide-tab">Swift</span>
-</div>
-<div class="slide-content slide-content-show">
-```objectivec
-WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
-[scoresRef keepSynced:YES];
-```
-</div>
-<div class="slide-content">
-```swift
-let scoresRef = WDGSync.sync().referenceWithPath("scores")
-scoresRef.keepSynced(true)
-```
-</div>
-</div>
-
 
 ## 监听连接状态
 
@@ -290,5 +165,130 @@ ref.goOnline()
 
 **注意**：一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline`方法 和 `goOnline`方法会控制全局的在线和离线。 
 
+
+## 数据本地持久化
+
+数据本地持久化是针对移动网络稳定性差而开发的功能特性。默认情况下，Wilddog Sync 的数据存储在内存中，一旦重启，内存数据将被清除。开启数据本地持久化功能，可以使设备重启后无需再同步云端。有助于节省流量和提升重启后的访问速度。
+
+数据持久化包含以下三个特性
+
+| 特性     | 说明                      |
+| ------ | ----------------------- |
+| 离线查询   | 在无网环境时仍然可以查询数据。       |
+| 发送离线数据 | 在无网环境时操作的数据会在重新连接时发送。 |
+| 提前同步   | 在查询数据前自动同步指定节点下的数据。   |
+
+
+
+使用  `setPersistenceEnabled` 方法开启数据持久化
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+[WDGSync sync].persistenceEnabled = YES;
+```
+</div>
+<div class="slide-content">
+```swift
+WDGSync.sync().persistenceEnabled = true
+```
+</div>
+</div>
+
+>**注意：** 必须在创建第一个 Wilddog Sync 实例之前开启持久化。 
+
+
+
+### 离线查询
+
+开启数据持久化，Wilddog Sync 会将查询到的数据存储到设备。在无网环境时，应用仍然可以查询之前存储的数据。
+
+例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
+[[[scoresRef queryOrderedByValue] queryLimitedToLast:4]
+    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
+    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
+}];
+```
+</div>
+<div class="slide-content">
+```swift
+let scoresRef = WDGSync.sync().referenceWithPath("scores")
+scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
+    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
+})
+```
+</div>
+</div>
+
+然后网络断开，重新启动应用去查询得分最高的两条恐龙
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+[[[scoresRef queryOrderedByValue] queryLimitedToLast:2]
+    observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
+    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
+}];
+```
+</div>
+<div class="slide-content">
+```swift
+let scoresRef = WDGSync.sync().referenceWithPath("scores")
+scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
+    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
+})
+```
+</div>
+</div>
+
+如上例所示，在离线情况下，仍然成功的查询到了数据。
+
+
+
+### 发送离线数据
+
+开启数据持久化，在无网环境下，应用的所有数据操作都会自动保存，当应用重新连接网络，这些数据将自动发送到云端。
+
+### 提前同步
+
+Wilddog Sync 可以在查询数据前同步指定节点下的数据，并将数据存储到设备中，以此提升访问速度。
+
+例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/scores) 中提前同步 `scores` 节点下的数据
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
+[scoresRef keepSynced:YES];
+```
+</div>
+<div class="slide-content">
+```swift
+let scoresRef = WDGSync.sync().referenceWithPath("scores")
+scoresRef.keepSynced(true)
+```
+</div>
+</div>
 
 
