@@ -45,16 +45,31 @@ SDK 的安装方式有两种，你可以任选其一
 
 1.**引入头文件**
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
 	@import Wilddog;
-Swift:
-
+```
+</div>
+<div class="slide-content">
+```swift
 	import Wilddog
+```
+</div>
+</div>
+
 2.**下载 Core SDK**
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 //初始化 WDGApp
 WDGOptions *options = [[WDGOptions alloc] initWithSyncURL:@"https://your-wilddog-appid.wilddogio.com"];
@@ -63,9 +78,8 @@ WDGOptions *options = [[WDGOptions alloc] initWithSyncURL:@"https://your-wilddog
 WDGAuth *auth = [WDGAuth auth];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 //初始化 WDGApp
 let options = WDGOptions.init(syncURL: "https://your-wilddog-appid.wilddogio.com")
@@ -74,6 +88,8 @@ WDGApp.configureWithOptions(options)
 let auth = WDGAuth.auth()
 
 ```
+</div>
+</div>
 
 ## 4. 使用邮箱认证
 
@@ -85,27 +101,39 @@ let auth = WDGAuth.auth()
 
 **2.创建新用户**
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 //创建一个基于密码的帐户，创建成功后会自动登录
 [auth createUserWithEmail:@"user@example.com" password:@"password" completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
    //...
 }];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 //创建一个基于密码的帐户，创建成功后会自动登录
 auth?.createUserWithEmail("user@example.com", password:"password", completion: { (user, error) in
     //...
 })
 ```
+</div>
+</div>
+
 **3.邮箱密码登录**
 
 已存在用户可以使用 `signInWithEmail`方法登录
 
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [auth signInWithEmail:email
              password:password
@@ -113,21 +141,26 @@ auth?.createUserWithEmail("user@example.com", password:"password", completion: {
            // ...
 }];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 auth?.signInWithEmail(email, password: password) { (user, error) in
   // ...
 }
 ```
+</div>
+</div>
 
 ## 5. 退出登录
 
 你可以使用 `signOut` 方法退出当前登录用户
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 NSError *error;
 [[WDGAuth auth] signOut:&error];
@@ -135,12 +168,13 @@ if (!error) {
     // 退出登录成功
 }
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 try! WDGAuth.auth()!.signOut()
 
 ```
+</div>
+</div>
 
 野狗还提供了匿名认证、第三方认证等其他认证方式，详细信息请见 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/ios.html)。

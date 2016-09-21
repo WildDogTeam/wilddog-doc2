@@ -10,7 +10,12 @@ title: 管理用户
 ## 获取当前登录用户
 获取当前用户的推荐方法是在 Auth 对象上设置一个侦听器：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [[WDGAuth auth] addAuthStateDidChangeListener:^(WDGAuth *_Nonnull auth,
                                                 WDGUser *_Nullable user) {
@@ -21,7 +26,8 @@ Objective-C
   }
 }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 WDGAuth.auth()?.addAuthStateDidChangeListener{ auth, user in
     if let user = user {
@@ -32,12 +38,19 @@ WDGAuth.auth()?.addAuthStateDidChangeListener{ auth, user in
 }
 
 ```
+</div>
+</div>
 
 使用侦听器可保证在你获取当前用户时 Auth 对象不会处于中间状态如初始化。
 
 你也可以使用 `currentUser` 属性获取当前已登录的用户。 如果用户没有登录，`currentUser` 则为空：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 
@@ -47,7 +60,8 @@ if (user != nil) {
   // No user is signed in.
 }
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 if let user = WDGAuth.auth()?.currentUser {
     // User is signed in.
@@ -56,13 +70,20 @@ if let user = WDGAuth.auth()?.currentUser {
 }
 
 ```
+</div>
+</div>
 
 注：`currentUser` 可能为空，这是因为 auth 对象尚未完成初始化。 如果你使用侦听器跟踪用户登录状态，你将无需处理该情况。
 
 ## 获取个人资料
 要获取用户的个人资料信息，请使用 `WDGUser` 实例的属性。 例如：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 
@@ -79,7 +100,8 @@ if (user != nil) {
   // No user is signed in.
 }
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 if let user = WDGAuth.auth()?.currentUser {
     let name = user.displayName
@@ -95,11 +117,18 @@ if let user = WDGAuth.auth()?.currentUser {
 }
 
 ```
+</div>
+</div>
 
 ## 获取第三方个人资料信息
 要获取已链接至用户的其它登录方式的个人资料信息，请使用 providerData 属性。 例如：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 
@@ -115,7 +144,8 @@ if (user != nil) {
   // No user is signed in.
 }
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 if let user = WDGAuth.auth()?.currentUser {
     for profile in user.providerData {
@@ -130,11 +160,18 @@ if let user = WDGAuth.auth()?.currentUser {
 }
 
 ```
+</div>
+</div>
 
 ## 更新个人资料
 你可以使用`WDGUserProfileChangeRequest` 类来更新一个用户的基本个人资料信息 — 用户的显示名称和个人资料照片网址。 例如：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 WDGUserProfileChangeRequest *changeRequest = [user profileChangeRequest];
@@ -150,7 +187,8 @@ changeRequest.photoURL =
   }
 }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let user = WDGAuth.auth()?.currentUser
 if let user = user {
@@ -169,11 +207,18 @@ if let user = user {
 }
 
 ```
+</div>
+</div>
 
 ## 设置邮箱地址
 你可以用 `updateEmail:completion:` 方法设置用户的电子邮件地址。如果这个用户已经存在邮箱，则更新它，之后需要使用新的邮箱地址进行登录。例如：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 
@@ -185,7 +230,8 @@ WDGUser *user = [WDGAuth auth].currentUser;
   }
 }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let user = WDGAuth.auth()?.currentUser
 
@@ -198,13 +244,20 @@ user?.updateEmail("user@example.com") { error in
 }
 
 ```
+</div>
+</div>
 
 重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅 [对用户重新进行身份认证](/guide/auth/ios/manageuser.html#对用户重新进行身份认证)。
 
 ## 设置用户密码
 你可以使用 `updatePassword:completion:` 方法设置用户密码。密码更新成功后，需要使用新的密码进行登录。例如：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 NSString *newPassword = [yourApp getRandomSecurePassword];
@@ -217,7 +270,8 @@ NSString *newPassword = [yourApp getRandomSecurePassword];
   }
 }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let user = WDGAuth.auth()?.currentUser
 let newPassword = getRandomSecurePassword()
@@ -231,13 +285,20 @@ user?.updatePassword(newPassword) { error in
 }
 
 ```
+</div>
+</div>
 
 重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
 
 ## 发送重设密码邮件
 你可以用 `sendPasswordResetWithEmail:completion:` 方法向用户发送一封重设密码电子邮件。 例如：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 NSString *email = @"user@example.com";
 
@@ -250,7 +311,8 @@ NSString *email = @"user@example.com";
   }
 }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let email = "user@example.com"
 
@@ -263,6 +325,8 @@ WDGAuth.auth()?.sendPasswordResetWithEmail(email) { error in
 }
 
 ```
+</div>
+</div>
 
 你可以在 Wilddog 控制面板的“用户认证”部分的“邮件模版”页面中自定义使用的电子邮件模板。
 
@@ -272,7 +336,12 @@ WDGAuth.auth()?.sendPasswordResetWithEmail(email) { error in
 
 你可以使用 `deleteWithCompletion` 方法删除用户帐户。例如：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 
@@ -284,7 +353,8 @@ WDGUser *user = [WDGAuth auth].currentUser;
   }
 }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let user = WDGAuth.auth()?.currentUser
 
@@ -296,6 +366,8 @@ user?.deleteWithCompletion { error in
     }
 }
 ```
+</div>
+</div>
 
 你可以从 Wilddog 控制面板的“用户认证”部分的“用户”页面中删除用户。
 
@@ -308,7 +380,12 @@ user?.deleteWithCompletion { error in
 
 发生这种错误时，请从用户获取新登录凭据并将该凭据传递到 `reauthenticateWithCredential:`，对该用户重新进行身份认证。 例如：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 WDGAuthCredential *credential; // 需要初始化
@@ -323,7 +400,8 @@ WDGAuthCredential *credential; // 需要初始化
   }
 }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let user = WDGAuth.auth()?.currentUser
 var credential: WDGAuthCredential // 需要初始化
@@ -339,3 +417,5 @@ user?.reauthenticateWithCredential(credential) { error in
 })
 
 ```
+</div>
+</div>

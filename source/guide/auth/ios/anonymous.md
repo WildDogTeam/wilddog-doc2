@@ -19,54 +19,90 @@ title: 匿名身份认证
 当一个未登录的用户想想使用一个 Wilddog 必须登录才能使用的特性，可以利用匿名登录，完成下面步骤：
 1、 导入 Wilddog Auth 模块:     
 	
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 @import WilddogAuth;
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 import WilddogAuth
 ```
+</div>
+</div>
+
 2、 初始化 WDGApp:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 ```
+</div>
+</div>
+
 3、 调用 `signInAnonymouslyWithCompletion:`方法：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuth *auth = [WDGAuth auth];
 [auth signInAnonymouslyWithCompletion:^(WDGUser *_Nullable user, NSError *_Nullable error) {
    // ...
 }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
 auth?.signInAnonymouslyWithCompletion(){(user, error) in
    //...
 }
 ```
+</div>
+</div>
+
 4、 如果 signInAnonymouslyWithCompletion: 方法调用成功并且没有返回错误信息，你可以在 WDGUser 对象中获取用户数据：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 BOOL isAnonymous = user.anonymous;  // YES
 NSString *uid = user.uid;
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let isAnonymous = user!.anonymous  // true
 let uid = user!.uid
 ```
+</div>
+</div>
+
 ## 将匿名帐号转变成永久帐号
 当使用匿名登录时，你可能想下次在其它设备上还能登录这个帐号。比如你有一个新闻类的应用，用户在使用应用时，收藏了很多新闻，但是当换一个设备时，却访问不到这些数据。完成下面步骤可以将其转换为永久帐号：
 
@@ -75,65 +111,103 @@ let uid = user!.uid
 
 ##### QQ 登录
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential = [WDGQQAuthProvider credentialWithAccessToken:qqOAuth.accessToken];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth.accessToken)
 
 ```
+</div>
+</div>
+
 ##### 微信登录
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential = [WDGWeiXinAuthProvider credentialWithCode:weixinOAuth.code];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
 
 ```
+</div>
+</div>
+
 ##### 微博登录
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential = [WDGSinaAuthProvider credentialWithAccessToken:sinaOAuth.accessToken 
                    userID:sinaOAuth.userID];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGSinaAuthProvider.credentialWithAccessToken(sinaOAuth.accessToken, userID: sinaOAuth.userID)
 
 ```
+</div>
+</div>
+
 ##### 邮箱登录
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential =
     [WDGEmailPasswordAuthProvider credentialWithEmail:email
                                              password:password];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, password: password)
 
 ```
+</div>
+</div>
 
 3、 使用 `linkWithCredential:completion:` 方法来完成完成链接：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuth *auth = [WDGAuth auth];
 [auth.currentUser linkWithCredential:credential completion:^(WDGUser *_Nullable user,NSError *_Nullable error) {
       // ...
 }];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
 auth!.currentUser?.linkWithCredential(credential) { (user, error) in
@@ -141,6 +215,8 @@ auth!.currentUser?.linkWithCredential(credential) { (user, error) in
 }
 
 ```
+</div>
+</div>
 
 如果调用 `linkWithCredential:completion:` 方法成功，被链接的帐号就可以访问这个匿名帐号的数据了。
 

@@ -44,19 +44,31 @@ SDK 的安装方式有两种，你可以任选其一
 
 **1.引入头文件**
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
 	#import "Wilddog.h"
-
-Swift
-
+```
+</div>
+<div class="slide-content">
+```swift
 	import Wilddog
-
+```
+</div>
+</div>
 
 **2.初始化**
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 //初始化 WDGApp
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wilddogio.com"];
@@ -65,9 +77,8 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wildd
 //获取一个指向根节点的 WDGSyncReference 实例    
 WDGSyncReference *myRootRef = [[WDGSync sync] reference];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 //初始化 WDGApp
 let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
@@ -76,6 +87,8 @@ WDGApp.configureWithOptions(options)
 //获取一个指向根节点的 WDGSyncReference 实例
 let myRootRef = WDGSync.sync().reference()
 ```
+</div>
+</div>
 
 ## 4. 写入数据
 
@@ -83,22 +96,28 @@ let myRootRef = WDGSync.sync().reference()
 
 例如，在应用的根节点下写入天气数据
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 // 写数据
 [myRootRef setValue:@{@"weather" : @{@"beijing" : @"rain", @"shanghai" : @"sunny"}}];
 
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 // 写数据
 myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 
 ```
+</div>
+</div>
+
 写入的数据如下图
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
@@ -109,8 +128,12 @@ myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 
 例如，从应用中获得天气数据
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 // 读数据并监听数据变化
 [myRootRef observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
@@ -118,9 +141,8 @@ Objective-C
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 // 读数据并监听数据变化
 myRootRef.observeEventType(.Value, withBlock: {
@@ -129,6 +151,8 @@ myRootRef.observeEventType(.Value, withBlock: {
 })
 
 ```
+</div>
+</div>
 
 `snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用`observeSingleEventOfType`方法替代`observeEventType`方法。
 

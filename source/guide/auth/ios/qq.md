@@ -17,34 +17,51 @@ pod 'Wilddog/Auth'
 ## Wilddog 身份认证
 1、 参考 [QQ API 调用说明](http://wiki.open.qq.com/wiki/IOS_API%E8%B0%83%E7%94%A8%E8%AF%B4%E6%98%8E) 将 QQ 登录集成到认证的应用中。当初始化 `TencentOAuth` 对象时，设置 delegate 来接收登录和登出事件:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 _qqOAuth = [[TencentOAuth alloc] initWithAppId:@"your QQ App ID"
                                    andDelegate:self];
 NSArray *_permissions =  [NSArray arrayWithObjects:@"get_user_info", @"get_simple_userinfo", @"add_t", nil];
 [qqOAuth authorize:_permissions inSafari:NO];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let tencentOAuth = TencentOAuth(appId:"tencent-appId", andDelegate: self)
 let permissions = ["get_user_info", "get_simple_userinfo", "add_t"]
 tencentOAuth.authorize(permissions, inSafari: false)
 ```
+</div>
+</div>
 
 在你的 delegate 中，实现 `tencentDidLogin` 方法。
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 - (void)tencentDidLogin {
     // ...
 }
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 func tencentDidLogin() {
    // ...     
 }
 ```
+</div>
+</div>
+
 关于 swift 的配置，可在你应用的 project-Bridging-Header.h 文件中，添加以下内容：
 
 	#import <TencentOpenAPI/TencentOAuth.h>
@@ -53,54 +70,87 @@ func tencentDidLogin() {
 
 2、 导入 WilddogAuth 模块：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 @import WilddogAuth;
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 import WilddogAuth
 ```
+</div>
+</div>
+
 3、 初始化 WDGApp:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 ```
+</div>
+</div>
 
 4、 QQ 登录成功后，在 `tencentDidLogin` 方法中通过 _qqOAuth 对象获取 QQ access token 来生成 Wilddog 凭据：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential = 
 [WDGQQAuthProvider credentialWithAccessToken:_qqOAuth.accessToken];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth?.accessToken)
 ```
+</div>
+</div>
 
 5、 最后，使用 Wilddog 凭据来进行 Wilddog 用户认证：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [[WDGAuth auth] signInWithCredential:credential
                 completion:^(WDGUser *user, NSError *error) {
                             // ...
                           }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
     // ...
 }
 ```
+</div>
+</div>
 
 ## 后续步骤
 
@@ -113,7 +163,12 @@ WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
 
 调用 [signOut:](/api/auth/ios.html#WDGAuth-Methods#-signOut:) 退出登录：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 NSError *error;
 [[WDGAuth auth] signOut:&error];
@@ -122,9 +177,13 @@ if (!error) {
 }
 
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 try! WDGAuth.auth()!.signOut()
 
 ```
+</div>
+</div>
+
 可能发生的错误，请参考 [处理错误](/guide/auth/ios/errorcode.html)。

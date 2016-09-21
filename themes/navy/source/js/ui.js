@@ -185,5 +185,24 @@ window.onload = function () {
       iosDownLoadCore.forEach(function (ele) {
         ele.setAttribute('href', 'https://cdn.wilddog.com/sdk/ios/' + iosAuthVersion + '/WilddogCore.framework-' + iosAuthVersion + '.zip');
       });
+    });
+
+    var slides = getElementsByClassName('slide');
+    slides.forEach(function (ele) {
+      var tabs = [].slice.call(ele.getElementsByClassName('slide-tab'), 0);
+      var contents = [].slice.call(ele.getElementsByClassName('slide-content'), 0);
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          getSiblings(tab).forEach(function (sibling) {
+            removeClass(sibling, 'tab-current')
+          });
+          var index = tabs.indexOf(this);
+          addClass(this, 'tab-current');
+          contents.forEach(function (content) {
+            removeClass(content, 'slide-content-show')
+          });
+          addClass(contents[index], 'slide-content-show');
+        })
+      })
     })
 };

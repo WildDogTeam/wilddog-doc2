@@ -15,57 +15,95 @@ title: 绑定多种登录方式
 
 ##### QQ 登录
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential = [WDGQQAuthProvider credentialWithAccessToken:qqOAuth.accessToken];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth.accessToken)
 
 ```
+</div>
+</div>
+
 ##### 微信登录
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential = [WDGWeiXinAuthProvider credentialWithCode:weixinOAuth.code];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
 
 ```
+</div>
+</div>
+
 ##### 微博登录
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential = [WDGSinaAuthProvider credentialWithAccessToken:sinaOAuth.accessToken 
                    userID:sinaOAuth.userID];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGSinaAuthProvider.credentialWithAccessToken(sinaOAuth.accessToken, userID: sinaOAuth.userID)
 
 ```
+</div>
+</div>
+
 ##### 邮箱登录
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential =
     [WDGEmailPasswordAuthProvider credentialWithEmail:email
                                              password:password];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, password: password)
 
 ```
+</div>
+</div>
 
 4.使用 `linkWithCredential:completion:` 方法来完成完成链接，如果链接的凭据已经链接到其它帐号上，则会返回失败：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuth *auth = [WDGAuth auth];
 [auth.currentUser linkWithCredential:credential
@@ -74,14 +112,16 @@ WDGAuth *auth = [WDGAuth auth];
                                           // ...
                                         }];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 WDGAuth.auth()?.currentUser?.linkWithCredential(credential, completion: { (user, error) in
     // ...
 })
 
 ```
+</div>
+</div>
 
 如果调用 `linkWithCredential:completion:` 方法成功，被链接的帐号就可以访问这个帐号的数据了。
 
@@ -90,7 +130,12 @@ WDGAuth.auth()?.currentUser?.linkWithCredential(credential, completion: { (user,
 
 为帐号解除登录方式，通过传递参数 provider ID 给 `unlinkFromProvider:completion:` 方法，你可以从 `providerData` 属性中获取到 provider ID。
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGUser *currentUser = [WDGAuth auth].currentUser;
 [currentUser unlinkFromProvider:providerId
@@ -100,11 +145,13 @@ WDGUser *currentUser = [WDGAuth auth].currentUser;
                        }
                      }];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 WDGAuth.auth()?.currentUser?.unlinkFromProvider(providerId, completion: { (user, error) in
     // ...
 })
 
 ```
+</div>
+</div>
