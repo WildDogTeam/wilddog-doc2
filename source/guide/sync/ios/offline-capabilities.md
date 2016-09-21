@@ -38,7 +38,7 @@ WDGSync.sync().persistenceEnabled = true
 </div>
 </div>
 
-**注意**：必须在创建第一个 Wilddog Sync 实例之前开启持久化。 
+>**注意：** 必须在创建第一个 Wilddog Sync 实例之前开启持久化。 
 
 
 

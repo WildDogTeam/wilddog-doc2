@@ -187,7 +187,7 @@ ref.removeValue();
 
 此外，还可以通过写入 null 值（例如，`setValue(null)` 或 `updateChildren(null)`）来删除数据。 
 
-**注意**：如果某个节点的 value 为 null ,云端会直接删除该节点。
+>**注意：**：如果某个节点的 value 为 null ,云端会直接删除该节点。
 
 ## 事务操作
 
@@ -216,7 +216,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
 });
 ```
 
-**注意**：当云端有数据存在，本地还未缓存时，此时回调方法的变量为 null，所以要判断变量是否为空。
+>**注意：** 当云端有数据存在，本地还未缓存时，此时回调方法的变量为 null，所以要判断变量是否为空。
 
 更多使用，请参考 [runTransaction()](/api/sync/android/api.html#runTransaction-Transaction-Handler)。
 
