@@ -18,7 +18,12 @@ pod 'Wilddog/Auth'
 ## Wilddog 身份认证
 1、 参考 [新浪微博 iOS 接入指南](https://github.com/sinaweibosdk/weibo_ios_sdk) 将新浪微博登录集成到你的应用中。在 AppDelegate 的 `application: openURL: options:` 方法中设置 delegate 来接收网络事件:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
  - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
  {
@@ -28,8 +33,8 @@ Objective-C
      return NO;
  }
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
     if url.absoluteString.hasPrefix("wb") {
@@ -37,10 +42,17 @@ func application(app: UIApplication, openURL url: NSURL, options: [String : AnyO
     }
 }
 ```
+</div>
+</div>
 
 调用新浪微博的授权代码：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
  WBAuthorizeRequest *request = [WBAuthorizeRequest request];
  request.redirectURI = @"https://api.weibo.com/oauth2/default.html";
@@ -52,7 +64,8 @@ Objective-C
     
  [WeiboSDK sendRequest:request];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let request = WBAuthorizeRequest.request() as! WBAuthorizeRequest
 request.redirectURI = "https://api.weibo.com/oauth2/default.html"
@@ -63,10 +76,17 @@ request.userInfo = ["SSO_From": "SendMessageToWeiboViewController",
                     "Other_Info_3": ["key1": "obj1", "key2": "obj2"]]
 WeiboSDK.sendRequest(request)
 ```
+</div>
+</div>
 
 在你的 delegate 中，实现 `didReceiveWeiboResponse:` 方法，并从中获取用户登录的 accessToken 和 userID：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
  - (void)didReceiveWeiboResponse:(WBBaseResponse *)response
 {
@@ -78,7 +98,8 @@ Objective-C
     }
 }
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 func didReceiveWeiboResponse(response: WBBaseResponse!){
     if response is WBAuthorizeResponse{
@@ -88,58 +109,92 @@ func didReceiveWeiboResponse(response: WBBaseResponse!){
     }
 }
 ```
+</div>
+</div>
 
 2、 导入 WilddogAuth 模块：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 @import WilddogAuth;
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 import WilddogAuth
 ```
+</div>
+</div>
 
 3、 初始化 WDGApp:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 ```
+</div>
+</div>
 
 4、 新浪微博登录成功后，在 `didReceiveWeiboResponse:` 方法中得到的 accessToken 和 userID 来生成 Wilddog 凭据：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential = 
 [WDGSinaAuthProvider credentialWithAccessToken:sinaOAuth.accessToken userID:userID];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGSinaAuthProvider.credentialWithAccessToken(sinaOAuth.accessToken, userID: sinaOAuth?.userID)
 ```
+</div>
+</div>
 
 5、 最后，使用 Wilddog 凭据来进行 Wilddog 用户认证：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [[WDGAuth auth] signInWithCredential:credential
                 completion:^(WDGUser *user, NSError *error) {
                             // ...
                           }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
     // ...
 }
 ```
+</div>
+</div>
 
 ## 后续步骤
 
@@ -152,7 +207,12 @@ WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
 
 调用 [signOut:](/api/auth/ios.html#WDGAuth-Methods#-signOut:) 退出登录：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 NSError *error;
 [[WDGAuth auth] signOut:&error];
@@ -161,9 +221,13 @@ if (!error) {
 }
 
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 try! WDGAuth.auth()!.signOut()
 
 ```
+</div>
+</div>
+
 可能发生的错误，请参考 [处理错误](/guide/auth/ios/errorcode.html)。

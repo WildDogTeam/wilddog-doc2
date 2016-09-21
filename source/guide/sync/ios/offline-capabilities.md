@@ -21,17 +21,22 @@ title:  离线功能
 
 使用  `setPersistenceEnabled` 方法开启数据持久化
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [WDGSync sync].persistenceEnabled = YES;
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 WDGSync.sync().persistenceEnabled = true
 ```
+</div>
+</div>
 
 **注意**：必须在创建第一个 Wilddog Sync 实例之前开启持久化。 
 
@@ -43,8 +48,12 @@ WDGSync.sync().persistenceEnabled = true
 
 例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 [[[scoresRef queryOrderedByValue] queryLimitedToLast:4]
@@ -52,35 +61,41 @@ WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
     NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
 }];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let scoresRef = WDGSync.sync().referenceWithPath("scores")
 scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
     print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
 })
 ```
+</div>
+</div>
 
 然后网络断开，重新启动应用去查询得分最高的两条恐龙
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [[[scoresRef queryOrderedByValue] queryLimitedToLast:2]
     observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
     NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
 }];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let scoresRef = WDGSync.sync().referenceWithPath("scores")
 scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
     print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
 })
 ```
+</div>
+</div>
 
 如上例所示，在离线情况下，仍然成功的查询到了数据。
 
@@ -96,28 +111,36 @@ Wilddog Sync 可以在查询数据前同步指定节点下的数据，并将数�
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/scores) 中提前同步 `scores` 节点下的数据
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 [scoresRef keepSynced:YES];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let scoresRef = WDGSync.sync().referenceWithPath("scores")
 scoresRef.keepSynced(true)
 ```
-
+</div>
+</div>
 
 
 ## 监听连接状态
 
 Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这个路径，客户端可以监测是否连接到云端。
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 //初始化 
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://samplechat.wilddogio.com"];
@@ -134,9 +157,8 @@ WDGSyncReference *connectedRef = [[WDGSync sync] referenceWithPath:@".info/conne
     }
 }];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 //初始化 
 let options = WDGOptions.init(syncURL: "https://samplechat.wilddogio.com")
@@ -154,6 +176,9 @@ connectedRef.observeEventType(.Value, withBlock: {snapshot in
     }
 })
 ```
+</div>
+</div>
+
 **注意：** `/.info/connected` 的值是 BOOL 类型。
 
 ## 离线事件
@@ -164,26 +189,37 @@ connectedRef.observeEventType(.Value, withBlock: {snapshot in
 
 例如，当用户的网络连接中断时，使用 `onDisconnectSetValue` 方法，记录这个用户已经离线
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *presenceRef = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com/disconnectmessage"];
 // 当客户端连接中断时，写入一个字符串
 [presenceRef onDisconnectSetValue:@"I disconnected!"];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
-var presenceRef = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com/disconnectmessage")
-// 当客户端连接中断时，写入一个字符串
-presenceRef.onDisconnectSetValue("I disconnected!")
+presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
+    if error != nil {
+        print("Could not establish onDisconnect event: \(error)")
+    }
+})
 ```
+</div>
+</div>
 
 通过回调方法判断离线事件是否被云端成功记录
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [presenceRef onDisconnectRemoveValueWithCompletionBlock:^(NSError* error, WDGSyncReference* ref) {
     if (error != nil) {
@@ -192,9 +228,8 @@ Objective-C
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
     if error != nil {
@@ -202,44 +237,56 @@ presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
     }
 })
 ```
+</div>
+</div>
 
 `cancel` 方法用于取消离线事件
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [presenceRef onDisconnectSetValue:@"I disconnected"];
 // 取消离线事件
 [presenceRef cancelDisconnectOperations];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 presenceRef.onDisconnectSetValue("I disconnected")
 // 取消离线事件
 presenceRef.cancelDisconnectOperations()
 
 ```
+</div>
+</div>
 
 更多离线事件的方法，请参考 [API 文档](/api/sync/ios/api.html#–-onDisconnectSetValue)。
 
 ## 手动建立或断开连接
 Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline`方法、`goOffline`方法，如下
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *ref = [[WDGSync sync] reference];
 [ref goOnline];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let ref = WDGSync.sync().reference
 ref.goOnline()
 ```
+</div>
+</div>
 
 **注意**：一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline`方法 和 `goOnline`方法会控制全局的在线和离线。 
 

@@ -18,12 +18,10 @@ title:  匿名登录
 当一个未登录的用户想想使用一个 Wilddog 必须登录才能使用的特性，可以利用匿名登录，完成下面步骤：
 
 1. 导入 Wilddog Auth 模块:
-    ```
-<script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
-    ```
+    <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 2. 以 Wilddog AppId 初始化 Wilddog 应用。
-    ```
+    ```javascript
  var config = {
      authDomain: "<appId>.wilddog.com",
      syncURL: "https://<appId>.wilddogio.com"
@@ -33,7 +31,7 @@ title:  匿名登录
     ```
 
 3. 调用 `signInAnonymously()`方法：
-    ```
+    ```javascript
    wilddog.auth().signInAnonymously().then(function(res){
          console.log(res);
    }).catch(function (error) {
@@ -44,7 +42,7 @@ title:  匿名登录
     ```
 
 4. 如果signInAnonymously方法调用成功并且没有返回错误信息，你可以在 当前用户 对象中获取用户数据：
-```
+```javascript
 var isAnonymous = user.anonymous; 
 var uid = user.uid;
 ```
@@ -57,10 +55,10 @@ var uid = user.uid;
 
 #### 关联QQ登录
 
-```
+```javascript
 var provider = new wilddog.auth.QQAuthProvider();
 
-popup关联
+//popup关联
 wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
     console.log(result);
 }).catch(function (error) {
@@ -69,7 +67,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
      // ...
 });
 
-redirect关联
+//redirect关联
 wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
      console.log(result);
 }).catch(function (error) {
@@ -81,10 +79,10 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
 #### 关联微信登录
 
-```
+```javascript
 var provider = new wilddog.auth.WeixinAuthProvider();
 
-popup
+//popup
 wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
      console.log(result);
 }).catch(function (error) {
@@ -93,7 +91,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
      // ...
 });
 
-redirect
+//redirect
 wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
      console.log(result);
 }).catch(function (error) {
@@ -106,11 +104,11 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
 #### 关联微博登录
 
-```
+```javascript
 
 var provider = new wilddog.auth.WeiboAuthProvider();
 
-popup
+//popup
 wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
       console.log(result);
 }).catch(function (error) {
@@ -119,7 +117,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
      // ...
 });
 
-redirect
+//redirect
 wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
      console.log(result);
 }).catch(function (error) {     
@@ -132,10 +130,10 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
 #### 关联微信公众账号登录
 
-```
+```javascript
 var provider = new wilddog.auth.WeixinmpAuthProvider();
 
-popup
+//popup
 wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
      console.log(result);
 }).catch(function (error) {、
@@ -144,7 +142,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
      // ...
 });
 
-redirect
+//redirect
 wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
      console.log(result);
 }).catch(function (error) {  
@@ -156,7 +154,7 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
 #### 关联邮箱登录
 
-```
+```javascript
  var credentialEmail = wilddog.auth.EmailAuthProvider.credential("22443311@qq.com", "12345678");
  var user = wilddog.auth().currentUser;
  user.link(credentialEmail).then(function (user) {

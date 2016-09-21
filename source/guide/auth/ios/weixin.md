@@ -18,7 +18,12 @@ pod 'Wilddog/Auth'
 
 1、 参考 [微信 iOS 接入指南](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=1417694084&token=202bb3157581f30a1fd92c713f9f9fc2356fc860&lang=zh_CN) 将微信登录集成到你的应用中。在 AppDelegate 的 `application: openURL: options:` 方法中设置 delegate 来接收网络事件:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
  - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString *,id> *)options
  {
@@ -28,8 +33,8 @@ Objective-C
      return NO;
  }
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 func application(app: UIApplication, openURL url: NSURL, options: [String : AnyObject]) -> Bool {
     if url.absoluteString.hasPrefix("wx") {
@@ -37,9 +42,17 @@ func application(app: UIApplication, openURL url: NSURL, options: [String : AnyO
     }
 }
 ```
+</div>
+</div>
+
 调用微信的授权代码：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 SendAuthReq *req = [SendAuthReq new];
 req.scope = @"snsapi_userinfo" ;
@@ -47,8 +60,8 @@ req.state = @"osc_wechat_login" ;
 // 第三方向微信终端发送一个 SendAuthReq 消息结构
 [WXApi sendReq:req];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let req = SendAuthReq()
 req.scope = "snsapi_userinfo"
@@ -56,9 +69,17 @@ req.state = "osc_wechat_login"
 // 第三方向微信终端发送一个 SendAuthReq 消息结构
 WXApi.sendReq(req)
 ```
+</div>
+</div>
+
 在你的 delegate 中，实现 `onResp:` 方法，并从中获取用户登录的 accessToken 和 openId：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
  -(void)onResp:(BaseResp*)resp
  {
@@ -66,66 +87,100 @@ Objective-C
      NSString *code = response.code;
  }
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 func onResp(resp: BaseResp!) {
     let response = resp as? SendAuthResp
     let code = response?.code
 }
 ```
+</div>
+</div>
 
 2、 导入 WilddogAuth 模块：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 @import WilddogAuth;
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 import WilddogAuth
 ```
+</div>
+</div>
 
 3、 初始化 WDGApp:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 ```
+</div>
+</div>
 
 4、 微信登录成功后，在 `onResp:` 方法中得到的 code 来生成 Wilddog 凭据：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential = 
 [WDGWeiXinAuthProvider credentialWithCode:code];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
 ```
+</div>
+</div>
 
 5、 最后，使用 Wilddog 凭据来进行 Wilddog 用户认证：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [[WDGAuth auth] signInWithCredential:credential
                 completion:^(WDGUser *user, NSError *error) {
                             // ...
                           }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
     // ...
 }
 ```
+</div>
+</div>
 
 ## 后续步骤
 
@@ -138,7 +193,12 @@ WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
 
 调用 [signOut:](/api/auth/ios.html#WDGAuth-Methods#-signOut:) 退出登录：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 NSError *error;
 [[WDGAuth auth] signOut:&error];
@@ -147,9 +207,13 @@ if (!error) {
 }
 
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 try! WDGAuth.auth()!.signOut()
 
 ```
+</div>
+</div>
+
 可能发生的错误，请参考 [处理错误](/guide/auth/ios/errorcode.html)。

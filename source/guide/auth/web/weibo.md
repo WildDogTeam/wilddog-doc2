@@ -19,12 +19,9 @@ title:  微博登录
 
 1. 导入 WilddogAuth 模块：
 
- ```
-<script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
-
- ```
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 2. 初始化 `Wilddog` 应用实例：
- ```
+ ```javascript
 var config = {
      authDomain: "<appId>.wilddog.com",
      syncURL: "https://<appId>.wilddogio.com"
@@ -33,10 +30,10 @@ var config = {
  ```
 3.新浪微博登录(popup or redirect)
 
-```
+```javascript
 var provider = new wilddog.auth.WeiboAuthProvider();
 
-popup登录
+//popup登录
 wilddog.auth().signInWithPopup(provider).then(function (result) {
      console.log(result);
  }).catch(function (error) {
@@ -45,7 +42,7 @@ wilddog.auth().signInWithPopup(provider).then(function (result) {
      // ...
  });
 
-redirect登录
+//redirect登录
 wilddog.auth().signInWithRedirect(provider).then(function (result) {
      console.log(result);    
  }).catch(function (error) {
@@ -68,7 +65,7 @@ wilddog.auth().signInWithRedirect(provider).then(function (result) {
 
 ### 调用 [signOut](/guide/auth/web/api.html#signout) 退出登录：
 
-```
+```javascript
 wilddog.auth().signOut().then(function() {
      // Sign-out successful.
      console.log("sign-out")

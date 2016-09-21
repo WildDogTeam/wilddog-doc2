@@ -38,7 +38,7 @@ ref.child("gracehop").set({
 });
 ```
 
-`set()` 方法可以写入的数据类型有 `string`, `number`, `boolean`, `object`。
+<div class='notice'>**注意**：`https://docs-examples.wilddogio.com` 是示例应用，数据为只读模式，主要用于野狗博客示例的数据展示。如果你想写入数据，可以将 `docs-examples` 替换成自己应用的 AppID。</div>
 
 `set()` 方法还有一个可选参数，此参数是一个回调方法，用来获取操作的结果
 

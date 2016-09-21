@@ -10,39 +10,49 @@ Wilddog Sync 提供了 [云端时间戳](/api/sync/ios/api.html#timestamp) 机�
 
 例如，在`servertimestamp`节点下记录当前云端时间
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *currentServerTimeRef = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com/servertimestamp"];
 //写入当前云端时间戳
 [currentServerTimeRef setValue:[WDGServerValue timestamp]];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 var currentServerTimeRef = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com/servertimestamp")
 //写入当前云端时间戳
 currentServerTimeRef.setValue(WDGServerValue.timestamp())
 ```
+</div>
+</div>
 
 云端时间戳可以与 Wilddog Sync 的其他特性结合使用。
 
 例如，结合离线事件，可以记录客户端的离线时间
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *userLastOnlineRef = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com/users/joe/lastOnline"];
 [userLastOnlineRef onDisconnectSetValue:[WDGServerValue timestamp]];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 var userLastOnlineRef = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com/users/joe/lastOnline")
 userLastOnlineRef.onDisconnectSetValue(WDGServerValue.timestamp())
 ```
+</div>
+</div>
 
 ## 时钟偏差
 
@@ -50,8 +60,12 @@ userLastOnlineRef.onDisconnectSetValue(WDGServerValue.timestamp())
 
 例如，利用时钟偏差可以计算云端时间
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *offsetRef = [[WDGSync sync] referenceWithPath:@".info/serverTimeOffset"];
 [offsetRef observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
@@ -59,9 +73,8 @@ WDGSyncReference *offsetRef = [[WDGSync sync] referenceWithPath:@".info/serverTi
   double estimatedServerTimeMs = [[NSDate date] timeIntervalSince1970] * 1000.0 + offset;
 }];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let offsetRef = WDGSync.sync().referenceWithPath(".info/serverTimeOffset")
 offsetRef.observeEventType(.Value, withBlock: { snapshot in
@@ -70,3 +83,5 @@ offsetRef.observeEventType(.Value, withBlock: { snapshot in
     }
 })
 ```
+</div>
+</div>

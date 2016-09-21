@@ -21,10 +21,10 @@ title:  绑定多种登录方式
 3. 进行登录关联。
 
 ### 关联QQ登录
-```
+```javascript
     var provider = new wilddog.auth.QQAuthProvider();
 
-    popup关联
+    //popup关联
 
     wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
 
@@ -42,7 +42,7 @@ title:  绑定多种登录方式
 
 
 
-    redirect关联
+    //redirect关联
 
     wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
@@ -59,9 +59,9 @@ title:  绑定多种登录方式
 ### 关联微信登录
 
 
-```
+```javascript
     var provider = new wilddog.auth.WeixinAuthProvider();
-    popup
+    //popup
 
     wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
 
@@ -73,7 +73,7 @@ title:  绑定多种登录方式
          // ...
     });
 
-    redirect
+    //redirect
 
     wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
@@ -91,7 +91,7 @@ title:  绑定多种登录方式
 
 ### 关联微博登录
 
-```
+```javascript
 
 
 
@@ -99,7 +99,7 @@ title:  绑定多种登录方式
 
 
 
-    popup
+    //popup
 
     wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
 
@@ -113,7 +113,7 @@ title:  绑定多种登录方式
 
 
 
-    redirect
+    //redirect
 
     wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
@@ -127,11 +127,11 @@ title:  绑定多种登录方式
 ```
 ### 关联微信公众账号登录
 
-```
+```javascript
 
     var provider = new wilddog.auth.WeixinmpAuthProvider();
     
-    popup
+    //popup
     wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
          console.log(result);
      }).catch(function (error) {、
@@ -143,7 +143,7 @@ title:  绑定多种登录方式
 
 
 
-    redirect
+    //redirect
 
     wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 
@@ -156,7 +156,7 @@ title:  绑定多种登录方式
 ### 关联邮箱登录
 
 
-```
+```javascript
 
      var credentialEmail = wilddog.auth.EmailAuthProvider.credential(email, password);
 
@@ -183,7 +183,7 @@ title:  绑定多种登录方式
 
 为帐号解除登录方式，通过传递参数 provider ID 给 `unlinkFromProvider:completion:` 方法，您可以从 `providerData` 属性中获取到 provider ID。
 
-```
+```javascript
 for example : unlink 微信登录方式
 var user = wilddog.auth().currentUser;
      user.unlink("weixin").then(function () {

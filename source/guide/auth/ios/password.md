@@ -22,30 +22,52 @@ title: 邮箱登录
 
 1、 导入 Wilddog Auth 模块:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 @import WilddogAuth;
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 import WilddogAuth
 ```
+</div>
+</div>
+
 2、 初始化 WDGApp:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 ```
+</div>
+</div>
 
 3、 通过将该新用户的电子邮件地址和密码传递到 createUserWithEmail:email:password:completion: 来创建新帐户。 
-Objective-C
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [[WDGAuth auth] createUserWithEmail:email
                  password:password
@@ -54,12 +76,15 @@ Objective-C
                     // ...
                   }];
              ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 WDGAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) in
   // ...
 }
 ```
+</div>
+</div>
              
 如果新帐户创建成功，默认会处于登录状态，并且你可以在回调方法中获取登录用户的数据。
 
@@ -69,31 +94,52 @@ WDGAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) i
 
 1、 导入 Wilddog Auth 模块:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 @import WilddogAuth;
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 import WilddogAuth
 ```
+</div>
+</div>
+
 2、 初始化 WDGApp:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 ```
+</div>
+</div>
 
 3、 将该用户的电子邮件地址和密码传递到 `signInWithEmail:email:password:completion:`,即可在你应用中登录此用户。
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [[WDGAuth auth] signInWithEmail:_emailField.text
                        password:_passwordField.text
@@ -101,12 +147,15 @@ Objective-C
                        // ...
                      }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 WDGAuth.auth()?.signInWithEmail(email, password: password) { (user, error) in
   // ...
 }
 ```
+</div>
+</div>
 
 如果该用户成功登录，你就可以从回调方法的用户对象中获得该用户的帐户数据。
 
@@ -121,7 +170,12 @@ WDGAuth.auth()?.signInWithEmail(email, password: password) { (user, error) in
 
 调用 [signOut:](/api/auth/ios.html#WDGAuth-Methods#-signOut:) 退出登录：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 NSError *error;
 [[WDGAuth auth] signOut:&error];
@@ -130,9 +184,13 @@ if (!error) {
 }
 
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 try! WDGAuth.auth()!.signOut()
 
 ```
+</div>
+</div>
+
 可能发生的错误，请参考 [处理错误](/guide/auth/ios/errorcode.html)。

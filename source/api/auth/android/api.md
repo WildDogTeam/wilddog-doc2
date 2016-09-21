@@ -737,7 +737,7 @@ public Task<`AuthResult`> signInWithCustomToken (String token)
   
 一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法.
   
-阅读[自定义Token]()
+阅读[自定义Token](/guide/auth/core/concept.html#身份认证令牌)
  
 ---
 ### signInWithEmailAndPassword ()

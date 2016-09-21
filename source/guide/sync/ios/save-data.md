@@ -19,8 +19,12 @@ title:  操作数据
 
 例如，向 `gracehop` 节点下写入 `date_of_birth ` 、`full_name ` 和 `nickname`
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 // 初始化 
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wilddogio.com"];
@@ -36,9 +40,8 @@ NSDictionary *gracehop = @{
 WDGSyncReference *usersRef = [ref child: @"gracehop"];
 [usersRef setValue: gracehop];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift 
 //初始化
 let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
@@ -52,13 +55,19 @@ var usersRef = ref.child("gracehop")
 usersRef.setValue(gracehop)
 
 ```
+</div>
+</div>
 
 `setValue` 方法可以写入的数据类型有 `NSString`, `NSNumber`, `NSDictionary`, `NSArray` 。
 
 `setValue` 方法还有一个可选参数，此参数是一个回调方法，用来获取操作的结果
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 NSDictionary *gracehop = @{
                            @"date_of_birth": @"December 9, 1906",
@@ -71,17 +80,18 @@ NSDictionary *gracehop = @{
     }
 }];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift 
 ref.child("gracehop").setValue(gracehop, withCompletionBlock: { error, ref in
     if error == nil{
-    	   // 数据同步到野狗云端成功完成
+         // 数据同步到野狗云端成功完成
     }
 })
 
 ```
+</div>
+</div>
 
 ## 追加子节点
 
@@ -89,8 +99,12 @@ ref.child("gracehop").setValue(gracehop, withCompletionBlock: { error, ref in
 
 例如，追加子节点到 `posts` 节点
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *postRef = [ref child: @"posts"];
 NSDictionary *post1 = @{
@@ -108,9 +122,8 @@ WDGSyncReference *post2Ref = [postRef childByAutoId];
 [post2Ref setValue: post2];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let postRef = ref.child("posts")
 let post1 = ["author": "gracehop", "title": "Announcing COBOL, a New Programming Language"]
@@ -122,6 +135,8 @@ let post2Ref = postRef.childByAutoId()
 post2Ref.setValue(post2)
 
 ```
+</div>
+</div>
 
 产生的数据如下
 
@@ -142,23 +157,29 @@ post2Ref.setValue(post2)
 ```
 
 你可以通过调用 `getKey` 方法来获取这个唯一 ID 
-Objective-C
 
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *newPostRef = [postRef childByAutoId];
 // 获取 childByAutoId 生成的唯一 ID
 NSString *postID = newPostRef.key;
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let newPostRef = postRef.childByAutoId()
 // 获取 childByAutoId 生成的唯一 ID
 var postID = newPostRef.key
 
 ```
+</div>
+</div>
 
 ## 更新数据
 
@@ -175,8 +196,12 @@ var postID = newPostRef.key
 }
 ```
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *hopperRef = [usersRef child: @"gracehop"];
  
@@ -186,9 +211,8 @@ NSDictionary *nickname = @{
 //只更新 gracehop 的 nickname
 [hopperRef updateChildValues: nickname];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 
 var hopperRef = usersRef.child("gracehop")
@@ -197,6 +221,8 @@ var nickname = ["nickname": "Amazing Grace"]
 hopperRef.updateChildValues(nickname)
 
 ```
+</div>
+</div>
 
 与 `setValue` 方法对比：如果用 `setValue` 而不是 `updateChildValues`，则会删除 `date_of_birth` 和 `full_name`。
 
@@ -221,38 +247,48 @@ hopperRef.updateChildValues(nickname)
 ```
 希望同时更新 b 节点下的 d 和 x 节点下的 z。注意标识路径时，要用 `b/d`, 和 `x/z` 
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [newPostRef updateChildValues:@{@"b/d":@"updateD",@"x/z":@"updateZ"}];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 
 newPostRef.updateChildValues(["b/d":"updateD","x/z":"updateZ"])
 
 ```
+</div>
+</div>
 
 而**不能**写成
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 // 错误的多路径更新写法！！
 [newPostRef updateChildValues:@{@"b":@{@"d":@"updateD"},@"x":@{@"z":@"updateZ"}}];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 // 错误的多路径更新写法！！
 newPostRef.updateChildValues(["b":["d":"updateD"],"x":["z":"updateZ"]])
 
 ```
+</div>
+</div>
 
 该操作相当于 `setValue` 方法，会覆盖原有数据。
 
@@ -260,8 +296,12 @@ newPostRef.updateChildValues(["b":["d":"updateD"],"x":["z":"updateZ"]])
 
 `removeValue`方法用于删除指定节点。
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *ref = [[WDGSync sync] reference];
 [ref setValue:@{@"name" : @"Jone", @"age" : @"23"}];
@@ -269,8 +309,8 @@ WDGSyncReference *ref = [[WDGSync sync] reference];
 //删除上面写入的数据
 [ref removeValue];
 ```
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let ref = WDGSync.sync().reference()
 [ref.setValue(["name" : "Jone", "age" : "23"])
@@ -278,6 +318,8 @@ let ref = WDGSync.sync().reference()
 //删除上面写入的数据
 messagesRef.removeValue()
 ```
+</div>
+</div>
 
 此外，还可以通过写入 nil 值（例如，`setValue:nil`）来删除数据。 
 
@@ -291,9 +333,12 @@ messagesRef.removeValue()
 
 使用事务处理能避免这种情况
 
-
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 // 初始化 
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
@@ -311,9 +356,8 @@ WDGSyncReference *upvotesRef =[[WDGSync sync] referenceWithPath:@"/web/saving-da
     return [WDGTransactionResult successWithValue:currentData];
 }];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 // 初始化 
 let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
@@ -333,7 +377,9 @@ upvotesRef.runTransactionBlock({
 })
 
 ```
+</div>
+</div>
 
-**注意**：要进行并发更新的数据在云端有值，但本地还未获取这个值时，此时 `runTransactionBlock` 的回调方法中的变量为 nil。这种情况下，直接使用此变量进行逻辑处理会引发错误，所以必须对变量进行判空处理。
+>**注意：**要进行并发更新的数据在云端有值，但本地还未获取这个值时，此时 `runTransactionBlock` 的回调方法中的变量为 nil。这种情况下，直接使用此变量进行逻辑处理会引发错误，所以必须对变量进行判空处理。
 
 更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/api.html#–-runTransactionBlock)。
