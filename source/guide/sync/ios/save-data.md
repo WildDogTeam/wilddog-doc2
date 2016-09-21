@@ -380,6 +380,6 @@ upvotesRef.runTransactionBlock({
 </div>
 </div>
 
-**注意**：要进行并发更新的数据在云端有值，但本地还未获取这个值时，此时 `runTransactionBlock` 的回调方法中的变量为 nil。这种情况下，直接使用此变量进行逻辑处理会引发错误，所以必须对变量进行判空处理。
+>**注意：**要进行并发更新的数据在云端有值，但本地还未获取这个值时，此时 `runTransactionBlock` 的回调方法中的变量为 nil。这种情况下，直接使用此变量进行逻辑处理会引发错误，所以必须对变量进行判空处理。
 
 更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/api.html#–-runTransactionBlock)。
