@@ -46,6 +46,10 @@ WDGSync.sync().persistenceEnabled = true
 Objective-C
 
 ```objectivec
+// 初始化 
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://dinosaur-facts.wilddogio.com"];
+[WDGApp configureWithOptions:option];
+// 获取一个 WDGSyncReference 实例
 WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 [[[scoresRef queryOrderedByValue] queryLimitedToLast:4]
     observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
@@ -56,6 +60,10 @@ WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 Swift
 
 ```swift
+// 初始化 
+let options = WDGOptions.init(syncURL: "https://dinosaur-facts.wilddogio.com")
+WDGApp.configureWithOptions(options)
+// 获取一个 WDGSyncReference 实例
 let scoresRef = WDGSync.sync().referenceWithPath("scores")
 scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
     print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
