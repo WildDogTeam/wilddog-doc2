@@ -167,7 +167,6 @@ window.onload = function () {
       var iosSyncVersion = snap.val().WilddogSynciOS.version;
       var androidSyncVersion = snap.val().WilddogSyncAndroid.version;
       var androidAuthVersion = snap.val().WilddogAuthAndroid.version;
-      console.log(snap.val())
       jsVersionContent.forEach(function (ele) {
         ele.textContent = jsVersion;
       });

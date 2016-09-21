@@ -27,13 +27,11 @@ title:  邮箱登录
 
 1. 导入 Wilddog Auth 模块:
 
- ```
-<script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
- ```
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 2. 以 Wilddog AppId 初始化 Wilddog应用。
 
-```
+```javascript
 var config = {
 
  authDomain: "<appId>.wilddog.com",
@@ -47,7 +45,7 @@ var config = {
 
 3. 通过将该新用户的电子邮件地址和密码传递到 createUserWithEmailAndPassword(email,password) 来创建新帐户。
 
-```
+```javascript
 wilddog.auth().createUserWithEmailAndPassword("wangxiaoliang@wilddog.com", "12345678").catch(function (error) {
      // Handle Errors here.
      console.log(error)
@@ -65,12 +63,10 @@ wilddog.auth().createUserWithEmailAndPassword("wangxiaoliang@wilddog.com", "1234
 
 
 1. 导入 Wilddog Auth 模块:
-    ```
-   <script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
-    ```
+    <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 2. 初始化 `Wilddog` 应用实例。
-```
+```javascript
     var config = {
      authDomain: "<appId>.wilddog.com",
      syncURL: "https://<appId>.wilddogio.com"
@@ -80,7 +76,7 @@ wilddog.auth().createUserWithEmailAndPassword("wangxiaoliang@wilddog.com", "1234
 
 3. 将该用户的电子邮件地址和密码传递到 `signInWithEmailAndPassword(email:password)`,即可在你应用中登录此用户。
 
-```
+```javascript
 wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(function(res){
      console.log(res);
  }).catch(function (error) {
@@ -109,7 +105,7 @@ wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(fu
 
 调用 [signOut](/guide/auth/web/api.html#signout) 退出登录：
 
-```
+```javascript
  wilddog.auth().signOut().then(function() {
      // Sign-out successful.
      console.log("sign-out")

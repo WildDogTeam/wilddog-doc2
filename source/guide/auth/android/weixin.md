@@ -11,7 +11,7 @@ title: 微信登录
 
 2.将 `WilddogAuth` 的依赖项添加至你的应用级 build.gradle 文件：
     
-    compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
 3.如果你还没有创建Wilddog应用，请到官网控制面板去创建应用。
 
 4.在[微信开放平台](https://open.weixin.qq.com/)管理中心，获取应用的 App ID 和 App Secret。
