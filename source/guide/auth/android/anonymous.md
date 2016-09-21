@@ -23,7 +23,10 @@ title: 匿名用户身份认证
 1.初始化WilddogAuth对象.
 
 ```java
-WilddogAuth mauth=WilddogAuth.getInstance("YOURAPPID",context);
+// 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
+WilddogAuth mauth=WilddogAuth.getInstance();
 ```
 
 2.调用匿名登录方法

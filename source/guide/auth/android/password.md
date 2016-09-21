@@ -27,8 +27,11 @@ title: 邮箱登录
 
 ```java
     private WilddogAuth mAuth;
-    // ...
-    mAuth = WilddogAuth.getInstance("YOURAPPID",this);
+    // 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
+    
+    mAuth = WilddogAuth.getInstance();
     设置一个响应用户的登录状态变化的 AuthStateListener：
     private WilddogAuth.AuthStateListener mAuthListener;
 
@@ -104,7 +107,7 @@ title: 邮箱登录
 ```java
     private WilddogAuth mAuth;
     // ...
-    mAuth = WilddogAuth.getInstance("YOURAPPID",this);
+    mAuth = WilddogAuth.getInstance();
 ```
 
 2.设置一个响应用户的登录状态变化的 AuthStateListener：

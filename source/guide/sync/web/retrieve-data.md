@@ -3,37 +3,36 @@ title:  查询数据
 ---
 本篇文档介绍查询数据的基础知识，以及如何对数据进行排序和筛选。
 
-Sync 查询数据建立在事件监听基础上，在监听的回调方法中完成数据的查询。
+Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方法中完成数据的查询。
 
 ## 事件监听
 
-完成事件监听，需要设置监听，并为这种监听方法中指定一种事件类型。
+事件监听需要完成两个步骤，设置监听方法和指定事件类型。
 
-### 设置监听
+### 设置监听方法
 
-设置监听包含以下两个方法
+设置监听包含以下两个方法，根据需求任选其一。
 
-| 方法            | 说明
-| ------------- | ---------------------------------------- 
-| on()          | 监听当前节点的指定事件，添加回调方法。  监听一直持续，直到被主动取消。          
-| once()        |  监听当前节点的指定事件，添加回调方法。但回调方法只被执行一次，然后监听立即被取消。
+| 方法     | 说明                          |
+| ------ | --------------------------- |
+| on()   | 持续监听指定节点的数据变化。              |
+| once() | 单次监听指定节点的数据变化，用于只读取一次数据的情景。 |
 
 
-使用 `on()` 方法设置监听，可使客户端的数据与云端一直保持同步。使用 `once()` 方法设置单次监听，用于只读取一次数据的情景。
 
 ### 指定事件类型
 
-监听指定的事件类型分为 Value 事件和 Child 事件两大类，使用 `value` 事件监听节点下的所有数据，使用 `child_*` 事件监听当前节点下的子节点数据。
+指定的事件类型分为 Value 事件和 Child 事件两大类，使用 `value` 事件监听指定节点下的所有数据变化，使用 `child_*` 事件监听指定节点下子节点的数据变化。
 
 事件类型包含以下五种
 
-| 事件类型          | 说明                        |
-| ------------- | ------------------------- |
-| value         | 程序初始化时或有任何数据发生变化时触发。      |
-| child_added   | 程序初始化时或有新增子节点时触发。         |
-| child_changed | 节点下某个子节点或子节点的更深节点发生变化时触发。 |
-| child_removed | 节点下某个子节点被删除时触发。           |
-| child_moved   | 节点下某个子节点排序发生变化时触发。        |
+| 事件类型          | 说明                    |
+| ------------- | --------------------- |
+| onDataChange()         | 初次监听或指定节点及子节点发生变化时触发。 |
+| onChildAdded()   | 初次监听或有新增子节点时触发。       |
+| onChildChanged() | 子节点发生更改时触发。           |
+| onChildRemoved() | 子节点被删除时触发。            |
+| onChildMoved()   | 子节点排序发生变化时触发。         |
 
 
 
@@ -65,13 +64,9 @@ ref.on('value', function(snapshot, error) {
 ```
 之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
 
-回调方法接收一个 `snapshot` 对象，它是云端数据的快照，包含了事件触发时指定节点的数据。调用 `snapshot.val()` 方法来获取 `snapshot` 中的数据。如果数据为空，则返回 null。
-
-回调方法中的 `error` 参数是可选的。查询数据失败时，可以通过 `error` 对象获取错误信息。
-
 **注意**：每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
-更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html)。
+更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
 
 **Child 事件**
 
@@ -132,19 +127,19 @@ ref.off("value", originalCallback);
 ref.off();
 ```
 
-**注意**：在父节点上调用 `off()` 时不会移除在其子节点上添加的监听。
+**注意**：在父节点上调用 `off()` 方法时不会移除在其子节点上添加的监听。
 
 
 
 ## 数据排序
 
-Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。
+Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。
 
 数据排序包含以下四种排序方法	
 
 | 方法                | 说明                    |
 | ----------------- | --------------------- |
-| orderByChild()    | 按指定子节点的值（Value）对结果排序。 |
+| orderByChild()    | 按指定子节点的值（value）对结果排序。 |
 | orderByKey()      | 按键（key）对结果排序。         |
 | orderByValue()    | 按值（value）对结果排序。       |
 | orderByPriority() | 按优先级（priority）对结果排序。  |
@@ -234,11 +229,11 @@ ref.orderByValue().on("value", function(snapshot) {
 
 你可以结合不同的方法来筛选数据。例如，结合 `startAt()` 方法与 `endAt()` 方法将结果限制在指定的范围内。
 
-**limit 筛选**
+**数量筛选**
 
-`limitToFirst()`方法 和 `limitToLast()` 方法限制返回节点的最大数量。 
+`limitToFirst()`方法获取从第一条（或 startAt() 方法指定的位置）开始向后指定数量的子节点。 
 
-如果使用 `limitToFirst(100)` 筛选数据，那么第一次返回节点数最多为 100 个。当数据发生更改时，对于进入到前 100 个的节点，你会接收到 `child_added` 事件。对于从前 100 个中消失的节点，你会接收到 `child_removed` 事件。
+ `limitToLast()` 方法获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。 
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中，如果你只想知道最高的是哪三条恐龙
 
@@ -256,9 +251,9 @@ ref.orderByChild("height").limitToLast(3).on("child_added", function(snapshot) {
 });
 ```
 
+如果使用 `limitToFirst(100)` 筛选数据，那么第一次返回节点数最多为 100 个。当数据发生更改时，对于进入到前 100 个的节点，你会接收到 `child_added` 事件。对于从前 100 个中消失的节点，你会接收到 `child_removed` 事件。
 
-
-**range 筛选**
+**范围筛选**
 
 `startAt()`方法、`endAt()`方法 和 `equalTo()` 方法为查询选择任意起点、终点或等量点。
 
@@ -270,7 +265,7 @@ ref.orderByValue().startAt(60).on("child_added", function(snapshot) {
   console.log(snapshot.key() + " is " + snapshot.val());
 });
 ```
-**注意：** range 筛选中，当节点的 value 相同时，会按照 key 进行排序。
+**注意：** 范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
 
-range 筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
+范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
 

@@ -10,7 +10,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用时任选以下两种方式之一即可：
+Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用时任选以下两种方式之一
 
 * **安装完整 Wilddog SDK (推荐，包含 Sync 和 Auth)**
 
@@ -20,7 +20,7 @@ Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用�
 
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-sync.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
-如果是 `NodeJS` 或者 `ReactNative` 项目，请使用 `npm` 方式：
+如果是 `NodeJS` 或者 `ReactNative` 项目，请使用 `npm` 安装
 
 ```
 npm install wilddog --save
@@ -39,7 +39,7 @@ var ref = wilddog.sync().ref();
 
 ## 4. 写入数据
 
-[set](/api/sync/web/api.html#set) 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org)。
+[set()](/api/sync/web/api.html#set) 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org)。
 
 例如，在应用的根节点下写入天气数据
 
@@ -57,7 +57,7 @@ ref.set({
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
 ## 5. 读取与监听数据
-使用 [on](/api/sync/web/api.html#on) 或 [once](/api/sync/web/api.html#once) 方法可以读取并监听节点的数据。
+使用 [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法可以读取并监听节点的数据。
 
 例如，从应用中获得天气数据
 

@@ -30,7 +30,7 @@ SDK 的安装方式有 2 种：
 
 ```
 dependencies {
-    compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
+    compile 'com.wilddog.client:wilddog-auth-android:2.0.1'
 }
 ```
 
@@ -40,16 +40,20 @@ dependencies {
 <dependency>
     <groupId>com.wilddog.client</groupId>
     <artifactId>wilddog-auth-android</artifactId>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
 </dependency> 
 ```
 
 
-### 2.建立 Wilddog 引用
-初始化一个 Wilddog 对象，该对象连接到 `WILDDOG_URL` 。
+### 2.建立 SyncReference 引用
+初始化一个 SyncReference 对象，该对象连接到 `WILDDOG_URL` 。
 
 ```
-             Wilddog mWilddogRef = new Wilddog(WILDDOG_URL).child("chat");
+// 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
+
+             SyncReference mWilddogRef = WilddogSync.getInstance().getReference(WILDDOG_URL).child("chat");
 ```
 
 ### 3. 监听输入
@@ -58,7 +62,7 @@ dependencies {
 
 将推送内容解析，并且更新UI界面。
 
-    mListener = this.mRef.addChildEventListener(new ChildEventListener() {
+    mListener = mWilddogRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
     

@@ -656,15 +656,15 @@ public static WilddogAuth getInstance ()
 返回初始化之后，可以用本方法获取当前WilddogAuth实例对象
  
 ---
-### getInstance(String appId，Context context)
+### getInstance(WilddogApp wilddogapp)
 
 定义
 
-public static WilddogAuth getInstance(String appId，Context context)
+public static WilddogAuth getInstance(WilddogApp wilddogapp)
 
 说明
  
-返回初始化WilddogAuth 实例对象。
+返回制定的WilddogAuth 实例对象。
   
 ---
 ### removeAuthStateListener ()
@@ -737,7 +737,7 @@ public Task<`AuthResult`> signInWithCustomToken (String token)
   
 一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法.
   
-阅读[自定义Token]()
+阅读[自定义Token](/guide/auth/core/concept.html#身份认证令牌)
  
 ---
 ### signInWithEmailAndPassword ()

@@ -15,7 +15,10 @@ title: 自定义身份认证
 
 1.初始化WilddogAuth对象
 ```java
-WilddogAuth mauth=WilddogAuth.getInstance("YOURAPPID",context);
+// 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
+WilddogAuth mauth=WilddogAuth.getInstance();
 ```
     
 2.当用户登录你的应用时，发送他们的凭据（比如邮箱密码的方式）到你的服务器上。然后服务器检查凭据的正确性并返回 Custom Token。   

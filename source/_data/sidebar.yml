@@ -22,16 +22,19 @@ guide:
       操作数据: /guide/sync/web/save-data.html
       查询数据: /guide/sync/web/retrieve-data.html
       离线功能: /guide/sync/web/offline-capabilities.html
+      高级特性: /guide/sync/web/advance-feature.html
       
     Android :
       操作数据: /guide/sync/android/save-data.html
       查询数据: /guide/sync/android/retrieve-data.html
       离线功能: /guide/sync/android/offline-capabilities.html
+      高级特性: /guide/sync/android/advance-feature.html
       
     iOS:
       操作数据: /guide/sync/ios/save-data.html
       查询数据: /guide/sync/ios/retrieve-data.html
       离线功能: /guide/sync/ios/offline-capabilities.html
+      高级特性: /guide/sync/ios/advance-feature.html
       
     C/嵌入式:
       配置和移植: /guide/sync/c/config-and-porting.html

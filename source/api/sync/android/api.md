@@ -540,21 +540,7 @@ ref.child("a/b").updateChildren(children, handler);
 ----
 ## WilddogSync (*Methods*)
 
-### getApp()
 
-定义
-
-WilddogApp getApp ()
-
-说明
-
-WilddogSync 拥有的 WilddogApp 实例。
-
-返回值
-
-WilddogApp 实例 
-
-----
 ### getInstance()
 
 定义
@@ -631,21 +617,7 @@ SyncReference getReferenceFromUrl (String url)
 SyncReference 实例
 
 ----
-### getSdkVersion()
 
-定义
-
-static String getSdkVersion()
-
-说明 
-
-获取SDK版本。
-
-返回值
-
-SDK版本。
-
-----
 ###  goOffline()
 
 定义
@@ -678,25 +650,7 @@ static void goOnline()
 void
 
 ----
-### setLogLevel()
 
-定义
-
-void setLogLevel(Logger.Level logLevel)
-
-说明 
-
-默认的，这会被设置为INFO。log等级包括内部错误（ERROR）和任何客户端接收到的安全性debug信息（INFO），设置为DEBUG将会打开诊断日志，设置为NONE禁止所有日志。
-
-参数
-
-logLevel `Logger.Level` 所需最低的日志等级。
-
-返回值
-
-void
-
-----
 ## DataSnapshot (*Methods*)
 
 ### child()
@@ -1926,22 +1880,7 @@ Context getApplicationContext ()
 返回值这个应用的 Context 对象
 
 ----
-### getApps(Context context)
 
-定义
-
-static List<WilddogApp> getApps (Context context)
-
-说明 
-
-返回所有现存的 WilddogApp 实例。如果没有 WilddogApp 实例，则返回 nil.
-这个方法是保证线程安全的。
-
-返回值
-
-含有 WilddogApp 的 List
-
-----
 ### getInstance(String name)
 
 定义
@@ -1950,7 +1889,7 @@ static WilddogApp getInstance (String name)
 
 说明 
 
-返回一个之前用 name 创建好的 WilddogApp. 如果没有这个 app, 则返回 nil.
+返回一个之前用 name 创建好的 WilddogApp. 如果没有这个 app, 则返回 null.
 这个方法是保证线程安全的。
 
 参数
@@ -1970,7 +1909,7 @@ static WilddogApp getInstance ()
 
 说明 
 
-返回一个默认的 app。如果默认 app 不存在，则返回 nil。
+返回一个默认的 app。如果默认 app 不存在，则返回 null。
 
 返回值
 
@@ -2061,3 +2000,11 @@ WilddogOptions.Builder setSyncUrl (String syncUrl)
 
 syncURL Sync 的根路径 URL, e.g. `http://your-appid.wilddogio.com`
 
+----
+## ServerValue(*Constants*)
+
+### TIMESTAMP
+
+说明
+
+返回一个map集合，通过写数据的方式将这个map写到野狗数据库里，会在该节点处得到服务器的时间。
