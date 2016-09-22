@@ -57,7 +57,7 @@ curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23
 curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 ```
 
-成功的请求会收到 HTTP 状态码 200 ，返回值中包含欲读取数据路径下的数据。
+成功的请求会收到 HTTP 状态码 200 ，返回值中包含路径下的数据。
 
 ```json
 {
@@ -69,6 +69,6 @@ curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 ```
 
 
-与 cRUL 中的用法类似，在任何支持 HTTPS 的平台和编程语言中，都可以使用 Wilddog REST API。将来我们会提供各种编程语言的库，使 REST API 更加简便。
+将来我们会提供各种编程语言的库，使 REST API 更加简便。
 
 更多的数据读取方式，请参考 [完整指南](/guide/sync/rest/guide.html) 和 [API文档](/api/sync/rest.html)。
