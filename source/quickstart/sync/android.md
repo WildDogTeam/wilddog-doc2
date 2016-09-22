@@ -7,9 +7,9 @@ title: 快速入门
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li>支持 Android Studio 1.4 以上或者 Eclipse ADT 15.0.0 以上</li>
-        <li>支持 JDK 版本为 7.0 以上</li>
-        <li>支持 Android 手机系统 4.0.3以上，即 Android SDK 15 以上</li>
+        <li>支持 Android Studio 1.4 以上或者 Eclipse ADT 15.0.0 以上版本</li>
+        <li>支持 JDK 7.0 以上版本</li>
+        <li>支持 Android 手机系统 4.0.3 以上版本，即 Android SDK 15 以上版本</li>
     </ul>
 </div>
 

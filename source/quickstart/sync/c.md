@@ -6,7 +6,7 @@ title: 快速入门
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li> 支持 C89 的 gcc </li>
+        <li> 支持 C89 的 gcc 环境</li>
     </ul>
 </div>
 
