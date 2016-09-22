@@ -85,7 +85,6 @@ Child 事件监听当前节点下的子节点数据。当子节点发生改变�
 ![](/images/child_change_2.jpg)
 
 ![](/images/child_change_4.jpg)
-<img src="/images/child_change_4.jpg" />
 
 - `child_removed`事件在子节点被删除时触发。 
 
