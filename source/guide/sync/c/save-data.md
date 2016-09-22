@@ -162,4 +162,4 @@ int main(void){
 }
 ```
 
-**注意**：Sync 不会保存 value 为 null 的节点。如果某节点的值为 null，云端会删除这个节点。
+>**注意：**Sync 不会保存 value 为 null 的节点。如果某节点的值为 null，云端会删除这个节点。
