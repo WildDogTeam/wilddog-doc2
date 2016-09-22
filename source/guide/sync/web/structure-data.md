@@ -1,3 +1,4 @@
+
 title:  组织数据
 ---
 
@@ -22,7 +23,7 @@ Wilddog 云端数据库属于 [NoSQL](http://baike.baidu.com/view/2677528.htm) �
 
 ## 避免层级过深
 
-尽管可以使用 JSON 任意地组织数据，但不同的组织方式对读取性能的影响是很大的。Wilddog  的工作方式是当你查询某个节点，Wilddog 会返回这个节点下的所有子节点。所以，应该尽可能使数据扁平化，就像组织 SQL 关系型数据表一样。
+尽管可以使用 JSON 任意地组织数据，但不同的组织方式对读取性能的影响是很大的。Wilddog  的工作方式是当你查询某个[节点](/guide/reference/term.html#节点)，Wilddog 会返回这个节点下的所有[子节点](/guide/reference/term.html#子节点)。所以，应该尽可能使数据扁平化，就像组织 SQL 关系型数据表一样。
 
 <div class="alert"> 我们不推荐这种实践 </div>
 
@@ -49,7 +50,7 @@ Wilddog 云端数据库属于 [NoSQL](http://baike.baidu.com/view/2677528.htm) �
 
 #### 使数据扁平化
 
-如果数据分布到不同的路径下，那么就可以根据需要查询最小化的数据量，大大提高查询性能：
+如果数据分布到不同的[路径](/guide/reference/term.html#路径-path)下，那么就可以根据需要查询最小化的数据量，大大提高查询性能：
 
 
 ```json
