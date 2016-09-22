@@ -309,7 +309,8 @@ messagesRef.removeValue()
 
 `runTransactionBlock` 方法用于并发操作时保证数据一致性。
 
-例如，使用 `runTransactionBlock` 实现多人点赞功能
+例如，使用 `runTransactionBlock` 方法实现多人点赞功能，可以避免多个客户端同时更新时，导致的最终数据不一致。
+
 
 <div class="slide">
 <div class='slide-title'>
