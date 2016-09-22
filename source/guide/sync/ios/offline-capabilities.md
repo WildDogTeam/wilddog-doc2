@@ -5,7 +5,6 @@ title:  离线功能
 
 离线功能让应用在无网环境下仍可以操作数据。它包括数据持久化、离线事件、监控连接状态等特性。
 
-
 ## 监听连接状态
 
 Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这个路径，客户端可以监测是否连接到云端。
@@ -115,7 +114,7 @@ presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
 </div>
 </div>
 
-`cancel` 方法用于取消离线事件
+`cancelDisconnectOperations` 方法用于取消离线事件
 
 <div class="slide">
 <div class='slide-title'>
