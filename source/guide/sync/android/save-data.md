@@ -1,5 +1,5 @@
 
-title:  操作数据
+title:  数据操作
 ---
 
 本篇文档介绍如何操作数据，分为写入，更新和删除数据。
@@ -17,7 +17,9 @@ title:  操作数据
 
 ## 写入数据
 
-`setValue() ` 方法用于向任意节点写入数据。若此节点已有数据，会覆盖原有（包括其子节点）的数据。
+`setValue()` 方法用于向指定节点写入数据。此方法会先清空指定节点，再写入数据。
+
+`setValue()` 方法可设置回调方法来获取操作的结果。
 
 
 例如，向 `gracehop` 节点下写入 `date_of_birth ` 、`full_name ` 和 `nickname`
@@ -39,10 +41,7 @@ title:  操作数据
 ```
 
 
-`setValue()` 方法可以写入的数据类型有 `String`, `Number`, `boolean`, `Object`。
-
-
-`setValue()` 方法还有一个可选参数，此参数是一个回调方法，用来获取操作的结果
+设置回调方法
 
 ```java
     ref.child("Jone").setValue("jone", new SyncReference.CompletionListener() {
@@ -74,7 +73,7 @@ anotherNews.put("author", "alanisawesome");
 anotherNews.put("title", "The Turing Machine");
 postsRef.push().setValue(anotherNews);
 ```
-产生的数据如下：
+产生的数据如下
 ```json
 {
 
@@ -91,21 +90,13 @@ postsRef.push().setValue(anotherNews);
   }
 }
 ```
-你可以通过调用 `getKey()` 方法来获取这个唯一 ID 
 
-
-```java
-HashMap<String, Object> news = new HashMap<>();
-news.put("author", "gracehop");
-news.put("title", "Announcing COBOL, a New Programming Language");
-SyncReference newPostsRef = postsRef.push().setValue(news);
-// 获取 push() 生成的唯一 ID
-String postID = newPostRef.getKey();
-```
 
 ## 更新数据
 
-`updateChildren()` 方法用于更新指定子节点，而不影响其他节点。
+`updateChildValues()` 方法用于更新指定子节点。
+
+`updateChildValues()` 方法支持多路径更新。可以只调用一次方法更新多个路径的数据。
 
 ```json
 //原数据如下
@@ -126,12 +117,11 @@ user.put("nickname", "Amazing grace");
 hopperRef.updateChildren(user);
 ```
 
-与 `setValue()` 方法对比：如果此处用`setValue()` 而不是 `updateChildren()`方法，则会删除 `date_of_birth` 和 `full_name`。
+
 
 
 **多路径更新**
 
-`updateChildren()` 方法也支持多路径更新，即同时更新不同 [路径](/guide/reference/term.html#路径-path) 下的数据。例如
 
 ```json
 //原数据如下
@@ -186,17 +176,15 @@ ref.setValue(map);
 ref.removeValue();
 ```
 
-此外，还可以通过写入 null 值（例如，`setValue(null)` 或 `updateChildren(null)`）来删除数据。 
 
->**注意：**如果某个节点的 value 为 null ,云端会直接删除该节点。
+
+>**提示：**如果某个节点的 value 为 null ,云端会直接删除该节点。
 
 ## 事务操作
 
 `runTransaction()` 方法用于并发操作时保证数据一致性。
 
-例如，要实现一个记录点赞数量的功能，它可能存在多人同时点赞的情况。如果不用事务处理，那么两个客户端呈现的最终数据可能不一致。
-
-使用事务处理能避免这种情况
+例如，使用 `runTransaction()` 方法实现多人点赞功能，可以避免多个客户端同时更新时，导致的最终数据不一致。
 
 ```java
 SyncReference upvotesRef = WilddogSync.getInstance().getReference("web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes");
@@ -217,7 +205,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
 });
 ```
 
->**注意：** 当云端有数据存在，本地还未缓存时，此时回调方法的变量为 null，所以要判断变量是否为空。
+>**注意：** 回调方法的返回值可能为空，需要进行相应的处理。
 
 更多使用，请参考 [runTransaction()](/api/sync/android/api.html#runTransaction-Transaction-Handler)。
 
