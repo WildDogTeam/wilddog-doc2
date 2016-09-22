@@ -13,9 +13,9 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 设置监听包含以下两个方法，根据需求任选其一。
 
-| 方法     | 说明                          |
-| ------ | --------------------------- |
-| observeEventType   | 持续监听指定节点的数据变化。              |
+| 方法                       | 说明                          |
+| ------------------------ | --------------------------- |
+| observeEventType         | 持续监听指定节点的数据变化。              |
 | observeSingleEventOfType | 单次监听指定节点的数据变化，用于只读取一次数据的情景。 |
 
 
@@ -25,9 +25,9 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 事件类型包含以下五种
 
-| 事件类型          | 说明                    |
-| ------------- | --------------------- |
-| WDGDataEventTypeValue         | 初次监听或指定节点及子节点发生变化时触发。 |
+| 事件类型                         | 说明                    |
+| ---------------------------- | --------------------- |
+| WDGDataEventTypeValue        | 初次监听或指定节点及子节点发生变化时触发。 |
 | WDGDataEventTypeChildAdded   | 初次监听或有新增子节点时触发。       |
 | WDGDataEventTypeChildChanged | 子节点发生更改时触发。           |
 | WDGDataEventTypeChildRemoved | 子节点被删除时触发。            |
@@ -101,7 +101,7 @@ Child 事件监听当前节点下的子节点数据。当子节点发生改变�
 
 ![](/images/ioschild_change_2.jpg)
 
-![](/images/ioschild_change_4.jpg)
+![](/images/ioschange4.jpg)
 
 
 - `child_removed`事件在子节点被删除时触发。 
