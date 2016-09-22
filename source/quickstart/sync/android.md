@@ -3,12 +3,13 @@ title: 快速入门
 ---
 你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
 
+
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li>开发环境使用android studio 1.4以上或者eclipse ADT 15.0.0 以上</li>
-        <li>jdk版本为7.0以上</li>
-        <li>Android手机系统 4.0.3以上，即android sdk 15 以上</li>
+        <li>Android Studio 1.4 以上或者 Eclipse ADT 15.0.0 以上</li>
+        <li> JDK 版本为 7.0 以上</li>
+        <li>Android 手机系统 4.0.3以上，即 Android SDK 15 以上</li>
     </ul>
 </div>
 
@@ -71,7 +72,7 @@ SyncReference ref = WilddogSync.getInstance().getReference();
 
 ## 5. 写入数据
 
-`setValue()`方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org) 。
+`setValue()`方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html) 。
 
 例如，在应用的根节点下写入天气数据 
 

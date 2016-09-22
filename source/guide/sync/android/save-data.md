@@ -159,7 +159,7 @@ map.put("x/z", "updateZ");
 ref.updateChildren(map);
 ```
 
-而**不能**写成
+以下做法将会覆盖原有数据，为错误示例
 
 ```java
 // 错误的多路径更新写法！！

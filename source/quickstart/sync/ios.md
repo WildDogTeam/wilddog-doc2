@@ -4,6 +4,14 @@ title: 快速入门
 
 你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
 
+<div class="env">
+    <p class="env-title">环境准备</p>
+    <ul>
+        <li>使用 Xcode 7.0 及以上版本</li>
+        <li> SDK 版本支持 iOS 7.0 及以上版本</li>
+    </ul>
+</div>
+
 ## 1. 创建应用
 
 首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
@@ -92,7 +100,7 @@ let myRootRef = WDGSync.sync().reference()
 
 ## 4. 写入数据
 
-`setValue` 方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org)。
+`setValue` 方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
 例如，在应用的根节点下写入天气数据
 
