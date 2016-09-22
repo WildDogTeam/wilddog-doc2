@@ -1,3 +1,4 @@
+
 title: Wilddog 术语
 ---
 
@@ -19,7 +20,7 @@ AppID 是 Wilddog 应用的唯一标识，在你创建 Wilddog 应用时设置�
 
 ### 节点
 
-Wilddog Sync 中的数据以 [JSON](http://json.org/json-zh.html) 格式存储。它是 [键值对 (Key-Value)]()  的集合，其中每一个键值对 (Key-Value)  都称之为节点。一个节点包含 [key]() 和 [value]() 。
+Wilddog Sync 中的数据以 [JSON](http://json.org/json-zh.html) 格式存储。它是 [键值对 (Key-Value)](/guide/reference/term.html#键值对-key-value)  的集合，其中每一个键值对 (Key-Value)  都称之为节点。一个节点包含 [key](/guide/reference/term.html#key) 和 [value](/guide/reference/term.html#value) 。
 
 ### 键值对 (key - value)
 
