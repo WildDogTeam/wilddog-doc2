@@ -2,13 +2,13 @@ title:  操作数据
 ---
 本篇文档介绍操作数据的方法。
 
-以下两种方法用于写入数据：
+操作数据包含以下三种方法：
 
 方法 |  说明 
 ----|------
 wilddog_setValue() | 向某个节点写入数据。若此节点已存在数据，会覆盖这些数据。 
 wilddog_push() | 向某个节点添加子节点。子节点的 key 由野狗自动生成并保证唯一，value 是你要写入的数据。
- 
+wilddog_removeValue() | 删除指定的节点。
 
 ## 写入数据
 
@@ -58,7 +58,7 @@ int main(void){
 
 ## 追加子节点
 
-`wilddog_push()` 方法会生成唯一 ID 作为 key ，要写入的数据作为 value ，进行数据写入。这个 key 基于时间戳和随机算法生成，即使生成在同一毫秒也不会重复，它标明了时间的先后。注册的回调函数用于判断追加操作是否成功。
+`wilddog_push()`方法向任意节点添加子节点。新增子节点的 key 由 Wilddog  云端自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。注册的回调函数用于判断追加操作是否成功。
 
 例如，追加子节点到 `message`节点 ：
 
@@ -110,7 +110,7 @@ int main(void){
 }
 ```
 
-`onPushCallback()` 回调函数中第一个参数为新增节点的完整路径。
+`onPushCallback()` 回调函数中第一个参数为新增节点的完整路径 `p_path`，新增子节点的 key 可以从 `p_path` 中获取。
 
 ```c
 // 在回调中获取新增数据对应的 key
@@ -127,8 +127,8 @@ STATIC void onPushCallback(u8 *p_path,void* arg, Wilddog_Return_T err){
 ```
 ## 删除数据
 
-`wilddog_removeValue()` 方法用于删除数据：
-例如，删除`/room/`节点下的所有数据：
+`wilddog_removeValue()` 方法用于删除指定的节点数据：
+例如，删除`/room/`节点下所有的数据：
 
 ```c
 STATIC void onDeleteCallback(void* arg, Wilddog_Return_T err){
@@ -161,5 +161,3 @@ int main(void){
     wilddog_destroy(&wilddog);
 }
 ```
-
-**注意**：Sync 不会保存 value 为 null 的节点。如果某节点的值为 null，云端会删除这个节点。

@@ -53,7 +53,7 @@ connectedRef.observeEventType(.Value, withBlock: {snapshot in
 </div>
 </div>
 
-**注意：** `/.info/connected` 的值是 BOOL 类型。
+>**注意：** `/.info/connected` 的值是 BOOL 类型。
 
 ## 离线事件
 
@@ -162,7 +162,7 @@ ref.goOnline()
 </div>
 </div>
 
-**注意**：一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline`方法 和 `goOnline`方法会控制全局的在线和离线。 
+>**注意：**一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline`方法 和 `goOnline`方法会控制全局的在线和离线。 
 
 
 ## 数据本地持久化

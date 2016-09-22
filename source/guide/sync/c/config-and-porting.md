@@ -77,5 +77,5 @@ int wilddog_send(int socketId,Wilddog_Address_T*,void* tosend,s32 tosendLength);
 
 int wilddog_receive(int socketId,Wilddog_Address_T*,void* toreceive,s32 toreceiveLength, s32 timeout);
 ```
-注意：tinydtls 以及 mbedtls 因为涉及底层，如果需要移植，可能要针对这两个库进行一些调试工作。
+>**注意：**tinydtls 以及 mbedtls 因为涉及底层，如果需要移植，可能要针对这两个库进行一些调试工作。
 

@@ -1,4 +1,5 @@
-## title: Wilddog 术语
+title: Wilddog 术语
+---
 
 Wilddog 术语是 Wilddog 产品对一些特定概念的称谓。
 
