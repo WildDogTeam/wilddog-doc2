@@ -30,7 +30,7 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 | ------------- | --------------------- |
 | value         | 初次监听或指定节点及子节点发生变化时触发。 |
 | child_added   | 初次监听或有新增子节点时触发。       |
-| child_change  | 子节点发生更改时触发。           |
+| child_change | 子节点发生更改时触发。           |
 | child_removed | 子节点被删除时触发。            |
 | child_moved   | 子节点排序发生变化时触发。         |
 
@@ -82,16 +82,16 @@ Child 事件监听当前节点下的子节点数据。当子节点发生改变�
 
 ![](/images/child_change_1.jpg)
 
-![](/images/child_change_1.jpg)
+![](/images/child_change_2.jpg)
 
-![](/images/child_change_1.jpg)
+![](/images/child_change_3.jpg)
 
 
 - `child_removed`事件在子节点被删除时触发。 
 
 ![](/images/child_removed.jpg)
 
-- `child_moved`事件子节点排序发生变化时触发。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
+- `child_moved`事件子节点排序发生变化时触发。 。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
 
 ![](/images/child_moved.jpg)
   ​
