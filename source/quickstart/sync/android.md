@@ -82,7 +82,6 @@ Map data = new HashMap();
 data.put("beijing","rain");
 data.put("shanghai","sunny");
 myRef.setValue(data);
-
 ```
 
 写入的数据如下图
@@ -91,7 +90,7 @@ myRef.setValue(data);
 
 ## 6. 读取与监听数据
 
-`addValueEventListener()`方法可以读取并监听节点的数据。
+`addValueEventListener()`方法可以读取并监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 ```java
 myRef.addValueEventListener(new ValueEventListener() {

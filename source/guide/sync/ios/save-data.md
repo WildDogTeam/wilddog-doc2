@@ -7,8 +7,8 @@ title:  数据操作
 
 | 方法                  | 说明                                       |
 | ------------------- | ---------------------------------------- |
-| setValue            | 向指定节点写入数据。若此节点已存在数据，会覆盖原有数据。             |
-| childByAutoId       | 向指定节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 |
+| setValue            | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| childByAutoId       | 向指定节点添加 [子节点](/guide/reference/term.html#节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
 | updateChildValues   | 更新指定子节点。                                 |
 | removeValue         | 删除指定节点。                                  |
 | runTransactionBlock | 并发操作时保证数据一致性。                            |
@@ -161,7 +161,7 @@ post2Ref.setValue(post2)
 
 `updateChildValues` 方法用于更新指定子节点。
 
-`updateChildValues` 方法支持多路径更新。可以只调用一次方法更新多个路径的数据。
+`updateChildValues` 方法支持多路径更新。可以只调用一次方法更新多个 [路径](/guide/reference/term.html#路径-path) 的数据。
 
 
 

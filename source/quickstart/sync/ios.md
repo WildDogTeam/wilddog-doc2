@@ -41,7 +41,7 @@ SDK 的安装方式有两种，你可以任选其一
 
 </br>
 - **手动集成** 
-</br>
+  </br>
 1. 下载 Sync SDK <a href="#" class="ios-download-sync" target='_blank'>点此下载</a>。 
 2. 下载 Core SDK <a href="#" class="ios-download-core" target='_blank'>点此下载</a>。        
 3. 把 WilddogSync.framework 和 WilddogCore.framework 拖到工程目录中。  
@@ -132,7 +132,7 @@ myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 
 ## 5. 读取与监听数据
 
-`observeEventType` 方法可以读取并监听节点的数据。
+`observeEventType` 方法可以读取并监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 例如，从应用中获得天气数据
 
