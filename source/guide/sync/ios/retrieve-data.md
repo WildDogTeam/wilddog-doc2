@@ -88,13 +88,30 @@ ref.observeEventType(.Value, withBlock: { snapshot in
 
 Child 事件监听当前节点下的子节点数据。当子节点发生改变时（如通过 `push()` 方法添加子节点，或通过 `update()` 方法更新子节点），就会触发相应的 Child 事件。
 
-- `child_added`事件在程序初始化时会针对每个子节点触发一次，以获取所有子节点；之后每当有子节点增加时会再次触发，以获取新增的子节点。常用来获取当前节点下的子节点列表。
 
-- `child_changed`事件在有子节点修改时触发，包括对子节点里更深层的节点所做的修改。
+- `child_added`事件在初次监听或有新增子节点时触发。
 
-- `child_removed`事件在直接子节点被删除时触发。
+![](/images/ioschild_add.jpg)
 
-- `child_moved`事件在节点下的数据顺序发生变化时触发。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
+
+- `child_changed`子节点发生更改时触发。它包含以下三种情况。
+
+
+![](/images/ioschild_change_1.jpg)
+
+![](/images/ioschild_change_2.jpg)
+
+![](/images/ioschild_change_3.jpg)
+
+
+- `child_removed`事件在子节点被删除时触发。 
+
+![](/images/ioschild_removed.jpg)
+
+- `child_moved`事件子节点排序发生变化时触发。 。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
+
+![](/images/ioschild_moved.jpg)
+
 
 
 例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过设置 Child 事件来监听博客的状态变化
