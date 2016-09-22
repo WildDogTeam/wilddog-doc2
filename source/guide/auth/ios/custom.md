@@ -15,31 +15,53 @@ pod 'Wilddog/Auth'
 
 1、 引入 WilddogAuth 模块：
  
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 @import WilddogAuth;
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 import WilddogAuth
 ```
+</div>
+</div>
+
 2、 初始化 WDGApp:
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 ```
+</div>
+</div>
 
 3、 当用户登录你的应用时，发送他们的凭据（比如邮箱密码的方式）到你的服务器上。然后服务器检查凭据的正确性并返回 Custom Token。
 4、 从服务器收到 Custom Token 后，传到 `signInWithCustomToken:` 方法中进行登录：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuth *auth = [WDGAuth auth];
 [auth signInWithCustomToken:customToken
@@ -47,13 +69,16 @@ WDGAuth *auth = [WDGAuth auth];
                         // ...
                  }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
 auth?.signInWithCustomToken(customToken) { (user, error) in
   // ...
 }
 ```
+</div>
+</div>
 
 ## 后续步骤
 
@@ -66,7 +91,12 @@ auth?.signInWithCustomToken(customToken) { (user, error) in
 
 调用 [signOut:](/api/auth/ios.html#WDGAuth-Methods#-signOut:) 退出登录：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 NSError *error;
 [[WDGAuth auth] signOut:&error];
@@ -75,9 +105,13 @@ if (!error) {
 }
 
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 try! WDGAuth.auth()!.signOut()
 
 ```
+</div>
+</div>
+
 可能发生的错误，请参考 [处理错误](/guide/auth/ios/errorcode.html)。

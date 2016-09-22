@@ -40,8 +40,12 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 例如，查询 gracehop 节点下的数据
 
-Objective-C 
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 // 初始化 
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
@@ -56,9 +60,8 @@ WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"web/saving-data/wild
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 // 初始化 
 let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
@@ -72,6 +75,8 @@ ref.observeEventType(.Value, withBlock: { snapshot in
     print(error.description)
 })
 ```
+</div>
+</div>
 
 之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
 
@@ -83,19 +88,40 @@ ref.observeEventType(.Value, withBlock: { snapshot in
 
 Child 事件监听当前节点下的子节点数据。当子节点发生改变时（如通过 `push()` 方法添加子节点，或通过 `update()` 方法更新子节点），就会触发相应的 Child 事件。
 
-- `child_added`事件在程序初始化时会针对每个子节点触发一次，以获取所有子节点；之后每当有子节点增加时会再次触发，以获取新增的子节点。常用来获取当前节点下的子节点列表。
 
-- `child_changed`事件在有子节点修改时触发，包括对子节点里更深层的节点所做的修改。
+- `child_added`事件在初次监听或有新增子节点时触发。
 
-- `child_removed`事件在直接子节点被删除时触发。
+![](/images/ioschild_add.jpg)
 
-- `child_moved`事件在节点下的数据顺序发生变化时触发。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
+
+- `child_changed`子节点发生更改时触发。它包含以下三种情况。
+
+
+![](/images/ioschild_change_1.jpg)
+
+![](/images/ioschild_change_2.jpg)
+
+![](/images/ioschild_change_4.jpg)
+
+
+- `child_removed`事件在子节点被删除时触发。 
+
+![](/images/ioschild_removed.jpg)
+
+- `child_moved`事件子节点排序发生变化时触发。 。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
+
+![](/images/ioschild_moved.jpg)
+
 
 
 例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过设置 Child 事件来监听博客的状态变化
 
-Objective-C 
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 // 获取一个 WDGSyncReference 实例
 WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts"];
@@ -106,9 +132,8 @@ WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://docs-examples
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 // 获取一个 WDGSyncReference 实例
 let ref = WDGSync.sync().referenceFromURL("https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts")
@@ -118,13 +143,19 @@ ref.observeEventType(.ChildAdded, withBlock: { snapshot in
     print(snapshot.value!.objectForKey("title"))
 })
 ```
+</div>
+</div>
 
 ### 单次监听
 
 `observeSingleEventOfType`方法用于单次监听，该监听的回调方法只被触发一次，之后会自动取消监听。
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 
 // 获取一个 WDGSyncReference 实例
@@ -144,9 +175,8 @@ __block NSInteger count = 0;
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 
 // 获取一个 WDGSyncReference 实例
@@ -166,13 +196,19 @@ ref.observeSingleEventOfType(.Value, withBlock: { snapshot in
 })
 
 ```
+</div>
+</div>
 
 ### 移除监听
 
 `removeObserverWithHandle`方法用于移除一个监听事件，移除监听之后，回调方法将不再被触发。
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncHandle handle = [ref observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot* snapshot) {
     NSLog(@"Snapshot value: %@", snapshot.value)
@@ -181,9 +217,8 @@ WDGSyncHandle handle = [ref observeEventType:WDGDataEventTypeValue withBlock:^(W
 [ref removeObserverWithHandle:handle];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 var handle = ref.observeEventType(.Value, withBlock: { snapshot in
     print("Snapshot value: \(snapshot.value)")
@@ -192,22 +227,29 @@ var handle = ref.observeEventType(.Value, withBlock: { snapshot in
 ref.removeObserverWithHandle(handle)
 
 ```
+</div>
+</div>
 
 在该节点调用 `removeAllObservers`方法，将移除该节点位置的所有监听。
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 [ref removeAllObservers];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 ref.removeAllObservers()
 
 ```
+</div>
+</div>
 
 **注意**：在父节点上调用 `removeAllObservers` 方法时不会移除在其子节点上添加的监听。
 
@@ -231,9 +273,12 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照每个恐龙的身高（"height" 节点的值）进行排序
 
-
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 // 初始化 
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://dinosaur-facts.wilddogio.com"];
@@ -247,9 +292,8 @@ WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"dinosaurs"];
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 // 初始化 
 let options = WDGOptions.init(syncURL: "https://dinosaur-facts.wilddogio.com")
@@ -263,6 +307,8 @@ ref.queryOrderedByChild("height").observeEventType(.ChildAdded, withBlock: { sna
 })
 
 ```
+</div>
+</div>
 
 **queryOrderedByKey**
 
@@ -270,8 +316,12 @@ ref.queryOrderedByChild("height").observeEventType(.ChildAdded, withBlock: { sna
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照恐龙的名称进行排序
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"dinosaurs"];
 [[ref queryOrderedByKey]
@@ -281,9 +331,8 @@ WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"dinosaurs"];
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let ref = WDGSync.sync().referenceWithPath("dinosaurs")
 ref.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: { snapshot in
@@ -293,6 +342,8 @@ ref.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: { snapshot in
 })
 
 ```
+</div>
+</div>
 
 **queryOrderedByValue**
 
@@ -300,8 +351,12 @@ ref.queryOrderedByKey().observeEventType(.ChildAdded, withBlock: { snapshot in
 
 例如，在 [得分示例应用](https://dinosaur-facts.wilddogio.com/scores) 中按照得分数据进行排序
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 [[scoresRef queryOrderedByValue] observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
@@ -309,9 +364,8 @@ WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let scoresRef = WDGSync.sync().referenceWithPath("scores")
 scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snapshot in
@@ -321,6 +375,8 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 })
 
 ```
+</div>
+</div>
 
 **queryOrderedByPriority**
 
@@ -359,8 +415,12 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中，如果你只想知道最高的是哪三条恐龙
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 
 WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"dinosaurs"];
@@ -371,9 +431,8 @@ WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"dinosaurs"];
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 
 let ref = WDGSync.sync().referenceWithPath("dinosaurs")
@@ -383,6 +442,8 @@ ref.queryOrderedByChild("height").queryLimitedToLast(3)
 })
 
 ```
+</div>
+</div>
 
 如果使用 `queryLimitedToFirst:100` 筛选数据，那么第一次返回节点数最多为 100 个。当数据发生更改时，对于进入到前 100 个的节点，你会接收到 `WDGDataEventTypeChildAdded` 事件。对于从前 100 个中消失的节点，你会接收到 `WDGDataEventTypeChildRemoved` 事件。
 
@@ -392,8 +453,12 @@ ref.queryOrderedByChild("height").queryLimitedToLast(3)
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中，如果你只想知道哪些恐龙的得分超过 60 
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 [[[scoresRef queryOrderedByValue] queryStartingAtValue:@60]
@@ -403,9 +468,8 @@ WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 }];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let ref = WDGSync.sync().referenceWithPath("scores")
 scoresRef.queryOrderedByValue().queryStartingAtValue(60).observeEventType(.ChildAdded, withBlock: { snapshot in
@@ -414,5 +478,8 @@ scoresRef.queryOrderedByValue().queryStartingAtValue(60).observeEventType(.Child
 })
 
 ```
+</div>
+</div>
+
 **注意：** range 筛选中，当节点的 value 相同时，会按照 key 进行排序。
 

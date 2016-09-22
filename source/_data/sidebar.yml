@@ -89,6 +89,8 @@ guide:
       简介: /guide/auth/server/introduction.html
       使用 Server SDK 进行认证: /guide/auth/server/server.html
 
+  术语: /guide/reference/term.html
+
 api:
   实时数据同步:
     Web: 
