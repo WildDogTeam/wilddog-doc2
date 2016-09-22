@@ -257,15 +257,15 @@ curl 'https://samplechat.wilddogio.com/.json?download=myfilename.txt'
 
 ### orderBy
 
-在 [完整文档 - 查询数据](/guide/sync/rest/guide.html##查询数据) 文档中获取更多信息。
+在 [完整文档 - 查询数据](/guide/sync/rest/retrieve-data.html#查询数据) 文档中获取更多信息。
 
 ### limitToFirst, limitToLast
 
-在 [完整文档 - 查询数据](/guide/sync/rest/guide.html##查询数据) 文档中获取更多信息。
+在 [完整文档 - 查询数据](/guide/sync/rest/retrieve-data.html#查询数据) 文档中获取更多信息。
 
 ### startAt, endAt, equalTo
 
-在 [完整文档 - 查询](/guide/sync/rest/guide.html##查询数据) 文档中获取更多信息。
+在 [完整文档 - 查询数据](/guide/sync/rest/retrieve-data.html#查询数据) 文档中获取更多信息。
 
 ---
 
@@ -282,7 +282,6 @@ curl 'https://samplechat.wilddogio.com/.json?download=myfilename.txt'
 ```
 curl 'https://samplechat.wilddogio.com/users/jack/name.json?auth=CREDENTIAL'
 ```
-
 
 ---
 
