@@ -20,7 +20,7 @@ wilddog_cancelDisconnectOperations()  | 取消之前所设置的离线事件。
 wilddog_goOffline()   | 客户端设置为离线状态。
 wilddog_goOnline()  | 客户端连接云端。
 
->**注意：** 客户端若没有调用 wilddog_goOffline(), 直接关机或者断网，离线事件的触发有 3 分钟的延迟**
+>**注意：** 客户端若没有调用 wilddog_goOffline(), 直接关机或者断网，离线事件的触发有 3 分钟的延迟。
 
 以下是使用`wilddog_onDisconnectSetValue()`方法，在客户端离线时，云端把客户端的状态设置为离线：
 

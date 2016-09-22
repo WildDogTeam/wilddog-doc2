@@ -5,7 +5,6 @@ title:  离线功能
 
 离线功能让应用在无网环境下仍可以操作数据。它包括数据持久化、离线事件、监控连接状态等特性。
 
-
 ## 监听连接状态
 
 Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这个路径，客户端可以监测是否连接到云端。
@@ -54,7 +53,7 @@ connectedRef.observeEventType(.Value, withBlock: {snapshot in
 </div>
 </div>
 
-**注意：** `/.info/connected` 的值是 BOOL 类型。
+>**注意：** `/.info/connected` 的值是 BOOL 类型。
 
 ## 离线事件
 
@@ -115,7 +114,7 @@ presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
 </div>
 </div>
 
-`cancel` 方法用于取消离线事件
+`cancelDisconnectOperations` 方法用于取消离线事件
 
 <div class="slide">
 <div class='slide-title'>
@@ -163,7 +162,7 @@ ref.goOnline()
 </div>
 </div>
 
-**注意**：一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline`方法 和 `goOnline`方法会控制全局的在线和离线。 
+>**注意：**一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline`方法 和 `goOnline`方法会控制全局的在线和离线。 
 
 
 ## 数据本地持久化

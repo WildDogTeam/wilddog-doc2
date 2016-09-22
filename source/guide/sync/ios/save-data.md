@@ -1,21 +1,23 @@
 
-title:  操作数据
+title:  数据操作
 ---
-本篇文档介绍如何操作数据，分为写入，更新和删除数据。
+本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-操作数据包含以下五种方法
+数据操作包含以下五种方法
 
 | 方法                  | 说明                                       |
 | ------------------- | ---------------------------------------- |
-| setValue            | 向任意节点写入数据。若此节点已存在数据，会覆盖原有数据。             |
-| childByAutoId       | 向任意节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 |
+| setValue            | 向指定节点写入数据。若此节点已存在数据，会覆盖原有数据。             |
+| childByAutoId       | 向指定节点添加子节点。子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 |
 | updateChildValues   | 更新指定子节点。                                 |
 | removeValue         | 删除指定节点。                                  |
 | runTransactionBlock | 并发操作时保证数据一致性。                            |
 
 ## 写入数据
 
-`setValue` 方法用于向任意节点写入数据。若此节点已有数据，会覆盖原有（包括其子节点）的数据。
+`setValue` 方法用于向指定节点写入数据。此方法会先清空指定节点，再写入数据。
+
+`setValue` 方法可设置回调方法来获取操作的结果。
 
 例如，向 `gracehop` 节点下写入 `date_of_birth ` 、`full_name ` 和 `nickname`
 
@@ -36,8 +38,9 @@ NSDictionary *gracehop = @{
                            @"full_name" : @"Grace Hopper",
                            @"nickname": @"Amazing Grace"
                            };
+
 // child 用来定位到某个节点。                           
-WDGSyncReference *usersRef = [ref child: @"gracehop"];
+WDGSyncReference *usersRef = [ref childWithPath: @"gracehop"];
 [usersRef setValue: gracehop];
 ```
 </div>
@@ -53,14 +56,11 @@ var gracehop = ["date_of_birth": "December 9, 1906", "full_name": "Grace Hopper"
 // child 用来定位到某个节点。
 var usersRef = ref.child("gracehop")
 usersRef.setValue(gracehop)
-
 ```
 </div>
 </div>
 
-`setValue` 方法可以写入的数据类型有 `NSString`, `NSNumber`, `NSDictionary`, `NSArray` 。
 
-`setValue` 方法还有一个可选参数，此参数是一个回调方法，用来获取操作的结果
 
 <div class="slide">
 <div class='slide-title'>
@@ -95,7 +95,7 @@ ref.child("gracehop").setValue(gracehop, withCompletionBlock: { error, ref in
 
 ## 追加子节点
 
-`childByAutoId` 方法向任意节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
+`childByAutoId` 方法向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
 
 例如，追加子节点到 `posts` 节点
 
@@ -133,7 +133,6 @@ post1Ref.setValue(post1)
 let post2 = ["author": "alanisawesome", "title": "The Turing Machine"]
 let post2Ref = postRef.childByAutoId()
 post2Ref.setValue(post2)
-
 ```
 </div>
 </div>
@@ -153,37 +152,20 @@ post2Ref.setValue(post2)
     }
   }
 }
-
 ```
 
-你可以通过调用 `getKey` 方法来获取这个唯一 ID 
 
-<div class="slide">
-<div class='slide-title'>
-  <span class="slide-tab tab-current">Objective-C</span>
-  <span class="slide-tab">Swift</span>
-</div>
-<div class="slide-content slide-content-show">
-```objectivec
-WDGSyncReference *newPostRef = [postRef childByAutoId];
-// 获取 childByAutoId 生成的唯一 ID
-NSString *postID = newPostRef.key;
-
-```
-</div>
-<div class="slide-content">
-```swift
-let newPostRef = postRef.childByAutoId()
-// 获取 childByAutoId 生成的唯一 ID
-var postID = newPostRef.key
-
-```
-</div>
 </div>
 
 ## 更新数据
 
-`updateChildValues` 方法用于更新指定子节点，而不影响其他节点。
+`updateChildValues` 方法用于更新指定子节点。
+
+`updateChildValues` 方法支持多路径更新。可以只调用一次方法更新多个路径的数据。
+
+
+
+
 
 ```json
 //原数据如下
@@ -224,11 +206,9 @@ hopperRef.updateChildValues(nickname)
 </div>
 </div>
 
-与 `setValue` 方法对比：如果用 `setValue` 而不是 `updateChildValues`，则会删除 `date_of_birth` 和 `full_name`。
 
-**多路径更新**
 
-`updateChildValues` 方法也支持多路径更新，即同时更新不同路径下的数据。例如
+例如
 
 ```js
 //原数据如下
@@ -296,6 +276,8 @@ newPostRef.updateChildValues(["b":["d":"updateD"],"x":["z":"updateZ"]])
 
 `removeValue`方法用于删除指定节点。
 
+
+
 <div class="slide">
 <div class='slide-title'>
   <span class="slide-tab tab-current">Objective-C</span>
@@ -319,23 +301,19 @@ let ref = WDGSync.sync().reference()
 messagesRef.removeValue()
 ```
 </div>
-</div>
+</div> 
 
-此外，还可以通过写入 nil 值（例如，`setValue:nil`）来删除数据。 
-
-**注意**：如果某个节点的 value 为 nil ,云端会直接删除该节点。
+> **提示：** 设置节点的 value 为 nil 等同于 `removeValue` 方法。
 
 ## 事务处理
 
 `runTransactionBlock` 方法用于并发操作时保证数据一致性。
 
-例如，要实现一个记录点赞数量的功能，它可能存在多人同时点赞的情况。如果不用事务处理，那么两个客户端呈现的最终数据可能不一致。
-
-使用事务处理能避免这种情况
+例如，使用 `runTransactionBlock` 实现多人点赞功能
 
 <div class="slide">
 <div class='slide-title'>
-  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab tab-current">Objective-C</span>  
   <span class="slide-tab">Swift</span>
 </div>
 <div class="slide-content slide-content-show">
@@ -380,6 +358,8 @@ upvotesRef.runTransactionBlock({
 </div>
 </div>
 
->**注意：**要进行并发更新的数据在云端有值，但本地还未获取这个值时，此时 `runTransactionBlock` 的回调方法中的变量为 nil。这种情况下，直接使用此变量进行逻辑处理会引发错误，所以必须对变量进行判空处理。
+
+
+>**注意：**回调方法的返回值可能为空，需要进行相应的处理。
 
 更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/api.html#–-runTransactionBlock)。
