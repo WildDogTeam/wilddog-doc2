@@ -217,10 +217,8 @@ ref.orderByValue().on("value", function(snapshot) {
 
 
 
-**注意**：
-
+>**注意：**
 - 排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
-
 - 每次只能使用一种排序方法。对同一查询调用多个排序方法会引发错误。
 
 
@@ -278,7 +276,7 @@ ref.orderByValue().startAt(60).on("child_added", function(snapshot) {
   console.log(snapshot.key() + " is " + snapshot.val());
 });
 ```
-**注意：** 范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
+>**注意：**范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
 
 范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
 
