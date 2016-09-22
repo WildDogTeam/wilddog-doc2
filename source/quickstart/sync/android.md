@@ -3,13 +3,15 @@ title: 快速入门
 ---
 你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
 
-## 环境准备
 
-- 开发环境使用 Android studio 1.4 以上或者 eclipse ADT 15.0.0 以上
-
-- jdk 版本为7.0以上
-
-- Android 手机系统 4.0.3以上，即 Android sdk 15 以上
+<div class="env">
+    <p class="env-title">环境准备</p>
+    <ul>
+        <li>开发环境使用android studio 1.4以上或者eclipse ADT 15.0.0 以上</li>
+        <li>jdk版本为7.0以上</li>
+        <li>Android手机系统 4.0.3以上，即android sdk 15 以上</li>
+    </ul>
+</div>
 
 
 ## 1. 创建应用
