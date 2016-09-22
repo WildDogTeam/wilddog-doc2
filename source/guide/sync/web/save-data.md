@@ -176,7 +176,7 @@ ref.remove();
 
 `transaction()` 方法用于并发操作时保证数据一致性。
 
-例如，使用 runTransactionBlock 实现多人点赞功能
+例如，使用 `transaction()` 方法实现多人点赞功能
 
 ```js
 var config = {
