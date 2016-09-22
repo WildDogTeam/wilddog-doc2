@@ -390,6 +390,7 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 
 
 
+
 ## 数据筛选
 
 对数据排序之后，才能进行数据筛选。
