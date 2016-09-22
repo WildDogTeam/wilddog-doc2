@@ -4,6 +4,13 @@ title: 快速入门
 
 你可以通过邮箱登录的例子来了解身份认证的基本用法。
 
+<div class="env">
+    <p class="env-title">环境准备</p>
+    <ul>
+        <li>支持 Chrome、IE、Firefox、Safari 等主流浏览器环境 </li>
+    </ul>
+</div>
+
 ## 1. 创建应用
 
 首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。

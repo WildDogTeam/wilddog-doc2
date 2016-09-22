@@ -3,6 +3,13 @@ title: 快速入门
 ---
 你可以通过快速入门了解在嵌入式设备上实时数据同步的用法。
 
+<div class="env">
+    <p class="env-title">环境准备</p>
+    <ul>
+        <li> 支持 C89 的 gcc 环境</li>
+    </ul>
+</div>
+
 ## 1. 创建应用
 
 首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
