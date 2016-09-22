@@ -72,7 +72,7 @@ SyncReference ref = WilddogSync.getInstance().getReference();
 
 ## 5. 写入数据
 
-`setValue()`方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org) 。
+`setValue()`方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html) 。
 
 例如，在应用的根节点下写入天气数据 
 
