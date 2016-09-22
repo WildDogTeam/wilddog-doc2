@@ -79,12 +79,11 @@ Child 事件监听当前节点下的子节点数据。当子节点发生改变�
 
 - `child_changed`子节点发生更改时触发。它包含以下三种情况。
 
-
 ![](/images/child_change_1.jpg)
 
 ![](/images/child_change_2.jpg)
 
-![](/images/child_change_4.jpg)
+![](/images/chlid_change_4.jpg)
 
 
 - `child_removed`事件在子节点被删除时触发。 
