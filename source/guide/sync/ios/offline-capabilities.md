@@ -7,7 +7,7 @@ title:  离线功能
 
 ## 监听连接状态
 
-Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这个[路径](/guide/reference/term.html#路径-path)，客户端可以监测是否连接到云端。
+Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这个路径，客户端可以监测是否连接到云端。
 
 <div class="slide">
 <div class='slide-title'>

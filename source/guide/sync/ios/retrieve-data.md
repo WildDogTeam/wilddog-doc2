@@ -13,10 +13,10 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 设置监听包含以下两个方法，根据需求任选其一。
 
-| 方法                       | 说明                                       |
-| ------------------------ | ---------------------------------------- |
-| observeEventType         | 持续监听指定[节点](/guide/reference/term.html#节点)的数据变化。 |
-| observeSingleEventOfType | 单次监听指定节点的数据变化，用于只读取一次数据的情景。              |
+| 方法                       | 说明                          |
+| ------------------------ | --------------------------- |
+| observeEventType         | 持续监听指定节点的数据变化。              |
+| observeSingleEventOfType | 单次监听指定节点的数据变化，用于只读取一次数据的情景。 |
 
 
 ### 指定事件类型
@@ -25,13 +25,13 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 事件类型包含以下五种
 
-| 事件类型                         | 说明                                       |
-| ---------------------------- | ---------------------------------------- |
-| WDGDataEventTypeValue        | 初次监听或指定节点及[子节点](/guide/reference/term.html#子节点)发生变化时触发。 |
-| WDGDataEventTypeChildAdded   | 初次监听或有新增子节点时触发。                          |
-| WDGDataEventTypeChildChanged | 子节点发生更改时触发。                              |
-| WDGDataEventTypeChildRemoved | 子节点被删除时触发。                               |
-| WDGDataEventTypeChildMoved   | 子节点排序发生变化时触发。                            |
+| 事件类型                         | 说明                    |
+| ---------------------------- | --------------------- |
+| WDGDataEventTypeValue        | 初次监听或指定节点及子节点发生变化时触发。 |
+| WDGDataEventTypeChildAdded   | 初次监听或有新增子节点时触发。       |
+| WDGDataEventTypeChildChanged | 子节点发生更改时触发。           |
+| WDGDataEventTypeChildRemoved | 子节点被删除时触发。            |
+| WDGDataEventTypeChildMoved   | 子节点排序发生变化时触发。         |
 
 
 **Value 事件**
@@ -80,7 +80,7 @@ ref.observeEventType(.Value, withBlock: { snapshot in
 
 之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
 
->**注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点[路径](/guide/reference/term.html#路径-path)设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
+>**注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
 更详细的用法说明，请参考 [API 文档](/api/sync/ios/api.html)。
 

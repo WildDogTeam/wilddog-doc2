@@ -8,7 +8,7 @@ title: 高级特性
 
 ## 云端时间戳
 
-Wilddog Sync 提供了 [云端时间戳](/api/sync/android/api.html#TIMESTAMP) 机制，它可以将云端时间戳写入到指定[节点](/guide/reference/term.html#节点)。
+Wilddog Sync 提供了 [云端时间戳](/api/sync/android/api.html#TIMESTAMP) 机制，它可以将云端时间戳写入到指定节点。
 
 例如，在`servertimestamp`节点下记录当前云端时间
 
