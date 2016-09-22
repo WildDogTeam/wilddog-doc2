@@ -13,9 +13,9 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 设置监听包含以下两个方法，根据需求任选其一。
 
-| 方法     | 说明                          |
-| ------ | --------------------------- |
-| observeEventType   | 持续监听指定节点的数据变化。              |
+| 方法                       | 说明                          |
+| ------------------------ | --------------------------- |
+| observeEventType         | 持续监听指定节点的数据变化。              |
 | observeSingleEventOfType | 单次监听指定节点的数据变化，用于只读取一次数据的情景。 |
 
 
@@ -25,9 +25,9 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 事件类型包含以下五种
 
-| 事件类型          | 说明                    |
-| ------------- | --------------------- |
-| WDGDataEventTypeValue         | 初次监听或指定节点及子节点发生变化时触发。 |
+| 事件类型                         | 说明                    |
+| ---------------------------- | --------------------- |
+| WDGDataEventTypeValue        | 初次监听或指定节点及子节点发生变化时触发。 |
 | WDGDataEventTypeChildAdded   | 初次监听或有新增子节点时触发。       |
 | WDGDataEventTypeChildChanged | 子节点发生更改时触发。           |
 | WDGDataEventTypeChildRemoved | 子节点被删除时触发。            |
@@ -80,7 +80,7 @@ ref.observeEventType(.Value, withBlock: { snapshot in
 
 之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
 
-**注意**：每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
+>**注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
 更详细的用法说明，请参考 [API 文档](/api/sync/ios/api.html)。
 
@@ -88,13 +88,30 @@ ref.observeEventType(.Value, withBlock: { snapshot in
 
 Child 事件监听当前节点下的子节点数据。当子节点发生改变时（如通过 `push()` 方法添加子节点，或通过 `update()` 方法更新子节点），就会触发相应的 Child 事件。
 
-- `child_added`事件在程序初始化时会针对每个子节点触发一次，以获取所有子节点；之后每当有子节点增加时会再次触发，以获取新增的子节点。常用来获取当前节点下的子节点列表。
 
-- `child_changed`事件在有子节点修改时触发，包括对子节点里更深层的节点所做的修改。
+- `child_added`事件在初次监听或有新增子节点时触发。
 
-- `child_removed`事件在直接子节点被删除时触发。
+![](/images/ioschild_add.jpg)
 
-- `child_moved`事件在节点下的数据顺序发生变化时触发。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
+
+- `child_changed`子节点发生更改时触发。它包含以下三种情况。
+
+
+![](/images/ioschild_change_1.jpg)
+
+![](/images/ioschild_change_2.jpg)
+
+![](/images/ioschange4.jpg)
+
+
+- `child_removed`事件在子节点被删除时触发。 
+
+![](/images/ioschild_removed.jpg)
+
+- `child_moved`事件子节点排序发生变化时触发。 。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
+
+![](/images/ioschild_moved.jpg)
+
 
 
 例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过设置 Child 事件来监听博客的状态变化
@@ -234,7 +251,7 @@ ref.removeAllObservers()
 </div>
 </div>
 
-**注意**：在父节点上调用 `removeAllObservers` 方法时不会移除在其子节点上添加的监听。
+>**注意：**在父节点上调用 `removeAllObservers` 方法时不会移除在其子节点上添加的监听。
 
 
 ## 数据排序
@@ -367,11 +384,11 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 
 首先你需要 [设置节点的优先级](/api/sync/ios/api.html#–-setPriority) ，然后使用`queryOrderedByPriority`方法按 [优先级排序](/api/sync/ios/api.html#–-queryOrderedByPriority)。
 
-**注意**：
-
+>**注意：**
 - 排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
-
 - 每次只能使用一种排序方法。对同一查询调用多个排序方法会引发错误。
+
+
 
 
 ## 数据筛选

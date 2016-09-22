@@ -57,7 +57,7 @@ curl -X POST -d '{
 
 ```
 
-注意，`key-JRHTHaKuITFIhnj02kE`是自动生成的，因为我们使用的是`POST`请求。成功的请求将返回HTTP 200 OK状态码，并且响应中会包含新数据的key。
+`key-JRHTHaKuITFIhnj02kE`是自动生成的，因为我们使用的是`POST`请求。成功的请求将返回HTTP 200 OK状态码，并且响应中会包含新数据的key。
 
 ```
 {"name":"-JRHTHaKuITFIhnj02kE"}

@@ -32,7 +32,7 @@ Auth监听器会在以下情况收到通知:
 * 用户退出
 * 当前的Wilddog ID Token已刷新
 
->**注意**：有些操作需要最近获取的Wilddog ID Token,这些操作包括删除账户,设置主电子邮件地址和修改密码。当遇到这种情况下,除了用户重新登录外,还提供一致方式:即从该用户获取新的凭据并通过凭据进行用户对象重新认证。
+>**注意：**有些操作需要最近获取的Wilddog ID Token,这些操作包括删除账户,设置主电子邮件地址和修改密码。当遇到这种情况下,除了用户重新登录外,还提供一致方式:即从该用户获取新的凭据并通过凭据进行用户对象重新认证。
 
 ## 身份认证令牌
 执行野狗身份认证时,我们会出现三种身份认证令牌
@@ -44,7 +44,7 @@ Auth监听器会在以下情况收到通知:
 | OAuth的accessToken | 由OAuth提供商创建的一种Token,这些Token可以有不同的格式,但常用的是OAuth的accessToken,creditwilddog应用使用这些 Token来确认用户已成功通过OAuth身份认证,然后将它转换成可供 Wilddog服务使用的credentials |
 | 野狗的 CustomToken   | 由自定义身份认证系统创建,用于允许用户可以自己实现身份系统登录野狗的应用。CustomToken是使用服务账户超级秘钥的JWT签名格式的 Token |
 
-注意：Wilddog ID Token 现已升级为新版。新旧版 Wilddog ID Token 对比如下：
+** Wilddog ID Token 现已升级为新版。新旧版 Wilddog ID Token 对比如下：**
 
 旧版 Wilddog ID Token 格式：
 
