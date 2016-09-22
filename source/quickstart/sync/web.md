@@ -64,7 +64,7 @@ ref.set({
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
 ## 5. 读取与监听数据
-使用 [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法可以读取并监听节点的数据。
+使用 [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法可以读取并监听 [节点](https://wilddogteam.github.io/guide/reference/term.html#节点) 的数据。
 
 例如，从应用中获得天气数据
 
