@@ -7,7 +7,7 @@ title: 快速入门
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li>开发环境使用 Xcode 7.0 及以上版本</li>
+        <li>使用 Xcode 7.0 及以上版本</li>
         <li> SDK 版本支持 iOS 7.0 及以上版本</li>
     </ul>
 </div>

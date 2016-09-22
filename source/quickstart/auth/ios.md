@@ -4,6 +4,14 @@ title: 快速入门
 
 你可以通过邮箱登录的例子来了解身份认证的基本用法。
 
+<div class="env">
+    <p class="env-title">环境准备</p>
+    <ul>
+        <li>使用 Xcode 7.0 及以上版本</li>
+        <li> SDK 版本支持 iOS 7.0 及以上版本</li>
+    </ul>
+</div>
+
 ## 1. 创建应用
 
 首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
