@@ -3,6 +3,16 @@ title: 快速入门
 ---
 你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
 
+<div class="env">
+    <p class="env-title">环境准备</p>
+    <ul>
+        <li>开发环境使用android studio 1.4以上或者eclipse ADT 15.0.0 以上</li>
+        <li>jdk版本为7.0以上</li>
+        <li>Android手机系统 4.0.3以上，即android sdk 15 以上</li>
+    </ul>
+</div>
+
+
 ## 1. 创建应用
 
 首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
