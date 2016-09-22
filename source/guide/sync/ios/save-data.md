@@ -60,7 +60,7 @@ usersRef.setValue(gracehop)
 </div>
 </div>
 
-
+设置回调方法
 
 <div class="slide">
 <div class='slide-title'>
@@ -208,7 +208,7 @@ hopperRef.updateChildValues(nickname)
 
 
 
-例如
+多路径更新
 
 ```js
 //原数据如下
@@ -247,7 +247,7 @@ newPostRef.updateChildValues(["b/d":"updateD","x/z":"updateZ"])
 </div>
 </div>
 
-而**不能**写成
+以下做法将会覆盖原有数据，为错误示例
 
 <div class="slide">
 <div class='slide-title'>

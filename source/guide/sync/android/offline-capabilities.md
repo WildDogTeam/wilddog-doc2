@@ -84,7 +84,7 @@ SyncReference presenceRef = WilddogSync.getInstance().getReference();
 presenceRef.goOnline();
 ```
 
->**注意**：一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline()`方法 和 `goOnline()`方法会控制全局的在线和离线。 
+>**注意：**一个应用可以创建多个 Wilddog  Sync 实例，但多个实例只会复用同一个长连接。 并且 `goOffline()`方法 和 `goOnline()`方法会控制全局的在线和离线。 
 
 ## 数据本地持久化
 
@@ -102,8 +102,7 @@ presenceRef.goOnline();
 ```java
 WilddogSync.setPersistenceEnabled(true)
 ```
-
-> **注意**：必须在创建第一个 Wilddog Sync 实例之前开启持久化。 
+>**注意：**必须在创建第一个 Wilddog Sync 实例之前开启持久化。 
 
 ### 离线查询
 

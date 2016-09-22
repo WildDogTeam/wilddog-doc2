@@ -66,7 +66,7 @@ mPostReference.addValueEventListener(postListener);
 
 之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
 
->**注意**：每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
+>**注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
 更详细的用法说明，请参考 [API 文档](/api/sync/android/api.html)。
 
@@ -166,7 +166,7 @@ SyncReference ref = WilddogSync.getInstance().getReference("web/saving-data/wild
 ref.removeEventListener(listener);
 ```
 
->**注意**：在父节点上调用 `removeEventListener()` 时不会移除在其子节点上添加的监听。
+>**注意：**在父节点上调用 `removeEventListener()` 时不会移除在其子节点上添加的监听。
 
 
 
@@ -304,10 +304,8 @@ queryRef.addChildEventListener(new ChildEventListener() {
 
 
 
->**注意**：
-
+>**注意：**
 - 排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
-
 - 每次只能使用一种排序方法。对同一查询调用多个排序方法会引发错误。
 
 
