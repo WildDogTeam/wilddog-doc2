@@ -15,6 +15,23 @@ https://www.wilddog.com/download/
 
 ## 创建Custom Token
 
+Custom Token 格式
+
+```
+     {
+      "v": 1,
+      "uid": "11111111",
+      "iat": 1471347140,
+      "exp": 1471357140,
+      "claims": {
+        "claims1": 112,
+        "claims2": "自定义"
+      }
+    }
+```
+
+其中claims是固定字段 claims1,claims2是动态自定义字段。
+
 用户可以通过 Wilddog 的 Server SDK 对个人系统的用户生成 Custom Token。
 我们将提供 java 和 Nodejs 两种语言的 Server SDK:
 
