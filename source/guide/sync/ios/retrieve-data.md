@@ -407,7 +407,7 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 
 你可以结合不同的方法来筛选数据。例如，结合 `queryStartingAtValue` 方法与 `queryEndingAtValue` 方法将结果限制在指定的范围内。
 
-**limit 筛选**
+**数量筛选**
 
 `queryLimitedToFirst`方法获取从第一条（或 `queryStartingAtValue` 方法指定的位置）开始向后指定数量的子节点。 
 
@@ -447,7 +447,7 @@ ref.queryOrderedByChild("height").queryLimitedToLast(3)
 
 如果使用 `queryLimitedToFirst:100` 筛选数据，那么第一次返回节点数最多为 100 个。当数据发生更改时，对于进入到前 100 个的节点，你会接收到 `WDGDataEventTypeChildAdded` 事件。对于从前 100 个中消失的节点，你会接收到 `WDGDataEventTypeChildRemoved` 事件。
 
-**range 筛选**
+**范围筛选**
 
 `queryStartingAtValue`方法、`queryEndingAtValue`方法 和 `queryEqualToValue` 方法为查询选择任意起点、终点或等量点。
 
