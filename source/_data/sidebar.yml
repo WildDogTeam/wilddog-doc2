@@ -135,7 +135,8 @@ resources:
   # Web: /resources/auth/web.html
     Android:
       示例库: /resources/auth/android/resources.html
-  # iOS: /resources/auth/ios.html
+    iOS: 
+      示例库: /resources/auth/ios/resources.html
 
 console:
   控制面板:
