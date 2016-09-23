@@ -1,11 +1,11 @@
-title:  查询数据
+title:  数据查询
 ---
 
 本篇文档介绍查询数据的基础知识，以及如何对数据进行排序和过滤。
 
-## 查询数据
+## 数据查询
 
-### 查询数据
+### 数据查询
 
 使用`GET`请求查询数据:
 
@@ -16,33 +16,33 @@ curl 'https://docs-examples.wilddogio.com/rest/saving-data/wdblog/posts.json?pri
 
 成功的请求将返回 HTTP 200 OK 状态码，并且返回值会包含读取到的数据。
 
-### 查询服务端时间戳
+### 查询云端时间戳
 
-使用`GET`请求获取服务器的当前时间戳时:
+使用`GET`请求获取云端当前时间戳时:
 
 ```
 curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
 
 ```
 
-服务端数值现在只支持[时间戳](http://baike.baidu.com/link?url=VQMFk3ej6ORZFtAhKYF5P6ow_p1XqZ5RgzFHNQFJNgc5U_DCT4nH6MVXkIvSmvO5gLP5DrB7ZsrnZc-2cT5bHa)。
+服务端数值现在只支持[云端时间戳](http://baike.baidu.com/link?url=VQMFk3ej6ORZFtAhKYF5P6ow_p1XqZ5RgzFHNQFJNgc5U_DCT4nH6MVXkIvSmvO5gLP5DrB7ZsrnZc-2cT5bHa)。
 
 ## 数据排序
 
 
 ### 排序方法
 
-Wilddog Sync 支持按 Key、按 Value、按子节点的 Value 或按 priority 对数据进行排序。
+Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值 (value) 对数据进行排序。
 
 参数 | 用法
 ----  | ----
-orderBy="{childValue}" | 按指定子节点的值对结果排序。
-orderBy="$key" | 按键($key)对结果排序。
-orderBy="$value" | 按值对结果排序。
-orderBy="$priority" | 按优先级对结果排序。
+orderBy="{childValue}" | 按指定子节点的值（value）对结果排序。
+orderBy="$key" | 按键(key)对结果排序。
+orderBy="$value" | 按值(value)对结果排序。
+orderBy="$priority" | 按优先级(priority)对结果排序。
 
 其中{childValue}为子节点的名称
-例如：[恐龙应用数据页面](https://dinosaur-facts.wilddogio.com) 中演示如何按照每个恐龙的身高（"height"节点的值）进行排序。
+例如：[恐龙应用数据页面](https://dinosaur-facts.wilddogio.com) 中演示如何按照每个恐龙的身高（`height`节点的值）进行排序。
 
 ```
 curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
@@ -57,14 +57,6 @@ curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
 ### 排序规则
 
 **orderByChild**
-使用 `orderByChild()`，按照以下规则进行升序排列：
-
-1. 子节点的指定 key 对应的值为 `null` 排在最前面。
-2. 子节点的指定 key 对应的值为 `false` 次之。如果有多个值为 `false`，则按子节点的 key 以 [字典序](http://baike.baidu.com/view/4670107.htm) 进行升序排列。
-3. 子节点的指定 key 对应的值为 `true` 次之。如果有多个值为 `true`，则按子节点的 key 以字典序进行升序排列。
-4. 子节点的指定 key 对应的值为 `number` 次之。如果有多个 `number` 相等，则按子节点的 key 以字典序进行升序排列。
-5. 子节点的指定 key 对应的值为 `String` 次之。如果有多个 `String` 相等，则按子节点的 key 以字典序进行升序排列。
-6. 子节点的指定 key 对应的值为 `Objects` 次之。如果有多个 `Objects` 相等，则按子节点的 key 以字典序进行升序排列。
 
 **orderByKey**
 
@@ -129,7 +121,7 @@ data: JSON encoded data payload
 服务器会返回以下的事件：
 
 |               |                                          |
-| :------------ | :--------------------------------------- |
+| :--------------------------------------- |
 | put           | JSON格式数据，有两个key：path和data；path指向请求URL的路径；客户端应该使用消息中包含的数据替换本地缓存中的数据 |
 | patch         | JSON格式数据，有两个key：path和data；path指向请求URL的路径；对与数据的每一个key，客户端应该用消息中包含的key替代缓存中的key |
 | keep-alive    | 此事件的data为null，不需要任何操作                    |
