@@ -94,7 +94,7 @@ Child 事件监听当前节点下的子节点数据。当子节点发生改变�
 ![](/images/ioschild_add.jpg)
 
 
-- `child_changed`子节点发生更改时触发。它包含以下三种情况。
+- `child_changed`子节点发生更改时触发。它主要包含以下三种情况。
 
 
 ![](/images/ioschild_change_1.jpg)

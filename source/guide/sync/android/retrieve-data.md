@@ -79,7 +79,7 @@ Child 事件监听当前节点下的子节点数据。当子节点发生改变�
 
 ![](/images/anchild_add.jpg)
 
-- `onChildChanged()`子节点发生更改时触发。它包含以下三种情况。
+- `onChildChanged()`子节点发生更改时触发。它主要包含以下三种情况。
 
 ![](/images/anchild_change_1.jpg)
 
