@@ -15,7 +15,8 @@ https://www.wilddog.com/download/
 
 ## 创建Custom Token
 
-Custom Token 格式
+Custom Token 使用的是 SHA-256 HMAC签名方式
+Custom Token payload：
 
 ```
     {
