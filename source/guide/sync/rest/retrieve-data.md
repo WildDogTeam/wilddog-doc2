@@ -7,18 +7,18 @@ title:  数据查询
 
 ### 数据查询
 
-使用`GET`请求查询数据:
+`GET` 请求用于查询指定节点下的所有数据。
 
+例如，查询 `posts` 节点下的所有数据
 ```
 curl 'https://docs-examples.wilddogio.com/rest/saving-data/wdblog/posts.json?print=pretty'
-
 ```
 
 成功的请求将返回 HTTP 200 OK 状态码，并且返回值会包含读取到的数据。
 
 ### 查询云端时间戳
 
-使用`GET`请求获取云端当前时间戳时:
+使用`GET`请求获取云端当前时间戳
 
 ```
 curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
