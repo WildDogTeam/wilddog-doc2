@@ -18,7 +18,7 @@ https://www.wilddog.com/download/
 Custom Token 格式
 
 ```
-     {
+    {
       "v": 1,
       "uid": "11111111",
       "iat": 1471347140,
