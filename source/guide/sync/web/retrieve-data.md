@@ -90,8 +90,6 @@ ref.on('value', function(snapshot, error) {
 
 > **注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
-更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
-
 
 例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过 `on()` 方法配合 Child 事件来监听博客的状态变化
 
@@ -111,9 +109,10 @@ postsRef.on('child_removed', function(data) {
 });
 ```
 
-
+更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
 
 >**提示：** 如果你只想监听一次数据，可使用`once()`方法。该监听的回调方法只被触发一次，之后会自动取消监听。
+
 
 
 ### 移除监听
