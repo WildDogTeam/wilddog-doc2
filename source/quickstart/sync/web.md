@@ -2,14 +2,18 @@
 title: 快速入门
 ---
 
-你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
-
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
         <li> 支持 Chrome、IE、Firefox、Safari 等主流浏览器环境 </li>
     </ul>
 </div>
+
+## 下载源码
+
+你可以通过查看一个简单的评论墙 Demo 的示例源码来快速了解实时数据同步的用法。
+
+[**点此下载**](https://github.com/WildDogTeam/sync-quickstart-javascript)
 
 ## 1. 创建应用
 
@@ -48,25 +52,38 @@ var ref = wilddog.sync().ref();
 
 [set()](/api/sync/web/api.html#set) 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
-例如，在应用的根节点下写入天气数据
+例如，在应用的根节点下写入评论数据
 
 ```javascript
 ref.set({
-  "weather":{
-    "beijing" : "rain",
-    "shanghai" : "sunny"    
+  "messageboard":{
+    "content" : "Wilddog, Cool!",
+    "presenter" : "Jack"    
   }
 });
 ```
 
 写入的数据如下图
 
- <img src="/images/saveapp.png" alt="yourApp" width="300">
+ <img src="/images/saveapp.jpg" alt="yourApp" width="400">
+
+[push()](/api/sync/web/api.html#push) 是另一个常用的写入数据的方法。
+
+通过写入同样的数据，来体会与 `set()` 方法的不同 
+
+```js
+ref.push({
+    "content" : "Wilddog, Cool!",
+    "presenter" : "Jack"
+});
+```
+
+ <img src="/images/saveapp1.jpg" alt="yourApp" width="400">
 
 ## 5. 读取与监听数据
-使用 [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法可以读取并监听 [节点](https://wilddogteam.github.io/guide/reference/term.html#节点) 的数据。
+使用 [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法可以读取并监听 [节点](/guide/reference/term.html#节点) 的数据。
 
-例如，从应用中获得天气数据
+例如，从应用中获得评论数据
 
 ```javascript
 // snapshot 里面的数据会一直和云端保持同步
