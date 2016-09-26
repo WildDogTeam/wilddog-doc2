@@ -1,46 +1,69 @@
 
-title:  查询数据
+title: 事件监听
 ---
-本篇文档介绍查询数据的基础知识，以及如何对数据进行排序和筛选。
-
-Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方法中完成数据的查询。
-
-## 事件监听
-
-事件监听需要完成两个步骤，设置监听方法和指定事件类型。
-
-### 设置监听方法
-
-设置监听包含以下两个方法，根据需求任选其一。
-
-| 方法     | 说明                                       |
-| ------ | ---------------------------------------- |
-| on()   | 持续监听指定节点的数据变化。 |
-| once() | 单次监听指定节点的数据变化，用于只读取一次数据的情景。              |
+本篇文档介绍如何通过事件监听跟踪云端数据变化，保持数据在各端的同步。
 
 
+## 事件
 
-### 指定事件类型
+数据在云端发生的任何变化都称为事件。
 
-指定的事件类型分为 Value 事件和 Child 事件两大类，使用 `value` 事件监听指定节点下的所有数据变化，使用 `child_*` 事件监听指定节点下子节点的数据变化。
+事件分为 Value 事件和 Child 事件两大类
 
-事件类型包含以下五种
+- Value 事件为指定节点下的所有数据变化。
+- Child 事件为指定节点下子节点的数据变化。
 
-| 事件类型          | 说明                                       |
-| ------------- | ---------------------------------------- |
-| value         | 初次监听或指定节点及子节点发生变化时触发。 |
-| child_added   | 初次监听或有新增子节点时触发。                          |
-| child_changed  | 子节点发生更改时触发。                              |
-| child_removed | 子节点被删除时触发。                               |
-| child_moved   | 子节点排序发生变化时触发。                            |
+具体又包含以下五种
 
+| 事件类型          | 说明                      |
+| ------------- | ----------------------- |
+| value         | 初次监听或指定节点及子节点数据发生变化时触发。 |
+| child_added   | 初次监听或有新增子节点时触发。         |
+| child_changed | 子节点数据发生更改时触发。           |
+| child_removed | 子节点被删除时触发。              |
+| children_moved   | 子节点排序发生变化时触发。           |
 
-
+ 
 **Value 事件**
 
- `value` 事件监听当前节点下的所有数据。此事件在程序初始化时会触发一次，之后在数据发生任何更改时再次触发。如果这个节点下没有数据，则会返回 null。
+Value 事件监听当前节点下的所有数据。此事件在初次监听时会触发一次，之后在节点数据发生变化时再次触发。如果这个节点下没有数据，则会返回 null。
 
-例如，查询 gracehop 节点下的数据
+
+**Child 事件**
+
+Child 事件监听当前节点下的子节点数据。当子节点下数据改变时（如通过 `push()` 方法添加子节点，或通过 `update()` 方法更新子节点），就会触发相应的 Child 事件。
+
+- `child_added` 事件在初次监听或有新增子节点时触发。
+
+![](/images/child_add.jpg)
+
+- `child_changed` 子节点发生更改时触发。它主要包含以下三种情况。
+
+![](/images/child_change_1.jpg)
+
+![](/images/child_change_2.jpg)
+
+![](/images/change4.jpg)
+
+- `child_removed`事件在子节点被删除时触发。 
+
+![](/images/child_removed.jpg)
+
+- `child_moved`事件子节点排序发生变化时触发 。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
+
+![](/images/child_moved.jpg)
+
+
+
+## 监听事件
+
+通过监听方法设置事件，来保持数据与云端的同步。
+
+### 设置监听
+
+`on()` 方法通过与不同事件配合来监听指定节点的数据。  
+
+例如，通过 `on()` 方法配合 Value 事件查询 gracehop 节点下的数据
 
 ```js
 // 初始化
@@ -62,39 +85,15 @@ ref.on('value', function(snapshot, error) {
   }
 });
 ```
+
 之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
 
->**注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
+> **注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
 更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
 
-**Child 事件**
 
-Child 事件监听当前节点下的子节点数据。当子节点发生改变时（如通过 `push()` 方法添加子节点，或通过 `update()` 方法更新子节点），就会触发相应的 Child 事件。
-
-- `child_added`事件在初次监听或有新增子节点时触发。
-
-![](/images/child_add.jpg)
-
-
-- `child_changed`子节点发生更改时触发。它主要包含以下三种情况。
-
-![](/images/child_change_1.jpg)
-
-![](/images/child_change_2.jpg)
-
-![](/images/change4.jpg)
-
-- `child_removed`事件在子节点被删除时触发。 
-
-![](/images/child_removed.jpg)
-
-- `child_moved`事件子节点排序发生变化时触发。 。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
-
-![](/images/child_moved.jpg)
-  
-
-例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过设置 Child 事件来监听博客的状态变化
+例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过 `on()` 方法配合 Child 事件来监听博客的状态变化
 
 ```js
 var postsRef = wilddog.sync().ref("/web/saving-data/wildblog/posts");
@@ -114,15 +113,8 @@ postsRef.on('child_removed', function(data) {
 
 
 
-### 单次监听
+>**提示：** 如果你只想监听一次数据，可使用`once()`方法。该监听的回调方法只被触发一次，之后会自动取消监听。
 
-`once()`方法用于单次监听，该监听的回调方法只被触发一次，之后会自动取消监听。
-
-```js
-ref.once("value", function(snapshot) {
-  // 执行业务处理，此回调方法只会被触发一次
-})
-```
 
 ### 移除监听
 
@@ -143,11 +135,13 @@ ref.off();
 
 
 
-## 数据排序
+## 数据排序与筛选
+
+### 数据排序
 
 Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。
 
-数据排序包含以下四种排序方法	
+数据排序包含以下四种方法	
 
 | 方法                | 说明                    |
 | ----------------- | --------------------- |
@@ -223,7 +217,7 @@ ref.orderByValue().on("value", function(snapshot) {
 
 
 
-## 数据筛选
+### 数据筛选
 
 对数据排序之后，才能进行数据筛选。
 
@@ -278,4 +272,36 @@ ref.orderByValue().startAt(60).on("child_added", function(snapshot) {
 >**注意：**范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
 
 范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
+
+
+
+例如，查询 gracehop 节点下的数据
+
+```js
+// 初始化
+var config = {
+  authDomain: "docs-examples.wilddog.com",
+  syncURL: "https://docs-examples.wilddogio.com"
+};
+wilddog.initializeApp(config);
+var ref = wilddog.sync().ref("/web/saving-data/wildblog/users/gracehop");
+
+ref.on('value', function(snapshot, error) {
+  if (error == null) {
+    var newPost = snapshot.val();
+    console.log("date_of_birth: " + newPost.date_of_birth);
+    console.log("full_name: " + newPost.full_name);
+    console.log("nickname: " + newPost.nickname);
+  } else {
+    console.log(error);
+  }
+});
+```
+
+之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
+
+> **注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
+
+更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
+
 
