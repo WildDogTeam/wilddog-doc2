@@ -1,37 +1,23 @@
 
 title: 事件监听
 ---
-本篇文档介绍如何通过事件监听跟踪云端数据变化，保持数据在各端的同步。
+Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监听是该架构的核心机制：通过监听云端事件，本地获取并处理数据，保持和云端实时同步。
 
 
 ## 事件
 
 数据在云端发生的任何变化都称为事件。
 
-事件分为 Value 事件和 Child 事件两大类
-
-- Value 事件为指定节点下的所有数据变化。
-- Child 事件为指定节点下子节点的数据变化。
-
-具体又包含以下五种
+事件包含以下五种
 
 | 事件类型          | 说明                      |
 | ------------- | ----------------------- |
-| value         | 初次监听或指定节点及子节点数据发生变化时触发。 |
-| child_added   | 初次监听或有新增子节点时触发。         |
-| child_changed | 子节点数据发生更改时触发。           |
-| child_removed | 子节点被删除时触发。              |
-| children_moved   | 子节点排序发生变化时触发。           |
+| child_added   | 初始化监听或有新增子节点。         |
+| child_changed | 子节点数据发生更改。           |
+| child_removed | 子节点被删除。              |
+| children_moved   | 子节点排序发生变化。           |
+| value         | 初始化监听或指定节点及子节点数据发生变化。 |
 
- 
-**Value 事件**
-
-Value 事件监听当前节点下的所有数据。此事件在初次监听时会触发一次，之后在节点数据发生变化时再次触发。如果这个节点下没有数据，则会返回 null。
-
-
-**Child 事件**
-
-Child 事件监听当前节点下的子节点数据。当子节点下数据改变时（如通过 `push()` 方法添加子节点，或通过 `update()` 方法更新子节点），就会触发相应的 Child 事件。
 
 - `child_added` 事件在初次监听或有新增子节点时触发。
 
@@ -53,11 +39,15 @@ Child 事件监听当前节点下的子节点数据。当子节点下数据改�
 
 ![](/images/child_moved.jpg)
 
+- `value` 事件在指定节点下任何数据变化时触发。
+
+> **注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
 
 ## 监听事件
 
-通过监听方法设置事件，来保持数据与云端的同步。
+通过 Wilddog Sync 提供的方法，监听云端的事件，
+本地获取并处理数据，保持和云端实时同步。
 
 ### 设置监听
 
@@ -88,9 +78,6 @@ ref.on('value', function(snapshot, error) {
 
 之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
 
-> **注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
-
-更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
 
 
 例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过 `on()` 方法配合 Child 事件来监听博客的状态变化
@@ -111,9 +98,10 @@ postsRef.on('child_removed', function(data) {
 });
 ```
 
-
+更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
 
 >**提示：** 如果你只想监听一次数据，可使用`once()`方法。该监听的回调方法只被触发一次，之后会自动取消监听。
+
 
 
 ### 移除监听
@@ -135,9 +123,11 @@ ref.off();
 
 
 
-## 数据排序与筛选
+## 条件监听
 
-### 数据排序
+Wilddog Sync 支持对事件监听设置条件：数据排序或数据筛选。
+
+### 根据数据排序监听
 
 Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。
 
@@ -146,15 +136,15 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 | 方法                | 说明                    |
 | ----------------- | --------------------- |
 | orderByChild()    | 按指定子节点的值（value）对结果排序。 |
-| orderByKey()      | 按键（key）对结果排序。         |
-| orderByValue()    | 按值（value）对结果排序。       |
-| orderByPriority() | 按优先级（priority）对结果排序。  |
+| orderByKey()      | 按节点的键（key）对结果排序。         |
+| orderByValue()    | 按节点的值（value）对结果排序。       |
+| orderByPriority() | 按节点的优先级（priority）对结果排序。  |
 
 
 
 **orderByChild**
 
-`orderByChild()`方法，可以实现按照数据节点的名称进行排序。
+`orderByChild()`方法，按子节点的指定值（value）对结果排序。
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照每个恐龙的身高（"height" 节点的值）进行排序
 
@@ -174,7 +164,7 @@ ref.orderByChild("height").on("child_added", function(snapshot) {
 
 **orderByKey()**
 
-`orderByKey()`方法，可以实现按照数据节点的名称进行排序。
+`orderByKey()`方法，按节点的键（key）对结果排序。 
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照恐龙的名称进行排序
 
@@ -187,7 +177,7 @@ ref.orderByKey().on("child_added", function(snapshot) {
 
 **orderByValue()**
 
-`orderByValue()`方法，可以按照子节点的值进行排序。
+`orderByValue()`方法，按节点的值（value）对结果排序。   
 
 例如，在 [得分示例应用](https://dinosaur-facts.wilddogio.com/scores) 中按照得分数据进行排序
 
@@ -204,20 +194,19 @@ ref.orderByValue().on("value", function(snapshot) {
 
 **orderByPriority()**
 
-`orderByPriority()`方法用于根据子节点的优先级（priority）进行排序。
+`orderByPriority()`方法，按节点的优先级（priority）对结果排序。
 
 首先你需要 [设置节点的优先级](/api/sync/web/api.html#setPriority) ，然后使用`orderByPriority()`方法按 [优先级排序](/api/sync/web/api.html#orderByPriority)。
 
 
 
 >**注意：**
-- 排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
 - 每次只能使用一种排序方法。对同一查询调用多个排序方法会引发错误。
+- 排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
 
 
 
-
-### 数据筛选
+### 根据数据筛选结果监听
 
 对数据排序之后，才能进行数据筛选。
 
@@ -272,36 +261,3 @@ ref.orderByValue().startAt(60).on("child_added", function(snapshot) {
 >**注意：**范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
 
 范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
-
-
-
-例如，查询 gracehop 节点下的数据
-
-```js
-// 初始化
-var config = {
-  authDomain: "docs-examples.wilddog.com",
-  syncURL: "https://docs-examples.wilddogio.com"
-};
-wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/web/saving-data/wildblog/users/gracehop");
-
-ref.on('value', function(snapshot, error) {
-  if (error == null) {
-    var newPost = snapshot.val();
-    console.log("date_of_birth: " + newPost.date_of_birth);
-    console.log("full_name: " + newPost.full_name);
-    console.log("nickname: " + newPost.nickname);
-  } else {
-    console.log(error);
-  }
-});
-```
-
-之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
-
-> **注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
-
-更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
-
-
