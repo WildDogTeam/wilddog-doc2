@@ -13,6 +13,7 @@ title:  数据操作
 | update()      | 更新指定子节点。                                 |
 | remove()      | 删除指定节点。                                  |
 | transaction() | 并发操作时保证数据一致性。                            |
+| setPriority() | 设置节点优先级                                  |
 
 ## 写入数据
 
@@ -207,3 +208,21 @@ upvotesRef.transaction(function (currentValue) {
 更多使用，请参考 [transaction()](/api/sync/web/api.html#transaction)。
 
 
+
+## 设置节点优先级
+
+Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/web/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
+
+`setPriority(priority)` 方法可以设置节点的优先级
+
+```javascript
+wilddog.sync().ref('user').setWithPriority(100)
+    .then(function(){
+        console.info('set priority success.')
+    })
+    .catch(function(err){
+        console.info('set priority failed', err.code, err);
+    });
+```
+
+更多使用，请参考 [setPriority()](/api/sync/web/api.html#setPriority) 和 [setWithPriortiy()](/api/sync/web/api.html#setWithPriority)。
