@@ -30,7 +30,7 @@ title:  数据操作
     WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://docs-examples.wilddogio.com").build();
     WilddogApp.initializeApp(this, options);
     // 获取 SyncReference 实例
-    SyncReference ref = WilddogSync.getInstance().getReference(web/saving-data/wildblog/users);
+    SyncReference ref = WilddogSync.getInstance().getReference("web/saving-data/wildblog/users");
     // 创建 Map 对象
     HashMap<String, Object> jone = new HashMap<>();
     jone.put("date_of_birth", "December 9, 1906");
