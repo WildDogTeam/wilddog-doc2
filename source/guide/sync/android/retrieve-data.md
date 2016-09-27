@@ -300,9 +300,7 @@ queryRef.addChildEventListener(new ChildEventListener() {
 
 `orderByPriority()`方法用于根据子节点的优先级（priority）进行排序。
 
-首先你需要 [设置节点的优先级](/api/sync/android/api.html#setPriority) ，然后使用`orderByPriority()`方法按 [优先级排序](/api/sync/android/api.html#orderByPriority)。
-
-
+首先你需要 [设置优先级](/api/sync/android/api.html#setPriority) ，然后使用`orderByPriority()`方法按 [优先级排序](/api/sync/android/api.html#orderByPriority)。
 
 >**注意：**
 - 排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
