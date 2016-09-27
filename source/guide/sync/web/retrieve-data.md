@@ -10,13 +10,13 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 事件包含以下五种
 
-| 事件类型          | 说明                      |
-| ------------- | ----------------------- |
-| child_added   | 初始化监听或有新增子节点。         |
-| child_changed | 子节点数据发生更改。           |
-| child_removed | 子节点被删除。              |
-| children_moved   | 子节点排序发生变化。           |
-| value         | 初始化监听或指定节点及子节点数据发生变化。 |
+| 事件类型           | 说明                    |
+| -------------- | --------------------- |
+| child_added    | 初始化监听或有新增子节点。         |
+| child_changed  | 子节点数据发生更改。            |
+| child_removed  | 子节点被删除。               |
+| children_moved | 子节点排序发生变化。            |
+| value          | 初始化监听或指定节点及子节点数据发生变化。 |
 
 
 - `child_added` 事件在初次监听或有新增子节点时触发。
@@ -133,14 +133,12 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 
 数据排序包含以下四种方法	
 
-| 方法                | 说明                    |
-| ----------------- | --------------------- |
-| orderByChild()    | 按指定子节点的值（value）对结果排序。 |
-| orderByKey()      | 按节点的键（key）对结果排序。         |
-| orderByValue()    | 按节点的值（value）对结果排序。       |
-| orderByPriority() | 按节点的优先级（priority）对结果排序。  |
-
-
+| 方法                | 说明                      |
+| ----------------- | ----------------------- |
+| orderByChild()    | 按指定子节点的值（value）对结果排序。   |
+| orderByKey()      | 按节点的键（key）对结果排序。        |
+| orderByValue()    | 按节点的值（value）对结果排序。      |
+| orderByPriority() | 按节点的优先级（priority）对结果排序。 |
 
 **orderByChild**
 
@@ -194,9 +192,7 @@ ref.orderByValue().on("value", function(snapshot) {
 
 **orderByPriority()**
 
-`orderByPriority()`方法，按节点的优先级（priority）对结果排序。
-
-首先你需要 [设置节点的优先级](/api/sync/web/api.html#setPriority) ，然后使用`orderByPriority()`方法按 [优先级排序](/api/sync/web/api.html#orderByPriority)。
+orderByPriority()`方法，按节点的优先级（priority）对结果排序。
 
 
 
@@ -226,7 +222,7 @@ ref.orderByValue().on("value", function(snapshot) {
 
 `limitToFirst()`方法获取从第一条（或 startAt() 方法指定的位置）开始向后指定数量的子节点。 
 
- `limitToLast()` 方法获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。 
+ `limitToLast()`方法获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。 
 
 例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中，如果你只想知道最高的是哪三条恐龙
 
