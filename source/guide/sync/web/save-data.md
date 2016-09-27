@@ -19,11 +19,7 @@ title:  数据操作
 
 `set() ` 方法用于向指定节点写入数据。此方法会先清空指定节点，再写入数据。
 
-![](/images/save_null.png)
-
 `set()` 向已有数据节点写入会覆盖该节点。
-
-![](/images/save_exist.png)
 
 `set() ` 方法可设置回调方法来获取操作的结果。
 
@@ -61,8 +57,6 @@ ref.child("gracehop").set({
 ## 追加子节点
 
 `push()` 方法向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
-
-![](/images/push.png)
 
 例如，追加子节点到 `posts` 节点
 
@@ -102,8 +96,6 @@ ref.child("gracehop").set({
 ## 更新数据
 
 `update()` 方法用于更新指定子节点。
-
-![](/images/update.png)
 
 `update()` 方法支持多路径更新。可以只调用一次方法更新多个[路径](/guide/reference/term.html#路径-path)的数据。
 
@@ -169,8 +161,6 @@ ref.update({
 ## 删除数据
 
 `remove()` 方法用于删除指定节点。
-
-![](/images/delete.png)
 
 ```
 ref.set({

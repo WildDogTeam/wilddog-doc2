@@ -46,8 +46,7 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 ## 监听事件
 
-通过 Wilddog Sync 提供的方法，监听云端的事件，
-本地获取并处理数据，保持和云端实时同步。
+通过 Wilddog Sync 提供的方法，监听云端的事件，获取并处理变化的数据，保持和云端实时同步。
 
 ### 设置监听
 
@@ -192,7 +191,7 @@ ref.orderByValue().on("value", function(snapshot) {
 
 **orderByPriority()**
 
-orderByPriority()`方法，按节点的优先级（priority）对结果排序。
+`orderByPriority()`方法，按节点的优先级（priority）对结果排序。
 
 
 
