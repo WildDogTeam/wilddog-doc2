@@ -62,7 +62,7 @@ ref.set({
 
 写入的数据如下图
 
- <img src="/images/saveapp.jpg" alt="yourApp" width="400">
+ <img src="/images/saveapp.png" alt="yourApp" width="400">
 
 [push()](/api/sync/web/api.html#push) 是另一个常用的写入数据的方法。
 
@@ -75,7 +75,7 @@ ref.push({
 });
 ```
 
- <img src="/images/saveapp1.jpg" alt="yourApp" width="400">
+ <img src="/images/pushapp.png" alt="yourApp" width="400">
 
 ## 5. 读取与监听数据
 使用 [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法可以读取并监听 [节点](/guide/reference/term.html#节点) 的数据。

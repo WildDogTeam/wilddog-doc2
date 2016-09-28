@@ -4,16 +4,18 @@ title:  数据操作
 
 本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-数据操作包含以下五种方法
+数据操作包含以下六种方法
 
 | 方法            | 说明                                       |
 | ------------- | ---------------------------------------- |
 | set()         | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| setPriority() | 设置节点优先级                                  |
 | push()        | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
 | update()      | 更新指定子节点。                                 |
 | remove()      | 删除指定节点。                                  |
 | transaction() | 并发操作时保证数据一致性。                            |
-| setPriority() | 设置节点优先级                                  |
+
+
 
 ## 写入数据
 
