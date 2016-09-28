@@ -37,7 +37,7 @@ Provider 是身份认证提供方，Wilddog Auth 目前支持以下 Provider：
 用户生命周期包含以下三种状态
 
 - 用户注册或登录成功
-- 当前的 [Wilddog ID Token]() 已刷新
+- 当前的 [Wilddog ID Token](#Wilddog-ID) 已刷新
 - 退出登录
 
 
@@ -48,10 +48,10 @@ Provider 是身份认证提供方，Wilddog Auth 目前支持以下 Provider：
 包含以下三种
 
 
-| 令牌名称              | 描述                                       |
-| ----------------- | ---------------------------------------- |
-| Wilddog ID Token  | 用于获取 Wilddog Auth 用户的访问权限。用户登录 Wilddog 应用时由 Wilddog Auth 创建。该 Token 包含用户的用户属性。|
-| OAuth accessToken | 用于获取 OAuth 提供商用户的访问权限，由 OAuth 提供商创建。|
-| Wilddog CustomToken   | 用于获取已有账户体系中用户在 Wilddog 应用中的访问权限。CustomToken 采用 [JWT](https://jwt.io/introduction/) 签名格式。更多 Wilddog CustomToken 的信息，请参考  |
+| 令牌名称                | 描述                                       |
+| ------------------- | ---------------------------------------- |
+| Wilddog ID Token    | 用于获取 Wilddog Auth 用户的访问权限。用户登录 Wilddog 应用时由 Wilddog Auth 创建。该 Token 包含用户的用户属性。 |
+| OAuth accessToken   | 用于获取 OAuth 提供商用户的访问权限，由 OAuth 提供商创建。     |
+| Wilddog CustomToken | 用于获取已有账户体系中用户在 Wilddog 应用中的访问权限。CustomToken 采用 [JWT](https://jwt.io/introduction/) 签名格式。更多 Wilddog CustomToken 的信息，请参考 |
 
 
