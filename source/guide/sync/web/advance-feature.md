@@ -33,7 +33,7 @@ userLastOnlineRef.onDisconnect().set(wilddog.sync().ServerValue.TIMESTAMP);
 
 ## 时钟偏差
 
-时钟偏差是本地时间和云端时间的差值，自动保存在 `/.info/serverTimeOffset` 节点下，可以通过查询该节点获取时钟偏差。
+时钟偏差是本地时间和云端时间的差值，自动保存在 `/.info/serverTimeOffset` 节点下。监听该节点可以获取时钟偏差。
 
 例如，利用时钟偏差可以计算云端时间
 
