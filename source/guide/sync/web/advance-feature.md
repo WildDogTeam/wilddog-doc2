@@ -52,4 +52,3 @@ serverTsRef.once('value',function(snapshot){
   serverTime = (new Date).getTime() + offset;
 })
 ```
-I

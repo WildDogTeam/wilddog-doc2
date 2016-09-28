@@ -179,7 +179,7 @@ ref.update({
 
 `remove()` 方法用于删除指定节点。
 
-```
+```javascript
 ref.set({
     "full_name" : "Steve Jobs",
     "gender" : "male"
