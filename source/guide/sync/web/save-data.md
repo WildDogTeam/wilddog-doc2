@@ -54,6 +54,26 @@ ref.child("gracehop").set({
 });
 ```
 
+
+
+## 设置节点优先级
+
+Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/web/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
+
+`setPriority(priority)` 方法可以设置节点的优先级
+
+```javascript
+wilddog.sync().ref('user').setWithPriority(100)
+    .then(function(){
+        console.info('set priority success.')
+    })
+    .catch(function(err){
+        console.info('set priority failed', err.code, err);
+    });
+```
+
+更多使用，请参考 [setPriority()](/api/sync/web/api.html#setPriority)。
+
 ## 追加子节点
 
 `push()` 方法向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
@@ -199,20 +219,3 @@ upvotesRef.transaction(function (currentValue) {
 
 
 
-## 设置节点优先级
-
-Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/web/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
-
-`setPriority(priority)` 方法可以设置节点的优先级
-
-```javascript
-wilddog.sync().ref('user').setWithPriority(100)
-    .then(function(){
-        console.info('set priority success.')
-    })
-    .catch(function(err){
-        console.info('set priority failed', err.code, err);
-    });
-```
-
-更多使用，请参考 [setPriority()](/api/sync/web/api.html#setPriority) 和 [setWithPriortiy()](/api/sync/web/api.html#setWithPriority)。
