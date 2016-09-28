@@ -51,7 +51,7 @@ guide:
       指南: /guide/sync/rules/guide.html
     最佳实践:
       组织数据: /guide/sync/bestpractice/structure-data.html
-      数组: /guide/sync/bestpractice/array.html
+      数组处理: /guide/sync/bestpractice/array.html
     数据限制: /guide/sync/data-limit.html
   身份认证:
     基础概念: /guide/auth/core/concept.html
