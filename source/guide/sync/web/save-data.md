@@ -23,7 +23,7 @@ title:  数据操作
 
 `set() ` 方法可设置回调方法来获取操作的结果。
 
-例如，向 `gracehop` 节点下写入 `date_of_birth ` 、`full_name ` 和 `nickname`
+例如，向 `Jobs` 节点下写入 `full_name ` 和 `gender`
 
 ```js
 // 初始化
@@ -35,18 +35,16 @@ wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/web/saving-data/wildblog/users");
 
 // child() 用来定位到某个节点。
-ref.child("gracehop").set({
-    "date_of_birth": "December 9, 1906",
-    "full_name": "Grace Hopper",
-    "nickname": "Amazing Grace"
+ref.child("Jobs").set({
+    "full_name": "Steve Jobs",
+    "gender": "male"
 });
 ```
 设置回调方法
 ```js
-ref.child("gracehop").set({
-    "date_of_birth": "December 9, 1906",
-    "full_name": "Grace Hopper",
-    "nickname": "Amazing Grace"
+ref.child("Jobs").set({
+    "full_name": "Steve Jobs",
+    "gender": "male"
 }, function(error) {
     if (error == null){
         // 数据同步到野狗云端成功完成
@@ -78,19 +76,19 @@ wilddog.sync().ref('user').setWithPriority(100)
 
 `push()` 方法向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
 
-例如，追加子节点到 `posts` 节点
+例如，追加子节点到 `messages` 节点
 
 ```js
-  var postsRef = ref.child("posts");
+  var postsRef = ref.child("messages");
 
   postsRef.push({
-    author: "gracehop",
-    title: "Announcing COBOL, a New Programming Language"
+    "full_name" : "Steve Jobs",
+   	 "message" : "Think difference"
   });
 
   postsRef.push({
-    author: "alanisawesome",
-    title: "The Turing Machine"
+    "full_name" : "Bill Gates",
+    "message" : "Hello World"
   });
 ```
 
@@ -99,16 +97,16 @@ wilddog.sync().ref('user').setWithPriority(100)
 ```json
 {
 
-  "posts": {
+  "messages": {
     "-JRHTHaIs-jNPLXO": {
-      "author": "gracehop",
-      "title": "Announcing COBOL, a New Programming Language"
-    },
+    	"full_name" : "Steve Jobs",
+   	 	"message" : "Think difference"
+  	},
 
     "-JRHTHaKuITFIhnj": {
-      "author": "alanisawesome",
-      "title": "The Turing Machine"
-    }
+   		"full_name" : "Bill Gates",
+    	"message" : "Hello World"
+  	}
   }
 }
 ```
@@ -122,18 +120,17 @@ wilddog.sync().ref('user').setWithPriority(100)
 ```js
 //原数据如下
 {
-    "gracehop": {
-        "nickname": "Nice Grace",
-        "date_of_birth": "December 9, 1906",
-        "full_name ": "Grace Lee"
+    "Jobs": {
+        "full_name" : "Steve Jobs",
+        "gender" : "male"
     }
 }
 ```
 ```js
-// 只更新 gracehop 的 nickname
-var hopperRef = ref.child("gracehop");
+// 只更新 Jobs 的 full_name
+var hopperRef = ref.child("Jobs");
 hopperRef.update({
-  "nickname": "Amazing grace"
+  "full_name": "Tim Cook"
 });
 ```
 
@@ -184,8 +181,8 @@ ref.update({
 
 ```
 ref.set({
-    "name": "Jone",
-    "age": 23
+    "full_name" : "Steve Jobs",
+    "gender" : "male"
 });
 
 //删除上面写入的数据

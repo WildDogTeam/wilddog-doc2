@@ -54,18 +54,17 @@ guide:
       数组: /guide/sync/bestpractice/array.html
     数据限制: /guide/sync/data-limit.html
   身份认证:
-    核心概念:
-      Wilddog 用户: /guide/auth/core/concept.html
+    基础概念: /guide/auth/core/concept.html
     Web:
       管理用户: /guide/auth/web/manageuser.html
-      邮箱登录: /guide/auth/web/password.html
-      QQ登录: /guide/auth/web/qq.html
-      微信登录: /guide/auth/web/weixin.html
-      微信公众号登录: /guide/auth/web/weixinpublic.html
-      微博登录: /guide/auth/web/weibo.html
+      邮箱认证: /guide/auth/web/password.html
+      QQ 认证: /guide/auth/web/qq.html
+      微信认证: /guide/auth/web/weixin.html
+      微信公众号认证: /guide/auth/web/weixinpublic.html
+      微博认证: /guide/auth/web/weibo.html
       自定义身份认证: /guide/auth/web/custom.html
       匿名身份认证: /guide/auth/web/anonymous.html
-      绑定多种登录方式: /guide/auth/web/link.html
+      绑定多种认证方式: /guide/auth/web/link.html
       
     Android:
       管理用户: /guide/auth/android/manageuser.html
