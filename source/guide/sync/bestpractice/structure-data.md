@@ -4,7 +4,7 @@ title:  组织数据
 
 本篇文档介绍如何恰当构建 Wilddog Sync 数据存储结构，以降低数据查询难度，提高查询速度。
 
-### 理解数据结构
+## 理解数据结构
 
 Wilddog Sync 数据结构类似 [NoSQL](http://baike.baidu.com/view/2677528.htm) 类型，数据以 [JSON](http://json.org/json-zh.html) 为格式进行存储。没有传统关系型数据库中的表和记录等概念。
 
