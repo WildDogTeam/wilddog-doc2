@@ -73,7 +73,7 @@ presenceRef.cancel();
 
 
 
-`goOnline()` 和 `goOffline()` 方法方法手动建立连接和断开连接。
+`goOnline()` 和 `goOffline()` 方法用于手动建立连接和断开连接。
 
 例如：
 

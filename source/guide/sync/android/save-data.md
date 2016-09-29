@@ -4,7 +4,7 @@ title:  数据操作
 
 本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-操作数据包含以下六种方法
+操作数据包含以下六种方法：
 
 | 方法               | 说明                                       |
 | ---------------- | ---------------------------------------- |
@@ -75,7 +75,7 @@ ref.child("user").setPriority(100);
 
 `push()` 方法向任意节点添加子节点。新增子节点的 key 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
 
-例如，追加子节点到 `posts` 节点
+例如，追加子节点到 `posts` 节点：
 
 ```java
 SyncReference postsRef = ref.child("messages");
@@ -88,7 +88,7 @@ anotherNews.put("full_name", "Bill Gates");
 anotherNews.put("message", "Hello World");
 postsRef.push().setValue(anotherNews);
 ```
-产生的数据如下
+产生的数据如下：
 ```json
 {
 
@@ -153,35 +153,25 @@ hopperRef.updateChildren(user);
 }
 ```
 
+正确示例：
+
 ```java
-// 错误的多路径更新写法，会覆盖原有数据
 HashMap<String, Object> map = new HashMap<>();
 map.put("b/d", "updateD");
 map.put("x/z", "updateZ");
 ref.updateChildren(map);
 ```
-```
-正确示例：
-
-```js
-ref.update({
-  "b/d": "updateD",
-  "x/z": "updateZ"
-});
-```
 
 错误示例：
 
-```js
+```java
 // 错误的多路径更新写法，会覆盖原有数据
-ref.update({
-    "b": {
-        "d": "updateD"
-    },
-    "x": {
-        "z": "updateZ"
-    }
-});
+Map<String,Map<String,String>> map = new HashMap<>();
+Map<String,String> bMap = new HashMap<>();
+Map<String,String> xMap = new HashMap<>();
+map.put("b", bMap.put("d","updateD");
+map.put("x", xMap.put("z","updateZ");
+ref.updateChildren(map);
 ```
 
 
