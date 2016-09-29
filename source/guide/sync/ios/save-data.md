@@ -11,8 +11,8 @@ title:  数据操作
 | setPriority:          | 设置节点优先级。                                 |
 | setValue:andPriority: | 向指定节点写入数据并且设置该节点优先级。                     |
 | childByAutoId         | 向指定节点添加 [子节点](/guide/reference/term.html#节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
-| updateChildValues:    | 更新指定子节点。                                 |
 | removeValue           | 删除指定节点。                                  |
+| updateChildValues:    | 更新指定子节点。                                 |
 | runTransactionBlock:  | 并发操作时保证数据一致性。                            |
 
 
@@ -136,11 +136,11 @@ ref.setPriority(100) { (error, ref) in
 </div>
 </div>
 
-更多使用，请参考 [setPriority()](/api/sync/ios/api.html#setPriority)。
+更多使用，请参考 [setPriority()](/api/sync/ios/api.html#–-setPriority)。
 
 ## 写入数据并设置节点优先级
 
-`setWithPriority(value, priority)` 方法用于指定节点写入数据并且设置该节点优先级。
+`setValue:andPriority:` 方法用于指定节点写入数据并且设置该节点优先级。
 
 例如，写入 `jack` 的姓名并且设置优先级为100：
 
@@ -178,13 +178,13 @@ ref.setValue(["first" : "jack", "last" : "Lee"], andPriority: 100) { (error, ref
 </div>
 </div>
 
-更多使用，请参考 [setWithPriority()](/api/sync/ios/api.html#setWithPriority)。
+更多使用，请参考 [setValue:andPriority:](/api/sync/ios/api.html#–-setValue-andPriority)。
 
 ## 追加子节点
 
 `childByAutoId` 方法向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
 
-例如，追加子节点到 `messages` 节点
+例如，追加子节点到 `messages` 节点：
 
 <div class="slide">
 <div class='slide-title'>
@@ -388,7 +388,7 @@ messagesRef.removeValue()
 
 `runTransactionBlock` 方法用于并发操作时保证数据一致性。
 
-例如，在实现多人点赞功能时，多人同时写入评分会产生覆盖，导致最终结果不准确。使用 transaction()方法可以避免这种情况：
+例如，在实现多人点赞功能时，多人同时写入评分会产生覆盖，导致最终结果不准确。使用 `runTransactionBlock` 方法可以避免这种情况：
 
 <div class="slide">
 <div class='slide-title'>

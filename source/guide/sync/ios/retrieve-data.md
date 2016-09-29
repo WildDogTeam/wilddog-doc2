@@ -68,7 +68,35 @@ ref.observeEventType(.Value, withBlock: { snapshot in
 
 之后 Jobs 节点下的数据发生任何变化，都会触发回调方法。
 
-例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过 `on()` 方法配合 Child 事件来监听博客的状态变化：
+例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过 `observeEventOfType` 方法配合 Child 事件来监听博客的状态变化：
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+
+// 获取一个 WDGSyncReference 实例
+WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts"];
+[ref observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
+  NSLog(@"%@", snapshot.value[@"author"]);
+  NSLog(@"%@", snapshot.value[@"title"]);
+}];
+```
+</div>
+<div class="slide-content">
+```swift
+
+// 获取一个 WDGSyncReference 实例
+let ref = WDGSync.sync().referenceFromURL("https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts")
+ref.observeEventType(.ChildAdded, withBlock: { snapshot in
+    print(snapshot.value!.objectForKey("author"))
+    print(snapshot.value!.objectForKey("title"))
+})
+```
+</div>
+</div>
 
 更详细的用法说明，请参考 [API 文档](/api/sync/ios/api.html#–-observeEventType-withBlock)。
 
