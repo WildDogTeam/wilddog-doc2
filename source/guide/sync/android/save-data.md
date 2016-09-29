@@ -8,10 +8,10 @@ title:  数据操作
 
 | 方法               | 说明                                       |
 | ---------------- | ---------------------------------------- |
-| setValue()       | 向任意 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| setValue()       | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
 | setPriority()    | 设置节点优先级。     |                           
 | setValue(value,priority)  |向指定节点写入数据并且设置该节点优先级。     |
-| push()           | 向任意节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 自动生成并保证唯一。 |
+| push()           | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 自动生成并保证唯一。 |
 | removeValue()    | 删除指定节点。                                  |
 | updateChildren() | 更新指定子节点。                                 |
 | runTransaction() | 并发操作时保证数据一致性。                            |
