@@ -9,7 +9,7 @@ title: 数据操作
 | 方法     | 说明                                       |
 | ------ | ---------------------------------------- |
 | PUT    | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
-| POST   | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
+| POST   | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 自动生成并保证唯一。 |
 | PATCH  | 更新指定子节点。                                 |
 | DELETE | 删除指定节点。                                  |
 
@@ -44,7 +44,7 @@ curl -X POST -d '{
 
 ```
 
-`posts`路径下的数据将会是这样：
+`posts` 路径下的数据将会是这样：
 
 ```
 {
@@ -68,7 +68,7 @@ curl -X POST -d '{
 
 `PATCH` 请求用于更新指定子节点。
 
-例如，更新 `gracehop`的 `nickname`：
+例如，更新 `gracehop` 的  `nickname`：
 
 
 ```js
@@ -93,7 +93,7 @@ curl -X PATCH -d '{
 
 ## 删除数据
 
-`DELETE`请求用于删除指定节点。
+`DELETE` 请求用于删除指定节点。
 
 ```
 curl -X DELETE \

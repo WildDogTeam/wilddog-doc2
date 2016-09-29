@@ -17,7 +17,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用时任选以下两种方式之一
+Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用时任选以下两种方式之一：
 
 - **安装完整 Wilddog SDK(推荐，包含 Sync 和 Auth)**
 
@@ -33,40 +33,29 @@ Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用
 npm install wilddog --save
 ```
 
-## 3. 初始化 Wilddog Auth 实例
+## 3. 创建 Wilddog Auth 实例
 
-使用 Auth SDK 之前，需要先初始化实例
+使用 Wilddog Auth SDK 之前，需要先创建实例：
 
 ```javascript
 var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://YOUR_APPID.wilddogio.com" 
-};
+  authDomain: "<appId>.wilddog.com"
+｝
 wilddog.initializeApp(config);
+
 ```
 
-如果你的应用中并未用到 `Sync` 模块，代码中所示的 `syncURL` 项可以忽略。
+
 
 ## 4. 使用邮箱认证
 
 **1.开启邮箱登录**
 
-在 控制面板—身份认证—登录方式 中开启邮箱登录功能
+在 控制面板—身份认证—登录方式 中开启邮箱登录功能：
 
 ![](/images/openemail.png)
 
-**2.监听用户登录状态**
-
-```js
-wilddog.auth().onAuthStateChanged(function (userInfo) {
-    if(userInfo) {
-	    console.info('user login',user, wilddog.auth().currrentUser);
-    }else {
-	    console.info('user logout');
-    }
-});
-```
-**3.创建新用户**
+**2.创建新用户**
 
 ```js
 wilddog.auth().createUserWithEmailAndPassword(email,pwd)
@@ -77,9 +66,9 @@ wilddog.auth().createUserWithEmailAndPassword(email,pwd)
 });
 ```
 
-**4.邮箱密码登录**
+**3.邮箱密码登录**
 
-已经存在的用户可以使用 `signInWithEmailAndPassword()` 方法登录。
+`signInWithEmailAndPassword()` 方法用于已创建的用户登录：
 
 ```js
 wilddog.auth().signInWithEmailAndPassword(email, pwd)
@@ -92,7 +81,7 @@ wilddog.auth().signInWithEmailAndPassword(email, pwd)
 
 ## 5. 退出登录
 
-你可以使用 `signOut()` 方法退出当前登录用户
+ `signOut()` 方法用于退出当前登录用户：
 
 ```js
 wilddog.auth().signOut().then(function () {
@@ -101,5 +90,4 @@ wilddog.auth().signOut().then(function () {
 ```
 
 
-
-野狗还提供了匿名认证、第三方认证等其他认证方式，详细信息请见 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/web.html)。
+Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/web.html)。

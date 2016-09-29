@@ -1,7 +1,7 @@
-
 title: 快速入门
 ---
-你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
+
+你可以通过一个简单的 [评论墙示例](https://github.com/WildDogTeam/sync-quickstart-android) 来快速了解 Wilddog Sync 的用法。
 
 
 <div class="env">
@@ -12,7 +12,6 @@ title: 快速入门
         <li>支持 Android 手机系统 4.0.3 以上版本，即 Android SDK 15 以上版本</li>
     </ul>
 </div>
-
 
 ## 1. 创建应用
 
@@ -44,6 +43,7 @@ android {
 }
 ```
 
+
 ## 3. 配置 Android 权限
 
 在 AndroidMainfest.xml 文件中添加：
@@ -62,6 +62,7 @@ android {
 </application>		
 ```
 
+
 ## 4. 创建 Wilddog Sync 实例
 
 ```java
@@ -71,29 +72,32 @@ WilddogApp.initializeApp(this, options);
 SyncReference ref = WilddogSync.getInstance().getReference();
 ```
 
-## 5. 写入数据
 
-`setValue()`方法用于写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html) 。
+## 4. 写入数据
 
-例如，在应用的根节点下写入天气数据：
+[setValue()](/api/sync/android/api.html#setValue-Object) 用于向指定节点写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
+
+例如，在应用的根节点下写入评论数据：
 
 ```java
-SyncReference myRef = WilddogSync.getInstance().getReference("weather")
-Map data = new HashMap();
-data.put("beijing","rain");
-data.put("shanghai","sunny");
-myRef.setValue(data);
+ Comment comment = new Comment("Jack","Wilddog, Cool!");
+ref.child("messageboard").setValue(comment
+);
 ```
 
 写入的数据如下图：
 
-<img src="/images/saveapp.png" alt="savedata" width="300" >
+ <img src="/images/saveapp.png" alt="yourApp" width="400">
 
-## 6. 监听数据
 
-`addValueEventListener()` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+
+## 5. 监听数据
+ [addValueEventListener()](/api/sync/android/api.html#addValueEventListener) 或 [addListenerForSingleValueEvent()](/api/sync/android/api.html#addListenerForSingleValueEvent) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+
+例如，从应用中获得评论数据：
 
 ```java
+// snapshot 里面的数据会一直和云端保持同步
 myRef.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -107,8 +111,23 @@ myRef.addValueEventListener(new ValueEventListener() {
      		Log.d("onCancelled",syncError.toString());}
         }
 });
+
+// 如果你只想监听一次，那么你可以使用addListenerForSingleValueEvent()
+
+myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+    @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        if(dataSnapshot.getValue()!=null){
+        	Log.d("onDataChange",dataSnapshot.toString());
+        }
+    }
+    @Override
+    public void onCancelled(SyncError syncError) {
+        if(syncError!=null){
+     		Log.d("onCancelled",syncError.toString());}
+        }
+});
+
 ```
 
-`snapshot` 里面的数据会一直与云端保持同步。如果你只想监听一次，那么你可以使用 `addListenerForSingleValueEvent()` 方法替代 `addValueEventListener()` 方法。
-
-更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android.html)。
+Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/web/api.html)。 
