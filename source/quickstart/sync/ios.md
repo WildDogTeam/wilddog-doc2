@@ -18,23 +18,23 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以任选其一
+SDK 的安装方式有两种，你可以任选其一：
 
 - **使用 CocoaPods** 
 
 要将 WilddogSync SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问  [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 
-打开工程目录，新建一个 Podfile 文件
+打开工程目录，新建一个 Podfile 文件：
 
 	$ cd your-project-directory
 	$ pod init
 	$ open -a Xcode Podfile # opens your Podfile in XCode
 
-然后在 Podfile 文件中添加以下语句
+然后在 Podfile 文件中添加以下语句：
 
 	pod 'Wilddog/Sync'
 
-最后安装 SDK
+最后安装 SDK：
 
 	$ pod install
 	$ open your-project.xcworkspace
@@ -100,9 +100,9 @@ let myRootRef = WDGSync.sync().reference()
 
 ## 4. 写入数据
 
-`setValue` 方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
+`setValue` 方法用于写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
-例如，在应用的根节点下写入天气数据
+例如，在应用的根节点下写入天气数据：
 
 <div class="slide">
 <div class='slide-title'>
@@ -126,15 +126,15 @@ myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 </div>
 </div>
 
-写入的数据如下图
+写入的数据如下图：
 
  <img src="/images/saveapp.png" alt="yourApp" width="300">
 
 ## 5. 监听数据
 
-`observeEventType` 方法可以监听 [节点](/guide/reference/term.html#节点) 的数据。
+`observeEventType` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
-例如，从应用中获得天气数据
+例如，从应用中获得天气数据：
 
 <div class="slide">
 <div class='slide-title'>

@@ -71,7 +71,11 @@ presenceRef.cancel();
 
 ## 手动建立或断开连接
 
-Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline()`方法，`goOffline()`方法，如下：
+
+
+`goOnline()` 和 `goOffline()` 方法方法手动建立连接和断开连接。
+
+例如：
 
 ```js
 var config = {
