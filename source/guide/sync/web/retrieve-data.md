@@ -221,8 +221,6 @@ ref.orderByChild("height").limitToLast(3).on("child_added", function(snapshot) {
 
 `startAt()`方法、`endAt()`方法 和 `equalTo()` 方法用于监听选择任意起点、终点或等量点。
 
-`startAt()`方法用于
-
 例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道哪些学生的考分超过 60：
 
 ```js

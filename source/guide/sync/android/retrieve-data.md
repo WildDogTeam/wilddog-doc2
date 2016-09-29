@@ -12,7 +12,7 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 ### 设置监听方法
 
-设置监听包含以下三个方法，根据需求任选其一。
+设置监听包含以下三个方法，根据需求任选其一：
 
 | 方法            | 说明
 | ------------- | ---------------------------------------- 
@@ -26,7 +26,7 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 指定的事件类型分为 Value 事件和 Child 事件两大类，使用 `value` 事件监听指定节点下的所有数据变化，使用 `onChild*` 事件监听指定节点下子节点的数据变化。
 
-事件类型包含以下五种
+事件类型包含以下五种：
 
 | 事件类型             | 说明                    |
 | ---------------- | --------------------- |
@@ -39,7 +39,7 @@ Wilddog Sync 查询数据建立在事件监听基础上，在监听的回调方�
 
 **Value 事件**
 
- `value` 事件监听当前节点下的所有数据。此事件在程序初始化时会触发一次，之后在数据发生任何更改时再次触发。如果这个节点下没有数据，则会返回 null。
+ `value` 事件用于监听当前节点下的所有数据变化。此事件在程序初始化时会触发一次，之后在数据发生任何更改时再次触发。如果这个节点下没有数据，则会返回 null。
 
 例如，查询 gracehop 节点下的数据
 
@@ -73,7 +73,7 @@ mPostReference.addValueEventListener(postListener);
 
 **Child 事件**
 
-Child 事件监听当前节点下的子节点数据。当子节点发生改变时（如通过 `push()` 方法添加子节点，或通过 `updatechildren()` 方法更新子节点），就会触发相应的 Child 事件。
+Child 事件监听用于当前节点下的子节点数据变化。当子节点发生改变时（如通过 `push()` 方法添加子节点，或通过 `updatechildren()` 方法更新子节点），就会触发相应的 Child 事件。
 
 - `onChildAdded()`事件在初次监听或有新增子节点时触发。
 
@@ -157,7 +157,7 @@ ref.addListenerForSingleValueEvent(new ValueEventListener(){
 
 `removeEventListener()`方法用于移除一个监听事件，移除监听之后，回调方法将不再被触发。
 
-参数是你要移除的事件类型和回调方法
+参数是你要移除的事件类型和回调方法：
 
 ```java
 // 获取 SyncReference 实例
@@ -189,9 +189,9 @@ WilddogSync 支持按键(key)、按值(value)、按节点的优先级(priority) 
 
 **orderByChild**
 
-`orderByChild()`方法，可以实现按照数据节点的名称进行排序。
+`orderByChild()`方法用于实现按照数据节点的名称进行排序。
 
-例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照每个恐龙的身高（"height" 节点的值）进行排序
+例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照每个恐龙的身高（"height" 节点的值）进行排序：
 
 ```java
 WilddogOptions wilddogOptions = new WilddogOptions.Builder().setSyncUrl("https://dinosaur-facts.wilddogio.com").build();
@@ -224,9 +224,9 @@ queryRef.addChildEventListener(new ChildEventListener() {
 
 **orderByKey()**
 
-`orderByKey()`方法，可以实现按照数据节点的名称进行排序。
+`orderByKey()`方法用于实现按照数据节点的名称进行排序。
 
-例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照恐龙的名称进行排序
+例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照恐龙的名称进行排序：
 
 ```java
 WilddogOptions wilddogOptions = new WilddogOptions.Builder().setSyncUrl("https://dinosaur-facts.wilddogio.com").build();
@@ -261,9 +261,9 @@ queryRef.addChildEventListener(new ChildEventListener() {
 
 **orderByValue()**
 
-`orderByValue()`方法，可以按照子节点的值进行排序。
+`orderByValue()`方法用于实现按照子节点的值进行排序。
 
-例如，在 [得分示例应用](https://dinosaur-facts.wilddogio.com/scores) 中按照得分数据进行排序
+例如，在 [得分示例应用](https://dinosaur-facts.wilddogio.com/scores) 中按照得分数据进行排序：
 
 ```java
 WilddogOptions wilddogOptions = new WilddogOptions.Builder().setSyncUrl("https://dinosaur-facts.wilddogio.com").build();

@@ -7,7 +7,9 @@ title:  离线功能
 
 ## 监听连接状态
 
-Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这路径，客户端可以监测是否连接到云端。
+Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。
+
+例如，监测客户端是否连接到云端：
 
 ```java
 //初始化
@@ -43,7 +45,7 @@ WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://sample
 
 断开连接包括客户端主动断开连接，或者意外的网络中断。触发事件即执行特定的数据操作，它支持离线写入，更新和删除数据方法。
 
-例如，当用户的网络连接中断时，使用 `onDisconnect().SetValue()` 方法，记录这个用户已经离线
+例如，当用户的网络连接中断时，使用 `onDisconnect().SetValue()` 方法，记录这个用户已经离线：
 
 ```java
 SyncReference presenceRef = WilddogSync.getInstance().getReference("disconnectmessage");
@@ -53,7 +55,7 @@ onDisconnectRef.setValue("I disconnected");
 ```
 
 
-通过回调方法判断离线事件是否被云端成功记录
+通过回调方法判断离线事件是否被云端成功记录：
 
 ```java
 presenceRef.onDisconnect().removeValue(new SyncReference.CompletionListener() {
@@ -66,7 +68,7 @@ presenceRef.onDisconnect().removeValue(new SyncReference.CompletionListener() {
 });
 ```
 
-`cancel` 方法用于取消离线事件
+`cancel` 方法用于取消离线事件：
 
 ```java
 OnDisconnect onDisconnectRef = presenceRef.onDisconnect();
@@ -77,7 +79,7 @@ onDisconnectRef.cancel();
 更多离线事件的方法，请参考 [API 文档](/api/sync/android/api.html#onDisconnect)。
 
 ## 手动建立或断开连接
-Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline()`方法、`goOffline()`方法，如下
+Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline()`方法、`goOffline()`方法，如下：
 
 ```java
 SyncReference presenceRef = WilddogSync.getInstance().getReference();
@@ -90,7 +92,7 @@ presenceRef.goOnline();
 
 数据本地持久化是针对移动网络稳定性差而开发的功能特性。默认情况下，Wilddog Sync 的数据存储在内存中，一旦重启，内存数据将被清除。开启数据本地持久化功能，可以使设备重启后无需再同步云端。有助于节省流量和提升重启后的访问速度。
 
-数据持久化包含以下两个特性
+数据持久化包含以下两个特性：
 
 | 特性     | 说明                    |
 | ------ | --------------------- |
@@ -108,7 +110,7 @@ WilddogSync.setPersistenceEnabled(true)
 
 开启数据持久化，Wilddog Sync 会将查询到的数据存储到设备。在无网环境时，应用仍然可以查询之前存储的数据。
 
-例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙
+例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙：
 
 ```java
  SyncReference scoresRef = WilddogSync.getInstance().getReference("scores");
@@ -140,7 +142,7 @@ WilddogSync.setPersistenceEnabled(true)
         });
 ```
 
-然后网络断开，重新启动应用去查询得分最高的两条恐龙
+然后网络断开，重新启动应用去查询得分最高的两条恐龙：
 
 ```java
  SyncReference scoresRef = WilddogSync.getInstance().getReference("scores");
