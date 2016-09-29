@@ -101,3 +101,94 @@ presenceRef.goOffline();
 >**注意：** 一个应用可以创建多个 Wilddog Sync 实例，但多个实例只会复用同一个长连接。 并且`goOffline()`方法 和 `goOnline()`方法会控制全局的在线和离线。
 
 
+## 数据本地持久化
+
+数据本地持久化是针对移动网络稳定性差而开发的功能特性。默认情况下，Wilddog Sync 的数据存储在内存中，一旦重启，内存数据将被清除。开启数据本地持久化功能，可以使设备重启后无需再同步云端。有助于节省流量和提升重启后的访问速度。
+
+数据持久化包含以下两个特性：
+
+| 特性     | 说明                    |
+| ------ | --------------------- |
+| 离线查询   | 在无网环境时仍然可以查询数据。       |
+| 发送离线数据 | 在无网环境时操作的数据会在重新连接时发送。 |
+
+使用  `setPersistenceEnabled` 方法开启数据持久化
+
+```java
+WilddogSync.setPersistenceEnabled(true)
+```
+>**注意：**必须在创建第一个 Wilddog Sync 实例之前开启持久化。
+
+### 离线查询
+
+开启数据持久化，Wilddog Sync 会将查询到的数据存储到设备。在无网环境时，应用仍然可以查询之前存储的数据。
+
+例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙：
+
+```java
+ SyncReference scoresRef = WilddogSync.getInstance().getReference("scores");
+ scoresRef.orderByValue().limitToFirst(4).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Log.d(TAG,"The"+dataSnapshot.getKey()+"dinosaur's score is"+dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(SyncError syncError) {
+
+            }
+        });
+```
+
+然后网络断开，重新启动应用去查询得分最高的两条恐龙：
+
+```java
+ SyncReference scoresRef = WilddogSync.getInstance().getReference("scores");
+ scoresRef.orderByValue().limitToFirst(2).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Log.d(TAG,"The"+dataSnapshot.getKey()+"dinosaur's score is"+dataSnapshot.getValue());
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(SyncError syncError) {
+
+            }
+        });
+```
+
+如上例所示，在离线情况下，仍然成功的查询到了数据。
+
+### 发送离线数据
+
+开启数据持久化，在无网环境下，应用的所有数据操作都会自动保存，当应用重新连接网络，这些数据将自动发送到云端。
