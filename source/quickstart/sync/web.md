@@ -64,18 +64,7 @@ ref.set({
 
  <img src="/images/saveapp.png" alt="yourApp" width="400">
 
-[push()](/api/sync/web/api.html#push) 方法用于追加子节点。
 
-通过写入同样的数据，来体会与 `set()` 方法的不同：
-
-```js
-ref.push({
-    "content" : "Wilddog, Cool!",
-    "presenter" : "Jack"
-});
-```
-
- <img src="/images/pushapp.png" alt="yourApp" width="400">
 
 ## 5. 监听数据
  [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
