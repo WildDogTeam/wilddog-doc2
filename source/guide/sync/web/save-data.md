@@ -4,7 +4,7 @@ title:  数据操作
 
 本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-数据操作包含以下七种方法
+数据操作包含以下七种方法：
 
 | 方法                | 说明                                       |
 | ----------------- | ---------------------------------------- |
@@ -12,8 +12,8 @@ title:  数据操作
 | setPriority()     | 设置节点优先级。                                 |
 | setWithPriority() | 向指定节点写入数据并且设置该节点优先级。                     |
 | push()            | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
-| update()          | 更新指定子节点。                                 |
 | remove()          | 删除指定节点。                                  |
+| update()          | 更新指定子节点。                                 |
 | transaction()     | 并发操作时保证数据一致性。                            |
 
 
@@ -24,7 +24,7 @@ title:  数据操作
 
 `set() ` 方法可设置回调方法来获取操作的结果。
 
-例如，向 `Jobs` 节点下写入 `full_name ` 和 `gender`
+例如，向 `Jobs` 节点下写入 `full_name ` 和 `gender`：
 
 ```js
 // 初始化
@@ -41,7 +41,7 @@ ref.child("Jobs").set({
     "gender": "male"
 });
 ```
-设置回调方法
+设置回调方法：
 ```js
 ref.child("Jobs").set({
     "full_name": "Steve Jobs",
@@ -59,7 +59,7 @@ ref.child("Jobs").set({
 
 Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/web/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
 
-`setPriority(priority)` 方法可以设置节点的优先级
+`setPriority(priority)` 方法用于设置节点的优先级：
 
 ```javascript
 wilddog.sync().ref('user').setWithPriority(100)
@@ -77,7 +77,7 @@ wilddog.sync().ref('user').setWithPriority(100)
 
 ## 写入数据并设置节点优先级
 
-`setWithPriority(value, priority)`方法向指定节点写入数据并且设置该节点优先级。
+`setWithPriority(value, priority)`方法用于指定节点写入数据并且设置该节点优先级。
 
 ```javascript
 var user = {
@@ -101,9 +101,9 @@ wilddog.sync().ref().setWithPriority(user,100)
 
 ## 追加子节点
 
-`push()` 方法向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
+`push()` 方法用于指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
 
-例如，追加子节点到 `messages` 节点
+例如，追加子节点到 `messages` 节点：
 
 ```js
   var postsRef = ref.child("messages");
@@ -119,7 +119,7 @@ wilddog.sync().ref().setWithPriority(user,100)
   });
 ```
 
-产生的数据如下
+产生的数据如下：
 
 ```json
 {
@@ -161,7 +161,7 @@ hopperRef.update({
 });
 ```
 
-多路径更新
+多路径更新：
 
 ```js
 //原数据如下
@@ -178,7 +178,7 @@ hopperRef.update({
     }
 }
 ```
-希望同时更新 b 节点下的 d 和 x 节点下的 z。注意标识路径时，要用 `b/d`, 和 `x/z` 
+希望同时更新 b 节点下的 d 和 x 节点下的 z。注意标识路径时，要用 `b/d`, 和 `x/z`：
 
 ```js
 
@@ -188,7 +188,7 @@ ref.update({
 });
 ```
 
-以下做法将会覆盖原有数据，为错误示例
+以下做法将会覆盖原有数据，为错误示例：
 
 ```js
 // 错误的多路径更新写法！！
@@ -222,7 +222,7 @@ ref.remove();
 
 `transaction()` 方法用于并发操作时保证数据一致性。
 
-例如，在实现多人点赞功能时，多人同时写入评分会产生冲突，导致最终结果不准确。使用 `transaction()`方法可以避免这种情况。
+例如，在实现多人点赞功能时，多人同时写入评分会产生冲突，导致最终结果不准确。使用 `transaction()`方法可以避免这种情况：
 
 ```js
 var config = {

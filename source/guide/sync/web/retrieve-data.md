@@ -8,7 +8,7 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 数据在云端发生的任何变化都称为事件。
 
-事件包含以下五种
+事件包含以下五种：
 
 | 事件类型           | 说明                    |
 | -------------- | --------------------- |
@@ -28,9 +28,9 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 ### 设置监听
 
-`on()` 方法通过与不同事件配合来监听指定节点的数据。  
+`on()` 方法用于与不同事件配合来监听指定节点的数据。  
 
-例如，通过 `on()` 方法配合 Value 事件查询 Jobs 节点下的数据
+例如，通过 `on()` 方法配合 Value 事件监听 Jobs 节点下的数据：
 
 ```js
 // 初始化
@@ -56,7 +56,7 @@ ref.on('value', function(snapshot, error) {
 
 
 
-例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过 `on()` 方法配合 Child 事件来监听博客的状态变化
+例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过 `on()` 方法配合 Child 事件来监听博客的状态变化：
 
 ```js
 var postsRef = wilddog.sync().ref("/web/saving-data/wildblog/posts");
@@ -84,12 +84,12 @@ postsRef.on('child_removed', function(data) {
 
 `off()`方法用于移除一个监听事件，移除监听之后，回调方法将不再被触发。
 
-参数是你要移除的事件类型和回调方法
+参数是你要移除的事件类型和回调方法：
 
 ```js
 ref.off("value", originalCallback);
 ```
-在不带任何参数的情况下，在该节点调用 `off()`，将移除该节点位置的所有监听。
+在不带任何参数的情况下，在该节点调用 `off()`，将移除该节点位置的所有监听：
 
 ```js
 ref.off();
@@ -107,7 +107,7 @@ Wilddog Sync 支持对事件监听设置条件：数据排序或数据筛选。
 
 Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值(value)对数据进行排序。
 
-数据排序包含以下四种方法	
+数据排序包含以下四种方法：
 
 | 方法                | 说明                      |
 | ----------------- | ----------------------- |
@@ -118,9 +118,9 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 
 **orderByChild**
 
-`orderByChild()`方法，按子节点的指定值（value）对结果排序。
+`orderByChild()`方法用于按子节点的指定值（value）对结果排序。
 
-例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中按照每个学生的身高（"height" 节点的值）进行排序
+例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中按照每个学生的身高（"height" 节点的值）进行排序：
 
 ```js
 // 初始化
@@ -138,9 +138,9 @@ ref.orderByChild("height").on("child_added", function(snapshot) {
 
 **orderByKey()**
 
-`orderByKey()`方法，按节点的键（key）对结果排序。 
+`orderByKey()`方法用于按节点的键（key）对结果排序。 
 
-例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中按照学生的名称进行排序
+例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中按照学生的名称进行排序：
 
 ```js
 var ref = wilddog.sync().ref("students");
@@ -151,9 +151,9 @@ ref.orderByKey().on("child_added", function(snapshot) {
 
 **orderByValue()**
 
-`orderByValue()`方法，按节点的值（value）对结果排序。   
+`orderByValue()`方法用于按节点的值（value）对结果排序。   
 
-例如，在 [得分示例应用](https://class-demo.wilddogio.com/scores) 中按照得分数据进行排序
+例如，在 [得分示例应用](https://class-demo.wilddogio.com/scores) 中按照得分数据进行排序：
 
 ```js
 var ref = wilddog.sync().ref("scores");
@@ -168,7 +168,7 @@ ref.orderByValue().on("value", function(snapshot) {
 
 **orderByPriority()**
 
-`orderByPriority()`方法，按节点的优先级（priority）对结果排序。
+`orderByPriority()`方法用于按节点的优先级（priority）对结果排序。
 
 
 >**注意：**
@@ -181,7 +181,7 @@ ref.orderByValue().on("value", function(snapshot) {
 
 对数据排序之后，才能进行数据筛选。
 
-数据筛选包含以下五种方法
+数据筛选包含以下五种方法：
 
 | 方法             | 用法                                       |
 | -------------- | ---------------------------------------- |
@@ -195,11 +195,11 @@ ref.orderByValue().on("value", function(snapshot) {
 
 **数量筛选**
 
-`limitToFirst()`方法获取从第一条（或 startAt() 方法指定的位置）开始向后指定数量的子节点。 
+`limitToFirst()`方法用于获取从第一条（或 startAt() 方法指定的位置）开始向后指定数量的子节点。 
 
- `limitToLast()`方法获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。 
+ `limitToLast()`方法用于获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。 
 
-例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道最高的是哪三位同学
+例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道最高的是哪三位同学：
 
 ```js
 var config = {
@@ -219,9 +219,11 @@ ref.orderByChild("height").limitToLast(3).on("child_added", function(snapshot) {
 
 **范围筛选**
 
-`startAt()`方法、`endAt()`方法 和 `equalTo()` 方法为查询选择任意起点、终点或等量点。
+`startAt()`方法、`endAt()`方法 和 `equalTo()` 方法用于监听选择任意起点、终点或等量点。
 
-例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道哪些学生的考分超过 60 
+`startAt()`方法用于
+
+例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道哪些学生的考分超过 60：
 
 ```js
 var ref = wilddog.sync().ref("scores");

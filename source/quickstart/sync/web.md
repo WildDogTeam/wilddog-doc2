@@ -47,7 +47,7 @@ var ref = wilddog.sync().ref();
 
 ## 4. 写入数据
 
-[set()](/api/sync/web/api.html#set) 方法可以写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
+[set()](/api/sync/web/api.html#set) 方法用于写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
 例如，在应用的根节点下写入评论数据
 
@@ -64,7 +64,7 @@ ref.set({
 
  <img src="/images/saveapp.png" alt="yourApp" width="400">
 
-[push()](/api/sync/web/api.html#push) 是另一个常用的写入数据的方法。
+[push()](/api/sync/web/api.html#push) 方法用于追加子节点。
 
 通过写入同样的数据，来体会与 `set()` 方法的不同 
 
@@ -77,8 +77,8 @@ ref.push({
 
  <img src="/images/pushapp.png" alt="yourApp" width="400">
 
-## 5. 读取与监听数据
-使用 [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法可以读取并监听 [节点](/guide/reference/term.html#节点) 的数据。
+## 5. 监听数据
+ [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 例如，从应用中获得评论数据
 
@@ -87,7 +87,7 @@ ref.push({
 ref.on("value", function(snapshot) {
     console.log(snapshot.val());
 });
-// 如果你只想读取一次，不监听数据变化，那么你可以使用 once()
+// 如果你只想监听一次，那么你可以使用 once()
 ref.once("value").then(function(snapshot){
     console.info(snapshot.val());
 }).catch(function(err){
@@ -95,8 +95,7 @@ ref.once("value").then(function(snapshot){
 })
 ```
 
-
-更多的数据读取方式，请参考 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。 
+更多使用方式，请参考 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。 
 
 
 

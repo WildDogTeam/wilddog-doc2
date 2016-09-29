@@ -71,4 +71,4 @@ curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 
 将来我们会提供各种编程语言的库，使 REST API 更加简便。
 
-更多的数据读取方式，请参考 [完整指南](/guide/sync/rest/guide.html) 和 [API文档](/api/sync/rest.html)。
+更多使用方式，请参考 [完整指南](/guide/sync/rest/guide.html) 和 [API文档](/api/sync/rest.html)。

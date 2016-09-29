@@ -88,9 +88,9 @@ myRef.setValue(data);
 
 <img src="/images/saveapp.png" alt="savedata" width="300" >
 
-## 6. 读取与监听数据
+## 6. 监听数据
 
-`addValueEventListener()`方法可以读取并监听 [节点](/guide/reference/term.html#节点) 的数据。
+`addValueEventListener()`方法可以监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 ```java
 myRef.addValueEventListener(new ValueEventListener() {
@@ -108,6 +108,6 @@ myRef.addValueEventListener(new ValueEventListener() {
 });
 ```
 
-`snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用 `addListenerForSingleValueEvent()` 方法替代 `addValueEventListener()` 方法。
+`snapshot` 里面的数据会一直与云端保持同步。如果你只想监听一次，那么你可以使用 `addListenerForSingleValueEvent()` 方法替代 `addValueEventListener()` 方法。
 
-更多的数据读取方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android.html)。
+更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android.html)。

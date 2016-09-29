@@ -95,7 +95,7 @@ int main(void){
 
  <img src="/images/c_quickstart.png" >
 
-## 5. 读取与监听 
+## 5. 监听数据 
 
 `wilddog_addObserver()` 方法可以监听 [节点](/guide/reference/term.html#节点) 的数据。
 
@@ -119,6 +119,6 @@ int main(){
     wilddog_destroy(&ref);
 }
 ```
-回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想读取一次，请使用 `wilddog_getValue()` 方法。
+回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 `wilddog_getValue()` 方法。
 
-更多的数据读取方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。
+更多的数据监听方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。
