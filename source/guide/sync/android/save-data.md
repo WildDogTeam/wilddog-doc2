@@ -4,7 +4,7 @@ title:  数据操作
 
 本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-操作数据包含以下五种方法
+操作数据包含以下六种方法
 
 | 方法               | 说明                                       |
 | ---------------- | ---------------------------------------- |
@@ -41,7 +41,7 @@ title:  数据操作
 ```
 
 
-设置回调方法
+设置回调方法：
 
 ```java
     ref.child("Jobs").setValue("user", new SyncReference.CompletionListener() {
@@ -94,13 +94,13 @@ postsRef.push().setValue(anotherNews);
 
   "messages": {
     "-JRHTHaIs-jNPLXO": {
-    	"full_name" : "Steve Jobs",
-   	 	"message" : "Think difference"
+        "full_name" : "Steve Jobs",
+        "message" : "Think difference"
   	},
 
     "-JRHTHaKuITFIhnj": {
-   		"full_name" : "Bill Gates",
-    	"message" : "Hello World"
+        "full_name" : "Bill Gates",
+        "message" : "Hello World"
   	}
   }
 }
@@ -115,7 +115,7 @@ postsRef.push().setValue(anotherNews);
 
 例如，更新 `Jobs` 的个人信息：
 
-```json
+```js
 //原数据如下
 {
     "Jobs": {
@@ -160,6 +160,30 @@ map.put("b/d", "updateD");
 map.put("x/z", "updateZ");
 ref.updateChildren(map);
 ```
+```
+正确示例：
+
+```js
+ref.update({
+  "b/d": "updateD",
+  "x/z": "updateZ"
+});
+```
+
+错误示例：
+
+```js
+// 错误的多路径更新写法，会覆盖原有数据
+ref.update({
+    "b": {
+        "d": "updateD"
+    },
+    "x": {
+        "z": "updateZ"
+    }
+});
+```
+
 
 ## 删除数据
 
