@@ -60,7 +60,7 @@ title:  数据操作
 
 `setPriority(priority)` 方法用于设置节点的优先级。
 
-Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/web/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
+Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/android/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
 
 例如，设置`user`节点的优先级为100：
 
