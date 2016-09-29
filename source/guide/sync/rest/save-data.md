@@ -44,7 +44,7 @@ curl -X POST -d '{
 
 ```
 
-`posts`路径下的数据将会是这样：
+`posts` 路径下的数据将会是这样：
 
 ```
 {
@@ -68,7 +68,7 @@ curl -X POST -d '{
 
 `PATCH` 请求用于更新指定子节点。
 
-例如，更新 `gracehop`的 `nickname`：
+例如，更新 `gracehop` 的  `nickname`：
 
 
 ```js
@@ -93,7 +93,7 @@ curl -X PATCH -d '{
 
 ## 删除数据
 
-`DELETE`请求用于删除指定节点。
+`DELETE` 请求用于删除指定节点。
 
 ```
 curl -X DELETE \

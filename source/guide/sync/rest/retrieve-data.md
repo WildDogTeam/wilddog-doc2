@@ -65,7 +65,7 @@ curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
 
 **orderByValue**
 
-当使用`orderBy="$value"`时，按照子节点的值进行排序。排序规则和 `orderByChild` 一样，唯一不同的是将子节点指定的 key 改为子节点的值。
+当使用 `orderBy="$value"` 时，按照子节点的值进行排序。排序规则和 `orderByChild` 一样，唯一不同的是将子节点指定的 key 改为子节点的值。
 
 
 ## 数据过滤

@@ -3,23 +3,27 @@ title:  数据操作
 ---
 本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-数据操作包含以下五种方法
+数据操作包含以下七种方法：
 
-| 方法                  | 说明                                       |
-| ------------------- | ---------------------------------------- |
-| setValue            | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
-| childByAutoId       | 向指定节点添加 [子节点](/guide/reference/term.html#节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
-| updateChildValues   | 更新指定子节点。                                 |
-| removeValue         | 删除指定节点。                                  |
-| runTransactionBlock | 并发操作时保证数据一致性。                            |
+| 方法                    | 说明                                       |
+| --------------------- | ---------------------------------------- |
+| setValue:             | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| setPriority:          | 设置节点优先级。                                 |
+| setValue:andPriority: | 向指定节点写入数据并且设置该节点优先级。                     |
+| childByAutoId         | 向指定节点添加 [子节点](/guide/reference/term.html#节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
+| updateChildValues:    | 更新指定子节点。                                 |
+| removeValue           | 删除指定节点。                                  |
+| runTransactionBlock:  | 并发操作时保证数据一致性。                            |
+
+
 
 ## 写入数据
 
-`setValue` 方法用于向指定节点写入数据。此方法会先清空指定节点，再写入数据。
+`setValue:` 方法用于向指定节点写入数据。此方法会先清空指定节点，再写入数据。
 
-`setValue` 方法可设置回调方法来获取操作的结果。
+`setValue:` 方法可设置回调方法来获取操作的结果。
 
-例如，向 `gracehop` 节点下写入 `date_of_birth ` 、`full_name ` 和 `nickname`
+例如，向 ``Jobs`` 节点下写入 `full_name ` 和 `gender`：
 
 <div class="slide">
 <div class='slide-title'>
@@ -33,15 +37,14 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wildd
 [WDGApp configureWithOptions:option];
 // 获取一个 WDGSyncReference 实例
 WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"/web/saving-data/wildblog/users"];
-NSDictionary *gracehop = @{
-                           @"date_of_birth": @"December 9, 1906",
-                           @"full_name" : @"Grace Hopper",
-                           @"nickname": @"Amazing Grace"
-                           };
+NSDictionary *jobs = @{
+                          @"full_name" : @"Steve Jobs",
+                          @"gender" : @"male"
+                      };
 
 // child 用来定位到某个节点。                           
-WDGSyncReference *usersRef = [ref childWithPath: @"gracehop"];
-[usersRef setValue: gracehop];
+WDGSyncReference *usersRef = [ref childWithPath: @"Jobs"];
+[usersRef setValue:jobs];
 ```
 </div>
 <div class="slide-content">
@@ -51,16 +54,16 @@ let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 // 获取一个 WDGSyncReference 实例
 let ref = WDGSync.sync().referenceWithPath("/web/saving-data/wildblog/users")
-var gracehop = ["date_of_birth": "December 9, 1906", "full_name": "Grace Hopper","nickname": "Amazing Grace"]
+var jobs = ["full_name": "Steve Jobs", "gender": "male"]
 
 // child 用来定位到某个节点。
-var usersRef = ref.child("gracehop")
-usersRef.setValue(gracehop)
+var usersRef = ref.child("jobs")
+usersRef.setValue(jobs)
 ```
 </div>
 </div>
 
-设置回调方法
+设置回调方法：
 
 <div class="slide">
 <div class='slide-title'>
@@ -69,12 +72,11 @@ usersRef.setValue(gracehop)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-NSDictionary *gracehop = @{
-                           @"date_of_birth": @"December 9, 1906",
-                           @"full_name" : @"Grace Hopper",
-                           @"nickname": @"Amazing Grace"
-                           };
-[[ref child: @"gracehop"] setValue:gracehop withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+NSDictionary *jobs = @{
+                          @"full_name" : @"Steve Jobs",
+                          @"gender" : @"male"
+                      };
+[[ref child: @"Jobs"] setValue:jobs withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
     if (error == nil) {
         // 数据同步到野狗云端成功完成
     }
@@ -83,15 +85,77 @@ NSDictionary *gracehop = @{
 </div>
 <div class="slide-content">
 ```swift 
-ref.child("gracehop").setValue(gracehop, withCompletionBlock: { error, ref in
+ref.child("Jobs").setValue(jobs, withCompletionBlock: { error, ref in
     if error == nil{
          // 数据同步到野狗云端成功完成
     }
 })
-
 ```
 </div>
 </div>
+
+## 设置节点优先级
+
+`setPriority:` 方法用于设置节点的优先级。
+
+Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/ios/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
+
+例如，设置 `user` 节点的优先级为100：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+
+```objectivec
+WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"user"];
+[ref setPriority:@(100) withCompletionBlock:(void (^)(NSError* error, WDGSyncReference* ref))block
+wilddog.sync().ref('user').setWithPriority(100)
+    .then(function(){
+        console.info('set priority success.')
+    })
+    .catch(function(err){
+        console.info('set priority failed', err.code, err);
+    });
+```
+
+</div>
+<div class="slide-content">
+
+```swift
+
+```
+
+</div>
+</div>
+
+更多使用，请参考 [setPriority()](/api/sync/web/api.html#setPriority)。
+
+## 写入数据并设置节点优先级
+
+`setWithPriority(value, priority)`方法用于指定节点写入数据并且设置该节点优先级。
+
+例如，写入 `jack` 的姓名并且设置优先级为100：
+
+```javascript
+var user = {
+  name: {
+    first: 'jack',
+    last: 'Lee'
+  }
+};
+wilddog.sync().ref().setWithPriority(user,100)
+    .then(function(){
+        console.info('set data success.')
+    })
+    .catch(function(err){
+        console.info('set data failed', err.code, err);
+    });
+```
+
+更多使用，请参考 [setWithPriority()](/api/sync/web/api.html#setWithPriority)。
 
 ## 追加子节点
 
