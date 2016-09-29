@@ -11,7 +11,7 @@ title:  数据操作
 | set()             | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
 | setPriority()     | 设置节点优先级。                                 |
 | setWithPriority() | 向指定节点写入数据并且设置该节点优先级。                     |
-| push()            | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
+| push()            | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 自动生成并保证唯一。 |
 | remove()          | 删除指定节点。                                  |
 | update()          | 更新指定子节点。                                 |
 | transaction()     | 并发操作时保证数据一致性。                            |
@@ -79,7 +79,7 @@ wilddog.sync().ref('user').setWithPriority(100)
 
 ## 写入数据并设置节点优先级
 
-`setWithPriority(value, priority)`方法用于指定节点写入数据并且设置该节点优先级。
+`setWithPriority(value, priority)`方法用于向指定节点写入数据并且设置该节点优先级。
 
 例如，写入 `jack` 的姓名并且设置优先级为100：
 
@@ -105,7 +105,7 @@ wilddog.sync().ref().setWithPriority(user,100)
 
 ## 追加子节点
 
-`push()` 方法用于指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
+`push()` 方法用于向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
 
 例如，追加子节点到 `messages` 节点：
 

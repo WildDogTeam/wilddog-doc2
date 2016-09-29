@@ -4,13 +4,13 @@ title:  数据操作
 
 本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-操作数据包含以下五种方法
+操作数据包含以下六种方法
 
 | 方法               | 说明                                       |
 | ---------------- | ---------------------------------------- |
 | setValue()       | 向任意 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
-| setPriority()     | 设置节点优先级。                                 |
-| push()           | 向任意节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
+| setPriority()    | 设置节点优先级。                                 |
+| push()           | 向任意节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 自动生成并保证唯一。 |
 | removeValue()    | 删除指定节点。                                  |
 | updateChildren() | 更新指定子节点。                                 |
 | runTransaction() | 并发操作时保证数据一致性。                            |
@@ -41,7 +41,7 @@ title:  数据操作
 ```
 
 
-设置回调方法
+设置回调方法：
 
 ```java
     ref.child("Jobs").setValue("user", new SyncReference.CompletionListener() {
@@ -60,7 +60,7 @@ title:  数据操作
 
 `setPriority(priority)` 方法用于设置节点的优先级。
 
-Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/web/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
+Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/android/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
 
 例如，设置`user`节点的优先级为100：
 
@@ -73,7 +73,7 @@ ref.child("user").setPriority(100);
 
 ## 追加子节点
 
-`push()` 方法向任意节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
+`push()` 方法向任意节点添加子节点。新增子节点的 key 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
 
 例如，追加子节点到 `posts` 节点
 
@@ -94,13 +94,13 @@ postsRef.push().setValue(anotherNews);
 
   "messages": {
     "-JRHTHaIs-jNPLXO": {
-    	"full_name" : "Steve Jobs",
-   	 	"message" : "Think difference"
+        "full_name" : "Steve Jobs",
+        "message" : "Think difference"
   	},
 
     "-JRHTHaKuITFIhnj": {
-   		"full_name" : "Bill Gates",
-    	"message" : "Hello World"
+        "full_name" : "Bill Gates",
+        "message" : "Hello World"
   	}
   }
 }
@@ -115,7 +115,7 @@ postsRef.push().setValue(anotherNews);
 
 例如，更新 `Jobs` 的个人信息：
 
-```json
+```js
 //原数据如下
 {
     "Jobs": {
@@ -160,6 +160,30 @@ map.put("b/d", "updateD");
 map.put("x/z", "updateZ");
 ref.updateChildren(map);
 ```
+```
+正确示例：
+
+```js
+ref.update({
+  "b/d": "updateD",
+  "x/z": "updateZ"
+});
+```
+
+错误示例：
+
+```js
+// 错误的多路径更新写法，会覆盖原有数据
+ref.update({
+    "b": {
+        "d": "updateD"
+    },
+    "x": {
+        "z": "updateZ"
+    }
+});
+```
+
 
 ## 删除数据
 

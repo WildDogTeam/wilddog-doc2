@@ -48,9 +48,9 @@ curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23
 }
 ```
 
-## 3. 读取数据
+## 3. 监听数据
 
-假如我们想读取/rest/quickstart/users下的数据，可以使用｀GET｀请求：
+假如我们想读取 /rest/quickstart/users 下的数据，可以使用｀GET｀请求：
 
 ```javascript
 curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
@@ -70,4 +70,4 @@ curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 
 将来我们会提供各种编程语言的库，使 REST API 更加简便。
 
-更多使用方式，请参考 [完整指南](/guide/sync/rest/guide.html) 和 [API文档](/api/sync/rest.html)。
+Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/rest/guide.html) 和 [API文档](/api/sync/rest.html)。
