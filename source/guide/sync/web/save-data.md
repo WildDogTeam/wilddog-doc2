@@ -11,7 +11,7 @@ title:  数据操作
 | set()             | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
 | setPriority()     | 设置节点优先级。                                 |
 | setWithPriority() | 向指定节点写入数据并且设置该节点优先级。                     |
-| push()            | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
+| push()            | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 自动生成并保证唯一。 |
 | remove()          | 删除指定节点。                                  |
 | update()          | 更新指定子节点。                                 |
 | transaction()     | 并发操作时保证数据一致性。                            |
