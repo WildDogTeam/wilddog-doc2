@@ -18,7 +18,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用时任选以下两种方式之一
+Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用时任选以下两种方式之一：
 
 * **安装完整 Wilddog SDK (推荐，包含 Sync 和 Auth)**
 
@@ -49,7 +49,7 @@ var ref = wilddog.sync().ref();
 
 [set()](/api/sync/web/api.html#set) 方法用于写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
-例如，在应用的根节点下写入评论数据
+例如，在应用的根节点下写入评论数据：
 
 ```javascript
 ref.set({
@@ -60,13 +60,13 @@ ref.set({
 });
 ```
 
-写入的数据如下图
+写入的数据如下图：
 
  <img src="/images/saveapp.png" alt="yourApp" width="400">
 
 [push()](/api/sync/web/api.html#push) 方法用于追加子节点。
 
-通过写入同样的数据，来体会与 `set()` 方法的不同 
+通过写入同样的数据，来体会与 `set()` 方法的不同：
 
 ```js
 ref.push({
@@ -80,7 +80,7 @@ ref.push({
 ## 5. 监听数据
  [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
-例如，从应用中获得评论数据
+例如，从应用中获得评论数据：
 
 ```javascript
 // snapshot 里面的数据会一直和云端保持同步

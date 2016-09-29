@@ -20,7 +20,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以任选其一
+SDK 的安装方式有两种，你可以任选其一：
 
 * **使用 Maven**
 
@@ -28,11 +28,11 @@ SDK 的安装方式有两种，你可以任选其一
 
 * **使用 Gradle**
 
-在build.gradle中添加
+在build.gradle中添加：
 
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:<span class="android-sync-version"></span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
-如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions
+如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions：
 
 ```java
 android {
@@ -46,7 +46,7 @@ android {
 
 ## 3. 配置 Android 权限
 
-在 AndroidMainfest.xml 文件中添加
+在 AndroidMainfest.xml 文件中添加：
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
@@ -63,6 +63,7 @@ android {
 ```
 
 ## 4. 创建 Wilddog Sync 实例
+
 ```java
 // 初始化
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
@@ -72,9 +73,9 @@ SyncReference ref = WilddogSync.getInstance().getReference();
 
 ## 5. 写入数据
 
-`setValue()`方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html) 。
+`setValue()`方法用于写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html) 。
 
-例如，在应用的根节点下写入天气数据 
+例如，在应用的根节点下写入天气数据：
 
 ```java
 SyncReference myRef = WilddogSync.getInstance().getReference("weather")
@@ -84,13 +85,13 @@ data.put("shanghai","sunny");
 myRef.setValue(data);
 ```
 
-写入的数据如下图
+写入的数据如下图：
 
 <img src="/images/saveapp.png" alt="savedata" width="300" >
 
 ## 6. 监听数据
 
-`addValueEventListener()`方法可以监听 [节点](/guide/reference/term.html#节点) 的数据。
+`addValueEventListener()` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 ```java
 myRef.addValueEventListener(new ValueEventListener() {

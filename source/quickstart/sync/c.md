@@ -20,7 +20,7 @@ title: 快速入门
 
 从该网页下载 SDK [点此下载](https://www.wilddog.com/download/)
 
-Wilddog C/嵌入式 SDK 分为 C/RTOS、OpenWRT、Arduino 三种，具体支持的平台如下
+Wilddog C/嵌入式 SDK 分为 C/RTOS、OpenWRT、Arduino 三种，具体支持的平台如下：
 
 名称 | 支持的平台
 ---- | ----
@@ -57,8 +57,9 @@ Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
 
 ## 4. 写入数据
 
-使用 `wilddog_setValue()` 方法可向云端写入数据。
-例如，设置 Jack 为 beauty 描述
+`wilddog_setValue()` 方法用于向云端写入数据。
+
+例如，设置 Jack 为 beauty 描述：
 ```c
 #include "wilddog.h"
 void callback(void* arg, Wilddog_Return_T err){
@@ -91,13 +92,14 @@ int main(void){
 }
 ```
 当收到云端返回或者接收超时时，回调函数 callback 会被触发。
-写入的数据如下图
+
+写入的数据如下图：
 
  <img src="/images/c_quickstart.png" >
 
 ## 5. 监听数据 
 
-`wilddog_addObserver()` 方法可以监听 [节点](/guide/reference/term.html#节点) 的数据。
+`wilddog_addObserver()` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 ```c
 #include "wilddog.h"
@@ -121,4 +123,4 @@ int main(){
 ```
 回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 `wilddog_getValue()` 方法。
 
-更多的数据监听方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。
+更多使用方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。
