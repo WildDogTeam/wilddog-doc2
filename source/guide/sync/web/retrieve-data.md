@@ -19,28 +19,6 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 | value          | 初始化监听或指定节点及子节点数据发生变化。 |
 
 
-- `child_added` 事件在初次监听或有新增子节点时触发。
-
-![](/images/child_add.jpg)
-
-- `child_changed` 子节点发生更改时触发。它主要包含以下三种情况。
-
-![](/images/child_change_1.jpg)
-
-![](/images/child_change_2.jpg)
-
-![](/images/change4.jpg)
-
-- `child_removed`事件在子节点被删除时触发。 
-
-![](/images/child_removed.jpg)
-
-- `child_moved`事件子节点排序发生变化时触发 。默认的数据顺序按 `priority` 属性排列，如果没有指定 `priority` ，子节点按照 `key` 排序。要改变数据的排列规则，可以调用 `orderBy*()` 方法。
-
-![](/images/child_moved.jpg)
-
-- `value` 事件在指定节点下任何数据变化时触发。
-
 > **注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
 
@@ -52,7 +30,7 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 `on()` 方法通过与不同事件配合来监听指定节点的数据。  
 
-例如，通过 `on()` 方法配合 Value 事件查询 gracehop 节点下的数据
+例如，通过 `on()` 方法配合 Value 事件查询 Jobs 节点下的数据
 
 ```js
 // 初始化
@@ -61,21 +39,20 @@ var config = {
   syncURL: "https://docs-examples.wilddogio.com"
 };
 wilddog.initializeApp(config);
-var ref = wilddog.sync().ref("/web/saving-data/wildblog/users/gracehop");
+var ref = wilddog.sync().ref("/web/saving-data/wildblog/users/Jobs");
 
 ref.on('value', function(snapshot, error) {
   if (error == null) {
     var newPost = snapshot.val();
-    console.log("date_of_birth: " + newPost.date_of_birth);
     console.log("full_name: " + newPost.full_name);
-    console.log("nickname: " + newPost.nickname);
+    console.log("gender: " + newPost.gender);
   } else {
     console.log(error);
   }
 });
 ```
 
-之后 gracehop 节点下的数据发生任何变化，都会触发回调方法。
+之后 Jobs 节点下的数据发生任何变化，都会触发回调方法。
 
 
 
@@ -143,19 +120,19 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 
 `orderByChild()`方法，按子节点的指定值（value）对结果排序。
 
-例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照每个恐龙的身高（"height" 节点的值）进行排序
+例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中按照每个学生的身高（"height" 节点的值）进行排序
 
 ```js
 // 初始化
 var config = {
-  authDomain: "dinosaur-facts.wilddog.com",
-  syncURL: "https://dinosaur-facts.wilddogio.com"
+  authDomain: "class-demo.wilddog.com",
+  syncURL: "https://class-demo.wilddogio.com"
 };
 wilddog.initializeApp(config);
 // 使用 orderByChild 进行排序
-var ref = wilddog.sync().ref("dinosaurs");
+var ref = wilddog.sync().ref("students");
 ref.orderByChild("height").on("child_added", function(snapshot) {
-  console.log(snapshot.key() + " was " + snapshot.val().height + " meters tall");
+  console.log(snapshot.key() + " was " + snapshot.val().height + " centimeters tall");
 });
 ```
 
@@ -163,10 +140,10 @@ ref.orderByChild("height").on("child_added", function(snapshot) {
 
 `orderByKey()`方法，按节点的键（key）对结果排序。 
 
-例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中按照恐龙的名称进行排序
+例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中按照学生的名称进行排序
 
 ```js
-var ref = wilddog.sync().ref("dinosaurs");
+var ref = wilddog.sync().ref("students");
 ref.orderByKey().on("child_added", function(snapshot) {
   console.log(snapshot.key());
 });
@@ -176,13 +153,13 @@ ref.orderByKey().on("child_added", function(snapshot) {
 
 `orderByValue()`方法，按节点的值（value）对结果排序。   
 
-例如，在 [得分示例应用](https://dinosaur-facts.wilddogio.com/scores) 中按照得分数据进行排序
+例如，在 [得分示例应用](https://class-demo.wilddogio.com/scores) 中按照得分数据进行排序
 
 ```js
 var ref = wilddog.sync().ref("scores");
 ref.orderByValue().on("value", function(snapshot) {
   snapshot.forEach(function(data) {
-    console.log("The " + data.key() + " dinosaur's score is " + data.val());
+    console.log("The " + data.key() + " student's score is " + data.val());
   });
 });
 ```
@@ -194,10 +171,9 @@ ref.orderByValue().on("value", function(snapshot) {
 `orderByPriority()`方法，按节点的优先级（priority）对结果排序。
 
 
-
 >**注意：**
-- 每次只能使用一种排序方法。对同一查询调用多个排序方法会引发错误。
-- 排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
+- 每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。
+- 排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
 
 
 
@@ -223,18 +199,18 @@ ref.orderByValue().on("value", function(snapshot) {
 
  `limitToLast()`方法获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。 
 
-例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中，如果你只想知道最高的是哪三条恐龙
+例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道最高的是哪三位同学
 
 ```js
 var config = {
-  authDomain: "dinosaur-facts.wilddog.com",
-  syncURL: "https://dinosaur-facts.wilddogio.com"
+  authDomain: "class-demo.wilddog.com",
+  syncURL: "https://class-demo.wilddogio.com"
 };
 wilddog.initializeApp(config);
 
-var ref = wilddog.sync().ref("dinosaurs");
+var ref = wilddog.sync().ref("students");
 ref.orderByChild("height").limitToLast(3).on("child_added", function(snapshot) {
-  console.log(snapshot.key() + " was " + snapshot.val().height + " meters tall");
+  console.log(snapshot.key() + " was " + snapshot.val().height + " centimeters tall ");
   
 });
 ```
@@ -245,7 +221,7 @@ ref.orderByChild("height").limitToLast(3).on("child_added", function(snapshot) {
 
 `startAt()`方法、`endAt()`方法 和 `equalTo()` 方法为查询选择任意起点、终点或等量点。
 
-例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com) 中，如果你只想知道哪些恐龙的得分超过 60 
+例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道哪些学生的考分超过 60 
 
 ```js
 var ref = wilddog.sync().ref("scores");

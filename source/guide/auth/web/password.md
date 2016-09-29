@@ -8,7 +8,7 @@ title:  邮箱登录
 
 
 1. 在 Wilddog 控制面板中创建一个应用.
-2. 在野狗应用控制面板**身份认证—登陆方式**中打开邮箱登录方式:
+2. 在野狗应用控制面板**身份认证—登录方式**中打开邮箱登录方式:
 
 
 
@@ -49,7 +49,7 @@ wilddog.auth().createUserWithEmailAndPassword("wangxiaoliang@wilddog.com", "1234
 
 ## 登录用户
 
-登陆用户与创建用户步骤类似。
+登录用户与创建用户步骤类似。
 
 1.安装 Wilddog Auth SDK
 
@@ -81,7 +81,7 @@ wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(fu
 
 
 
-## 退出登陆
+## 退出登录
 
  [signOut](/guide/auth/web/api.html#signout) 可以退出登录用户
 

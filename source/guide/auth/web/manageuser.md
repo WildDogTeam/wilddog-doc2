@@ -8,7 +8,7 @@ title: 用户管理
 
 创建用户的方式有三种
 
-- [邮箱登陆](/guide/auth/web/password.html)
+- [邮箱登录](/guide/auth/web/password.html)
 
 - 第三方认证授权
 
@@ -147,7 +147,7 @@ wilddog.auth().currentUser.updatePassword("12345678").then(function() {
 wilddog.auth().sendPasswordResetEmail(email);
 ```
 
-在 Wilddog 控制面板的**身份认证—登陆方式—邮箱登陆**中可以设置自定义模板。
+在 Wilddog 控制面板的**身份认证—登录方式—邮箱登录**中可以设置自定义模板。
 
 
 ## 删除用户
