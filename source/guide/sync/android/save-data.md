@@ -9,7 +9,8 @@ title:  数据操作
 | 方法               | 说明                                       |
 | ---------------- | ---------------------------------------- |
 | setValue()       | 向任意 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
-| setPriority()    | 设置节点优先级。                                 |
+| setPriority()    | 设置节点优先级。     |                           
+| setValue(value,priority)  |向指定节点写入数据并且设置该节点优先级。     |
 | push()           | 向任意节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 自动生成并保证唯一。 |
 | removeValue()    | 删除指定节点。                                  |
 | updateChildren() | 更新指定子节点。                                 |
@@ -70,6 +71,24 @@ ref.child("user").setPriority(100);
 
 更多使用，请参考 [setPriority()](/api/sync/android/api.html#setPriority)。
 
+## 写入数据并设置节点优先级
+
+`setValue(value,priority)` 方法用于向指定节点写入数据并且设置该节点优先级。
+
+例如，写入 jack 的姓名并且设置优先级为100：
+
+```java
+WilddogSync.getInstance().getReference("full_name").setValue("Jack",100,new SyncReference.CompletionListener() {
+    @Override
+    public void onComplete(SyncError error, SyncReference ref) {
+        if (error != null) {
+            Log.d("error", error.toString());
+        } else {
+            Log.d("success", "setValue success");
+        }
+    }
+});
+```
 
 ## 追加子节点
 

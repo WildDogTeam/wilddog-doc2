@@ -152,9 +152,8 @@ ref.setPriority(100) { (error, ref) in
 <div class="slide-content slide-content-show">
 
 ```objectivec
-WDGSyncReference *ref = [[WDGSync sync] reference];
-[ref setValue:@{@"first" : @"jack",
-                @"last"  : @"Lee"}
+WDGSyncReference *ref = [[WDGSync sync] reference:@"full_name"];
+[ref setValue:@"jack"
   andPriority:@100
 withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
      if (!error) {
@@ -166,8 +165,8 @@ withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref
 <div class="slide-content">
 
 ```swift
-let ref = WDGSync.sync().reference()
-ref.setValue(["first" : "jack", "last" : "Lee"], andPriority: 100) { (error, ref) in
+let ref = WDGSync.sync().reference("full_name")
+ref.setValue("jack", andPriority: 100) { (error, ref) in
     if error == nil {
          // set data success.
     }

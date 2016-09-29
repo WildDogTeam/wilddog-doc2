@@ -84,13 +84,8 @@ wilddog.sync().ref('user').setWithPriority(100)
 例如，写入 `jack` 的姓名并且设置优先级为100：
 
 ```javascript
-var user = {
-  name: {
-    first: 'jack',
-    last: 'Lee'
-  }
-};
-wilddog.sync().ref().setWithPriority(user,100)
+
+wilddog.sync().ref('full_name').setWithPriority('jack',100)
     .then(function(){
         console.info('set data success.')
     })
