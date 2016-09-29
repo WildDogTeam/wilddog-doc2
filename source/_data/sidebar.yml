@@ -26,13 +26,13 @@ guide:
       
     Android :
       数据操作: /guide/sync/android/save-data.html
-      数据查询: /guide/sync/android/retrieve-data.html
+      事件监听: /guide/sync/android/retrieve-data.html
       离线功能: /guide/sync/android/offline-capabilities.html
       高级特性: /guide/sync/android/advance-feature.html
       
     iOS:
       数据操作: /guide/sync/ios/save-data.html
-      数据查询: /guide/sync/ios/retrieve-data.html
+      事件监听: /guide/sync/ios/retrieve-data.html
       离线功能: /guide/sync/ios/offline-capabilities.html
       高级特性: /guide/sync/ios/advance-feature.html
       

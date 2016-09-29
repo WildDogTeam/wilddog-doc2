@@ -217,7 +217,7 @@ messageRef.childByAuthId().setValue(["full_name" : "Bill Gates","message" : "Hel
 </div>
 </div>
 
-产生的数据如下
+产生的数据如下：
 
 ```json
 {
@@ -349,7 +349,6 @@ newPostRef.updateChildValues(["b":["d":"updateD"],"x":["z":"updateZ"]])
 </div>
 </div>
 
-该操作相当于 `setValue` 方法，会覆盖原有数据。
 
 ## 删除数据
 
