@@ -62,7 +62,7 @@ connectedRef.observeEventType(.Value, withBlock: {snapshot in
 
 `onDisconnectSetValue` 方法用于在云端与客户端断开连接后执行数据操作。
 
-例如，当用户的网络连接中断时，使用 `onDisconnectSetValue` 方法，记录这个用户已经离线
+例如，当用户的网络连接中断时，使用 `onDisconnectSetValue` 方法，记录这个用户已经离线：
 
 <div class="slide">
 <div class='slide-title'>
@@ -87,7 +87,7 @@ presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
 </div>
 </div>
 
-通过回调方法判断离线事件是否被云端成功记录
+通过回调方法判断离线事件是否被云端成功记录：
 
 <div class="slide">
 <div class='slide-title'>
@@ -115,7 +115,7 @@ presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
 </div>
 </div>
 
-`cancelDisconnectOperations` 方法用于取消离线事件
+`cancelDisconnectOperations` 方法用于取消离线事件：
 
 <div class="slide">
 <div class='slide-title'>
@@ -170,7 +170,7 @@ ref.goOnline()
 
 数据本地持久化是针对移动网络稳定性差而开发的功能特性。默认情况下，Wilddog Sync 的数据存储在内存中，一旦重启，内存数据将被清除。开启数据本地持久化功能，可以使设备重启后无需再同步云端。有助于节省流量和提升重启后的访问速度。
 
-数据持久化包含以下三个特性
+数据持久化包含以下三个特性：
 
 | 特性     | 说明                                       |
 | ------ | ---------------------------------------- |
@@ -180,7 +180,7 @@ ref.goOnline()
 
 
 
-使用  `setPersistenceEnabled` 方法开启数据持久化
+使用  `setPersistenceEnabled` 方法开启数据持久化：
 
 <div class="slide">
 <div class='slide-title'>
@@ -207,7 +207,7 @@ WDGSync.sync().persistenceEnabled = true
 
 开启数据持久化，Wilddog Sync 会将查询到的数据存储到设备。在无网环境时，应用仍然可以查询之前存储的数据。
 
-例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙
+例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙：
 
 <div class="slide">
 <div class='slide-title'>
@@ -233,7 +233,7 @@ scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdd
 </div>
 </div>
 
-然后网络断开，重新启动应用去查询得分最高的两条恐龙
+然后网络断开，重新启动应用去查询得分最高的两条恐龙：
 
 <div class="slide">
 <div class='slide-title'>
@@ -270,7 +270,7 @@ scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdd
 
 Wilddog Sync 可以在查询数据前同步指定节点下的数据，并将数据存储到设备中，以此提升访问速度。
 
-例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/scores) 中提前同步 `scores` 节点下的数据
+例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/scores) 中提前同步 `scores` 节点下的数据：
 
 <div class="slide">
 <div class='slide-title'>
