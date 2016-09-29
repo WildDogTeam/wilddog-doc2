@@ -73,7 +73,7 @@ SyncReference ref = WilddogSync.getInstance().getReference();
 
 ## 5. 写入数据
 
-`setValue()`方法用于写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html) 。
+`setValue()` 方法用于写入数据。Wilddog Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html) 。
 
 例如，在应用的根节点下写入天气数据：
 
@@ -111,4 +111,4 @@ myRef.addValueEventListener(new ValueEventListener() {
 
 `snapshot` 里面的数据会一直与云端保持同步。如果你只想监听一次，那么你可以使用 `addListenerForSingleValueEvent()` 方法替代 `addValueEventListener()` 方法。
 
-更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android.html)。
+Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android.html)。

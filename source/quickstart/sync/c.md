@@ -123,4 +123,4 @@ int main(){
 ```
 回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 `wilddog_getValue()` 方法。
 
-更多使用方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。
+Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。

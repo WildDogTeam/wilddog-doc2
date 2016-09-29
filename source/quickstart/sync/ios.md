@@ -24,7 +24,7 @@ SDK 的安装方式有两种，你可以任选其一：
 
 要将 WilddogSync SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问  [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 
-打开工程目录，新建一个 Podfile 文件：
+打开工程目录，新建一个 Podfile 文件:
 
 	$ cd your-project-directory
 	$ pod init
@@ -100,7 +100,7 @@ let myRootRef = WDGSync.sync().reference()
 
 ## 4. 写入数据
 
-`setValue` 方法用于写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
+`setValue` 方法用于写入数据。Wilddog Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
 例如，在应用的根节点下写入天气数据：
 
@@ -162,6 +162,6 @@ myRootRef.observeEventType(.Value, withBlock: {
 
 `snapshot` 里面的数据会一直与云端保持同步。如果你只监听一次，那么你可以使用`observeSingleEventOfType`方法替代`observeEventType`方法。
 
-更多使用方式，请参考 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
+Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
 
 

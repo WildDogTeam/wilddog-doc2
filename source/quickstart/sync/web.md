@@ -84,7 +84,7 @@ ref.once("value").then(function(snapshot){
 })
 ```
 
-更多使用方式，请参考 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。 
+Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。 
 
 
 
