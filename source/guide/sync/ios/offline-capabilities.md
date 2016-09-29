@@ -1,14 +1,13 @@
 
 title:  离线功能
 ---
-本篇文档介绍离线功能的相关特性和具体实现。
-
-离线功能让应用在无网环境下仍可以操作数据。它包括数据持久化、离线事件、监控连接状态等特性。
+本篇文档介绍 Wilddog Sync 的高级特性，用于实现更丰富的场景需求。
 
 ## 监听连接状态
 
-Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这个路径，客户端可以监测是否连接到云端。
+`/.info/connected` 是 Wilddog Sync 提供的一个保留路径，用于存储客户端与云端的连接状态。
 
+例如，监测客户端是否连接到云端：
 <div class="slide">
 <div class='slide-title'>
   <span class="slide-tab tab-current">Objective-C</span>
@@ -17,7 +16,7 @@ Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与
 <div class="slide-content slide-content-show">
 ```objectivec
 //初始化 
-WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://samplechat.wilddogio.com"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 
 //创建一个 WDGSyncReference 实例
@@ -35,7 +34,7 @@ WDGSyncReference *connectedRef = [[WDGSync sync] referenceWithPath:@".info/conne
 <div class="slide-content">
 ```swift
 //初始化 
-let options = WDGOptions.init(syncURL: "https://samplechat.wilddogio.com")
+let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 
 //创建一个 WDGSyncReference 实例
@@ -53,13 +52,15 @@ connectedRef.observeEventType(.Value, withBlock: {snapshot in
 </div>
 </div>
 
->**注意：** `/.info/connected` 的值是 BOOL 类型。
+`/.info/connected` 的值是 boolean 类型。
 
 ## 离线事件
 
 离线事件是云端与客户端断开连接时自动触发的事件。
 
 断开连接包括客户端主动断开连接，或者意外的网络中断。触发事件即执行特定的数据操作，它支持离线写入，更新和删除数据方法。
+
+`onDisconnectSetValue` 方法用于在云端与客户端断开连接后执行数据操作。
 
 例如，当用户的网络连接中断时，使用 `onDisconnectSetValue` 方法，记录这个用户已经离线
 
@@ -141,7 +142,7 @@ presenceRef.cancelDisconnectOperations()
 更多离线事件的方法，请参考 [API 文档](/api/sync/ios/api.html#–-onDisconnectSetValue)。
 
 ## 手动建立或断开连接
-Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline`方法、`goOffline`方法，如下
+`goOnline` 和 `goOffline` 方法用于手动建立连接和断开连接。
 
 <div class="slide">
 <div class='slide-title'>

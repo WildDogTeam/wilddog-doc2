@@ -76,7 +76,7 @@ NSDictionary *jobs = @{
                           @"full_name" : @"Steve Jobs",
                           @"gender" : @"male"
                       };
-[[ref child: @"Jobs"] setValue:jobs withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+[[ref child:@"Jobs"] setValue:jobs withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
     if (error == nil) {
         // 数据同步到野狗云端成功完成
     }
@@ -111,57 +111,80 @@ Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点
 
 ```objectivec
 WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"user"];
-[ref setPriority:@(100) withCompletionBlock:(void (^)(NSError* error, WDGSyncReference* ref))block
-wilddog.sync().ref('user').setWithPriority(100)
-    .then(function(){
-        console.info('set priority success.')
-    })
-    .catch(function(err){
-        console.info('set priority failed', err.code, err);
-    });
+[ref setPriority:@(100) withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+    if (error) {
+        NSLog(@"set priority failed'");
+        return;
+    }
+    NSLog(@"set priority success.");
+ }];
 ```
 
 </div>
 <div class="slide-content">
 
 ```swift
+let ref = WDGSync.sync().referenceWithPath("user")
+ref.setPriority(100) { (error, ref) in
+            if error == nil {
+                // set priority success.
+            }
+        }
 
 ```
 
 </div>
 </div>
 
-更多使用，请参考 [setPriority()](/api/sync/web/api.html#setPriority)。
+更多使用，请参考 [setPriority()](/api/sync/ios/api.html#setPriority)。
 
 ## 写入数据并设置节点优先级
 
-`setWithPriority(value, priority)`方法用于指定节点写入数据并且设置该节点优先级。
+`setWithPriority(value, priority)` 方法用于指定节点写入数据并且设置该节点优先级。
 
 例如，写入 `jack` 的姓名并且设置优先级为100：
 
-```javascript
-var user = {
-  name: {
-    first: 'jack',
-    last: 'Lee'
-  }
-};
-wilddog.sync().ref().setWithPriority(user,100)
-    .then(function(){
-        console.info('set data success.')
-    })
-    .catch(function(err){
-        console.info('set data failed', err.code, err);
-    });
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+
+```objectivec
+WDGSyncReference *ref = [[WDGSync sync] reference];
+[ref setValue:@{@"first" : @"jack",
+                @"last"  : @"Lee"}
+  andPriority:@100
+withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+     if (!error) {
+         // set data success.
+     }
+}];```
+
+</div>
+<div class="slide-content">
+
+```swift
+let ref = WDGSync.sync().reference()
+ref.setValue(["first" : "jack", "last" : "Lee"], andPriority: 100) { (error, ref) in
+    if error == nil {
+         // set data success.
+    }
+}
+
 ```
 
-更多使用，请参考 [setWithPriority()](/api/sync/web/api.html#setWithPriority)。
+</div>
+</div>
+
+更多使用，请参考 [setWithPriority()](/api/sync/ios/api.html#setWithPriority)。
 
 ## 追加子节点
 
 `childByAutoId` 方法向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
 
-例如，追加子节点到 `posts` 节点
+例如，追加子节点到 `messages` 节点
 
 <div class="slide">
 <div class='slide-title'>
@@ -170,33 +193,26 @@ wilddog.sync().ref().setWithPriority(user,100)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-WDGSyncReference *postRef = [ref child: @"posts"];
-NSDictionary *post1 = @{
-    @"author": @"gracehop",
-    @"title": @"Announcing COBOL, a New Programming Language"
+WDGSyncReference *messageRef = [ref child: @"messages"];
+NSDictionary *message1 = @{
+    @"full_name": @"Steve Jobs",
+    @"message": @"Think difference"
 };
-WDGSyncReference *post1Ref = [postRef childByAutoId];
-[post1Ref setValue: post1];
+[[messageRef childByAutoId] setValue:message1];
 
-NSDictionary *post2 = @{
-    @"author": @"alanisawesome",
-    @"title": @"The Turing Machine"
+NSDictionary *message2 = @{
+    @"full_name": @"Bill Gates",
+    @"message": @"Hello World"
 };
-WDGSyncReference *post2Ref = [postRef childByAutoId];
-[post2Ref setValue: post2];
+[[messageRef childByAutoId] setValue:message2];
 
 ```
 </div>
 <div class="slide-content">
 ```swift
-let postRef = ref.child("posts")
-let post1 = ["author": "gracehop", "title": "Announcing COBOL, a New Programming Language"]
-let post1Ref = postRef.childByAutoId()
-post1Ref.setValue(post1)
-
-let post2 = ["author": "alanisawesome", "title": "The Turing Machine"]
-let post2Ref = postRef.childByAutoId()
-post2Ref.setValue(post2)
+let messageRef = ref.child("messages")
+messageRef.childByAuthId().setValue(["full_name" : "Steve Jobs","message" : "Think difference"])
+messageRef.childByAuthId().setValue(["full_name" : "Bill Gates","message" : "Hello World"])
 ```
 </div>
 </div>
@@ -205,14 +221,14 @@ post2Ref.setValue(post2)
 
 ```json
 {
-  "posts": {
+  "messages": {
     "-JRHTHaIs-jNPLXOQivY": {
-      "author": "gracehop",
-      "title": "Announcing COBOL, a New Programming Language"
+      "full_name": "Steve Jobs",
+      "message": "Think difference"
      },
     "-JRHTHaKuITFIhnj02kE": {
-      "author": "alanisawesome",
-      "title": "The Turing Machine"
+      "full_name": "Bill Gates",
+      "message": "Hello World"
     }
   }
 }
@@ -229,15 +245,14 @@ post2Ref.setValue(post2)
 
 
 
-
+例如，更新 Jobs 的个人信息：
 
 ```json
 //原数据如下
 {
-    "gracehop": {
-        "nickname": "Nice Grace",
-        "date_of_birth": "December 9, 1906",
-        "full_name ": "Grace Lee"
+    "Jobs": {
+        "full_name": "Steve Jobs",
+        "gender": "male"
     }
 }
 ```
@@ -249,22 +264,22 @@ post2Ref.setValue(post2)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-WDGSyncReference *hopperRef = [usersRef child: @"gracehop"];
+WDGSyncReference *jobsRef = [usersRef child: @"Jobs"];
  
-NSDictionary *nickname = @{
-    @"nickname": @"Amazing Grace",
+NSDictionary *fullname = @{
+    @"full_name": @"Tim Cook",
 };
-//只更新 gracehop 的 nickname
-[hopperRef updateChildValues: nickname];
+//只更新 jobs 的 full_name
+[jobsRef updateChildValues:fullname];
 ```
 </div>
 <div class="slide-content">
 ```swift
 
-var hopperRef = usersRef.child("gracehop")
-var nickname = ["nickname": "Amazing Grace"]
-//只更新 gracehop 的 nickname
-hopperRef.updateChildValues(nickname)
+var jobsRef = usersRef.child("jobs")
+var fullname = ["full_name": "Tim Cook"]
+//只更新 jobs 的 full_name
+jobsRef.updateChildValues(fullname)
 
 ```
 </div>
@@ -272,9 +287,9 @@ hopperRef.updateChildValues(nickname)
 
 
 
-多路径更新
-
-```js
+**多路径更新**
+例如，同时更新 b 节点下的 d 和 x 节点下的 z：
+```json
 //原数据如下
 {
     "a": {
@@ -289,7 +304,7 @@ hopperRef.updateChildValues(nickname)
     }
 }
 ```
-希望同时更新 b 节点下的 d 和 x 节点下的 z。注意标识路径时，要用 `b/d`, 和 `x/z` 
+正确示例：
 
 <div class="slide">
 <div class='slide-title'>
@@ -311,7 +326,7 @@ newPostRef.updateChildValues(["b/d":"updateD","x/z":"updateZ"])
 </div>
 </div>
 
-以下做法将会覆盖原有数据，为错误示例
+错误示例：
 
 <div class="slide">
 <div class='slide-title'>
@@ -373,8 +388,7 @@ messagesRef.removeValue()
 
 `runTransactionBlock` 方法用于并发操作时保证数据一致性。
 
-例如，使用 `runTransactionBlock` 方法实现多人点赞功能，可以避免多个客户端同时更新时，导致的最终数据不一致。
-
+例如，在实现多人点赞功能时，多人同时写入评分会产生覆盖，导致最终结果不准确。使用 transaction()方法可以避免这种情况：
 
 <div class="slide">
 <div class='slide-title'>
