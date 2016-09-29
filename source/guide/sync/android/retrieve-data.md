@@ -12,11 +12,11 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 | 事件类型             | 说明                    |
 | ---------------- | --------------------- |
-| onDataChange()   | 初始化监听或向指定节点及子节点数据发生变化。|
 | onChildAdded()   | 初始化监听或有新增子节点。|
 | onChildChanged() | 子节点数据发生更改。|
 | onChildRemoved() | 子节点被删除。|
 | onChildMoved()   | 子节点排序发生变化。|
+| onDataChange()   | 初始化监听或向指定节点及子节点数据发生变化。|
 
 ## 监听事件
 
@@ -94,77 +94,6 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
 `removeEventListener()`方法用于移除一个监听事件，移除监听之后，回调方法将不再被触发。
 
 参数为移除的事件类型和回调方法：
-
-```java
-// 获取 SyncReference 实例
-SyncReference ref = WilddogSync.getInstance().getReference("web/saving-data/wildblog/posts");
-// 移除监听
-ref.removeEventListener(listener);
-```
-
->**注意：**在父节点上调用 `removeEventListener()` 时不会移除在其子节点上添加的监听。
-
-例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过设置 Child 事件来监听博客的状态变化
-
-```java
-// 获取 SyncReference 实例
-SyncReference ref = WilddogSync.getInstance().getReference("web/saving-data/wildblog/posts");
-// 设置监听
-ChildEventListener listener = ref.addChildEventListener(new ChildEventListener(){    
-    public void onChildAdded(DataSnapshot snapshot, String ref) {  
-        String author = (String) snapshot.child("author").getValue();
-        String title = (String) snapshot.child("title").getValue();
-        System.out.println(author + " 发布了一篇名为《" + title + "》的博客");
-    }
-
-    public void onChildChanged(DataSnapshot snapshot, String ref) {
-        String author = (String) snapshot.child("author").getValue();
-        String title = (String) snapshot.child("title").getValue();
-        System.out.println(author + " 更新博客标题为《" + title + "》");
-    }
-
-    public void onChildMoved(DataSnapshot snapshot, String ref) {
-        String author = (String) snapshot.child("author").getValue();
-        String title = (String) snapshot.child("title").getValue();
-        System.out.println("博客《" + title + "》被删除");
-    }
-
-    public void onChildRemoved(DataSnapshot snapshot) {
-    }
-  
-    public void onCancelled(SyncError error) {
-    }
-
-});
-```
-
-
-
-### 单次监听
-
-`addListenerForSingleValueEvent()`方法用于单次监听，该监听的回调方法只被触发一次，之后会自动取消监听。
-
-```java
-SyncReference ref = WilddogSync.getInstance().getReference("web/saving-data/wildblog/users/gracehop");
-ref.addListenerForSingleValueEvent(new ValueEventListener(){
-
-  public void onDataChange(DataSnapshot snapshot) {
-  // 执行业务处理，此回调方法只会被调用一次,之后就取消
-  }
-
-  public void onCancelled(SyncError error) {
-    if(error != null){
-      System.out.println(error.getCode());
-    }
-  }
-});
-```
-
-### 移除监听
-
-`removeEventListener()`方法用于移除一个监听事件，移除监听之后，回调方法将不再被触发。
-
-参数是你要移除的事件类型和回调方法：
 
 ```java
 // 获取 SyncReference 实例

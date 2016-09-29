@@ -14,7 +14,7 @@ title:  离线功能
 
 ```java
 //初始化
-WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<appId>.wilddogio.com").build();
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<appId>.wilddogio.com").build();
     WilddogApp.initializeApp(this, options);
     //创建一个 SyncReference 实例
     SyncReference connectedRef = WilddogSync.getInstance().getReference(.info/connected);
@@ -49,6 +49,10 @@ WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<appId
 例如，当用户的网络连接中断时，使用`onDisconnect()` 方法，记录这个用户已经离线：
 
 ```java
+//初始化
+WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<appId>.wilddogio.com").build();
+WilddogApp.initializeApp(this, options);
+
 SyncReference presenceRef = WilddogSync.getInstance().getReference("disconnectmessage");
 
 OnDisconnect onDisconnectRef = presenceRef.onDisconnect();
