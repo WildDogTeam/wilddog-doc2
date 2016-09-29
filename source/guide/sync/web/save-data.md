@@ -4,16 +4,17 @@ title:  数据操作
 
 本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-数据操作包含以下六种方法
+数据操作包含以下七种方法
 
-| 方法            | 说明                                       |
-| ------------- | ---------------------------------------- |
-| set()         | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
-| setPriority() | 设置节点优先级                                  |
-| push()        | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
-| update()      | 更新指定子节点。                                 |
-| remove()      | 删除指定节点。                                  |
-| transaction() | 并发操作时保证数据一致性。                            |
+| 方法                | 说明                                       |
+| ----------------- | ---------------------------------------- |
+| set()             | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| setPriority()     | 设置节点优先级。                                 |
+| setWithPriority() | 向指定节点写入数据并且设置该节点优先级。                     |
+| push()            | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
+| update()          | 更新指定子节点。                                 |
+| remove()          | 删除指定节点。                                  |
+| transaction()     | 并发操作时保证数据一致性。                            |
 
 
 
@@ -73,6 +74,32 @@ wilddog.sync().ref('user').setWithPriority(100)
 ```
 
 更多使用，请参考 [setPriority()](/api/sync/web/api.html#setPriority)。
+
+
+
+## 写入数据并设置节点优先级
+
+`setWithPriority(value, priority)`方法向指定节点写入数据并且设置该节点优先级。
+
+```javascript
+var user = {
+  name: {
+    first: 'jack',
+    last: 'Lee'
+  }
+};
+wilddog.sync().ref().setWithPriority(user,100)
+    .then(function(){
+        console.info('set data success.')
+    })
+    .catch(function(err){
+        console.info('set data failed', err.code, err);
+    });
+```
+
+更多使用，请参考 [setWithPriority()](/api/sync/web/api.html#setWithPriority)。
+
+
 
 ## 追加子节点
 
@@ -198,7 +225,7 @@ ref.remove();
 
 `transaction()` 方法用于并发操作时保证数据一致性。
 
-例如，使用 `transaction()` 方法实现多人点赞功能，可以避免多个客户端同时更新时，导致的最终数据不一致。
+例如，在实现多人点赞功能时，多人同时写入评分会产生冲突，导致最终结果不准确。使用 `transaction()`方法可以避免这种情况。
 
 ```js
 var config = {

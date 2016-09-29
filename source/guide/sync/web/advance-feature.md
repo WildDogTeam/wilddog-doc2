@@ -6,9 +6,9 @@ title: 高级特性
 
 ## 云端时间戳
 
-Wilddog Sync 提供了 [云端时间戳](/api/sync/web/api.html#ServerValue) 机制，它可以将云端时间戳写入到指定节点。
+Wilddog Sync 提供了 [云端时间戳](/api/sync/web/api.html#ServerValue) 机制，保存在`wilddog.sync().ServerValue.TIMESTAMP`中。
 
-例如，在`servertimestamp`节点下记录当前云端时间
+例如，在`servertimestamp`节点下记录当前云端时间。
 
 ```js
 var config = {
@@ -20,15 +20,6 @@ var currentServerTime = wilddog.sync().ref("servertimestamp");
 
 //存入当前云端时间戳
 currentServerTime.set(wilddog.sync().ServerValue.TIMESTAMP);
-```
-
-云端时间戳可以与 Wilddog Sync 的其他特性结合使用。
-
-例如，结合离线事件，可以记录客户端的离线时间
-
-```js
-var userLastOnlineRef = wilddog.sync().ref("/users/joe/lastOnline");
-userLastOnlineRef.onDisconnect().set(wilddog.sync().ServerValue.TIMESTAMP);
 ```
 
 ## 时钟偏差
