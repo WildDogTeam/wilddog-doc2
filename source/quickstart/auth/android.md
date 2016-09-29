@@ -19,7 +19,7 @@ title:  快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以任选其一
+SDK 的安装方式有两种，你可以任选其一：
 
 - **使用 Maven **
 
@@ -53,7 +53,7 @@ android {
 
 ## 4. 初始化 Wilddog Auth 实例
 
-使用 Auth SDK 之前，需要先初始化实例
+使用 Wilddog Auth SDK 之前，需要先初始化实例
 
 ```java
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
@@ -105,10 +105,10 @@ wildoogAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompl
 
 ## 6. 退出登录
 
-你可以使用 `signOut()` 方法退出当前登录用户
+你可以使用 `signOut()` 方法退出当前登录用户：
 
 ```
 wilddogAuth.signOut();
 ```
 
-野狗还提供了匿名认证、第三方认证等其他认证方式，详细信息请见 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/android.html)。
+Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/android.html)。
