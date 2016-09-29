@@ -19,7 +19,7 @@ title: 快速入门
 
 对于 Wilddog 任何 [节点](/guide/reference/term.html#节点)，你可以将该节点相对于根节点的路径作为数据地址。在数据地址后加上`.json`，作为 URL 发送标准的 HTTPS REST 请求，以此写入与读取数据。在本文档中，我们使用 [cURL](https://en.wikipedia.org/wiki/CURL) 工具发送 HTTPS 请求。
 
-假如我们已有数据是这样的
+例如，已有数据是这样的那么若要操作users节点的数据,数据路径为 /rest/quickstart/users：
 
 ```javascript
 {
@@ -30,7 +30,6 @@ title: 快速入门
   }
 }
 ```
-那么若要操作users节点的数据,数据路径为 /rest/quickstart/users
 
 使用`PUT`请求写入数据:
 
@@ -38,7 +37,7 @@ title: 快速入门
 curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23, 1912" } }' 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 ```
 
-成功的请求会收到 HTTP 状态码 200 ，返回值中包含我们写入 Wilddog 的数据。
+成功的请求会收到 HTTP 状态码 200 ，返回值中包含我们写入 Wilddog 的数据：
 
 ```json
 {

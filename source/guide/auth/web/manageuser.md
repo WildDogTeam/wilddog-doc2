@@ -2,31 +2,33 @@
 title: 用户管理
 ---
 
-本篇文档介绍如何使用 Wilddog Auth 来进行用户管理。
+本篇文档介绍如何使用 Wilddog Auth 管理用户。它包括：创建用户、获取用户信息、获取用户属性、更新用户信息、删除用户等。
 
 ## 创建用户
 
-创建用户的方式有三种
+创建用户包含以下三种方法
 
-- [邮箱登录](/guide/auth/web/password.html)
-
-- 第三方认证授权
-
-- 从 **控制面板—身份认证—用户**中手动创建用户
+- 通过 [邮箱密码](/guide/auth/web/password.html) 创建
+- 通过第三方身份认证提供商授权创建
+- 在 **控制面板—身份认证—用户** 中手动创建
 
 
-## 获取当前登录用户
+## 获取用户信息
 
-获取当前用户有两种方法：
+用户信息包含 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
 
-- Auth 对象上设置监听器
-- 使用`currentUser`
+### 获取当前登录用户
 
-推荐使用监听器，这样可以保证在你获取当前用户时 Auth 对象不会处于中间状态如初始化。
+获取当前登录用户是管理用户的基础。
+
+获取当前登录用户包含以下两种方法
+
+- 在 `Auth` 实例上设置监听器
+- 使用 `currentUser` 方法
 
 使用监听器
 
-```
+```javascript
 wilddog.auth().onAuthStateChanged(function(user) {
   if (user) {
      console.log("wxl");
@@ -36,26 +38,26 @@ wilddog.auth().onAuthStateChanged(function(user) {
 });
 ```
 
-使用`currentUser`
+使用 `currentUser` 方法
 
 
-```
+```javascript
 var user = wilddog.auth().currentUser;
 if (user != null) {
-     // User is signed in.
+     // 用户已登录
 } else {
-     // No user is signed in.
+     // 没有用户登录
 }
 ```
 
-> **注意：**如果用户没有登录，`currentUser` 则为空。如果你使用侦听器跟踪用户登录状态，你将无需处理该情况。
-
-## 获取个人资料
-
-使用 `User` 实例的属性可以获取用户的个人资料信息。
+> **注意：**推荐使用监听器，这样可以保证在你获取当前用户时 Auth 实例不会处于中间状态，如用户正在登录时。
 
 
-```
+### 获取用户属性
+
+使用 `User` 实例可以获取用户属性。
+
+```javascript
 var user = wilddog.auth().currentUser;
 if (user != null) {
     var name = user.displayName;
@@ -63,13 +65,14 @@ if (user != null) {
     var photoUrl = user.photoURL;
     var uid = user.uid; 
 } else {
- // No user is signed in.
+ // 没有用户登录
 }
 
 ```
-## 获取第三方个人资料信息
 
-使用`providerData`获得第三方个人信息资料。
+### 获取 Provider 的用户属性
+
+使用 `providerData` 获得所有 [Provider](/guide/auth/core/concept.html#Provider) 的用户属性。
 
 ```
 var user = wilddog.auth().currentUser;
@@ -85,90 +88,92 @@ var user = wilddog.auth().currentUser;
 
 ```
 
-## 更新个人资料
+## 更新用户信息
+使用 `User` 实例更新 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
 
-`updateProfile()`方法可以更新用户的个人资料。
+### 更新用户属性
+
+`updateProfile()` 方法用于更新用户属性。
 
 ```
 wilddog.auth().currentUser.updateProfile({
      displayName: "name",
      photoURL: "https://example.com/path/photo.jpg"
  }).then(function() {
-     // Update successful.
+     // 更新成功
  }, function(error) {
-     // An error happened.
+     // 发生错误
  });
 ```
-> **注意：**使用 customToken 登录时,若 customToken 中 admin 属性为 true，则不能进行信息修改。
+> **注意：**使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户属性。
 
-## 设置邮箱地址
+### 更新邮箱地址
 
- `updateEmail()方法`可以更新用户的电子邮箱地址。
+ `updateEmail()` 方法用于更新用户邮箱地址。
 
 ```
 wilddog.auth().currentUser.updateEmail(email).then(function() {
-     // Update successful.
+     // 更新成功
  }, function(error) {
-     // An error happened.
+     // 发生错误
      console.log(error);
  });
 ```
 
 > **注意：**
-- 要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
-- 重要说明：使用 customToken 登录时,若 customToken 中 admin 属性为 true，则不能进行信息修改
+- 要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/web/manageuser.html#重新进行身份认证)。
+- 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。
 
 
-## 设置用户密码
+### 更新用户密码
 
-`updatePassword()` 方法可以设置用户密码
+`updatePassword()` 方法用于更新用户密码。
 
 ```
 wilddog.auth().currentUser.updatePassword("12345678").then(function() {
-     // Update successful.
+     // 更新成功
      console.log("");
  }, function(error) {
      console.log(error);
-     // An error happened. 
+     // 发生错误
 });
-注意:使用customToken登录时,若customToken中admin属性为true,则不能进行密码修改
 ```
 
 > **注意：**
-- 要设置密码，该用户必须最近登录过。请参阅对用户重新进行身份认证。
-- 重要说明：使用 customToken 登录时,若 customToken 中 admin 属性为 true，则不能进行信息修改
+- 要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/web/manageuser.html#重新进行身份认证)。
+- 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。
 
 
-## 发送重设密码邮件
+### 发送重设密码邮件
 
- `sendPasswordResetWithEmail()` 方法可以向用户发送一封重设密码电子邮件。
+`sendPasswordResetWithEmail()` 方法用于向用户发送重设密码邮件。
+
+在控制面板 **身份认证—登录方式—邮箱登录** 中可以设置邮件自定义模板。
 
 ```javascript
 wilddog.auth().sendPasswordResetEmail(email);
 ```
 
-在 Wilddog 控制面板的**身份认证—登录方式—邮箱登录**中可以设置自定义模板。
-
-
 ## 删除用户
 
-删除用户的方式有两种：
+删除用户的方式有以下两种：
 
-- 使用`delete()` 方法用于删除用户
-- 在控制面板的**身份认证—用户**用删除用户
+- 通过 `delete()` 方法删除
+- 在控制面板 **身份认证—用户** 中手动删除
 
-使用`delete()`方法
+使用 `delete()` 方法
 
-```
+```javascript
 wilddog.auth().currentUser.delete();
 ```
+
 使用控制面板
 
  ![](/images/deleteuser.jpg)
 
 > **注意：**
-- 要删除用户，该用户必须最近登录过。请参阅对用户重新进行身份认证。
-- 重要说明：使用 customToken 登录时,若 customToken 中 admin 属性为 true，则不能进行信息修改
+- 要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/web/manageuser.html#重新进行身份认证)。
+- 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。
 
 
 
@@ -183,14 +188,15 @@ wilddog.auth().currentUser.delete();
 
 此时需要重新对用户进行身份认证。
 
-你可以从用户获取新登录凭据并将该凭据传递到 `reauthenticate`，对该用户重新进行身份认证。
+`reauthenticate(credential)` 方法用于对用户重新进行身份认证。
 
 ```
+ var credential ; // 需要初始化
  wilddog.auth().currentUser.reauthenticate(credential).then(function(res) {
-     // Update successful.
+     // 更新成功
      console.log(res);
  }, function(error) {
-     // An error happened.
+     // 发生错误
      console.log(error);
  });
 ```
