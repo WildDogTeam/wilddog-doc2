@@ -50,7 +50,7 @@ SDK 的安装方式有两种，你可以任选其一：
 
 ## 3. 创建 Wilddog Sync 实例
 
-**1.引入头文件：**
+**1.引入头文件**
 
 <div class="slide">
 <div class='slide-title'>
@@ -69,7 +69,7 @@ SDK 的安装方式有两种，你可以任选其一：
 </div>
 </div>
 
-**2.初始化：**
+**2.初始化**
 
 <div class="slide">
 <div class='slide-title'>
