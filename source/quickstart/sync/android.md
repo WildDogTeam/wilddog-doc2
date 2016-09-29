@@ -97,7 +97,7 @@ ref.child("messageboard").setValue(comment
 例如，从应用中获得评论数据：
 
 ```java
-// snapshot 里面的数据会一直和云端保持同步
+// dataSnapshot 里面的数据会一直和云端保持同步
 myRef.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
