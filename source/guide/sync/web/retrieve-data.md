@@ -72,7 +72,7 @@ postsRef.on('child_removed', function(data) {
 });
 ```
 
-更详细的用法说明，请参考 [API 文档](/api/sync/web/api.html#on)。
+更多使用，请参考 [on()](/api/sync/web/api.html#on)。
 
 >**提示：** 如果你只想监听一次数据，可使用`once()`方法。该监听的回调方法只被触发一次，之后会自动取消监听。
 
@@ -171,7 +171,7 @@ ref.orderByValue().on("value", function(snapshot) {
 
 >**注意：**
 - 每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。
-- 排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
+- 排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加索引以提高排序效率。更多使用，请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
 
 
 
