@@ -33,9 +33,9 @@ Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用
 npm install wilddog --save
 ```
 
-## 3. 初始化 Wilddog Auth 实例
+## 3. 创建 Wilddog Auth 实例
 
-使用 Wilddog Auth SDK 之前，需要先初始化实例：
+使用 Wilddog Auth SDK 之前，需要先创建实例：
 
 ```javascript
 var config = {

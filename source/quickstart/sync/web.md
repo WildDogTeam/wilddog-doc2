@@ -47,7 +47,7 @@ var ref = wilddog.sync().ref();
 
 ## 4. 写入数据
 
-[set()](/api/sync/web/api.html#set) 方法用于写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
+[set()](/api/sync/web/api.html#set) 方法用于向指定节点写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
 例如，在应用的根节点下写入评论数据：
 

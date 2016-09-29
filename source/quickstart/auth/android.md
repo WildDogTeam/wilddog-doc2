@@ -51,9 +51,9 @@ android {
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-## 4. 初始化 Wilddog Auth 实例
+## 4. 创建 Wilddog Auth 实例
 
-使用 Wilddog Auth SDK 之前，需要先初始化实例：
+使用 Wilddog Auth SDK 之前，需要先创建实例：
 
 ```java
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();

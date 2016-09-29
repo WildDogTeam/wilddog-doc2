@@ -50,7 +50,7 @@ curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23
 
 ## 3. 监听数据
 
-假如我们想读取/rest/quickstart/users下的数据，可以使用｀GET｀请求：
+假如我们想读取 /rest/quickstart/users 下的数据，可以使用｀GET｀请求：
 
 ```javascript
 curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
