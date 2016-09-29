@@ -48,15 +48,15 @@ curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23
 }
 ```
 
-## 3. 监听数据
+## 3. 读取数据
 
-假如我们想读取 /rest/quickstart/users 下的数据，可以使用｀GET｀请求：
+`GET` 请求用于读取 /rest/quickstart/users 下的数据： 
 
 ```javascript
 curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 ```
 
-成功的请求会收到 HTTP 状态码 200 ，返回值中包含路径下的数据。
+成功的请求会收到 HTTP 状态码 200 ，返回值中包含路径下的数据：
 
 ```json
 {
