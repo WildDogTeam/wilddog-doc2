@@ -81,7 +81,7 @@ wilddog.sync().ref('user').setWithPriority(100)
 
 `setWithPriority(value, priority)`方法用于指定节点写入数据并且设置该节点优先级。
 
-例如，存入 `jack` 姓名并且设置优先级为100：
+例如，写入 `jack` 的姓名并且设置优先级为100：
 
 ```javascript
 var user = {
@@ -148,7 +148,7 @@ wilddog.sync().ref().setWithPriority(user,100)
 
 `update()` 方法支持多路径更新。可以只调用一次方法更新多个[路径](/guide/reference/term.html#路径-path)的数据。
 
-例如，更新 `Jobs`的个人信息：
+例如，更新 `Jobs` 的个人信息：
 
 ```js
 //原数据如下
@@ -231,7 +231,7 @@ ref.remove();
 
 `transaction()` 方法用于并发操作时保证数据一致性。
 
-例如，在实现多人点赞功能时，多人同时写入评分会产生冲突，导致最终结果不准确。使用 `transaction()`方法可以避免这种情况：
+例如，在实现多人点赞功能时，多人同时写入评分会产生覆盖，导致最终结果不准确。使用 `transaction()`方法可以避免这种情况：
 
 ```js
 var config = {

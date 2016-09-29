@@ -1,21 +1,22 @@
+
 title:  操作数据
 ---
 本篇文档介绍操作数据的方法。
 
 操作数据包含以下三种方法：
 
-方法 |  说明 
-----|------
-wilddog_setValue() | 向某个节点写入数据。若此节点已存在数据，会覆盖这些数据。 
-wilddog_push() | 向某个节点添加子节点。子节点的 key 由野狗自动生成并保证唯一，value 是你要写入的数据。
-wilddog_removeValue() | 删除指定的节点。
+| 方法                    | 说明                                       |
+| --------------------- | ---------------------------------------- |
+| wilddog_setValue()    | 向某个节点写入数据。若此节点已存在数据，会覆盖这些数据。             |
+| wilddog_push()        | 向某个节点添加子节点。子节点的 key 由野狗自动生成并保证唯一，value 是你要写入的数据。 |
+| wilddog_removeValue() | 删除指定的节点。                                 |
 
 ## 写入数据
 
 
 `wilddog_setValue()` 方法向某个节点写入数据。若节点已有数据，会覆盖原有数据，包括其子节点的数据。注册的回调函数用于判断写入操作是否成功。
 
-例如，为房间利用 `wilddog_setValue()` 修改 led 状态信息，如下所示 ：
+例如，为房间利用 `wilddog_setValue()` 修改 `led` 状态信息，如下所示 ：
 
 ```c
 STATIC void onSetCallback(void* arg, Wilddog_Return_T err){
