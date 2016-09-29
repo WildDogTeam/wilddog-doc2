@@ -2,16 +2,17 @@
 title:  数据操作
 ---
 
-本篇文档介绍如何操作数据，分为写入，更新和删除数据。
+本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
 操作数据包含以下五种方法
 
 | 方法               | 说明                                       |
 | ---------------- | ---------------------------------------- |
 | setValue()       | 向任意 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| setPriority()     | 设置节点优先级。                                 |
 | push()           | 向任意节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
-| updateChildren() | 更新指定子节点。                                 |
 | removeValue()    | 删除指定节点。                                  |
+| updateChildren() | 更新指定子节点。                                 |
 | runTransaction() | 并发操作时保证数据一致性。                            |
 
 
@@ -22,7 +23,7 @@ title:  数据操作
 `setValue()` 方法可设置回调方法来获取操作的结果。
 
 
-例如，向 `gracehop` 节点下写入 `date_of_birth ` 、`full_name ` 和 `nickname`
+例如，向 `Jobs` 节点下写入 `full_name ` 、`gender `：
 
 
 ```java
@@ -32,19 +33,18 @@ title:  数据操作
     // 获取 SyncReference 实例
     SyncReference ref = WilddogSync.getInstance().getReference("web/saving-data/wildblog/users");
     // 创建 Map 对象
-    HashMap<String, Object> jone = new HashMap<>();
-    jone.put("date_of_birth", "December 9, 1906");
-    jone.put("full_name", "Grace Hopper");
-    jone.put("nickname", "Amazing Grace");
+    HashMap<String, Object> user = new HashMap<>();
+    jone.put("full_name", "Steve Jobs");
+    jone.put("gender", "male");
     // child() 用来定位到某个节点。
-    ref.child("gracehop").setValue(jone);
+    ref.child("Jobs").setValue(jone);
 ```
 
 
 设置回调方法
 
 ```java
-    ref.child("Jone").setValue("jone", new SyncReference.CompletionListener() {
+    ref.child("Jobs").setValue("user", new SyncReference.CompletionListener() {
         @Override
         public void onComplete(SyncError error, SyncReference ref) {
             if (error != null) {
@@ -56,6 +56,21 @@ title:  数据操作
     });
 ```
 
+## 设置节点优先级
+
+`setPriority(priority)` 方法用于设置节点的优先级。
+
+Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/web/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
+
+例如，设置`user`节点的优先级为100：
+
+```java
+ref.child("user").setPriority(100);
+```
+
+更多使用，请参考 [setPriority()](/api/sync/android/api.html#setPriority)。
+
+
 ## 追加子节点
 
 `push()` 方法向任意节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
@@ -63,30 +78,30 @@ title:  数据操作
 例如，追加子节点到 `posts` 节点
 
 ```java
-SyncReference postsRef = ref.child("posts");
+SyncReference postsRef = ref.child("messages");
 HashMap<String, Object> aNews = new HashMap<>();
-aNews.put("author", "gracehop");
-aNews.put("title", "Announcing COBOL, a New Programming Language");
+aNews.put("full_name", "Steve Jobs");
+aNews.put("message", "Think difference");
 postsRef.push().setValue(aNews);
 HashMap<String, Object> anotherNews = new HashMap<>();
-anotherNews.put("author", "alanisawesome");
-anotherNews.put("title", "The Turing Machine");
+anotherNews.put("full_name", "Bill Gates");
+anotherNews.put("message", "Hello World");
 postsRef.push().setValue(anotherNews);
 ```
 产生的数据如下
 ```json
 {
 
-  "posts": {
+  "messages": {
     "-JRHTHaIs-jNPLXO": {
-      "author": "gracehop",
-      "title": "Announcing COBOL, a New Programming Language"
-    },
+    	"full_name" : "Steve Jobs",
+   	 	"message" : "Think difference"
+  	},
 
     "-JRHTHaKuITFIhnj": {
-      "author": "alanisawesome",
-      "title": "The Turing Machine"
-    }
+   		"full_name" : "Bill Gates",
+    	"message" : "Hello World"
+  	}
   }
 }
 ```
@@ -96,32 +111,31 @@ postsRef.push().setValue(anotherNews);
 
 `updateChildValues()` 方法用于更新指定子节点。
 
-`updateChildValues()` 方法支持多路径更新。可以只调用一次方法更新多个路径的数据。
+`updateChildValues()` 方法支持多路径更新。可以只调用一次方法更新多个[路径](/guide/reference/term.html#路径-path)的数据。
+
+例如，更新 `Jobs` 的个人信息：
 
 ```json
 //原数据如下
 {
-    "gracehop": {
-        "nickname": "Nice Grace",
-        "date_of_birth": "December 9, 1906",
-        "full_name ": "Grace Lee"
+    "Jobs": {
+        "full_name" : "Steve Jobs",
+        "gender" : "male"
     }
 }
 ```
 
 ```java
 // 只更新 gracehop 的 nickname
-SyncReference hopperRef = ref.child("gracehop");
+SyncReference hopperRef = ref.child("Jobs");
 HashMap<String, Object> user = new HashMap<>();
-user.put("nickname", "Amazing grace");
+user.put("full_name", "Tim Cook");
 hopperRef.updateChildren(user);
 ```
 
-
-
-
 **多路径更新**
 
+例如，同时更新 b 节点下的 d 和 x 节点下的 z：
 
 ```json
 //原数据如下
@@ -139,28 +153,13 @@ hopperRef.updateChildren(user);
 }
 ```
 
-希望同时更新 b 节点下的 d 和 x 节点下的 z。注意标识路径时，要用 `b/d`, 和 `x/z` 
-
 ```java
-// 同时更新 b 节点下的 d，和 x 节点下的 z
+// 错误的多路径更新写法，会覆盖原有数据
 HashMap<String, Object> map = new HashMap<>();
 map.put("b/d", "updateD");
 map.put("x/z", "updateZ");
 ref.updateChildren(map);
 ```
-
-以下做法将会覆盖原有数据，为错误示例
-
-```java
-// 错误的多路径更新写法！！
-Map<String,Map<String,String>> map = new HashMap<>();
-Map<String,String> bMap = new HashMap<>();
-Map<String,String> xMap = new HashMap<>();
-map.put("b", bMap.put("d","updateD");
-map.put("x", xMap.put("z","updateZ");
-ref.updateChildren(map);
-```
-以上操作相当于 `setValue()` 方法，会覆盖原有数据。
 
 ## 删除数据
 
@@ -168,15 +167,13 @@ ref.updateChildren(map);
 
 ```java
 HashMap<String, Object> map = new HashMap<>();
-map.put("name", "Jone");
-map.put("age", "23");
+map.put("full_name", "Steve Jobs");
+map.put("gender", "male");
 ref.setValue(map);
 
 //删除上面写入的数据
 ref.removeValue();
 ```
-
-
 
 >**提示：**如果某个节点的 value 为 null ,云端会直接删除该节点。
 
@@ -184,7 +181,7 @@ ref.removeValue();
 
 `runTransaction()` 方法用于并发操作时保证数据一致性。
 
-例如，使用 `runTransaction()` 方法实现多人点赞功能，可以避免多个客户端同时更新时，导致的最终数据不一致。
+例如，在实现多人点赞功能时，多人同时写入评分会产生覆盖，导致最终结果不准确。使用 `runTransaction()`方法可以避免这种情况：
 
 ```java
 SyncReference upvotesRef = WilddogSync.getInstance().getReference("web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes");
