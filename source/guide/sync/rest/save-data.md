@@ -1,16 +1,17 @@
+
 title: 数据操作
 ---
 
 本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-数据操作包含以下五种请求类型
+数据操作包含以下五种请求类型：
 
-| 方法 | 说明 |
-| ------- | --------------------------------------- |
-| PUT      | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
-| POST     | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。|
-| PATCH    | 更新指定子节点。                           |
-| DELETE   | 删除指定节点。                             |
+| 方法     | 说明                                       |
+| ------ | ---------------------------------------- |
+| PUT    | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| POST   | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
+| PATCH  | 更新指定子节点。                                 |
+| DELETE | 删除指定节点。                                  |
 
 
 
@@ -18,7 +19,7 @@ title: 数据操作
 
 `PUT` 请求用于向指定节点写入数据。此方法会先清空指定节点，再写入数据。
 
-例如，向 `alanisawesome` 节点写入 `name`、`birthday`
+例如，向 `alanisawesome` 节点写入 `name`、`birthday`：
 ```javascript
 curl -X PUT -d '{
   "alanisawesome": {
@@ -32,9 +33,9 @@ curl -X PUT -d '{
 
 ## 追加子节点
 
-`POST` 请求向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
+`POST` 请求用于向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
 
-例如，追加子节点到 `posts` 节点
+例如，追加子节点到 `posts` 节点：
 ```
 curl -X POST -d '{
   "author": "alanisawesome",
@@ -43,7 +44,7 @@ curl -X POST -d '{
 
 ```
 
-`posts`路径下的数据将会是这样
+`posts`路径下的数据将会是这样：
 
 ```
 {
@@ -56,7 +57,7 @@ curl -X POST -d '{
 }
 
 ```
-成功的请求将返回 HTTP 200 OK 状态码，并且响应中会包含新数据的key。
+成功的请求将返回 HTTP 200 OK 状态码，并且响应中会包含新数据的key：
 
 ```
 {"name":"-JRHTHaKuITFIhnj02kE"}
@@ -66,6 +67,8 @@ curl -X POST -d '{
 ## 更新数据
 
 `PATCH` 请求用于更新指定子节点。
+
+例如，更新 `gracehop`的 `nickname`：
 
 
 ```js

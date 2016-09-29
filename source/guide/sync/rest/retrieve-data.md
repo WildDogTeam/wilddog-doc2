@@ -1,3 +1,4 @@
+
 title:  数据查询
 ---
 
@@ -9,7 +10,7 @@ title:  数据查询
 
 `GET` 请求用于查询指定节点下的所有数据。
 
-例如，查询 `posts` 节点下的所有数据
+例如，查询 `posts` 节点下的所有数据：
 ```
 curl 'https://docs-examples.wilddogio.com/rest/saving-data/wdblog/posts.json?print=pretty'
 ```
@@ -18,7 +19,7 @@ curl 'https://docs-examples.wilddogio.com/rest/saving-data/wdblog/posts.json?pri
 
 ### 查询云端时间戳
 
-使用`GET`请求获取云端当前时间戳
+使用`GET`请求获取云端当前时间戳：
 
 ```
 curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
@@ -32,17 +33,17 @@ curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
 
 ### 排序方法
 
-Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值 (value) 对数据进行排序。
+Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值 (value) 对数据进行排序：
 
-参数 | 用法
-----  | ----
-orderBy="{childValue}" | 按指定子节点的值（value）对结果排序。
-orderBy="$key" | 按键(key)对结果排序。
-orderBy="$value" | 按值(value)对结果排序。
-orderBy="$priority" | 按优先级(priority)对结果排序。
+| 参数                     | 用法                    |
+| ---------------------- | --------------------- |
+| orderBy="{childValue}" | 按指定子节点的值（value）对结果排序。 |
+| orderBy="$key"         | 按键(key)对结果排序。         |
+| orderBy="$value"       | 按值(value)对结果排序。       |
+| orderBy="$priority"    | 按优先级(priority)对结果排序。  |
 
-其中{childValue}为子节点的名称
-例如：[恐龙应用数据页面](https://dinosaur-facts.wilddogio.com) 中演示如何按照每个恐龙的身高（`height`节点的值）进行排序。
+其中{childValue}为子节点的名称。
+例如，[恐龙应用数据页面](https://dinosaur-facts.wilddogio.com) 中演示如何按照每个恐龙的身高（`height`节点的值）进行排序：
 
 ```
 curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
@@ -69,15 +70,15 @@ curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
 
 ## 数据过滤
 
-只有对数据进行排序之后，才能过滤数据，你可以结合以下方法来构造查找的条件。
+只有对数据进行排序之后，才能过滤数据，你可以结合以下方法来构造查找的条件：
 
-方法 | 用法
----- | ----
-orderBy=limitToFirst | 设置从第一条开始，一共返回多少条数据（节点）。
-orderBy=limitToLast | 设置从最后一条开始，一共返回多少条（返回结果仍是升序，降序要自己处理）。
-orderBy=startAt | 返回大于或等于指定的键、值或优先级的数据，具体取决于所选的排序方法。
-orderBy=endAt | 返回小于或等于指定的键、值或优先级的数据，具体取决于所选的排序方法。
-orderBy=equalTo | 返回等于指定的键、值或优先级的数据，具体取决于所选的排序方法。可用于精确查询。
+| 方法                   | 用法                                      |
+| -------------------- | --------------------------------------- |
+| orderBy=limitToFirst | 设置从第一条开始，一共返回多少条数据（节点）。                 |
+| orderBy=limitToLast  | 设置从最后一条开始，一共返回多少条（返回结果仍是升序，降序要自己处理）。    |
+| orderBy=startAt      | 返回大于或等于指定的键、值或优先级的数据，具体取决于所选的排序方法。      |
+| orderBy=endAt        | 返回小于或等于指定的键、值或优先级的数据，具体取决于所选的排序方法。      |
+| orderBy=equalTo      | 返回等于指定的键、值或优先级的数据，具体取决于所选的排序方法。可用于精确查询。 |
 
 **限制返回节点数量**
 
@@ -121,7 +122,7 @@ data: JSON encoded data payload
 服务器会返回以下的事件：
 
 |               |                                          |
-| :--------------------------------------- |
+| :------------ | ---------------------------------------- |
 | put           | JSON格式数据，有两个key：path和data；path指向请求URL的路径；客户端应该使用消息中包含的数据替换本地缓存中的数据 |
 | patch         | JSON格式数据，有两个key：path和data；path指向请求URL的路径；对与数据的每一个key，客户端应该用消息中包含的key替代缓存中的key |
 | keep-alive    | 此事件的data为null，不需要任何操作                    |

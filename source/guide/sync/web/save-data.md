@@ -57,9 +57,11 @@ ref.child("Jobs").set({
 
 ## 设置节点优先级
 
+`setPriority(priority)` 方法用于设置节点的优先级。
+
 Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/web/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
 
-`setPriority(priority)` 方法用于设置节点的优先级：
+例如，设置`user`节点的优先级为100：
 
 ```javascript
 wilddog.sync().ref('user').setWithPriority(100)
@@ -78,6 +80,8 @@ wilddog.sync().ref('user').setWithPriority(100)
 ## 写入数据并设置节点优先级
 
 `setWithPriority(value, priority)`方法用于指定节点写入数据并且设置该节点优先级。
+
+例如，写入 `jack` 的姓名并且设置优先级为100：
 
 ```javascript
 var user = {
@@ -144,6 +148,8 @@ wilddog.sync().ref().setWithPriority(user,100)
 
 `update()` 方法支持多路径更新。可以只调用一次方法更新多个[路径](/guide/reference/term.html#路径-path)的数据。
 
+例如，更新 `Jobs` 的个人信息：
+
 ```js
 //原数据如下
 {
@@ -161,7 +167,9 @@ hopperRef.update({
 });
 ```
 
-多路径更新：
+**多路径更新**
+
+例如，同时更新 b 节点下的 d 和 x 节点下的 z：
 
 ```js
 //原数据如下
@@ -178,20 +186,19 @@ hopperRef.update({
     }
 }
 ```
-希望同时更新 b 节点下的 d 和 x 节点下的 z。注意标识路径时，要用 `b/d`, 和 `x/z`：
+正确示例：
 
 ```js
-
 ref.update({
   "b/d": "updateD",
   "x/z": "updateZ"
 });
 ```
 
-以下做法将会覆盖原有数据，为错误示例：
+错误示例：
 
 ```js
-// 错误的多路径更新写法！！
+// 错误的多路径更新写法，会覆盖原有数据
 ref.update({
     "b": {
         "d": "updateD"
@@ -205,6 +212,8 @@ ref.update({
 ## 删除数据
 
 `remove()` 方法用于删除指定节点。
+
+例如，删除写入的数据：
 
 ```javascript
 ref.set({
@@ -222,7 +231,7 @@ ref.remove();
 
 `transaction()` 方法用于并发操作时保证数据一致性。
 
-例如，在实现多人点赞功能时，多人同时写入评分会产生冲突，导致最终结果不准确。使用 `transaction()`方法可以避免这种情况：
+例如，在实现多人点赞功能时，多人同时写入评分会产生覆盖，导致最终结果不准确。使用 `transaction()`方法可以避免这种情况：
 
 ```js
 var config = {

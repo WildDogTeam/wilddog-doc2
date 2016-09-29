@@ -28,9 +28,9 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 ### 设置监听
 
-`on()` 方法用于与不同事件配合来监听指定节点的数据。  
+`on()` 方法用于与事件配合来监听指定节点的数据。  
 
-例如，通过 `on()` 方法配合 Value 事件监听 Jobs 节点下的数据：
+例如，通过 `on()` 方法配合 Value 事件监听 `Jobs` 节点下的数据：
 
 ```js
 // 初始化
@@ -53,8 +53,6 @@ ref.on('value', function(snapshot, error) {
 ```
 
 之后 Jobs 节点下的数据发生任何变化，都会触发回调方法。
-
-
 
 例如，[博客应用](https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts ) 中，通过 `on()` 方法配合 Child 事件来监听博客的状态变化：
 
@@ -84,7 +82,7 @@ postsRef.on('child_removed', function(data) {
 
 `off()`方法用于移除一个监听事件，移除监听之后，回调方法将不再被触发。
 
-参数是你要移除的事件类型和回调方法：
+参数为移除的事件类型和回调方法：
 
 ```js
 ref.off("value", originalCallback);
@@ -221,9 +219,7 @@ ref.orderByChild("height").limitToLast(3).on("child_added", function(snapshot) {
 
 `startAt()`方法、`endAt()`方法 和 `equalTo()` 方法用于监听选择任意起点、终点或等量点。
 
-`startAt()`方法用于
-
-例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道哪些学生的考分超过 60：
+ 例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道哪些学生的考分超过 60：
 
 ```js
 var ref = wilddog.sync().ref("scores");

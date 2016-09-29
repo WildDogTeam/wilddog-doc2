@@ -8,7 +8,9 @@ title:  离线功能
 
 ## 监听连接状态
 
-Wilddog Sync 提供了一个保留路径：`/.info/connected`，用于存储客户端与云端的连接状态。监听这个路径，客户端可以监测是否连接到云端。
+`/.info/connected` 是 Wilddog Sync 提供的一个保留路径，用于存储客户端与云端的连接状态。
+
+例如，监测客户端是否连接到云端：
 
 ``` js
 var config = {
@@ -34,7 +36,9 @@ connectedRef.on("value", function(snap) {
 
 断开连接包括客户端主动断开连接，或者意外的网络中断。触发事件即执行特定的数据操作，它支持离线写入，更新和删除数据方法。
 
-例如，当用户的网络连接中断时，使用`onDisconnect()` 方法，记录这个用户已经离线
+`onDisconnect()` 方法用于在云端与客户端断开连接后执行数据操作。
+
+例如，当用户的网络连接中断时，使用`onDisconnect()` 方法，记录这个用户已经离线：
 
 ```js
 var config = {
@@ -47,7 +51,7 @@ var presenceRef = wilddog.sync().ref("disconnectmessage");
 presenceRef.onDisconnect().set("I disconnected!");
 ```
 
-通过回调方法判断离线事件是否被云端成功记录
+通过回调方法判断离线事件是否被云端成功记录：
 
 ```js
 presenceRef.onDisconnect().remove( function(err) {
@@ -56,7 +60,7 @@ presenceRef.onDisconnect().remove( function(err) {
   }
 });
 ```
-`cancel()` 方法用于取消离线事件
+`cancel()` 方法用于取消离线事件：
 
 ```js
 // 设置离线事件
@@ -67,7 +71,7 @@ presenceRef.cancel();
 
 ## 手动建立或断开连接
 
-Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline()`方法，`goOffline()`方法，如下
+Wilddog Sync 提供手动建立或者断开连接的方法，分别为 `goOnline()`方法，`goOffline()`方法，如下：
 
 ```js
 var config = {
