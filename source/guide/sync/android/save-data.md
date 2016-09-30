@@ -152,8 +152,6 @@ user.put("full_name", "Tim Cook");
 hopperRef.updateChildren(user);
 ```
 
-**多路径更新**
-
 例如，同时更新 b 节点下的 d 和 x 节点下的 z：
 
 ```json
