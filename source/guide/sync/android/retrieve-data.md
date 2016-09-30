@@ -6,7 +6,7 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 ## 事件
 
-数据在云端发生的任何变化都称为事件。
+数据在云端发生变化后会触发事件。
 
 事件包含以下五种：
 
@@ -20,7 +20,7 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 ## 监听事件
 
-通过 Wilddog Sync 提供的方法，监听云端的事件，获取并处理变化的数据，保持和云端实时同步。
+通过 Wilddog Sync 提供的方法，监听云端的事件，保持和云端实时同步。
 
 ### 设置监听
 
@@ -91,7 +91,7 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
 
 ### 移除监听
 
-`removeEventListener()`方法用于移除一个监听事件，移除监听之后，回调方法将不再被触发。
+`removeEventListener()` 方法用于移除指定事件。移除监听之后，事件回调方法将不会被触发。
 
 参数为移除的事件类型和回调方法：
 
