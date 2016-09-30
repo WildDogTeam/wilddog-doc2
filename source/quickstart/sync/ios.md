@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
+你可以通过一个简单的 [评论墙示例](https://github.com/WildDogTeam/sync-quickstart-ios) 来快速了解 Wilddog Sync 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -83,7 +83,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wildd
 [WDGApp configureWithOptions:option];
 
 //获取一个指向根节点的 WDGSyncReference 实例    
-WDGSyncReference *myRootRef = [[WDGSync sync] reference];
+WDGSyncReference *ref = [[WDGSync sync] reference];
 ```
 </div>
 <div class="slide-content">
@@ -93,7 +93,7 @@ let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 
 //获取一个指向根节点的 WDGSyncReference 实例
-let myRootRef = WDGSync.sync().reference()
+let ref = WDGSync.sync().reference()
 ```
 </div>
 </div>
@@ -112,7 +112,7 @@ let myRootRef = WDGSync.sync().reference()
 <div class="slide-content slide-content-show">
 ```objectivec
 // 写数据
-[myRootRef setValue:@{@"weather" : @{@"beijing" : @"rain", @"shanghai" : @"sunny"}}];
+[ref setValue:@{@"messageboard" : @{@"content" : @"Wilddog, Cool!", @"presenter" : @"Jack"}}];
 
 
 ```
@@ -120,7 +120,7 @@ let myRootRef = WDGSync.sync().reference()
 <div class="slide-content">
 ```swift
 // 写数据
-myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
+ref.setValue(["messageboard" : ["content" : "Wilddog, Cool!", "presenter" : "Jack"]])
 
 ```
 </div>
@@ -128,13 +128,13 @@ myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 
 写入的数据如下图：
 
- <img src="/images/saveapp.png" alt="yourApp" width="300">
+ <img src="/images/saveapp.png" alt="yourApp" width="400">
 
 ## 5. 监听数据
 
-`observeEventType` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+[observeEventType](/api/sync/ios/api.html#–-observeEventType-withBlock) 或 [observeSingleEventOfType](/api/sync/ios/api.html#–-observeSingleEventOfType-withBlock) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
-例如，从应用中获得天气数据：
+例如，从应用中获得评论数据：
 
 <div class="slide">
 <div class='slide-title'>
@@ -143,16 +143,25 @@ myRootRef.setValue(["weather" : ["beijing" : "rain", "shanghai" : "sunny"]])
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-// 监听数据变化
-[myRootRef observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
+// snapshot 里面的数据会一直和云端保持同步
+[ref observeEventType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
     NSLog(@"%@ -> %@", snapshot.key, snapshot.value);
+}];
+// 如果你只想监听一次，那么你可以使用 observeSingleEventOfType 方法
+[ref observeSingleEventOfType:WDGDataEventTypeValue withBlock:^(WDGDataSnapshot *snapshot) {
+    NSLog(@"%@ -> %@", snapshot.key, snapshot.value);    
 }];
 ```
 </div>
 <div class="slide-content">
 ```swift
-// 监听数据变化
-myRootRef.observeEventType(.Value, withBlock: {
+// snapshot 里面的数据会一直和云端保持同步
+ref.observeEventType(.Value, withBlock: {
+  snapshot in
+  print("\(snapshot.key) -> \(snapshot.value)")
+})
+// 如果你只想监听一次，那么你可以使用 observeSingleEventOfType 方法
+ref.observeSingleEventOfType(.Value, withBlock: {
   snapshot in
   print("\(snapshot.key) -> \(snapshot.value)")
 })
@@ -160,7 +169,6 @@ myRootRef.observeEventType(.Value, withBlock: {
 </div>
 </div>
 
-`snapshot` 里面的数据会一直与云端保持同步。如果你只监听一次，那么你可以使用`observeSingleEventOfType`方法替代`observeEventType`方法。
 
 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
 
