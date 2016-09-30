@@ -52,7 +52,7 @@ connectedRef.observeEventType(.Value, withBlock: {snapshot in
 </div>
 </div>
 
-`/.info/connected` 的值是 boolean 类型。
+> **注意：**`/.info/connected` 的值是 BOOL 类型。
 
 ## 离线事件
 
@@ -180,7 +180,7 @@ ref.goOnline()
 
 
 
-使用  `setPersistenceEnabled` 方法开启数据持久化：
+`setPersistenceEnabled` 方法用于开启数据持久化：
 
 <div class="slide">
 <div class='slide-title'>
@@ -207,7 +207,7 @@ WDGSync.sync().persistenceEnabled = true
 
 开启数据持久化，Wilddog Sync 会将查询到的数据存储到设备。在无网环境时，应用仍然可以查询之前存储的数据。
 
-例如，有网络时，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/) 中查询得分最高的四条恐龙：
+例如，有网络时，在 [班级示例应用](https://class-demo.wilddogio.com/) 中查询得分最高的四位学生：
 
 <div class="slide">
 <div class='slide-title'>
@@ -219,7 +219,7 @@ WDGSync.sync().persistenceEnabled = true
 WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 [[[scoresRef queryOrderedByValue] queryLimitedToLast:4]
     observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
-    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
+    NSLog(@"The %@ student's score is %@", snapshot.key, snapshot.value);
 }];
 ```
 </div>
@@ -227,13 +227,13 @@ WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 ```swift
 let scoresRef = WDGSync.sync().referenceWithPath("scores")
 scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
-    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
+    print("The \(snapshot.key) student's score is \(snapshot.value)")
 })
 ```
 </div>
 </div>
 
-然后网络断开，重新启动应用去查询得分最高的两条恐龙：
+然后网络断开，重新启动应用去查询考分最高的两位学生：
 
 <div class="slide">
 <div class='slide-title'>
@@ -244,7 +244,7 @@ scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdd
 ```objectivec
 [[[scoresRef queryOrderedByValue] queryLimitedToLast:2]
     observeEventType:WDGDataEventTypeChildAdded withBlock:^(WDGDataSnapshot *snapshot) {
-    NSLog(@"The %@ dinosaur's score is %@", snapshot.key, snapshot.value);
+    NSLog(@"The %@ student's score is %@", snapshot.key, snapshot.value);
 }];
 ```
 </div>
@@ -252,7 +252,7 @@ scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdd
 ```swift
 let scoresRef = WDGSync.sync().referenceWithPath("scores")
 scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
-    print("The \(snapshot.key) dinosaur's score is \(snapshot.value)")
+    print("The \(snapshot.key) student's score is \(snapshot.value)")
 })
 ```
 </div>
@@ -270,7 +270,7 @@ scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdd
 
 Wilddog Sync 可以在查询数据前同步指定节点下的数据，并将数据存储到设备中，以此提升访问速度。
 
-例如，在 [恐龙示例应用](https://dinosaur-facts.wilddogio.com/scores) 中提前同步 `scores` 节点下的数据：
+例如，在 [班级示例应用](https://class-demo.wilddogio.com/scores) 中提前同步 `scores` 节点下的数据：
 
 <div class="slide">
 <div class='slide-title'>
