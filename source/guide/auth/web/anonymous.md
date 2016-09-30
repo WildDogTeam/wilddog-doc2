@@ -1,3 +1,4 @@
+
 title:  匿名登录
 ---
 
@@ -9,11 +10,11 @@ title:  匿名登录
 
 2. 打开匿名登录方式:
 
- * 在野狗控制面板中选择身份认证选项。
+* 在野狗控制面板中选择身份认证选项。
 
- * 在｀登录方式｀标签中打开匿名登录方式。
+* 在｀登录方式｀标签中打开匿名登录方式。
 
-## 使用 Wilddog 匿名登录认证
+## 实现匿名登录
 
 当一个未登录的用户想想使用一个 Wilddog 必须登录才能使用的特性，可以利用匿名登录，完成下面步骤：
 
@@ -21,17 +22,17 @@ title:  匿名登录
     <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 2. 以 Wilddog AppId 初始化 Wilddog 应用。
-    ```javascript
- var config = {
+   ```javascript
+    var config = {
      authDomain: "<appId>.wilddog.com",
      syncURL: "https://<appId>.wilddogio.com"
- };
- wilddog.initializeApp(config, "DEFAULT");
+    };
+    wilddog.initializeApp(config, "DEFAULT");
 
-    ```
+   ```
 
 3. 调用 `signInAnonymously()`方法：
-    ```javascript
+   ```javascript
    wilddog.auth().signInAnonymously().then(function(res){
          console.log(res);
    }).catch(function (error) {
@@ -39,13 +40,17 @@ title:  匿名登录
          console.log(error);
          // ...
    });
-    ```
+   ```
 
 4. 如果signInAnonymously方法调用成功并且没有返回错误信息，你可以在 当前用户 对象中获取用户数据：
 ```javascript
 var isAnonymous = user.anonymous; 
 var uid = user.uid;
 ```
+
+
+
+
 
 ## 将匿名帐号转变成永久帐号
 
@@ -166,6 +171,25 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 ```
 
 
-## 后续步骤
 
-现在我们已经学会了使用野狗进行用户认证，你可以配置 [规则表达式](/guide/sync/rules/introduce.html) 来控制野狗实时数据的访问权限。
+## 退出登录
+
+[signOut](/guide/auth/web/api.html#signout) 方法用于用户退出登录：
+
+```javascript
+ wilddog.auth().signOut().then(function() {
+     // 退出成功
+     console.log("sign-out")
+ }, function(error) {
+     // 发生错误
+     console.log("sign-out-error")
+ });
+```
+
+## 更多使用
+
+- 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/web/manageuser.html)。
+
+
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用邮箱登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。
+  Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。

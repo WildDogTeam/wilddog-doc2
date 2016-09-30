@@ -26,7 +26,7 @@ title: 用户管理
 - 在 `Auth` 实例上设置监听器
 - 使用 `currentUser` 方法
 
-使用监听器
+使用监听器：
 
 ```javascript
 wilddog.auth().onAuthStateChanged(function(user) {
@@ -38,7 +38,7 @@ wilddog.auth().onAuthStateChanged(function(user) {
 });
 ```
 
-使用 `currentUser` 方法
+使用 `currentUser` 方法：
 
 
 ```javascript
@@ -55,7 +55,7 @@ if (user != null) {
 
 ### 获取用户属性
 
-使用 `User` 实例可以获取用户属性。
+ `User` 实例可以用于获取用户属性。
 
 ```javascript
 var user = wilddog.auth().currentUser;
@@ -67,14 +67,13 @@ if (user != null) {
 } else {
  // 没有用户登录
 }
-
 ```
 
 ### 获取 Provider 的用户属性
 
-使用 `providerData` 获得所有 [Provider](/guide/auth/core/concept.html#Provider) 的用户属性。
+ `providerData` 用于获取所有 [Provider](/guide/auth/core/concept.html#Provider) 的用户属性。
 
-```
+```js
 var user = wilddog.auth().currentUser;
  console.log(user);
  user.providerData.forEach(function (profile) {
@@ -85,17 +84,18 @@ var user = wilddog.auth().currentUser;
  console.log(" Photo URL: " + profile.photoURL);
  });
 
-
 ```
 
 ## 更新用户信息
-使用 `User` 实例更新 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
+ `User` 实例用于更新 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
 
 ### 更新用户属性
 
 `updateProfile()` 方法用于更新用户属性。
 
-```
+例如，更新用户的`displayName` 和 `photoURL` 属性：
+
+```js
 wilddog.auth().currentUser.updateProfile({
      displayName: "name",
      photoURL: "https://example.com/path/photo.jpg"
@@ -111,7 +111,7 @@ wilddog.auth().currentUser.updateProfile({
 
  `updateEmail()` 方法用于更新用户邮箱地址。
 
-```
+```js
 wilddog.auth().currentUser.updateEmail(email).then(function() {
      // 更新成功
  }, function(error) {
@@ -129,7 +129,7 @@ wilddog.auth().currentUser.updateEmail(email).then(function() {
 
 `updatePassword()` 方法用于更新用户密码。
 
-```
+```js
 wilddog.auth().currentUser.updatePassword("12345678").then(function() {
      // 更新成功
      console.log("");
@@ -148,26 +148,26 @@ wilddog.auth().currentUser.updatePassword("12345678").then(function() {
 
 `sendPasswordResetWithEmail()` 方法用于向用户发送重设密码邮件。
 
-在控制面板 **身份认证—登录方式—邮箱登录** 中可以设置邮件自定义模板。
-
 ```javascript
 wilddog.auth().sendPasswordResetEmail(email);
 ```
+
+> **注意：**在控制面板 身份认证—登录方式—邮箱登录 中可以设置邮件自定义模板。
 
 ## 删除用户
 
 删除用户的方式有以下两种：
 
 - 通过 `delete()` 方法删除
-- 在控制面板 **身份认证—用户** 中手动删除
+- 在控制面板**身份认证—用户** 中手动删除
 
-使用 `delete()` 方法
+使用 `delete()` 方法：
 
-```javascript
+```js
 wilddog.auth().currentUser.delete();
 ```
 
-使用控制面板
+使用控制面板：
 
  ![](/images/deleteuser.jpg)
 
@@ -190,7 +190,7 @@ wilddog.auth().currentUser.delete();
 
 `reauthenticate(credential)` 方法用于对用户重新进行身份认证。
 
-```
+```js
  var credential ; // 需要初始化
  wilddog.auth().currentUser.reauthenticate(credential).then(function(res) {
      // 更新成功

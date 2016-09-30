@@ -1,25 +1,26 @@
+
 title:  自定义身份认证
 ---
 
-您可以通过自定义身份认证系统来集成您的已有帐号系统，当用户登录到您的服务器时，生成 Custom Token 返回给客户端，Wilddog 身份认证系统利用它来进行身份认证。
+本篇文档介绍在 Wilddog Auth 中如何使用 QQ 对用户进行身份认证。
 
 
 
 ## 开始前的准备工作
 
-1. [创建野狗应用](/console/creat.html)
-
+1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
 2. [使用野狗超级密钥生成 Custom Token](/guide/auth/server/server.html)
+3. 使用 Wilddog 超级秘钥生成
 
 
 
-## Wilddog 身份认证
+## 实现自定义身份认证
 
-1. 引入 WilddogAuth 模块：
+1.安装 Wilddog Auth SDK：
 
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
-2. 初始化 Wilddog 应用实例：
+2.创建 Wilddog Auth 实例：
 
 ```javascript
  var config = {
