@@ -2,15 +2,14 @@
 title:  自定义身份认证
 ---
 
-本篇文档介绍在 Wilddog Auth 中如何使用 QQ 对用户进行身份认证。
+本篇文档介绍在 Wilddog Auth 中如何使用自定义身份认证。
 
 
 
-## 开始前的准备工作
+## 前期准备
 
 1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
-2. [使用野狗超级密钥生成 Custom Token](/guide/auth/server/server.html)
-3. 使用 Wilddog 超级秘钥生成
+2. 在**控制面板-身份认证-登录方式-超级秘钥**中获取野狗超级密钥
 
 
 
@@ -30,9 +29,8 @@ title:  自定义身份认证
  wilddog.initializeApp(config, "DEFAULT");
 ```
 
-3. 当用户登录您的应用时，发送他们的凭据（比如邮箱密码的方式）到您的服务器上。然后服务器检查凭据的正确性并返回 Custom Token。
-
-4. 从服务器收到 Custom Token 后，传到 `signInWithCustomToken:` 方法中进行登录：
+3. 当用户登录您的应用时，发送他们的凭据（比如邮箱密码的方式）到您的服务器上。然后服务器检查凭据的正确性并返回 Custom Token。[生成 Custom Token](/guide/auth/server/server.html)
+4. 从服务器收到 Custom Token 后，使用 `signInWithCustomToken:` 方法进行登录：
 
 ```javascript
 wilddog.auth().signInWithCustomToken(customToken).then(function (res){
