@@ -164,7 +164,7 @@ withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref
 </div>
 <div class="slide-content">
 
-```swift
+​```swift
 let ref = WDGSync.sync().reference("full_name")
 ref.setValue("jack", andPriority: 100) { (error, ref) in
     if error == nil {
@@ -285,9 +285,8 @@ jobsRef.updateChildValues(fullname)
 </div>
 
 
-
-**多路径更新**
 例如，同时更新 b 节点下的 d 和 x 节点下的 z：
+
 ```json
 //原数据如下
 {

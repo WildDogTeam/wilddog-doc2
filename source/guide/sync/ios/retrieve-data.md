@@ -6,23 +6,23 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 
 ## 事件
 
-数据在云端发生的任何变化都称为事件。
+数据在云端发生变化后会触发事件。
 
 事件包含以下五种：
 
 | 事件类型                         | 说明                    |
 | ---------------------------- | --------------------- |
-| WDGDataEventTypeValue        | 初始化监听或有新增子节点。 |
-| WDGDataEventTypeChildAdded   | 子节点数据发生更改。     |
-| WDGDataEventTypeChildChanged | 子节点被删除。          |
-| WDGDataEventTypeChildRemoved | 子节点排序发生变化。           |
-| WDGDataEventTypeChildMoved   | 初始化监听或指定节点及子节点数据发生变化。|
+| WDGDataEventTypeValue        | 初始化监听或有新增子节点。         |
+| WDGDataEventTypeChildAdded   | 子节点数据发生更改。            |
+| WDGDataEventTypeChildChanged | 子节点被删除。               |
+| WDGDataEventTypeChildRemoved | 子节点排序发生变化。            |
+| WDGDataEventTypeChildMoved   | 初始化监听或指定节点及子节点数据发生变化。 |
 
 >**注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
 
 
 ## 监听事件
-通过 Wilddog Sync 提供的方法，监听云端的事件，获取并处理变化的数据，保持和云端实时同步。
+通过 Wilddog Sync 提供的方法，监听云端的事件，保持和云端实时同步。
 
 ### 设置监听
 `observeEventOfType` 方法用于与事件配合来监听指定节点的数据。
@@ -104,7 +104,7 @@ ref.observeEventType(.ChildAdded, withBlock: { snapshot in
 
 ### 移除监听
 
-`removeObserverWithHandle` 方法用于移除一个监听事件，移除监听之后，回调方法将不再被触发。
+`removeObserverWithHandle` 方法用于移除指定事件。移除监听之后，事件回调方法将不会被触发。
 
 参数为 `observeEventOfType` 方法的返回值
 <div class="slide">
