@@ -1,5 +1,5 @@
 
-title:  微信登录
+title:  微信认证
 ---
 
 本篇文档介绍在 Wilddog Auth 中如何使用微信对用户进行身份认证。
@@ -8,7 +8,8 @@ title:  微信登录
 
 1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
 2. 在 [微信开放平台管理中心](https://open.weixin.qq.com/)，获取应用的 **AppID** 和 **AppSecret**。
-3. 在控制面板 **身份认证—登录方式** 中打开微信登录方式，配置微信帐号 **AppID** 和 **AppSecret**。
+3. 在 微信开放平台—网站应用—网站信息 中填写回调域名 `auth.wilddog.com`。
+4. 在 控制面板 身份认证—登录方式 中打开微信登录方式，配置微信帐号 **AppID** 和 **AppSecret**。
 
 ## 实现微信认证
 
@@ -24,14 +25,14 @@ title:  微信登录
  wilddog.initializeApp(config, "DEFAULT");
 ```
 
-3.Wilddog Auth 提供两种方式进行微信认证，你可以任选其一：
+3.Wilddog Auth 提供多种方式进行微信认证，你可以任选其一：
 
-- **popup**
+- popup
 
 ```json
 var provider = new wilddog.auth.WeixinAuthProvider();
-wilddog.auth().signInWithPopup(provider).then(function (result) {
-    console.log(result);
+wilddog.auth().signInWithPopup(provider).then(function (user) {
+    console.log(user);
  }).catch(function (error) {
      // 错误处理
      console.log(error);
@@ -39,12 +40,12 @@ wilddog.auth().signInWithPopup(provider).then(function (result) {
  });
 ```
 
-- **redirect**
+- redirect
 
 ```js
 var provider = new wilddog.auth.WeixinAuthProvider();
-wilddog.auth().signInWithRedirect(provider).then(function (result) {
-     console.log(result);
+wilddog.auth().signInWithRedirect(provider).then(function (user) {
+     console.log(user);
  }).catch(function (error) {
      // 错误处理
      console.log(error);
@@ -52,9 +53,11 @@ wilddog.auth().signInWithRedirect(provider).then(function (result) {
  });
 ```
 
+更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/web/api.html#link)。
+
 ## 退出登录
 
-[signOut](/guide/auth/web/api.html#signout) 方法用于用户退出登录：
+`signOut` 方法用于用户退出登录：
 
 ```javascript
  wilddog.auth().signOut().then(function() {
@@ -71,5 +74,4 @@ wilddog.auth().signInWithRedirect(provider).then(function (result) {
 - 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/web/manageuser.html)。
 
 
-- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用邮箱登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。
-  Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用微信登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
