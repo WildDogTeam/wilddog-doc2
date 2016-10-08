@@ -2,8 +2,6 @@
 title: 基础概念
 ---
 
-Wilddog 术语是 Wilddog 产品对一些特定概念的称谓。
-
 ### AppID
 
 AppID 是 Wilddog 应用的唯一标识，在你创建 Wilddog 应用时设置。
