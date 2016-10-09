@@ -138,7 +138,11 @@ auth!.currentUser?.linkWithCredential(credential) { (user, error) in
 
 更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/ios/api.html#link)。
 
-> **注意：**若使用 customToken 登录时，若 customToken 中 admin 属性为 true，则不能进行关联操作。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  若使用 customToken 登录时，若 customToken 中 admin 属性为 true，则不能进行关联操作。
+</blockquote>
+
 
 ## 解除已绑定认证方式
 

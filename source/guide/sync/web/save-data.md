@@ -220,7 +220,10 @@ ref.set({
 ref.remove();
 ```
 
->**提示：**设置节点的 value 为 null 等同于 `remove()` 方法。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  设置节点的 value 为 null 等同于 `remove()` 方法。
+</blockquote>
 
 ## 事务处理
 
@@ -241,7 +244,10 @@ upvotesRef.transaction(function (currentValue) {
 });
 ```
 
->**注意：**回调方法的返回值可能为空，需要进行相应的处理。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  回调方法的返回值可能为空，需要进行相应的处理。
+</blockquote>
 
 更多使用，请参考 [transaction()](/api/sync/web/api.html#transaction)。
 
