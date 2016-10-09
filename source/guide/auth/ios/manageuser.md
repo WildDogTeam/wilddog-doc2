@@ -1,14 +1,34 @@
 
-title: 管理用户
+title: 用户管理
 ---
 
+本篇文档介绍如何使用 Wilddog Auth 管理用户。它包括：创建用户、获取用户信息、获取用户属性、更新用户信息、删除用户等。
+
 ## 创建用户
-通过调用 `createUserWithEmail:password:completion:` 方法或首次使用第三方登录方式（如 QQ Sign-In 或 WeiXin Login）登录一个用户，就可以在你的 Wilddog 项目中创建一个新用户。
 
-你也可以从 Wilddog 控制面板的身份“认证部分”的“用户”页面中创建新的密码认证用户。
+创建用户包含以下三种方法
 
-## 获取当前登录用户
-获取当前用户的推荐方法是在 Auth 对象上设置一个侦听器：
+- 通过 [邮箱密码](/guide/auth/ios/password.html) 创建
+- 通过第三方身份认证提供商授权创建
+- 在 控制面板—身份认证—用户 中手动创建
+
+
+## 获取用户信息
+
+用户信息包含 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
+
+
+
+### 获取当前登录用户
+
+获取当前登录用户是管理用户的基础。
+
+获取当前登录用户包含以下两种方法
+
+- 在 `Auth` 实例上设置监听器
+- 使用 `currentUser` 方法
+
+使用监听器：
 
 <div class="slide">
 <div class='slide-title'>
@@ -41,9 +61,7 @@ WDGAuth.auth()?.addAuthStateDidChangeListener{ auth, user in
 </div>
 </div>
 
-使用侦听器可保证在你获取当前用户时 Auth 对象不会处于中间状态如初始化。
-
-你也可以使用 `currentUser` 属性获取当前已登录的用户。 如果用户没有登录，`currentUser` 则为空：
+使用 `currentUser` 方法：
 
 <div class="slide">
 <div class='slide-title'>
@@ -73,10 +91,11 @@ if let user = WDGAuth.auth()?.currentUser {
 </div>
 </div>
 
-注：`currentUser` 可能为空，这是因为 auth 对象尚未完成初始化。 如果你使用侦听器跟踪用户登录状态，你将无需处理该情况。
+> **注意：**推荐使用监听器，这样可以保证在你获取当前用户时 Auth 实例不会处于中间状态，如用户正在登录时。
 
-## 获取个人资料
-要获取用户的个人资料信息，请使用 `WDGUser` 实例的属性。 例如：
+### 获取用户属性
+
+ `WDGUser` 实例可以用于获取用户属性。
 
 <div class="slide">
 <div class='slide-title'>
@@ -120,8 +139,9 @@ if let user = WDGAuth.auth()?.currentUser {
 </div>
 </div>
 
-## 获取第三方个人资料信息
-要获取已链接至用户的其它登录方式的个人资料信息，请使用 providerData 属性。 例如：
+### 获取 Provider 的用户属性
+
+ `providerData` 用于获取所有 [Provider](/guide/auth/core/concept.html#Provider) 的用户属性。
 
 <div class="slide">
 <div class='slide-title'>
@@ -164,7 +184,10 @@ if let user = WDGAuth.auth()?.currentUser {
 </div>
 
 ## 更新个人资料
-你可以使用`WDGUserProfileChangeRequest` 类来更新一个用户的基本个人资料信息 — 用户的显示名称和个人资料照片网址。 例如：
+
+`WDGUserProfileChangeRequest` 类用于更新用户属性。
+
+例如，更新用户的`displayName` 和 `photoURL` 属性：
 
 <div class="slide">
 <div class='slide-title'>
@@ -210,8 +233,9 @@ if let user = user {
 </div>
 </div>
 
-## 设置邮箱地址
-你可以用 `updateEmail:completion:` 方法设置用户的电子邮件地址。如果这个用户已经存在邮箱，则更新它，之后需要使用新的邮箱地址进行登录。例如：
+### 更新邮箱地址
+
+ `updateEmail:completion:` 方法用于更新用户邮箱地址。
 
 <div class="slide">
 <div class='slide-title'>
@@ -247,10 +271,14 @@ user?.updateEmail("user@example.com") { error in
 </div>
 </div>
 
-重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅 [对用户重新进行身份认证](/guide/auth/ios/manageuser.html#对用户重新进行身份认证)。
+> **注意：**
+- 要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/ios/manageuser.html#重新进行身份认证)。
+- 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。
 
-## 设置用户密码
-你可以使用 `updatePassword:completion:` 方法设置用户密码。密码更新成功后，需要使用新的密码进行登录。例如：
+
+### 更新用户密码
+
+`updatePassword:completion:` 方法用于更新用户密码。
 
 <div class="slide">
 <div class='slide-title'>
@@ -288,10 +316,13 @@ user?.updatePassword(newPassword) { error in
 </div>
 </div>
 
-重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+> **注意：**
+- 要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/ios/manageuser.html#重新进行身份认证)。
+- 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。
 
-## 发送重设密码邮件
-你可以用 `sendPasswordResetWithEmail:completion:` 方法向用户发送一封重设密码电子邮件。 例如：
+### 发送重设密码邮件
+
+`sendPasswordResetWithEmail:completion:` 方法用于向用户发送重设密码邮件。
 
 <div class="slide">
 <div class='slide-title'>
@@ -328,13 +359,16 @@ WDGAuth.auth()?.sendPasswordResetWithEmail(email) { error in
 </div>
 </div>
 
-你可以在 Wilddog 控制面板的“用户认证”部分的“邮件模版”页面中自定义使用的电子邮件模板。
-
-你也可以从 Wilddog 控制面板中发送重设密码电子邮件。
+> **注意：**在控制面板 身份认证—登录方式—邮箱登录 中可以设置邮件自定义模板。
 
 ## 删除用户
 
-你可以使用 `deleteWithCompletion` 方法删除用户帐户。例如：
+删除用户的方式有以下两种：
+
+- 通过 `deleteWithCompletion` 方法删除
+- 在控制面板**身份认证—用户** 中手动删除
+
+使用 `deleteWithCompletion` 方法：
 
 <div class="slide">
 <div class='slide-title'>
@@ -369,16 +403,27 @@ user?.deleteWithCompletion { error in
 </div>
 </div>
 
-你可以从 Wilddog 控制面板的“用户认证”部分的“用户”页面中删除用户。
+使用控制面板：
 
-重要说明：要删除用户，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+ ![](/images/deleteuser.jpg)
+
+> **注意：**
+- 要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/ios/manageuser.html#重新进行身份认证)。
+- 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。
+
+
 
 ## 重新进行身份认证
-有些安全敏感性操作—如删除帐户、设置主电子邮件地址和更改密码—需要用户最近登录过方可执行。
 
-如果你执行这些操作之一，而该用户在很久以前登录过，该操作便会失败，显示 `WDGAuthErrorCodeCredentialTooOld` 错误。
+用户长时间未登录的情况下进行下列安全敏感操作会失败：
 
-发生这种错误时，请从用户获取新登录凭据并将该凭据传递到 `reauthenticateWithCredential:`，对该用户重新进行身份认证。 例如：
+- 删除账户
+- 设置主邮箱地址
+- 更改密码
+
+此时需要重新对用户进行身份认证。
+
+`reauthenticateWithCredential:` 方法用于对用户重新进行身份认证。
 
 <div class="slide">
 <div class='slide-title'>
