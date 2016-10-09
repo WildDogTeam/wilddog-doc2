@@ -21,15 +21,12 @@ title: 用户管理
 
 获取当前登录用户是管理用户的基础。
 
-获取当前登录用户方式如下：
-
-使用 `getCurrentUser ()` 方法：
-
-
-```javascript
+使用监听器：
+```java
 WilddogAuth auth = WilddogAuth.getInstance();
 
 auth.addAuthStateListener(new WilddogAuth.AuthStateListener(){
+    // 设置 Auth 监听器
     @Override
     public void onAuthStateChanged(WilddogAuth wilddogauth){
         WilddogUser user = wilddogauth.getCurrentUser();
@@ -42,9 +39,23 @@ auth.addAuthStateListener(new WilddogAuth.AuthStateListener(){
 });
 ```
 
+
+使用 `getCurrentUser ()` 方法获取当前登录：
+
+
+```java
+WilddogAuth auth = WilddogAuth.getInstance();
+WilddogUser user = auth.getCurrentUser();
+if (user != null) {
+   // 用户已登录
+} else {
+   // 没有用户登录
+}
+```
+
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  推荐使用监听器，这样可以保证在你获取当前用户时 Auth 实例不会处于中间状态，如用户正在登录时。 用户可以在登陆后通过WilddogAuth.getInstance().getCurrentUser()在任何需要的时候获取到WilddogUser对象。
+  推荐使用监听器，这样可以保证在你获取当前用户时 Auth 实例不会处于中间状态，如用户正在登录时。 用户可以在登陆后通过 WilddogAuth.getInstance().getCurrentUser() 在任何需要的时候获取到 WilddogUser 对象。
 </blockquote>
 
 ### 获取用户属性
