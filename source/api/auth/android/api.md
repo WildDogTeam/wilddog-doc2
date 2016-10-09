@@ -690,7 +690,7 @@ public Task<Void> sendPasswordResetEmail (String email)
 返回当前操作结果的Task对象
   
 ---
-### signInWithCredential ()
+### signInAnonymously ()
   
 定义
   
