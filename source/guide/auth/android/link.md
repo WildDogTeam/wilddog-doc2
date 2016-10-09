@@ -57,7 +57,7 @@ user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteList
 
 ```javascript
 // QQ 认证
-AuthCredential authCredential= QQAuthProvider.getCredential(jsonObject.getString("access_token")); 
+AuthCredential authCredential= QQAuthProvider.getCredential(access_token); 
 
 // 微博认证
 AuthCredential authCredential= WeiboAuthProvider.getCredential(access_token,openid);
