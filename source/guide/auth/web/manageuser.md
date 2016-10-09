@@ -222,7 +222,7 @@ wilddog.auth().currentUser.delete().then(function() {
 ```js
  var credential ; // 需要初始化
  wilddog.auth().currentUser.reauthenticate(credential).then(function(res) {
-     // 认证成功
+     // 重新认证成功
      console.log(res);
  }, function(error) {
      // 发生错误
