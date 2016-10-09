@@ -491,28 +491,7 @@ Uri	getPhotoUri()
 返回要修改的头像URL
 
 ----
-### getPhotoUri ()
 
-定义
-
-public String getDisplayName ()
-
-说明
-
-返回要修改的昵称信息
-
-----
-### getPhotoUri ()
-
-定义
-
-public Uri getPhotoUri ()
-
-说明
-
-返回要修改的头像URL
-
-----
 ## UserProfileChangeRequest.Builder
 
 定义
@@ -615,11 +594,8 @@ interface	WilddogAuth.AuthStateListener
 然后可以通过`getCurrentUser()`访问用户信息和进行用户操作.
   
 一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法
-
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  你必须在Wilddog控制面板中打开这种登录认证方式。
-</blockquote>
+  
+**注意:** 你必须在Wilddog控制面板中打开这种登录认证方式。
   
 ---
 ### fetchProvidersForEmail ()
@@ -708,10 +684,7 @@ public Task<```AuthResult```> signInAnonymously ()
 一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法.
      
    
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  你必须在Wilddog控制面板中打开这种登录认证方式。
-</blockquote>
+**注意:** 你必须在Wilddog控制面板中打开这种登录认证方式。
   
 ---   
 ### signInWithCredential ()
@@ -726,10 +699,7 @@ public Task<AuthResult> signInWithCredential (AuthCredential credential)
 
 所有`AuthCredential`都会创建一个用户账号。
 
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  你必须在Wilddog控制面板中打开相应的登录认证方式。
-</blockquote>
+**注意:** 你必须在Wilddog控制面板中打开相应的登录认证方式。
      
 ---
 ### signInWithCustomToken ()
@@ -763,10 +733,7 @@ public Task<AuthResult> signInWithEmailAndPassword (String email, String passwor
 
 一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法.
   
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  你必须在Wilddog控制面板中打开这种登录认证方式。
-</blockquote>
+**注意:** 你必须在Wilddog控制面板中打开这种登录认证方式。
   
 这个方法和`signInWithCredential（）`的`EmailAuthCredential`登录认证方式是等效的。
   
