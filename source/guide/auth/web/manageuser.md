@@ -187,7 +187,7 @@ wilddog.auth().sendPasswordResetEmail(email)then(function() {
 
 ```js
 wilddog.auth().currentUser.delete().then(function() {
-    // 更新成功
+    // 删除成功
 }, function(error) {
     // 发生错误
     console.log(error);
