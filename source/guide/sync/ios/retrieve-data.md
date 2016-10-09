@@ -18,7 +18,11 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 | WDGDataEventTypeChildRemoved | 子节点排序发生变化。            |
 | WDGDataEventTypeChildMoved   | 初始化监听或指定节点及子节点数据发生变化。 |
 
->**注意：**每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  每当指定节点下的数据（包括更深层节点数据）发生改变时，都会触发 Value 事件。所以，为了聚焦你关心的数据，你应该把监听的节点路径设置的更加精确。例如，尽量不要在根节点设置 Value 事件监听。
+</blockquote>
 
 
 ## 监听事件
@@ -100,7 +104,10 @@ ref.observeEventType(.ChildAdded, withBlock: { snapshot in
 
 更详细的用法说明，请参考 [API 文档](/api/sync/ios/api.html#–-observeEventType-withBlock)。
 
->**提示：** 如果你只想监听一次数据，可使用 `observeSingleEventOfType` 方法。该监听的回调方法只被触发一次，之后会自动取消监听。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  如果你只想监听一次数据，可使用 `observeSingleEventOfType` 方法。该监听的回调方法只被触发一次，之后会自动取消监听。
+</blockquote>
 
 ### 移除监听
 
@@ -155,7 +162,10 @@ ref.removeAllObservers()
 </div>
 </div>
 
->**注意：**在父节点上调用 `removeAllObservers` 方法时不会移除在其子节点上添加的监听。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  在父节点上调用 `removeAllObservers` 方法时不会移除在其子节点上添加的监听。
+</blockquote>
 
 ## 条件监听
 Wilddog Sync 支持对事件监听设置条件：数据排序或数据筛选。
@@ -290,11 +300,13 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
 `queryOrderedByPriority`方法用于根据子节点的优先级（priority）进行排序。
 
 
->**注意：**
-- 每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。
-- 排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
-
-
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。</li>
+    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。</li>
+  </ul>
+</blockquote>
 
 
 ### 根据数据筛选结果监听
@@ -387,6 +399,9 @@ scoresRef.queryOrderedByValue().queryStartingAtValue(60).observeEventType(.Child
 </div>
 </div>
 
-**注意：**范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
+</blockquote>
 
 范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。

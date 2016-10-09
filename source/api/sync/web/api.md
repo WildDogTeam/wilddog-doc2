@@ -548,9 +548,13 @@ wilddog.sync().ref('user').setWithPriority(100)
 
 如果需要， 你的 onComplete callback 将在事务完成后异步被调用。
 
-**注意** 
-+ 相同的数据节点上并发执行 set() 和 transaction()，极端情况下仍会出现不可预料的结果。
-+ 如果只是需要同时向多个节点写入数据，请优先考虑使用 [update](/api/sync/web/api.html#update) 的多路径更新特性。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>相同的数据节点上并发执行 set() 和 transaction()，极端情况下仍会出现不可预料的结果。</li>
+    <li>如果只是需要同时向多个节点写入数据，请优先考虑使用 [update](/api/sync/web/api.html#update) 的多路径更新特性。</li>
+  </ul>
+</blockquote>
 
 **定义**
 
@@ -566,7 +570,10 @@ transaction(updateFunction)
  
 [wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[TransactionResult](/api/sync/web/api.html#TransactionResult) | [TransactionResult](/api/sync/web/api.html#TransactionResult)[]> 
 
-**注意** 只有当 updateFunction 返回的是一个包含多个节点的 object 时，transaction 才会返回给 Promise 一个 [TransactionResult](/api/sync/web/api.html#TransactionResult) 数组。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  只有当 updateFunction 返回的是一个包含多个节点的 object 时，transaction 才会返回给 Promise 一个 [TransactionResult](/api/sync/web/api.html#TransactionResult) 数组。
+</blockquote>
 
 **示例**
 

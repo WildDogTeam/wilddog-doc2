@@ -55,7 +55,10 @@ WICED 平台需要用户为自己的 APP 编写 Makefile，且格式有严格要
 
 在`project/wiced/wiced.mk`中添加编译选项，并补完 Makefile，详见`wiced.mk`文件。
 
->**注意：** 如果你的平台不支持自定义 Makefile，那么请根据条件编译选项，将你所需的文件拷贝到项目中，避免出现重定义。需要选择拷贝的路径有：
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  如果你的平台不支持自定义 Makefile，那么请根据条件编译选项，将你所需的文件拷贝到项目中，避免出现重定义。需要选择拷贝的路径有：
+</blockquote>
 
 `APP_PROTO_TYPE` : src/networking 目录下，根据编译选项拷贝文件夹以及其中的文件；
 
@@ -77,5 +80,9 @@ int wilddog_send(int socketId,Wilddog_Address_T*,void* tosend,s32 tosendLength);
 
 int wilddog_receive(int socketId,Wilddog_Address_T*,void* toreceive,s32 toreceiveLength, s32 timeout);
 ```
->**注意：**tinydtls 以及 mbedtls 因为涉及底层，如果需要移植，可能要针对这两个库进行一些调试工作。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  tinydtls 以及 mbedtls 因为涉及底层，如果需要移植，可能要针对这两个库进行一些调试工作。
+</blockquote>
 

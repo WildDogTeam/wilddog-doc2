@@ -49,8 +49,10 @@ WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wildd
         });
 ```
 
-> **注意：**如果新用户创建成功，默认会处于登录状态，并且你可以在回调方法中获取登录用户。
-
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  如果新用户创建成功，默认会处于登录状态，并且你可以在回调方法中获取登录用户。
+</blockquote>
 
 
 ## 登录用户
@@ -93,8 +95,10 @@ WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wildd
 ```
 
 
-> **注意：** 如果用户成功登录，你可以在回调方法中获取登录用户。
-
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  如果用户成功登录，你可以在回调方法中获取登录用户。
+</blockquote>
 
 
 ## 退出登录
