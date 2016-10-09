@@ -78,14 +78,14 @@ if (user != null) {
 
 ```js
 var user = wilddog.auth().currentUser;
- console.log(user);
- user.providerData.forEach(function (profile) {
- console.log("Sign-in provider: " + profile.providerId);
- console.log(" Provider-specific UID: " + profile.uid);
- console.log(" Name: " + profile.displayName);
- console.log(" Email: " + profile.email);
- console.log(" Photo URL: " + profile.photoURL);
- });
+console.log(user);
+user.providerData.forEach(function (profile) {
+    console.log("Sign-in provider: " + profile.providerId);
+    console.log(" Provider-specific UID: " + profile.uid);
+    console.log(" Name: " + profile.displayName);
+    console.log(" Email: " + profile.email);
+    console.log(" Photo URL: " + profile.photoURL);
+});
 
 ```
 
@@ -121,10 +121,10 @@ wilddog.auth().currentUser.updateProfile({
 ```js
 wilddog.auth().currentUser.updateEmail(email).then(function() {
      // 更新成功
- }, function(error) {
+}, function(error) {
      // 发生错误
      console.log(error);
- });
+});
 ```
 
 <blockquote class="warning">
@@ -143,8 +143,7 @@ wilddog.auth().currentUser.updateEmail(email).then(function() {
 ```js
 wilddog.auth().currentUser.updatePassword("12345678").then(function() {
      // 更新成功
-     console.log("");
- }, function(error) {
+}, function(error) {
      console.log(error);
      // 发生错误
 });
@@ -164,7 +163,12 @@ wilddog.auth().currentUser.updatePassword("12345678").then(function() {
 `sendPasswordResetWithEmail()` 方法用于向用户发送重设密码邮件。
 
 ```javascript
-wilddog.auth().sendPasswordResetEmail(email);
+wilddog.auth().sendPasswordResetEmail(email)then(function() {
+    // 发送成功
+}, function(error) {
+    // 发生错误
+    console.log(error);
+});
 ```
 
 <blockquote class="warning">
@@ -182,7 +186,12 @@ wilddog.auth().sendPasswordResetEmail(email);
 使用 `delete()` 方法：
 
 ```js
-wilddog.auth().currentUser.delete();
+wilddog.auth().currentUser.delete().then(function() {
+    // 更新成功
+}, function(error) {
+    // 发生错误
+    console.log(error);
+});;
 ```
 
 使用控制面板：
