@@ -5,11 +5,13 @@ title:  离线功能
 
 C/嵌入式 SDK 为每个引用建立长连接，所有该引用的通讯都是基于这个连接。
 
-SDK 内部的实现机制使你的设备在弱网环境下仍能继续工作。此外，还能监听客户端的连接状态，以及设置离线事件。
+SDK 内部的实现机制使你的设备在弱网环境下仍能继续工作。此外，还能设置离线事件。
 
 ## 离线事件
 
-云端监听到客户端断开连接后自动触发一些事件，称为离线事件。断开连接包括客户端主动断开连接，或者意外的网络中断，比如客户端应用崩溃等。触发事件可以理解为执行特定的数据操作。数据操作支持数据的写入、追加和删除，如下：
+离线事件是云端与客户端断开连接时自动触发的事件。
+
+断开连接包括客户端主动断开连接，或者意外的网络中断。触发事件即执行特定的数据操作，它支持离线写入，更新和删除数据方法：
 
 方法 |  说明 
 ---- | ------
@@ -17,15 +19,13 @@ wilddog_onDisconnectSetValue()  | 当客户端离线时，对当前节点执行�
 wilddog_onDisconnectPush()  | 当客户端离线时，在当前节点下新增一个子节点，子节点的 key 由云端生成。
 wilddog_onDisconnectRemoveValue()   | 当客户端离线时，删除当前节点的数据。
 wilddog_cancelDisconnectOperations()  | 取消之前所设置的离线事件。
-wilddog_goOffline()   | 客户端设置为离线状态。
-wilddog_goOnline()  | 客户端连接云端。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  客户端若没有调用 wilddog_goOffline(), 直接关机或者断网，离线事件的触发有 3 分钟的延迟。
+  客户端若没有调用 [wilddog_goOffline()](/guide/sync/c/offline-capabilities.html#手动建立或断开连接)，直接关机或者断网，离线事件的触发有 3 分钟的延迟。
 </blockquote>
 
-以下是使用`wilddog_onDisconnectSetValue()`方法，在客户端离线时，云端把客户端的状态设置为离线：
+例如，当用户的网络连接中断时，使用`wilddog_onDisconnectSetValue()` 方法，记录这个用户已经离线：
 
 ```c
 STATIC void onSetCallback(void* arg, Wilddog_Return_T err){
@@ -33,54 +33,49 @@ STATIC void onSetCallback(void* arg, Wilddog_Return_T err){
         wilddog_debug("offline set error!");
         return;
     }
-    wilddog_debug("offline set success!");
-    *(BOOL*)arg = TRUE;
+    wilddog_debug("Offline set success!");
     return;
 }
 int main(void){
-    //用户自定义参数，这里的用途为：初始化为FALSE，回调函数中设为TRUE
-    //因此可以在main函数中得知是否成功
-    BOOL isFinish = FALSE;
     Wilddog_T wilddog = 0;
     Wilddog_Node_T * p_node = NULL;
 
-    /* create a node the value is offline  */
-    p_node = wilddog_node_createUString(NULL,"offline");
+    //本地组装节点 "disconnect"，当离线时设置为 "yes"
+    p_node = wilddog_node_createUString(NULL,"yes");
 
-    //<url>即希望设置数据的url，如coaps://<appid>.wilddogio.com/a/b/c
-    wilddog = wilddog_initWithUrl("<url>");
+    //<appId>即你应用的 appId，"/disconnect" 为节点的路径
+    wilddog = wilddog_initWithUrl("coaps://<appId>.wilddogio.com/disconnect");
 
     //注意，这里省略了对wilddog_onDisconnectSetValue返回值的检查
-    wilddog_onDisconnectSetValue(wilddog, p_node, onSetCallback, (void*)&isFinish);
+    wilddog_onDisconnectSetValue(wilddog, p_node, onSetCallback, NULL);
     wilddog_node_delete(p_node);
 
     while(1){
-        if(TRUE == isFinish){
-            wilddog_debug("set success!");
-            break;
-        }
         wilddog_trySync();
     }
     wilddog_destroy(&wilddog);
 }
 ```
+
 ## 手动建立或断开连接
 
-C/嵌入式 SDK 也提供了手动建立或者断开连接的方法，分别为 `wilddog_goOffline()`，`wilddog_goOnline()`，如下 ：
+`wilddog_goOffline()`，`wilddog_goOnline()` 方法用于手动建立连接和断开连接。
+
+
+例如：
 
 ```c
-
 int main(void){
     //计数器，自加到1000 主动断线。
     int cnt = 0;
     Wilddog_T wilddog = 0;
 
-    //<url>即希望设置数据的url，如coaps://<appid>.wilddogio.com/a/
-    wilddog = wilddog_initWithUrl("<url>");
+    //<appId>即你应用的 appId
+    wilddog = wilddog_initWithUrl("coaps://<appId>.wilddogio.com");
     
     wilddog_goOnline();
     while(1){
-        if( ++cnt > 1000){
+        if(++cnt > 1000){
             wilddog_goOffline();
             break;
         }
@@ -90,6 +85,10 @@ int main(void){
 }
 ```
 
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  一个应用可以创建多个 Wilddog Sync 实例，但多个实例只会复用同一个长连接。 并且 `wilddog_goOffline()` 和 `wilddog_goOnline()` 方法会控制全局的在线和离线。
+</blockquote>
 
 ## 离线功能的实现机制
 

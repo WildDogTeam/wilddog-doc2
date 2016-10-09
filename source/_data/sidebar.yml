@@ -41,7 +41,7 @@ guide:
     C/嵌入式:
       配置和移植: /guide/sync/c/config-and-porting.html
       数据操作: /guide/sync/c/save-data.html
-      数据查询: /guide/sync/c/retrieve-data.html
+      事件监听: /guide/sync/c/retrieve-data.html
       离线功能: /guide/sync/c/offline-capabilities.html
       
     REST:
