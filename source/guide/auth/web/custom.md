@@ -44,7 +44,7 @@ wilddog.auth().signInWithCustomToken(customToken).then(function (user){
 
 ## 退出登录
 
-`signOut` 方法用于用户退出登录：
+`signOut()` 方法用于用户退出登录：
 
 ```javascript
  wilddog.auth().signOut().then(function() {
