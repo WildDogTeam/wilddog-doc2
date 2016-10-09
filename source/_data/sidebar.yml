@@ -11,6 +11,7 @@ quickstart:
     iOS: /quickstart/sync/ios.html
     C/嵌入式: /quickstart/sync/c.html
     REST: /quickstart/sync/rest.html
+    规则表达式: /quickstart/sync/rule.html
   身份认证:
     Web: /quickstart/auth/web.html
     Android: /quickstart/auth/android.html
