@@ -38,8 +38,9 @@ title:  匿名身份认证
 4.`signInAnonymously()`方法调用成功后，可以在当前用户对象中获取用户数据：
 
 ```javascript
- var isAnonymous = user.anonymous; 
- var uid = user.uid;
+var user = wilddog.auth().currentUser; 
+var isAnonymous = user.anonymous; 
+var uid = user.uid;
 ```
   ​
 ## 匿名帐号转成永久帐号
