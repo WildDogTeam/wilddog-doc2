@@ -36,7 +36,11 @@ title:  离线功能
             }
         });
 ```
-> **注意：**`/.info/connected` 的值是 boolean 类型。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  `/.info/connected` 的值是 boolean 类型。
+</blockquote>
+
 
 ## 离线事件
 
@@ -98,7 +102,11 @@ presenceRef.goOnline();
 SyncReference presenceRef = WilddogSync.getInstance().getReference();
 presenceRef.goOffline();
 ```
->**注意：** 一个应用可以创建多个 Wilddog Sync 实例，但多个实例只会复用同一个长连接。 并且`goOffline()`方法 和 `goOnline()`方法会控制全局的在线和离线。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  一个应用可以创建多个 Wilddog Sync 实例，但多个实例只会复用同一个长连接。 并且`goOffline()`方法 和 `goOnline()`方法会控制全局的在线和离线。
+</blockquote>
 
 
 ## 数据本地持久化
@@ -117,7 +125,12 @@ presenceRef.goOffline();
 ```java
 WilddogSync.setPersistenceEnabled(true)
 ```
->**注意：**必须在创建第一个 Wilddog Sync 实例之前开启持久化。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  必须在创建第一个 Wilddog Sync 实例之前开启持久化。
+</blockquote>
+
 
 ### 离线查询
 

@@ -105,6 +105,9 @@ setTimeout(function(){
   },3000);
 },3000);
 ```
->**注意：** 一个应用可以创建多个 Wilddog Sync 实例，但多个实例只会复用同一个长连接。 并且`goOffline()`方法 和 `goOnline()`方法会控制全局的在线和离线。
 
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  一个应用可以创建多个 Wilddog Sync 实例，但多个实例只会复用同一个长连接。 并且`goOffline()`方法 和 `goOnline()`方法会控制全局的在线和离线。
+</blockquote>
 

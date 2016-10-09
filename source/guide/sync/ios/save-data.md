@@ -379,7 +379,10 @@ messagesRef.removeValue()
 </div>
 </div> 
 
-> **提示：** 设置节点的 value 为 nil 等同于 `removeValue` 方法。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  设置节点的 value 为 nil 等同于 `removeValue` 方法。
+</blockquote>
 
 ## 事务处理
 
@@ -436,6 +439,9 @@ upvotesRef.runTransactionBlock({
 
 
 
->**注意：**回调方法的返回值可能为空，需要进行相应的处理。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  回调方法的返回值可能为空，需要进行相应的处理。
+</blockquote>
 
 更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/api.html#–-runTransactionBlock)。

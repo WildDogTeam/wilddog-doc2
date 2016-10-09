@@ -206,7 +206,10 @@ ref.setValue(map);
 ref.removeValue();
 ```
 
->**提示：**如果某个节点的 value 为 null ,云端会直接删除该节点。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  如果某个节点的 value 为 null ,云端会直接删除该节点。
+</blockquote>
 
 ## 事务处理
 
@@ -233,7 +236,10 @@ upvotesRef.runTransaction(new Transaction.Handler() {
 });
 ```
 
->**注意：** 回调方法的返回值可能为空，需要进行相应的处理。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  回调方法的返回值可能为空，需要进行相应的处理。
+</blockquote>
 
 更多使用，请参考 [runTransaction()](/api/sync/android/api.html#runTransaction-Transaction-Handler)。
 
