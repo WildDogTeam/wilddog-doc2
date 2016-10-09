@@ -22,7 +22,7 @@ title:  绑定多种认证方式
 2.获取邮箱认证方式的 credential。
 
 ```javascript
-var credentialEmail = wilddog.auth.EmailAuthProvider.credential("12345678@gmail.com", "password123");
+var credentialEmail = wilddog.auth.EmailAuthProvider.credential("12345678@wilddog.com", "password123");
 ```
 
 3.使用邮箱认证方式绑定。

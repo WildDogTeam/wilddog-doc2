@@ -118,7 +118,7 @@ wilddog.auth().currentUser.updateProfile({
  `updateEmail()` 方法用于更新用户邮箱地址。
 
 ```js
-wilddog.auth().currentUser.updateEmail(email).then(function() {
+wilddog.auth().currentUser.updateEmail("12345678@wilddog.com").then(function() {
      // 更新成功
 }, function(error) {
      // 发生错误
@@ -222,7 +222,7 @@ wilddog.auth().currentUser.delete().then(function() {
 ```js
  var credential ; // 需要初始化
  wilddog.auth().currentUser.reauthenticate(credential).then(function(res) {
-     // 认证成功
+     // 重新认证成功
      console.log(res);
  }, function(error) {
      // 发生错误
