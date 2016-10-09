@@ -31,15 +31,15 @@ title: 微信公众号认证
 
 - popup
 
-```json
+```js
 var provider = new wilddog.auth.WeixinmpAuthProvider();
 wilddog.auth().signInWithPopup(provider).then(function (user) {
-    console.log(user);
- }).catch(function (error) {
-     // 错误处理
-     console.log(error);
-     // ...
- });
+   console.log(user);
+}).catch(function (error) {
+    // 错误处理
+    console.log(error);
+    // ...
+});
 ```
 
 - redirect
@@ -47,12 +47,12 @@ wilddog.auth().signInWithPopup(provider).then(function (user) {
 ```js
 var provider = new wilddog.auth.WeixinmpAuthProvider();
 wilddog.auth().signInWithRedirect(provider).then(function (user) {
-     console.log(user);
- }).catch(function (error) {
-     // 错误处理
-     console.log(error);
-     // ...
- });
+    console.log(user);
+}).catch(function (error) {
+    // 错误处理
+    console.log(error);
+    // ...
+});
 ```
 
 ## 退出登录

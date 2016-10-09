@@ -22,12 +22,9 @@ title:  邮箱认证
 
 ```javascript
 var config = {
-
- authDomain: "<appId>.wilddog.com"
-
- };
-
- wilddog.initializeApp(config, "DEFAULT");
+    authDomain: "<appId>.wilddog.com"
+};
+wilddog.initializeApp(config, "DEFAULT");
 ```
 
 3.使用 `createUserWithEmailAndPassword(email,password) ` 方法创建新用户：
