@@ -63,10 +63,10 @@ wilddog.auth().createUserWithEmailAndPassword("12345678@wilddog.com", "password1
 3.将该用户的电子邮件地址和密码传递到 `signInWithEmailAndPassword(email:password)`，即可在你应用中登录此用户：
 
 ```javascript
-wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(function(res){
+wilddog.auth().signInWithEmailAndPassword("12345678@wilddog.com", "1234567").then(function(res){
      console.log(res);
  }).catch(function (error) {
-     //错误处理
+     // 错误处理
      console.log(error)
  });
 ```
