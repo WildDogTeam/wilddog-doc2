@@ -7,7 +7,7 @@ title:  微信认证
 ## 前期准备
 
 1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
-2. 在 [微信开放平台管理中心](https://open.weixin.qq.com/)，获取应用的 **App ID** 和 **App Secret**。
+2. 在 [微信开放平台管理中心](https://open.weixin.qq.com/)，获取应用的 **AppID** 和 **AppSecret**。
 3. 在 控制面板 身份认证—登录方式 中打开微信登录方式，配置微信帐号 **AppID** 和 **AppSecret**。
 
 ## 实现微信认证
@@ -19,7 +19,7 @@ title:  微信认证
   pod 'Wilddog/Auth'
 ```
 
-最后安装 SDK
+安装 SDK：
 
 ```
   $ pod install
@@ -46,7 +46,7 @@ WDGApp.configureWithOptions(options)
 </div>
 </div>
 
-3、 参考 [微信 iOS 接入指南](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=1417694084&token=202bb3157581f30a1fd92c713f9f9fc2356fc860&lang=zh_CN) 将微信登录集成到你的应用中。在 AppDelegate 的 `application: openURL: options:` 方法中设置 delegate 来接收网络事件:
+3.参考 [微信 iOS 接入指南](https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=1417694084&token=202bb3157581f30a1fd92c713f9f9fc2356fc860&lang=zh_CN) 将微信登录集成到你的应用中。在 AppDelegate 的 `application: openURL: options:` 方法中设置 delegate 来接收网络事件:
 
 <div class="slide">
 <div class='slide-title'>
@@ -128,7 +128,7 @@ func onResp(resp: BaseResp!) {
 </div>
 </div>
 
-4、 微信登录成功后，在 `onResp:` 方法中得到的 code 来生成 credential：
+4.微信登录成功后，在 `onResp:` 方法中得到的 code 来生成 credential：
 
 <div class="slide">
 <div class='slide-title'>
@@ -148,7 +148,7 @@ let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
 </div>
 </div>
 
-5、 最后，使用 credential 来进行 Auth 用户认证：
+5.使用 credential 来进行 Auth 用户认证：
 
 <div class="slide">
 <div class='slide-title'>
@@ -174,7 +174,7 @@ WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
 
 ## 退出登录
 
-`signOut` 方法用于用户退出登录：
+`signOut:` 方法用于用户退出登录：
 
 <div class="slide">
 <div class='slide-title'>

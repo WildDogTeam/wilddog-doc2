@@ -1,3 +1,4 @@
+
 title:  QQ 认证
 ---
 
@@ -6,8 +7,8 @@ title:  QQ 认证
 
 ## 前期准备
 1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
-2. 在 [QQ 开放平台管理中心](http://op.open.qq.com/ios_appinfov2/detail?appid=111)，获取应用的 **App ID** 和 **App KEY**。
-3.  在控制面板 身份认证—登录方式 中打开 QQ 登录方式，配置 QQ 帐号 **APP ID** 和 **APP KEY**。
+2. 在 [QQ 互联](https://connect.qq.com)-我的应用 中，获取应用的 **APP ID** 和 **APP KEY**。
+3. 在控制面板 身份认证—登录方式 中打开 QQ 登录方式，配置 QQ 帐号 **APP ID** 和 **APP KEY**。
 
 ## 实现 QQ 认证
 1.安装 Wilddog Auth SDK：
@@ -18,7 +19,7 @@ title:  QQ 认证
   pod 'Wilddog/Auth'
 ```
 
-最后安装 SDK
+安装 SDK：
 
 ```
   $ pod install
@@ -45,7 +46,7 @@ WDGApp.configureWithOptions(options)
 </div>
 </div>
 
-3、 参考 [QQ API 调用说明](http://wiki.open.qq.com/wiki/IOS_API%E8%B0%83%E7%94%A8%E8%AF%B4%E6%98%8E) 将 QQ 登录集成到应用中。当初始化 `TencentOAuth` 对象时，设置 delegate 来接收登录和登出事件:
+3.参考 [QQ API 调用说明](http://wiki.open.qq.com/wiki/IOS_API%E8%B0%83%E7%94%A8%E8%AF%B4%E6%98%8E) 将 QQ 登录集成到应用中。当初始化 `TencentOAuth` 对象时，设置 delegate 来接收登录和登出事件:
 
 <div class="slide">
 <div class='slide-title'>
@@ -92,13 +93,7 @@ func tencentDidLogin() {
 </div>
 </div>
 
-关于 swift 的配置，可在你项目的 project-Bridging-Header.h 文件中，添加以下内容：
-
-	#import <TencentOpenAPI/TencentOAuth.h>
-
-如果你的项目没有 project-Bridging-Header.h 文件，则可通过创建一个 .h 文件到你的项目。 最简单的方式是将一个 .m 文件拖放到你的项目中 — 此操作将自动创建一个 project-Bridging-Header.m 文件，将你所需的头文件添加到该桥头文件中 — 然后删除拖入的 .m 文件。 请参阅 [同一项目中的 Swift 和 Objective-C](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html#//apple_ref/doc/uid/TP40014216-CH10-ID156)。
-
-4、 QQ 登录成功后，在 `tencentDidLogin` 方法中通过 _qqOAuth 对象获取 accessToken 来生成 credential：
+4.QQ 登录成功后，在 `tencentDidLogin` 方法中通过 _qqOAuth 对象获取 accessToken 来生成 credential：
 
 <div class="slide">
 <div class='slide-title'>
@@ -118,7 +113,7 @@ let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth?.accessToke
 </div>
 </div>
 
-5、 最后，使用 credential 来进行 Auth 用户认证：
+5.最后，使用 credential 来进行 Auth 用户认证：
 
 <div class="slide">
 <div class='slide-title'>
@@ -144,7 +139,7 @@ WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
 
 ## 退出登录
 
-`signOut` 方法用于用户退出登录：
+`signOut:` 方法用于用户退出登录：
 
 <div class="slide">
 <div class='slide-title'>

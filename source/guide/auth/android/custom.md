@@ -23,9 +23,8 @@ title:  自定义身份认证
 2.创建 Wilddog Auth 实例：
 
 ```java
-// 初始化
-    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
-    WilddogApp.initializeApp(this, options);
+WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+WilddogApp.initializeApp(this, options);
 WilddogAuth mauth=WilddogAuth.getInstance();
 ```
 
