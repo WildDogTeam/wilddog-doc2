@@ -1,36 +1,31 @@
-title: 匿名用户身份认证
+
+title:  匿名身份认证
 ---
-你可以在 Wilddog 身份认证中创建和使用临时匿名帐号来进行身份认证。如果你在应用中使用了规则表达式来保护数据的访问权限，即使用户未登录，使用临时匿名帐号也能正常访问数据。如果想长期保留临时匿名帐号，可以绑定其它登录方式。
 
-## 开始前的准备工作
+本篇文档介绍在 Wilddog Auth 中如何使用临时匿名帐号来进行身份认证。
 
-1.将 `WilddogAuth` 的依赖项添加至你的应用级 build.gradle 文件：
-    
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
-    
-2.如果你还没有创建Wilddog应用，请到官网控制面板去创建应用。
+## 前期准备
 
-3.打开匿名登录方式:
+1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
 
-   * 在野狗控制面板中选择身份认证选项。
-   * 在`登录方式`标签中打开匿名登录方式。
+2. 在 控制面板 身份认证—登录方式 中打开匿名登录方式。
 
+## 实现匿名身份认证
 
-## 使用 Wilddog 匿名登录认证
+1.安装 Wilddog Auth SDK：
+   <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
+  
 
-当一个未登录的用户想想使用一个 `Wilddog` 必须登录才能使用的特性，可以利用匿名登录，完成下面步骤：
-
-1.初始化WilddogAuth对象.
+2.创建 Wilddog Auth 实例：
 
 ```java
-// 初始化
+
     WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
     WilddogApp.initializeApp(this, options);
 WilddogAuth mauth=WilddogAuth.getInstance();
 ```
 
-2.调用匿名登录方法
-
+3.调用 `signInAnonymously()`方法：
 ```java    
 mauth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
     @Override
@@ -46,41 +41,100 @@ mauth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResul
 });
 ```
 
-## 将匿名帐号转变成永久帐号  
-使用匿名登录时，你可能想下次在其它设备上还能登录这个帐号。比如你有一个新闻类的应用，用户在使用应用时，收藏了很多新闻，但是当换一个设备时，却访问不到这些数据。完成下面步骤可以将其转换为永久帐号：
-准备一个未在你的应用上登录过的邮箱或者第三方登录方式。
-通过一种登录方式获取 AuthCredential：
-
-## QQ 登录
+4.`signInAnonymously()`方法调用成功后，可以在当前用户对象中获取用户数据：
 
 ```java
-AuthCredential qqAuthCredential= QQAuthProvider.getCredential(jsonObject.getString("access_token"));
+ WilddogUser user = mauth.getCurrentUser();
+ String uid = user.getUid();
+ boolean isAnonymous = user.isAnonymous();
 ```
+  ​
+## 匿名帐号转成永久帐号
 
-## 微信登录
+匿名登录的账号数据将不会被保存，可以通过绑定邮箱认证或第三方认证方式将匿名账号转成永久账号。
 
-```java
-AuthCredential weiXinAuthCredential= WeiXinAuthProvider.getCredential(code);
-```
+### 绑定邮箱认证方式
 
-## 微博登录
+绑定邮箱认证方式需要以下三个步骤：
 
-```java
-AuthCredential weiboAuthCredential= WeiboAuthProvider.getCredential(access_token,openid);
-```
+1.以任意一种认证方式登录一个帐号。
 
-## 邮箱登录
+2.获取邮箱认证方式的 credential。
 
 ```java
 AuthCredential emailAuthCredential= EmailAuthProvider.getCredential("12345678@qq.com","password123");
 ```
 
-## 使用 `linkWithCredential` 方法来完成完成链接：
+3.使用邮箱认证方式绑定。
 
 ```java
-user.linkWithCredential(authCredential);
+ WilddogUser user = mauth.getCurrentUser();
+user.linkWithCredential(emailAuthCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Log.d("result","绑定成功");
+                }else {
+                    Log.d("result","绑定失败"+task.getException().toString());
+                }
+            }
+        });
 ```
 
-如果调用 `linkWithCredential` 方法成功，被链接的帐号就可以访问这个匿名帐号的数据了。
+### 绑定第三方认证方式
 
-注： 这项技术可以链接任意两个类型的帐号。
+绑定第三方认证方式需要以下三个步骤：
+
+1.以任意一种认证方式登录一个帐号。
+
+2.获取需要绑定认证方式的 credential。
+
+```java
+// QQ 认证
+AuthCredential qqAuthCredential= QQAuthProvider.getCredential(jsonObject.getString("access_token"));
+
+// 微博认证
+AuthCredential weiboAuthCredential= WeiboAuthProvider.getCredential(access_token,openid);
+
+// 微信认证
+AuthCredential weiXinAuthCredential= WeiXinAuthProvider.getCredential(code);
+
+```
+
+3.使用第三方认证方式绑定。
+
+例如，使用 linkWithCredential 进行绑定：
+
+```java
+user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Log.d("result","绑定成功");
+                }else {
+                    Log.d("result","绑定失败"+task.getException().toString());
+                }
+            }
+        });
+```
+
+更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/android/api.html#linkWithCredential)。
+
+> **注意：**若使用 customToken 登录时，若 customToken 中 admin 属性为 true，则不能进行关联操作。
+
+
+
+## 退出登录
+
+`signOut` 方法用于用户退出登录：
+
+```java
+mauth..signOut()
+```
+
+## 更多使用
+
+- 通过 `WilddogAuth.getInstance().getCurrentUser()` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/android/manageuser.html)。
+
+
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用匿名登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
