@@ -43,7 +43,6 @@ mauth.signInWithCredential(weixinAuthCredential).addOnCompleteListener(new OnCom
 });
 ```
 
-更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/android/api.html#linkWithCredential)。
 
 ## 退出登录
 
