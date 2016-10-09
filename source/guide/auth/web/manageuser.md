@@ -121,7 +121,7 @@ wilddog.auth().currentUser.updateEmail(email).then(function() {
 ```
 
 > **注意：**
-- 要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/web/manageuser.html#重新进行身份认证)。
+- 要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/web/manageuser.html#重新进行身份认证)。
 - 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。
 
 
@@ -140,7 +140,7 @@ wilddog.auth().currentUser.updatePassword("12345678").then(function() {
 ```
 
 > **注意：**
-- 要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/web/manageuser.html#重新进行身份认证)。
+- 要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/web/manageuser.html#重新进行身份认证)。
 - 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。
 
 
@@ -172,7 +172,7 @@ wilddog.auth().currentUser.delete();
  ![](/images/deleteuser.jpg)
 
 > **注意：**
-- 要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/web/manageuser.html#重新进行身份认证)。
+- 要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/#重新进行身份认证)。
 - 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。
 
 

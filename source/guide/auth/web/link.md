@@ -28,7 +28,6 @@ var credentialEmail = wilddog.auth.EmailAuthProvider.credential(email, password)
 3.使用邮箱认证方式绑定。
 
 ```javascript
-var credentialEmail = wilddog.auth.EmailAuthProvider.credential(email, password);
 var user = wilddog.auth().currentUser;
 user.link(credentialEmail).then(function (user) {
     console.log("Account linking1 success", user);
@@ -85,7 +84,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
 
 ## 解除已绑定认证方式
 
-`ulink()` 方法用于解除已绑定认证方式。
+`unlink()` 方法用于解除已绑定认证方式。
 
 例如，解除微信绑定：
 
