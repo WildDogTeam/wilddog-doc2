@@ -31,7 +31,7 @@ title: 用户管理
 ```javascript
 wilddog.auth().onAuthStateChanged(function(user) {
   if (user) {
-     console.log("wxl");
+     console.log("user");
   } else {
      console.log("no user");
   }
