@@ -86,7 +86,6 @@ user.providerData.forEach(function (profile) {
     console.log(" Email: " + profile.email);
     console.log(" Photo URL: " + profile.photoURL);
 });
-
 ```
 
 ## 更新用户信息
@@ -223,7 +222,7 @@ wilddog.auth().currentUser.delete().then(function() {
 ```js
  var credential ; // 需要初始化
  wilddog.auth().currentUser.reauthenticate(credential).then(function(res) {
-     // 更新成功
+     // 认证成功
      console.log(res);
  }, function(error) {
      // 发生错误
