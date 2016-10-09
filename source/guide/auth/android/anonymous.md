@@ -129,7 +129,7 @@ user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteList
 `signOut` 方法用于用户退出登录：
 
 ```java
-mauth..signOut()
+mauth.signOut()
 ```
 
 ## 更多使用
