@@ -22,18 +22,15 @@ title:  邮箱认证
 
 ```javascript
 var config = {
-
- authDomain: "<appId>.wilddog.com"
-
- };
-
- wilddog.initializeApp(config, "DEFAULT");
+    authDomain: "<appId>.wilddog.com"
+};
+wilddog.initializeApp(config, "DEFAULT");
 ```
 
 3.使用 `createUserWithEmailAndPassword(email,password) ` 方法创建新用户：
 
 ```javascript
-wilddog.auth().createUserWithEmailAndPassword("wangxiaoliang@wilddog.com", "12345678").then(function(user){
+wilddog.auth().createUserWithEmailAndPassword("12345678@wilddog.com", "password123").then(function(user){
 	 // 获取用户
 	 console.log(user);
 })catch(function (error) {

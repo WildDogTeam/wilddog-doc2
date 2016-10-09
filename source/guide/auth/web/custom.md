@@ -23,7 +23,6 @@ title:  自定义身份认证
 
 ```javascript
  var config = {
-     authDomain: "<appId>.wilddog.com",
      syncURL: "https://<appId>.wilddogio.com"
  };
  wilddog.initializeApp(config, "DEFAULT");
