@@ -19,7 +19,7 @@ title:  匿名身份认证
 
 ```javascript
   var config = {
-  	authDomain: "<appId>.wilddog.com",
+    authDomain: "<appId>.wilddog.com",
   };
   wilddog.initializeApp(config, "DEFAULT");
 ```
