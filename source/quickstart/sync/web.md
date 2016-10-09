@@ -54,8 +54,10 @@ var ref = wilddog.sync().ref();
 ```javascript
 ref.set({
   "messageboard":{
-    "content" : "Wilddog, Cool!",
-    "presenter" : "Jack"    
+    "message1":{
+        "content" : "Wilddog, Cool!",
+        "presenter" : "Jack"
+    }
   }
 });
 ```

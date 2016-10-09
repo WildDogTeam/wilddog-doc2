@@ -81,7 +81,7 @@ SyncReference ref = WilddogSync.getInstance().getReference();
 
 ```java
  Comment comment = new Comment("Jack","Wilddog, Cool!");
-ref.child("messageboard").setValue(comment
+ref.child("messageboard").child("message1").setValue(comment
 );
 ```
 

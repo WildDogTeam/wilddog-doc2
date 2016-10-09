@@ -112,7 +112,7 @@ let ref = WDGSync.sync().reference()
 <div class="slide-content slide-content-show">
 ```objectivec
 // 写数据
-[ref setValue:@{@"messageboard" : @{@"content" : @"Wilddog, Cool!", @"presenter" : @"Jack"}}];
+[ref setValue:@{@"messageboard" : @{@"message1" : @{@"content" : @"Wilddog, Cool!", @"presenter" : @"Jack"}}}];
 
 
 ```
@@ -120,7 +120,7 @@ let ref = WDGSync.sync().reference()
 <div class="slide-content">
 ```swift
 // 写数据
-ref.setValue(["messageboard" : ["content" : "Wilddog, Cool!", "presenter" : "Jack"]])
+ref.setValue(["messageboard" : ["message1" : ["content" : "Wilddog, Cool!", "presenter" : "Jack"]]])
 
 ```
 </div>
