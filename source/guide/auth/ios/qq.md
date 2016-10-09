@@ -1,21 +1,51 @@
-title: QQ 登录
+title:  QQ 认证
 ---
 
-通过集成 QQ 登录，你可以让你的用户使用他们的 QQ 帐号来进行 Wilddog 身份认证。
+本篇文档介绍在 Wilddog Auth 中如何使用 QQ 对用户进行身份认证。
 
 
-## 开始前的准备工作
-1. 创建野狗应用。将下面 pod 添加到 `Podfile` 文件中：
+## 前期准备
+1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
+2. 在 [QQ 开放平台管理中心](http://op.open.qq.com/ios_appinfov2/detail?appid=111)，获取应用的 **App ID** 和 **App KEY**。
+3.  在控制面板 身份认证—登录方式 中打开 QQ 登录方式，配置 QQ 帐号 **APP ID** 和 **APP KEY**。
+
+## 实现 QQ 认证
+1.安装 Wilddog Auth SDK：
+
+将以下 pod 包含在你的 Podfile 中：
+
 ```
-pod 'Wilddog/Auth'
+  pod 'Wilddog/Auth'
 ```
-2. 在 [QQ 开放平台管理中心](http://op.open.qq.com/ios_appinfov2/detail?appid=111)，获取应用的 **App ID** 和 **App Secret**。
-3. 在野狗控制面板中打开 QQ 登录方式:
-  * 在野狗控制面板中选择 ”身份认证“->登录方式。
-  * 点击 QQ 登录开关，点击配置，输入 QQ 帐号 **APP ID** 和 **App Secret**。
 
-## Wilddog 身份认证
-1、 参考 [QQ API 调用说明](http://wiki.open.qq.com/wiki/IOS_API%E8%B0%83%E7%94%A8%E8%AF%B4%E6%98%8E) 将 QQ 登录集成到认证的应用中。当初始化 `TencentOAuth` 对象时，设置 delegate 来接收登录和登出事件:
+最后安装 SDK
+
+```
+  $ pod install
+```
+
+2.创建 Wilddog Auth 实例：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
+[WDGApp configureWithOptions:option];
+```
+</div>
+<div class="slide-content">
+```swift
+let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
+WDGApp.configureWithOptions(options)
+```
+</div>
+</div>
+
+3、 参考 [QQ API 调用说明](http://wiki.open.qq.com/wiki/IOS_API%E8%B0%83%E7%94%A8%E8%AF%B4%E6%98%8E) 将 QQ 登录集成到应用中。当初始化 `TencentOAuth` 对象时，设置 delegate 来接收登录和登出事件:
 
 <div class="slide">
 <div class='slide-title'>
@@ -26,15 +56,15 @@ pod 'Wilddog/Auth'
 ```objectivec
 _qqOAuth = [[TencentOAuth alloc] initWithAppId:@"your QQ App ID"
                                    andDelegate:self];
-NSArray *_permissions =  [NSArray arrayWithObjects:@"get_user_info", @"get_simple_userinfo", @"add_t", nil];
-[qqOAuth authorize:_permissions inSafari:NO];
+NSArray *permissions =  [NSArray arrayWithObjects:@"get_user_info", @"get_simple_userinfo", @"add_t", nil];
+[_qqOAuth authorize:permissions inSafari:NO];
 ```
 </div>
 <div class="slide-content">
 ```swift
-let tencentOAuth = TencentOAuth(appId:"tencent-appId", andDelegate: self)
+let qqOAuth = TencentOAuth(appId:"your QQ App ID", andDelegate: self)
 let permissions = ["get_user_info", "get_simple_userinfo", "add_t"]
-tencentOAuth.authorize(permissions, inSafari: false)
+qqOAuth.authorize(permissions, inSafari: false)
 ```
 </div>
 </div>
@@ -62,53 +92,13 @@ func tencentDidLogin() {
 </div>
 </div>
 
-关于 swift 的配置，可在你应用的 project-Bridging-Header.h 文件中，添加以下内容：
+关于 swift 的配置，可在你项目的 project-Bridging-Header.h 文件中，添加以下内容：
 
 	#import <TencentOpenAPI/TencentOAuth.h>
-如果你的项目没有 project-Bridging-Header.h 文件，则可通过 Objective-C 文件添加创建一个 .h 到你的应用。 最简单的方式是将一个 .m 文件拖放到你的项目中 — 此操作将创建桥接标头并将你的项目配置为使用该标头 — 然后删除该 .m 文件。 请参阅 [同一项目中的 Swift 和 Objective-C](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html#//apple_ref/doc/uid/TP40014216-CH10-ID156)。
 
+如果你的项目没有 project-Bridging-Header.h 文件，则可通过创建一个 .h 文件到你的项目。 最简单的方式是将一个 .m 文件拖放到你的项目中 — 此操作将自动创建一个 project-Bridging-Header.m 文件，将你所需的头文件添加到该桥头文件中 — 然后删除拖入的 .m 文件。 请参阅 [同一项目中的 Swift 和 Objective-C](https://developer.apple.com/library/ios/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html#//apple_ref/doc/uid/TP40014216-CH10-ID156)。
 
-2、 导入 WilddogAuth 模块：
-
-<div class="slide">
-<div class='slide-title'>
-  <span class="slide-tab tab-current">Objective-C</span>
-  <span class="slide-tab">Swift</span>
-</div>
-<div class="slide-content slide-content-show">
-```objectivec
-@import WilddogAuth;
-```
-</div>
-<div class="slide-content">
-```swift
-import WilddogAuth
-```
-</div>
-</div>
-
-3、 初始化 WDGApp:
-
-<div class="slide">
-<div class='slide-title'>
-  <span class="slide-tab tab-current">Objective-C</span>
-  <span class="slide-tab">Swift</span>
-</div>
-<div class="slide-content slide-content-show">
-```objectivec
-WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
-[WDGApp configureWithOptions:option];
-```
-</div>
-<div class="slide-content">
-```swift
-let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
-WDGApp.configureWithOptions(options)
-```
-</div>
-</div>
-
-4、 QQ 登录成功后，在 `tencentDidLogin` 方法中通过 _qqOAuth 对象获取 QQ access token 来生成 Wilddog 凭据：
+4、 QQ 登录成功后，在 `tencentDidLogin` 方法中通过 _qqOAuth 对象获取 accessToken 来生成 credential：
 
 <div class="slide">
 <div class='slide-title'>
@@ -128,7 +118,7 @@ let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth?.accessToke
 </div>
 </div>
 
-5、 最后，使用 Wilddog 凭据来进行 Wilddog 用户认证：
+5、 最后，使用 credential 来进行 Auth 用户认证：
 
 <div class="slide">
 <div class='slide-title'>
@@ -152,16 +142,9 @@ WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
 </div>
 </div>
 
-## 后续步骤
+## 退出登录
 
-无论你采用哪种登录方式，用户第一次登录后，野狗服务器都会生成一个唯一的 Wilddog ID 来标识这个帐户，使用这个 Wilddog ID，可以在你 APP 中确认每个用户的身份。配合 [规则表达式](/guide/sync/rules/introduce.html)，`auth` 还可以控制野狗实时数据同步的用户访问权限。
-
-* 在你的应用中，你可以通过 WDGUser 来获取用户的基本属性。参考 [管理用户](/guide/auth/ios/manageuser.html)。
-* 在你的野狗实时数据同步 [规则表达式](/guide/sync/rules/introduce.html) 中，你可以获取到这个登录后生成的唯一用户 Wilddog ID， 通过他可以实现控制用户对数据的访问权限。
-
-你还可以通过 [链接多种登录方式](/guide/auth/ios/link.html) 来实现不同的登录方式登录同一个帐号。
-
-调用 [signOut:](/api/auth/ios.html#WDGAuth-Methods#-signOut:) 退出登录：
+`signOut` 方法用于用户退出登录：
 
 <div class="slide">
 <div class='slide-title'>
@@ -186,4 +169,9 @@ try! WDGAuth.auth()!.signOut()
 </div>
 </div>
 
-可能发生的错误，请参考 [处理错误](/guide/auth/ios/errorcode.html)。
+## 更多使用
+
+- 通过 `[WDGAuth auth].currentUser` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/ios/manageuser.html)。
+
+
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用匿名登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。

@@ -37,8 +37,10 @@ if (user != null) {
 }
 ```
 
-> **注意：**推荐使用监听器，这样可以保证在你获取当前用户时 Auth 实例不会处于中间状态，如用户正在登录时。
-
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  推荐使用监听器，这样可以保证在你获取当前用户时 Auth 实例不会处于中间状态，如用户正在登录时。
+</blockquote>
 
 ### 获取用户属性
 
@@ -122,7 +124,10 @@ user.updateProfile(profileUpdates)
         }
     });
 ```
-> **注意：**使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户属性。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户属性。
+</blockquote>
 
 ### 更新邮箱地址
 
@@ -142,10 +147,13 @@ user.updateEmail("user@example.com")
     });
 ```
 
-> **注意：**
-- 要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。
-- 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。
-
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。</li>
+  </ul>
+</blockquote>
 
 ### 更新用户密码
 
@@ -166,9 +174,13 @@ user.updatePassword(newPassword)
     });
 ```
 
-> **注意：**
-- 要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。
-- 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。</li>
+  </ul>
+</blockquote>
 
 
 ### 发送重设密码邮件
@@ -189,7 +201,11 @@ auth.sendPasswordResetEmail(emailAddress)
     });
 ```
 
-> **注意：**在控制面板 身份认证—登录方式—邮箱登录 中可以设置邮件自定义模板。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  在控制面板 身份认证—登录方式—邮箱登录 中可以设置邮件自定义模板。
+</blockquote>
+
 
 ## 删除用户
 
@@ -216,10 +232,13 @@ auth.getCurrentUser().delete()
 
  ![](/images/deleteuser.jpg)
 
-> **注意：**
-- 要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。
-- 使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。
-
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。</li>
+  </ul>
+</blockquote>
 
 
 

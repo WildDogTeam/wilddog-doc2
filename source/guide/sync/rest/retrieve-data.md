@@ -49,11 +49,14 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
 ```
 
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+   <ul>
+    <li>排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作参见 [添加索引](/guide/sync/rules/guide.html#数据索引)。</li>
+    <li>每次只能使用一种排序方法。对同一查询调用多个排序方法会引发错误。</li>
+  </ul>
+</blockquote>
 
-
->**注意：**  
-- 排序对计算机性能开销大，在客户端执行这些操作时尤其如此。 如果你的应用使用了查询，请定义 [.indexOn](/api/sync/rule.html#indexOn) 规则，在服务器上添加索引以提高查询性能。详细操作参见 [添加索引](/guide/sync/rules/guide.html#数据索引)。
-- 每次只能使用一种排序方法。对同一查询调用多个排序方法会引发错误。
 
 ### 排序规则
 

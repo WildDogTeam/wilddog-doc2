@@ -87,7 +87,10 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
 
 更详细的用法说明，请参考 [API 文档](/api/sync/android/api.html#Query-Methods)。
 
->**提示：** 如果你只想监听一次数据，可使用`addListenerForSingleValueEvent()`方法。该监听的回调方法只被触发一次，之后会自动取消监听。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  如果你只想监听一次数据，可使用`addListenerForSingleValueEvent()`方法。该监听的回调方法只被触发一次，之后会自动取消监听。
+</blockquote>
 
 ### 移除监听
 
@@ -102,7 +105,10 @@ SyncReference ref = WilddogSync.getInstance().getReference("web/saving-data/wild
 ref.removeEventListener(listener);
 ```
 
->**注意：**在父节点上调用 `removeEventListener()` 时不会移除在其子节点上添加的监听。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  在父节点上调用 `removeEventListener()` 时不会移除在其子节点上添加的监听。
+</blockquote>
 
 ## 条件监听
 
@@ -213,10 +219,13 @@ queryRef.addChildEventListener(new ChildEventListener() {
 `orderByPriority()`方法用于按节点的优先级（priority）对结果排序。
 
 
->**注意：**
-- 每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。
-- 排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。
-
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。</li>
+    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。</li>
+  </ul>
+</blockquote>
 
 ### 根据数据筛选结果监听
 
@@ -288,7 +297,11 @@ queryRef.startAt(60).addChildEventListener(new ChildEventListener() {
     }
 });
 ```
->**注意：**范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
+</blockquote>
 
 范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
 
