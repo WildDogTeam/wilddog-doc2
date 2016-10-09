@@ -56,7 +56,7 @@ var uid = user.uid;
 2.获取邮箱认证方式的 credential。
 
 ```javascript
-var credentialEmail = wilddog.auth.EmailAuthProvider.credential(email, password);
+var credentialEmail = wilddog.auth.EmailAuthProvider.credential("12345678@gmail.com", "password123");
 ```
 
 3.使用邮箱认证方式绑定。
@@ -94,7 +94,7 @@ var provider = new wilddog.auth.WeixinmpAuthProvider();
 
 3.使用第三方认证方式绑定。
 
-例如，使用 popup 进行绑定：
+例如，使用 linkWithPopup 进行绑定：
 
 ```javascript
 wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
