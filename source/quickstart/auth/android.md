@@ -31,7 +31,7 @@ SDK 的安装方式有两种，你可以任选其一：
 
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
-如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions：
+如果出现文件重复导致的编译错误，可以选择在build.grade中添加packagingOptions：
 
 ```java
 android {

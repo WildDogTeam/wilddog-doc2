@@ -48,11 +48,11 @@ SDK 的安装方式有两种，你可以任选其一：
 3. 把 WilddogAuth.framework 和 WilddogCore.framework 拖到工程目录中。  
 4. 选中 Copy items if needed 、Create Groups，点击 Finish。  
 
-## 3. 初始化 Wilddog Auth 实例
+## 3. 创建 Wilddog Auth 实例
 
-使用 Wilddog Auth SDK 之前，需要先初始化实例：
+使用 Wilddog Auth SDK 之前，需要先创建实例：
 
-1.**引入头文件**
+**1.引入头文件**
 
 <div class="slide">
 <div class='slide-title'>
@@ -71,7 +71,7 @@ SDK 的安装方式有两种，你可以任选其一：
 </div>
 </div>
 
-2.**下载 Core SDK**
+**2.初始化**
 
 <div class="slide">
 <div class='slide-title'>
@@ -186,4 +186,4 @@ try! WDGAuth.auth()!.signOut()
 </div>
 </div>
 
-Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/ios.html)。
+Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/ios/api.html)。

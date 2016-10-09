@@ -18,6 +18,7 @@ quickstart:
 
 guide:
   实时数据同步:
+    基础概念: /guide/sync/term.html
     Web:
       数据操作: /guide/sync/web/save-data.html
       事件监听: /guide/sync/web/retrieve-data.html
@@ -68,13 +69,13 @@ guide:
       
     Android:
       管理用户: /guide/auth/android/manageuser.html
-      邮箱登录: /guide/auth/android/password.html
-      QQ登录: /guide/auth/android/qq.html
-      微信登录: /guide/auth/android/weixin.html
-      微博登录: /guide/auth/android/weibo.html
+      邮箱认证: /guide/auth/android/password.html
+      QQ 认证: /guide/auth/android/qq.html
+      微信认证: /guide/auth/android/weixin.html
+      微博认证: /guide/auth/android/weibo.html
       自定义身份认证: /guide/auth/android/custom.html
       匿名身份认证: /guide/auth/android/anonymous.html
-      绑定多种登录方式: /guide/auth/android/link.html
+      绑定多种认证方式: /guide/auth/android/link.html
     iOS:
       管理用户: /guide/auth/ios/manageuser.html
       邮箱登录: /guide/auth/ios/password.html
@@ -88,8 +89,6 @@ guide:
     Server:
       简介: /guide/auth/server/introduction.html
       使用 Server SDK 进行认证: /guide/auth/server/server.html
-
-  Wilddog 术语: /guide/reference/term.html
 
 api:
   实时数据同步:

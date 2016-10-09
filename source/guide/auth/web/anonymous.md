@@ -1,180 +1,120 @@
 
-title:  匿名登录
+title:  匿名身份认证
 ---
 
-你可以在 Wilddog 身份认证中创建和使用临时匿名帐号来进行身份认证。如果你在应用中使用了规则表达式来保护数据的访问权限，即使用户未登录，使用临时匿名帐号也能正常访问数据。如果想长期保留临时匿名帐号，[可以绑定其它登录方式](/guide/auth/web/link.html)。
+本篇文档介绍在 Wilddog Auth 中如何使用临时匿名帐号来进行身份认证。
 
-## 开始前的准备工作
+## 前期准备
 
-1. 在 Wilddog 控制面板中创建一个应用.
+1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
 
-2. 打开匿名登录方式:
+2. 在 控制面板 身份认证—登录方式 中打开匿名登录方式。
 
-* 在野狗控制面板中选择身份认证选项。
+## 实现匿名身份认证
 
-* 在｀登录方式｀标签中打开匿名登录方式。
-
-## 实现匿名登录
-
-当一个未登录的用户想想使用一个 Wilddog 必须登录才能使用的特性，可以利用匿名登录，完成下面步骤：
-
-1. 导入 Wilddog Auth 模块:
+1.安装 Wilddog Auth SDK：
     <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
-2. 以 Wilddog AppId 初始化 Wilddog 应用。
-   ```javascript
-    var config = {
-     authDomain: "<appId>.wilddog.com",
-     syncURL: "https://<appId>.wilddogio.com"
-    };
-    wilddog.initializeApp(config, "DEFAULT");
+2.创建 Wilddog Auth 实例：
 
-   ```
-
-3. 调用 `signInAnonymously()`方法：
-   ```javascript
-   wilddog.auth().signInAnonymously().then(function(res){
-         console.log(res);
-   }).catch(function (error) {
-         // Handle Errors here.
-         console.log(error);
-         // ...
-   });
-   ```
-
-4. 如果signInAnonymously方法调用成功并且没有返回错误信息，你可以在 当前用户 对象中获取用户数据：
 ```javascript
+  var config = {
+  	authDomain: "<appId>.wilddog.com",
+  };
+  wilddog.initializeApp(config, "DEFAULT");
+```
+
+3.调用 `signInAnonymously()`方法：
+```javascript
+ wilddog.auth().signInAnonymously().then(function(user){
+       console.log(user);
+ }).catch(function (error) {
+       // 错误处理
+       console.log(error);
+       // ...
+ });
+```
+
+4.`signInAnonymously()`方法调用成功后，可以在当前用户对象中获取用户数据：
+
+```javascript
+var user = wilddog.auth().currentUser; 
 var isAnonymous = user.anonymous; 
 var uid = user.uid;
 ```
+  ​
+## 匿名帐号转成永久帐号
 
+匿名登录的账号数据将不会被保存，可以通过绑定邮箱认证或第三方认证方式将匿名账号转成永久账号。
 
+### 绑定邮箱认证方式
 
+绑定邮箱认证方式需要以下三个步骤：
 
+1.以任意一种认证方式登录一个帐号。
 
-## 将匿名帐号转变成永久帐号
-
-当使用匿名登录时，你可能想下次在其它设备上还能登录这个帐号。比如你有一个新闻类的应用，用户在使用应用时，收藏了很多新闻，但是当换一个设备时，却访问不到这些数据。完成下面步骤可以将其转换为永久帐号：
-
-准备一个未在你的应用上登录过的邮箱或者第三方登录方式。
-
-#### 关联QQ登录
+2.获取邮箱认证方式的 credential。
 
 ```javascript
-var provider = new wilddog.auth.QQAuthProvider();
+var credentialEmail = wilddog.auth.EmailAuthProvider.credential(email, password);
+```
 
-//popup关联
+3.使用邮箱认证方式绑定。
+
+```javascript
+var user = wilddog.auth().currentUser;
+user.link(credentialEmail).then(function (user) {
+    console.log("Account linking1 success", user);
+}, function (error) {
+    console.log("Account linking1 error", error);
+});
+```
+
+### 绑定第三方认证方式
+
+绑定第三方认证方式需要以下三个步骤：
+
+1.以任意一种认证方式登录一个帐号。
+
+2.获取需要绑定认证方式的 provider。
+
+```javascript
+// QQ 认证
+var provider = new wilddog.auth.QQAuthProvider(); 
+
+// 微博认证
+var provider = new wilddog.auth.WeiboProvider();
+
+// 微信认证
+var provider = new wilddog.auth.WeixinAuthProvider();
+
+// 微信公众账号认证
+var provider = new wilddog.auth.WeixinmpAuthProvider();
+```
+
+3.使用第三方认证方式绑定。
+
+例如，使用 popup 进行绑定：
+
+```javascript
 wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
     console.log(result);
 }).catch(function (error) {
-     // Handle Errors here.
+    // 错误处理
     console.log(errorCode);
-     // ...
-});
-
-//redirect关联
-wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
-     console.log(result);
-}).catch(function (error) {
-     // Handle Errors here.  
-     console.log(errorCode);     
-     // ...
-});
-```
-
-#### 关联微信登录
-
-```javascript
-var provider = new wilddog.auth.WeixinAuthProvider();
-
-//popup
-wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
-     console.log(result);
-}).catch(function (error) {
-     // Handle Errors here.     
-    console.log(errorCode);    
-     // ...
-});
-
-//redirect
-wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
-     console.log(result);
-}).catch(function (error) {
-     // Handle Errors here.     
-    console.log(errorCode);  
     // ...
 });
-
 ```
 
-#### 关联微博登录
+更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/web/api.html#link)。
 
-```javascript
-
-var provider = new wilddog.auth.WeiboAuthProvider();
-
-//popup
-wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
-      console.log(result);
-}).catch(function (error) {
-      // Handle Errors here.   
-      console.log(errorCode);     
-     // ...
-});
-
-//redirect
-wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
-     console.log(result);
-}).catch(function (error) {     
-     // Handle Errors here.   
-     console.log(errorCode);  
-    // ...
-});
-
-```
-
-#### 关联微信公众账号登录
-
-```javascript
-var provider = new wilddog.auth.WeixinmpAuthProvider();
-
-//popup
-wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
-     console.log(result);
-}).catch(function (error) {、
-     // Handle Errors here.
-     console.log(errorCode);
-     // ...
-});
-
-//redirect
-wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
-     console.log(result);
-}).catch(function (error) {  
-     // Handle Errors here.  
-     console.log(errorCode); 
-     // ...
-});
-```
-
-#### 关联邮箱登录
-
-```javascript
- var credentialEmail = wilddog.auth.EmailAuthProvider.credential("22443311@qq.com", "12345678");
- var user = wilddog.auth().currentUser;
- user.link(credentialEmail).then(function (user) {
-     console.log("Account linking1 success", user);
- }, function (error) {
-     console.log("Account linking1 error", error);
- });
-
-```
+> **注意：**若使用 customToken 登录时，若 customToken 中 admin 属性为 true，则不能进行关联操作。
 
 
 
 ## 退出登录
 
-[signOut](/guide/auth/web/api.html#signout) 方法用于用户退出登录：
+`signOut` 方法用于用户退出登录：
 
 ```javascript
  wilddog.auth().signOut().then(function() {
@@ -191,5 +131,4 @@ wilddog.auth().currentUser.linkWithRedirect(provider).then(function (result) {
 - 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/web/manageuser.html)。
 
 
-- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用邮箱登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。
-  Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用匿名登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。

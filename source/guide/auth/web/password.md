@@ -7,7 +7,7 @@ title:  邮箱认证
 ## 前期准备
 
 1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
-2. 在控制面板 **身份认证—登录方式** 中打开邮箱登录方式。
+2. 在控制面板 身份认证—登录方式 中打开邮箱登录方式。
 
 
 ## 创建用户
@@ -79,7 +79,7 @@ wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(fu
 
 ## 退出登录
 
- [signOut](/guide/auth/web/api.html#signout) 方法用于用户退出登录：
+ `signOut()` 方法用于用户退出登录：
 
 ```javascript
  wilddog.auth().signOut().then(function() {
@@ -97,8 +97,7 @@ wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(fu
 - 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/web/manageuser.html)。
 
 
-- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用邮箱登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。
-  Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用邮箱登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
 
 
 

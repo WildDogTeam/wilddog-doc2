@@ -15,7 +15,7 @@ Wilddog Sync 采用本地处理、云端同步的通信技术架构。事件监�
 | child_added    | 初始化监听或有新增子节点。         |
 | child_changed  | 子节点数据发生更改。            |
 | child_removed  | 子节点被删除。               |
-| children_moved | 子节点排序发生变化。            |
+| child_moved | 子节点排序发生变化。            |
 | value          | 初始化监听或指定节点及子节点数据发生变化。 |
 
 

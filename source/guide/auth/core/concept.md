@@ -2,11 +2,11 @@
 title: 基础概念
 ---
 
-## Wilddog ID
+### Wilddog ID
 用户第一次登录后，Wilddog Auth 会生成一个唯一的标识，帮助你在应用中确认每个用户的身份，这个标识被称为 Wilddog ID。
 
 
-## 用户属性
+### 用户属性
 
 Wilddog Auth 中用户有一组基本属性：Wilddog ID、主邮箱地址、名称、照片地址。
 
@@ -14,7 +14,7 @@ Wilddog Auth 中用户有一组基本属性：Wilddog ID、主邮箱地址、名
 
 
 
-## Provider
+### Provider
 
 Provider 是身份认证提供方，Wilddog Auth 目前支持以下 Provider：
 
@@ -25,12 +25,12 @@ Provider 是身份认证提供方，Wilddog Auth 目前支持以下 Provider：
 - 微博
 
 
-## 当前用户
+### 当前用户
 
 在 Wilddog 应用中，当一个用户注册或登录时，这个用户被称为当前用户。获取当前用户后，可以对其进行管理。
 
 
-## 用户生命周期
+### 用户生命周期
 
 用户生命周期是指用户从注册或登录到退出登录的变化过程。
 
@@ -41,7 +41,7 @@ Provider 是身份认证提供方，Wilddog Auth 目前支持以下 Provider：
 - 退出登录
 
 
-## 身份认证令牌
+### 身份认证令牌
 
 身份认证令牌用于获取访问用户的权限
 
