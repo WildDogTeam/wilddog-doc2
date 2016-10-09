@@ -27,20 +27,19 @@ title: 用户管理
 
 
 ```javascript
-WilddogAuth auth = WilddogAuth.getInstance()
+WilddogAuth auth = WilddogAuth.getInstance();
+
 auth.addAuthStateListener(new WilddogAuth.AuthStateListener(){
-  @Override
-  public void onAuthStateChanged(WilddogAuth wilddogauth){
-    WilddogUser user = wilddogauth.getCurrentUser();
-   if (user != null) {
-     // 用户已登录
-} else {
-     // 没有用户登录
-}
-  }
+    @Override
+    public void onAuthStateChanged(WilddogAuth wilddogauth){
+        WilddogUser user = wilddogauth.getCurrentUser();
+        if (user != null) {
+            // 用户已登录
+        } else {
+            // 没有用户登录
+        }
+    }
 });
-
-
 ```
 
 <blockquote class="warning">
@@ -55,7 +54,6 @@ auth.addAuthStateListener(new WilddogAuth.AuthStateListener(){
 ```java
 WilddogUser user = auth.getCurrentUser();
 if (user != null) {
-   
     String uid = user.getUid();
     String providerId = user.getProviderId();
     String name = user.getDisplayName();
@@ -110,7 +108,6 @@ user.updateProfile(profileUpdates)
             }else{
                // 发生错误
             }
-
         }
     });
 ```
@@ -265,7 +262,7 @@ user.reauthenticate(credential)
         @Override
         public void onComplete( Task<Void> task) {
            if (task.isSuccessful()) {
-                // 认证成功
+                // 重新认证成功
             }else{
                // 发生错误
         Log.d("result",task.getException().toString()) ;
