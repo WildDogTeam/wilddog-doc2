@@ -164,7 +164,7 @@ wilddog.auth().currentUser.updatePassword("password123").then(function() {
 ```javascript
 wilddog.auth().sendPasswordResetEmail("12345678@wilddog.com").then(function() {
     // 发送成功
-}, function(error) {
+}).catch(function(error) {
     // 发生错误
     console.log(error);
 });
