@@ -63,7 +63,7 @@ wilddog.auth().signInWithRedirect(provider).then(function (user) {
  wilddog.auth().signOut().then(function() {
      // 退出成功
      console.log("sign-out")
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log("sign-out-error")
  });

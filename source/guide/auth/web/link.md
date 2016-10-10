@@ -31,7 +31,7 @@ var credentialEmail = wilddog.auth.EmailAuthProvider.credential("12345678@wilddo
 var user = wilddog.auth().currentUser;
 user.link(credentialEmail).then(function (user) {
     console.log("Account linking1 success", user);
-}, function (error) {
+}).catch(function (error) {
     console.log("Account linking1 error", error);
 });
 ```
@@ -95,7 +95,7 @@ var user = wilddog.auth().currentUser;
 user.unlink("weixin").then(function () {
      console.log("unlink")
      console.log(provider);
-}, function (error) {
+}).catch(function (error) {
      console.log(error);
 });
 ```

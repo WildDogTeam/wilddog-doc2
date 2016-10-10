@@ -103,7 +103,7 @@ wilddog.auth().currentUser.updateProfile({
      photoURL: "https://example.com/path/photo.jpg"
  }).then(function() {
      // 更新成功
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
  });
 ```
@@ -120,7 +120,7 @@ wilddog.auth().currentUser.updateProfile({
 ```js
 wilddog.auth().currentUser.updateEmail("12345678@wilddog.com").then(function() {
      // 更新成功
-}, function(error) {
+}).catch(function(error) {
      // 发生错误
      console.log(error);
 });
@@ -140,9 +140,9 @@ wilddog.auth().currentUser.updateEmail("12345678@wilddog.com").then(function() {
 `updatePassword()` 方法用于更新用户密码。
 
 ```js
-wilddog.auth().currentUser.updatePassword("12345678").then(function() {
+wilddog.auth().currentUser.updatePassword("password123").then(function() {
      // 更新成功
-}, function(error) {
+}).catch(function(error) {
      console.log(error);
      // 发生错误
 });
@@ -162,7 +162,7 @@ wilddog.auth().currentUser.updatePassword("12345678").then(function() {
 `sendPasswordResetWithEmail()` 方法用于向用户发送重设密码邮件。
 
 ```javascript
-wilddog.auth().sendPasswordResetEmail(email)then(function() {
+wilddog.auth().sendPasswordResetEmail("12345678@wilddog.com").then(function() {
     // 发送成功
 }, function(error) {
     // 发生错误
@@ -187,10 +187,10 @@ wilddog.auth().sendPasswordResetEmail(email)then(function() {
 ```js
 wilddog.auth().currentUser.delete().then(function() {
     // 删除成功
-}, function(error) {
+}).catch(function(error) {
     // 发生错误
     console.log(error);
-});;
+});
 ```
 
 使用控制面板：
@@ -224,7 +224,7 @@ wilddog.auth().currentUser.delete().then(function() {
  wilddog.auth().currentUser.reauthenticate(credential).then(function(res) {
      // 重新认证成功
      console.log(res);
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log(error);
  });

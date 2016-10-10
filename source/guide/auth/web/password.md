@@ -33,7 +33,7 @@ wilddog.initializeApp(config, "DEFAULT");
 wilddog.auth().createUserWithEmailAndPassword("12345678@wilddog.com", "password123").then(function(user){
 	 // 获取用户
 	 console.log(user);
-})catch(function (error) {
+}).catch(function (error) {
      // 错误处理
      console.log(error);
  });
@@ -85,7 +85,7 @@ wilddog.auth().signInWithEmailAndPassword("12345678@wilddog.com", "1234567").the
  wilddog.auth().signOut().then(function() {
      // 退出成功
      console.log("sign-out")
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log("sign-out-error")
  });
