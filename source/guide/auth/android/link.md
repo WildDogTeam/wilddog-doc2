@@ -22,7 +22,7 @@ title:  绑定多种认证方式
 2.获取邮箱认证方式的 credential。
 
 ```java
-AuthCredential authCredential= EmailAuthProvider.getCredential("12345678@qq.com","password123");
+AuthCredential authCredential= EmailAuthProvider.getCredential("12345678@wilddog.com","password123");
 ```
 
 3.使用邮箱认证方式绑定。
@@ -55,7 +55,7 @@ user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteList
 
 2.获取需要绑定认证方式的 credential。
 
-```javascript
+```java
 // QQ 认证
 AuthCredential authCredential= QQAuthProvider.getCredential(access_token); 
 
@@ -64,7 +64,6 @@ AuthCredential authCredential= WeiboAuthProvider.getCredential(access_token,open
 
 // 微信认证
 AuthCredential authCredential= WeiXinAuthProvider.getCredential(code);
-
 ```
 
 3.使用第三方认证方式绑定。
@@ -72,6 +71,7 @@ AuthCredential authCredential= WeiXinAuthProvider.getCredential(code);
 例如，使用 linkWithCredential 进行绑定：
 
 ```java
+WilddogUser user = WilddogAuth.getInstance().getCurrentUser();
 user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
     @Override
     public void onComplete(Task<AuthResult> var1) {
@@ -83,8 +83,6 @@ user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteList
     }
 });
 ```
-
-更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/web/api.html#linkWithCredential)。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -99,6 +97,7 @@ user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteList
 例如，解除微信绑定：
 
 ```java
+WilddogUser user = WilddogAuth.getInstance().getCurrentUser();
 user.unlink("weixin").addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(Task<AuthResult> task) {

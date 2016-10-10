@@ -23,7 +23,6 @@ title:  自定义身份认证
 
 ```javascript
  var config = {
-     authDomain: "<appId>.wilddog.com",
      syncURL: "https://<appId>.wilddogio.com"
  };
  wilddog.initializeApp(config, "DEFAULT");
@@ -45,13 +44,13 @@ wilddog.auth().signInWithCustomToken(customToken).then(function (user){
 
 ## 退出登录
 
-`signOut` 方法用于用户退出登录：
+`signOut()` 方法用于用户退出登录：
 
 ```javascript
  wilddog.auth().signOut().then(function() {
      // 退出成功
      console.log("sign-out")
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log("sign-out-error")
  });

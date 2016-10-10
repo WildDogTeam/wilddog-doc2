@@ -25,22 +25,22 @@ title:  微博认证
 ```javascript
 var config = {
      authDomain: "<appId>.wilddog.com"
- };
- wilddog.initializeApp(config, "DEFAULT");
+};
+wilddog.initializeApp(config, "DEFAULT");
 ```
 3.Wilddog Auth 提供两种方式进行微博认证，你可以任选其一：
 
 - popup
 
-```javascript
+```js
 var provider = new wilddog.auth.WeiboAuthProvider();
 wilddog.auth().signInWithPopup(provider).then(function (user) {
      console.log(user);
- }).catch(function (error) {
+}).catch(function (error) {
      // 错误处理
      console.log(error);
      // ...
- });
+});
 ```
 
 - redirect
@@ -48,12 +48,12 @@ wilddog.auth().signInWithPopup(provider).then(function (user) {
 ```js
 var provider = new wilddog.auth.WeiboAuthProvider();
 wilddog.auth().signInWithRedirect(provider).then(function (user) {
-     console.log(user);    
- }).catch(function (error) {
-     // 错误处理
-     console.log(error);
-     // ...
- });
+    console.log(user);
+}).catch(function (error) {
+    // 错误处理
+    console.log(error);
+    // ...
+});
 ```
 
 
@@ -66,7 +66,7 @@ wilddog.auth().signInWithRedirect(provider).then(function (user) {
  wilddog.auth().signOut().then(function() {
      // 退出成功
      console.log("sign-out")
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log("sign-out-error")
  });

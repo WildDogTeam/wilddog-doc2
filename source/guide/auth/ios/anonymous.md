@@ -1,3 +1,4 @@
+
 title: 匿名身份认证
 ---
 
@@ -20,7 +21,7 @@ title: 匿名身份认证
   pod 'Wilddog/Auth'
 ```
 
-最后安装 SDK
+安装 SDK：
 
 ```
   $ pod install
@@ -47,7 +48,7 @@ WDGApp.configureWithOptions(options)
 </div>
 </div>
 
-3、 调用 `signInAnonymouslyWithCompletion:`方法：
+3.调用 `signInAnonymouslyWithCompletion:`方法：
 
 <div class="slide">
 <div class='slide-title'>
@@ -72,7 +73,7 @@ auth?.signInAnonymouslyWithCompletion(){(user, error) in
 </div>
 </div>
 
-4、`signInAnonymouslyWithCompletion:` 方法调用成功后，可以在当前用户对象中获取用户数据：
+4.`signInAnonymouslyWithCompletion:` 方法调用成功后，可以在当前用户对象中获取用户数据：
 
 <div class="slide">
 <div class='slide-title'>
@@ -81,12 +82,14 @@ auth?.signInAnonymouslyWithCompletion(){(user, error) in
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
+WDGUser user = [WDGAuth auth].currentUser;
 BOOL isAnonymous = user.anonymous;  // YES
 NSString *uid = user.uid;
 ```
 </div>
 <div class="slide-content">
 ```swift
+let user = WDGAuth.auth().currentUser;
 let isAnonymous = user!.anonymous  // true
 let uid = user!.uid
 ```
@@ -113,14 +116,13 @@ let uid = user!.uid
 <div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential =
-    [WDGEmailPasswordAuthProvider credentialWithEmail:email
-                                             password:password];
+    [WDGEmailPasswordAuthProvider credentialWithEmail:@"12345678@wilddog.com" 
+           password:@"password123"];
 ```
 </div>
 <div class="slide-content">
 ```swift
-let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, password: password)
-
+let credential = WDGEmailPasswordAuthProvider.credentialWithEmail("12345678@wilddog.com", password: "password123")
 ```
 </div>
 </div>
@@ -146,7 +148,6 @@ let auth = WDGAuth.auth()
 auth!.currentUser?.linkWithCredential(credential) { (user, error) in
      // ...
 }
-
 ```
 </div>
 </div>
@@ -221,7 +222,7 @@ auth!.currentUser?.linkWithCredential(credential) { (user, error) in
 </div>
 </div>
 
-更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/ios/api.html#link)。
+
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -231,7 +232,7 @@ auth!.currentUser?.linkWithCredential(credential) { (user, error) in
 
 ## 退出登录
 
-`signOut` 方法用于用户退出登录：
+`signOut:` 方法用于用户退出登录：
 
 <div class="slide">
 <div class='slide-title'>

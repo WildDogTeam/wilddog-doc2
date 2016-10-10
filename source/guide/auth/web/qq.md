@@ -21,37 +21,37 @@ title:  QQ 认证
 
 ```javascript
 var config = {
-     authDomain: "<appId>.wilddog.com"
- };
- wilddog.initializeApp(config, "DEFAULT");
+    authDomain: "<appId>.wilddog.com"
+};
+wilddog.initializeApp(config, "DEFAULT");
 ```
 
 3.Wilddog Auth 提供两种方式进行 QQ 认证，你可以任选其一：
 
 - popup
 
-```json
+```js
 var provider = new wilddog.auth.QQAuthProvider();
 wilddog.auth().signInWithPopup(provider).then(function (user) {
     console.log(user);
- }).catch(function (error) {
-     // 错误处理
-     console.log(error);
-     // ...
- });
+}).catch(function (error) {
+    // 错误处理
+    console.log(error);
+    // ...
+});
 ```
 
 - redirect
 
 ```js
-  var provider = new wilddog.auth.QQAuthProvider();
+var provider = new wilddog.auth.QQAuthProvider();
 wilddog.auth().signInWithRedirect(provider).then(function (user) {
      console.log(user);
- }).catch(function (error) {
+}).catch(function (error) {
      // 错误处理
      console.log(error);
      // ...
- });
+});
 ```
 
 
@@ -60,11 +60,11 @@ wilddog.auth().signInWithRedirect(provider).then(function (user) {
 
 `signOut()` 方法用于用户退出登录：
 
-```javascript
+```js
  wilddog.auth().signOut().then(function() {
      // 退出成功
      console.log("sign-out")
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log("sign-out-error")
  });

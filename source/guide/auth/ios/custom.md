@@ -1,3 +1,4 @@
+
 title:  自定义身份认证
 ---
 
@@ -21,7 +22,7 @@ title:  自定义身份认证
   pod 'Wilddog/Auth'
 ```
 
-最后安装 SDK
+安装 SDK：
 
 ```
   $ pod install
@@ -50,7 +51,7 @@ WDGApp.configureWithOptions(options)
 
 3.当用户成功登录你的用户系统时，服务器通过 [Server SDK 生成 Custom Token](/guide/auth/server/server.html)，并返回给客户端。
 
-4.客户端收到 Custom Token 后，使用 `signInWithCustomToken` 方法进行认证：
+4.客户端收到 Custom Token 后，使用 `signInWithCustomToken:` 方法进行认证：
 
 <div class="slide">
 <div class='slide-title'>
@@ -79,7 +80,7 @@ auth?.signInWithCustomToken(customToken) { (user, error) in
 
 ## 退出登录
 
-`signOut` 方法用于用户退出登录：
+`signOut:` 方法用于用户退出登录：
 
 <div class="slide">
 <div class='slide-title'>
