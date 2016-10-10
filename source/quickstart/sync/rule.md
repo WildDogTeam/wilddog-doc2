@@ -6,7 +6,7 @@ title: 快速入门
 
 ## 1. 进入规则表达式面板
 
-首先，你需要进入规则表达式面板。请参考 [控制面板－管理应用—配置规则表达式]()。
+首先，你需要进入规则表达式面板。请参考 [控制面板－管理应用—配置规则表达式](/console/administer.html#配置规则表达式)。
 
 
 ![](/images/rule-overview.png)
@@ -40,4 +40,4 @@ title: 快速入门
 
 ## 4.更多使用
 
-关于 Wilddog Sync 规则表达式的更多使用，请参考 [完整指南](guide/rules/introduce.md)。
+关于 Wilddog Sync 规则表达式的更多使用，请参考 [完整指南](guide/rules/introduce.html)。
