@@ -2,6 +2,9 @@ note-tip = hsl(40, 100%, 50%)
 note-info = hsl(200, 100%, 50%)
 note-warn = hsl(0, 100%, 50%)
 
+hr
+  opacity: 0.55
+  
 #content
   clearfix()
   position: relative
@@ -10,7 +13,7 @@ note-warn = hsl(0, 100%, 50%)
 #content-inner
   clearfix()
   @media mq-normal
-    margin-left: 200px
+    margin-left: 260px
 
 .article-container
   position: relative
@@ -87,8 +90,11 @@ note-warn = hsl(0, 100%, 50%)
   line-height: 1.5
   font-size: 13px
   position: relative
+  padding-right: 10px
   width: 100%
-  word-wrap: break-word;
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
   &.current
     color: #e6501e
   &:hover
