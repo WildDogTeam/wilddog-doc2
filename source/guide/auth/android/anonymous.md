@@ -14,14 +14,13 @@ title:  匿名身份认证
 
 1.安装 Wilddog Auth SDK：
    <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
-  
+
 
 2.创建 Wilddog Auth 实例：
 
 ```java
-
-    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
-    WilddogApp.initializeApp(this, options);
+WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+WilddogApp.initializeApp(this, options);
 WilddogAuth mauth=WilddogAuth.getInstance();
 ```
 
@@ -32,7 +31,7 @@ mauth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResul
     public void onComplete(Task<AuthResult> var1) {
         processResult(var1);
             if(var1.isSuccessful()){
-       Log.d("success","Login success!");
+       	        Log.d("success","Login success!");
         Log.d("Anonymous",String.valueOf(var1.getResult().getWilddogUser().isAnonymous()));
         }else {
         Log.d("failure","reason:"+var1.getException());
@@ -62,7 +61,7 @@ mauth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResul
 2.获取邮箱认证方式的 credential。
 
 ```java
-AuthCredential emailAuthCredential= EmailAuthProvider.getCredential("12345678@qq.com","password123");
+AuthCredential emailAuthCredential= EmailAuthProvider.getCredential("12345678@wilddog.com","password123");
 ```
 
 3.使用邮箱认证方式绑定。
@@ -117,8 +116,6 @@ user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteList
             }
         });
 ```
-
-更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/android/api.html#linkWithCredential)。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>

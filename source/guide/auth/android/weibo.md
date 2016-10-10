@@ -25,8 +25,8 @@ title:  微博认证
 
 ```java
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
-    WilddogApp.initializeApp(this, options);
-    mAuth = WilddogAuth.getInstance();
+WilddogApp.initializeApp(this, options);
+mAuth = WilddogAuth.getInstance();
 ```
 3.Wilddog Auth 提供以下方式进行微博认证：
 

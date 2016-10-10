@@ -22,9 +22,8 @@ title:  邮箱认证
 
 ```java 
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
-    WilddogApp.initializeApp(this, options);
-    
-    mAuth = WilddogAuth.getInstance();
+WilddogApp.initializeApp(this, options);
+mAuth = WilddogAuth.getInstance();
 ```
 
 3.使用 `createUserWithEmailAndPassword(email,password) ` 方法创建新用户：
@@ -34,17 +33,16 @@ WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wildd
         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete( Task<AuthResult> task) {
-                Log.d(TAG, "createUserWithEmail:onComplete:" + task.isSuccessful());
-
-                // If sign in fails, display a message to the user. If sign in succeeds
-                // the auth state listener will be notified and logic to handle the
-                // signed in user can be handled in the listener.
-                if (!task.isSuccessful()) {
-                    Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show();
+                if (task.isSuccessful()) {
+                   // 获取用户
+                 WilddogUser user = task.getResult().getWilddogUser();
+                  Log.d("result",user.toString());
                 }
-
-                // ...
+				else{
+                  // 错误处理
+                 Log.d("result",task.getException().toString());
+                  
+				} 
             }
         });
 ```
@@ -66,9 +64,8 @@ WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wildd
 
 ```java 
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
-    WilddogApp.initializeApp(this, options);
-    
-    mAuth = WilddogAuth.getInstance();
+WilddogApp.initializeApp(this, options);
+mAuth = WilddogAuth.getInstance();
 ```
 
 3.将该用户的电子邮件地址和密码传递到 `signInWithEmailAndPassword(email,password)`，即可在你应用中登录此用户：
@@ -79,17 +76,12 @@ WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wildd
             @Override
             public void onComplete( Task<AuthResult> task) {
                 Log.d(TAG, "signInWithEmail:onComplete:" + task.isSuccessful());
-
-                // If sign in fails, display a message to the user. If sign in succeeds
-                // the auth state listener will be notified and logic to handle the
-                // signed in user can be handled in the listener.
                 if (!task.isSuccessful()) {
                     Log.w(TAG, "signInWithEmail", task.getException());
                     Toast.makeText(EmailPasswordActivity.this, "Authentication failed.",
                             Toast.LENGTH_SHORT).show();
                 }
 
-                // ...
             }
         });
 ```

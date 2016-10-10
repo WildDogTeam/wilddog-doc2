@@ -1,3 +1,4 @@
+
 title:  绑定多种认证方式
 ---
 
@@ -29,7 +30,7 @@ title:  绑定多种认证方式
 ```objectivec
 WDGAuthCredential *credential =
     [WDGEmailPasswordAuthProvider credentialWithEmail:email
-                                             password:password];
+                                            password:password];
 ```
 </div>
 <div class="slide-content">
@@ -39,6 +40,8 @@ let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, passwor
 ```
 </div>
 </div>
+
+
 
 3.使用邮箱认证方式绑定。
 
@@ -66,7 +69,9 @@ WDGAuth.auth()?.currentUser?.linkWithCredential(credential, completion: { (user,
 ```
 </div>
 </div>
-    
+
+
+
 ### 绑定第三方认证方式
 
 绑定第三方认证方式需要以下三个步骤：
@@ -135,8 +140,6 @@ auth!.currentUser?.linkWithCredential(credential) { (user, error) in
 ```
 </div>
 </div>
-
-更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/ios/api.html#link)。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>

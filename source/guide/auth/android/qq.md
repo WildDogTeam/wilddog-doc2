@@ -22,8 +22,8 @@ title:  QQ 认证
 
 ```java
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
-    WilddogApp.initializeApp(this, options);
-    mAuth = WilddogAuth.getInstance();
+WilddogApp.initializeApp(this, options);
+mAuth = WilddogAuth.getInstance();
 ```
 
 3.Wilddog Auth 提供以下方式进行 QQ 认证：

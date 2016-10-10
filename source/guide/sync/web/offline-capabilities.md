@@ -30,7 +30,12 @@ connectedRef.on("value", function(snap) {
   }
 });
 ```
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+
 `/.info/connected` 的值是 boolean 类型。
+
+</blockquote>
 
 ## 离线事件
 
