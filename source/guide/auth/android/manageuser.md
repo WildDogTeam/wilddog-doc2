@@ -22,6 +22,7 @@ title: 用户管理
 获取当前登录用户是管理用户的基础。
 
 使用监听器：
+
 ```java
 WilddogAuth auth = WilddogAuth.getInstance();
 
