@@ -65,7 +65,9 @@ currentClass = currentClass || 'sync';
 
 var currentNav = window.location.pathname.split('/')[2];
 var currentL = window.location.pathname.split('/')[1];
-localStorage.setItem('class', (currentNav === 'sync' || currentNav === 'auth') ? currentNav : 'sync');
+if (!localStorage.getItem('class')) {
+  localStorage.setItem('class', (currentNav === 'sync' || currentNav === 'auth') ? currentNav : 'sync');
+}
 
 var syncSrcs = {
   overview: '/overview/index.html',
