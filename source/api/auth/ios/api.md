@@ -1,10 +1,11 @@
+
 title:  iOS API 文档
 ---
 
 ## WDGAuth (*Methods*)
 
 ### + auth
- 
+
  定义
 
 `+ (nullable WDGAuth *)auth NS_SWIFT_NAME(auth())`
@@ -14,7 +15,7 @@ title:  iOS API 文档
 获取初始化的 WDGApp 所对应的 WDGAuth。
 
  返回值
- 
+
 WDGAuth 对象。
 
 ----
@@ -38,7 +39,7 @@ WDGAuth 对象。
 
 ----
 ### currentUser
- 
+
  定义
 
 `@property(nonatomic, strong, readonly, nullable) WDGUser *currentUser`
@@ -65,11 +66,11 @@ email 用户的邮箱。
 completion 可以为空；返回用户的登录方式列表或者错误信息。异步等待，会在主线程中回调。
 
  描述
- 
+
 可能发生的错误：
- 
- - WDGAuthErrorCodeInvalidEmail - 表示邮箱格式错误。
- - See WDGAuthErrors API 调用可能发生的所有错误。
+
+- WDGAuthErrorCodeInvalidEmail - 表示邮箱格式错误。
+- See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
 ### - signInWithEmail:password:completion:
@@ -91,14 +92,14 @@ password 用户的登录密码。
 completion 可以为空；当用户登录成功或者发生错误时触发。异步等待，会在主线程中回调。
 
  描述
- 
+
 可能发生的错误：
- 
- - WDGAuthErrorCodeOperationNotAllowed 表示密码登录的方式没有打开，可以在野狗控制面板中打开这个选项。
- - WDGAuthErrorCodeUserDisabled 表示这个用户被禁止登录。
- - WDGAuthErrorCodeWrongPassword 表示邮箱或者密码错误。
- - See WDGAuthErrors API 调用可能发生的所有错误。
- 
+
+- WDGAuthErrorCodeOperationNotAllowed 表示密码登录的方式没有打开，可以在野狗控制面板中打开这个选项。
+- WDGAuthErrorCodeUserDisabled 表示这个用户被禁止登录。
+- WDGAuthErrorCodeWrongPassword 表示邮箱或者密码错误。
+- See WDGAuthErrors API 调用可能发生的所有错误。
+
 ----
 ### - signInWithCredential:completion:
 
@@ -117,14 +118,14 @@ credential 第三方提供的凭证。
 completion 可以为空；当用户登录成功或者发生错误时触发。异步等待，会在主线程中回调。
 
  描述
- 
+
 可能发生的错误：
- 
- - WDGAuthErrorCodeInvalidCredential 表示无效的登录方式。
- - WDGAuthErrorCodeOperationNotAllowed 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
- - WDGAuthErrorCodeUserDisabled 表示账号被禁用。
- - WDGAuthErrorCodeWrongPassword 表示邮箱或着密码错误。
- - See WDGAuthErrors API 调用可能发生的所有错误。
+
+- WDGAuthErrorCodeInvalidCredential 表示无效的登录方式。
+- WDGAuthErrorCodeOperationNotAllowed 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
+- WDGAuthErrorCodeUserDisabled 表示账号被禁用。
+- WDGAuthErrorCodeWrongPassword 表示邮箱或着密码错误。
+- See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
 ### - signInAnonymouslyWithCompletion:
@@ -145,11 +146,11 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
 
 如果已经有一个匿名用户登录，那么会替换这个用户。如果已经有其他用户登录，那么会先把他退出登录。  
 可能发生的错误：
- 
- -  WDGAuthErrorCodeOperationNotAllowed 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
- - See WDGAuthErrors API 调用可能发生的所有错误。
- 
----- 
+
+-  WDGAuthErrorCodeOperationNotAllowed 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+-  See WDGAuthErrors API 调用可能发生的所有错误。
+
+----
 ### - signInWithCustomToken:completion:
 
  定义
@@ -167,13 +168,13 @@ token 自定义的 token。
 completion 可以为空；请求成功会触发的 block。异步等待，会在主线程中回调。
 
  描述
- 
+
 可能发生的错误：
- 
- - WDGAuthErrorCodeInvalidCustomToken 无效的 custom token。
- - WDGAuthErrorCodeCustomTokenMismatch Indicates the service account and the API key
- belong to different projects.
- - See WDGAuthErrors API 调用可能发生的所有错误。
+
+- WDGAuthErrorCodeInvalidCustomToken 无效的 custom token。
+- WDGAuthErrorCodeCustomTokenMismatch Indicates the service account and the API key
+    belong to different projects.
+- See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
 ### - createUserWithEmail:password:completion:
@@ -196,13 +197,13 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  描述
 
 可能发生的错误：
- 
- - WDGAuthErrorCodeInvalidEmail 表示邮箱格式错误。
- - WDGAuthErrorCodeEmailAlreadyInUse 表示邮箱已经被注册。
- - WDGAuthErrorCodeOperationNotAllowed 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
- - WDGAuthErrorCodeWeakPassword 密码不符合规定。
- - See WDGAuthErrors API 调用可能发生的所有错误。
- 
+
+- WDGAuthErrorCodeInvalidEmail 表示邮箱格式错误。
+- WDGAuthErrorCodeEmailAlreadyInUse 表示邮箱已经被注册。
+- WDGAuthErrorCodeOperationNotAllowed 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+- WDGAuthErrorCodeWeakPassword 密码不符合规定。
+- See WDGAuthErrors API 调用可能发生的所有错误。
+
 ----
 ### - sendPasswordResetWithEmail:completion:
 
@@ -223,7 +224,7 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  描述
 
 可能发生的错误：
- 
+
 - See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
@@ -255,10 +256,10 @@ YES 表示退出登录成功。NO 表示失败
  说明
 
 监听用户 auth 状态。发生以下条件时会被调用：
- 
- - 第一次调用时，
- - 当前用户切换时，
- - 或者当前用户的 idToken 变化时。
+
+- 第一次调用时，
+- 当前用户切换时，
+- 或者当前用户的 idToken 变化时。
 
  参数
 
@@ -401,7 +402,7 @@ WDGAuthCredential 对象，里面包含 WeiXin 登录凭证。
 
 ----
 ### emailVerified
- 
+
  定义
 
 `@property(nonatomic, readonly, getter=isEmailVerified) BOOL emailVerified`
@@ -412,7 +413,7 @@ WDGAuthCredential 对象，里面包含 WeiXin 登录凭证。
 
 ----
 ### providerData
- 
+
  定义
 
 `@property(nonatomic, readonly, nonnull) NSArray<id<WDGUserInfo>> *providerData`
@@ -442,14 +443,14 @@ email 用户的邮箱地址。
 completion 可以为空；返回用户的登录方式列表或者错误信息。异步等待，会在主线程中回调。
 
  描述
- 
+
 如果这个邮箱已经创建过用户，则会更新失败。
 可能发生的错误：
- 
- - WDGAuthErrorCodeEmailAlreadyInUse 邮箱已被另一个用户使用。
- - WDGAuthErrorCodeInvalidEmail 邮箱格式错误。
- - WDGAuthErrorCodeRequiresRecentLogin 发生这个错误表明用户在短期内没有登录过，而修改邮箱为敏感操作，必须重新登录才能继续操作。可以调用 WDGUser.reauthenticateWithCredential:completion: 方法。
- - See WDGAuthErrors API 调用可能发生的所有错误。
+
+- WDGAuthErrorCodeEmailAlreadyInUse 邮箱已被另一个用户使用。
+- WDGAuthErrorCodeInvalidEmail 邮箱格式错误。
+- WDGAuthErrorCodeRequiresRecentLogin 发生这个错误表明用户在短期内没有登录过，而修改邮箱为敏感操作，必须重新登录才能继续操作。可以调用 WDGUser.reauthenticateWithCredential:completion: 方法。
+- See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
 ### - updatePassword:completion:
@@ -464,19 +465,19 @@ completion 可以为空；返回用户的登录方式列表或者错误信息。
 修改用户密码。如果成功，本地缓存也会被刷新。
 
  参数
-  
+
 password 用户设置的新密码。   
 completion 可以为空；当用户登录成功或者发生错误时触发。异步等待，会在主线程中回调。
 
  描述
- 
+
 可能发生的错误：
- 
- - WDGAuthErrorCodeOperationNotAllowed 表明管理员关闭了这种登录方式。
- - WDGAuthErrorCodeRequiresRecentLogin 发生这个错误表明用户在短期内没有登录过，而修改密码为敏感操作，必须重新登录才能继续操作。可以调用 WDGUser.reauthenticateWithCredential:completion: 方法。
- - WDGAuthErrorCodeWeakPassword 密码设置不符合规定。
- - See WDGAuthErrors API 调用可能发生的所有错误。
- 
+
+- WDGAuthErrorCodeOperationNotAllowed 表明管理员关闭了这种登录方式。
+- WDGAuthErrorCodeRequiresRecentLogin 发生这个错误表明用户在短期内没有登录过，而修改密码为敏感操作，必须重新登录才能继续操作。可以调用 WDGUser.reauthenticateWithCredential:completion: 方法。
+- WDGAuthErrorCodeWeakPassword 密码设置不符合规定。
+- See WDGAuthErrors API 调用可能发生的所有错误。
+
 ----
 ### profileChangeRequest
 
@@ -514,11 +515,11 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  描述
 
 可能返回 WDGAuthErrorCodeCredentialTooOld 错误。这种情况下，需要调用 WDGUser.reauthenticateWithCredential:completion: 重新登录。
- 
+
 可能发生的错误：  
 
- - See WDGAuthErrors API 调用可能发生的所有错误。
- 
+- See WDGAuthErrors API 调用可能发生的所有错误。
+
 ----
 ### - reauthenticateWithCredential:completion:
 
@@ -537,17 +538,17 @@ credential 用户提供的登录凭证，服务将会认证他的正确性。这
 completion 可以为空；重新登录成功时会被调用这个 block，block 为异步等待，会在主线程中回调。
 
  描述
- 
+
 如果用户提供的凭证和之前的不一样或者提供的凭证是错误的。则返回错误信息。当前用户继续保持登录状态。
 可能发生的错误：
 
 - WDGAuthErrorCodeInvalidCredential 无效的凭证。
- - WDGAuthErrorCodeOperationNotAllowed 这种登录方式被禁止，可以在野狗应用控制面板打开这个选项。
- - WDGAuthErrorCodeEmailAlreadyInUse 提供的 Email 地址已经被使用。
- - WDGAuthErrorCodeUserDisabled 用户帐号被禁用。
- - WDGAuthErrorCodeWrongPassword 邮箱或者密码错误。
- - WDGAuthErrorCodeUserMismatch 重现登录提供的凭证与当前用户不一致。
- - See WDGAuthErrors API 调用可能发生的所有错误。
+- WDGAuthErrorCodeOperationNotAllowed 这种登录方式被禁止，可以在野狗应用控制面板打开这个选项。
+- WDGAuthErrorCodeEmailAlreadyInUse 提供的 Email 地址已经被使用。
+- WDGAuthErrorCodeUserDisabled 用户帐号被禁用。
+- WDGAuthErrorCodeWrongPassword 邮箱或者密码错误。
+- WDGAuthErrorCodeUserMismatch 重现登录提供的凭证与当前用户不一致。
+- See WDGAuthErrors API 调用可能发生的所有错误。
 
 ----
 ### - getTokenWithCompletion:
@@ -560,16 +561,16 @@ completion 可以为空；重新登录成功时会被调用这个 block，block 
 获取用户 token。
 
  参数
- 
+
 completion 可以为空；请求成功会触发的 block。异步等待，会在主线程中回调。
 
  描述
 
 可能发生的错误：
 
- - See WDGAuthErrors API 调用可能发生的所有错误。
+- See WDGAuthErrors API 调用可能发生的所有错误。
 
----- 
+----
 ### - linkWithCredential:completion:
 
  定义
@@ -589,12 +590,12 @@ completion 可以为空；请求成功会触发的 block。异步等待，会在
  描述
 
 可能发生的错误：
- 
- - WDGAuthErrorCodeProviderAlreadyLinked 提供的登录方式已经绑定在这个帐号中。
- - WDGAuthErrorCodeCredentialAlreadyInUse 提供的登录方式凭证已经是一个用户。
- - WDGAuthErrorCodeOperationNotAllowed 提供的登录方式被禁用。可以在野狗控制面板中打开。
- - 这个方法也有可能返回 updateEmail:completion: 和 updatePassword:completion: 的错误。
- - See 更多错误请参考 WDGAuthErrors。
+
+- WDGAuthErrorCodeProviderAlreadyLinked 提供的登录方式已经绑定在这个帐号中。
+- WDGAuthErrorCodeCredentialAlreadyInUse 提供的登录方式凭证已经是一个用户。
+- WDGAuthErrorCodeOperationNotAllowed 提供的登录方式被禁用。可以在野狗控制面板中打开。
+- 这个方法也有可能返回 updateEmail:completion: 和 updatePassword:completion: 的错误。
+- See 更多错误请参考 WDGAuthErrors。
 
 ----
 ### - unlinkFromProvider:completion:
@@ -616,10 +617,10 @@ completion 可以为空；请求成功后会被调用的 block，异步等待，
  描述
 
 可能发生的错误：
- 
- - WDGAuthErrorCodeNoSuchProvider 此帐号没有绑定需要解绑的登录方式。
- - WDGAuthErrorCodeRequiresRecentLogin 敏感操作，需要重新登录帐号来保证安全性。
- - See 更多错误请参考 WDGAuthErrors。
+
+- WDGAuthErrorCodeNoSuchProvider 此帐号没有绑定需要解绑的登录方式。
+- WDGAuthErrorCodeRequiresRecentLogin 敏感操作，需要重新登录帐号来保证安全性。
+- See 更多错误请参考 WDGAuthErrors。
 
 ----
 ### - sendEmailVerificationWithCompletion:
@@ -639,10 +640,10 @@ completion 可以为空；当请求成功或失败时会调用这个 block，异
  描述
 
 可能发生的错误：
- 
- - WDGAuthErrorCodeUserNotFound 没有这个帐号。
- - See 更多错误请参考 WDGAuthErrors。
- 
+
+- WDGAuthErrorCodeUserNotFound 没有这个帐号。
+- See 更多错误请参考 WDGAuthErrors。
+
 ----
 ### - deleteWithCompletion:
 
@@ -661,10 +662,10 @@ completion 可以为空；删除帐号成功或失败时调用这个 block，异
  描述
 
 可能发生的错误：
- 
- - WDGAuthErrorCodeRequiresRecentLogin 敏感操作，需要重新登录来确保安全性。可以调用 WDGUser.reauthenticateWithCredential:completion:
- - See 更多错误请参考 WDGAuthErrors。
- 
+
+- WDGAuthErrorCodeRequiresRecentLogin 敏感操作，需要重新登录来确保安全性。可以调用 WDGUser.reauthenticateWithCredential:completion:
+- See 更多错误请参考 WDGAuthErrors。
+
 ----
 ## WDGUserProfileChangeRequest (*Methods*)
 
@@ -731,7 +732,7 @@ completion 可以为空；请求成功或失败时调用这个 block。异步等
 
 ----
 ### uid
- 
+
  定义
 
 `@property(nonatomic, copy, readonly) NSString *uid`
@@ -753,7 +754,7 @@ completion 可以为空；请求成功或失败时调用这个 block。异步等
 
 ----
 ### photoURL
- 
+
  定义
 
 `@property(nonatomic, copy, readonly, nullable) NSURL *photoURL`
@@ -764,7 +765,7 @@ completion 可以为空；请求成功或失败时调用这个 block。异步等
 
 ----
 ### email
- 
+
  定义
 
 `@property(nonatomic, copy, readonly, nullable) NSString *email`
@@ -888,7 +889,7 @@ WDGAuthErrorCodeCredentialAlreadyInUse 表示尝试关联的凭据已与另一�
 WDGAuthErrorCodeWeakPassword 表示尝试设置的密码被认为太弱
 
 WDGAuthErrorCodeAppNotAuthorized 表示应用程序用提供的 API 密钥去认证时
-    
+​    
 WDGAuthErrorCodeKeychainError 表示在访问钥匙串时出错
 
 WDGAuthErrorCodeInternalError 表示出现内部错误。 请用整个 NSError 对象报告错误
