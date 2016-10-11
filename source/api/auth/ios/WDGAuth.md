@@ -16,7 +16,7 @@ title: WDGAuth
 
 **说明**
 
-同步的获取当前缓存的用户，如果没有登录用户则为 null。
+同步的获取当前缓存的用户，如果没有登录用户则为 nil。
 
 </br>
 
@@ -42,22 +42,19 @@ WDGAuth 对象。
 </br>
 
 --- 
-
-
 ### + authWithApp:
 
- **定义**
+**定义**
 
 ```objectivec
 + (nullable WDGAuth *)authWithApp:(WDGApp *)app
 ```
 
- **说明**
+**说明**
 
 用自己创建的 WDGApp 获取对应的 WDGAuth 对象。
 
 **参数**
-
 
 参数名 | 描述
 --- | ---
@@ -70,7 +67,6 @@ app | WDGApp 实例。
 </br>
 
 ----
-
 ### - fetchProvidersForEmail:completion:
 
 **定义**
@@ -80,12 +76,11 @@ app | WDGApp 实例。
                     completion:(nullable WDGProviderQueryCallback)completion
 ```
 
- **说明**
+**说明**
 
 通过邮箱来获取用户的所有登录方式。登录方式可能有（password，qq，weixin，weibo，custom，anonymous）。
 
 **参数**
-
 
 参数名 | 描述
 --- | ---
@@ -97,12 +92,11 @@ completion | 可以为空；返回用户的登录方式列表或者错误信息�
 可能发生的错误：
 
 - WDGAuthErrorCodeInvalidEmail - 表示邮箱格式错误。
-- See WDGAuthErrors API 调用可能发生的所有错误。
+- 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
 
 ----
-
 ### - signInWithEmail:password:completion:
 
 **定义**
@@ -113,25 +107,26 @@ completion | 可以为空；返回用户的登录方式列表或者错误信息�
              completion:(nullable WDGAuthResultCallback)completion
              ```
 
- **说明**
+**说明**
 
 以邮箱和密码的方式登录。
 
 **参数**
 
+参数名 | 描述
+--- | ---
+email | 用户的邮箱地址。  
+password | 用户的登录密码。  
+completion | 可以为空；当用户登录成功或者发生错误时触发。异步等待，会在主线程中回调。
 
-email 用户的邮箱地址。  
-password 用户的登录密码。  
-completion 可以为空；当用户登录成功或者发生错误时触发。异步等待，会在主线程中回调。
-
- 描述
+**参考**
 
 可能发生的错误：
 
 - WDGAuthErrorCodeOperationNotAllowed 表示密码登录的方式没有打开，可以在野狗控制面板中打开这个选项。
 - WDGAuthErrorCodeUserDisabled 表示这个用户被禁止登录。
 - WDGAuthErrorCodeWrongPassword 表示邮箱或者密码错误。
-- See WDGAuthErrors API 调用可能发生的所有错误。
+- 参见 WDGAuthErrors API 调用可能发生的所有错误。
 </br>
 
 ----
@@ -142,12 +137,11 @@ completion 可以为空；当用户登录成功或者发生错误时触发。异
 `- (void)signInWithCredential:(WDGAuthCredential *)credential
                   completion:(nullable WDGAuthResultCallback)completion`
 
- **说明**
+**说明**
 
 使用第三方认证方式登录（e.g. 新浪微博，qq，weixin 授权后使用它们的 Access Token 和 openId 在野狗服务器上生成用户）
 
 **参数**
-
 
 参数名 | 描述
 --- | ---
@@ -162,12 +156,11 @@ completion | 可以为空；当用户登录成功或者发生错误时触发。�
 - WDGAuthErrorCodeOperationNotAllowed 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
 - WDGAuthErrorCodeUserDisabled 表示账号被禁用。
 - WDGAuthErrorCodeWrongPassword 表示邮箱或着密码错误。
-- See WDGAuthErrors API 调用可能发生的所有错误。
+- 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 <br/>
 
 ----
-
 ### - signInAnonymouslyWithCompletion:
 
 **定义**
@@ -176,12 +169,11 @@ completion | 可以为空；当用户登录成功或者发生错误时触发。�
 - (void)signInAnonymouslyWithCompletion:(nullable WDGAuthResultCallback)completion
 ```
 
- **说明**
+**说明**
 
 匿名登录方式。
 
 **参数**
-
 
 参数名 | 描述
 --- | ---
@@ -193,7 +185,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 可能发生的错误：
 
 -  WDGAuthErrorCodeOperationNotAllowed 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
--  See WDGAuthErrors API 调用可能发生的所有错误。
+-  参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
 
@@ -208,12 +200,11 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
                    completion:(nullable WDGAuthResultCallback)completion
                    ```
 
- **说明**
+**说明**
 
 以自定义 token 的方式登录。
 
 **参数**
-
 
 参数名 | 描述
 --- | ---
@@ -227,11 +218,12 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 - WDGAuthErrorCodeInvalidCustomToken 无效的 custom token。
 - WDGAuthErrorCodeCustomTokenMismatch Indicates the service account and the API key
     belong to different projects.
-- See WDGAuthErrors API 调用可能发生的所有错误。
+- 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
 
 ----
+
 ### - createUserWithEmail:password:completion:
 
 **定义**
@@ -241,7 +233,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
                  completion:(nullable WDGAuthResultCallback)completion
                  ```
 
- **说明**
+**说明**
 
 创建一个新用户，创建成功后会自动登录。
 
@@ -261,7 +253,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 - WDGAuthErrorCodeEmailAlreadyInUse 表示邮箱已经被注册。
 - WDGAuthErrorCodeOperationNotAllowed 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - WDGAuthErrorCodeWeakPassword 密码不符合规定。
-- See WDGAuthErrors API 调用可能发生的所有错误。
+- 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
 
@@ -276,7 +268,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
                         completion:(nullable WDGSendPasswordResetCallback)completion
                         ```
 
- **说明**
+**说明**
 
 通过邮箱找回密码。
 
@@ -292,7 +284,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 
 可能发生的错误：
 
-- See WDGAuthErrors API 调用可能发生的所有错误。
+- 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
 
@@ -306,7 +298,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 - (BOOL)signOut:(NSError *_Nullable *_Nullable)error
 ```
 
- **说明**
+**说明**
 
 退出登录。
 
@@ -332,7 +324,7 @@ YES 表示退出登录成功。NO 表示失败
 - (WDGAuthStateDidChangeListenerHandle)addAuthStateDidChangeListener:(WDGAuthStateDidChangeListenerBlock)listener
 ```
 
- **说明**
+**说明**
 
 监听用户 auth 状态。发生以下条件时会被调用：
 
@@ -366,7 +358,7 @@ listener | 状态变化时调用的 block。异步等待，会在主线程中回
 - (void)removeAuthStateDidChangeListener:(WDGAuthStateDidChangeListenerHandle)listenerHandle
 ```
 
- **说明**
+**说明**
 
 移除 auth 状态变更监听。
 
