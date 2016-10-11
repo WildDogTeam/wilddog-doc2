@@ -139,8 +139,9 @@ completion 可以为空；当用户登录成功或者发生错误时触发。异
 
 **定义**
 
-`- (void)signInWithCredential:(WDGAuthCredential *)credential
-                  completion:(nullable WDGAuthResultCallback)completion`
+```objectivec
+- (void)signInWithCredential:(WDGAuthCredential *)credential
+                  completion:(nullable WDGAuthResultCallback)completion```
 
  **说明**
 
