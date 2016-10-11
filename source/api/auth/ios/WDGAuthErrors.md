@@ -57,7 +57,6 @@ typedef NS_ENUM(NSInteger, WDGAuthErrorCode) {
     WDGAuthErrorCodeWeakPassword = 17026,
 
     WDGAuthErrorCodeAppNotAuthorized = 17028,
-    
     WDGAuthErrorCodeKeychainError = 17995,
 
     WDGAuthErrorCodeInternalError = 17999,

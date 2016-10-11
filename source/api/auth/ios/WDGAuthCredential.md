@@ -1,7 +1,7 @@
 title: WDGAuthCredential
 ---
 
-代表 Auth 的一个凭证。
+代表 Wilddog Auth 的一个凭证。
 
 ## 属性
 
@@ -20,7 +20,6 @@ title: WDGAuthCredential
 </br>
 
 ------
-
 ## 方法
 
 ### - init

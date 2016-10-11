@@ -21,7 +21,6 @@ title: WDGAuth
 </br>
 
 ------
-
 ## 方法
 
 ### + auth
@@ -134,8 +133,10 @@ completion | 可以为空；当用户登录成功或者发生错误时触发。�
 
 **定义**
 
-`- (void)signInWithCredential:(WDGAuthCredential *)credential
-                  completion:(nullable WDGAuthResultCallback)completion`
+```objectivec
+- (void)signInWithCredential:(WDGAuthCredential *)credential
+                  completion:(nullable WDGAuthResultCallback)completion
+```
 
 **说明**
 
@@ -190,7 +191,6 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 </br>
 
 ----
-
 ### - signInWithCustomToken:completion:
 
 **定义**
@@ -198,7 +198,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 ```objectivec
 - (void)signInWithCustomToken:(NSString *)token
                    completion:(nullable WDGAuthResultCallback)completion
-                   ```
+```
 
 **说明**
 
@@ -223,7 +223,6 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 </br>
 
 ----
-
 ### - createUserWithEmail:password:completion:
 
 **定义**
@@ -231,7 +230,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 - (void)createUserWithEmail:(NSString *)email
                    password:(NSString *)password
                  completion:(nullable WDGAuthResultCallback)completion
-                 ```
+```
 
 **说明**
 
@@ -258,7 +257,6 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 </br>
 
 ----
-
 ### - sendPasswordResetWithEmail:completion:
 
 **定义**
@@ -266,7 +264,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 ```objectivec
 - (void)sendPasswordResetWithEmail:(NSString *)email
                         completion:(nullable WDGSendPasswordResetCallback)completion
-                        ```
+```
 
 **说明**
 
@@ -289,7 +287,6 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 </br>
 
 ----
-
 ### - signOut:
 
 **定义**
@@ -315,7 +312,6 @@ YES 表示退出登录成功。NO 表示失败
 </br>
 
 ----
-
 ### - addAuthStateDidChangeListener:
 
 **定义**
@@ -349,7 +345,6 @@ listener | 状态变化时调用的 block。异步等待，会在主线程中回
 </br>
 
 ----
-
 ### - removeAuthStateDidChangeListener:
 
 **定义**
