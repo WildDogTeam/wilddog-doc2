@@ -30,10 +30,10 @@ window.onload = function () {
       removeClass(ele, className)
     }
   }
-  var wbrs = [].slice.call(document.querySelectorAll('.sublist .sidebar-link'));
+/*  var wbrs = [].slice.call(document.querySelectorAll('.sublist .sidebar-link'));
   wbrs.forEach(function (ele) {
     ele.innerHTML = ele.textContent.replace(/\./g, ".<wbr>");
-  });
+  });*/
 //右侧目录判断是否显示
   var airticleContent = document.querySelector('.article .inner');
   var toc = getElementsByClassName('toc-content')[0];
