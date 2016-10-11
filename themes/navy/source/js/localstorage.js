@@ -59,9 +59,10 @@ if (!window.localStorage) {
   })());
 }
 
+var currentClass = localStorage.getItem('class');
 var currentNav = window.location.pathname.split('/')[2];
 var currentL = window.location.pathname.split('/')[1];
-localStorage.setItem('class', (currentNav === 'sync' || currentNav === 'auth') ? currentNav : 'sync');
+localStorage.setItem('class', (currentNav === 'sync' || currentNav === 'auth') ? currentNav : (currentClass ? currentClass : 'sync'));
 
 var syncSrcs = {
   overview: '/overview/index.html',
@@ -97,8 +98,6 @@ var navs = [].slice.call(document.getElementsByClassName('main-nav-link'));
 
 links.forEach(function(element, index){
   element.addEventListener('click', function (e) {
-    e.preventDefault();
-    e.returnValue = false
     currentUrls[currentL] = e.target.href;
     localStorage.setItem('navsrc', JSON.stringify(currentUrls));
     window.location.href = e.target.href;
@@ -107,11 +106,9 @@ links.forEach(function(element, index){
 
 navs.forEach(function (ele) {
   ele.addEventListener('click', function (e) {
-    e.preventDefault();
-    e.returnValue = false
     var currentClass = localStorage.getItem('class');
     var index = navs.indexOf(ele);
-    var href = (currentUrls[navlinks[index]] === '') ? (currentClass === 'sync' ? syncSrcs[navlinks[index]] : authSrcs[navlinks[index]]) : currentUrls[navlinks[index]];;
+    var href = (currentUrls[navlinks[index]] === '') ? (currentClass === 'auth' ? authSrcs[navlinks[index]] : syncSrcs[navlinks[index]]) : currentUrls[navlinks[index]];;
     window.location.href = href;
   })
 });
