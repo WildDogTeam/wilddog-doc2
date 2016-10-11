@@ -59,15 +59,9 @@ if (!window.localStorage) {
   })());
 }
 
-var currentClass = localStorage.getItem('class');
-
-currentClass = currentClass || 'sync';
-
 var currentNav = window.location.pathname.split('/')[2];
 var currentL = window.location.pathname.split('/')[1];
-if (!localStorage.getItem('class')) {
-  localStorage.setItem('class', (currentNav === 'sync' || currentNav === 'auth') ? currentNav : 'sync');
-}
+localStorage.setItem('class', (currentNav === 'sync' || currentNav === 'auth') ? currentNav : 'sync');
 
 var syncSrcs = {
   overview: '/overview/index.html',
@@ -115,7 +109,11 @@ navs.forEach(function (ele) {
   ele.addEventListener('click', function (e) {
     e.preventDefault();
     e.returnValue = false
+    var currentClass = localStorage.getItem('class');
     var index = navs.indexOf(ele);
-    window.location.href = (currentUrls[navlinks[index]] === '') ? (currentClass === 'sync' ? syncSrcs[navlinks[index]] : authSrcs[navlinks[index]]) : currentUrls[navlinks[index]];
+    var href = (currentUrls[navlinks[index]] === '') ? (currentClass === 'sync' ? syncSrcs[navlinks[index]] : authSrcs[navlinks[index]]) : currentUrls[navlinks[index]];;
+    console.log(href)
+    debugger
+    window.location.href = href;
   })
 });
