@@ -112,8 +112,6 @@ navs.forEach(function (ele) {
     var currentClass = localStorage.getItem('class');
     var index = navs.indexOf(ele);
     var href = (currentUrls[navlinks[index]] === '') ? (currentClass === 'sync' ? syncSrcs[navlinks[index]] : authSrcs[navlinks[index]]) : currentUrls[navlinks[index]];;
-    console.log(href)
-    debugger
     window.location.href = href;
   })
 });
