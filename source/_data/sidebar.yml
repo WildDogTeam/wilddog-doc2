@@ -51,6 +51,11 @@ guide:
     规则表达式:
       简介: /guide/sync/rules/introduce.html
       指南: /guide/sync/rules/guide.html
+      #数据访问控制: /guide/sync/rules/secure.html
+      #用户访问控制: /guide/sync/rules/auth.html
+      #校验数据: /guide/sync/rules/validate.html
+      #数据索引: /guide/sync/rules/index.html
+
     最佳实践:
       组织数据: /guide/sync/bestpractice/structure-data.html
       数组处理: /guide/sync/bestpractice/array.html
@@ -113,10 +118,21 @@ api:
       API 文档: /api/auth/web/api.html
       错误码: /api/auth/web/error-code.html
     Android: /api/auth/android/api.html
+    #iOS:
+      #API 文档: /api/auth/ios/api.html
+      #错误码: /api/auth/ios/error-code.html
     iOS:
-      API 文档: /api/auth/ios/api.html
-      错误码: /api/auth/ios/error-code.html
-
+      WDGAuth: /api/auth/ios/WDGAuth.html
+      WDGAuthCredential: /api/auth/ios/WDGAuthCredential.html
+      WDGAuthErrors: /api/auth/ios/WDGAuthErrors.html
+      WDGEmailPasswordAuthProvider: /api/auth/ios/WDGEmailPasswordAuthProvider.html
+      WDGQQAuthProvider: /api/auth/ios/WDGQQAuthProvider.html
+      WDGWeiXinAuthProvider: /api/auth/ios/WDGWeiXinAuthProvider.html
+      WDGWeiboAuthProvider: /api/auth/ios/WDGWeiboAuthProvider.html
+      WDGUser: /api/auth/ios/WDGUser.html
+      WDGUserInfo: /api/auth/ios/WDGUserInfo.html
+      WDGUserProfileChangeRequest: /api/auth/ios/WDGUserProfileChangeRequest.html
+     
 resources:
   实时数据同步:
     Web:
