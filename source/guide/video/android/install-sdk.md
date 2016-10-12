@@ -17,12 +17,7 @@ Wilddog Video SDK 的实现依赖于 Wilddog Sync SDK 和 Wilddog Auth SDK，所
 
 - **使用 Gradle 安装 Sync 和 Auth SDK**
 
-```
-dependencies { 
-    compile 'com.wilddog.client:wilddog-sync-android:2.0.1'
-    compile 'com.wilddog.client:wilddog-auth-android:2.0.1'
-}
-```
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:<span class="android-sync-version"></span>&apos;</span></div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 如果出现由于文件重复导致的编译错误，可以在 build.gradle 中添加 packingOptions:
 
@@ -37,5 +32,5 @@ android {
 ```
 
 ## 引入 Video SDK
-[下载 Video SDK](https://cdn.wilddog.com/sdk/android/0.3.1/wilddog-video-android-0.3.1.zip)，解压后将jniLibs文件夹拷贝到工程目录的main文件夹中，将`libs/wilddog-video-android-*.jar` 放入工程的 `app/libs` 中，右键点击 `addAsLibrary`，完成 jar 包引用。
+<a href="" class="video-android-download">下载 Video SDK</a>，解压后将jniLibs文件夹拷贝到工程目录的main文件夹中，将`libs/wilddog-video-android-*.jar` 放入工程的 `app/libs` 中，右键点击 `addAsLibrary`，完成 jar 包引用。
 
