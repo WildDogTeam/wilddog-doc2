@@ -22,21 +22,18 @@ title:  邮箱认证
 
 ```javascript
 var config = {
-
- authDomain: "<appId>.wilddog.com"
-
- };
-
- wilddog.initializeApp(config, "DEFAULT");
+    authDomain: "<appId>.wilddog.com"
+};
+wilddog.initializeApp(config, "DEFAULT");
 ```
 
 3.使用 `createUserWithEmailAndPassword(email,password) ` 方法创建新用户：
 
 ```javascript
-wilddog.auth().createUserWithEmailAndPassword("wangxiaoliang@wilddog.com", "12345678").then(function(user){
+wilddog.auth().createUserWithEmailAndPassword("12345678@wilddog.com", "password123").then(function(user){
 	 // 获取用户
 	 console.log(user);
-})catch(function (error) {
+}).catch(function (error) {
      // 错误处理
      console.log(error);
  });
@@ -66,10 +63,10 @@ wilddog.auth().createUserWithEmailAndPassword("wangxiaoliang@wilddog.com", "1234
 3.将该用户的电子邮件地址和密码传递到 `signInWithEmailAndPassword(email:password)`，即可在你应用中登录此用户：
 
 ```javascript
-wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(function(res){
+wilddog.auth().signInWithEmailAndPassword("12345678@wilddog.com", "1234567").then(function(res){
      console.log(res);
  }).catch(function (error) {
-     //错误处理
+     // 错误处理
      console.log(error)
  });
 ```
@@ -88,7 +85,7 @@ wilddog.auth().signInWithEmailAndPassword("550690505@qq.com", "1234567").then(fu
  wilddog.auth().signOut().then(function() {
      // 退出成功
      console.log("sign-out")
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log("sign-out-error")
  });

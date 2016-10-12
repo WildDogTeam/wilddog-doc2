@@ -15,43 +15,43 @@ title:  QQ 认证
 ## 实现 QQ 认证
 1.安装 Wilddog Auth SDK：
 
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
 2.创建 Wilddog Auth 实例：
 
 ```javascript
 var config = {
-     authDomain: "<appId>.wilddog.com"
- };
- wilddog.initializeApp(config, "DEFAULT");
+    authDomain: "<appId>.wilddog.com"
+};
+wilddog.initializeApp(config, "DEFAULT");
 ```
 
 3.Wilddog Auth 提供两种方式进行 QQ 认证，你可以任选其一：
 
 - popup
 
-```json
+```js
 var provider = new wilddog.auth.QQAuthProvider();
 wilddog.auth().signInWithPopup(provider).then(function (user) {
     console.log(user);
- }).catch(function (error) {
-     // 错误处理
-     console.log(error);
-     // ...
- });
+}).catch(function (error) {
+    // 错误处理
+    console.log(error);
+    // ...
+});
 ```
 
 - redirect
 
 ```js
-  var provider = new wilddog.auth.QQAuthProvider();
+var provider = new wilddog.auth.QQAuthProvider();
 wilddog.auth().signInWithRedirect(provider).then(function (user) {
      console.log(user);
- }).catch(function (error) {
+}).catch(function (error) {
      // 错误处理
      console.log(error);
      // ...
- });
+});
 ```
 
 
@@ -60,11 +60,11 @@ wilddog.auth().signInWithRedirect(provider).then(function (user) {
 
 `signOut()` 方法用于用户退出登录：
 
-```javascript
+```js
  wilddog.auth().signOut().then(function() {
      // 退出成功
      console.log("sign-out")
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log("sign-out-error")
  });

@@ -17,13 +17,12 @@ title:  自定义身份认证
 
 1.安装 Wilddog Auth SDK：
 
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js"</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
 2.创建 Wilddog Auth 实例：
 
 ```javascript
  var config = {
-     authDomain: "<appId>.wilddog.com",
      syncURL: "https://<appId>.wilddogio.com"
  };
  wilddog.initializeApp(config, "DEFAULT");
@@ -45,13 +44,13 @@ wilddog.auth().signInWithCustomToken(customToken).then(function (user){
 
 ## 退出登录
 
-`signOut` 方法用于用户退出登录：
+`signOut()` 方法用于用户退出登录：
 
 ```javascript
  wilddog.auth().signOut().then(function() {
      // 退出成功
      console.log("sign-out")
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log("sign-out-error")
  });

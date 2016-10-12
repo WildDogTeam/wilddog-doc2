@@ -1,3 +1,4 @@
+
 title: 邮箱登录
 ---
 
@@ -20,7 +21,7 @@ title: 邮箱登录
   pod 'Wilddog/Auth'
 ```
 
-最后安装 SDK
+安装 SDK：
 
 ```
   $ pod install
@@ -56,23 +57,25 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-[[WDGAuth auth] createUserWithEmail:email
-                 password:password
+[[WDGAuth auth] createUserWithEmail:@"12345678@wilddog.com"
+                 password:@"password123"
                completion:^(WDGUser *_Nullable user,
                           NSError *_Nullable error) {
                     // ...
                   }];
-             ```
+```
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) in
+WDGAuth.auth()?.createUserWithEmail("12345678@wilddog.com", password: "password123") { 
+  (user, error) in
   // ...
 }
 ```
 </div>
 </div>
-             
+
+
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   如果新用户创建成功，默认会处于登录状态，并且你可以在回调方法中获取登录用户。
@@ -89,7 +92,7 @@ WDGAuth.auth()?.createUserWithEmail(email, password: password) { (user, error) i
   pod 'Wilddog/Auth'
 ```
 
-最后安装 SDK
+安装 SDK：
 
 ```
   $ pod install
@@ -125,8 +128,8 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-[[WDGAuth auth] signInWithEmail:_emailField.text
-                       password:_passwordField.text
+[[WDGAuth auth] signInWithEmail:@"12345678@wilddog.com"
+                       password:@"password123"
                      completion:^(WDGUser *user, NSError *error) {
                        // ...
                      }];
@@ -134,7 +137,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.signInWithEmail(email, password: password) { (user, error) in
+WDGAuth.auth()?.signInWithEmail("12345678@wilddog.com", password: "password123") { (user, error) in
   // ...
 }
 ```
@@ -149,7 +152,7 @@ WDGAuth.auth()?.signInWithEmail(email, password: password) { (user, error) in
 
 ## 退出登录
 
-`signOut` 方法用于用户退出登录：
+`signOut:` 方法用于用户退出登录：
 
 <div class="slide">
 <div class='slide-title'>

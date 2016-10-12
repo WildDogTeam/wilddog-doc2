@@ -6,7 +6,7 @@ title: 用户管理
 
 ## 创建用户
 
-创建用户包含以下三种方法
+创建用户包含以下三种方法：
 
 - 通过 [邮箱密码](/guide/auth/android/password.html) 创建
 - 通过第三方身份认证提供商授权创建
@@ -21,25 +21,42 @@ title: 用户管理
 
 获取当前登录用户是管理用户的基础。
 
-获取当前登录用户包含以下一种方法
-- 使用 `getCurrentUser（）` 方法
+使用监听器：
 
-使用 `currentUser` 方法：
+```java
+WilddogAuth auth = WilddogAuth.getInstance();
+
+auth.addAuthStateListener(new WilddogAuth.AuthStateListener(){
+    // 设置 Auth 监听器
+    @Override
+    public void onAuthStateChanged(WilddogAuth wilddogauth){
+        WilddogUser user = wilddogauth.getCurrentUser();
+        if (user != null) {
+            // 用户已登录
+        } else {
+            // 没有用户登录
+        }
+    }
+});
+```
 
 
-```javascript
-WilddogAuth auth = WilddogAuth.getInstance()
+使用 `getCurrentUser ()` 方法获取当前登录：
+
+
+```java
+WilddogAuth auth = WilddogAuth.getInstance();
 WilddogUser user = auth.getCurrentUser();
 if (user != null) {
-     // 用户已登录
+   // 用户已登录
 } else {
-     // 没有用户登录
+   // 没有用户登录
 }
 ```
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  推荐使用监听器，这样可以保证在你获取当前用户时 Auth 实例不会处于中间状态，如用户正在登录时。
+  推荐使用监听器，这样可以保证在你获取当前用户时 Auth 实例不会处于中间状态，如用户正在登录时。 用户可以在登陆后通过 WilddogAuth.getInstance().getCurrentUser() 在任何需要的时候获取到 WilddogUser 对象。
 </blockquote>
 
 ### 获取用户属性
@@ -49,23 +66,13 @@ if (user != null) {
 ```java
 WilddogUser user = auth.getCurrentUser();
 if (user != null) {
-    // User is signed in.
-    // The uid properties and providerId will never be empty.
-    // The user's ID, unique to the Wilddog
-    // project. Do NOT use this value to
-    // authenticate with your backend server, if
-    // you have one. Use
-    // user.getToken: instead.
     String uid = user.getUid();
     String providerId = user.getProviderId();
-    // The displayName and photoUrl in QQ or Weichat login will not be
-    // empty.
     String name = user.getDisplayName();
     Uri photoUrl = user.getPhotoUrl();
-    // The email will not be empty only by email login.
     String email = user.getEmail();
 } else {
-    // No user is signed in.
+    // 没有用户登录.
 }
 ```
 
@@ -75,25 +82,16 @@ if (user != null) {
 
 ```java
 WilddogUser user = auth.getCurrentUser();
-if (user != null) {
-    // User is signed in.
     String uid = user.getUid();
     List<WilddogUser> userProviderInfos = user.getProviderData();
     for (UserInfo profile : userProviderInfos) {
-        // Id of the provider (ex: qq)
         String providerId = profile.getProviderId();
-
-        // UID specific to the provider
         String uid = profile.getUid();
-
-        // Name, email address, and profile photo Url
         String name = profile.getDisplayName();
         String email = profile.getEmail();
         Uri photoUrl = profile.getPhotoUrl();
     };
-} else {
-    // No user is signed in.
-}
+
 ```
 
 ## 更新用户信息
@@ -109,8 +107,8 @@ if (user != null) {
 WilddogUser user = auth.getCurrentUser();
 
 UserProfileChangeRequest profileUpdates = new  UserProfileChangeRequest.Builder()
-    .setDisplayName("xiaofei")
-    .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
+    .setDisplayName("name")
+  .setPhotoUri(Uri.parse("https://example.com/path/photo.jpg"))
     .build();
 
 user.updateProfile(profileUpdates)
@@ -118,9 +116,10 @@ user.updateProfile(profileUpdates)
         @Override
         public void onComplete(Task<Void> task) {
             if (task.isSuccessful()) {
-                Log.d(TAG, "User profile updated.");
+                // 更新成功
+            }else{
+               // 发生错误
             }
-
         }
     });
 ```
@@ -136,12 +135,15 @@ user.updateProfile(profileUpdates)
 ```java
 WilddogUser user = auth.getCurrentUser();
 
-user.updateEmail("user@example.com")
+user.updateEmail("12345678@gmail.com")
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete(Task<Void> task) {
             if (task.isSuccessful()) {
-                Log.d(TAG, "User email address updated.");
+               // 更新成功
+            }else{
+              // 发生错误
+              Log.d("result" ,task.getException().toString()) ;
             }
         }
     });
@@ -161,14 +163,17 @@ user.updateEmail("user@example.com")
 
 ```java
 WilddogUser user = auth.getCurrentUser();
-String newPassword = "SOME-SECURE-PASSWORD";
+String newPassword = "12345678";
 
 user.updatePassword(newPassword)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete(Task<Void> task) {
             if (task.isSuccessful()) {
-                Log.d(TAG, "User password updated.");
+                // 更新成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
             }
         }
     });
@@ -188,14 +193,17 @@ user.updatePassword(newPassword)
 `sendPasswordResetEmail()` 方法用于向用户发送重设密码邮件。
 
 ```java
-String emailAddress = "user@example.com";
+String emailAddress = "12345678@gmail.com";
 
 auth.sendPasswordResetEmail(emailAddress)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete(Task<Void> task) {
-            if (task.isSuccessful()) {
-                Log.d(TAG, "Email sent.");
+             if (task.isSuccessful()) {
+                // 更新成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
             }
         }
     });
@@ -221,8 +229,11 @@ auth.getCurrentUser().delete()
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete(Task<Void> task) {
-            if (task.isSuccessful()) {
-                Log.d(TAG, "User account deleted.");
+             if (task.isSuccessful()) {
+                // 删除成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
             }
         }
     });
@@ -256,19 +267,18 @@ auth.getCurrentUser().delete()
 
 ```java
 WilddogUser user = auth.getCurrentUser();
-
-// Get auth credentials from the user for re-authentication. The example below shows
-// email and password credentials but there are multiple possible providers,
-// such as QQAuthProvider or WeixinAuthProvider.
 AuthCredential credential = EmailAuthProvider
-    .getCredential("user@example.com", "password1234");
-
-// Prompt the user to re-provide their sign-in credentials
+    .getCredential("12345678@gmail.com", "12345678");
 user.reauthenticate(credential)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete( Task<Void> task) {
-            Log.d(TAG, "User re-authenticated.");
+           if (task.isSuccessful()) {
+                // 重新认证成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
+            }
         }
     });
 ```

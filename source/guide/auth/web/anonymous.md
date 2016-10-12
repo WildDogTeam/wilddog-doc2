@@ -19,7 +19,7 @@ title:  匿名身份认证
 
 ```javascript
   var config = {
-  	authDomain: "<appId>.wilddog.com",
+    authDomain: "<appId>.wilddog.com",
   };
   wilddog.initializeApp(config, "DEFAULT");
 ```
@@ -56,7 +56,7 @@ var uid = user.uid;
 2.获取邮箱认证方式的 credential。
 
 ```javascript
-var credentialEmail = wilddog.auth.EmailAuthProvider.credential(email, password);
+var credentialEmail = wilddog.auth.EmailAuthProvider.credential("12345678@wilddog.com", "password123");
 ```
 
 3.使用邮箱认证方式绑定。
@@ -65,7 +65,7 @@ var credentialEmail = wilddog.auth.EmailAuthProvider.credential(email, password)
 var user = wilddog.auth().currentUser;
 user.link(credentialEmail).then(function (user) {
     console.log("Account linking1 success", user);
-}, function (error) {
+}).catch(function (error) {
     console.log("Account linking1 error", error);
 });
 ```
@@ -94,7 +94,7 @@ var provider = new wilddog.auth.WeixinmpAuthProvider();
 
 3.使用第三方认证方式绑定。
 
-例如，使用 popup 进行绑定：
+例如，使用 linkWithPopup 进行绑定：
 
 ```javascript
 wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
@@ -122,7 +122,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
  wilddog.auth().signOut().then(function() {
      // 退出成功
      console.log("sign-out")
- }, function(error) {
+ }).catch(function(error) {
      // 发生错误
      console.log("sign-out-error")
  });

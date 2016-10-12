@@ -6,7 +6,7 @@ title: 用户管理
 
 ## 创建用户
 
-创建用户包含以下三种方法
+创建用户包含以下三种方法：
 
 - 通过 [邮箱密码](/guide/auth/ios/password.html) 创建
 - 通过第三方身份认证提供商授权创建
@@ -23,7 +23,7 @@ title: 用户管理
 
 获取当前登录用户是管理用户的基础。
 
-获取当前登录用户包含以下两种方法
+获取当前登录用户包含以下两种方法：
 
 - 在 `Auth` 实例上设置监听器
 - 使用 `currentUser` 方法
@@ -40,9 +40,9 @@ title: 用户管理
 [[WDGAuth auth] addAuthStateDidChangeListener:^(WDGAuth *_Nonnull auth,
                                                 WDGUser *_Nullable user) {
   if (user != nil) {
-    // User is signed in.
+    // 用户已登录
   } else {
-    // No user is signed in.
+    // 没有用户登录
   }
 }];
 ```
@@ -51,12 +51,11 @@ title: 用户管理
 ```swift
 WDGAuth.auth()?.addAuthStateDidChangeListener{ auth, user in
     if let user = user {
-        // User is signed in.
+        // 用户已登录
     } else {
-        // No user is signed in.
+        // 没有用户登录
     }
 }
-
 ```
 </div>
 </div>
@@ -73,20 +72,19 @@ WDGAuth.auth()?.addAuthStateDidChangeListener{ auth, user in
 WDGUser *user = [WDGAuth auth].currentUser;
 
 if (user != nil) {
-  // User is signed in.
+  // 用户已登录
 } else {
-  // No user is signed in.
+  // 没有用户登录
 }
 ```
 </div>
 <div class="slide-content">
 ```swift
 if let user = WDGAuth.auth()?.currentUser {
-    // User is signed in.
+    // 用户已登录
 } else {
-    // No user is signed in.
+    // 没有用户登录
 }
-
 ```
 </div>
 </div>
@@ -114,13 +112,9 @@ if (user != nil) {
   NSString *name = user.displayName;
   NSString *email = user.email;
   NSURL *photoUrl = user.photoURL;
-  NSString *uid = user.uid;    
-  //  The user's ID, unique to the Wilddog project.
-  //  Do NOT use this value to authenticate with
-  //  your backend server, if you have one. Use
-  //  getTokenWithCompletion:completion: instead.    
+  NSString *uid = user.uid;       
 } else {
-  // No user is signed in.
+  // 没有用户登录
 }
 ```
 </div>
@@ -131,14 +125,9 @@ if let user = WDGAuth.auth()?.currentUser {
     let email = user.email
     let photoUrl = user.photoURL
     let uid = user.id;  
-    // The user's ID, unique to the Wilddog project.
-    // Do NOT use this value to authenticate with
-    // your backend server, if you have one.Use
-    // getTokenWithCompletion:completion: instead.
 } else {
-    // No user is signed in.
+    // 没有用户登录
 }
-
 ```
 </div>
 </div>
@@ -165,7 +154,7 @@ if (user != nil) {
     NSURL *photoURL = profile.photoURL;
   }
 } else {
-  // No user is signed in.
+  // 没有用户登录
 }
 ```
 </div>
@@ -180,14 +169,17 @@ if let user = WDGAuth.auth()?.currentUser {
         let photoURL = profile.photoURL
     }
 } else {
-    // No user is signed in.
+    // 没有用户登录
 }
-
 ```
 </div>
 </div>
 
-## 更新个人资料
+## 更新用户信息
+
+User 实例用于更新 用户属性 及用户的登录信息。
+
+### 更新用户属性
 
 `WDGUserProfileChangeRequest` 类用于更新用户属性。
 
@@ -208,9 +200,9 @@ changeRequest.photoURL =
     [NSURL URLWithString:@"https://example.com/jane-q-user/profile.jpg"];
 [changeRequest commitChangesWithCompletion:^(NSError *_Nullable error) {
   if (error) {
-    // An error happened.
+    // 发生错误
   } else {
-    // Profile updated.
+    // 更新成功
   }
 }];
 ```
@@ -226,16 +218,20 @@ if let user = user {
         NSURL(string: "https://example.com/jane-q-user/profile.jpg")
     changeRequest.commitChangesWithCompletion { error in
         if let error = error {
-            // An error happened.
+            // 发生错误
         } else {
-            // Profile updated.
+            // 更新成功
         }
     }
 }
-
 ```
 </div>
 </div>
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户属性。
+</blockquote>
 
 ### 更新邮箱地址
 
@@ -252,9 +248,9 @@ WDGUser *user = [WDGAuth auth].currentUser;
 
 [user updateEmail:@"user@example.com" completion:^(NSError *_Nullable error) {
   if (error) {
-    // An error happened.
+    // 发生错误
   } else {
-    // Email updated.
+    // 更新成功
   }
 }];
 ```
@@ -265,12 +261,11 @@ let user = WDGAuth.auth()?.currentUser
 
 user?.updateEmail("user@example.com") { error in
     if let error = error {
-        // An error happened.
+        // 发生错误
     } else {
-        // Email updated.
+        // 更新成功
     }
 }
-
 ```
 </div>
 </div>
@@ -300,9 +295,9 @@ NSString *newPassword = [yourApp getRandomSecurePassword];
 
 [user updatePassword:newPassword completion:^(NSError *_Nullable error) {
   if (error) {
-    // An error happened.
+    // 发生错误
   } else {
-    // Password updated.
+    // 更新成功
   }
 }];
 ```
@@ -314,12 +309,11 @@ let newPassword = getRandomSecurePassword()
 
 user?.updatePassword(newPassword) { error in
     if let error = error {
-        // An error happened.
+        // 发生错误
     } else {
-        // Password updated.
+        // 更新成功
     }
 }
-
 ```
 </div>
 </div>
@@ -349,9 +343,9 @@ NSString *email = @"user@example.com";
 [[WDGAuth auth] sendPasswordResetWithEmail:email
                                 completion:^(NSError *_Nullable error) {
   if (error) {
-    // An error happened.
+    // 发生错误
   } else {
-    // Password reset email sent.
+    // 发送成功
   }
 }];
 ```
@@ -362,12 +356,11 @@ let email = "user@example.com"
 
 WDGAuth.auth()?.sendPasswordResetWithEmail(email) { error in
     if let error = error {
-        // An error happened.
+        // 发生错误
     } else {
-        // Password reset email sent.
+        // 发送成功
     }
 }
-
 ```
 </div>
 </div>
@@ -382,10 +375,10 @@ WDGAuth.auth()?.sendPasswordResetWithEmail(email) { error in
 
 删除用户的方式有以下两种：
 
-- 通过 `deleteWithCompletion` 方法删除
+- 通过 `deleteWithCompletion:` 方法删除
 - 在控制面板**身份认证—用户** 中手动删除
 
-使用 `deleteWithCompletion` 方法：
+使用 `deleteWithCompletion:` 方法：
 
 <div class="slide">
 <div class='slide-title'>
@@ -398,9 +391,9 @@ WDGUser *user = [WDGAuth auth].currentUser;
 
 [user deleteWithCompletion:^(NSError *_Nullable error) {
   if (error) {
-    // An error happened.
+    // 发生错误
   } else {
-    // Account deleted.
+    // 删除成功
   }
 }];
 ```
@@ -411,9 +404,9 @@ let user = WDGAuth.auth()?.currentUser
 
 user?.deleteWithCompletion { error in
     if let error = error {
-        // An error happened.
+        // 发生错误
     } else {
-        // Account deleted.
+        // 删除成功
     }
 }
 ```
@@ -459,9 +452,9 @@ WDGAuthCredential *credential; // 需要初始化
 
 [user reauthenticateWithCredential:credential completion:^(NSError *_Nullable error) {
   if (error) {
-    // An error happened.
+    // 发生错误
   } else {
-    // User re-authenticated.
+    // 重新认证成功
   }
 }];
 ```
@@ -475,12 +468,11 @@ var credential: WDGAuthCredential // 需要初始化
 
 user?.reauthenticateWithCredential(credential) { error in
     if let error = error {
-        // An error happened.
+        // 发生错误
     } else {
-        // User re-authenticated.
+        // 重新认证成功
     }
 })
-
 ```
 </div>
 </div>

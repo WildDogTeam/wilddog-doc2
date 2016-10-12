@@ -1,3 +1,4 @@
+
 title:  微博认证
 ---
 
@@ -19,7 +20,7 @@ title:  微博认证
   pod 'Wilddog/Auth'
 ```
 
-最后安装 SDK
+安装 SDK：
 
 ```
   $ pod install
@@ -46,7 +47,7 @@ WDGApp.configureWithOptions(options)
 </div>
 </div>
 
-3、 参考 [新浪微博 iOS 接入指南](https://github.com/sinaweibosdk/weibo_ios_sdk) 将新浪微博登录集成到你的应用中。在 AppDelegate 的 `application: openURL: options:` 方法中设置 delegate 来接收网络事件:
+3.参考 [新浪微博 iOS 接入指南](https://github.com/sinaweibosdk/weibo_ios_sdk) 将新浪微博登录集成到你的应用中。在 AppDelegate 的 `application: openURL: options:` 方法中设置 delegate 来接收网络事件:
 
 <div class="slide">
 <div class='slide-title'>
@@ -142,7 +143,7 @@ func didReceiveWeiboResponse(response: WBBaseResponse!){
 </div>
 </div>
 
-4、 新浪微博登录成功后，在 `didReceiveWeiboResponse:` 方法中得到的 accessToken 和 userID 来生成 credential：
+4.新浪微博登录成功后，在 `didReceiveWeiboResponse:` 方法中得到的 accessToken 和 userID 生成 credential：
 
 <div class="slide">
 <div class='slide-title'>
@@ -162,7 +163,7 @@ let credential = WDGSinaAuthProvider.credentialWithAccessToken(sinaOAuth.accessT
 </div>
 </div>
 
-5、 最后，使用 credential 来进行 Auth 用户认证：
+5.使用 credential 进行 Auth 用户认证：
 
 <div class="slide">
 <div class='slide-title'>
@@ -188,7 +189,7 @@ WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
 
 ## 退出登录
 
-`signOut` 方法用于用户退出登录：
+`signOut:` 方法用于用户退出登录：
 
 <div class="slide">
 <div class='slide-title'>

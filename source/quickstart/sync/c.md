@@ -57,7 +57,7 @@ Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
 
 ## 4. 写入数据
 
-`wilddog_setValue()` 方法用于向指定节点写入数据。
+[wilddog_setValue()](/api/sync/c/api.html#wilddog-setValue) 方法用于向指定节点写入数据。
 
 例如，设置 Jack 为 beauty 描述：
 ```c
@@ -99,7 +99,7 @@ int main(void){
 
 ## 5. 监听数据 
 
-`wilddog_addObserver()` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+[wilddog_addObserver()](/api/sync/c/api.html#wilddog-addObserver) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 ```c
 #include "wilddog.h"
@@ -121,8 +121,8 @@ int main(){
     wilddog_destroy(&ref);
 }
 ```
-回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 `wilddog_getValue()` 方法。
+回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 [wilddog_getValue()](/api/sync/c/api.html#wilddog-getValue) 方法。
 
 ## 5.更多使用
-- 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式]()
+- 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
 - 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。

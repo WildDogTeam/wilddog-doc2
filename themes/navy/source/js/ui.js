@@ -30,7 +30,10 @@ window.onload = function () {
       removeClass(ele, className)
     }
   }
-
+/*  var wbrs = [].slice.call(document.querySelectorAll('.sublist .sidebar-link'));
+  wbrs.forEach(function (ele) {
+    ele.innerHTML = ele.textContent.replace(/\./g, ".<wbr>");
+  });*/
 //右侧目录判断是否显示
   var airticleContent = document.querySelector('.article .inner');
   var toc = getElementsByClassName('toc-content')[0];
@@ -153,7 +156,12 @@ window.onload = function () {
   var iosDownLoadSync = getElementsByClassName('ios-download-sync');
   var iosDownLoadAuth = getElementsByClassName('ios-download-auth');
   var iosDownLoadCore = getElementsByClassName('ios-download-core');
-//https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip
+  var videoWebVersionContent = getElementsByClassName('video-web-version');
+  var videoAndroidVersionContent = getElementsByClassName('video-android-version');
+  var videoIosVersionContent = getElementsByClassName('video-ios-version');
+  var videoAndroidDownloadSrc = getElementsByClassName('video-android-download');
+  var videoIosDownloadSrc = getElementsByClassName('video-ios-core');
+
     var config = {
       authDomain: "wd-download.wilddog.com",
       syncURL: "https://wd-download.wilddogio.com"
@@ -167,6 +175,11 @@ window.onload = function () {
       var iosSyncVersion = snap.val().WilddogSynciOS.version;
       var androidSyncVersion = snap.val().WilddogSyncAndroid.version;
       var androidAuthVersion = snap.val().WilddogAuthAndroid.version;
+      var videoWebVersion = snap.val().WilddogVideoWeb.version;
+      var videoAndroidVersion = snap.val().WilddogVideoAndroid.version;
+      var videoIosVersion = snap.val().WilddogVideoiOS.version;
+      var videoAndroidDownload = snap.val().WilddogVideoAndroid.downUrl;
+      var videoIosDownload = snap.val().WilddogVideoiOS.downUrl;
       jsVersionContent.forEach(function (ele) {
         ele.textContent = jsVersion;
       });
@@ -176,6 +189,15 @@ window.onload = function () {
       androidAuthVersionContent.forEach(function (ele) {
         ele.textContent = androidAuthVersion;
       });
+      videoWebVersionContent.forEach(function (ele) {
+        ele.textContent = videoWebVersion;
+      });
+      videoAndroidVersionContent.forEach(function (ele) {
+        ele.textContent = videoAndroidVersion;
+      });
+      videoIosVersionContent.forEach(function (ele) {
+        ele.textContent = videoIosVersion;
+      });
       iosDownLoadSync.forEach(function (ele) {
         ele.setAttribute('href', snap.val().WilddogAuthiOS.cdn);
       });
@@ -184,6 +206,12 @@ window.onload = function () {
       });
       iosDownLoadCore.forEach(function (ele) {
         ele.setAttribute('href', 'https://cdn.wilddog.com/sdk/ios/' + iosAuthVersion + '/WilddogCore.framework-' + iosAuthVersion + '.zip');
+      });
+      videoAndroidDownloadSrc.forEach(function (ele) {
+        ele.setAttribute('href', videoAndroidDownload);
+      });
+      videoIosDownloadSrc.forEach(function (ele) {
+        ele.setAttribute('href', videoIosDownload);
       });
     });
 

@@ -35,17 +35,17 @@ title:  数据操作
     SyncReference ref = WilddogSync.getInstance().getReference("web/saving-data/wildblog/users");
     // 创建 Map 对象
     HashMap<String, Object> user = new HashMap<>();
-    jone.put("full_name", "Steve Jobs");
-    jone.put("gender", "male");
+    user.put("full_name", "Steve Jobs");
+    user.put("gender", "male");
     // child() 用来定位到某个节点。
-    ref.child("Jobs").setValue(jone);
+    ref.child("Jobs").setValue(user);
 ```
 
 
 设置回调方法：
 
 ```java
-    ref.child("Jobs").setValue("user", new SyncReference.CompletionListener() {
+    ref.child("Jobs").setValue(user, new SyncReference.CompletionListener() {
         @Override
         public void onComplete(SyncError error, SyncReference ref) {
             if (error != null) {
