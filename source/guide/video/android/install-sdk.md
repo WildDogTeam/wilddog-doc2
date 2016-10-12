@@ -1,0 +1,41 @@
+title : 安装 SDK
+---
+
+以下文档将详细说明开发者在开发时可能涉及的常见情形，主要包括安装 SDK，建立会话、管理其他参与者、加入会话相关。
+
+Wilddog Video SDK 的实现依赖于 Wilddog Sync SDK 和 Wilddog Auth SDK，所以在使用 Widdog Video SDK 前需要引入 Sync/Auth SDK。
+引入以上两个 SDK 后，可下载 Wilddog Video SDK ，并按照提示安装。
+参照以下步骤，完成 Sync/Auth SDK 以及 Wilddog Video SDK 的安装，即可使用 Wilddog Video SDK。
+
+## 引入 Sync 和 Auth SDK
+
+可以使用 Maven 或 Gradle 获得 Wilddog Sync 和 Auth Android SDK。
+
+- **使用 Maven 安装 Sync 和 Auth SDK**
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="android-sync-version"></span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-auth-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="android-auth-version"></span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+
+- **使用 Gradle 安装 Sync 和 Auth SDK**
+
+```
+dependencies { 
+    compile 'com.wilddog.client:wilddog-sync-android:2.0.1'
+    compile 'com.wilddog.client:wilddog-auth-android:2.0.1'
+}
+```
+
+如果出现由于文件重复导致的编译错误，可以在 build.gradle 中添加 packingOptions:
+
+```
+android { 
+    ... 
+    packagingOptions { 
+        exclude 'META-INF/LICENSE' 
+        exclude 'META-INF/NOTICE' 
+    }
+}
+```
+
+## 引入 Video SDK
+[下载 Video SDK](https://cdn.wilddog.com/sdk/android/0.3.1/wilddog-video-android-0.3.1.zip)，解压后将jniLibs文件夹拷贝到工程目录的main文件夹中，将`libs/wilddog-video-android-*.jar` 放入工程的 `app/libs` 中，右键点击 `addAsLibrary`，完成 jar 包引用。
+
