@@ -1,7 +1,7 @@
 ﻿
 title: iOS 快速入门
 ---
-我们通过一个简单的 [一对一视频聊天示例](https://github.com/WildDogTeam/video-quickstart-web/archive/master.zip) 来说明 Video SDK 的用法。
+我们通过一个简单的一对一视频聊天示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-web/archive/master.zip)
 
 <div class="env">
     <p class="env-title">使用环境</p>
@@ -79,4 +79,4 @@ title: iOS 快速入门
 <img src='/images/video_quickstart_ios_conversation.jpg' alt="video_quickstart_ios_conversation" width="300">
 
 
-更多详细功能请见 [完整指南](/guide/video/core.html) 和  [API 文档](/api/video/ios/api.html)。
+更多详细功能请见 [完整指南](/guide/video/core.html) 和  [API 文档](/api/video/ios/Classes/WDGVideoClient.html)。

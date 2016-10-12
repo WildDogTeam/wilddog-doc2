@@ -62,25 +62,33 @@ if (!window.localStorage) {
 var currentClass = localStorage.getItem('class');
 var currentNav = window.location.pathname.split('/')[2];
 var currentL = window.location.pathname.split('/')[1];
-localStorage.setItem('class', (currentNav === 'sync' || currentNav === 'auth') ? currentNav : (currentClass ? currentClass : 'sync'));
+localStorage.setItem('class', currentNav);
+var platforms = ['sync', 'video', 'auth'];
 
-var syncSrcs = {
-  overview: '/overview/index.html',
+var srcs = [{
+  overview: '/overview/sync.html',
   quickstart: '/quickstart/sync/web.html',
   guide: '/guide/sync/web/save-data.html',
   api: '/api/sync/web/api.html',
   resources: '/resources/sync/web/tutorial.html',
   console: '/console/creat.html'
-}
-
-var authSrcs = {
-  overview: '/overview/index.html',
+},
+{
+  overview: '/overview/video.html',
+  quickstart: '/quickstart/video/web.html',
+  guide: '/guide/video/core.html',
+  api: '/api/video/web/wilddogVideo.html',
+  resources: '/resources/video/web/tutorial.html',
+  console: '/console/creat.html'
+},
+{
+  overview: '/overview/auth.html',
   quickstart: '/quickstart/auth/web.html',
   guide: '/guide/auth/core/concept.html',
   api: '/api/auth/web/api.html',
   resources: '/resources/auth/android/resources.html',
   console: '/console/creat.html'
-}
+}];
 
 var currentUrls = {
   overview: '',
@@ -91,6 +99,7 @@ var currentUrls = {
   console: ''
 }
 currentUrls = JSON.parse(localStorage.getItem('navsrc')) || currentUrls;
+
 var navlinks = ['overview', 'quickstart', 'guide', 'api', 'resources', 'console'];
 
 var links = [].slice.call(document.getElementsByClassName('sidebar-link'));
@@ -104,11 +113,16 @@ links.forEach(function(element, index){
   })
 });
 
-navs.forEach(function (ele) {
+navs.forEach(function (ele, index) {
   ele.addEventListener('click', function (e) {
     var currentClass = localStorage.getItem('class');
-    var index = navs.indexOf(ele);
-    var href = (currentUrls[navlinks[index]] === '') ? (currentClass === 'auth' ? authSrcs[navlinks[index]] : syncSrcs[navlinks[index]]) : currentUrls[navlinks[index]];;
+    var href;
+    if (currentUrls[navlinks[index]] === '') {
+      var hrefIndex = platforms.indexOf(currentClass) === -1 ? 0 : platforms.indexOf(currentClass);
+      href = srcs[hrefIndex][navlinks[index]];
+    } else {
+      href = currentUrls[navlinks[index]];
+    }
     window.location.href = href;
   })
 });

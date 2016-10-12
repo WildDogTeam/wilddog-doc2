@@ -26,7 +26,7 @@ Wilddog Video 提供了 Web、Android、iOS 三端的 SDK，不仅支持三端�
 
 ### 简单灵活，无需安装浏览器插件
 
-基于 WebRTC 技术，野狗 Video SDK 使用开放标准，支持 Opus 和 VP8 编解码。Web 应用无需安装浏览器插件，很大降低了终端用户的使用成本。
+基于 WebRTC 技术，野狗 Video SDK 使用开放标准，支持 Opus 和 VP8 编解码。Web 应用无需安装浏览器插件，极大降低了终端用户的使用成本。
 
 ### 自定义的情境通话
 
