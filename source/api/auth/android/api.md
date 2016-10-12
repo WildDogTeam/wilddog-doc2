@@ -589,7 +589,7 @@ interface	WilddogAuth.AuthStateListener
   
 说明
   
-试图用给定的邮箱和密码创建一个用户账号，如果成功，这个用户也将登录成功。
+试图用给定的邮箱和密码创建一个用户帐号，如果成功，这个用户也将登录成功。
   
 然后可以通过`getCurrentUser()`访问用户信息和进行用户操作.
   
@@ -679,7 +679,7 @@ public Task<```AuthResult```> signInAnonymously ()
   
 使用匿名方法登录，不需要凭据，可以绑定其他认证方式.
    
-这个操作将在Wilddog创建一个匿名的用户账号，其中通过`getCurrentUser()`获取用户信息包含uid。
+这个操作将在Wilddog创建一个匿名的用户帐号，其中通过`getCurrentUser()`获取用户信息包含uid。
    
 一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法.
      
@@ -697,7 +697,7 @@ public Task<AuthResult> signInWithCredential (AuthCredential credential)
 
 通过给定的`AuthCredential`对象进行相应的认证登录。其中包含QQ，微信，新浪微博和密码认证登录。
 
-所有`AuthCredential`都会创建一个用户账号。
+所有`AuthCredential`都会创建一个用户帐号。
 
 **注意:** 你必须在Wilddog控制面板中打开相应的登录认证方式。
      

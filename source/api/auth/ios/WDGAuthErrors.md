@@ -80,7 +80,7 @@ Wilddog Auth 身份认证错误。
 参数名 | 描述
 --- | ---
 WDGAuthErrorCodeInvalidCustomToken | 表示自定义令牌认证错误
-WDGAuthErrorCodeCustomTokenMismatch | 表明服务账号和 API key 属于不同的工程
+WDGAuthErrorCodeCustomTokenMismatch | 表明服务帐号和 API key 属于不同的工程
 WDGAuthErrorCodeInvalidCredential | 如果凭据到期或格式不正确，则可能发生此错误
 WDGAuthErrorCodeUserDisabled | 表示用户的帐户已停用
 WDGAuthErrorCodeOperationNotAllowed | 表示邮箱登录方式未打开，请在 Wilddog 控制面板的“用户认证”部分启用

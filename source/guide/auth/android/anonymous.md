@@ -1,4 +1,4 @@
-
+    
 title:  匿名身份认证
 ---
 
@@ -50,7 +50,7 @@ mauth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResul
   ​
 ## 匿名帐号转成永久帐号
 
-匿名登录的账号数据将不会被保存，可以通过绑定邮箱认证或第三方认证方式将匿名账号转成永久账号。
+匿名登录的帐号数据将不会被保存，可以通过绑定邮箱认证或第三方认证方式将匿名帐号转成永久帐号。
 
 ### 绑定邮箱认证方式
 
