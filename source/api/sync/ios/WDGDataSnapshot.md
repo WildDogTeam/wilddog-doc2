@@ -166,7 +166,7 @@ WDGSync 实例。
 </br>
 
 --- 
-### hasChildren
+### - hasChildren
 
 **定义**
 
