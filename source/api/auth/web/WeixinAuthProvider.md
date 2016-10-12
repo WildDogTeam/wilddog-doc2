@@ -9,9 +9,12 @@ WeixinAuthProvider 是新浪微博登录方式中provider类
 
 **定义**
 
-```js
 继承自[Provider](/api/auth/web/Provider.html)
-```
+
+**返回值**
+
+[wilddog.Credential](/api/auth/web/Credential.html)
+
 </br>
 
 ------

@@ -5,13 +5,12 @@ title: EmailAuthProvider
 EmailAuthProvider 是邮箱密码登录方式信息
 
 ## 构造器
-###new EmailAuthProvider()
+### new EmailAuthProvider()
 
 **定义**
 
-```js
 继承自[Provider](/api/auth/web/Provider.html)
-```
+
 </br>
 
 ------
@@ -47,7 +46,9 @@ credential(email, password)
 | email | string类型，邮箱地址 |
 | password | string类型，密码信息 |
 
+**返回值**
 
+[wilddog.Credential](/api/auth/web/Credential.html)
 
 </br>
 

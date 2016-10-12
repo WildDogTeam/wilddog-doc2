@@ -13,10 +13,15 @@ Auth 对象负责用户认证及密码找回等功能，它不能直接创建，
 ```js
 (wilddog.User or null)
 ```
+**返回值**
+
+[wilddog.User](/api/auth/web/User.html)
 
 **说明**
 
 同步的获取当前缓存的用户，如果没有登录用户则为 null。
+
+
 
 </br>
 
@@ -34,14 +39,14 @@ onAuthStateChanged(callback)
 
  **说明**
 
-监听用户的状态
+监听用户的状态。
 
 **参数**
 
-
 参数名 | 描述
 --- | ---
-callback |
+callback |定义为function([user](/api/auth/web/User.html))，auth 状态变为登录状态时传回 user 对象，auth 状态变为登出时返回值为 null。
+
 
 **示例**
 
@@ -64,7 +69,7 @@ stopListen();
 **定义**
 
 ```js
-createUserWithEmailAndPassword(email, password) returns wilddog.Promise containing non-null wilddog.User
+createUserWithEmailAndPassword(email, password)
 ```
 
 **说明**
@@ -80,7 +85,7 @@ password | 用户指定的密码。
 
 **返回值**
 
-wilddog.User 对象
+[wilddog.User](/api/auth/web/User.html) 对象
 
 **参考**
 
@@ -90,18 +95,18 @@ wilddog.User 对象
 - email_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- See AuthErrors API 调用可能发生的所有错误。
+- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 </br>
 
 ----
 
-### - signInAnonymously
+### signInAnonymously
 
 **定义**
 
 ```js
-`signInAnonymously()
+signInAnonymously()
 ```
 
  **说明**
@@ -118,12 +123,12 @@ wilddog.User 对象
 </br>
 
 ----
-### - signInWithEmailAndPassword
+### signInWithEmailAndPassword
 
 **定义**
 
 ```js
-wilddog.auth().signInWithEmailAndPassword(email, pwd)
+wilddog.auth().signInWithEmailAndPassword(email, password)
 ```
 
 **说明**
@@ -145,13 +150,13 @@ password | 用户指定的密码。
 - email_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- See AuthErrors API 调用可能发生的所有错误。
+- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 <br/>
 
 ----
 
-### - signInWithPopup
+### signInWithPopup
 
 **定义**
 
@@ -168,7 +173,7 @@ signInWithPopup(provider)
 
 参数名 | 描述
 --- | ---
-provider | provider为特定身份提供商实例。
+provider | [provider](/api/auth/web/Provider.html)为特定身份提供商实例。
 
 **参考**
 
@@ -189,14 +194,14 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
 可能发生的错误：
 
 -  authentication_disabled 表示Oauth登录方式没有打开，可以在野狗的控制面板中打开这个选项。
--  See AuthErrors API 调用可能发生的所有错误。
+-  [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 
 
 
 ----
 
-### - signInWithRedirect
+### signInWithRedirect
 
 **定义**
 
@@ -213,7 +218,7 @@ signInWithRedirect(provider)
 
 参数名 | 描述
 --- | ---
-provider | provider为特定身份提供商实例。
+provider | [provider](/api/auth/web/Provider.html) 为特定身份提供商实例。
 
 **示例**
 
@@ -231,14 +236,14 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
 可能发生的错误：
 
 -  authentication_disabled 表示Oauth登录方式没有打开，可以在野狗的控制面板中打开这个选项。
--  See AuthErrors API 调用可能发生的所有错误。
+-  [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 </br>
 
 ----
 
 
-### - signInWithCustomToken
+### signInWithCustomToken
 
 **定义**
 
@@ -273,12 +278,12 @@ wilddog.auth().signInWithCustomToken(token).then(function () {
 可能发生的错误：
 
 - invalid_token  无效的 custom token。
-- See AuthErrors API 调用可能发生的所有错误。
+- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 </br>
 
 ----
-### - signInWithCredential
+### signInWithCredential
 
 **定义**
 
@@ -294,7 +299,7 @@ signInWithCredential(credential)
 
 参数名 | 描述
 --- | ---
-credential | 第三方提供的凭证。  
+credential | [wilddog.auth.Credentia](/api/auth/web/Credential.html) 第三方提供的凭证。
 
 **示例**
 
@@ -315,13 +320,13 @@ wilddog.auth().signInWithCredential(credential).then(function(user){
 - authentication_disabled 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
 - invalid_email 表示邮箱错误。
 - invalid_password 表示m密码错误。
-- See AuthErrors API 调用可能发生的所有错误。
+- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 </br>
 
 ----
 
-### - sendPasswordResetEmail
+### sendPasswordResetEmail
 
 **定义**
 
@@ -335,22 +340,21 @@ sendPasswordResetEmail(email)
 
 **参数**
 
-
 参数名 | 描述
 --- | ---
-email | 用户的邮箱地址。
+email | string类型，用户的邮箱地址。
 
 **参考**
 
 可能发生的错误：
 - invalid_email 表示邮箱错误。
-- See AuthErrors API 调用可能发生的所有错误。
+- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 </br>
 
 ----
 
-### - signOut
+### signOut
 
 **定义**
 
@@ -364,6 +368,6 @@ signOut()
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
 
 

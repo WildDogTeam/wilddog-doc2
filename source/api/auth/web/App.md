@@ -1,5 +1,5 @@
 
-title: Auth
+title: App
 ---
 
 App 对象是野狗 Web SDK 的核心，它维护着应用的全局上下文数据，不同模块之间需要通过它来进行交互。同时 App 实例也是我们访问野狗各个功能模块的入口，所以初始化 App 实例是我们使用其他任何 API 接口的前提。
@@ -43,7 +43,7 @@ auth()
 
 **返回值**
 
-[wilddog.Auth](/api/auth/web.html#wilddog-Auth)
+[wilddog.Auth](/api/auth/web/Auth.html)
 
 </br>
 
@@ -63,4 +63,4 @@ sync()
 
  **返回值**
 
-[wilddog.Sync](/api/sync/web.html#wilddog-Sync)
+[wilddog.Sync](/api/sync/web/api.html#wilddog-Sync)

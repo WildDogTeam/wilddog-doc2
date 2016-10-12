@@ -9,9 +9,12 @@ WeiboAuthProvider 是新浪微博登录方式中provider类
 
 **定义**
 
-```js
 继承自[Provider](/api/auth/web/Provider.html)
-```
+
+**返回值**
+
+[wilddog.Credential](/api/auth/web/Credential.html)
+
 </br>
 
 ------
@@ -36,7 +39,7 @@ string
 **定义**
 
 ```js
-credential(arg1, arg2)
+credential(arg1)
 ```
 
 **参数**
@@ -44,7 +47,6 @@ credential(arg1, arg2)
 | 参数名 | 说明 |
 |---|---|
 | arg1 | string类型，accessToken的值 |
-| arg2 | string类型，openId的值 |
 
 
 </br>

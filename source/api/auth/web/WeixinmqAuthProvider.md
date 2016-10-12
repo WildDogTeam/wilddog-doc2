@@ -5,13 +5,16 @@ title: WeixinmqAuthProvider
 WeixinmqAuthProvider 是 微信公众账号登录方式中 provider 类
 
 ## 构造器
-###new WeixinmqAuthProvider()
+### new WeixinmqAuthProvider()
 
 **定义**
 
-```js
 继承自[Provider](/api/auth/web/Provider.html)
-```
+
+**返回值**
+
+[wilddog.Credential](/api/auth/web/Credential.html)
+
 </br>
 
 ------

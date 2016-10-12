@@ -98,6 +98,10 @@ non-null Array of wilddog.UserInfo
 
 账户下所有身份提供商信息
 
+**返回值**
+
+[wilddog.UserInfo](/api/auth/web/UserInfo.html)
+
 </br>
 
 ------
@@ -141,12 +145,16 @@ Wilddog Id
 **定义**
 
 ```js
-delete() returns firebase.Promise containing void
+delete()
 ```
 
 **说明**
 
 删除当前账户并且变更成退出状态。
+
+**返回值**
+
+returns [wilddog.Promise](/api/auth/web/Promise.html) containing void
 
 </br>
 
@@ -173,7 +181,7 @@ link(credential) returns firebase.Promise containing non-null firebase.User
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
 
 **参考**
 
@@ -197,9 +205,9 @@ linkWithPopup(provider)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| provider | [wilddog.auth.Provider](/api/auth/web.html#wilddog-auth-Provider) | _non-null_ | 特定登录方式的实例 |
+| 参数名 |  说明 |
+|---|---|
+| provider | [wilddog.auth.Provider](/api/auth/web/Provider.html)类型，特定登录方式的实例 |
 
 
 **说明**
@@ -208,7 +216,7 @@ linkWithPopup(provider)
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
 
 **示例**
 
@@ -250,11 +258,11 @@ linkWithRedirect(provider)
 
 | 参数名 | 描述 |
 |---|---|
-| provider | [wilddog.auth.Provider](/api/auth/web.html#wilddog-auth-Provider) |
+| provider | [wilddog.auth.Provider](/api/auth/web/Provider.html)类型，特定登录方式的实例 |
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
 
 **示例**
 
@@ -282,7 +290,7 @@ wilddog.auth().currentUser
 
 ----
 
-### - unlink
+### unlink
 
 **定义**
 
@@ -302,7 +310,7 @@ providerId | providerId为特定身份提供商。野狗当前支持的各 Provi
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
 
 **示例**：
 
@@ -337,7 +345,7 @@ delete()
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
 
 </br>
 
@@ -364,7 +372,7 @@ updateProfile(profile)
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
 
 **示例**
 
@@ -403,7 +411,7 @@ updateEmail(email)
 
  **说明**
 
-修改当前用户的邮箱，修改成功之后会触发 [onAuthStateChanged](/api/auth/web.html#onAuthStateChanged)
+修改当前用户的邮箱，修改成功之后会触发 [onAuthStateChanged](/api/auth/web/Auth.html#onAuthStateChanged)
 
 **参数**
 
@@ -413,22 +421,22 @@ email | 新邮箱地址。
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
 
-```
+
 **参考**
 
 可能发生的错误：
 
-- email_already_in_use            表示该电子邮件已被另一个帐户使用。                        |
-- invalid_email                   表示该电子邮件地址格式不正确。                          |
+- email_already_in_use            表示该电子邮件已被另一个帐户使用。
+- invalid_email                   表示该电子邮件地址格式不正确。
 - credential_too_old_login_again  更新用户电子邮件是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用reauthenticate(credential),来对该用户重新进行身份认证。
 
 </br>
 
 ----
 
-### - updatePassword
+### updatePassword
 
 **定义**
 
@@ -438,7 +446,7 @@ updatePassword(password)
 
 **说明**
 
-修改当前用户的密码，修改成功之后会触发 [onAuthStateChanged](/api/auth/web.html#onAuthStateChanged)
+修改当前用户的密码，修改成功之后会触发 [onAuthStateChanged](/api/auth/web/Auth.html#onAuthStateChanged)
 
 **参数**
 
@@ -447,13 +455,13 @@ updatePassword(password)
 password | 新密码。
 
 **返回值**
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[wilddog.User](/api/auth/web.html#wilddog-User)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
 
 
 **参考**
 
 可能发生的错误：
-- credential_too_old_login_again | 更新用户密码是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用reauthenticate(credential)，对该用户重新进行身份认证。 |
+- credential_too_old_login_again 更新用户密码是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用reauthenticate(credential)，对该用户重新进行身份认证。
 
 </br>
 
@@ -480,7 +488,7 @@ reauthenticate(credential)
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web.html#wilddog-Promise).<[Void](/api/auth/web.html#Void)>
+[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
 
 **示例**
 

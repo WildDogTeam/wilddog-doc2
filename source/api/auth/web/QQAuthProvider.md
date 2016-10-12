@@ -5,13 +5,12 @@ title: QQAuthProvider
 QQAuthProvider 是 QQ 登录方式中provider类
 
 ## 构造器
-###new QQAuthProvider()
+### new QQAuthProvider()
 
 **定义**
 
-```js
 继承自[Provider](/api/auth/web/Provider.html)
-```
+
 </br>
 
 ------
@@ -46,6 +45,9 @@ credential(arg1, arg2)
 | arg1 | string 类型，accessToken的值 |
 | arg2 | string 类型，openId的值 |
 
+**返回值**
+
+[wilddog.Credential](/api/auth/web/Credential.html)
 
 </br>
 
