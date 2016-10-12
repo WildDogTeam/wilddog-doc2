@@ -7,9 +7,9 @@ title:  简介
 
 
 ## 野狗的产品
-目前野狗的产品有 [实时数据同步（Sync）](/overview/sync.html) ， [身份认证（Auth）](/overview/auth.html) 和 [实时视频通话（Video）](/overview/video.html)  。
+目前野狗的产品有 [实时数据同步（Wilddog Sync）](/overview/sync.html) ， [身份认证（Wilddog Auth）](/overview/auth.html) 和 [实时视频通话（Wilddog Video）](/overview/video.html)  。
 
-实时数据同步（(Wilddog Sync）是野狗的核心实时通信引擎。它帮助企业和开发者快速实现三大功能：基础实时通信、实时数据分发和实时数据持久化。
+实时数据同步（Wilddog Sync）是野狗的核心实时通信引擎。它帮助企业和开发者快速实现三大功能：基础实时通信、实时数据分发和实时数据持久化。
 
 ![](/images/introduction.jpg)
 
