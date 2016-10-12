@@ -49,9 +49,10 @@ guide:
       数据查询: /guide/sync/rest/retrieve-data.html
       其他平台: /guide/sync/rest/library.html
     规则表达式:
-      简介: /guide/sync/rules/introduce.html
-      指南: /guide/sync/rules/guide.html
-      #数据访问控制: /guide/sync/rules/secure.html
+      #简介: /guide/sync/rules/introduce.html
+      #指南: /guide/sync/rules/guide.html
+      数据访问控制: /guide/sync/rules/access.html
+      数据索引: /guide/sync/rules/index.html
       #用户访问控制: /guide/sync/rules/auth.html
       #校验数据: /guide/sync/rules/validate.html
       #数据索引: /guide/sync/rules/index.html
