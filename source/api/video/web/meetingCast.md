@@ -6,10 +6,6 @@ MeetingCast 插件，为 Conversation 提供直播功能。
 
 ## 属性
 
-</br>
-
----
-
 ### isCasted
 
 **类型**
@@ -27,6 +23,8 @@ String
 | on | 正在直播。 |
 | off | 停止直播。 |
 
+</br>
+
 ---
 
 ### caster
@@ -41,13 +39,11 @@ String
 
 当前 Conversation 中正在直播的 Participant 的 ID。
 
----
-
-## 方法
-
 </br>
 
 ---
+
+## 方法
 
 ### meetingCastUp
 
@@ -83,6 +79,8 @@ meetingCast.meetingCastUp('123456789')
         console.log("Catch error! Error code is " + err);
     })
 ```
+
+</br>
 
 ---
 
@@ -121,6 +119,8 @@ meetingCast.meetingCastChange('987654321')
     })
 ```
 
+</br>
+
 ---
 
 ### meetingCastDown
@@ -157,5 +157,3 @@ meetingCast.meetingCastDown()
         console.log("Catch error! Error code is " + err);
     })
 ```
-
----

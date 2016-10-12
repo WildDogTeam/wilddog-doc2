@@ -1,7 +1,7 @@
 ﻿
 title: iOS 快速入门
 ---
-我们通过一个简单的[一对一视频聊天示例](https://github.com/WildDogTeam/video-quickstart-web/archive/master.zip)来说明 Video SDK 的用法。
+我们通过一个简单的 [一对一视频聊天示例](https://github.com/WildDogTeam/video-quickstart-web/archive/master.zip) 来说明 Video SDK 的用法。
 
 <div class="env">
     <p class="env-title">使用环境</p>
@@ -20,7 +20,7 @@ title: iOS 快速入门
 
 应用创建成功后，进入“管理应用 --> 身份认证 --> 登录方式”。开启匿名登录。
 
-<img src='/images/openanonymous.png' alt="video_quickstart_openanonymous" width="300">
+![](/images/openanonymous.png)
 
 ## 3. 开启实时视频通话服务
 
@@ -54,15 +54,15 @@ title: iOS 快速入门
 
 ### 5.2 登录快速入门
 
-快速入门运行成功后，需要输入应用 ID。
+快速入门运行成功后，输入应用 ID。
 
 <img src='/images/video_quickstart_ios_login.png' alt="video_quickstart_ios_mainUI" width="300">
 
-输入应用 ID（下图 `wilddogio` 之前的字段），然后点击匿名登录。
+应用 ID 为下图 `wilddogio` 之前的字段，然后点击匿名登录。
 
 <img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp" width="300">
 
-登录成功后，页面会显示本地视频画面，你的 Wilddog ID 和用户列表按钮。
+登录成功后，页面会显示本地视频画面、你的 Wilddog ID 和用户列表按钮。
 
 <img src='/images/video_quickstart_ios_mainUI.png' alt="video_quickstart_ios_mainUI" width="300">
 

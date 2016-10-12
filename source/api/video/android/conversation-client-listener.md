@@ -1,18 +1,17 @@
 title: ConversationClient.Listener
 ---
 
-<span id="ConversationClient.Listener" />
-
 `ConversationClient` 状态回调,当 `ConversationClient` 状态改变时会触发相应的方法。
+
 ## 方法
 
 ### onStartListeningForInvites(ConversationClient)
 
-
-
 **定义**   
 
+```java
 void onStartListeningForInvites(ConversationClient client)
+```
 
 **说明**
 
@@ -24,16 +23,17 @@ void onStartListeningForInvites(ConversationClient client)
 |---|---|
 |client|[ConversationClient](/api/video/android/conversation-client.html) 对象|
 
+</br>
 
-****
+---
 
 ### onStopListeningForInvites(ConversationClient)
 
-
-
 **定义**   
 
+```java
 void onStopListeningForInvites(ConversationClient client)
+```
 
 **说明**
 
@@ -45,17 +45,17 @@ void onStopListeningForInvites(ConversationClient client)
 |---|---|
 |client|[ConversationClient](/api/video/android/conversation-client.html) 对象|
 
+</br>
 
-
-****
+---
 
 ### onFailedToStartListening(ConversationClient, ConversationException)
 
-
-
 **定义**   
 
+```java
 void onFailedToStartListening(ConversationClient client, ConversationException exception)
+```
 
 **说明**
 
@@ -68,16 +68,17 @@ void onFailedToStartListening(ConversationClient client, ConversationException e
 |client|[ConversationClient](/api/video/android/conversation-client.html) 对象|
 |exception|[ConversationException](/api/video/android/conversation-exception.html),失败错误信息|
 
+</br>
 
-****
+---
 
 ### onIncomingInvite(ConversationClient, IncomingInvite)
 
-
-
 **定义**   
 
+```java
 void onIncomingInvite(ConversationClient client, IncomingInvite incomingInvite)
+```
 
 **说明**
 
@@ -90,16 +91,17 @@ void onIncomingInvite(ConversationClient client, IncomingInvite incomingInvite)
 |client|[ConversationClient](/api/video/android/conversation-client.html) 对象|
 |incomingInvite|等待接受的[IncomingInvite](/api/video/android/incoming-invite.html)会话邀请对象|
 
+</br>
 
-****
+---
 
 ### onIncomingInviteCanceled(ConversationClient, IncomingInvite)
 
-
-
 **定义**   
 
+```java
 void onIncomingInviteCanceled(ConversationClient client, IncomingInvite incomingInvite)
+```
 
 **说明**
 
@@ -111,6 +113,3 @@ void onIncomingInviteCanceled(ConversationClient client, IncomingInvite incoming
 |---|---|
 |client|[ConversationClient](/api/video/android/conversation-client.html) 对象|
 |incomingInvite|被取消的[IncomingInvite](/api/video/android/incoming-invite.html)会话邀请对象|
-
-
-****

@@ -6,10 +6,6 @@ Client 的 `invite` 事件回调函数的参数。
 
 ## 属性
 
-</br>
-
----
-
 ### from
 
 **类型**
@@ -22,13 +18,11 @@ String
 
 邀请发起方的 Wilddog ID。
 
----
-
-## 方法
-
 </br>
 
 ---
+
+## 方法
 
 ### accept
 
@@ -58,6 +52,8 @@ incomingInvite.accept(localStream)
     });
 ```
 
+</br>
+
 ---
 
 ### reject
@@ -82,19 +78,19 @@ client.on('invite', function(incomingInvite){
 });
 ```
 
----
-
-## 常量
-
 </br>
 
 ---
+
+## 常量
 
 ### 事件
 
 | 事件类型 | 说明                                     |
 | -------- | ---------------------------------------- |
 | canceled | 邀请已被取消后触发。 |
+
+</br>
 
 ---
 
@@ -111,5 +107,3 @@ client.on('invite', function(incomingInvite){
     });
 });
 ```
-
----

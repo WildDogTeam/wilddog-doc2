@@ -1,36 +1,43 @@
 title: Stream
 ---
 
-
 视频流对象。
 
 ## 属性
 
-所有属性均有get/set方法。
+所有属性均有 get/set 方法。
 
 ### mediaStream
 
-视频流对象中的 MediaStream 视频流
+**说明**
+
+视频流对象中的 MediaStream 视频流。
 
 ### uid
 
-表示流发送者身份的 uid,即 Wilddog ID
+**说明**
+
+表示流发送者身份的 uid，即 Wilddog ID。
 
 ### senderId
 
-标识流身份的 senderId,由用户自定义生成,建议使用野狗mRef.push.getKey()方法获取
+**说明**
 
-**** 
+标识流身份的 senderId，由用户自定义生成,建议使用野狗 `mRef.push.getKey()` 方法获取。
+
+</br>
+
+---
 
 ## 方法
 
 ### attach
 
-
-
 **定义**   
 
+```java
 void attach(VideoRenderer.Callbacks callbacks)
+```
 
 **说明**
 
@@ -52,15 +59,17 @@ void attach(VideoRenderer.Callbacks callbacks)
 	stream.attach(localCallbacks);
 ```
 
-**** 
+</br>
+
+---
 
 ### detach()
 
-
-
 **定义**   
 
+```java
 void detach()
+```
 
 **说明**
 
@@ -72,5 +81,3 @@ void detach()
 	//解绑视频控件
 	stream.detach();
 ```
-
-****

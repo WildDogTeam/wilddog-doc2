@@ -1,19 +1,17 @@
 title: MeetingCastAddon
 ---
 
-<span id="MeetingCastAddon"/>
-
 会议直播插件,通过 `MeetingCastAddon` 对象对当前会议的视频流进行直播/切换视频流/结束直播的操作。
 
 ## 方法
 
 ### castUp(String)
 
-
-
 **定义**   
 
+```java
 void castUp(String castUid)
+```
 
 **说明**
 
@@ -35,15 +33,17 @@ void castUp(String castUid)
 	meetingCastAddon.castUp("<需要直播的视频发布者Wilddog ID>");
 ```
 
-**** 
+</br>
+
+---
 
 ### castChange(String)
 
-
-
 **定义**   
 
+```java
 void castChange(String castUid)
+```
 
 **说明**
 
@@ -55,7 +55,6 @@ void castChange(String castUid)
 |---|---|
 |castUid|String,需要切换直播的视频流的发布者的 Wilddog ID|
 
-
 **示例**
 
 参照[onCastUp](/api/video/android/meeting-cast-listener.html#onCastUp)示例获取`meetingCastAddon` 对象的方式
@@ -65,15 +64,17 @@ void castChange(String castUid)
 	meetingCastAddon.castChange("<需要切换的视频发布者Wilddog ID>");
 ```
 
-**** 
+</br>
+
+---
 
 ### castDown()
 
-
-
 **定义**   
 
+```java
 void castDown()
+```
 
 **说明**
 

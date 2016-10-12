@@ -9,7 +9,9 @@ title: Participant
 
 **定义**   
 
+```java
 Participant(String participantId, RemoteStream remoteStream) 
+```
 
 **说明**
 
@@ -22,27 +24,25 @@ Participant(String participantId, RemoteStream remoteStream)
 |participantId|String,参与者 Wilddog ID|
 |remoteStream|[RemoteStream](/api/video/android/api.html#RemoteStream),参与者发送的远端视频流|
 
-
 **示例**
 
 ```java
 	Participant participant=new Participant("<Wilddog ID>",new RemoteStream());
 ```
 
-**** 
+</br>
 
-## 属性
-
+---
 
 ## 方法
 
 ### getParticipantId()
 
-
-
 **定义**   
 
+```java
 String getParticipantId()
+```
 
 **说明**
 
@@ -52,15 +52,17 @@ String getParticipantId()
 
 `String` 参与者 Wilddog ID 字符串
 
-**** 
+</br>
+
+---
 
 ### getRemoteStream()
 
-
-
 **定义**   
 
+```java
 RemoteStream getRemoteStream()
+```
 
 **说明**
 
@@ -69,5 +71,3 @@ RemoteStream getRemoteStream()
 **返回值**
 
 [RemoteStream](/api/video/android/api.html#RemoteStream)
-
-****

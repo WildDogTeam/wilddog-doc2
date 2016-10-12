@@ -17,6 +17,8 @@ title: WDGVideoLocalStreamConfiguration
 
 本地视频流的音频开关。
 
+</br>
+
 ---
 
 ### videoOption
@@ -30,6 +32,8 @@ title: WDGVideoLocalStreamConfiguration
 **说明**
 
 视频质量选项。
+
+</br>
 
 ---
 
@@ -50,6 +54,8 @@ title: WDGVideoLocalStreamConfiguration
 **返回值**
 
 `WDGVideoLocalStreamConfiguration`实例。
+
+</br>
 
 ---
 
@@ -75,6 +81,8 @@ audioOn|表明是否开启音频。
 **返回值**
 
 `WDGVideoLocalStreamConfiguration`实例。
+
+</br>
 
 ---
 

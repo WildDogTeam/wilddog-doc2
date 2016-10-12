@@ -1,13 +1,13 @@
 title: InviteOptions
 ---
 
-<span id="InviteOptions" />
-
 ## 构造方法
 
 **定义**   
 
+```java
 InviteOptions（ConversationMode mode,Set<String> participantId,LocalStream localStream）
+```
 
 **说明**
 
@@ -21,17 +21,19 @@ InviteOptions（ConversationMode mode,Set<String> participantId,LocalStream loca
 |participantId|Set<String>,参与者列表。列表内容为参与者的 Wilddog ID|
 |localStream|[LocalStream](/api/video/android/local-stream.html),会话发起人通过 `Video.createLocalStream` 获取的本地视频流|
 
-**** 
+</br>
+
+---
 
 ## 属性
 
 ### getMode()
 
-
-
 **定义**   
 
+```java
 ConversationMode getMode()
+```
 
 **说明**
 
@@ -47,15 +49,17 @@ ConversationMode getMode()
 	ConversationMode mode=options.getMode();
 ```
 
-**** 
+</br>
+
+---
 
 ### getParticipantId()
 
-
 **定义**   
 
+```java
 Set<String> getParticipantId()
-
+```
 
 **说明**
 
@@ -71,19 +75,21 @@ Set<String> getParticipantId()
 	Set<String> participantSet=options.getParticipantId();
 ```
 
-**** 
+</br>
+
+---
 
 ### getLocalStream()
 
-
-
 **定义**   
 
+```java
 LocalStream getLocalStream()
+```
 
 **说明**
 
-获取会话发起人的视频流
+获取会话发起人的视频流。
 
 **返回值**
 
@@ -94,5 +100,3 @@ LocalStream getLocalStream()
 ```java
 	LocalStream localStream=options.getLocalStream();
 ```
-
-****

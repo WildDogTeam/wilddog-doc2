@@ -1,9 +1,6 @@
 
-
-
 title: Video
 ---
-
 
 `Video` 对象是 WilddogVideo SDK 的核心,负责创建 `ConversationClient` 对象以及创建本地视频流。
 
@@ -13,15 +10,15 @@ title: Video
 
 ### initializeWilddogVideo(Context)
 
-
-
 **定义**   
 
+```java
 static void initializeWilddogVideo(Context context)
+```
 
 **说明**
 
-使用 Video 类之前需要对其进行初始化操作,调用 `initializeWilddogVideo` 方法初始化 `Video`。若使用前未调用初始化则抛出 `IllegalArgumentException`。
+使用 `Video` 类之前需要对其进行初始化操作,调用 `initializeWilddogVideo` 方法初始化 `Video`。若使用前未调用初始化则抛出 `IllegalArgumentException`。
 
 **参数**
 
@@ -29,23 +26,23 @@ static void initializeWilddogVideo(Context context)
 |---|---|
 |context|Android 应用 `Application Context`,通常使用 `getApplicationContext()` 方法获取|
 
-
-
 **示例**
 
 ```java
 	Video.initializeWilddogVideo(getApplicationContext());
 ```
 
-**** 
+</br>
+
+---
 
 ### getInstance()
 
-
-
 **定义**   
 
+```java
 static Video getInstance()
+```
 
 **说明**
 
@@ -61,15 +58,17 @@ static Video getInstance()
 	Video video = Video.getInstance();
 ```
 
-**** 
+</br>
+
+---
 
 ### getClient()
 
-
-
 **定义**   
 
+```java
 ConversationClient getClient()
+```
 
 **说明**
 
@@ -86,5 +85,3 @@ ConversationClient getClient()
 	//获取client对象
 	client = video.getClient();
 ```
-
-****

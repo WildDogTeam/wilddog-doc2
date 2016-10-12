@@ -6,10 +6,6 @@ Client 实例指代一个客户端，你可以通过它来发起和加入 Conver
 
 ## 构造器
 
-</br>
-
----
-
 **定义**
 
 ```js
@@ -27,13 +23,11 @@ wilddog.video.client()
 var client = wilddog.video.client();
 ```
 
----
-
-## 属性
-
 </br>
 
 ---
+
+## 属性
 
 ### conversations
 
@@ -46,6 +40,8 @@ Map.<Conversation.conversationId, Conversation>
 **说明**
 
 Client 创建的 Conversation 集合。
+
+</br>
 
 ---
 
@@ -61,6 +57,8 @@ String
 
 Client 的 Wilddog ID。
 
+</br>
+
 ---
 
 ### addons
@@ -73,13 +71,11 @@ Client 的 Wilddog ID。
 
 插件对象的集合。
 
----
-
-## 方法
-
 </br>
 
 ---
+
+## 方法
 
 ### init
 
@@ -117,6 +113,8 @@ client.init({ref:ref, user:user})
         console.log("Catch error! Error code is " + err);
     });
 ```
+
+</br>
 
 ---
 
@@ -161,13 +159,11 @@ Client.init({ref:ref, user:user})
     })
 ```
 
----
-
-## 常量
-
 </br>
 
 ---
+
+## 常量
 
 ### ClientInitConstraints
 
@@ -191,6 +187,8 @@ Object
   只有 `wilddog.sync.Reference` 对象实例对应的路径相同的 Client 间才能发起和建立 Conversation。Server\-based 模式下，该路径需要和控制面板中设置的交互路径相同。
 </blockquote>
 
+</br>
+
 ---
 
 ### ClientInitConstraints
@@ -207,9 +205,11 @@ Object
 
 | 参数名 | 说明 |
 |---|---|
-| mode | `string` 类型。表示 Conversation 的模式，可选择 `p2p` 或 `server_based`。<br>[两种模式的区别](/guide/video/core.html#Conversation) |
+| mode | `string` 类型。表示 Conversation 的模式，可选择 `P2P` 或 `server_based`。<br>[两种模式的区别](/guide/video/core.html#Conversation) |
 | participantId | `string` 类型。Conversation 接受方的 Wilddog ID。<br>[如何获取自身的 Wilddog ID](/resources/video/web/tutorial.html#2-用户身份认证) |
 | localStream | [wilddog.video.LocalStream](/api/video/web/localStream.html)类型。本地视频流对象。 |
+
+</br>
 
 ---
 
@@ -219,6 +219,8 @@ Object
 | -------- | ---------------------------------------- |
 | invite   | 接收到某个 Wilddog ID 的 Conversation 邀请时触发。 |
 | error    | 触发某种错误时触发。                     |
+
+</br>
 
 ---
 
@@ -240,6 +242,8 @@ client.on('invite', function(incomingInvite){
 });
 ```
 
+</br>
+
 ---
 
 #### error
@@ -259,6 +263,4 @@ client.on('error', function(error){
     console.log('Accepted an error ' + error.message);
 });
 ```
-
----
 

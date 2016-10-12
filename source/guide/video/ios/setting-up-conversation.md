@@ -1,9 +1,7 @@
 ﻿title: 建立会话
 ---
 
-完成 Wilddog Video SDK 安装后，即可建立会话。
-在发起会话之前，需要初始化 Wilddog Video SDK，并配置本地视频流。
-以下展示了如何实现建立会话。
+本篇文档介绍如何初始化 Client、配置本地媒体流，以及发起会话。
 
 ## 初始化 Client
 
@@ -11,7 +9,9 @@
 
 选择 `Server-based` 会话时，初始化 Client 时的交互路径应和控制面板中的交互路径保持一致。
 
-需要注意的是，初始化 Client 之前，要先经过身份认证。这里采用匿名登录的方式认证，开发者可以根据需要选择邮箱密码、第三方或自定义方式。
+需要注意的是，初始化 Client 之前，要先经过身份认证。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式。
+
+例如，以匿名方式登录后创建 Client ：
 
 <div class="slide">
   <div class='slide-title'>
@@ -117,7 +117,7 @@ localStream.attach(self.localStreamPreviewView)
 
 会话的建立基于邀请机制，只有另一个 Client 接受了会话邀请，会话才能建立成功。
 
-发起会话示例：
+例如，邀请指定用户进行 P2P 模式的会话：
 
 <div class="slide">
   <div class='slide-title'>

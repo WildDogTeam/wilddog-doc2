@@ -1,19 +1,17 @@
 ﻿title: 建立会话
 ---
 
-完成 Wilddog Video SDK 安装后，即可建立会话。
-在发起会话之前，需要初始化 Wilddog Video SDK，并配置本地视频流。
-以下展示了如何实现建立会话。
+本篇文档介绍如何初始化 Client、配置本地媒体流，以及发起会话。
 
-### 初始化 Client
+## 初始化 Client
 
 发起会话之前需要通过初始化 Client 来连接客户端和野狗服务器。初始化 Client 时需要指定 Video SDK 的交互路径，客户端和服务器以及客户端之间都是通过该路径进行交互，只有相同交互路径下的 Client 能够发起或加入会话。建议该路径下不要存储其他数据。
 
-选择 Server-based 会话时，初始化 Client 时的交互路径应和控制面板中的交互路径保持一致。
+选择 `Server-based` 会话时，初始化 Client 时的交互路径应和控制面板中的交互路径保持一致。
 
-需要注意的是，初始化 Client 之前，要先经过身份认证。这里采用匿名登录的方式认证，开发者可以根据需要选择邮箱密码、第三方或自定义方式。
+需要注意的是，初始化 Client 之前，要先经过身份认证。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式。
 
-示例：
+例如，以匿名方式登录后创建 Client ：
 
 ```java
 
@@ -49,23 +47,15 @@ public void onCreate() {
         public void onComplete(Task<AuthResult> task) {
 
             if (task.isSuccessful()) {
-
                 //...
-
                 //完成初始化工作 
-
             }else {
-
                  throw  new RuntimeException("auth 失败"+task.getException().getMessage());
-
             }
-
         }
-
     });
 
     //初始化Video SDK
-
     Video.initializeWilddogVideo(getApplicationContext());
     //获取video对象
     Video video＝Video.getInstance();
@@ -100,11 +90,12 @@ public void onCreate() {
 示例：
 
 ```java
+//创建一个视频流，并绑定到播放控件上。
 //视频展示控件
 VideoRenderer.Callbacks localCallbacks = VideoRendererGui.createGuiRenderer(0, 0, 100, 75, RendererCommon.ScalingType.SCALE_ASPECT_FILL, true); 
 //配置本地音视频流
 LocalStreamOptions.VideoOptions videoOptions=new LocalStreamOptions.VideoOptions(true);
-//视频宽高以屏幕横向为准
+//设置视频宽高。视频宽高以屏幕横向为准
 videoOptions.setHeight(240);
 videoOptions.setWidth(320);
 LocalStreamOptions options=new LocalStreamOptions(videoOptions,true);
@@ -131,8 +122,7 @@ localStream.attach(localCallbacks);
 
 会话的建立基于邀请机制，只有另一个 Client 接受了会话邀请，会话才能建立成功。
 
-示例：
-
+例如，邀请指定用户进行 P2P 模式的会话：
 
 ```java
         InviteOptions options = new InviteOptions(ConversationMode.SERVER_BASED, participants, stream);

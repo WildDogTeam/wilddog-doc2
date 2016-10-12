@@ -1,8 +1,6 @@
 title: ConversationClient
 ---
 
-<span id="ConversationClient"/>
-
 每个 WilddogVideo SDK 客户端全局只存在唯一单例 `ConversationClient` 对象, `ConversationClient` 允许用户通过 `client.inviteToConversation()` 方法邀请其他人参与会话。在 `SERVER_BASED` 模式下,允许用户通过 `getMeetingCastAddon` 获取 `MeetingCastAddon` 对象,进行媒体流直播操作。
 
 在使用 `ConversationClient` 对象前,需要对其进行初始化。
@@ -11,11 +9,11 @@ title: ConversationClient
 
 ### init()
 
-
-
 **定义**   
 
+```java
 static void init(SyncReference ref, CompleteListener listener)
+```
 
 **说明**
 
@@ -27,8 +25,6 @@ static void init(SyncReference ref, CompleteListener listener)
 |---|---|
 |ref|[SyncReference](/api/sync/android/api.html#SyncReference)类型,野狗应用 Url 的引用。如果建立会话时使用 `SERVER_BASED` 模式,需要保证该引用的路径和控制面板中的交互路径一致|
 |listener|初始化完成回调,初始化成功调用 `listener.onSuccess` 方法,失败调用 `onError` 方法|
-
-
 
 **示例**
 
@@ -47,26 +43,27 @@ static void init(SyncReference ref, CompleteListener listener)
 	});
 ```
 
-**** 
+</br>
+
+---
 
 ### setInviteListener(ConversationClient.Listener)
 
-
-
 **定义**   
 
- void setInviteListener(ConversationClient.Listener listener) 
+```java
+void setInviteListener(ConversationClient.Listener listener) 
+```
 
 **说明**
 
-设置邀请会话监听。在使用inviteToConversation方法前需要先设置会话邀请监听,否则使用邀请功能会抛出IllegalStateException异常。
+设置邀请会话监听。在使用 `inviteToConversation` 方法前需要先设置会话邀请监听,否则使用邀请功能会抛出 `IllegalStateException` 异常。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
 |listener|[ConversationClient.Listener](/api/video/android/conversation-client.html),会话邀请监听,监听当前会话邀请状态|
-
 
 **示例**
 
@@ -101,15 +98,17 @@ static void init(SyncReference ref, CompleteListener listener)
 
 ```
 
-**** 
+</br>
+
+---
 
 ### inviteToConversation(InviteOptions, ConversationCallback)
 
-
-
 **定义**   
 
+```java
 inviteToConversation(InviteOptions options, final ConversationCallback callback)
+```
 
 **说明**
 
@@ -147,15 +146,17 @@ inviteToConversation(InviteOptions options, final ConversationCallback callback)
 
 ```
 
-**** 
+</br>
+
+---
 
 ### getMeetingCastAddon(Conversation, MeetingCastStateListener)
 
-
-
 **定义**   
 
+```java
 getMeetingCastAddon(Conversation conversation, MeetingCastStateListener listener)
+```
 
 **说明**
 
@@ -171,5 +172,3 @@ getMeetingCastAddon(Conversation conversation, MeetingCastStateListener listener
 **返回值**
 
 [MeetingCastAddon](/api/video/android/meeting-cast-addon.html)
-
-**** 
