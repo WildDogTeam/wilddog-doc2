@@ -36,12 +36,13 @@ title: WDGSyncQuery
 用于监听一个指定节点的数据变化。
 
 这是从 Wilddog Sync 服务器读取数据的主要方式，当监听到初始数据和初始数据有改变时，指定事件相对应的 block 会被触发。
+
 typedef NS_ENUM(NSInteger, WDGDataEventType) {
-    WDGDataEventTypeChildAdded,     // 0, 当有新增子节点时触发
-    WDGDataEventTypeChildRemoved,   // 1, 当有子节点被删除时触发
-    WDGDataEventTypeChildChanged,   // 2, 当某个子节点发生变化时触发
-    WDGDataEventTypeChildMoved,     // 3, 当有子节排序发生变化时触发
-    WDGDataEventTypeValue           // 4, 当有数据请求或有任何数据发生变化时触发
+&nbsp;&nbsp;&nbsp; WDGDataEventTypeChildAdded,&nbsp;&nbsp;// 0, 当有新增子节点时触发
+&nbsp;&nbsp;&nbsp; WDGDataEventTypeChildRemoved,&nbsp;&nbsp;// 1, 当有子节点被删除时触发
+&nbsp;&nbsp;&nbsp; WDGDataEventTypSeChildChanged,&nbsp;&nbsp;// 2, 当某个子节点发生变化时触发
+&nbsp;&nbsp;&nbsp; WDGDataEventTypeChildMoved,&nbsp;&nbsp;// 3, 当有子节排序发生变化时触发
+&nbsp;&nbsp;&nbsp; WDGDataEventTypeValue&nbsp;&nbsp;// 4, 当有数据请求或有任何数据发生变化时触发
 };
 
 **参数**
