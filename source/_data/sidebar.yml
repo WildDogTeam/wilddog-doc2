@@ -105,8 +105,15 @@ api:
       API 文档: /api/sync/android/api.html
       错误码: /api/sync/android/error-code.html
     iOS: 
-      API 文档: /api/sync/ios/api.html
-      错误码: /api/sync/ios/error-code.html
+      WDGSync: /api/sync/ios/WDGSync.html
+      WDGSyncReference: /api/sync/ios/WDGSyncReference.html
+      WDGSyncQuery: /api/sync/ios/WDGSyncQuery.html
+      WDGDataSnapshot: /api/sync/ios/WDGDataSnapshot.html
+      WDGMutableData: /api/sync/ios/WDGMutableData.html
+      WDGTransactionResult: /api/sync/ios/WDGTransactionResult.html
+      WDGServerValue: /api/sync/ios/WDGServerValue.html
+      WDGSyncConfig: /api/sync/ios/WDGSyncConfig.html
+      WDGDataEventType: /api/sync/ios/WDGDataEventType.html
     C/嵌入式: 
       API 文档: /api/sync/c/api.html
       错误码: /api/sync/c/error-code.html
