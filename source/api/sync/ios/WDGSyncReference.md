@@ -2,7 +2,7 @@
 title: WDGSyncReference
 ---
 
-Wilddog Sync 操作数据的主要类。
+用于 Wilddog Sync 操作数据和读取数据。
 
 ## 属性
 
@@ -215,7 +215,9 @@ value | 要写入的值
 
 **定义**
 
-`- (void) setValue:(id)value withCompletionBlock:(void (^)(NSError* error, WDGSyncReference* ref))block`
+```objectivec
+- (void) setValue:(id)value withCompletionBlock:(void (^)(NSError* error, WDGSyncReference* ref))block
+```
 
 **说明**
 

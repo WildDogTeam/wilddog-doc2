@@ -87,6 +87,12 @@ WDGSync 实例。
 
 用特定的 WDGApp 获取这个 WDGSync 实例。
 
+**参数**
+
+参数名 | 描述
+--- | ---
+app | 用于得到 WDGSync 实例的 WDGApp 对象。
+
 **返回值**
 
 WDGSync 实例。
@@ -95,7 +101,7 @@ WDGSync 实例。
 
 --- 
 
-### reference
+### - reference
 
 **定义**
 
@@ -145,7 +151,9 @@ path | 指向 Wilddog Sync 数据库节点的一个路径。
 
 **定义**
 
-`- (WDGSyncReference *)referenceFromURL:(NSString *)syncUrl`
+```objectivec
+- (WDGSyncReference *)referenceFromURL:(NSString *)syncUrl
+```
 
 **说明**
 
