@@ -13,7 +13,7 @@ title: 实战教程
 
 示例的最终的展示效果如下图：
 
-<img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation" width="300">
+<img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation" >
 
 可以[下载体验](https://github.com/WildDogTeam/video-quickstart-android/archive/master.zip)
 
@@ -102,7 +102,7 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
 
 数据库中的数据结构如图所示：
 
-<img src='/images/video_resources_ios_datatree.png' alt="video_resources_ios_datatree" width="300">
+<img src='/images/video_resources_ios_datatree.png' alt="video_resources_ios_datatree"  >
 
 #### 存储用户Wilddog ID
 

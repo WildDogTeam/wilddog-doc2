@@ -44,7 +44,7 @@ user|代表已登录用户的[WDGUser](../../../auth/ios/WDGUser.html)实例。
 
 **返回值**
 
-`WDGVideoClient` 实例，若初始化失败返回nil。
+`WDGVideoClient` 实例，若初始化失败返回 nil。
 
 </br>
 

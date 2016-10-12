@@ -12,7 +12,7 @@ title: 实战教程
 
 示例的最终的展示效果如下图：
 
-<img src='/images/video_resources_web_final.png' alt="video_resources_web_final" width="300">
+<img src='/images/video_resources_web_final.png' alt="video_resources_web_final" >
 
 ## 具体步骤
 
@@ -95,7 +95,7 @@ ref.child('users').on('child_removed', (snap) => {
 
 数据库中的数据结构就是这个样子的：
 
-<img src='/images/video_resources_web_dataTree.png' alt="video_resources_web_dataTree" width="300">
+<img src='/images/video_resources_web_dataTree.png' alt="video_resources_web_dataTree"  >
 
 ### 5. 获取和预览本地视频
 

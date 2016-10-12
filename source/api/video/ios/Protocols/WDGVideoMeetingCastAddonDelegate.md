@@ -1,7 +1,7 @@
 title: WDGVideoMeetingCastAddonDelegate
 ---
 
-[WDGVideoMeetingCastAddon](../Classes/WDGVideoMeetingCastAddon.html)的代理方法。
+[WDGVideoMeetingCastAddon](../Classes/WDGVideoMeetingCastAddon.html) 的代理方法。
 
 ## 方法
 
@@ -15,7 +15,7 @@ title: WDGVideoMeetingCastAddonDelegate
 
 **说明**
 
-当前会话的直播状态切换为开启直播后，通过该代理方法返回当前直播用户的uid与直播流的URL地址。
+当前会话的直播状态切换为开启直播后，通过该代理方法返回当前直播用户的 uid 与直播流的URL地址。
 
 **参数**
 
@@ -39,7 +39,7 @@ castURLs|包含直播流的URL地址，字典的key为直播流的种类，目�
 
 **说明**
 
-当前会话的直播状态为开启直播时，若直播用户发生了切换，通过该代理方法返回切换后直播用户的uid。
+当前会话的直播状态为开启直播时，若直播用户发生了切换，通过该代理方法返回切换后直播用户的 uid。
 
 **参数**
 

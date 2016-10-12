@@ -16,7 +16,7 @@ title: WDGVideoConversation
 **说明**
 
 表明当前会话使用的模式。
-目前包含`P2P`与`Server-based`两种模式。
+目前包含 `P2P` 与 `Server-based` 两种模式。
 
 </br>
 
@@ -48,7 +48,7 @@ title: WDGVideoConversation
 
 **说明**
 
-表示当前参加视频会话的用户uid。
+表示当前参加视频会话的用户 uid。
 
 </br>
 
@@ -125,7 +125,7 @@ error|若邀请未能发出则通过error返回原因。
 
 **返回值**
 
-YES表示邀请成功，NO表示邀请失败。
+YES 表示邀请成功，NO 表示邀请失败。
 
 </br>
 
@@ -157,7 +157,7 @@ YES表示邀请成功，NO表示邀请失败。
 
 **说明**
 
-依据会话参与者的用户uid获取对应的[WDGVideoParticipant](../Classes/WDGVideoParticipant.html)模型。
+依据会话参与者的用户 uid 获取对应的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 模型。
 
 **参数**
 
@@ -167,7 +167,7 @@ participantUserID|会话参与者的用户uid。
 
 **返回值**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html)实例，若未找到相应用户，返回nil。
+[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例，若未找到相应用户，返回 nil。
 
 </br>
 
@@ -181,5 +181,5 @@ participantUserID|会话参与者的用户uid。
 
 表示`WDGVideoConversation`使用的工作模式。
 
-- WDGVideoConversationModeP2P:         表示`P2P`会话模式
-- WDGVideoConversationModeServerBased: 表示`Server-based`会话模式
+- WDGVideoConversationModeP2P:         表示 `P2P` 会话模式
+- WDGVideoConversationModeServerBased: 表示 `Server-based` 会话模式

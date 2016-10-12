@@ -15,7 +15,7 @@ title: WDGVideoIncomingInvite
 
 **说明**
 
-邀请者的用户uid，表明这个邀请来自哪个用户。
+邀请者的用户 uid，表明这个邀请来自哪个用户。
 
 </br>
 
@@ -65,7 +65,7 @@ title: WDGVideoIncomingInvite
 
 **说明**
 
-接受邀请，使用当前本地视频流接受邀请，并在`completionHandler`中返回结果。若当前未创建本地视频流，将自动以默认配置创建本地视频流。
+接受邀请，使用当前本地视频流接受邀请，并在 `completionHandler` 中返回结果。若当前未创建本地视频流，将自动以默认配置创建本地视频流。
 
 **参数**
 
@@ -87,7 +87,7 @@ completionHandler|当邀请得到确认后，SDK通过该闭包通知邀请结�
 
 **说明**
 
-接受邀请，使用指定视频流接受邀请，并在`completionHandler`中返回结果。
+接受邀请，使用指定视频流接受邀请，并在 `completionHandler` 中返回结果。
 
 **参数**
 
