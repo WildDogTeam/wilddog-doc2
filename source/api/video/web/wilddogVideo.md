@@ -2,7 +2,7 @@
 title: wilddog.Video
 ---
 
-Video 对象负责创建本地视频流和实例化 Client，它不能直接创建，只能通过 `wilddog.App` 实例的 `wilddog.Video()` 方法来获取它。
+Video 对象通过 `wilddog.App` 实例的 `wilddog.Video()` 方法来获取，Video 对象负责创建本地视频流和实例化 Client 。
 
 ## 构造器
 

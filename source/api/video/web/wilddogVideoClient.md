@@ -2,7 +2,7 @@
 title: wilddog.video.Client
 ---
 
-Client 实例指代一个客户端，你可以通过它来发起和加入 Conversation。
+Client 实例可以发起和加入 Conversation。
 
 ## 构造器
 
