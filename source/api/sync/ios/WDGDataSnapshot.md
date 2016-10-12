@@ -27,7 +27,7 @@ Wilddog Sync 的数据快照，用于承载数据。
 </br>
 
 ------
-### childrenCount
+### - childrenCount
 
 **定义**
 

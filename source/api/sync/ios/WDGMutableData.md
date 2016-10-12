@@ -107,7 +107,7 @@ for (WDGMutableData* child in data.children) {
 ------
 ## 方法
 
-### hasChildren
+### - hasChildren
 
 **定义**
 
