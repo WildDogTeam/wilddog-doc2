@@ -117,7 +117,8 @@ api:
     Web: 
       API 文档: /api/auth/web/api.html
       错误码: /api/auth/web/error-code.html
-    Android: /api/auth/android/api.html
+    Android:
+      AuthCredential: /api/auth/android/AuthCredential.html
     #iOS:
       #API 文档: /api/auth/ios/api.html
       #错误码: /api/auth/ios/error-code.html
