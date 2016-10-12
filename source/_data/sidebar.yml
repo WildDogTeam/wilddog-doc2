@@ -119,6 +119,9 @@ api:
       错误码: /api/auth/web/error-code.html
     Android:
       AuthCredential: /api/auth/android/AuthCredential.html
+      AuthResult: /api/auth/android/AuthResult.html
+      EmailAuthCredential: /api/auth/android/EmailAuthCredential.html
+      UserProfileChangeRequest.Builder: /api/auth/android/UserProfileChangeRequest.Builder.html
       WilddogAuth: /api/auth/android/WilddogAuth.html
     #iOS:
       #API 文档: /api/auth/ios/api.html

@@ -38,7 +38,7 @@ String getEmail ()
 </br>
 
 --- 
-### ### getPassword ()
+### getPassword ()
 
 **定义**
 
