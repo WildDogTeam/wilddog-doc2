@@ -13,7 +13,7 @@ title: 实战教程
 
 示例的最终的展示效果如下图：
 
-<img src='/images/video_quickstart_ios_conversation.jpg' alt="video_quickstart_ios_conversation" >
+<img src='/images/video_quickstart_ios_conversation.jpg' alt="video_quickstart_ios_conversation" width="300" >
 
 ## 具体步骤
 

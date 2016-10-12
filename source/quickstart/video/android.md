@@ -1,4 +1,4 @@
-﻿
+
 title: 快速入门
 ---
 我们通过一个简单的一对一视频聊天示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-android/archive/master.zip)
@@ -42,27 +42,27 @@ Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 "
 
 快速入门运行成功后，输入应用 ID。
 
-<img src='/images/video_quickstart_android_login.jpg' alt="video_quickstart_android_login"  >
+<img src='/images/video_quickstart_android_login.jpg' alt="video_quickstart_android_login" width="300" >
 
 应用 ID 为下图 `wilddogio` 之前的字段，然后点击匿名登录。
 
-<img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp"  >
+<img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp" width="300" >
 
 登录成功后，页面会显示本地视频画面、你的 Wilddog ID 和用户列表按钮。
 
-<img src='/images/video_quickstart_android_mainUI.jpg' alt="video_quickstart_createApp"  >
+<img src='/images/video_quickstart_android_mainUI.jpg' alt="video_quickstart_createApp" width="300" >
 
 ### 5.3 邀请他人加入会话
 
 在其他安卓手机上使用同一个应用 ID 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入会话。
 
-<img src='/images/video_quickstart_android_userList.jpg' alt="video_quickstart_android_userList"  >
+<img src='/images/video_quickstart_android_userList.jpg' alt="video_quickstart_android_userList" width="300" >
 
 ### 5.4 接受邀请
 
 被邀请人会受到邀请提示，点击确认加入，会话建立。
 
-<img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation"  >
+<img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation" width="300" >
 
 
 更多详细信息请见 [完整指南](/guide/video/core.html) 和  [API 文档](/api/video/android/video.html)。

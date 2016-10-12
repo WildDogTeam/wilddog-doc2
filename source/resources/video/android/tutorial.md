@@ -13,7 +13,7 @@ title: 实战教程
 
 示例的最终的展示效果如下图：
 
-<img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation" >
+<img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation" width="300">
 
 可以[下载体验](https://github.com/WildDogTeam/video-quickstart-android/archive/master.zip)
 
