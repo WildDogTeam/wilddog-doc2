@@ -119,6 +119,7 @@ api:
       错误码: /api/auth/web/error-code.html
     Android:
       AuthCredential: /api/auth/android/AuthCredential.html
+      WilddogAuth: /api/auth/android/WilddogAuth.html
     #iOS:
       #API 文档: /api/auth/ios/api.html
       #错误码: /api/auth/ios/error-code.html
