@@ -1,20 +1,17 @@
 title: Conversation
 ---
 
-<span id="Conversation" />
-
-
 会话类接口,提供会话服务,使用 `Conversation` 接口创建和获取会话,根据传入的不同 `Conversation.Mode`,返回 `P2P` 模式或者 `SERVER_BASED` 模式会话实例。
 
 ## 方法
 
 ### setConversationListener(Conversation.Listener)
 
-
-
 **定义**   
 
+```java
 void setConversationListener(Conversation.Listener listener)
+```
 
 **说明**
 
@@ -55,15 +52,17 @@ void setConversationListener(Conversation.Listener listener)
 
 ```
 
-****
+</br>
+
+---
 
 ### invite(Set<String>)
 
-
-
 **定义**   
 
+```java
 void invite(Set<String> participantIdSet)
+```
 
 **说明**
 
@@ -84,16 +83,17 @@ void invite(Set<String> participantIdSet)
 	mConversation.invite(participants);
 ```
 
-**** 
+</br>
 
+---
 
 ### disconnect()
 
-
-
 **定义**   
 
+```java
 void disconnect()
+```
 
 **说明**
 
@@ -105,5 +105,3 @@ void disconnect()
 	//需要离开会话时调用此方法,并做资源释放和其他自定义操作
 	mConversation.disconnect();
 ```
-
-****

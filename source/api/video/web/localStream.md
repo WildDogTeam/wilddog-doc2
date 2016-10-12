@@ -6,10 +6,6 @@ title: wilddog.video.LocalStream
 
 ## 属性
 
-</br>
-
----
-
 ### isAudioEnabled
 
 **类型**
@@ -21,6 +17,8 @@ Boolean
 **说明**
 
 本地媒体流音频是否启用。
+
+</br>
 
 ---
 
@@ -36,13 +34,11 @@ Boolean
 
 本地媒体流视频是否启用。
 
----
-
-## 方法
-
 </br>
 
 ---
+
+## 方法
 
 ### attach
 
@@ -69,6 +65,8 @@ attach(element)
 localStream.attach(document.getElementById('localStream'));
 ```
 
+</br>
+
 ---
 
 ### detach
@@ -89,6 +87,8 @@ detach()
 //将本地媒体流从页面中的元素上解绑
 localStream.detach();
 ```
+
+</br>
 
 ---
 
@@ -117,6 +117,8 @@ enableAudio(enabled)
 localStream.enableAudio(true);
 ```
 
+</br>
+
 ---
 
 ### enableVideo
@@ -143,5 +145,3 @@ enableVideo(enabled)
 //开启参与者的视频
 localStream.enableVideo(true);
 ```
-
----

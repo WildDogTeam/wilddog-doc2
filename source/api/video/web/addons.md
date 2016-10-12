@@ -6,13 +6,7 @@ title: wilddog.video.Addons
 
 ## 方法
 
-</br>
-
----
-
 ### initMeetingCast
-
-
 
 **定义**
 
@@ -40,6 +34,4 @@ initMeetingCast(conversation)
 //获取 MeetingCast 对象
 var meetingCast = client.addons.initMeetingCast(conversation);
 ```
-
----
 

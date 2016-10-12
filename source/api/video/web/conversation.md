@@ -6,10 +6,6 @@ title: wilddog.video.Conversation
 
 ## 属性
 
-</br>
-
----
-
 ### localStream
 
 **类型**
@@ -21,6 +17,8 @@ wilddog.video.LocalStream
 **说明**
 
 Conversation 中的本地媒体流。
+
+</br>
 
 ---
 
@@ -36,6 +34,8 @@ Map.<Participant.participantId, Participant>
 
 当前 Conversation 中除自身外的所有参与者。
 
+</br>
+
 ---
 
 ### conversationId
@@ -49,6 +49,8 @@ String
 **说明**
 
 当前 Conversation 的 ID。
+
+</br>
 
 ---
 
@@ -64,13 +66,11 @@ String
 
 当前 Conversation 的模式。
 
----
-
-## 方法
-
 </br>
 
 ---
+
+## 方法
 
 ### invite
 
@@ -97,6 +97,8 @@ invite(participantId)
 conversation.invite(['123456789', '987654321']);
 ```
 
+</br>
+
 ---
 
 ### disconnect
@@ -118,13 +120,11 @@ disconnect()
 conversation.disconnect();
 ```
 
----
-
-## 常量
-
 </br>
 
 ---
+
+## 常量
 
 ### 事件
 
@@ -134,6 +134,8 @@ conversation.disconnect();
 | participant_connected | 有新的参与者加入触发。 |
 | participant_disconnected | 有参与者离开触发。 |
 | participant_failed | 有参与者加入失败触发。|
+
+</br>
 
 ---
 
@@ -154,6 +156,8 @@ conversation.on('disconnected', function(conversationId){
 });
 ```
 
+</br>
+
 ---
 
 #### participant_connected
@@ -172,6 +176,8 @@ conversation.on('participant_connected', function(participant){
     console.log('Conversation ' + participant.participantId + ' connected.');
 });
 ```
+
+</br>
 
 ---
 
@@ -192,6 +198,8 @@ conversation.on('participant_disconnected', function(conversationId){
 });
 ```
 
+</br>
+
 ---
 
 #### participant_failed
@@ -210,7 +218,5 @@ conversation.on('participant_failed', function(conversationId){
     console.log('Conversation ' + participant.participantId + ' connected.');
 });
 ```
-
----
 
 

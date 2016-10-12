@@ -17,6 +17,8 @@ title: WDGVideoOutgoingInvite
 
 被邀请者的用户uid。
 
+</br>
+
 ---
 
 ### conversationID
@@ -31,6 +33,8 @@ title: WDGVideoOutgoingInvite
 
 表示邀请参加的会议的编号。
 
+</br>
+
 ---
 
 ### status
@@ -44,6 +48,8 @@ title: WDGVideoOutgoingInvite
 **说明**
 
 表示当前邀请的状态。
+
+</br>
 
 ---
 

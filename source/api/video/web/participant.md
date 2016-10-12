@@ -5,10 +5,6 @@
 
 ## 属性
 
-</br>
-
----
-
 ### participantId
 
 **类型**
@@ -20,6 +16,8 @@ String
 **说明**
 
 Participant 的 ID。
+
+</br>
 
 ---
 
@@ -34,6 +32,4 @@ wilddog.video.RemoteStream
 **说明**
 
 Participant 的媒体流。
-
----
 

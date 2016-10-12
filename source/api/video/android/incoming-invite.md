@@ -1,19 +1,17 @@
 title: IncomingInvite
 ---
 
-<span id="IncomingInvite" />
-
 当有人邀请其他人加入会话时,被邀请者会接受到邀请信息并返回一个 `IncomingInvite` 对象,通过 `InconmingInvite` 对象可以接受（ `accept` ）或拒绝（ `reject` ）邀请。在接受邀请的ConversationCallback中可以获取会话相关信息。
 
 ## 方法
 
 ### accpet(LocalStream,ConversationCallback)
 
-
-
 **定义**   
 
+```java
 void accpet(LocalStream localStream,ConversationCallback callback)
+```
 
 **说明**
 
@@ -51,15 +49,17 @@ void accpet(LocalStream localStream,ConversationCallback callback)
 
 ```
 
-**** 
+</br>
+
+---
 
 ### reject()
 
-
-
 **定义**   
 
+```java
 void reject()
+```
 
 **说明**
 
@@ -71,4 +71,3 @@ void reject()
 	//拒绝邀请
 	incomingInvite.reject();
 ```
-****

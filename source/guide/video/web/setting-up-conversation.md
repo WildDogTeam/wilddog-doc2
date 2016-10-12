@@ -1,9 +1,7 @@
 ﻿title: 建立会话
 ---
 
-完成 Wilddog Video SDK 安装后，即可建立会话。
-在发起会话之前，需要初始化 Wilddog Video SDK，并配置本地视频流。
-以下展示了如何实现建立会话。
+本篇文档介绍如何初始化 Client、配置本地媒体流，以及发起会话。
 
 ## 初始化 Client
 
@@ -11,7 +9,9 @@
 
 选择 `Server-based` 会话时，初始化 Client 时的交互路径应和控制面板中的交互路径保持一致。
 
-需要注意的是，初始化 Client 之前，要先经过身份认证。这里采用匿名登录的方式认证，开发者可以根据需要选择邮箱密码、第三方或自定义方式。
+需要注意的是，初始化 Client 之前，要先经过身份认证。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式。
+
+例如，以匿名方式登录后创建 Client ：
 
 ```javascript
 var config = {
@@ -24,7 +24,7 @@ wilddog.initializeApp(config);
 var ref = wilddog.sync().ref(“你的自定义路径”); 
 var client = wilddog.video().client();
 
-//初始化 Video Client 之前，要先经过身份认证。这里采用匿名登录的方式，开发者可以根据需要选择邮箱密码、第三方或自定义方式。
+//初始化 Video Client 之前，要先经过身份认证。这里采用匿名登录的方式。
 wilddog.auth().signInAnonymously().then(function(user){
     client.init({ref: ref, user: user}, initComplete);
 }).catch(function (error) {
@@ -40,21 +40,24 @@ wilddog.auth().signInAnonymously().then(function(user){
 例如，可以创建一个只有视频且分辨率为 640X480 的流，并展示到页面上：
 
 ```javascript
-wilddog.video().createStream({
-    audio:false,
-    video:'standard'
-},function(localStream){
-    var element = document.getElementById('local_view');
-    //绑定到local_view中展示
-    localStream.attach(element);
-});
+//创建一个只有视频且分辨率为 640X480 的流
+videoInstance.createStream({
+        audio: false,
+        video: 'standard'
+    })
+    .then(function(localStream){
+        //获取到localStream
+    })
+    .catch(function(err){
+        console.log("Catch error! Error code is " + err);
+    })
 ```
 
 ## 发起会话
 
 会话的建立基于邀请机制，只有另一个 Client 接受了会话邀请，会话才能建立成功。
 
-发起会话示例：
+例如，邀请指定用户进行 P2P 模式的会话：
 
 ```javascript
 client.init({ref:ref,user:user}, function(err){

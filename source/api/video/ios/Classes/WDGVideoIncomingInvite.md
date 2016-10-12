@@ -17,6 +17,8 @@ title: WDGVideoIncomingInvite
 
 邀请者的用户uid，表明这个邀请来自哪个用户。
 
+</br>
+
 ---
 
 ### conversationID
@@ -31,6 +33,8 @@ title: WDGVideoIncomingInvite
 
 表示邀请参加的会议的编号。
 
+</br>
+
 ---
 
 ### status
@@ -44,6 +48,8 @@ title: WDGVideoIncomingInvite
 **说明**
 
 表示当前邀请的状态。
+
+</br>
 
 ---
 
@@ -67,6 +73,8 @@ title: WDGVideoIncomingInvite
 ---|---
 completionHandler|当邀请得到确认后，SDK通过该闭包通知邀请结果，若邀请成功，将在闭包中返回`WDGVideoConversation`实例，否则将在闭包中返回`NSError`说明邀请失败的原因。
 
+</br>
+
 ---
 
 ### -acceptWithLocalStream:completion:
@@ -88,6 +96,8 @@ completionHandler|当邀请得到确认后，SDK通过该闭包通知邀请结�
 localStream|想要使用的视频流。 
 completionHandler|当邀请得到确认后，SDK通过该闭包通知邀请结果，若邀请成功，将在闭包中返回`WDGVideoConversation`实例，否则将在闭包中返回`NSError`说明邀请失败的原因。
 
+</br>
+
 ---
 
 ### -reject
@@ -101,6 +111,8 @@ completionHandler|当邀请得到确认后，SDK通过该闭包通知邀请结�
 **说明**
 
 调用此方法拒绝邀请。
+
+</br>
 
 ---
 

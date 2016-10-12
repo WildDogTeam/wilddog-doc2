@@ -25,6 +25,8 @@ meetingCastAddon|当前[WDGVideoMeetingCastAddon](../Classes/WDGVideoMeetingCast
 castingUserID|当前直播中的用户uid。 
 castURLs|包含直播流的URL地址，字典的key为直播流的种类，目前包含两类`pull-rtmp-url` 和 `pull-hls-url`，字典的value为该直播流种类对应的地址。
 
+</br>
+
 ---
 
 ### -wilddogVideoMeetingCastAddon:didCastChangeToUserID:
@@ -46,6 +48,8 @@ castURLs|包含直播流的URL地址，字典的key为直播流的种类，目�
 meetingCastAddon|当前[WDGVideoMeetingCastAddon](../Classes/WDGVideoMeetingCastAddon.html)实例。
 castingUserID|切换后直播用户的uid。
 
+</br>
+
 ---
 
 ### -wilddogVideoMeetingCastAddonDidCastDown:
@@ -65,6 +69,8 @@ castingUserID|切换后直播用户的uid。
  参数名 | 说明 
 ---|---
 meetingCastAddon|当前[WDGVideoMeetingCastAddon](../Classes/WDGVideoMeetingCastAddon.html)实例。
+
+</br>
 
 ---
 

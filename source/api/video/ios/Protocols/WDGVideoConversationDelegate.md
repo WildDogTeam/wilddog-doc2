@@ -24,6 +24,8 @@ title: WDGVideoConversationDelegate
 conversation|调用该方法的[WDGVideoConversation](../Classes/WDGVideoConversation.html)实例。
 participant|代表新的参与者的[WDGVideoParticipant](../Classes/WDGVideoParticipant.html)实例。
 
+</br>
+
 ---
 
 ### -conversation:didFailToConnectParticipant:error:
@@ -45,6 +47,8 @@ participant|代表新的参与者的[WDGVideoParticipant](../Classes/WDGVideoPar
 conversation|调用该方法的[WDGVideoConversation](../Classes/WDGVideoConversation.html)实例。
 participant|代表尝试与其建立连接的参与者的[WDGVideoParticipant](../Classes/WDGVideoParticipant.html)实例。 
 error|表示连接建立失败的原因。
+
+</br>
 
 ---
 

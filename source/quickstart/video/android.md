@@ -1,7 +1,7 @@
 ﻿
 title: 快速入门
 ---
-我们通过一个简单的[一对一视频聊天示例](https://github.com/WildDogTeam/video-quickstart-android/archive/master.zip)来说明 Video SDK 的用法。
+我们通过一个简单的 [一对一视频聊天示例](https://github.com/WildDogTeam/video-quickstart-android/archive/master.zip) 来说明 Video SDK 的用法。
 
 <div class="env">
     <p class="env-title">使用环境</p>
@@ -16,7 +16,7 @@ title: 快速入门
 ## 1. 创建应用
 
 
-首先，在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)
+首先，在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 开启匿名登录认证方式
 
@@ -40,15 +40,15 @@ Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 "
 
 ### 5.2 登录快速入门
 
-快速入门运行成功后，需要输入应用 ID。
+快速入门运行成功后，输入应用 ID。
 
 <img src='/images/video_quickstart_android_login.jpg' alt="video_quickstart_android_login" width="300">
 
-输入应用 ID（下图 `wilddogio` 之前的字段），然后点击匿名登录。
+应用 ID 为下图 `wilddogio` 之前的字段，然后点击匿名登录。
 
 <img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp" width="300">
 
-登录成功后，页面会显示本地视频画面，你的 Wilddog ID 和用户列表按钮。
+登录成功后，页面会显示本地视频画面、你的 Wilddog ID 和用户列表按钮。
 
 <img src='/images/video_quickstart_android_mainUI.jpg' alt="video_quickstart_createApp" width="300">
 

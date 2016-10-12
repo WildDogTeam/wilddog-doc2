@@ -1,11 +1,7 @@
 title: ConversationException
 ---
 
-<span id="ConversationException" />
-
 会话异常信息,有两个属性ErrorMsg与ErrorCode,分别代表错误详细信息与错误码。
-
-
 
 ## 构造方法
 
@@ -13,9 +9,9 @@ title: ConversationException
 
 **定义**   
 
+```java
 ConversationException(String errorMsg, int errorCode) 
-
-**说明**
+```
 
 **参数**
 
@@ -24,8 +20,9 @@ ConversationException(String errorMsg, int errorCode)
 |errorMsg|String,错误详细信息|
 |errorCode|String,错误代码|
 
+</br>
 
-**** 
+---
 
 ## 属性
 
@@ -33,10 +30,16 @@ ConversationException(String errorMsg, int errorCode)
 
 ### errorMsg
 
+**说明**
+
 错误详细信息。
+
+</br>
+
+---
 
 ### errorCode
 
-错误码。
+**说明**
 
-****
+错误码。

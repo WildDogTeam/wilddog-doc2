@@ -17,6 +17,8 @@ title: WDGVideoStream
 
 代表流中的视频是否开启。
 
+</br>
+
 ---
 
 ### audioEnabled
@@ -30,6 +32,8 @@ title: WDGVideoStream
 **说明**
 
 代表流中的音频是否开启。
+
+</br>
 
 ---
 
@@ -46,6 +50,8 @@ title: WDGVideoStream
 **说明**
 
 关闭当前流，当前流被关闭后不能继续使用。
+
+</br>
 
 ---
 
@@ -66,6 +72,8 @@ title: WDGVideoStream
  参数名 | 说明 
 ---|---
 view|[WDGVideoView](../Classes/WDGVideoView.html)实例，流在该视图中展示。
+
+</br>
 
 ---
 
