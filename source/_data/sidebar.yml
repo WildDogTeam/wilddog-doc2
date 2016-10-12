@@ -195,7 +195,20 @@ api:
   身份认证:
     Web: 
       API 文档: /api/auth/web/api.html
-      错误码: /api/auth/web/error-code.html
+      App: /api/auth/web/App.html
+      Auth: /api/auth/web/Auth.html
+      User: /api/auth/web/User.html
+      UserInfo: /api/auth/web/UserInfo.html
+      Provider: /api/auth/web/Provider.html
+      EmailAuthProvider: /api/auth/web/EmailAuthProvider.html
+      WeiboAuthProvider: /api/auth/web/WeiboAuthProvider.html
+      QQAuthProvider: /api/auth/web/QQAuthProvider.html
+      WeixinAuthProvider: /api/auth/web/WeixinAuthProvider.html
+      WeixinmpAuthProvider: /api/auth/web/WeixinmpAuthProvider.html
+      Credential: /api/auth/web/Credential.html
+      Promise: /api/auth/web/Promise.html
+      Void: /api/auth/web/Void.html
+      Error: /api/auth/web/error-code.html
     Android: /api/auth/android/api.html
     #iOS:
       #API 文档: /api/auth/ios/api.html
