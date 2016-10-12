@@ -87,6 +87,7 @@ window.onload = function () {
   var headingTops = [];
   tocLinks.forEach(function (ele, index) {
     var id = ele.getAttribute('href').replace('#', '');
+    ele.setAttribute('title', ele.textContent);
     tocLinksHref.push(id);
   });
   headings.forEach(function (ele) {
