@@ -5,7 +5,7 @@ title: 快速入门
 我们通过一个简单的一对一视频聊天示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-javascript/archive/master.zip)
 
 <div class="env">
-    <p class="env-title">使用环境</p>
+    <p class="env-title">环境准备</p>
     <ul>
         <li> Chrome、Firefox、Opera 浏览器 </li>
     </ul>

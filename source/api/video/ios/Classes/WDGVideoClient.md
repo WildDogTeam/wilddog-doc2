@@ -1,7 +1,7 @@
 title: WDGVideoClient
 ---
 
-用于创建本地流，邀请其他用户进行会话。
+用于创建本地流，发起会话。
 
 ## 属性
 
@@ -33,13 +33,13 @@ title: WDGVideoClient
 
 **说明**
 
-初始化 `WDGVideoClient` 实例。初始化时会从野狗服务器获取控制台配置信息，若控制台未开启实时视频及网络穿越开关，返回 nil 。
+初始化 `WDGVideoClient` 实例。初始化时会从野狗服务器获取控制台配置信息，若控制台未开启实时视频功能，则返回 nil 。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-syncReference|用于数据交换的 [WDGSyncReference](../../../sync/ios/WDGSyncReference.html) 节点。如果后面使用 `Server-based` 模式建立会话，需要保证该路径和控制面板中的交互路径一致。
+syncReference|用于数据交换的 [WDGSyncReference](../../../sync/ios/WDGSyncReference.html) 节点。如果建立 `Server-based` 模式的会话，则要保证 ‘WDGSyncReference’ 的路径和控制面板中的交互路径一致。
 user|代表已登录用户的[WDGUser](../../../auth/ios/WDGUser.html)实例。
 
 **返回值**
