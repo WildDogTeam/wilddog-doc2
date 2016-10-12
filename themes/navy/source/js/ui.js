@@ -160,7 +160,7 @@ window.onload = function () {
   var videoAndroidVersionContent = getElementsByClassName('video-android-version');
   var videoIosVersionContent = getElementsByClassName('video-ios-version');
   var videoAndroidDownloadSrc = getElementsByClassName('video-android-download');
-  var videoIosDownloadSrc = getElementsByClassName('video-ios-core');
+  var videoIosDownloadSrc = getElementsByClassName('video-ios-download');
 
     var config = {
       authDomain: "wd-download.wilddog.com",
