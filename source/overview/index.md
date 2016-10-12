@@ -22,7 +22,7 @@ title:  简介
 
 ![](/images/videointro.jpg)
 
-我们即将推出实时推送、实时音视频通话、多人在线会议、IM 的 SDK 和场景化 API。
+我们即将推出实时推送、多人在线会议、IM 的 SDK 和场景化 API。
 
 
 

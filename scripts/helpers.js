@@ -79,7 +79,7 @@ hexo.extend.helper.register('doc_sidebar', function(className){
               thirList = thirList.replace('sublist', 'sublist current');
               currentClass += ' current';
             }
-            thirList += '<li class=\'sublist-item\'><a href="' + url + '" class="' + currentClass + '">' + (content) + '</a><\/li>';
+            thirList += '<li class=\'sublist-item\'><a href="' + url + '" class="' + currentClass + '" title= ' + content + '>' + (content) + '</a><\/li>';
           })
           thirList += '<\/ul>';
           thirListStart += (thirList + '<\/li>');
@@ -91,7 +91,7 @@ hexo.extend.helper.register('doc_sidebar', function(className){
       })
       subList += '<\/ul><\/li>'
     } else {
-      listStart += '<li class=\'sidebar-nav-item\'><strong class="' + className + '-title single-title"><a href="' + menu + '" class="' + className + '-link' + (menu === path ? ' current' : '') + '">' + title + '</a></strong><\/li>';
+      listStart += '<li class=\'sidebar-nav-item\'><strong class="' + className + '-title single-title"><a href="' + menu + '" class="' + className + '-link' + (menu === path ? ' current' : '') + '" alt= '+ title +'>' + title + '</a></strong><\/li>';
     }
     result += listStart;
     result += subList || '';
