@@ -58,10 +58,36 @@ hr
     font-weight: 700
 
 .toc-inner
-  max-height: 80%
   position: relative
   width: 179px
+  
+.toc-scroll-content
+  max-height: 80%
+  overflow-x: hidden
   overflow-y: auto
+
+.toc-link-title
+  position: fixed
+  z-index: 9
+  padding: 8px 10px
+  white-space: nowrap
+  background-color: #666
+  border-radius: 3px
+  color: #fff
+  transform: translateX(-50%)
+  display: none
+  &:after
+    content: '';
+    position: absolute
+    left: 50%
+    top: 100%
+    margin-top: -5px
+    margin-left: -5px
+    width: 10px
+    height: 10px
+    background-color: #666
+    transform-origin: 50% 50%
+    transform: rotate(45deg)
 
 #article-toc-inner
   @extend .inner
@@ -92,15 +118,17 @@ hr
   position: relative
   padding-right: 10px
   width: 100%
-  white-space: nowrap
-  overflow: hidden
-  text-overflow: ellipsis
   &.current
     color: #e6501e
   &:hover
     color: #e6501e
 
 .toc-text
+  display:block
+  width: 100%
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
   word-wrap: break-word;
 
 .toc-child

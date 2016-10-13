@@ -85,10 +85,24 @@ window.onload = function () {
   var tocLinks = getElementsByClassName('toc-link');
   var tocLinksHref = [];
   var headingTops = [];
+  var titleContent = document.getElementsByClassName('toc-link-title')[0];
   tocLinks.forEach(function (ele, index) {
     var id = ele.getAttribute('href').replace('#', '');
     ele.setAttribute('title', ele.textContent);
     tocLinksHref.push(id);
+    ele.addEventListener('mouseenter', function (e) {
+      titleContent.textContent = ele.getAttribute('title');
+      titleContent.style.display = 'block';
+      titleContent.style.left = e.clientX + 'px';
+      titleContent.style.top = e.clientY - 40 + 'px';
+    });
+    ele.addEventListener('mousemove', function (e) {
+      titleContent.style.left = e.clientX + 'px';
+      titleContent.style.top = e.clientY - 40 + 'px';
+    });
+    ele.addEventListener('mouseleave', function (e) {
+      titleContent.style.display = 'none';
+    })
   });
   headings.forEach(function (ele) {
     var actualTop = ele.offsetTop;
