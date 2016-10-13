@@ -5,7 +5,7 @@ title: WeiboAuthProvider
 WeiboAuthProvider 是新浪微博登录方式中 provider 类
 
 ## 构造器
-###new WeiboAuthProvider()
+### new WeiboAuthProvider()
 
 **定义**
 

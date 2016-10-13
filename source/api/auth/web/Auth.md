@@ -299,7 +299,7 @@ signInWithCredential(credential)
 
 | 参数名        | 描述                                       |
 | ---------- | ---------------------------------------- |
-| credential | [wilddog.auth.Credentia](/api/auth/web/Credential.html) 第三方提供的凭证。 |
+| credential | [wilddog.auth.Credential](/api/auth/web/Credential.html) 第三方提供的凭证。 |
 
 **示例**
 

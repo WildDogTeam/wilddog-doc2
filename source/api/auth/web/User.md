@@ -165,7 +165,7 @@ returns [wilddog.Promise](/api/auth/web/Promise.html) containing void
 **定义**
 
 ```js
-link(credential) returns firebase.Promise containing non-null firebase.User
+link(credential)
 ```
 
 **说明**
@@ -175,9 +175,9 @@ link(credential) returns firebase.Promise containing non-null firebase.User
 **参数**
 
 
-| 参数名        | 类型                                       | 属性         | 说明          |
-| ---------- | ---------------------------------------- | ---------- | ----------- |
-| credential | [wilddog.auth.Credential](/api/auth/web.html#wilddog-auth-Credential) | _non-null_ | 特定登录方式的认证凭据 |
+| 参数名       | 描述          |
+| ---------- | ----------- |
+| credential | [wilddog.auth.Credential](/api/auth/web/Credential.html)特定登录方式的认证凭据 |
 
 **返回值**
 
@@ -205,7 +205,7 @@ linkWithPopup(provider)
 
 **参数**
 
-| 参数名      | 说明                                       |
+| 参数名      | 描述                                       |
 | -------- | ---------------------------------------- |
 | provider | [wilddog.auth.Provider](/api/auth/web/Provider.html) 类型，特定登录方式的实例 |
 
@@ -366,7 +366,7 @@ updateProfile(profile)
 
 **参数**
 
-| 参数名     | 说明                                       |
+| 参数名     | 描述                                       |
 | ------- | ---------------------------------------- |
 | profile | profile为object的类型，当前仅支持 `phototURL` 和 `displayName` **参数**，这两个参数至少需要有一个不为空。 |
 
@@ -481,7 +481,7 @@ reauthenticate(credential)
 
 **参数**
 
-| 参数名        | 说明                                       |
+| 参数名        | 描述                                       |
 | ---------- | ---------------------------------------- |
 | credential | [wilddog.auth.Credential](/api/auth/web.html#wilddog-auth-Credential) 类型，特定登录方式的认证凭据 |
 
