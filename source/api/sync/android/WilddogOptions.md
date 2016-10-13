@@ -1,4 +1,4 @@
-title:WilddogOptions
+title: WilddogOptions
 ----
 用于初始化WilddogSync设置。
 
