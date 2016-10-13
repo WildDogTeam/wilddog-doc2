@@ -4,7 +4,7 @@ title: ProviderQueryResult
 
 ## 方法
 
-### getProviders（）
+### getProviders()
 
 **定义**
 

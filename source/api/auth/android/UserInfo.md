@@ -5,7 +5,7 @@ title: UserInfo
 ## 方法
 
 
-### getDisplayName（）
+### getDisplayName()
 
 **定义**
 
@@ -23,7 +23,7 @@ String getDisplayName();
 </br>
 
 --- 
-### getEmail（）
+### getEmail()
 
 **定义**
 
@@ -41,7 +41,7 @@ String getEmail();
 </br>
 
 --- 
-### getPhotoUrl（）
+### getPhotoUrl()
 
 **定义**
 
@@ -59,7 +59,7 @@ Uri getPhotoUrl();
 </br>
 
 --- 
-### getProviderId（）
+### getProviderId()
 
 **定义**
 
@@ -77,7 +77,7 @@ String getProviderId();
 </br>
 
 --- 
-### getUid（）
+### getUid()
 
 **定义**
 

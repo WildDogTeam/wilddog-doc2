@@ -4,7 +4,7 @@ title: AuthResult
 
 ## 方法
 
-### getWilddogUser（）
+### getWilddogUser()
 
 **定义**
 
