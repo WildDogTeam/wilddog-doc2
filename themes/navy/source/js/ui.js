@@ -92,7 +92,6 @@ window.onload = function () {
     tocLinksHref.push(id);
     ele.addEventListener('mouseenter', function (e) {
       var title = ele.getAttribute('title');
-      console.log(title.length)
       if (title.length > 23) {
         titleContent.textContent = title;
         titleContent.style.display = 'block';
