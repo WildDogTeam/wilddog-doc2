@@ -25,9 +25,9 @@ title: WilddogAuth.AuthStateListener
 **参数**
 
 
-参数名 | 描述 |
---- | ---    |
-wilddogAuth | 当前 WilddogAuth 对象，用来进行 Auth 相关操作。|
+参数名 | 描述
+--- | ---
+wilddogAuth | 当前 WilddogAuth 对象，用来进行 Auth 相关操作。
 
 </br>
 

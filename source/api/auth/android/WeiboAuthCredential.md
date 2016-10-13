@@ -17,7 +17,9 @@ String getProvider ()
 
 返回使用的认证方式的类型唯一标识。值为"weibo"。
 
+**返回值**
 
+`String` 认证方式的类型唯一标识。
 </br>
 
 --- 
@@ -34,7 +36,9 @@ public String getAccessToken()
 
 返回要用于创建WeiboAuthCredential的AccessToken。
 
+**返回值**
 
+`String` 微博登录的AccessToken。
 </br>
 
 --- 
@@ -53,7 +57,9 @@ public String getUid()
 
 返回要用于创建WeiboAuthCredential的uid。
 
+**返回值**
 
+`String` 微博登录的openID。
 </br>
 
 --- 

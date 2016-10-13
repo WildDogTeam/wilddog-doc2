@@ -17,18 +17,19 @@ DataSnapshot child (String path)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-path | `String`  子节点名称。|
+参数名 | 描述
+--- | ---
+path | `String`  子节点名称。
 
 **返回值**
 
-DataSnapshot 对象
+`DataSnapshot` 对象
 </br>
 
 ---
 
 ### exists()
+
 **定义**
 
 ```java
@@ -161,9 +162,9 @@ boolean hasChild(String key)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-key | `String` 子节点名称。|
+参数名 | 描述
+--- | ---
+key | `String` 子节点名称。
 
 **返回值**
 

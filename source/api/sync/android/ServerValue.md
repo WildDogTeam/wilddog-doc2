@@ -1,6 +1,7 @@
 title:  ServerValue
 ---
 用于向服务器插入一个时间戳。
+
 ## 属性
 
 ### TIMESTAMP

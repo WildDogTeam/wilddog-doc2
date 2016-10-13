@@ -17,12 +17,12 @@ void addChildEventListener(ChildEventListener listener)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
+参数名 | 描述
+--- | ---
 listener | `ChildEventListener`
            `onChildAdded()` 监听子节点的添加事件。
            `onChildRemoved()` 监听子节点的删除事件。
-           `onChildChanged()` 监听子节点的变化事件。|
+           `onChildChanged()` 监听子节点的变化事件。
 
 **返回值**
 
@@ -83,9 +83,9 @@ void addListenerForSingleValueEvent(ValueEventListener listener)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-listener | `ValueEventListener` 节点绑定的监听事件。|
+参数名 | 描述
+--- | ---
+listener | `ValueEventListener` 节点绑定的监听事件。
 
 </br>
 
@@ -104,9 +104,9 @@ void addValueEventListener(ValueEventListener listener)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-listener | `ValueEventListener` listener将监听Change事件。|
+参数名 | 描述
+--- | ---
+listener | `ValueEventListener` listener将监听Change事件。
 
 **返回值**
 
@@ -155,9 +155,9 @@ void removeEventListener(ValueEventListener valueListener)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-listener | `ValueEventListener` 要删除的监听事件|
+参数名 | 描述
+--- | ---
+listener | `ValueEventListener` 要删除的监听事件
 </br>
 
 ---
@@ -175,9 +175,9 @@ void removeEventListener(ChildEventListener childEventListener)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-listener | `ChildEventListener` 要删除的监听事件|
+参数名 | 描述
+--- | ---
+listener | `ChildEventListener` 要删除的监听事件
 </br>
 
 ---
@@ -194,10 +194,9 @@ Query orderByChild(String childKey)
 
 **参数**
 
-
-参数名 | 描述 |
---- | --- |
-childKey | `String` 子节点属性|
+参数名 | 描述
+--- | ---
+childKey | `String` 子节点属性
 
 **返回值**
 
@@ -206,6 +205,7 @@ childKey | `String` 子节点属性|
 
 ---
 ### orderByKey()
+
 **定义**
 
 ```java
@@ -223,6 +223,7 @@ Query 查询器类
 
 ---
 ### orderByValue()
+
 **定义**
 
 ```java
@@ -240,6 +241,7 @@ Query orderByValue()
 
 ---
 ### orderByPriority()
+
 **定义**
 
 ```java
@@ -258,6 +260,7 @@ Query orderByPriority()
 
 ---
 ### startAt()
+
 **定义**
 
 ```java
@@ -270,9 +273,9 @@ Object startAt(String value), Object startAt(double value), Object startAt(boole
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-value | `String` ,`double`, `boolean`。|
+参数名 | 描述
+--- | ---
+value | `String` ,`double`, `boolean`。
 
 **返回值**
 
@@ -281,6 +284,7 @@ value | `String` ,`double`, `boolean`。|
 
 ---
 ### endAt()
+
 **定义**
 
 ```java
@@ -293,9 +297,9 @@ Object endAt(String value), Object endAt(double value), Object endAt(boolean val
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-value | `String` ,`double`, `boolean`。|
+参数名 | 描述
+--- | ---
+value | `String` ,`double`, `boolean`。
 
 **返回值**
 
@@ -316,9 +320,9 @@ Object equalTo(String value)，Object equalTo(double value)，Object equalTo(boo
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-value | `String` ,`double`, `boolean`。|
+参数名 | 描述
+--- | ---
+value | `String` ,`double`, `boolean`。
 
 **返回值**
 
@@ -339,9 +343,9 @@ Query limitToFirst(int count)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-count | `int` 数量。|
+参数名 | 描述
+--- | ---
+count | `int` 数量。
 
 **返回值**
 
@@ -362,9 +366,9 @@ Query limitToLast(int count)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-count | `int` 数量。|
+参数名 | 描述
+--- | ---
+count | `int` 数量。
 
 **返回值**
 
@@ -385,7 +389,7 @@ SyncReference getRef()
 
 **返回值**
 
-SyncReference 节点引用。
+`SyncReference` 节点引用。
 </br>
 
 ---

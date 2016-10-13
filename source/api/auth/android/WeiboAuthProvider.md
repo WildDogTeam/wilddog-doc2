@@ -16,8 +16,6 @@ public static final String PROVIDER_ID
 **说明**
 
 返回使用的认证方式的类型唯一标识。值为"weibo"。
-
-
 </br>
 
 --- 
@@ -37,14 +35,14 @@ public static AuthCredential getCredential (String token,String openId)
 
 **参数**
 
-
-参数名 | 描述 |
---- | --- |
-token | 要创建WeiboAuthCredential的AccessToken。 |
-openId | 要创建WeiboAuthCredential的openId。 |
+参数名 | 描述
+--- | ---
+token | 要创建WeiboAuthCredential的AccessToken。
+openId | 要创建WeiboAuthCredential的openId。
 
 **返回值**
 
 AuthCredential 对象。
-
 </br>
+
+---

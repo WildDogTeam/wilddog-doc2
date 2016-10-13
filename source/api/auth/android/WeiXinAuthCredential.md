@@ -17,7 +17,9 @@ String getProvider ()
 
 返回使用的认证方式的类型唯一标识。值为"weixin"。
 
+**返回值**
 
+`String`认证方式的类型唯一标识。
 </br>
 
 --- 
@@ -34,7 +36,9 @@ public String getCode()
 
 返回微信授权认证返回的code。
 
+**返回值**
 
+`String`微信授权认证返回的code。
 </br>
 
 --- 

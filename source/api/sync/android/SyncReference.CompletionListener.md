@@ -16,10 +16,10 @@ void onComplete(SyncError error, SyncReference ref)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-error |`SyncError` 错误描述。|
-ref | `SyncReference` 到指定 Sync 节点的引用。|
+参数名 | 描述
+--- | ---
+error |`SyncError` 错误描述。
+ref | `SyncReference` 到指定 Sync 节点的引用。
 </br>
 
 ---

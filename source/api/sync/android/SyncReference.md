@@ -17,10 +17,10 @@ public  SyncReference child(String path)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
+参数名 | 描述
+--- | ---
 path | `String` path 为相对路径，多层级间需要使用"/"分隔，例如“a/b”。如果path为空或null则返回当前引用。如果直接选取下一级节点，可以使用无分隔符(/)的节点名称表示，例如“a”。如果定位的path不存在，依然可以定位，后续数据操作的时候，将延迟动态创建不存在的路径节点。
-|
+
 
 **返回值**
 
@@ -62,7 +62,7 @@ public  WilddogSync getSync()
 
 **返回值**
 
-WilddogSync 实例。
+`WilddogSync` 实例。
 </br>
 
 ---
@@ -173,7 +173,7 @@ public  static void goOnline()
 **定义**
 
 ```java
-public  sOnDisconnect onDisconnect()
+public  OnDisconnect onDisconnect()
 ```
 
 **说明**
@@ -261,9 +261,9 @@ void removeValue(SyncReference.CompletionListener listener)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-listener | listener包含一个回调函数`onComplete`，如果执行完成，`onComplete`函数将会被调用。|
+参数名 | 描述
+--- | ---
+listener | listener包含一个回调函数`onComplete`，如果执行完成，`onComplete`函数将会被调用。
 
 
 
@@ -296,13 +296,13 @@ void runTransaction(Transaction.Handler handler)
 
 **说明**
 
-在当前路径下，自动修改数据。与 set() 不同，直接覆盖以前的数据，runTransaction() 能够确保不同客户端同时修改，没有冲突。
+在当前路径下，自动修改数据。与 setValue() 不同，直接覆盖以前的数据，runTransaction() 能够确保不同客户端同时修改，没有冲突。
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-handler |Transaction.Handler|
+参数名 | 描述
+--- | ---
+handler |Transaction.Handler
 
 
 
@@ -354,9 +354,9 @@ void setPriority(Object priority)
 
 **参数**
 
-   参数名 | 描述 |
-   --- | --- |
-   priority |`Object` 指定节点的优先级。|
+   参数名 | 描述
+   --- | ---
+   priority |`Object` 指定节点的优先级。
 
    </br>
 
@@ -384,10 +384,10 @@ void setPriority(Object object, SyncReference.CompletionListener listener)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-priority |`Object` 指定节点的优先级。|
- listener |CompletionListener|
+参数名 | 描述
+--- | ---
+priority |`Object` 指定节点的优先级。
+ listener |`CompletionListener`
 
 </br>
 
@@ -407,12 +407,12 @@ priority |`Object` 指定节点的优先级。|
 
 **参数**
 
- 参数名 | 描述 |
- --- | --- |
+ 参数名 | 描述
+ --- | ---
   value |value的类型可以为String、Number、Boolean、null、Map或满足JavaBean规范的实体。
                 当value为String、Number、Boolean时，等价于当前节点的`updateChildren()`操作。
                 当value为null时，等价于当前节点的`removeValue()`操作。
-                当value为Map或JavaBean时，将value转为一颗子树替换当前value。|
+                当value为Map或JavaBean时，将value转为一颗子树替换当前value。
 
 
 
@@ -458,13 +458,13 @@ priority |`Object` 指定节点的优先级。|
 
 **参数**
 
- 参数名 | 描述 |
- --- | --- |
+ 参数名 | 描述
+ --- | ---
   value |`Object` value的类型可以为String、Number、Boolean、null、Map或满足JavaBean规范的实体。
          当value为String、Number、Boolean时，等价于Path对应的Node的`updateChildren()`操作。
-         当value为null时，等价于Path对应的Node的`removeValue()`操作。
-         当value为Map或JavaBean时，将value转为一颗子树替换当前value。|
- listener | `CompletionListener` listener包含一个callback函数，用户可以实现`onComplete`函数，如果某个callback函数没有响应的处理，接口实现为`{}`函数即可。`setValue(value)`等价于`setValue(value, null)`。 |
+                  当value为null时，等价于Path对应的Node的`removeValue()`操作。
+                  当value为Map或JavaBean时，将value转为一颗子树替换当前value。
+ listener | `CompletionListener` listener包含一个callback函数，用户可以实现`onComplete`函数，如果某个callback函数没有响应的处理，接口实现为`{}`函数即可。`setValue(value)`等价于`setValue(value, null)`。
 
 
 **示例**
@@ -534,9 +534,9 @@ priority |`Object` 指定节点的优先级。|
 
 **参数**
 
- 参数名 | 描述 |
- --- | --- |
-  value |`Map<String, Object>` 当value为null时，等价于`removeValue()`操作。|
+ 参数名 | 描述
+ --- | ---
+  value |`Map<String, Object>` 当value为null时，等价于`removeValue()`操作。
 
 
 **示例**
@@ -566,10 +566,10 @@ void updateChildren(Map<String, Object> update, SyncReference.CompletionListener
 
 **参数**
 
- 参数名 | 描述 |
- --- | --- |
-  value |`Map<String, Object>` 当value为null时，等价于`removeValue()`操作。|
-listener |`CompletionListener` listener包含一个回调函数`onComplete`，如果执行完成，`onComplete`函数将会被调用。|
+ 参数名 | 描述
+ --- | ---
+  value |`Map<String, Object>` 当value为null时，等价于`removeValue()`操作。
+listener |`CompletionListener` listener包含一个回调函数`onComplete`，如果执行完成，`onComplete`函数将会被调用。
 
 
 **示例**

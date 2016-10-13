@@ -18,7 +18,9 @@ String getProvider ()
 
 返回使用的认证方式的类型唯一标识。例如："weixin"，"qq"，"weibo"，"password"。
 
+**返回值**
 
+`String` 认证方式的类型唯一标识。
 </br>
 
 --- 

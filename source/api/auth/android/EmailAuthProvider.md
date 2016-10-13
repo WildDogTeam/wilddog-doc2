@@ -17,7 +17,9 @@ public static final String PROVIDER_ID
 
 返回使用的认证方式的类型唯一标识。值为"password"。
 
+**返回值**
 
+`String` 认证方式的类型唯一标识。
 </br>
 
 --- 
@@ -38,10 +40,10 @@ public static AuthCredential getCredential (String email, String password)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-email | 要创建EmailAuthCredential的邮箱地址。 |
-password | 要创建EmailAuthCredential的密码。  |
+参数名 | 描述
+--- | ---
+email | 要创建EmailAuthCredential的邮箱地址。
+password | 要创建EmailAuthCredential的密码。
 
 **返回值**
 

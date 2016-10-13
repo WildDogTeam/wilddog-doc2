@@ -16,6 +16,15 @@ public UserProfileChangeRequest.Builder setDisplayName (String displayName)
 
 设置要修改的昵称信息 
 
+**参数**
+
+参数名 | 描述
+--- | ---
+displayName |用户昵称。
+
+**返回值**
+
+UserProfileChangeRequest.Builder 对象。
 
 </br>
 
@@ -33,7 +42,15 @@ public UserProfileChangeRequest.Builder setPhotoUri (Uri photoUri)
 
 设置要修改的头像URL
 
+**参数**
 
+参数名 | 描述
+--- | ---
+photoUri |用户头像url。
+
+**返回值**
+
+UserProfileChangeRequest.Builder 对象。
 </br>
 
 ---  
@@ -49,6 +66,9 @@ public UserProfileChangeRequest build ()
 
 构造一个UserProfileChangeRequest对象。
 
+**返回值**
+
+UserProfileChangeRequest 对象。
 
 </br>
 

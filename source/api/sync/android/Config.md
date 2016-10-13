@@ -17,9 +17,9 @@ void setLogger(Logger logger)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-logger | `Logger` 定制的日志。|
+参数名 | 描述
+--- | ---
+logger | `Logger` 定制的日志。
 </br>
 
 ---
@@ -37,9 +37,9 @@ void setEventTarget(EventTarget eventTarget)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-eventTarget | `EventTarget`  负责触发回调的对象。|
+参数名 | 描述
+--- | ---
+eventTarget | `EventTarget`  负责触发回调的对象。
 
 </br>
 
@@ -57,9 +57,9 @@ void setLogLevel(Logger.Level logLevel)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-logLevel | `Logger.Level` 所需最低的日志等级。|
+参数名 | 描述
+--- | ---
+logLevel | `Logger.Level` 所需最低的日志等级。
 </br>
 
 ---
@@ -76,9 +76,9 @@ void setDebugLogComponents(List<String> debugComponents)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-debugComponents | `List<String> ` 一系列日志需要的组件，或者设置为null使所有组件可行。|
+参数名 | 描述
+--- | ---
+debugComponents | `List<String> ` 一系列日志需要的组件，或者设置为null使所有组件可行。
 </br>
 
 ---
@@ -96,9 +96,9 @@ void setAuthenticationServer(String host)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-host | `String` 用于认证的server。|
+参数名 | 描述
+--- | ---
+host | `String` 用于认证的server。
 </br>
 
 ---
@@ -116,9 +116,9 @@ void setSessionPersistenceKey(String sessionKey)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-sessionKey | `String` 用于标识session的标识符名称。|
+参数名 | 描述
+--- | ---
+sessionKey | `String` 用于标识session的标识符名称。
 </br>
 
 ---

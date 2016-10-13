@@ -14,9 +14,11 @@ public String	getDisplayName()
 
 **说明**
 
-返回要修改的昵称信息 
+返回要修改的昵称信息。
 
+**返回值**
 
+`String` 昵称信息。
 </br>
 
 ---
@@ -31,9 +33,11 @@ public Uri	getPhotoUri()
 
 **说明**
 
-返回要修改的头像URL
+返回要修改的头像URL。
 
+**返回值**
 
+`Uri` 头像URL。
 </br>
 
 ---  

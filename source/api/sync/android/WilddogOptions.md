@@ -17,7 +17,7 @@ Sync 的根路径 URL, e.g. `http://your-appid.wilddogio.com`.
 
 **返回值**
 
-WilddogSync的根节点路径。
+`String`WilddogSync的根节点路径。
 </br>
 
 --- 

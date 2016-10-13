@@ -17,13 +17,13 @@ MutableData child(String node)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-node | `String`  子节点名称。|
+参数名 | 描述
+--- | ---
+node | `String`  子节点名称。
 
 **返回值**
 
-MutableData 对象。
+`MutableData` 对象。
 </br>
 
 ---
@@ -40,7 +40,7 @@ Iterator<MutableData> getChildren()
 
 **返回值**
 
-当前节点的即时子节点。
+`Iterator<MutableData>`当前节点的即时子节点。
 </br>
 
 ---
@@ -91,7 +91,7 @@ MutableData getParent()
 
 **返回值**
 
-MutableData 。
+`MutableData` 。
 </br>
 
 ---
@@ -125,9 +125,9 @@ boolean hasChild(String key)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-key | `String`  子节点名称。|
+参数名 | 描述
+--- | ---
+key | `String`  子节点名称。
 
 **返回值**
 
@@ -165,9 +165,9 @@ void setPriority(Object priority)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-priority | `Object`。|
+参数名 | 描述
+--- | ---
+priority | `Object`。
 
 </br>
 
@@ -186,9 +186,9 @@ void setValue(Object value)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-value | `Object`。|
+参数名 | 描述
+--- | ---
+value | `Object`。
 
 </br>
 

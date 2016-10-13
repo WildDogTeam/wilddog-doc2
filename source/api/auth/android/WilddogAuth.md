@@ -42,9 +42,9 @@ WilddogAuth SDK 入口对象。进行登录认证操作。
 **参数**
 
 
-参数名 | 描述|
---- | ---|
-listener | 监听用户状态的AuthStateListener 实例。|
+参数名 | 描述
+--- | ---
+listener | 监听用户状态的AuthStateListener 实例。
 </br>
 
 ---
@@ -67,11 +67,16 @@ listener | 监听用户状态的AuthStateListener 实例。|
 
 **参数**
 
-参数名 | 描述|
---- | ---|
-email | 要创建用户的邮箱地址。|
-password | 要创建用户的密码。|
+参数名 | 描述
+--- | ---
+email | 要创建用户的邮箱地址。
+password | 要创建用户的密码。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
 </br>
+
 ---  
 ### fetchProvidersForEmail (email)
 
@@ -87,10 +92,15 @@ public Task<ProviderQueryResult> fetchProvidersForEmail (String email)
 
 **参数**
 
-参数名 | 描述|
---- | ---|
-email | 用户信息中设置的邮箱地址。|
+参数名 | 描述
+--- | ---
+email | 用户信息中设置的邮箱地址。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
 </br>
+
 ---  
 ### getCurrentUser ()
 
@@ -108,9 +118,9 @@ public WilddogUser getCurrentUser ()
 
 **参数**
 
-参数名 | 描述|
---- | ---|
-email | 用户信息中设置的邮箱地址。|
+参数名 | 描述
+--- | ---
+email | 用户信息中设置的邮箱地址。
 
 **返回值**
 
@@ -152,9 +162,9 @@ public static WilddogAuth getInstance(WilddogApp wilddogapp)
 
 **参数**
 
-参数名 | 描述|
---- | ---|
-wilddogapp | 包含特定appId的WilddogApp实例。|
+参数名 | 描述
+--- | ---
+wilddogapp | 包含特定appId的WilddogApp实例。
 
 **返回值**
 
@@ -176,9 +186,9 @@ public void removeAuthStateListener (WilddogAuth.AuthStateListener listener)
 
 **参数**
 
-参数名 | 描述|
---- | ---|
-listener | 之前已经注册的监听对象。|
+参数名 | 描述
+--- | ---
+listener | 之前已经注册的监听对象。
 </br>
 
 --- 
@@ -196,9 +206,13 @@ public Task<Void> sendPasswordResetEmail (String email)
 
 **参数**
 
-参数名 | 描述|
---- | ---|
-email | 要重置密码的邮箱地址。|
+参数名 | 描述
+--- | ---
+email | 要重置密码的邮箱地址。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
 </br>
 
 --- 
@@ -218,6 +232,9 @@ public Task<AuthResult> signInAnonymously ()
    
 一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法.
 
+**返回值**
+
+`Task`包含操作结果的任务对象。
 </br>
 
 --- 
@@ -237,9 +254,13 @@ public Task<AuthResult> signInWithCredential (AuthCredential credential)
 
 **参数**
 
-参数名 | 描述|
---- | ---|
-credential | 要登录的特定的AuthRedential。|
+参数名 | 描述
+--- | ---
+credential | 要登录的特定的AuthRedential。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
 </br>
 
 ---
@@ -263,9 +284,13 @@ public Task<AuthResult> signInWithCustomToken (String token)
 
 **参数**
 
-参数名 | 描述|
---- | ---|
-token | 用户自定义的Wilddog Custom Token。|
+参数名 | 描述
+--- | ---
+token | 用户自定义的Wilddog Custom Token。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
 </br>
 
 --- 
@@ -289,10 +314,14 @@ public Task<AuthResult> signInWithEmailAndPassword (String email, String passwor
 
 **参数**
 
-参数名 | 描述|
---- | ---|
-email | 用户用来登录的邮箱地址。|
-password | 用户用来登录的密码。|
+参数名 | 描述
+--- | ---
+email | 用户用来登录的邮箱地址。
+password | 用户用来登录的密码。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
 </br>
 
 ---

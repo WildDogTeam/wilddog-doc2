@@ -16,9 +16,9 @@ void onCancelled(SyncError error)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-error |`DataSnapshot` 发生错误的描述。|
+参数名 | 描述
+--- | ---
+error |`DataSnapshot` 发生错误的描述。
 
 
 </br>
@@ -37,9 +37,9 @@ void onDataChange(DataSnapshot snapshot)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-snapshot |`DataSnapshot` 新添加的子节点的数据快照。|
+参数名 | 描述
+--- | ---
+snapshot |`DataSnapshot` 新添加的子节点的数据快照。
 </br>
 
 ---

@@ -18,7 +18,7 @@ public static WilddogSync getInstance ()
 
 **返回值**
 
-WilddogSync 实例
+`WilddogSync` 实例。
 </br>
 
 ---
@@ -36,7 +36,7 @@ public SyncReference getReference ()
 
 **返回值**
 
-SyncReference 实例
+`SyncReference`实例。
 </br>
 
 ---
@@ -52,16 +52,15 @@ SyncReference getReference (String path)
 
 用有效的路径去获得一个 SyncReference 实例。
 
-
 **参数**
 
-参数名 | 描述 |
---- | --- |
-path | 从根节点起要获取的节点路径。|
+参数名 | 描述
+--- | ---
+path | 从根节点起要获取的节点路径。
 
 **返回值**
 
-SyncReference 实例
+`SyncReference` 实例。
 </br>
 
 ---
@@ -80,13 +79,13 @@ SyncReference getReferenceFromUrl (String url)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-url | 到指定节点的url。|
+参数名 | 描述
+--- | ---
+url | 到指定节点的url。
 
 **返回值**
 
-SyncReference 实例
+SyncReference 实例。
 </br>
 
 ---
@@ -102,8 +101,6 @@ static void goOffline()
 
 手动关闭连接，关闭自动连接。
 注意：调用此方法会影响到所有 Sync 连接。
-
-
 </br>
 
 ---
@@ -119,8 +116,6 @@ static void goOnline()
 
 手动建立连接，开启自动重连。
 注意：调用此方法会影响到所有 Sync 连接。
-
-
 </br>
 
 ---

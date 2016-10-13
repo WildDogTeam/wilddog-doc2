@@ -38,12 +38,13 @@ public static AuthCredential getCredential (String code)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-code | 要创建WeiboAuthCredential的code，在baseResp对象中获取的。 |
+参数名 | 描述
+--- | ---
+code | 要创建WeiboAuthCredential的code，在BaseResp对象中获取的。
 
 **返回值**
 
 AuthCredential 对象。
-
 </br>
+
+---

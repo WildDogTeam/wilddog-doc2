@@ -189,13 +189,13 @@ WilddogException fromException(Throwable e)
 
 **参数**
 
- 参数名 | 描述 |
- --- | --- |
-  e |一个普通异常对象|
+ 参数名 | 描述
+ --- | ---
+  e |一个普通异常对象
 
 **返回值**
 
-WilddogException
+`WilddogException`
 
 
 </br>
@@ -215,13 +215,13 @@ SyncError fromStatus(String status)
 
 **参数**
 
- 参数名 | 描述 |
- --- | --- |
-  status |`SyncError` The status string。|
+ 参数名 | 描述
+ --- | ---
+  status |`SyncError` The status string。
 
 **返回值**
 
-SyncError
+`SyncError`
 
 
 </br>

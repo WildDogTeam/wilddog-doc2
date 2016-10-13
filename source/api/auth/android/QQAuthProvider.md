@@ -16,8 +16,6 @@ public static final String PROVIDER_ID
 **说明**
 
 返回使用的认证方式的类型唯一标识。值为"qq"。
-
-
 </br>
 
 --- 
@@ -38,9 +36,9 @@ public static AuthCredential getCredential (String token)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-token | 要创建QQAuthCredential的AccessToken。 |
+参数名 | 描述
+--- | ---
+token | 要创建QQAuthCredential的AccessToken。
 
 **返回值**
 

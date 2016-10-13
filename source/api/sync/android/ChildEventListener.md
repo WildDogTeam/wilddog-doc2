@@ -16,9 +16,9 @@ void onCancelled(SyncError error)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-error |`SyncError` 发生错误的描述。|
+参数名 | 描述
+--- | ---
+error |`SyncError` 发生错误的描述。
 
 
 </br>
@@ -38,10 +38,10 @@ void onChildAdded(DataSnapshot snapshot,
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-snapshot |`DataSnapshot` 新添加的子节点数据快照。|
-previousChildName |`String` 排在被添加的新子节点前面的兄弟节点的key值。如果被添加的是当前节点的第一个子节点，该值为null。|
+参数名 | 描述
+--- | ---
+snapshot |`DataSnapshot` 新添加的子节点数据快照。
+previousChildName |`String` 排在被添加的新子节点前面的兄弟节点的key值。如果被添加的是当前节点的第一个子节点，该值为null。
 
 </br>
 
@@ -60,10 +60,10 @@ void onChildChanged(DataSnapshot snapshot,
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-snapshot |`DataSnapshot` 新子节点数据的快照。|
-previousChildName |`String` 排在被修改的新子节点前面的兄弟节点的key值。如果改变的是当前节点的第一个子节点，该值为null。|
+参数名 | 描述
+--- | ---
+snapshot |`DataSnapshot` 新子节点数据的快照。
+previousChildName |`String` 排在被修改的新子节点前面的兄弟节点的key值。如果改变的是当前节点的第一个子节点，该值为null。
 
 </br>
 
@@ -82,10 +82,10 @@ void onChildMoved(DataSnapshot snapshot,
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-snapshot |`DataSnapshot` 节点排序发生变化时的数据快照。|
-previousChildName |`String` 排在被修改的新子节点前面的兄弟节点的key值。如果改变的是当前节点的第一个子节点，该值为null。|
+参数名 | 描述
+--- | ---
+snapshot |`DataSnapshot` 节点排序发生变化时的数据快照。
+previousChildName |`String` 排在被修改的新子节点前面的兄弟节点的key值。如果改变的是当前节点的第一个子节点，该值为null。
 
 </br>
 
@@ -103,9 +103,9 @@ void onChildRemoved(DataSnapshot snapshot)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-snapshot |`DataSnapshot` 被删除子节点的数据快照。|
+参数名 | 描述
+--- | ---
+snapshot |`DataSnapshot` 被删除子节点的数据快照。
 </br>
 
 ---

@@ -17,11 +17,11 @@ Android Context 实例，获取当前WilddogApp初始化的Context实例对象�
 
 **返回值**
 
-Android Context 实例。
+ `Context` Android Context实例。
 </br>
 
 --- 
-### getInstance( name)
+### getInstance(name)
 **定义**
 
 ```java
@@ -36,13 +36,13 @@ static WilddogApp getInstance (String name)
 **参数**
 
 
-参数名 | 描述 |
---- | --- |
-name | WilddogApp初始化时设置的name。|
+参数名 | 描述
+--- | ---
+name | WilddogApp初始化时设置的name。
 
 **返回值**
 
-返回WilddogApp 实例。
+`WilddogApp` 实例。
 </br>
 
 --- 
@@ -59,7 +59,7 @@ static WilddogApp getInstance ()
 
 **返回值**
 
-返回WilddogApp 实例。
+`WilddogApp` 实例。
 </br>
 
 --- 
@@ -76,11 +76,12 @@ String getName ()
 
 **返回值**
 
-返回当前WilddogApp的别称。
+`String`当前WilddogApp的别称。
 </br>
 
 --- 
 ### getOptions()
+
 **定义**
 
 ```java
@@ -92,7 +93,7 @@ WilddogOptions getOptions ()
 当前WilddogApp 的配置信息。可以拿到app的url信息。
 
 **返回值**
-WilddogOptions 实例对象。
+`WilddogOptions` 实例对象。
 </br>
 
 --- 
@@ -110,14 +111,14 @@ static WilddogApp initializeApp (Context context, WilddogOptions options, String
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-context | Android Context 实例对象。|
-options | 配置好当前应用的WilddogOptions实例对象。|
-name | 开发者自己起名的应用名称。这个名字只能包含字母、数组和下划线 |
+参数名 | 描述
+--- | ---
+context | Android Context 实例对象。
+options | 配置好当前应用的WilddogOptions实例对象。
+name | 开发者自己起名的应用名称。这个名字只能包含字母、数组和下划线。
 
 **返回值**
-WilddogApp 实例对象。
+`WilddogApp` 实例对象。
 </br>
 
 --- 
@@ -135,13 +136,13 @@ static WilddogApp initializeApp (Context context, WilddogOptions options)
 
 **参数**
 
-参数名 | 描述 |
---- | --- |
-context | Android Context 实例对象。|
-options | 配置好当前应用的WilddogOptions实例对象。|
+参数名 | 描述
+--- | ---
+context | Android Context 实例对象。
+options | 配置好当前应用的WilddogOptions实例对象。
 
 **返回值**
-WilddogApp 实例对象。
+`WilddogApp` 实例对象。
 </br>
 
 --- 

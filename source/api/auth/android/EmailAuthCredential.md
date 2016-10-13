@@ -17,7 +17,9 @@ String getProvider ()
 
 返回使用的认证方式的类型唯一标识。例如："weixin"，"qq"，"weibo"，"password"。
 
+**返回值**
 
+`String` 认证方式的类型唯一标识。
 </br>
 
 --- 
@@ -34,7 +36,9 @@ String getEmail ()
 
 将要创建的邮箱认证方式的邮箱地址。
 
+**返回值**
 
+`String` 邮箱地址。
 </br>
 
 --- 
@@ -50,7 +54,9 @@ String getPassword ()
 
 将要创建的邮箱认证方式的密码。
 
+**返回值**
 
+`String` 密码。
 </br>
 
 --- 
