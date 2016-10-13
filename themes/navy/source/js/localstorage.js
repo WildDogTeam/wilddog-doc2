@@ -97,7 +97,7 @@ var currentUrls = {
   api: '',
   resources: '',
   console: ''
-}
+};
 currentUrls = JSON.parse(localStorage.getItem('navsrc')) || currentUrls;
 
 var navlinks = ['overview', 'quickstart', 'guide', 'api', 'resources', 'console'];
