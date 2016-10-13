@@ -131,7 +131,6 @@ api:
        ChildEventListener: /api/sync/android/ChildEventListener.html
        Config: /api/sync/android/Config.html
        DataSnapshot: /api/sync/android/DataSnapshot.html
-       error-code: /api/sync/android/error-code.html
        MutableData: /api/sync/android/MutableData.html
        OnDisconnect: /api/sync/android/OnDisconnect.html
        Query: /api/sync/android/Query.html
@@ -144,6 +143,7 @@ api:
        WilddogOptions.Builder: /api/sync/android/WilddogOptions.Builder.html
        WilddogOptions: /api/sync/android/WilddogOptions.html
        WilddogSync: /api/sync/android/WilddogSync.html
+       错误码: /api/sync/android/error-code.html
     iOS: 
       WDGSync: /api/sync/ios/WDGSync.html
       WDGSyncReference: /api/sync/ios/WDGSyncReference.html
