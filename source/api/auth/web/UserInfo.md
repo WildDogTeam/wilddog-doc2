@@ -80,6 +80,6 @@ string
 
 **说明**
 
-Wilddog Id
+用户唯一ID
 
 </br>
