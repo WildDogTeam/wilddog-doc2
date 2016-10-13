@@ -1,4 +1,4 @@
-﻿title: 建立会话
+title: 建立会话
 ---
 
 本篇文档介绍如何初始化 Client、配置本地媒体流，以及发起会话。
@@ -15,7 +15,6 @@
 
 ```javascript
 var config = {
-  authDomain: "<appId>.wilddog.com",
   syncURL: "https://<appId>.wilddogio.com"
 };
 //初始化Wilddog Sync

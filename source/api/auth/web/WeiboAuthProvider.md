@@ -2,18 +2,18 @@
 title: WeiboAuthProvider
 ---
 
-WeiboAuthProvider 是新浪微博登录方式中provider类
+WeiboAuthProvider 是新浪微博登录方式中 provider 类
 
 ## 构造器
-###new WeiboAuthProvider()
+### new WeiboAuthProvider()
 
 **定义**
 
-继承自[Provider](/api/auth/web/Provider.html)
+继承自 [Provider](/api/auth/web/Provider.html)
 
 **返回值**
 
-[wilddog.Credential](/api/auth/web/Credential.html)
+[wilddog.auth.Credential](/api/auth/web/Credential.html)
 
 </br>
 
@@ -39,14 +39,15 @@ string
 **定义**
 
 ```js
-credential(arg1)
+credential(arg1,arg2)
 ```
 
 **参数**
 
-| 参数名 | 说明 |
-|---|---|
-| arg1 | string类型，accessToken的值 |
+| 参数名  | 说明                       |
+| ---- | ------------------------ |
+| arg1 | string 类型，accessToken 的值 |
+| arg2 | string 类型，uid 的值 |
 
 
 </br>
@@ -63,7 +64,7 @@ addScope(scope)
 
 **参数**
 
-| 参数名 | 说明 |
-|---|---|
-| scope| string类型，新浪微博OAuth的scope值 |
+| 参数名   | 说明                             |
+| ----- | ------------------------------ |
+| scope | string 类型，新浪微博 OAuth 的 scope 值 |
 

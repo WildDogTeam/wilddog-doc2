@@ -2,7 +2,7 @@
 title: Auth
 ---
 
-Auth 对象负责用户认证及密码找回等功能，它不能直接创建，只能通过 wilddog.App 实例的 [auth](/api/auth/web.html#auth) 方法获得。
+wilddog.Auth 对象负责用户认证及密码找回等功能，它不能直接创建，只能通过 wilddog.App 实例的 [auth](/api/auth/web.html#auth) 方法获得。
 
 ## 属性
 
@@ -43,9 +43,9 @@ onAuthStateChanged(callback)
 
 **参数**
 
-参数名 | 描述
---- | ---
-callback |定义为function([user](/api/auth/web/User.html))，auth 状态变为登录状态时传回 user 对象，auth 状态变为登出时返回值为 null。
+| 参数名      | 描述                                       |
+| -------- | ---------------------------------------- |
+| callback | 定义为function([user](/api/auth/web/User.html))，auth 状态变为登录状态时传回 user 对象，auth 状态变为登出时返回值为 null。 |
 
 
 **示例**
@@ -78,10 +78,10 @@ createUserWithEmailAndPassword(email, password)
 
 **参数**
 
-参数名 | 描述
---- | ---
-email | 用户的邮箱地址。
-password | 用户指定的密码。
+| 参数名      | 描述       |
+| -------- | -------- |
+| email    | 用户的邮箱地址。 |
+| password | 用户指定的密码。 |
 
 **返回值**
 
@@ -137,10 +137,10 @@ wilddog.auth().signInWithEmailAndPassword(email, password)
 
 **参数**
 
-参数名 | 描述
---- | ---
-email | 用户的邮箱地址。
-password | 用户指定的密码。
+| 参数名      | 描述       |
+| -------- | -------- |
+| email    | 用户的邮箱地址。 |
+| password | 用户指定的密码。 |
 
 **参考**
 
@@ -171,9 +171,9 @@ signInWithPopup(provider)
 **参数**
 
 
-参数名 | 描述
---- | ---
-provider | [provider](/api/auth/web/Provider.html)为特定身份提供商实例。
+| 参数名      | 描述                                       |
+| -------- | ---------------------------------------- |
+| provider | [provider](/api/auth/web/Provider.html)为特定身份提供商实例。 |
 
 **参考**
 
@@ -189,11 +189,11 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
 
 **参考**
 
-使用第三方认证方式进行Popup登录。
+使用第三方认证方式进行 Popup 登录。
 
 可能发生的错误：
 
--  authentication_disabled 表示Oauth登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+-  authentication_disabled 表示 Oauth 登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 -  [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 
@@ -216,9 +216,9 @@ signInWithRedirect(provider)
 **参数**
 
 
-参数名 | 描述
---- | ---
-provider | [provider](/api/auth/web/Provider.html) 为特定身份提供商实例。
+| 参数名      | 描述                                       |
+| -------- | ---------------------------------------- |
+| provider | [provider](/api/auth/web/Provider.html) 为特定身份提供商实例。 |
 
 **示例**
 
@@ -235,7 +235,7 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
 
 可能发生的错误：
 
--  authentication_disabled 表示Oauth登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+-  authentication_disabled 表示 Oauth 登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 -  [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 </br>
@@ -258,9 +258,9 @@ signInWithCustomToken(token)
 **参数**
 
 
-参数名 | 描述
---- | ---
-token | 自定义的 token。
+| 参数名   | 描述          |
+| ----- | ----------- |
+| token | 自定义的 token。 |
 
 **示例**
 
@@ -297,9 +297,9 @@ signInWithCredential(credential)
 
 **参数**
 
-参数名 | 描述
---- | ---
-credential | [wilddog.auth.Credentia](/api/auth/web/Credential.html) 第三方提供的凭证。
+| 参数名        | 描述                                       |
+| ---------- | ---------------------------------------- |
+| credential | [wilddog.auth.Credential](/api/auth/web/Credential.html) 第三方提供的凭证。 |
 
 **示例**
 
@@ -319,7 +319,7 @@ wilddog.auth().signInWithCredential(credential).then(function(user){
 
 - authentication_disabled 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
 - invalid_email 表示邮箱错误。
-- invalid_password 表示m密码错误。
+- invalid_password 表示密码错误。
 - [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
 
 </br>
@@ -340,9 +340,9 @@ sendPasswordResetEmail(email)
 
 **参数**
 
-参数名 | 描述
---- | ---
-email | string类型，用户的邮箱地址。
+| 参数名   | 描述                 |
+| ----- | ------------------ |
+| email | string 类型，用户的邮箱地址。 |
 
 **参考**
 

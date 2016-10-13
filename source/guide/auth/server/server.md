@@ -1,3 +1,4 @@
+
 title: 使用 Server SDK 进行认证
 ---
 
@@ -31,7 +32,7 @@ Custom Token payload：
     }
 ```
 
-其中claims是固定字段 claims1,claims2是动态自定义字段。
+其中 uid 为不超过64位的字符串，字符串中只允许数字、大小写字母以及"-"。 claims 是固定字段 claims1,claims2 是动态自定义字段。
 
 用户可以通过 Wilddog 的 Server SDK 对个人系统的用户生成 Custom Token。
 我们将提供 java 和 Nodejs 两种语言的 Server SDK:
@@ -77,7 +78,7 @@ wilddog.auth.signInWithCustomToken(customToken).catch(function(error)){
 
 ## 校验ID Token
 
-如果你的 Wilddog 客户端 APP 与自己的后端服务器有业务关联，你也许需要在后端服务中校验当前登录用户的合法性。当客户端用户成功登陆后，将Wilddog服务返回的ID Token 使用 HTTPS 发送给自有后端服务器，在服务中，调用 Wilddog 提供的校验接口校验用户的合法性。
+如果你的 Wilddog 客户端 APP 与自己的后端服务器有业务关联，你也许需要在后端服务中校验当前登录用户的合法性。当客户端用户成功登陆后，将 Wilddog 服务返回的 ID Token 使用 HTTPS 发送给自有后端服务器，在服务中，调用 Wilddog 提供的校验接口校验用户的合法性。
 
 **在客户端获取用户ID Token**
 
