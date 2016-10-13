@@ -39,7 +39,7 @@ string
 **定义**
 
 ```js
-credential(arg1)
+credential(arg1,arg2)
 ```
 
 **参数**
@@ -47,6 +47,7 @@ credential(arg1)
 | 参数名  | 说明                       |
 | ---- | ------------------------ |
 | arg1 | string 类型，accessToken 的值 |
+| arg2 | string 类型，uid 的值 |
 
 
 </br>
