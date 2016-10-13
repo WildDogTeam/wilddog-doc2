@@ -2,7 +2,7 @@
 title: Promise
 ---
 
-Promise 对象表示一个事件（异步的）的值。Promsie 事件应当被完成（resovle）或者拒绝（reject），这个时候它会回调我们通过 then() 和 catch() 指派给它的回调函数。更多关于 Promise 编程规范的信息请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+wilddog.Promise 对象表示一个事件（异步的）的值。Promsie 事件应当被完成（resovle）或者拒绝（reject），这个时候它会回调我们通过 then() 和 catch() 指派给它的回调函数。更多关于 Promise 编程规范的信息请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ## 方法
 ### then
