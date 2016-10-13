@@ -194,7 +194,6 @@ api:
       #错误码: /api/video/ios/error-code.html
   身份认证:
     Web: 
-      API 文档: /api/auth/web/api.html
       App: /api/auth/web/App.html
       Auth: /api/auth/web/Auth.html
       User: /api/auth/web/User.html

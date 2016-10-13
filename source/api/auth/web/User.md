@@ -116,7 +116,7 @@ string
 
 **说明**
 
-当前账户登录使用的身份认证提供商名称，例如weibo，weixin。
+当前账户登录使用的身份认证提供商名称，例如 weibo，weixin。
 
 </br>
 
@@ -175,8 +175,8 @@ link(credential) returns firebase.Promise containing non-null firebase.User
 **参数**
 
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
+| 参数名        | 类型                                       | 属性         | 说明          |
+| ---------- | ---------------------------------------- | ---------- | ----------- |
 | credential | [wilddog.auth.Credential](/api/auth/web.html#wilddog-auth-Credential) | _non-null_ | 特定登录方式的认证凭据 |
 
 **返回值**
@@ -205,14 +205,14 @@ linkWithPopup(provider)
 
 **参数**
 
-| 参数名 |  说明 |
-|---|---|
-| provider | [wilddog.auth.Provider](/api/auth/web/Provider.html)类型，特定登录方式的实例 |
+| 参数名      | 说明                                       |
+| -------- | ---------------------------------------- |
+| provider | [wilddog.auth.Provider](/api/auth/web/Provider.html) 类型，特定登录方式的实例 |
 
 
 **说明**
 
-使用popup方式关联OAuth登录方式
+使用 popup 方式关联 OAuth 登录方式
 
 **返回值**
 
@@ -256,8 +256,8 @@ linkWithRedirect(provider)
 
 **参数**
 
-| 参数名 | 描述 |
-|---|---|
+| 参数名      | 描述                                       |
+| -------- | ---------------------------------------- |
 | provider | [wilddog.auth.Provider](/api/auth/web/Provider.html)类型，特定登录方式的实例 |
 
 **返回值**
@@ -304,9 +304,9 @@ unlink(providerId)
 
 **参数**
 
-参数名 | 描述
---- | ---
-providerId | providerId为特定身份提供商。野狗当前支持的各 Provider 的 ID : weibo、weixin、weixinmq、qq 和 password。
+| 参数名        | 描述                                       |
+| ---------- | ---------------------------------------- |
+| providerId | providerId为特定身份提供商。野狗当前支持的各 Provider 的 ID : weibo、weixin、weixinmq、qq 和 password。 |
 
 **返回值**
 
@@ -366,9 +366,9 @@ updateProfile(profile)
 
 **参数**
 
-| 参数名 | 说明 |
-|---|---|
-| profile | profile为object的类型，当前仅支持 `phototURL` 和 `displayName` **参数**，这两个参数至少需要有一个不为空。|
+| 参数名     | 说明                                       |
+| ------- | ---------------------------------------- |
+| profile | profile为object的类型，当前仅支持 `phototURL` 和 `displayName` **参数**，这两个参数至少需要有一个不为空。 |
 
 **返回值**
 
@@ -415,9 +415,9 @@ updateEmail(email)
 
 **参数**
 
-参数名 | 描述
---- | ---
-email | 新邮箱地址。
+| 参数名   | 描述     |
+| ----- | ------ |
+| email | 新邮箱地址。 |
 
 **返回值**
 
@@ -430,7 +430,7 @@ email | 新邮箱地址。
 
 - email_already_in_use            表示该电子邮件已被另一个帐户使用。
 - invalid_email                   表示该电子邮件地址格式不正确。
-- credential_too_old_login_again  更新用户电子邮件是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用reauthenticate(credential),来对该用户重新进行身份认证。
+- credential_too_old_login_again  更新用户电子邮件是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用 reauthenticate(credential),来对该用户重新进行身份认证。
 
 </br>
 
@@ -450,9 +450,9 @@ updatePassword(password)
 
 **参数**
 
-参数名 | 描述
---- | ---
-password | 新密码。
+| 参数名      | 描述   |
+| -------- | ---- |
+| password | 新密码。 |
 
 **返回值**
 [wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
@@ -461,7 +461,7 @@ password | 新密码。
 **参考**
 
 可能发生的错误：
-- credential_too_old_login_again 更新用户密码是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用reauthenticate(credential)，对该用户重新进行身份认证。
+- credential_too_old_login_again 更新用户密码是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用 reauthenticate(credential)，对该用户重新进行身份认证。
 
 </br>
 
@@ -481,8 +481,8 @@ reauthenticate(credential)
 
 **参数**
 
-| 参数名 | 说明 |
-|---|---|
+| 参数名        | 说明                                       |
+| ---------- | ---------------------------------------- |
 | credential | [wilddog.auth.Credential](/api/auth/web.html#wilddog-auth-Credential) 类型，特定登录方式的认证凭据 |
 
 

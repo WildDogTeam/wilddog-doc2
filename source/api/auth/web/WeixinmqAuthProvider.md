@@ -9,7 +9,7 @@ WeixinmqAuthProvider 是 微信公众账号登录方式中 provider 类
 
 **定义**
 
-继承自[Provider](/api/auth/web/Provider.html)
+继承自 [Provider](/api/auth/web/Provider.html)
 
 **返回值**
 
@@ -44,10 +44,10 @@ credential(arg1, arg2)
 
 **参数**
 
-| 参数名 | 说明 |
-|---|---|
-| arg1 | string 类型，accessToken的值 |
-| arg2 | string 类型，openId的值 |
+| 参数名  | 说明                       |
+| ---- | ------------------------ |
+| arg1 | string 类型，accessToken 的值 |
+| arg2 | string 类型，openId 的值      |
 
 
 </br>
@@ -64,7 +64,7 @@ addScope(scope)
 
 **参数**
 
-| 参数名 | 说明 |
-|---|---|
-| scope| string 类型，微信公众账号 OAuth 的 scope 值 |
+| 参数名   | 说明                               |
+| ----- | -------------------------------- |
+| scope | string 类型，微信公众账号 OAuth 的 scope 值 |
 

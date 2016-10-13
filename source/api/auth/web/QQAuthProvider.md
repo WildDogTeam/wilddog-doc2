@@ -2,14 +2,14 @@
 title: QQAuthProvider
 ---
 
-QQAuthProvider 是 QQ 登录方式中provider类
+QQAuthProvider 是 QQ 登录方式中 provider 类
 
 ## 构造器
 ### new QQAuthProvider()
 
 **定义**
 
-继承自[Provider](/api/auth/web/Provider.html)
+继承自 [Provider](/api/auth/web/Provider.html)
 
 </br>
 
@@ -40,10 +40,10 @@ credential(arg1, arg2)
 
 **参数**
 
-| 参数名 | 说明 |
-|---|---|
-| arg1 | string 类型，accessToken的值 |
-| arg2 | string 类型，openId的值 |
+| 参数名  | 说明                       |
+| ---- | ------------------------ |
+| arg1 | string 类型，accessToken 的值 |
+| arg2 | string 类型，openId 的值      |
 
 **返回值**
 
@@ -63,7 +63,7 @@ addScope(scope)
 
 **参数**
 
-| 参数名 | 说明 |
-|---|---|
-| scope| string 类型，QQ OAuth 的scope值 |
+| 参数名   | 说明                           |
+| ----- | ---------------------------- |
+| scope | string 类型，QQ OAuth 的 scope 值 |
 

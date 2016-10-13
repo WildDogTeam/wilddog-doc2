@@ -20,10 +20,10 @@ then(onResolved，[onReject])
 **参数**
 
 
-| 参数名 | 说明 |
-|---|---|
-| onResolved | function类型，Promise resolved 时的回调函数，回传参数是 Promise 事件的返回值 |
-| onReject | function类型，Promise rejected 时的回调函数，回传参数是一个 error 对象 |
+| 参数名        | 说明                                       |
+| ---------- | ---------------------------------------- |
+| onResolved | function 类型，Promise resolved 时的回调函数，回传参数是 Promise 事件的返回值 |
+| onReject   | function 类型，Promise rejected 时的回调函数，回传参数是一个 error 对象 |
 
 **返回值**
 
@@ -48,9 +48,9 @@ catch(onReject)
 **参数**
 
 
-| 参数名 | 说明 |
-|---|---|
-| onReject | function类型，Promise rejected 时的回调函数，回传参数是一个 error 对象|
+| 参数名      | 说明                                       |
+| -------- | ---------------------------------------- |
+| onReject | function 类型，Promise rejected 时的回调函数，回传参数是一个 error 对象 |
 
 **返回值**
 
