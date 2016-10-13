@@ -125,9 +125,26 @@ api:
     Web: 
       API 文档: /api/sync/web/api.html
       错误码: /api/sync/web/error-code.html
-    Android: 
-      API 文档: /api/sync/android/api.html
-      错误码: /api/sync/android/error-code.html
+    #Android:
+     # API 文档: /api/sync/android/api.html
+      #错误码: /api/sync/android/error-code.html
+    Android:
+       ChildEventListener: /api/sync/android/ChildEventListener.html
+       Config: /api/sync/android/Config.html
+       DataSnapshot: /api/sync/android/DataSnapshot.html
+       MutableData: /api/sync/android/MutableData.html
+       OnDisconnect: /api/sync/android/OnDisconnect.html
+       Query: /api/sync/android/Query.html
+       ServerValue: /api/sync/android/ServerValue.html
+       SyncError: /api/sync/android/SyncError.html
+       SyncReference.CompletionListener: /api/sync/android/SyncReference.CompletionListener.html
+       SyncReference: /api/sync/android/SyncReference.html
+       ValueEventListener: /api/sync/android/ValueEventListener.html
+       WilddogApp: /api/sync/android/WilddogApp.html
+       WilddogOptions.Builder: /api/sync/android/WilddogOptions.Builder.html
+       WilddogOptions: /api/sync/android/WilddogOptions.html
+       WilddogSync: /api/sync/android/WilddogSync.html
+       错误码: /api/sync/android/error-code.html
     iOS: 
       WDGSync: /api/sync/ios/WDGSync.html
       WDGSyncReference: /api/sync/ios/WDGSyncReference.html
@@ -138,6 +155,7 @@ api:
       WDGServerValue: /api/sync/ios/WDGServerValue.html
       WDGSyncConfig: /api/sync/ios/WDGSyncConfig.html
       WDGDataEventType: /api/sync/ios/WDGDataEventType.html
+      error-code: /api/sync/ios/error-code.html
     C/嵌入式: 
       API 文档: /api/sync/c/api.html
       错误码: /api/sync/c/error-code.html
@@ -156,7 +174,7 @@ api:
       MeetingCast: /api/video/web/meetingCast.html
       OutgoingInvite: /api/video/web/outgoingInvite.html
       IncomingInvite: /api/video/web/incomingInvite.html
-      错误码: /api/video/web/error-code.html
+      #错误码: /api/video/web/error-code.html
     Android:
       Video: /api/video/android/video.html
       ConversationClient: /api/video/android/conversation-client.html
@@ -176,7 +194,7 @@ api:
       MeetingCastStateListener: /api/video/android/meeting-cast-listener.html
       MeetingCastAddon: /api/video/android/meeting-cast-addon.html
 
-      错误码: /api/video/android/error-code.html
+      #错误码: /api/video/android/error-code.html
     iOS:
       WDGVideoClient: /api/video/ios/Classes/WDGVideoClient.html
       "&ltWDGVideoClientDelegate&gt": /api/video/ios/Protocols/WDGVideoClientDelegate.html
@@ -192,12 +210,44 @@ api:
       WDGVideoView: /api/video/ios/Classes/WDGVideoView.html
       WDGVideoMeetingCastAddon: /api/video/ios/Classes/WDGVideoMeetingCastAddon.html
       "&ltWDGVideoMeetingCastAddonDelegate&gt": /api/video/ios/Protocols/WDGVideoMeetingCastAddonDelegate.html
-      错误码: /api/video/ios/error-code.html
+      #错误码: /api/video/ios/error-code.html
   身份认证:
-    Web: 
-      API 文档: /api/auth/web/api.html
-      错误码: /api/auth/web/error-code.html
-    Android: /api/auth/android/api.html
+    Web:
+      App: /api/auth/web/App.html
+      Auth: /api/auth/web/Auth.html
+      User: /api/auth/web/User.html
+      UserInfo: /api/auth/web/UserInfo.html
+      Provider: /api/auth/web/Provider.html
+      EmailAuthProvider: /api/auth/web/EmailAuthProvider.html
+      WeiboAuthProvider: /api/auth/web/WeiboAuthProvider.html
+      QQAuthProvider: /api/auth/web/QQAuthProvider.html
+      WeixinAuthProvider: /api/auth/web/WeixinAuthProvider.html
+      WeixinmpAuthProvider: /api/auth/web/WeixinmpAuthProvider.html
+      Credential: /api/auth/web/Credential.html
+      Promise: /api/auth/web/Promise.html
+      Void: /api/auth/web/Void.html
+      Error: /api/auth/web/error-code.html
+    #Android: /api/auth/android/api.html
+    Android:
+      AuthCredential: /api/auth/android/AuthCredential.html
+      AuthResult: /api/auth/android/AuthResult.html
+      EmailAuthCredential: /api/auth/android/EmailAuthCredential.html
+      EmailAuthProvider: /api/auth/android/EmailAuthProvider.html
+      GetTokenResult: /api/auth/android/GetTokenResult.html
+      ProviderQueryResult: /api/auth/android/ProviderQueryResult.html
+      QQAuthCredential: /api/auth/android/QQAuthCredential.html
+      QQAuthProvider: /api/auth/android/QQAuthProvider.html
+      UserInfo: /api/auth/android/UserInfo.html
+      UserProfileChangeRequest.Builder: /api/auth/android/UserProfileChangeRequest.Builder.html
+      UserProfileChangeRequest: /api/auth/android/UserProfileChangeRequest.html
+      WeiboAuthCredential: /api/auth/android/WeiboAuthCredential.html
+      WeiboAuthProvider: /api/auth/android/WeiboAuthProvider.html
+      WeiXinAuthCredential: /api/auth/android/WeiXinAuthCredential.html
+      WeiXinAuthProvider: /api/auth/android/WeiXinAuthProvider.html
+      WilddogAuth.AuthStateListener: /api/auth/android/WilddogAuth.AuthStateListener.html
+      WilddogAuth: /api/auth/android/WilddogAuth.html
+      WilddogAuthProvider: /api/auth/android/WilddogAuthProvider.html
+      WilddogUser: /api/auth/android/WilddogUser.html
     #iOS:
       #API 文档: /api/auth/ios/api.html
       #错误码: /api/auth/ios/error-code.html

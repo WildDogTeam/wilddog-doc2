@@ -16,7 +16,9 @@ title: WDGVideoConversation
 **说明**
 
 表明当前会话使用的模式。
-目前包含`p2p`与`Server-based`两种模式。
+目前包含 `P2P` 与 `Server-based` 两种模式。
+
+</br>
 
 ---
 
@@ -32,6 +34,8 @@ title: WDGVideoConversation
 
 表示当前会话的编号。
 
+</br>
+
 ---
 
 ### userID
@@ -44,7 +48,9 @@ title: WDGVideoConversation
 
 **说明**
 
-表示当前参加视频会话的用户uid。
+表示当前参加视频会话的用户 uid。
+
+</br>
 
 ---
 
@@ -53,12 +59,14 @@ title: WDGVideoConversation
 **定义**
 
 ```objectivec
-@property (readonly, strong, nonatomic)WDGVideoLocalStream *_Nonnull localStream;
+@property (readonly, strong, nonatomic) WDGVideoLocalStream *_Nonnull localStream;
 ```
 
 **说明**
 
 表示当前视频会话所使用的本地视频、音频流。
+
+</br>
 
 ---
 
@@ -67,12 +75,14 @@ title: WDGVideoConversation
 **定义**
 
 ```objectivec
-@property (readonly, strong, nonatomic)NSArray<WDGVideoParticipant *> *_Nonnull participants;
+@property (readonly, strong, nonatomic) NSArray<WDGVideoParticipant *> *_Nonnull participants;
 ```
 
 **说明**
 
 数组中包含除自己外，已加入视频会话用户。
+
+</br>
 
 ---
 
@@ -87,6 +97,8 @@ title: WDGVideoConversation
 **说明**
 
 符合[WDGVideoConversationDelegate](../Protocols/WDGVideoConversationDelegate.html)协议的代理。
+
+</br>
 
 ---
 
@@ -113,7 +125,9 @@ error|若邀请未能发出则通过error返回原因。
 
 **返回值**
 
-YES表示邀请成功，NO表示邀请失败。
+YES 表示邀请成功，NO 表示邀请失败。
+
+</br>
 
 ---
 
@@ -129,6 +143,8 @@ YES表示邀请成功，NO表示邀请失败。
 
 命令当前会话断开连接。
 
+</br>
+
 ---
 
 ### -getParticipant:
@@ -141,7 +157,7 @@ YES表示邀请成功，NO表示邀请失败。
 
 **说明**
 
-依据会话参与者的用户uid获取对应的[WDGVideoParticipant](../Classes/WDGVideoParticipant.html)模型。
+依据会话参与者的用户 uid 获取对应的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 模型。
 
 **参数**
 
@@ -151,7 +167,9 @@ participantUserID|会话参与者的用户uid。
 
 **返回值**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html)实例，若未找到相应用户，返回nil。
+[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例，若未找到相应用户，返回 nil。
+
+</br>
 
 ---
 
@@ -163,5 +181,5 @@ participantUserID|会话参与者的用户uid。
 
 表示`WDGVideoConversation`使用的工作模式。
 
-- WDGVideoConversationModeP2P:         表示`p2p`会话模式
-- WDGVideoConversationModeServerBased: 表示`Server based`会话模式
+- WDGVideoConversationModeP2P:         表示 `P2P` 会话模式
+- WDGVideoConversationModeServerBased: 表示 `Server-based` 会话模式

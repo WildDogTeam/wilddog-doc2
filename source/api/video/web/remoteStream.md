@@ -7,10 +7,6 @@ title: wilddog.video.RemoteStream
 
 ## 属性
 
-</br>
-
----
-
 ### isAudioEnabled
 
 **类型**
@@ -22,6 +18,8 @@ Boolean
 **说明**
 
 远端媒体流音频是否启用。
+
+</br>
 
 ---
 
@@ -37,13 +35,11 @@ Boolean
 
 远端媒体流视频是否启用。
 
----
-
-## 方法
-
 </br>
 
 ---
+
+## 方法
 
 ### attach
 
@@ -70,6 +66,8 @@ attach(element)
 remoteStream.attach(document.getElementById('remoteStream'));
 ```
 
+</br>
+
 ---
 
 ### detach
@@ -90,6 +88,8 @@ detach()
 //将远端媒体流从页面中的元素上解绑
 remoteStream.detach();
 ```
+
+</br>
 
 ---
 
@@ -118,6 +118,8 @@ enableAudio(enabled)
 remoteStream.enableAudio(true);
 ```
 
+</br>
+
 ---
 
 ### enableVideo
@@ -144,5 +146,3 @@ enableVideo(enabled)
 //开启参与者的视频
 remoteStream.enableVideo(true);
 ```
-
----

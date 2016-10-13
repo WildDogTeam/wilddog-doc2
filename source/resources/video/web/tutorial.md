@@ -12,14 +12,13 @@ title: 实战教程
 
 示例的最终的展示效果如下图：
 
-<img src='/images/video_resources_web_final.png' alt="video_resources_web_final" width="300">
+<img src='/images/video_resources_web_final.png' alt="video_resources_web_final" >
 
 ## 具体步骤
 
 ### 1. 引入 SDK
 
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table>
-<table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/0.3.3/wilddog-video.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="video-web-version"></span>/wilddog-video.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 ### 2. 用户身份认证
 
@@ -56,9 +55,10 @@ wilddogref = wilddog.sync().ref().child('你的自定义路径');
 clientInstance.init({
     ref: wilddogref,
     user: user
-    }, () => {
-    //初始化成功
-});
+})
+    .then(() => {
+        //初始化成功
+    });
 ```
 
 ### 4. 实现用户列表
@@ -95,7 +95,7 @@ ref.child('users').on('child_removed', (snap) => {
 
 数据库中的数据结构就是这个样子的：
 
-<img src='/images/video_resources_web_dataTree.png' alt="video_resources_web_dataTree" width="300">
+<img src='/images/video_resources_web_dataTree.png' alt="video_resources_web_dataTree"  >
 
 ### 5. 获取和预览本地视频
 
@@ -106,11 +106,14 @@ ref.child('users').on('child_removed', (snap) => {
 videoInstance.createStream({
     audio: true,
     video: 'low'
-}, function(err,wdStream) {
-    console.log(err);
-    localStream = wdStream;
-    localStream.attach(localEl);
 })
+    .then(function(wdStream) {
+        localStream = wdStream;
+        localStream.attach(localEl);
+    })
+    .catch(function(err){
+        console.log(err);
+    })
 ```
 
 ### 6. 发起会话
@@ -145,9 +148,10 @@ clientInstance.on('invite', (incomingInvite) => {
 //用户点击接受后的触发，localStream为之前获取的本地视频流
 var accept = function() {
     //接受邀请
-    currentInvite.accept(localStream).then((conversation) => {
-        //会话建立成功
-    });
+    currentInvite.accept(localStream)
+        .then((conversation) => {
+            //会话建立成功
+        });
 }
 //用户点击拒绝后的触发
 var reject = function() {

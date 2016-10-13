@@ -6,10 +6,6 @@ title: wilddog.video.OutgoingInvite
 
 ## 属性
 
-</br>
-
----
-
 ### status
 
 **类型**
@@ -30,6 +26,8 @@ String
 | failed | 邀请失败。 |
 | pending | 邀请中。 |
 
+</br>
+
 ---
 
 ### to
@@ -43,6 +41,8 @@ String
 **说明**
 
 邀请接收方的 Wilddog ID。
+
+</br>
 
 ---
 
@@ -58,13 +58,11 @@ String
 
 Conversation 的 ID。
 
----
-
-## 方法
-
 </br>
 
 ---
+
+## 方法
 
 ### cancel
 
@@ -87,13 +85,11 @@ var outgoing = client.inviteToConversation({mode:'p2p', participantId:'12345678'
 outgoing.cancel();
 ```
 
----
-
-## 常量
-
 </br>
 
 ---
+
+## 常量
 
 ### 事件
 
@@ -103,6 +99,8 @@ outgoing.cancel();
 | rejected | 对方已拒绝邀请后触发。 |
 | failed | 邀请失败后触发。 |
 | canceled | 邀请已被取消后触发。 |
+
+</br>
 
 ---
 
@@ -118,6 +116,8 @@ outgoing.on('accepted', function(){
 });
 ```
 
+</br>
+
 ---
 
 **rejected**
@@ -131,6 +131,8 @@ outgoing.on('rejected', function(){
     console.log('An invite to ' + outgoing.to + ' rejected.');
 });
 ```
+
+</br>
 
 ---
 
@@ -146,6 +148,8 @@ outgoing.on('failed', function(){
 });
 ```
 
+</br>
+
 ---
 
 **canceled**
@@ -159,5 +163,3 @@ outgoing.on('canceled', function(){
     console.log('An invite to ' + outgoing.to + ' canceled.');
 });
 ```
-
----

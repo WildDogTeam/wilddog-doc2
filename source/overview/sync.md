@@ -1,7 +1,7 @@
-title: 实时数据同步 Sync
+title: 实时数据同步 Wilddog Sync
 ---
 <h2 id='简介' class="article-heading top-heading">简介</h2>
-**实时数据同步（Sync） 是野狗的核心实时通信引擎。** 它可以满足在各种实时通信场景下的可靠消息传递。
+**Wilddog Sync 是野狗的核心实时通信引擎。** 它可以满足在各种实时通信场景下的可靠消息传递。
 
 ![](/images/syncdevices.jpg)
 

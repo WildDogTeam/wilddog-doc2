@@ -10,12 +10,14 @@ MeetingCast 插件，用于控制会话的直播状态。
 **定义**
 
 ```objectivec
-@property (readonly, strong, nonatomic)WDGVideoConversation *_Nonnull conversation;
+@property (readonly, strong, nonatomic) WDGVideoConversation *_Nonnull conversation;
 ```
 
 **说明**
 
 与直播插件关联的会话实例。
+
+</br>
 
 ---
 
@@ -24,12 +26,14 @@ MeetingCast 插件，用于控制会话的直播状态。
 **定义**
 
 ```objectivec
-@property (readonly, assign, nonatomic)WDGVideoMeetingCastStatus meetingCastStatus;
+@property (readonly, assign, nonatomic) WDGVideoMeetingCastStatus meetingCastStatus;
 ```
 
 **说明**
 
 表明当前直播的状态。
+
+</br>
 
 ---
 
@@ -43,7 +47,9 @@ MeetingCast 插件，用于控制会话的直播状态。
 
 **说明**
 
-表明当前正在直播的用户UserID。若当前没在直播，该属性为nil。
+表明当前正在直播的用户 UserID。若当前没在直播，该属性为 nil。
+
+</br>
 
 ---
 
@@ -57,7 +63,9 @@ MeetingCast 插件，用于控制会话的直播状态。
 
 **说明**
 
-符合[WDGVideoMeetingCastAddonDelegate](../Protocols/WDGVideoMeetingCastAddonDelegate.html)协议的代理，负责处理直播相关的事件。
+符合 [WDGVideoMeetingCastAddonDelegate](../Protocols/WDGVideoMeetingCastAddonDelegate.html) 协议的代理，负责处理直播相关的事件。
+
+</br>
 
 ---
 
@@ -79,7 +87,9 @@ MeetingCast 插件，用于控制会话的直播状态。
 
  参数名 | 说明 
 ---|---
-userID|开启直播，并将uid为userID的用户设为正在直播的用户。
+userID|开启直播，并将 uid 为 userID 的用户设为正在直播的用户。
+
+</br>
 
 ---
 
@@ -99,7 +109,9 @@ userID|开启直播，并将uid为userID的用户设为正在直播的用户。
 
  参数名 | 说明 
 ---|---
-userID|将uid为userID的用户设为正在直播的用户。
+userID|将 uid 为 userID 的用户设为正在直播的用户。
+
+</br>
 
 ---
 
@@ -114,6 +126,8 @@ userID|将uid为userID的用户设为正在直播的用户。
 **说明**
 
 关闭直播。
+
+</br>
 
 ---
 

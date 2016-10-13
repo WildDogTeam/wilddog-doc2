@@ -57,7 +57,7 @@ createUserWithEmailAndPassword(email,password)
 | ----------------------- | ---------------------------------------- |
 | invalid_user            | 表示该电子邮件地址格式不正确。                          |
 | email_already_in_use    | 表示用于尝试注册的电子邮件已经存在。请调用 fetchProvidersForEmail 检查该用户使用哪些登录机制并提示该用户以这些机制之一登录。 |
-| authentication_disabled | 表示邮箱登录方式未打开, 请在Wilddog 的控制面板的'用户认证'部分开启  |
+| authentication_disabled | 表示邮箱登录方式未打开, 请在 Wilddog 的控制面板的'用户认证'部分开启 |
 
 ### User
 
@@ -73,20 +73,20 @@ updateEmail(email)
 | ------------------------------ | ---------------------------------------- |
 | email_already_in_use           | 表示该电子邮件已被另一个帐户使用。                        |
 | invalid_email                  | 表示该电子邮件地址格式不正确。                          |
-| credential_too_old_login_again | 更新用户电子邮件是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用reauthenticate(credential),来对该用户重新进行身份认证。 |
+| credential_too_old_login_again | 更新用户电子邮件是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用 reauthenticate(credential),来对该用户重新进行身份认证。 |
 
 updateProfile()
 
-| 错误信息                      | 描述                             |
-| ------------------------- | ------------------------------ |
-| display-name-length-error | 更新名称时,名称过长,目前支持名称在20位之内        |
-| photo-url-length-error    | 更新头像时,头像链接过长,目前头像链接最多支持1024个字符 |
+| 错误信息                      | 描述                               |
+| ------------------------- | -------------------------------- |
+| display-name-length-error | 更新名称时,名称过长,目前支持名称在20位之内          |
+| photo-url-length-error    | 更新头像时,头像链接过长,目前头像链接最多支持 1024 个字符 |
 
 updatePassword(password)
 
 | 错误信息                           | 描述                                       |
 | ------------------------------ | ---------------------------------------- |
-| credential_too_old_login_again | 更新用户密码是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用reauthenticate(credential)，对该用户重新进行身份认证。 |
+| credential_too_old_login_again | 更新用户密码是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用 reauthenticate(credential)，对该用户重新进行身份认证。 |
 
 linkWithCredential(credential)
 

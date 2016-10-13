@@ -1,4 +1,4 @@
 title: WDGVideoRemoteStream
 ---
 
-`WDGVideoRemoteStream`继承自`WDGVideoStream`，具有`WDGVideoStream`所有的方法。
+`WDGVideoRemoteStream` 继承自 [WDGVideoStream](../Classes/WDGVideoStream.html)，具有 [WDGVideoStream](../Classes/WDGVideoStream.html) 所有的方法。

@@ -24,6 +24,8 @@ title: WDGVideoClientDelegate
 videoClient|调用该方法的 [WDGVideoClient](../Classes/WDGVideoClient.html) 实例。
 invite|代表收到的邀请的 [WDGVideoIncomingInvite](../Classes/WDGVideoIncomingInvite.html) 实例。
 
+</br>
+
 ---
 
 ### -wilddogVideoClient:inviteDidCancel:

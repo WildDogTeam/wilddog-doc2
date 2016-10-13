@@ -2,13 +2,9 @@
 title: wilddog.Video
 ---
 
-Video 对象负责创建本地视频流和实例化 Client，它不能直接创建，只能通过 `wilddog.App` 实例的 `wilddog.Video()` 方法来获取它。
+Video 对象通过 `wilddog.App` 实例的 `wilddog.Video()` 方法来获取，Video 对象负责创建本地视频流和实例化 Client 。
 
-## 构造器
-
-</br>
-
----
+## 构造方法
 
 **定义**
 
@@ -31,13 +27,11 @@ wilddog.initializeApp(config);
 var video = wilddog.video();
 ```
 
----
-
-## 方法
-
 </br>
 
 ---
+
+## 方法
 
 ### client
 
@@ -61,6 +55,8 @@ client()
 //获取 Client 对象
 var client = wilddog.video.client();
 ```
+
+</br>
 
 ---
 
@@ -102,13 +98,11 @@ videoInstance.createStream({
     })
 ```
 
----
-
-## 常量
-
 </br>
 
 ---
+
+## 常量
 
 ### StreamConstraints
 
@@ -128,6 +122,4 @@ Object
 |---|---|
 | audio | `Boolean` 类型。<br>如果为 `true`，则媒体流中包含声音。<br>如果为 `false`，则媒体流中不包含声音。|
 | video | `Boolean` 或 `String` 类型。<br>如果为 `String` 类型，可以设置的值及对应分辨率如下：<br>`low` - 320X240<br>`low-16:9` - 320X180<br>`standard` - 640X480<br>`standard-16:9` - 640X360<br>`high-16:9` - 1280X720<br>如果为 `true`，则媒体流中包含视频且为 `standard` 格式。<br>如果为 `false`，则媒体流中不包含视频。 |
-
----
 
