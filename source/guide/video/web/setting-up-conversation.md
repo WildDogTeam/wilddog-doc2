@@ -21,7 +21,7 @@ var config = {
 //初始化Wilddog Sync
 wilddog.initializeApp(config);
 //创建交互路径的 Wilddog Sync 引用，该路径可以自定义
-var ref = wilddog.sync().ref(“你的自定义路径”); 
+var ref = wilddog.sync().ref("你的自定义路径"); 
 var client = wilddog.video().client();
 
 //初始化 Video Client 之前，要先经过身份认证。这里采用匿名登录的方式。
@@ -44,12 +44,13 @@ wilddog.auth().signInAnonymously()
 ```javascript
 //创建一个只有视频且分辨率为 640X480 的流
 var videoInstance = wilddog.video();
+var localVideoElement = document.getElementbyId('local');
 videoInstance.createStream({
     audio: false,
     video: 'standard'
   })
   .then(function(localStream){
-    //获取到localStream,将媒体流绑定到页面的video标签上
+    //获取到localStream,将媒体流绑定到页面的video类型的标签上
     localStream.attach(localVideoElement);
   })
   .catch(function(err){
@@ -64,6 +65,7 @@ videoInstance.createStream({
 例如，发起 P2P 模式的会话：
 
 ```javascript
+var remoteVideoElement = document.getElementbyId('remote');
 var client = videoInstance.client();
 client.init({ref:ref,user:user})
   .then(function(){
@@ -72,10 +74,12 @@ client.init({ref:ref,user:user})
       incomingInvite.accept(localStream)
         .then(function(conversation){
           conversation.on('participant_connected', function(participant){
-          console.log('A remote Participant connected: ' + participant.participantId);
-          participant.stream.attach(remoteVideoElement);
+            console.log('A remote Participant connected: ' + participant.participantId);
+      //将媒体流绑定到页面的video类型的标签上
+            participant.stream.attach(remoteVideoElement);
+          })
         })
-    })
+    });
     //邀请他人加入会话，选择 P2P 模式，localStream 为之前创建的本地流
     client.inviteToConversation({
       mode:'p2p',
@@ -84,9 +88,11 @@ client.init({ref:ref,user:user})
     })
     .then(function(conversation){
       conversation.on('participant_connected', function(participant){
-      console.log('A remote Participant connected: ' + participant.participantId);
-      participant.stream.attach(remoteVideoElement);
-    });
+        console.log('A remote Participant connected: ' + participant.participantId);
+        //将媒体流绑定到页面的video类型的标签上
+        participant.stream.attach(remoteVideoElement);
+      });
+    }); 
   });
 });
 ```

@@ -191,7 +191,7 @@ Object
 
 ---
 
-### ClientInitConstraints
+### ClientInviteConstraints
 
 Client 发起 Conversation 需要的参数。
 
