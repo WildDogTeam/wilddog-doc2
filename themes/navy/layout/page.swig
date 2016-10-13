@@ -29,14 +29,17 @@
               </div>
               <div class="toc-content">
                 <aside id="article-toc" role="navigation">
-                  <div class="toc-inner">
-                    <span class="slide-dot"></span>
-                    <div id="article-toc-inner">
-                      <strong class="sidebar-title">{{ __('page.contents') }}</strong>
-                      {{ toc(page.content, {list_number: false}) }}
+                  <div class="toc-scroll-content">
+                    <div class="toc-inner">
+                      <span class="slide-dot"></span>
+                      <div id="article-toc-inner">
+                        <strong class="sidebar-title">{{ __('page.contents') }}</strong>
+                        {{ toc(page.content, {list_number: false}) }}
+                      </div>
                     </div>
                   </div>
                 </aside>
+                <div class="toc-link-title"></div>
               </div>
               <footer class="article-footer">
                 {{ page_nav() }}
