@@ -55,9 +55,10 @@ wilddogref = wilddog.sync().ref().child('你的自定义路径');
 clientInstance.init({
     ref: wilddogref,
     user: user
-    }, () => {
-    //初始化成功
-});
+})
+    .then(() => {
+        //初始化成功
+    });
 ```
 
 ### 4. 实现用户列表
@@ -105,11 +106,14 @@ ref.child('users').on('child_removed', (snap) => {
 videoInstance.createStream({
     audio: true,
     video: 'low'
-}, function(err,wdStream) {
-    console.log(err);
-    localStream = wdStream;
-    localStream.attach(localEl);
 })
+    .then(function(wdStream) {
+        localStream = wdStream;
+        localStream.attach(localEl);
+    })
+    .catch(function(err){
+        console.log(err);
+    })
 ```
 
 ### 6. 发起会话
@@ -144,9 +148,10 @@ clientInstance.on('invite', (incomingInvite) => {
 //用户点击接受后的触发，localStream为之前获取的本地视频流
 var accept = function() {
     //接受邀请
-    currentInvite.accept(localStream).then((conversation) => {
-        //会话建立成功
-    });
+    currentInvite.accept(localStream)
+        .then((conversation) => {
+            //会话建立成功
+        });
 }
 //用户点击拒绝后的触发
 var reject = function() {
