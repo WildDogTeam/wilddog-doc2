@@ -13,7 +13,7 @@ WeiboAuthProvider 是新浪微博登录方式中 provider 类
 
 **返回值**
 
-[wilddog.Credential](/api/auth/web/Credential.html)
+[wilddog.auth.Credential](/api/auth/web/Credential.html)
 
 </br>
 

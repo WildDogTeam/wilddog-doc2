@@ -48,7 +48,7 @@ credential(email, password)
 
 **返回值**
 
-[wilddog.Credential](/api/auth/web/Credential.html)
+[wilddog.auth.Credential](/api/auth/web/Credential.html)
 
 </br>
 

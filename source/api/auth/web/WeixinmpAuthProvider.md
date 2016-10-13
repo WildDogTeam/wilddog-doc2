@@ -13,7 +13,7 @@ WeixinmqAuthProvider 是 微信公众账号登录方式中 provider 类
 
 **返回值**
 
-[wilddog.Credential](/api/auth/web/Credential.html)
+[wilddog.auth.Credential](/api/auth/web/Credential.html)
 
 </br>
 
