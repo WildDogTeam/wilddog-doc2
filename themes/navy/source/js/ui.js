@@ -91,10 +91,14 @@ window.onload = function () {
     ele.setAttribute('title', ele.textContent);
     tocLinksHref.push(id);
     ele.addEventListener('mouseenter', function (e) {
-      titleContent.textContent = ele.getAttribute('title');
-      titleContent.style.display = 'block';
-      titleContent.style.left = e.clientX + 'px';
-      titleContent.style.top = e.clientY - 40 + 'px';
+      var title = ele.getAttribute('title');
+      console.log(title.length)
+      if (title.length > 22) {
+        titleContent.textContent = title;
+        titleContent.style.display = 'block';
+        titleContent.style.left = e.clientX + 'px';
+        titleContent.style.top = e.clientY - 40 + 'px';
+      }
     });
     ele.addEventListener('mousemove', function (e) {
       titleContent.style.left = e.clientX + 'px';
