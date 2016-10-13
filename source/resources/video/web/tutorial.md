@@ -12,14 +12,13 @@ title: 实战教程
 
 示例的最终的展示效果如下图：
 
-<img src='/images/video_resources_web_final.png' alt="video_resources_web_final" width="300">
+<img src='/images/video_resources_web_final.png' alt="video_resources_web_final" >
 
 ## 具体步骤
 
 ### 1. 引入 SDK
 
-<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table>
-<table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/0.3.3/wilddog-video.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="video-web-version"></span>/wilddog-video.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 ### 2. 用户身份认证
 
@@ -95,7 +94,7 @@ ref.child('users').on('child_removed', (snap) => {
 
 数据库中的数据结构就是这个样子的：
 
-<img src='/images/video_resources_web_dataTree.png' alt="video_resources_web_dataTree" width="300">
+<img src='/images/video_resources_web_dataTree.png' alt="video_resources_web_dataTree"  >
 
 ### 5. 获取和预览本地视频
 

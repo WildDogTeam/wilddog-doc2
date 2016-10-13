@@ -2,10 +2,10 @@
 title: 快速入门
 ---
 
-我们通过一个简单的 [一对一视频聊天示例](https://github.com/WildDogTeam/video-quickstart-javascript/archive/master.zip) 来说明 Video SDK 的用法。
+我们通过一个简单的一对一视频聊天示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-javascript/archive/master.zip)
 
 <div class="env">
-    <p class="env-title">使用环境</p>
+    <p class="env-title">环境准备</p>
     <ul>
         <li> Chrome、Firefox、Opera 浏览器 </li>
     </ul>
@@ -17,13 +17,13 @@ title: 快速入门
 
 ## 2. 开启匿名登录认证方式
 
-应用创建成功后，进入“管理应用 --> 身份认证 --> 登录方式”，开启匿名登录。
+应用创建成功后，进入 管理应用-身份认证-登录方式，开启匿名登录。
 
 <img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
 
 ## 3. 开启实时视频通话服务
 
-进入 “管理应用 --> 实时视频通话 ”，打开实时视频功能。
+进入 管理应用-实时视频通话，打开实时视频功能。
 
 ## 4. 启动本地 Web 服务
 

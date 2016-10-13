@@ -6,7 +6,7 @@ title: 基础概念
 
 Client 可以发起或加入 Conversation，和其他 Client 进行视频通话。
 
-## Conversation
+### Conversation
 
 Conversation 即一对一或多人会话，Participant（参与者）可在会话中分享音视频数据。
 
@@ -18,7 +18,7 @@ Conversation 分为 P2P 和 Server-based 两种类型：
 
 ### Participant
 
-Participant，即会话中的其他参与者（其他 Clients）。同一个会话的 Clients 间可以互相分享视频和音频流。
+Participant，即会话中的参与者。同一个会话的参与者间可以互相分享视频和音频流。
 
 ### Local Stream
 

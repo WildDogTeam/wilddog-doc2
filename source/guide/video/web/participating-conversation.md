@@ -21,17 +21,16 @@ wilddog.video().createStream({audio:true,video:true}, function(localstream){
 
 初始化 Client 后，可以通过监听邀请事件接收其他 Client 发起的会话邀请，收到邀请后可以选择接受或拒绝邀请。
 
-例如，收到邀请时展示弹窗让用户选择是否接受：
+例如，收到邀请后，接受邀请：
 
 ```javascript
 var client = wilddog.video().client();
 client.init({ref:ref, user:user}, function(err){
     //监听邀请事件
     client.on('invite', function(incomingInvite){
-        //接受邀请
+        //收到邀请，接受邀请
         incomingInvite.accept(localStream, function(conversation){
             //接受邀请成功，加入会话
-            ...
         });
     });
 })

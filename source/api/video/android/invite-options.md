@@ -11,15 +11,15 @@ InviteOptions（ConversationMode mode,Set<String> participantId,LocalStream loca
 
 **说明**
 
-邀请加入会话的参数对象,参数为会话模式,参与者列表和本地视频流。
+邀请加入会话的参数对象，参数为会话模式，参与者列表和本地视频流。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|mode|[ConversationMode](/api/video/android/conversation-mode.html),会话模式,包括 `ConversationMode.P2P`,`ConversationMode.SERVER_BASED` 两种类型,P2P 模式下使用p2p连接方式,SERVER_BASED 模式下使用 p2s 连接方式|
-|participantId|Set<String>,参与者列表。列表内容为参与者的 Wilddog ID|
-|localStream|[LocalStream](/api/video/android/local-stream.html),会话发起人通过 `Video.createLocalStream` 获取的本地视频流|
+|mode|[ConversationMode](/api/video/android/conversation-mode.html),会话模式,包括 `ConversationMode.P2P`,`ConversationMode.SERVER_BASED` 两种类型,P2P 模式下使用 P2P 连接方式,SERVER_BASED 模式下使用服务器中转连接方式。|
+|participantId|Set<String>,参与者列表。列表内容为参与者的 Wilddog ID。|
+|localStream|[LocalStream](/api/video/android/local-stream.html),会话发起人通过 `Video.createLocalStream` 获取的本地视频流。|
 
 </br>
 

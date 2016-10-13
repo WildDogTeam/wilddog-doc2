@@ -2,9 +2,9 @@
 title: wilddog.video.Client
 ---
 
-Client 实例指代一个客户端，你可以通过它来发起和加入 Conversation。
+Client 实例可以发起和加入会话。
 
-## 构造器
+## 构造方法
 
 **定义**
 
@@ -39,7 +39,7 @@ Map.<Conversation.conversationId, Conversation>
 
 **说明**
 
-Client 创建的 Conversation 集合。
+Client 创建的 `Conversation` 集合。
 
 </br>
 
