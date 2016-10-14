@@ -900,7 +900,7 @@ This validation rule checks that the new value is the inverse of a child value a
 
 说明
 
-下面校验规则保证用户账户的所有者才具备写权限。
+下面校验规则保证用户帐户的所有者才具备写权限。
 
 ```
 "users": {
