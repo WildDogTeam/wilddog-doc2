@@ -10,13 +10,13 @@ title: 事件监听
 
 事件包含以下五种：
 
-| 事件类型             | 说明                    |
-| ---------------- | --------------------- |
-| onChildAdded()   | 初始化监听或有新增子节点。|
-| onChildChanged() | 子节点数据发生更改。|
-| onChildRemoved() | 子节点被删除。|
-| onChildMoved()   | 子节点排序发生变化。|
-| onDataChange()   | 初始化监听或向指定节点及子节点数据发生变化。|
+| 事件类型             | 说明                     |
+| ---------------- | ---------------------- |
+| onChildAdded()   | 初始化监听或有新增子节点。          |
+| onChildChanged() | 子节点数据发生更改。             |
+| onChildRemoved() | 子节点被删除。                |
+| onChildMoved()   | 子节点排序发生变化。             |
+| onDataChange()   | 初始化监听或向指定节点及子节点数据发生变化。 |
 
 ## 监听事件
 
@@ -85,7 +85,7 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
 });
 ```
 
-更详细的用法说明，请参考 [API 文档](/api/sync/android/api.html#Query-Methods)。
+更详细的用法说明，请参考 [API 文档](/api/sync/android/Query.html)。
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>

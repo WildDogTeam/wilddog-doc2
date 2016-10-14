@@ -241,7 +241,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
   回调方法的返回值可能为空，需要进行相应的处理。
 </blockquote>
 
-更多使用，请参考 [runTransaction()](/api/sync/android/api.html#runTransaction-Transaction-Handler)。
+更多使用，请参考 [runTransaction()](/api/sync/android/SyncReference.html#runTransaction-handler)。
 
 
 
