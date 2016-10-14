@@ -65,19 +65,19 @@ videoInstance.createStream({
 
 会话的建立基于邀请机制，只有另一个 Client 接受了会话邀请，会话才能建立成功。
 
-注意：会话邀请必须在 Client 初始化完成之后来进行。
+注意：
+  会话邀请必须在 Client 初始化完成之后来进行;
+  邀请更多人加入会话，请使用 Conversation 提供的 invite() 来实现;
+
+例如：
+  选择 P2P 模式（更多选择请关注API文档）;
+  设置对方 Wilddog Id （需开发者在应用层独立实现获取方式）;
+  并传入本地媒体流（localStream ，之前创建的本地流）;
 
 ```javascript
 //获取html中id为'remote'的video元素;
 var remoteVideoElement = document.getElementbyId('remote');
-/*
- * 邀请他人加入会话
- * 选择 P2P 模式（更多选择请关注API文档）
- * Wilddog Id 需开发者在应用层独立实现获取方式
- * localStream 为之前创建的本地流
- *
- * 邀请更多人加入会话，请使用 Conversation 提供的 invite() 来实现
- */
+// 邀请他人加入会话
 client.inviteToConversation({
     mode:'p2p',
     participantId:'Wilddog Id',
