@@ -61,7 +61,7 @@ videoInstance.createStream({
   })
 ```
 
-##发起会话
+## 发起会话
 
 会话的建立基于邀请机制，只有另一个 Client 接受了会话邀请，会话才能建立成功。
 
