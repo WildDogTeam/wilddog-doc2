@@ -67,7 +67,7 @@ videoInstance.createStream({
 
 会话的建立基于邀请机制，只有另一个 [Client](/api/video/web/wilddogVideoClient.html) 接受了会话邀请，拿到一个 [Conversation](/api/video/web/conversation.html) 对象，会话才能建立成功。
 
-注意,会话邀请必须在 Client 初始化完成之后来进行，邀请更多人加入会话，请使用 [Conversation](/api/video/web/conversation.html) 提供的 invite() 来实现;
+注意，会话邀请必须在 Client 初始化完成之后来进行，邀请更多人加入会话，请使用 [Conversation](/api/video/web/conversation.html) 提供的 invite() 来实现;
 
 ```javascript
 // 获取html中id为'remote'的video元素;
