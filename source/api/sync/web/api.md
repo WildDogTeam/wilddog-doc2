@@ -1,3 +1,4 @@
+
 title:  Web API 文档
 ---
 野狗 Sync 模块的 API 按照 Promise 风格设计，如果你对 Promise 编程尚不了解，请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 的教程。
@@ -107,8 +108,8 @@ ref(path)
 
 **参数** 
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
+| 参数名  | 类型     | 属性       | 说明                                  |
+| ---- | ------ | -------- | ----------------------------------- |
 | path | string | nullable | path 相对 App 初始化参数 `syncURL` 而言的相对路径 |
 
 **返回**
@@ -188,9 +189,9 @@ child ( path )
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| path | string | non-null | path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。如果path为空或null则返回当前引用。如果直接选取下一级节点，可以使用无分隔符(/)的节点名称表示，例如“a”。如果定位的path不存在，依然可以定位，后续数据操作的时候，将延迟动态创建不存在的路径节点。|
+| 参数名  | 类型     | 属性       | 说明                                       |
+| ---- | ------ | -------- | ---------------------------------------- |
+| path | string | non-null | path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。如果path为空或null则返回当前引用。如果直接选取下一级节点，可以使用无分隔符(/)的节点名称表示，例如“a”。如果定位的path不存在，依然可以定位，后续数据操作的时候，将延迟动态创建不存在的路径节点。 |
 
 **返回**
 
@@ -326,9 +327,9 @@ set(value)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | object<br>string<br>number<br>boolean<br>null | | 如果`value != null` ,当前节点上的数据会被value覆盖，如果中间路径不存在,Wilddog 会自动将中间路径补全。如果`value == null`,效果等同于remove操作。|
+| 参数名   | 类型                                       | 属性   | 说明                                       |
+| ----- | ---------------------------------------- | ---- | ---------------------------------------- |
+| value | object<br>string<br>number<br>boolean<br>null |      | 如果`value != null` ,当前节点上的数据会被value覆盖，如果中间路径不存在,Wilddog 会自动将中间路径补全。如果`value == null`,效果等同于remove操作。 |
 
 **返回**
 
@@ -362,9 +363,9 @@ update(value)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | object | | 包含要合并子节点的对象 |
+| 参数名   | 类型     | 属性   | 说明          |
+| ----- | ------ | ---- | ----------- |
+| value | object |      | 包含要合并子节点的对象 |
 
 **返回**
 
@@ -436,9 +437,9 @@ push(value)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | object<br>string<br>number<br>boolean | non-null | 用户希望在当前节点下新增的数据。|
+| 参数名   | 类型                                    | 属性       | 说明               |
+| ----- | ------------------------------------- | -------- | ---------------- |
+| value | object<br>string<br>number<br>boolean | non-null | 用户希望在当前节点下新增的数据。 |
 
 **返回**
 
@@ -470,10 +471,10 @@ setWithPriority (value, priority)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | object<br>string<br>number<br>boolean<br>null |  | 将被写入的值。|
-| priority | string<br>number| non-null | 优先级数据，节点的优先级是默认排序的依据。|
+| 参数名      | 类型                                       | 属性       | 说明                    |
+| -------- | ---------------------------------------- | -------- | --------------------- |
+| value    | object<br>string<br>number<br>boolean<br>null |          | 将被写入的值。               |
+| priority | string<br>number                         | non-null | 优先级数据，节点的优先级是默认排序的依据。 |
 
 **返回**
 
@@ -516,9 +517,9 @@ setPriority(priority)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| priority | string<br>number| non-null | 优先级数据，节点的优先级是默认排序的依据。|
+| 参数名      | 类型               | 属性       | 说明                    |
+| -------- | ---------------- | -------- | --------------------- |
+| priority | string<br>number | non-null | 优先级数据，节点的优先级是默认排序的依据。 |
 
 **返回**
 
@@ -562,12 +563,12 @@ transaction(updateFunction)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| updateFunction | [updateFunction](/api/sync/web/api.html#updateFunction) | non-null | 更新函数。|
+| 参数名            | 类型                                       | 属性       | 说明    |
+| -------------- | ---------------------------------------- | -------- | ----- |
+| updateFunction | [updateFunction](/api/sync/web/api.html#updateFunction) | non-null | 更新函数。 |
 
 **返回**
- 
+
 [wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[TransactionResult](/api/sync/web/api.html#TransactionResult) | [TransactionResult](/api/sync/web/api.html#TransactionResult)[]> 
 
 <blockquote class="warning">
@@ -621,12 +622,12 @@ wilmaRef.transaction(function(currentData) {
 **定义**
 
  function(currentValue)
- 
+
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| currentValue | function| object<br>string<br>number<br>boolean<br>null | 第一次调用时 currentValue 为null，你应当返回一个默认值。当回调函数第二次调用时， currentValue 是云端的最新值。 |
+| 参数名          | 类型       | 属性                                       | 说明                                       |
+| ------------ | -------- | ---------------------------------------- | ---------------------------------------- |
+| currentValue | function | object<br>string<br>number<br>boolean<br>null | 第一次调用时 currentValue 为null，你应当返回一个默认值。当回调函数第二次调用时， currentValue 是云端的最新值。 |
 
 **返回**
 
@@ -682,12 +683,12 @@ on(type, onEvent, [cancelCallback], [context])
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| type | string | non-null |事件类型参见 [EventType](/api/sync/web/api.html#EventType)。 |
-| onEvent | [onEvent](/api/sync/web/api.html#onEvent) | non-null | 事件发生时的回调函数 。|
-| cancelCallback | [cancelCallback](/api/sync/web/api.html#cancelCallback) | optional | 如果操作失败，这个函数会被调用。 |
-| context | object | optional | 如果指定，你的回调函数中的this将代表这个对象。 |
+| 参数名            | 类型                                       | 属性       | 说明                                       |
+| -------------- | ---------------------------------------- | -------- | ---------------------------------------- |
+| type           | string                                   | non-null | 事件类型参见 [EventType](/api/sync/web/api.html#EventType)。 |
+| onEvent        | [onEvent](/api/sync/web/api.html#onEvent) | non-null | 事件发生时的回调函数 。                             |
+| cancelCallback | [cancelCallback](/api/sync/web/api.html#cancelCallback) | optional | 如果操作失败，这个函数会被调用。                         |
+| context        | object                                   | optional | 如果指定，你的回调函数中的this将代表这个对象。                |
 
 **返回**
 
@@ -706,13 +707,13 @@ wilddog.sync().ref('city').on('child_added',function(snapshot,prev){
 
 Query [on](/api/sync/web/api.html#on) 和 [once](/api/sync/web/api.html#once) 所支持的事件列表。
 
-|名称|说明|
-|----|----|
-|value| 当有数据请求或有任何数据发生变化时触发|
-|child_added| 当有新增子节点时触发|
-|child_changed|当某个子节点发生变化时触发 |
-|child_removed|当有子节点被删除时触发 |
-|child_moved|当有子节排序发生变化时触发 |
+| 名称            | 说明                  |
+| ------------- | ------------------- |
+| value         | 当有数据请求或有任何数据发生变化时触发 |
+| child_added   | 当有新增子节点时触发          |
+| child_changed | 当某个子节点发生变化时触发       |
+| child_removed | 当有子节点被删除时触发         |
+| child_moved   | 当有子节排序发生变化时触发       |
 
 ---
 
@@ -726,10 +727,10 @@ function(snapshot, [prev])
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| snapshot | [wilddog.sync.DataSnapshot]('/api/sync/web/api.html#wilddog-sync-DataSnapshot') | non-null |事件发生后当前节点的数据快照|
-| prev | string |  |在 child_* 事件中会有 prev 参数。表示当前节点的上一个节点的 key |
+| 参数名      | 类型                                       | 属性       | 说明                                       |
+| -------- | ---------------------------------------- | -------- | ---------------------------------------- |
+| snapshot | [wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot) | non-null | 事件发生后当前节点的数据快照                           |
+| prev     | string                                   |          | 在 child_* 事件中会有 prev 参数。表示当前节点的上一个节点的 key |
 
 **返回**
 
@@ -747,9 +748,9 @@ function(err)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| err | object | non-null | 一个 `Error` 对象，包含了 `code` 属性 |
+| 参数名  | 类型     | 属性       | 说明                          |
+| ---- | ------ | -------- | --------------------------- |
+| err  | object | non-null | 一个 `Error` 对象，包含了 `code` 属性 |
 
 **返回**
 
@@ -767,11 +768,11 @@ off([type], [callback], [context])
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| type | string | non-null |事件类型参见 [EventType](/api/sync/web/api.html#EventType)。 |
-| onEvent | [onEvent](/api/sync/web/api.html#onEvent) | non-null | 在 [on](/api/sync/web/api.html#on) 中所传入的回调函数 。|
-| context | object | optional | 在 [on](/api/sync/web/api.html#on) 中所传入的 context。 |
+| 参数名     | 类型                                       | 属性       | 说明                                       |
+| ------- | ---------------------------------------- | -------- | ---------------------------------------- |
+| type    | string                                   | non-null | 事件类型参见 [EventType](/api/sync/web/api.html#EventType)。 |
+| onEvent | [onEvent](/api/sync/web/api.html#onEvent) | non-null | 在 [on](/api/sync/web/api.html#on) 中所传入的回调函数 。 |
+| context | object                                   | optional | 在 [on](/api/sync/web/api.html#on) 中所传入的 context。 |
 
 **示例**
 
@@ -794,9 +795,9 @@ once(type)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| type | string | non-null |事件类型参见 [EventType](/api/sync/web/api.html#EventType)。 |
+| 参数名  | 类型     | 属性       | 说明                                       |
+| ---- | ------ | -------- | ---------------------------------------- |
+| type | string | non-null | 事件类型参见 [EventType](/api/sync/web/api.html#EventType)。 |
 
 **返回**
 
@@ -825,8 +826,8 @@ orderByChild(key)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
+| 参数名  | 类型     | 属性       | 说明              |
+| ---- | ------ | -------- | --------------- |
 | type | string | non-null | 指定用来排序的子节点的key。 |
 
 
@@ -939,10 +940,10 @@ startAt(value, [key])
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | string<br>number<br>boolean<br>null |  | 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
-| key | string | optional | 起始子节点的key，只有在 `orderByPriority()`时有效。 |
+| 参数名   | 类型                                  | 属性       | 说明                                       |
+| ----- | ----------------------------------- | -------- | ---------------------------------------- |
+| value | string<br>number<br>boolean<br>null |          | 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
+| key   | string                              | optional | 起始子节点的key，只有在 `orderByPriority()`时有效。    |
 
 **返回**
 
@@ -968,10 +969,10 @@ endAt(value, [key])
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | string<br>number<br>boolean<br>null |  | 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
-| key | string | optional | 起始子节点的key，只有在 `orderByPriority()`时有效。 |
+| 参数名   | 类型                                  | 属性       | 说明                                       |
+| ----- | ----------------------------------- | -------- | ---------------------------------------- |
+| value | string<br>number<br>boolean<br>null |          | 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
+| key   | string                              | optional | 起始子节点的key，只有在 `orderByPriority()`时有效。    |
 
 
 **返回**
@@ -998,10 +999,10 @@ equalTo(value, [key])
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | string<br>number<br>boolean<br>null |  | 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
-| key | string | optional | 起始子节点的key，只有在 `orderByPriority()`时有效。 |
+| 参数名   | 类型                                  | 属性       | 说明                                       |
+| ----- | ----------------------------------- | -------- | ---------------------------------------- |
+| value | string<br>number<br>boolean<br>null |          | 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
+| key   | string                              | optional | 起始子节点的key，只有在 `orderByPriority()`时有效。    |
 
 **返回**
 
@@ -1027,9 +1028,9 @@ limitToFirst (limit)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| limit | number| non-null | 这次查询能够获取的子节点的最大数量。 |
+| 参数名   | 类型     | 属性       | 说明                 |
+| ----- | ------ | -------- | ------------------ |
+| limit | number | non-null | 这次查询能够获取的子节点的最大数量。 |
 
 **返回**
 
@@ -1054,9 +1055,9 @@ limitToFirst(limit)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| limit | number| non-null | 这次查询能够获取的子节点的最大数量。 |
+| 参数名   | 类型     | 属性       | 说明                 |
+| ----- | ------ | -------- | ------------------ |
+| limit | number | non-null | 这次查询能够获取的子节点的最大数量。 |
 
 **返回**
 
@@ -1088,9 +1089,9 @@ set(value)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | object<br>string<br>number<br>boolean<br>null |  | 在连接中断时需要写入当前位置的值。|
+| 参数名   | 类型                                       | 属性   | 说明                |
+| ----- | ---------------------------------------- | ---- | ----------------- |
+| value | object<br>string<br>number<br>boolean<br>null |      | 在连接中断时需要写入当前位置的值。 |
 
 **返回**
 
@@ -1120,9 +1121,9 @@ update(value)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | object |  | 包含要写入当前位置子节点的集合。|
+| 参数名   | 类型     | 属性   | 说明               |
+| ----- | ------ | ---- | ---------------- |
+| value | object |      | 包含要写入当前位置子节点的集合。 |
 
 **返回**
 
@@ -1184,10 +1185,10 @@ setWithPriority(value, priority)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| value | object<br>string<br>number<br>boolean<br>null |  | 将被写入的值。|
-| priority | string<br>number| non-null | 优先级数据，节点的优先级是默认排序的依据。|
+| 参数名      | 类型                                       | 属性       | 说明                    |
+| -------- | ---------------------------------------- | -------- | --------------------- |
+| value    | object<br>string<br>number<br>boolean<br>null |          | 将被写入的值。               |
+| priority | string<br>number                         | non-null | 优先级数据，节点的优先级是默认排序的依据。 |
 
 **返回**
 
@@ -1325,9 +1326,9 @@ child(path)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| path | string | non-null | path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。|
+| 参数名  | 类型     | 属性       | 说明                               |
+| ---- | ------ | -------- | -------------------------------- |
+| path | string | non-null | path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。 |
 
 
 **返回** 
@@ -1361,9 +1362,9 @@ forEach(callback)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| callback | [callback](/api/sync/web/api.html#callback) | non-null | 遍历每一个子节时的回调函数。|
+| 参数名      | 类型                                       | 属性       | 说明             |
+| -------- | ---------------------------------------- | -------- | -------------- |
+| callback | [callback](/api/sync/web/api.html#callback) | non-null | 遍历每一个子节时的回调函数。 |
 
 **返回**
 
@@ -1393,9 +1394,9 @@ function(snap)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| snap | [wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot) | non-null | 子节点的数据快照。|
+| 参数名  | 类型                                       | 属性       | 说明        |
+| ---- | ---------------------------------------- | -------- | --------- |
+| snap | [wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot) | non-null | 子节点的数据快照。 |
 
 
 **返回**
@@ -1414,9 +1415,9 @@ hasChild(key)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
-| key | string | non-null | 要检查的key。|
+| 参数名  | 类型     | 属性       | 说明       |
+| ---- | ------ | -------- | -------- |
+| key  | string | non-null | 要检查的key。 |
 
 **返回** 
 
@@ -1536,7 +1537,7 @@ numChildren()
 _无_
 
 **返回**
- 
+
 number 
 
 **示例**
@@ -1685,10 +1686,10 @@ then(onResolved,[onReject])
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
+| 参数名        | 类型       | 属性         | 说明                                       |
+| ---------- | -------- | ---------- | ---------------------------------------- |
 | onResolved | function | _non-null_ | Promise resolved 时的回调函数，回传参数是 Promise 事件的返回值 |
-| onReject | function | optional | Promise rejected 时的回调函数，回传参数是一个 error 对象 |
+| onReject   | function | optional   | Promise rejected 时的回调函数，回传参数是一个 error 对象 |
 
 **返回**
 
@@ -1705,8 +1706,8 @@ catch(onReject)
 
 **参数**
 
-| 参数名 | 类型 | 属性 | 说明 |
-|---|---|---|---|
+| 参数名      | 类型       | 属性         | 说明                                       |
+| -------- | -------- | ---------- | ---------------------------------------- |
 | onReject | function | _non-null_ | Promise rejected 时的回调函数，回传参数是一个 error 对象 |
 
 **返回**
