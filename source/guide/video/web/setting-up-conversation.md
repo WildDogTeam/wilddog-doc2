@@ -39,11 +39,14 @@ wilddog.auth().signInAnonymously()
 
 本地媒体流包括音频和视频。需要在发起会话前配置本地媒体流。会话建立后该媒体流会发给其他 Clients。
 
+注意：只有通过https服务器打开的页面才可以成功获取本地摄像头和麦克等资源。
+
 例如，可以创建一个只有视频且分辨率为 640X480 的流，并展示到页面上：
 
 ```javascript
 //创建一个只有视频且分辨率为 640X480 的流
 var videoInstance = wilddog.video();
+//获取html中id为'local'的video元素;
 var localVideoElement = document.getElementbyId('local');
 videoInstance.createStream({
     audio: false,
@@ -58,41 +61,54 @@ videoInstance.createStream({
   })
 ```
 
-## 监听邀请事件，并发起会话
+## 发起会话
 
 会话的建立基于邀请机制，只有另一个 Client 接受了会话邀请，会话才能建立成功。
 
-例如，发起 P2P 模式的会话：
+注意：
+  会话邀请必须在 Client 初始化完成之后来进行;
+  邀请更多人加入会话，请使用 Conversation 提供的 invite() 来实现;
+
+例如：
+  选择 P2P 模式（更多选择请关注API文档）;
+  设置对方 Wilddog Id （需开发者在应用层独立实现获取方式）;
+  并传入本地媒体流（localStream ，之前创建的本地流）;
 
 ```javascript
+//获取html中id为'remote'的video元素;
 var remoteVideoElement = document.getElementbyId('remote');
-var client = videoInstance.client();
-client.init({ref:ref,user:user})
-  .then(function(){
-    //监听邀请事件，用于接收他人发出的邀请
-    client.on('invite',function(incomingInvite){
-      incomingInvite.accept(localStream)
-        .then(function(conversation){
-          conversation.on('participant_connected', function(participant){
-            console.log('A remote Participant connected: ' + participant.participantId);
+// 邀请他人加入会话
+client.inviteToConversation({
+    mode:'p2p',
+    participantId:'Wilddog Id',
+    localStream:localStream
+  })
+  .then(function(conversation){
+    conversation.on('participant_connected', function(participant){
+      console.log('A remote Participant connected: ' + participant.participantId);
       //将媒体流绑定到页面的video类型的标签上
-            participant.stream.attach(remoteVideoElement);
-          })
-        })
+      participant.stream.attach(remoteVideoElement);
     });
-    //邀请他人加入会话，选择 P2P 模式，localStream 为之前创建的本地流
-    client.inviteToConversation({
-      mode:'p2p',
-      participantId:'被邀请者的Wilddog ID',
-      localStream:localStream
-    })
+});
+```
+
+## 监听邀请事件
+
+接收邀请，并处理邀请。
+
+注意：邀请事件必须在 Client 初始化完成之后建立监听。
+
+```javascript
+//获取html中id为'remote'的video元素;
+var remoteVideoElement = document.getElementbyId('remote');
+client.on('invite',function(incomingInvite){
+  incomingInvite.accept(localStream)
     .then(function(conversation){
       conversation.on('participant_connected', function(participant){
         console.log('A remote Participant connected: ' + participant.participantId);
         //将媒体流绑定到页面的video类型的标签上
         participant.stream.attach(remoteVideoElement);
-      });
-    }); 
-  });
+      })
+    })
 });
 ```
