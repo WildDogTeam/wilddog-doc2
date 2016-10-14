@@ -61,7 +61,7 @@ _wilddog = [[WDGSync sync] referenceWithPath:@"message"];
 ```
 
 ### 3. 发送弹幕
-使用写入数据的 API [childByAutoId](/guide/sync/ios/save-data.html#追加新节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
+使用写入数据的 API [childByAutoId](/guide/sync/ios/save-data.html#追加子节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
 
 
 ```objectivec
