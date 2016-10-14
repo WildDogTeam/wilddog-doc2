@@ -5,7 +5,7 @@ title : 安装 SDK
 
 Wilddog Video SDK 的实现依赖于 Wilddog Sync SDK 和 Wilddog Auth SDK，所以在使用 Widdog Video SDK 前需要引入 Sync 和 Auth SDK。
 
-### 引入 Sync 和 Auth SDK
+### 安装 Sync 和 Auth SDK
 
 可以使用 Maven 或 Gradle 获得 Wilddog Sync 和 Auth Android SDK。
 
@@ -29,6 +29,6 @@ android {
 }
 ```
 
-### 引入 Video SDK
+### 安装 Video SDK
 <a href="" class="video-android-download">下载 Video SDK</a>，解压后将jniLibs文件夹拷贝到工程目录的main文件夹中，将`libs/wilddog-video-android-*.jar` 放入工程的 `app/libs` 中，右键点击 `addAsLibrary`，完成 jar 包引用。
 
