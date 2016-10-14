@@ -20,8 +20,7 @@ title: 微信公众号认证
 
 ```javascript
  var config = {
-     authDomain: "<appId>.wilddog.com",
-     syncURL: "https://<appId>.wilddogio.com"
+     authDomain: "<appId>.wilddog.com"
  };
  wilddog.initializeApp(config, "DEFAULT");
 
