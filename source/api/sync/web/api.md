@@ -48,7 +48,7 @@ _无_
 
 **返回**
 
-[wilddog.Auth](/api/auth/web/api.html#wilddog-Auth)
+[wilddog.Auth](/api/auth/web/Auth.html)
 
 ---
 

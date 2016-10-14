@@ -53,7 +53,7 @@ wilddog.auth().signInWithRedirect(provider).then(function (user) {
 });
 ```
 
-更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/web/api.html#link)。
+更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/web/User.html#link)。
 
 ## 退出登录
 

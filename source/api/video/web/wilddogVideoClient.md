@@ -180,7 +180,7 @@ Object
 | 参数名 | 说明 |
 |---|---|
 | ref | [wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference) 类型。`wilddog.sync.Reference` 对象实例。|
-| user | [wilddog.User](/api/auth/web/api.html#wilddog-User) 类型。auth 状态变为登录状态时传回的 user 对象。|
+| user | [wilddog.User](/api/auth/web/User.html) 类型。auth 状态变为登录状态时传回的 user 对象。|
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
