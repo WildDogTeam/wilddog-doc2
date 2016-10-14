@@ -140,26 +140,6 @@ Wilddog Id
 
 ## 方法
 
-### delete
-
-**定义**
-
-```js
-delete()
-```
-
-**说明**
-
-删除当前账户并且变更成退出状态。
-
-**返回值**
-
-returns [wilddog.Promise](/api/auth/web/Promise.html) containing void
-
-</br>
-
-----
-
 ### link
 
 **定义**
