@@ -801,7 +801,7 @@ once(type)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[wilddog.sync.DataSnapshot]('/api/sync/web/api.html#wilddog-sync-DataSnapshot')>
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot)>
 
 **示例**
 

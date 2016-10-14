@@ -57,7 +57,7 @@ Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
 
 ## 4. 写入数据
 
-[wilddog_setValue()](/api/sync/c/api.html#wilddog-setValue) 方法用于向指定节点写入数据。
+`wilddog_setValue()` 方法用于向指定节点写入数据。
 
 例如，设置 Jack 为 beauty 描述：
 ```c

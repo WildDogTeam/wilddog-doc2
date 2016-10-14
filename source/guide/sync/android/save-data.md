@@ -6,15 +6,15 @@ title:  数据操作
 
 数据操作包含以下七种方法：
 
-| 方法               | 说明                                       |
-| ---------------- | ---------------------------------------- |
-| setValue()       | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
-| setPriority()    | 设置节点优先级。     |                           
-| setValue(value,priority)  |向指定节点写入数据并且设置该节点优先级。     |
-| push()           | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 自动生成并保证唯一。 |
-| removeValue()    | 删除指定节点。                                  |
-| updateChildren() | 更新指定子节点。                                 |
-| runTransaction() | 并发操作时保证数据一致性。                            |
+| 方法                       | 说明                                       |
+| ------------------------ | ---------------------------------------- |
+| setValue()               | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| setPriority()            | 设置节点优先级。                                 |
+| setValue(value,priority) | 向指定节点写入数据并且设置该节点优先级。                     |
+| push()                   | 向指定节点添加 [子节点](/guide/reference/term.html#子节点)。子节点的 [key](/guide/reference/term.html#key) 自动生成并保证唯一。 |
+| removeValue()            | 删除指定节点。                                  |
+| updateChildren()         | 更新指定子节点。                                 |
+| runTransaction()         | 并发操作时保证数据一致性。                            |
 
 
 ## 写入数据
@@ -69,7 +69,7 @@ Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点
 ref.child("user").setPriority(100);
 ```
 
-更多使用，请参考 [setPriority()](/api/sync/android/api.html#setPriority)。
+更多使用，请参考 [setPriority()](/api/sync/android/SyncReference.html#setPriority-priority)。
 
 ## 写入数据并设置节点优先级
 
