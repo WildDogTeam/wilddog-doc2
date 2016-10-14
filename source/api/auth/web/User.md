@@ -488,3 +488,16 @@ wilddog.auth().currentUser
 
 ----
 
+### sendEmailVerification
+
+为当前用户发送邮箱确认邮件
+
+**定义**
+
+sendEmailVerification()
+
+**返回**
+
+ [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+
+
