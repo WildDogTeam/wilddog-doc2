@@ -205,7 +205,7 @@ Object
 
 | 参数名 | 说明 |
 |---|---|
-| mode | `string` 类型。表示 Conversation 的模式，可选择 `P2P` 或 `server_based`。<br>[两种模式的区别](/guide/video/core.html#Conversation) |
+| mode | `string` 类型。表示 Conversation 的模式，可选择 `p2p` 或 `server_based`。<br>[两种模式的区别](/guide/video/core.html#Conversation) |
 | participantId | `string` 类型。Conversation 接受方的 Wilddog ID。<br>[如何获取自身的 Wilddog ID](/resources/video/web/tutorial.html#2-用户身份认证) |
 | localStream | [wilddog.video.LocalStream](/api/video/web/localStream.html)类型。本地视频流对象。 |
 
@@ -263,4 +263,3 @@ client.on('error', function(error){
     console.log('Accepted an error ' + error.message);
 });
 ```
-
