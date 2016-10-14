@@ -136,7 +136,7 @@ ref.setPriority(100) { (error, ref) in
 </div>
 </div>
 
-更多使用，请参考 [setPriority()](/api/sync/ios/api.html#–-setPriority)。
+更多使用，请参考 [setPriority()](/api/sync/ios/WDGSyncReference.html#–-setPriority)。
 
 ## 写入数据并设置节点优先级
 
@@ -177,7 +177,7 @@ ref.setValue("jack", andPriority: 100) { (error, ref) in
 </div>
 </div>
 
-更多使用，请参考 [setValue:andPriority:](/api/sync/ios/api.html#–-setValue-andPriority)。
+更多使用，请参考 [setValue:andPriority:](/api/sync/ios/WDGSyncReference.html#–-setValue-andPriority)。
 
 ## 追加子节点
 
@@ -444,4 +444,4 @@ upvotesRef.runTransactionBlock({
   回调方法的返回值可能为空，需要进行相应的处理。
 </blockquote>
 
-更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/api.html#–-runTransactionBlock)。
+更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/WDGSyncReference.html#–-runTransactionBlock)。
