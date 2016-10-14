@@ -26,7 +26,7 @@ initMeetingCast(conversation)
 
 **返回**
 
-[wilddog.video.addons.MeetingCast](/api/video/web/api.html#wilddog-video-addons-MeetingCast)
+[wilddog.video.addons.MeetingCast](/api/video/web/meetingCast.html)
 
 **示例**
 
