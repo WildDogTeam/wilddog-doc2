@@ -100,7 +100,7 @@ let ref = WDGSync.sync().reference()
 
 ## 4. 写入数据
 
-[setValue](/api/sync/ios/WDGSyncReference.html#–-setValue) 方法用于向指定节点写入数据。写入数据。Wilddog Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
+`setValue` 方法用于向指定节点写入数据。写入数据。Wilddog Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
 例如，在应用的根节点下写入天气数据：
 
@@ -132,7 +132,7 @@ ref.setValue(["messageboard" : ["message1" : ["content" : "Wilddog, Cool!", "pre
 
 ## 5. 监听数据
 
-[observeEventType](/api/sync/ios/WDGSyncReference.html#–-observeEventType-withBlock) 或 [observeSingleEventOfType](/api/sync/ios/WDGSyncReference.html#–-observeSingleEventOfType-withBlock) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+`observeEventType` 或 `observeSingleEventOfType` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 例如，从应用中获得评论数据：
 
