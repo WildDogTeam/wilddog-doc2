@@ -95,7 +95,7 @@ createUserWithEmailAndPassword(email, password)
 - email_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
+- [See AuthErrors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
 </br>
 
