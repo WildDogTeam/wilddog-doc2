@@ -2,7 +2,7 @@
 title:  绑定多种认证方式
 ---
 
-本篇文档介绍在 Wilddog Auth 中如何给同一个账号绑定多种认证方式。
+本篇文档介绍在 Wilddog Auth 中如何给同一个帐号绑定多种认证方式。
 
 
 ## 前期准备
@@ -58,7 +58,7 @@ var provider = new wilddog.auth.WeiboProvider();
 // 微信认证
 var provider = new wilddog.auth.WeixinAuthProvider();
 
-// 微信公众账号认证
+// 微信公众帐号认证
 var provider = new wilddog.auth.WeixinmpAuthProvider();
 ```
 

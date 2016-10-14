@@ -45,7 +45,7 @@ var uid = user.uid;
   ​
 ## 匿名帐号转成永久帐号
 
-匿名登录的账号数据将不会被保存，可以通过绑定邮箱认证或第三方认证方式将匿名账号转成永久账号。
+匿名登录的帐号数据将不会被保存，可以通过绑定邮箱认证或第三方认证方式将匿名帐号转成永久帐号。
 
 ### 绑定邮箱认证方式
 
@@ -88,7 +88,7 @@ var provider = new wilddog.auth.WeiboProvider();
 // 微信认证
 var provider = new wilddog.auth.WeixinAuthProvider();
 
-// 微信公众账号认证
+// 微信公众帐号认证
 var provider = new wilddog.auth.WeixinmpAuthProvider();
 ```
 

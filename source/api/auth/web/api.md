@@ -808,7 +808,7 @@ var email_credential = wilddog.auth.EmailAuthProvider.credential(email, password
 ## wilddog.auth.Credential
 
 Credential 表示特定登录方式下的用户认证凭据，我们可以通过 [wilddog.auth.Provider](/api/auth/web.html#wilddog-auth-Provider) 的 [credential](/api/auth/web.html#credential) 方法来创建它。当前的 credential有两种形式：
-- 账号密码 
+- 帐号密码 
     通过邮箱和密码登录
 - OAuth
     通过各类第三方以 OAuth 认证的方式登录，野狗当前支持的第三方有微博、微信、微信公众号以及腾讯 QQ。
