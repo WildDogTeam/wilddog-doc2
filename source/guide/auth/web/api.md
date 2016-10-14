@@ -99,7 +99,7 @@ wilddog.auth().onAuthStateChanged(function (user) {
 ```
 credential为用户凭证,是使用的凭证
 目前有两种凭证:
-    1:账号密码登录方式中的账号和密码
+    1:帐号密码登录方式中的帐号和密码
     2:OAuth登录中的accessToken
 for example : 
 var credential = wilddog.auth.WeiboAuthProvider.credential(accessToken);
@@ -165,7 +165,7 @@ wilddog.auth().currentUser.linkWithPopup(weiboProvider).then(function (res) {
 
 `wilddog.auth().currentUser.unlink(providerId)`
 ```
-providerId目前一共有5种,包括password(账号密码登录),weibo(微博OAuth),weixin(微信),qq,weixinmp
+providerId目前一共有5种,包括password(帐号密码登录),weibo(微博OAuth),weixin(微信),qq,weixinmp
 wilddog.auth().currentUser.unlink('weibo').then(function (res) {
  console.info("unlink weibo->", res);
 }).catch(function (err) {
@@ -230,7 +230,7 @@ wilddog.auth().currentUser.updateProfile({
 本次Auth增加Credential的概念
 
 credential有两种形式
-- 账号密码
+- 帐号密码
 - OAuth
 
 例如email登录方式

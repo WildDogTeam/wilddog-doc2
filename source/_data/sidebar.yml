@@ -55,11 +55,12 @@ guide:
       其他平台: /guide/sync/rest/library.html
     规则表达式:
       简介: /guide/sync/rules/introduce.html
-      指南: /guide/sync/rules/guide.html
-      #数据访问控制: /guide/sync/rules/secure.html
-      #用户访问控制: /guide/sync/rules/auth.html
-      #校验数据: /guide/sync/rules/validate.html
-      #数据索引: /guide/sync/rules/index.html
+      #指南: /guide/sync/rules/guide.html
+      读写权限控制: /guide/sync/rules/access.html
+      用户访问控制: /guide/sync/rules/auth.html
+      数据校验: /guide/sync/rules/validate.html
+      数据索引: /guide/sync/rules/index.html
+      
 
     最佳实践:
       组织数据: /guide/sync/bestpractice/structure-data.html

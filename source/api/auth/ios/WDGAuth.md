@@ -155,7 +155,7 @@ completion | 可以为空；当用户登录成功或者发生错误时触发。�
 
 - WDGAuthErrorCodeInvalidCredential 表示无效的登录方式。
 - WDGAuthErrorCodeOperationNotAllowed 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
-- WDGAuthErrorCodeUserDisabled 表示账号被禁用。
+- WDGAuthErrorCodeUserDisabled 表示帐号被禁用。
 - WDGAuthErrorCodeWrongPassword 表示邮箱或着密码错误。
 - 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
