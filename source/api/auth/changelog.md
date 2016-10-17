@@ -55,7 +55,7 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 ---
 
-## Server API
+## Server SDK
 
 ### V2.0.0 - 2016.08.19
 
