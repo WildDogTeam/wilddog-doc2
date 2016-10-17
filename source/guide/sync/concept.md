@@ -2,7 +2,7 @@ title: 基础概念
 ---
 
 ### Sync 是什么？
-Sync 是野狗的核心实时通信引擎。它为应用提供基础实时通信，实时数据分发，实时数据存储的能力。
+Sync 是野狗的核心实时通信引擎。它提供基础实时通信，实时数据分发，实时数据存储的能力。
 
 Sync 有三个基础概念：**数据结构**，**事件监听** 和 **规则表达式**。
 
@@ -12,7 +12,7 @@ Sync 有三个基础概念：**数据结构**，**事件监听** 和 **规则表
 #### Key-Value 结构
 Sync 的数据以 [JSON](http://json.org/json-zh.html) 格式存储。它是键值对 (Key-Value) 的集合，其中每一个键值对 (Key-Value) 都称之为节点。一个节点包含 key 和 value 。
 
-例如，以下聊天室示例的数据结构中，`name` 是 `key`。`username 1` 是 `name` 对应的 `value` ，它们共同组成一个节点。
+例如，以下聊天室示例的数据结构中，`name` 是 `key`，`username 1` 是 `name` 对应的 `value` ，它们共同组成一个节点。
 
 <img src='/images/group.png' alt="/images/group.png" width="450">
 
