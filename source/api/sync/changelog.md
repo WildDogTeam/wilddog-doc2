@@ -1,4 +1,5 @@
-# Sync 更新日志 
+title: Sync 更新日志
+---
 
 ## iOS SDK
 
@@ -144,17 +145,17 @@ WildUser 获取 token 空指针问题。
 ### v0.8.0 - 2016.01.18
 
 **新增**
-增加离线事件 API：
-
-    wilddog_goOnline, 使客户端在线；
-    wilddog_goOffline, 使客户端离线；
-    wilddog_onDisconnectSetValue, 当客户端离线时，云端会自动执行该操作；
-    wilddog_onDisconnectPush, 当客户端离线时，云端会自动执行该操作；
-    wilddog_onDisconnectRemoveValue, 当客户端离线时，云端会自动执行该操作；
-    wilddog_cancelDisconnectOperations, 取消之前所有离线操作；
-增加 WildDog 实例操作 API：
-    wilddog_getHost, 获取Wilddog实例的host；
-    wilddog_getPath, 获取Wilddog实例的path；
+- 增加离线事件 API：
+    - wilddog_goOnline, 使客户端在线；
+    - wilddog_goOffline, 使客户端离线；
+    - wilddog_onDisconnectSetValue, 当客户端离线时，云端会自动执行该操作；
+    - wilddog_onDisconnectPush, 当客户端离线时，云端会自动执行该操作；
+    - wilddog_onDisconnectRemoveValue, 当客户端离线时，云端会自动执行该操作；
+    - wilddog_cancelDisconnectOperations, 取消之前所有离线操作；
+- 增加 WildDog 实例操作 API：
+    - wilddog_getHost, 获取Wilddog实例的host；
+    - wilddog_getPath, 获取Wilddog实例的path；
+    
 **优化**
 
 - 对长连接机制进行重构，智能检测最合适的心跳时间，客户端掉线时云端数据会在重连后第一时间同步。
