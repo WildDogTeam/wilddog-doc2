@@ -12,7 +12,7 @@ Sync 有三个基础概念：**数据结构**，**事件监听** 和 **规则表
 #### Key-Value 结构
 Sync 的数据以 [JSON](http://json.org/json-zh.html) 格式存储。它是键值对 (Key-Value) 的集合，其中每一个键值对 (Key-Value) 都称之为节点。一个节点包含 key 和 value 。
 
-例如，一个聊天室示例的数据结构中。`name` 是 `key`。`username 1` 是 `name` 对应的 `value` ，它们共同组成一个节点。
+例如，以下聊天室示例的数据结构中，`name` 是 `key`。`username 1` 是 `name` 对应的 `value` ，它们共同组成一个节点。
 
 <img src='/images/group.png' alt="/images/group.png" width="450">
 
@@ -21,12 +21,12 @@ Sync 的数据以 [JSON](http://json.org/json-zh.html) 格式存储。它是键�
 #### 子节点
 某个节点下的所有节点，统称为该节点的子节点。
 
-聊天室示例中 `user1` 是 `user` 的子节点。
+例如，聊天室示例中 `user1` 是 `user` 的子节点。
 
 #### 路径 (path)
 路径用于标识数据在 Wilddog Sync 中存储的位置，你可以根据路径访问指定的数据。
 
-聊天室示例中 `name` 的路径是 `users/user1/name`。
+例如，聊天室示例中 `name` 的路径是 `users/user1/name`。
 
 
 ### 事件是什么？
