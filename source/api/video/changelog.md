@@ -51,6 +51,7 @@ title: Video 更新日志
 - 修复 WDGVideoConversation 中 participants 只增不减的问题。
 
 </br>
+
 ---
 
 ## Android SDK
@@ -84,6 +85,7 @@ title: Video 更新日志
 - 修改 getConfig 功能，增加推流/收流地址。
 
 </br>
+
 ---
 
 ## Javascript SDK
