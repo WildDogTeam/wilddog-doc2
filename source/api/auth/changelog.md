@@ -31,7 +31,8 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 - 统一 Auth 模块初始化接口。
 - 改进 -authWithApp: 方法，参数改为 WDGApp 类
 
-
+</br>
+---
 
 ## Android SDK
 
@@ -49,6 +50,8 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 - 新增 GetTokenResult 类用于获取 token。
 - 新增 UserProfileChangeRequest 类用于修改用户信息。
 
+</br>
+---
 
 ## Server API
 

@@ -50,7 +50,8 @@ title: Video 更新日志
 - WDGVideoConversation 中的邀请API返回值改为 BOOL。
 - 修复 WDGVideoConversation 中 participants 只增不减的问题。
 
-
+</br>
+---
 
 ## Android SDK
 
@@ -82,7 +83,8 @@ title: Video 更新日志
 - 修改原有 BASIC 模式为P2P模式，修改 ADVANCED 模式为 SERVER_BASED。
 - 修改 getConfig 功能，增加推流/收流地址。
 
-
+</br>
+---
 
 ## Javascript SDK
 

@@ -35,8 +35,8 @@ title: Sync 更新日志
 
 废弃 -childByAppendingPath: 方法，用 -child: 方法代替
 
-
-
+</br>
+---
 
 
 ## Android SDK
@@ -89,8 +89,8 @@ title: Sync 更新日志
 
 WildUser 获取 token 空指针问题。
 
-
-
+</br>
+---
 
 
 ## c/嵌入式 SDK
