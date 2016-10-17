@@ -15,8 +15,7 @@ title: Video 更新日志
 
 - `WDGVideoClient` 被销毁后，之前创建的本地流未关闭，重新创建 `WDGVideoClient` 并创建本地流耗时过长。
 - iOS10 下，当应用未在 Info.plist 添加麦克风权限导致的崩溃问题。
-
-更新 API 文档注释。
+- 更新 API 文档注释。
 
 ### v0.3.2 build - 2016.09.29
 
@@ -69,7 +68,7 @@ title: Video 更新日志
 
 **修改**
 
-- 修改 Conversation,修复邀请第三方加入会话连接建立失败 bug。
+修改 Conversation,修复邀请第三方加入会话连接建立失败 bug。
 
 ### v0.3.0 build - 2016.09.22
 
