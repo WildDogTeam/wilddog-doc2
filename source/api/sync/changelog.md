@@ -98,16 +98,19 @@ WildUser 获取 token 空指针问题。
 ### v1.0.7 - 2016.09.23
 
 **修复**
+
 修复 Espressif 平台下拷贝不对齐字段导致死机的 bug。
 
 ### v1.0.6 - 2016.09.03
 
 **修复**
+
 修复 wilddog_push 的回调中 path 不正确的 bug。
 
 ### v1.0.5 - 2016.08.04
 
 **修复**
+
 修复离线时新建 wilddog 和发送数据会导致内存未释放的 bug。
 
 ### v1.0.4 - 2016.07.12
@@ -120,11 +123,13 @@ WildUser 获取 token 空指针问题。
 ### v1.0.3 - 2016.06.28
 
 **修复**
+
 修复频繁收发数据包时心跳机制策略导致断连问题。
 
 ### v1.0.2 - 2016.06.24
 
 **修复**
+
 修复心跳机制不生效的 bug。
 
 ### v1.0.1 - 2016.04.26
@@ -138,13 +143,17 @@ WildUser 获取 token 空指针问题。
 ### v1.0.0 - 2016.03.04
 
 **修复**
+
 修复 windows 下编译 CoAP 库出错的 bug。
+
 **优化**
+
 优化重连机制，重连后服务器会将订阅的数据重新推送到客户端，使用返回码 WILDDOG_ERR_RECONNECT 标识。
 
 ### v0.8.0 - 2016.01.18
 
 **新增**
+
 - 增加离线事件 API：
     - wilddog_goOnline, 使客户端在线；
     - wilddog_goOffline, 使客户端离线；
@@ -152,15 +161,17 @@ WildUser 获取 token 空指针问题。
     - wilddog_onDisconnectPush, 当客户端离线时，云端会自动执行该操作；
     - wilddog_onDisconnectRemoveValue, 当客户端离线时，云端会自动执行该操作；
     - wilddog_cancelDisconnectOperations, 取消之前所有离线操作；
+
 - 增加 WildDog 实例操作 API：
     - wilddog_getHost, 获取Wilddog实例的host；
     - wilddog_getPath, 获取Wilddog实例的path；
-    
+
 **优化**
 
 - 对长连接机制进行重构，智能检测最合适的心跳时间，客户端掉线时云端数据会在重连后第一时间同步。
 - wilddog_getKey 将不再返回 client 对应 key 的快照，直接返回 key 本身的地址。
+- 将编译选项中加密类型 APP_SEC_TYPE 的 dtls 类型更名为 mbedtls。
 
-将编译选项中加密类型 APP_SEC_TYPE 的 dtls 类型更名为 mbedtls。
 **修复**
+
 修复 tinydtls 以及 mbedtls 握手有概率失败的bug。

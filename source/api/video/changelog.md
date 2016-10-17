@@ -6,6 +6,7 @@ title: Video 更新日志
 ### v0.3.4 build - 20160.10.14
 
 **修复**
+
 增加边界条件限制，API 调用参数错误时会给出提示。
 
 ### v0.3.3 build - 2016.10.12
@@ -57,8 +58,11 @@ title: Video 更新日志
 ### v0.3.1 build - 2016.09.29
 
 **新增**
+
 增加 Conversation.Listener 回调方法触发。
+
 **改进**
+
 
 - 完善 Video ，完善 flipCamera方法。
 - 完善 Stream，修复 enableAudio/enableVideo 方法。
@@ -100,11 +104,13 @@ title: Video 更新日志
 ### v0.4.0 build - 2016.10.08
 
 **优化**
+
 将回调修改为 promise。
 
 ### v0.3.3 build - 2016.09.30
 
 **修复**
+
 修复同一用户退出会话后重新加入会话会读取过期信令的 bug。
 
 ### v0.3.2 build - 2016.09.29
