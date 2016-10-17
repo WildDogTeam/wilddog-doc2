@@ -5,11 +5,16 @@
 
 ## 初始化 Client
 
-发起会话之前需要通过初始化 Client 来连接客户端和野狗服务器。初始化 Client 时需要指定 Video SDK 的交互路径，客户端和服务器以及客户端之间都是通过该路径进行交互，只有相同交互路径下的 Client 能够发起或加入会话。建议该路径下不要存储其他数据。
+发起会话之前需要通过初始化 Client 来连接客户端和野狗服务器。
 
-建立服务器中转模式的会话时，初始化 Client 时的交互路径应和控制面板中的交互路径保持一致。
+初始化 Client 时需要指定 Video SDK 的交互路径，客户端和服务器以及客户端之间都是通过该路径进行交互，只有相同交互路径下的 Client 能够发起或加入会话。建议该路径下不要存储其他数据。
 
-需要注意的是，初始化 Client 之前，要先经过身份认证。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  建立服务器中转模式的会话时，初始化 Client 的交互路径应和控制面板中的交互路径保持一致。
+</blockquote>
+
+初始化 Client 之前，要先经过身份认证。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式。
 
 例如，以匿名方式登录后创建 Client ：
 
@@ -83,7 +88,12 @@ public void onCreate() {
 
 ### 配置本地媒体流
 
-本地媒体流包括音频和视频。需要在发起会话前配置本地媒体流。会话建立后该媒体流会发给其他 Client。
+本地媒体流包括音频和视频。需要在发起会话前配置本地媒体流([LocalStream](/api/video/web/localStream.html))。会话建立后该媒体流会发给其他 Clients。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  只有通过 HTTPS 服务器打开的页面才可以成功获取本地摄像头和麦克等资源。
+</blockquote>
 
 例如，可以创建一个 240X320 的视频流，并绑定到播放控件上：
 
@@ -116,6 +126,11 @@ localStream.attach(localCallbacks);
 ### 发起会话
 
 会话的建立基于邀请机制，只有另一个 Client 接受了会话邀请，会话才能建立成功。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  会话邀请必须在 Client 初始化完成之后来进行。邀请更多人加入会话，请使用 [Conversation](/api/video/web/conversation.html) 提供的 `invite` 方法。
+</blockquote>
 
 例如，发起 P2P 模式的会话：
 

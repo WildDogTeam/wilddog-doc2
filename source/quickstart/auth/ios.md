@@ -42,7 +42,7 @@ SDK 的安装方式有两种，你可以任选其一：
 
 </br>
 * **手动集成**
-</br>
+  </br>
 1. 下载 Auth SDK <a href="#" class="ios-download-auth" target='_blank'>点此下载</a>。 
 2. 下载 Core SDK <a href="#" class="ios-download-core" target='_blank'>点此下载</a>。  
 3. 把 WilddogAuth.framework 和 WilddogCore.framework 拖到工程目录中。  
@@ -186,4 +186,4 @@ try! WDGAuth.auth()!.signOut()
 </div>
 </div>
 
-Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/ios/api.html)。
+Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/ios/WDGAuth.html)。

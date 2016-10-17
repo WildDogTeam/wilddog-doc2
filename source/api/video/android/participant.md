@@ -22,7 +22,7 @@ Participant(String participantId, RemoteStream remoteStream)
 | 参数名 | 描述 |
 |---|---|
 |participantId|String,参与者 Wilddog ID|
-|remoteStream|[RemoteStream](/api/video/android/api.html#RemoteStream),参与者发送的远端视频流|
+|remoteStream|[RemoteStream](/api/video/android/remote-stream.html),参与者发送的远端视频流|
 
 **示例**
 
@@ -70,4 +70,4 @@ RemoteStream getRemoteStream()
 
 **返回值**
 
-[RemoteStream](/api/video/android/api.html#RemoteStream)
+[RemoteStream](/api/video/android/remote-stream.html)

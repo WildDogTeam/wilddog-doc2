@@ -65,7 +65,7 @@ meetingCastUp(participantId)
 
 **返回**
 
-Promise.<[castUrls](/api/video/web/api.html#castUrls)>
+Promise.<[CastUrls](/api/video/web/meetingCast.html#CastUrls)>
 
 **示例**
 
@@ -157,3 +157,22 @@ meetingCast.meetingCastDown()
         console.log("Catch error! Error code is " + err);
     })
 ```
+
+---
+
+## 常量
+
+### CastUrls
+
+**类型**
+
+```js
+Object
+```
+
+**参数**
+
+| 参数名 | 说明 |
+|---|---|
+| hlsUrl | `String` 类型。HLS 直播地址。|
+| rtmpUrl | `String` 类型。RTMP 直播地址。|

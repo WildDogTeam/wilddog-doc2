@@ -12,9 +12,10 @@ Wilddog Video SDK 都提供了在加入会话前预览本地的视频画面。
 ```javascript
 var localElement = document.getElementById('local'); 
 //创建一个同时有音频和视频的媒体流
-wilddog.video().createStream({audio:true,video:true}, function(localstream){
-    localStream.attach(localElement);
-});
+wilddog.video().createStream({audio:true,video:true})
+    .then(function(localstream){
+        localStream.attach(localElement);
+    });
 ```
 
 ### 接受或拒绝邀请
@@ -29,9 +30,10 @@ client.init({ref:ref, user:user}, function(err){
     //监听邀请事件
     client.on('invite', function(incomingInvite){
         //收到邀请，接受邀请
-        incomingInvite.accept(localStream, function(conversation){
-            //接受邀请成功，加入会话
-        });
+        incomingInvite.accept(localStream)
+            .then(function(conversation){
+                //接受邀请成功，加入会话
+            });
     });
 })
 ```

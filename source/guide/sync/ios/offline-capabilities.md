@@ -142,7 +142,7 @@ presenceRef.cancelDisconnectOperations()
 </div>
 </div>
 
-更多离线事件的方法，请参考 [API 文档](/api/sync/ios/api.html#–-onDisconnectSetValue)。
+更多离线事件的方法，请参考 [API 文档](/api/sync/ios/WDGSyncReference.html#–-onDisconnectSetValue)。
 
 ## 手动建立或断开连接
 `goOnline` 和 `goOffline` 方法用于手动建立连接和断开连接。

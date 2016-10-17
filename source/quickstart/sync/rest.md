@@ -72,4 +72,4 @@ curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 
 ## 4.更多使用
 - 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
-- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/rest/guide.html) 和 [API文档](/api/sync/rest.html)。
+- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/rest/save-data.html) 和 [API文档](/api/sync/rest.html)。
