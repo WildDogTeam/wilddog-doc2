@@ -1,4 +1,4 @@
-title: Sync 更新日志
+title: 更新日志
 ---
 
 ## iOS SDK
