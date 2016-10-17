@@ -9,11 +9,10 @@ Sync 有三个基础概念：**数据结构**，**事件监听** 和 **规则表
 
 ### Sync 的数据结构是什么？
 
-
 #### Key-Value 结构
 Sync 的数据以 [JSON](http://json.org/json-zh.html) 格式存储。它是键值对 (Key-Value) 的集合，其中每一个键值对 (Key-Value) 都称之为节点。一个节点包含 key 和 value 。
 
-例如，一个聊天室的数据结构中。`name` 是一个 `key`。`username 1` 是 `name` 对应的 `value` ，它们共同组成一个节点。
+例如，一个聊天室示例的数据结构中。`name` 是 `key`。`username 1` 是 `name` 对应的 `value` ，它们共同组成一个节点。
 
 <img src='/images/group.png' alt="/images/group.png" width="450">
 
@@ -40,7 +39,7 @@ Sync 中，数据在云端发生的任何变化都称为事件。根据数据的
 
 例如，通过事件监听来获取和处理：
 
-- 聊天室里新加入了哪些用户？
+- 聊天室里新加入了哪位用户？
 - 哪位用户发布消息或撤回了消息？
 
 具体相关信息，请参考：[事件监听](/guide/sync/web/retrieve-data.html)
