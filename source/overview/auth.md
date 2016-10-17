@@ -25,8 +25,7 @@ title: 身份认证(Auth)
 ### 提高帐户安全性
 野狗采用行业标准的 JWT 格式对传输数据进行加密，有效提高帐号系统的安全性，防止用户信息泄漏。
 
-更多细节，请参考身份认证的 [快速入门](/quickstart/auth/web.html)。
-
+更多细节，请参考文档 Wilddog Auth [快速入门](/quickstart/auth/web.html)。
 
 
 
