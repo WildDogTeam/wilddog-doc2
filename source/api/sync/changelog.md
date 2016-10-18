@@ -1,18 +1,8 @@
+
 title: 更新日志
 ---
 
 ## iOS SDK
-
-### V2.0.0 - 2016.09.01
-
-**描述**
-
-对 Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的部分。其中将原有的 Wilddog SDK 更名为 WilddogSync SDK。
-
-**改进**
-
-- 移除原有 Wilddog SDK 中 Auth 功能。
-- 将 Wilddog SDK 改名为 WilddogSync SDK。
 
 ### V2.0.1 - 2016.09.10
 
@@ -35,42 +25,25 @@ title: 更新日志
 
 废弃 -childByAppendingPath: 方法，用 -child: 方法代替
 
+### V2.0.0 - 2016.09.01
+
+**描述**
+
+对 Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的部分。其中将原有的 Wilddog SDK 更名为 WilddogSync SDK。
+
+**改进**
+
+- 移除原有 Wilddog SDK 中 Auth 功能。
+- 将 Wilddog SDK 改名为 WilddogSync SDK。
+
+
+
 </br>
 
 ---
 
 
 ## Android SDK
-
-### V2.0.0 - 2016.09.01
-
-**描述**
-
-该版本将Auth SDK 从Wilddog SDK中分离。
-
-
-**改进**
-
-将Wilddog中Auth相关代码移除。
-
-### V2.0.1 - 2016.09.20
-
-**描述**
-
-该版本优化初始化过程，新增 WilddogOptions，WilddogApp 等类用于初始化。将 Wilddog 相关类改为 SyncReference，新增 WilddogSync 类用于初获取 SyncReference 对象。
-
-**新增**
-
-- 新增 WilddogOptions，WilddogApp 等类用于初始化。
-- 新增 WilddogSync 类用于初获取S yncReference 对象。
-
-**改进 **
-- 将 Wilddog 修改为 SyncReference。
-- 将 WilddogError 修改为 SyncError。
-
-**修复**
-
-由于 token 过期导致 WilddogSync sdk 崩溃问题。
 
 ### V2.0.1 - 2016.09.20
 
@@ -89,6 +62,21 @@ title: 更新日志
 **修复**
 
 WildUser 获取 token 空指针问题。
+
+
+
+### V2.0.0 - 2016.09.01
+
+**描述**
+
+该版本将Auth SDK 从Wilddog SDK中分离。
+
+
+**改进**
+
+将Wilddog中Auth相关代码移除。
+
+
 
 </br>
 
