@@ -128,9 +128,11 @@ hexo.extend.helper.register('page_anchor', function(str){
 
   if (!headings.length) return str;
 
-  headings.each(function(){
+  headings.each(function(index){
     var id = $(this).attr('id');
-
+    if (index === 0 && !this.prev) {
+      $(this).addClass('top-heading')
+    }
     $(this)
       .addClass('article-heading')
   });

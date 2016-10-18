@@ -152,7 +152,7 @@ hr
 .article-title
   float: left
   padding-bottom: 12px
-  font-size: 34px
+  margin-bottom: 36px
   color: #333
   text-decoration: none
   line-height: 1
@@ -223,7 +223,7 @@ hr
     clear: both
   @media print
     font-size: 12pt
-  p, ol, ul, dl, table, blockquote, iframe, .highlight
+  ol, ul, dl, table, iframe
     margin: 1em 0
   ol, ul 
     margin: 0
@@ -334,6 +334,8 @@ $article-footer-link
     display: none
   span
     padding: 0 6px
+    text-transform: lowercase
+    font-weight: 500
 
 .article-footer-prev
   @extend $article-footer-link
@@ -418,9 +420,15 @@ $article-footer-link
   list-style: none
 
 .top-heading
-  margin-top: 14px
-  padding-top: 0
+  margin-top: 0
+  padding-top: 4px
   
+p:nth-child(1)
+  margin-top: 0
+
+br
+  display: none
+
 .page-title
   margin-top: 10px
   display: block
