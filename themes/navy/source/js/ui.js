@@ -92,12 +92,10 @@ window.onload = function () {
     tocLinksHref.push(id);
     ele.addEventListener('mouseenter', function (e) {
       var title = ele.getAttribute('title');
-      if (title.length > 20) {
-        titleContent.textContent = title;
-        titleContent.style.display = 'block';
-        titleContent.style.left = e.clientX + 'px';
-        titleContent.style.top = e.clientY - 40 + 'px';
-      }
+      titleContent.textContent = title;
+      titleContent.style.display = 'block';
+      titleContent.style.left = e.clientX + 'px';
+      titleContent.style.top = e.clientY - 40 + 'px';
     });
     ele.addEventListener('mousemove', function (e) {
       titleContent.style.left = e.clientX + 'px';
