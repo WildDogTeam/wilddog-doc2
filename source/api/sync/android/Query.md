@@ -161,7 +161,7 @@ listener | `ValueEventListener` 要删除的监听事件
 </br>
 
 ---
-### ### removeEventListener(childEventListener)
+### removeEventListener(childEventListener)
 **定义**
 
 ```java
