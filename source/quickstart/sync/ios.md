@@ -69,6 +69,8 @@ SDK 的安装方式有两种，你可以任选其一：
 </div>
 </div>
 
+
+
 **2.初始化**
 
 <div class="slide">
@@ -97,6 +99,15 @@ let ref = WDGSync.sync().reference()
 ```
 </div>
 </div>
+
+
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+ Wilddog Sync 允许同时创建多个实例。
+
+</blockquote>
 
 ## 4. 写入数据
 

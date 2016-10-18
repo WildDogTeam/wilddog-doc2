@@ -1,3 +1,4 @@
+
 title: 快速入门
 ---
 
@@ -72,8 +73,14 @@ WilddogApp.initializeApp(this, options);
 SyncReference ref = WilddogSync.getInstance().getReference();
 ```
 
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
 
-## 4. 写入数据
+ Wilddog Sync 允许同时创建多个实例。
+
+</blockquote>
+
+## 5. 写入数据
 
 `setValue()` 用于向指定节点写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
@@ -91,7 +98,7 @@ ref.child("messageboard").child("message1").setValue(comment
 
 
 
-## 5. 监听数据
+## 6. 监听数据
  `addValueEventListener()`或 `addListenerForSingleValueEvent()` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 例如，从应用中获得评论数据：
@@ -129,6 +136,6 @@ myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 });
 
 ```
-## 6.更多使用
+## 7.更多使用
 - 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
 - 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android/ChildEventListener.html)。

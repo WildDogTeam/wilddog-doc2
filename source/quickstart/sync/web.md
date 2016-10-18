@@ -44,6 +44,12 @@ wilddog.initializeApp(config);
 var ref = wilddog.sync().ref();
 ```
 
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+ Wilddog Sync 允许同时创建多个实例。
+
+</blockquote>
 
 ## 4. 写入数据
 
