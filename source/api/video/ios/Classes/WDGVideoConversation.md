@@ -48,7 +48,7 @@ title: WDGVideoConversation
 
 **说明**
 
-表示当前参加视频会话的用户 uid。
+表示当前参加视频会话的用户 Wilddog ID 。
 
 </br>
 
@@ -120,7 +120,7 @@ title: WDGVideoConversation
 
  参数名 | 说明 
 ---|---
-userID|被邀请者的用户uid。
+userID|被邀请者的用户 Wilddog ID 。
 error|若邀请未能发出则通过error返回原因。
 
 **返回值**
@@ -157,13 +157,13 @@ YES 表示邀请成功，NO 表示邀请失败。
 
 **说明**
 
-依据会话参与者的用户 uid 获取对应的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 模型。
+依据会话参与者的用户 Wilddog ID 获取对应的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 模型。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participantUserID|会话参与者的用户uid。
+participantUserID|会话参与者的用户 Wilddog ID 。
 
 **返回值**
 

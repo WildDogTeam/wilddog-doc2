@@ -430,7 +430,7 @@ user?.deleteWithCompletion { error in
 
 用户长时间未登录的情况下进行下列安全敏感操作会失败：
 
-- 删除账户
+- 删除帐户
 - 设置主邮箱地址
 - 更改密码
 

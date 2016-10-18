@@ -87,7 +87,7 @@ MeetingCast 插件，用于控制会话的直播状态。
 
  参数名 | 说明 
 ---|---
-userID|开启直播，并将 uid 为 userID 的用户设为正在直播的用户。
+userID|开启直播，并将 Wilddog ID 为 userID 的用户设为正在直播的用户。
 
 </br>
 
@@ -109,7 +109,7 @@ userID|开启直播，并将 uid 为 userID 的用户设为正在直播的用户
 
  参数名 | 说明 
 ---|---
-userID|将 uid 为 userID 的用户设为正在直播的用户。
+userID|将 Wilddog ID 为 userID 的用户设为正在直播的用户。
 
 </br>
 

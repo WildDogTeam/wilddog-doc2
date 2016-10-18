@@ -116,7 +116,7 @@ completion 可以为空；当用户登录成功或者发生错误时触发。异
  
  - WDGAuthErrorCodeInvalidCredential 表示无效的登录方式。
  - WDGAuthErrorCodeOperationNotAllowed 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
- - WDGAuthErrorCodeUserDisabled 表示账号被禁用。
+ - WDGAuthErrorCodeUserDisabled 表示帐号被禁用。
  - WDGAuthErrorCodeWrongPassword 表示邮箱或着密码错误。
  - See WDGAuthErrors API 调用可能发生的所有错误。
 
@@ -830,7 +830,7 @@ Wilddog iOS 身份认证错误。
 
 WDGAuthErrorCodeInvalidCustomToken 表示自定义令牌认证错误
 
-WDGAuthErrorCodeCustomTokenMismatch 表明服务账号和 API key 属于不同的工程
+WDGAuthErrorCodeCustomTokenMismatch 表明服务帐号和 API key 属于不同的工程
 
 WDGAuthErrorCodeInvalidCredential 如果凭据到期或格式不正确，则可能发生此错误
 

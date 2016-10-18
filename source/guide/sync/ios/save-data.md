@@ -7,10 +7,10 @@ title:  数据操作
 
 | 方法                    | 说明                                       |
 | --------------------- | ---------------------------------------- |
-| setValue:             | 向指定 [节点](/guide/reference/term.html#节点) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| setValue:             | 向指定 [节点](/guide/sync/concept.html#Sync-的数据结构是什么？)写入数据。若此节点已存在数据，会覆盖原有数据。 |
 | setPriority:          | 设置节点优先级。                                 |
 | setValue:andPriority: | 向指定节点写入数据并且设置该节点优先级。                     |
-| childByAutoId         | 向指定节点添加 [子节点](/guide/reference/term.html#节点)。子节点的 [key](/guide/reference/term.html#key) 由 Wilddog Sync 自动生成并保证唯一。 |
+| childByAutoId         | 向指定节点添加 [子节点](/guide/sync/concept.html#子节点)。子节点的 [key](/guide/sync/concept.html#Key-Value-结构) 由 Wilddog Sync 自动生成并保证唯一。 |
 | removeValue           | 删除指定节点。                                  |
 | updateChildValues:    | 更新指定子节点。                                 |
 | runTransactionBlock:  | 并发操作时保证数据一致性。                            |
@@ -136,7 +136,7 @@ ref.setPriority(100) { (error, ref) in
 </div>
 </div>
 
-更多使用，请参考 [setPriority()](/api/sync/ios/api.html#–-setPriority)。
+更多使用，请参考 [setPriority()](/api/sync/ios/WDGSyncReference.html#–-setPriority)。
 
 ## 写入数据并设置节点优先级
 
@@ -177,7 +177,7 @@ ref.setValue("jack", andPriority: 100) { (error, ref) in
 </div>
 </div>
 
-更多使用，请参考 [setValue:andPriority:](/api/sync/ios/api.html#–-setValue-andPriority)。
+更多使用，请参考 [setValue:andPriority:](/api/sync/ios/WDGSyncReference.html#–-setValue-andPriority)。
 
 ## 追加子节点
 
@@ -444,4 +444,4 @@ upvotesRef.runTransactionBlock({
   回调方法的返回值可能为空，需要进行相应的处理。
 </blockquote>
 
-更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/api.html#–-runTransactionBlock)。
+更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/WDGSyncReference.html#–-runTransactionBlock)。

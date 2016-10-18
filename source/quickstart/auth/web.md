@@ -90,4 +90,4 @@ wilddog.auth().signOut().then(function () {
 ```
 
 
-Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/web/api.html)。
+Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/web/User.html)。

@@ -55,9 +55,16 @@ Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。�
 Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
 ```
 
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+ Wilddog Sync 允许同时创建多个引用。
+
+</blockquote>
+
 ## 4. 写入数据
 
-[wilddog_setValue()](/api/sync/c/api.html#wilddog-setValue) 方法用于向指定节点写入数据。
+`wilddog_setValue()` 方法用于向指定节点写入数据。
 
 例如，设置 Jack 为 beauty 描述：
 ```c

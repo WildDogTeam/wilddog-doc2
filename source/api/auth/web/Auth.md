@@ -95,7 +95,7 @@ createUserWithEmailAndPassword(email, password)
 - email_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
+- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
 </br>
 
@@ -150,7 +150,7 @@ wilddog.auth().signInWithEmailAndPassword(email, password)
 - email_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
+- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
 <br/>
 
@@ -194,7 +194,7 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
 可能发生的错误：
 
 -  authentication_disabled 表示 Oauth 登录方式没有打开，可以在野狗的控制面板中打开这个选项。
--  [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
+-  [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
 
 
@@ -236,7 +236,7 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
 可能发生的错误：
 
 -  authentication_disabled 表示 Oauth 登录方式没有打开，可以在野狗的控制面板中打开这个选项。
--  [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
+-  [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
 </br>
 
@@ -278,7 +278,7 @@ wilddog.auth().signInWithCustomToken(token).then(function () {
 可能发生的错误：
 
 - invalid_token  无效的 custom token。
-- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
+- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
 </br>
 
@@ -320,7 +320,7 @@ wilddog.auth().signInWithCredential(credential).then(function(user){
 - authentication_disabled 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
 - invalid_email 表示邮箱错误。
 - invalid_password 表示密码错误。
-- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
+- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
 </br>
 
@@ -348,7 +348,7 @@ sendPasswordResetEmail(email)
 
 可能发生的错误：
 - invalid_email 表示邮箱错误。
-- [See AuthErrors API](/api/auth/web/Error.html) 调用可能发生的所有错误。
+- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
 </br>
 

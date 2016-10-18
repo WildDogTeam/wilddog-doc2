@@ -22,11 +22,11 @@ initMeetingCast(conversation)
 
 | 参数名 | 说明 |
 |---|---|
-| conversation | [wilddog.video.Conversation](/api/video/web/api.html#wilddog-video-Conversation) 类型。需要使用 MeetingCast 服务的 `wilddog.video.Conversation` 类型对象。 |
+| conversation | [wilddog.video.Conversation](/api/video/web/conversation.html) 类型。需要使用 MeetingCast 服务的 `wilddog.video.Conversation` 类型对象。 |
 
 **返回**
 
-[wilddog.video.addons.MeetingCast](/api/video/web/api.html#wilddog-video-addons-MeetingCast)
+[wilddog.video.addons.MeetingCast](/api/video/web/meetingCast.html)
 
 **示例**
 

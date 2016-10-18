@@ -24,7 +24,7 @@ quickstart:
 
 guide:
   实时数据同步:
-    基础概念: /guide/sync/term.html
+    基础概念: /guide/sync/concept.html
     Web:
       数据操作: /guide/sync/web/save-data.html
       事件监听: /guide/sync/web/retrieve-data.html
@@ -55,11 +55,12 @@ guide:
       其他平台: /guide/sync/rest/library.html
     规则表达式:
       简介: /guide/sync/rules/introduce.html
-      指南: /guide/sync/rules/guide.html
-      #数据访问控制: /guide/sync/rules/secure.html
-      #用户访问控制: /guide/sync/rules/auth.html
-      #校验数据: /guide/sync/rules/validate.html
-      #数据索引: /guide/sync/rules/index.html
+      #指南: /guide/sync/rules/guide.html
+      读写权限控制: /guide/sync/rules/access.html
+      用户访问控制: /guide/sync/rules/auth.html
+      数据校验: /guide/sync/rules/validate.html
+      数据索引: /guide/sync/rules/index.html
+      
 
     最佳实践:
       组织数据: /guide/sync/bestpractice/structure-data.html
@@ -122,7 +123,15 @@ guide:
 api:
   实时数据同步:
     Web: 
-      API 文档: /api/sync/web/api.html
+#      API 文档: /api/sync/web/api.html
+      App : /api/sync/web/App.html
+      Sync: /api/sync/web/Sync.html
+      Reference: /api/sync/web/Reference.html
+      Query: /api/sync/web/Query.html
+      OnDisconnect: /api/sync/web/OnDisconnect.html
+      DataSnapshot: /api/sync/web/DataSnapshot.html
+      Promise: /api/sync/web/Promise.html
+      Void: /api/sync/web/Void.html
       错误码: /api/sync/web/error-code.html
     #Android:
      # API 文档: /api/sync/android/api.html
@@ -156,11 +165,16 @@ api:
       WDGDataEventType: /api/sync/ios/WDGDataEventType.html
       error-code: /api/sync/ios/error-code.html
     C/嵌入式: 
-      API 文档: /api/sync/c/api.html
+      #API 文档: /api/sync/c/api.html
+      操作实例: /api/sync/c/reference.html
+      数据修改和同步: /api/sync/c/sync-with-server.html
+      离线事件: /api/sync/c/disconnect-sync.html
+      节点操作: /api/sync/c/local-node.html
       错误码: /api/sync/c/error-code.html
     Arduino: /api/sync/arduino.html
     REST: /api/sync/rest.html
     规则表达式: /api/sync/rule.html
+    更新日志: /api/sync/changelog.html
   实时视频通话:
     Web:
       Video: /api/video/web/wilddogVideo.html
@@ -210,6 +224,8 @@ api:
       WDGVideoMeetingCastAddon: /api/video/ios/Classes/WDGVideoMeetingCastAddon.html
       "&ltWDGVideoMeetingCastAddonDelegate&gt": /api/video/ios/Protocols/WDGVideoMeetingCastAddonDelegate.html
       #错误码: /api/video/ios/error-code.html
+    更新日志: /api/video/changelog.html
+
   身份认证:
     Web:
       App: /api/auth/web/App.html
@@ -261,6 +277,7 @@ api:
       WDGUser: /api/auth/ios/WDGUser.html
       WDGUserInfo: /api/auth/ios/WDGUserInfo.html
       WDGUserProfileChangeRequest: /api/auth/ios/WDGUserProfileChangeRequest.html
+    更新日志: /api/auth/changelog.html
      
 resources:
   实时数据同步:

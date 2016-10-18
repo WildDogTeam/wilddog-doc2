@@ -1,53 +1,67 @@
 title:  Arduino API 文档
 ---
 
-## Wilddog (*Methods*)
+Arduino API 文档。
+
+## 方法
 
 ### new Wilddog
 
- 定义
+**定义**
 
-new Wilddog(wilddogUrl)
+```c
+new Wilddog(char* wilddogUrl)
+```
 
- 说明
+**说明**
 
 初始化URL对应的节点引用。
 
- 参数
+**参数**
 
-* wilddogUrl `string` : 应用URL，如：https://<appId>.wilddogio.com
+| 参数名 | 说明 |
+|---|---|
+| wilddogUrl | `char` 指针类型。应用 URL，如 "https://<appId>.wilddogio.com"。 |
 
- 返回值
+**返回值**
 
-Wilddog 对象的引用。
+当前路径的 Wilddog Sync 对象实例。
 
- 示例
+**示例**
+
 ```c
 ref = new Wilddog("https://<appId>.wilddogio.com/a/b/c");
 ```
 
-----
+</br>
 
-### getValue()
+---
 
- 定义
+### getValue
 
-int getValue(CallBackFunc f\_callback,void \*arg)
+**定义**
 
- 说明
+```c
+int getValue(CallBackFunc f_callback,void *arg)
+```
 
-获取Wilddog引用所对应的节点的值。
+**说明**
 
- 参数
+获取 Wilddog Sync 实例对应路径的值。
 
-* f_callback `CallBackFunc` : 服务端回应数据或者回应超时触发的回调函数, 类型是`void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中`pdata`是返回的数据，`error`是返回码，`arg`是用户传入的自定义参数。
-* arg `void*` : 用户自定义参数（可为NULL）。
+**参数**
 
- 返回值
+| 参数名 | 说明 |
+|---|---|
+| f_callback | `CallBackFunc` 类型。服务端回应数据或者回应超时触发的回调函数，类型是 `void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中 `pdata` 是返回的数据，`error` 是返回码，`arg` 是用户传入的自定义参数。|
+| arg | `void` 指针类型。用户自定义参数（可为NULL）。|
 
-`int` : 返回 0:成功 <0:失败，注意，这里指的成功失败仅指是否成功加入发送队列。
+**返回值**
 
- 示例
+成功返回 0，失败返回 -1。注意，这里指的成功失败仅指是否成功加入发送队列。
+
+**示例**
+
 ```c
 void getValueCallBack(const char *pdata, int error, void* arg){
     Serial.print("\n get error : ");
@@ -73,29 +87,36 @@ void loop(){
 }
 ```
 
-----
+</br>
 
-### setValue()
+---
 
- 定义
+### setValue
 
-int setValue(const char \*p\_data,CallBackFunc f\_callback,void \*arg)
+**定义**
+
+```c
+int setValue(const char *p_data,CallBackFunc f_callback,void *arg)
+```
   
- 说明
+**说明**
 
-设置Wilddog引用所对应的节点的值。
+设置 Wilddog Sync 实例对应的路径的值。
 
- 参数
+**参数**
 
-* p_data `const char*` : 准备设置的节点的值，json字符串格式。
-* f_callback `CallBackFunc` : 服务端回应数据或者回应超时触发的回调函数, 类型是`void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中`pdata`为NULL，`error`是返回码，`arg`是用户传入的自定义参数。
-* arg `void*` : 用户自定义参数（可为NULL）。
+| 参数名 | 说明 |
+|---|---|
+| p_data | `const char` 指针类型。准备设置的节点的值，JSON 字符串格式。|
+| f_callback | `CallBackFunc` 类型。服务端回应数据或者回应超时触发的回调函数, 类型是 `void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中 `pdata` 为 NULL，`error` 是返回码，`arg` 是用户传入的自定义参数。|
+| arg | `void` 指针类型。用户自定义参数（可为 NULL）。|
 
- 返回
+**返回值**
 
-`int` : 返回 0:成功 <0:失败，注意，这里指的成功失败仅指是否成功加入发送队列。
+成功返回 0，失败返回 -1。注意，这里指的成功失败仅指是否成功加入发送队列。
 
- 示例
+**示例**
+
 ```c
 void setValueCallBack(const char *pdata, int error, void* arg){
     Serial.print("\n set error : ");
@@ -121,29 +142,36 @@ void loop(){
 }
 ```
 
-----
+</br>
 
-### push()
+---
 
- 定义
+### push
 
-int push(const char \*p\_data,CallBackFunc f\_callback,void \*arg)
+**定义**
 
- 说明
+```c
+int push(const char *p_data,CallBackFunc f_callback,void *arg)
+```
 
-在当前节点下增加一个节点，节点的值由传入的参数决定，设置成功后返回节点的path。节点的key由服务器随机生成。
+**说明**
 
- 参数
+在当前路径下增加一个节点，节点的值由传入的参数决定，设置成功后返回节点的 path。节点的 key 由服务器随机生成。
 
-* p_data `const char*` : 节点的值，为json字符串。
-* f_callback `CallBackFunc` : 服务端回应数据或者回应超时触发的回调函数, 类型是`void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中`pdata`为创建的节点的path，`error`是返回码，`arg`是用户传入的自定义参数。
-* arg `void *` : 用户自定义参数（可为NULL）。
+**参数**
 
- 返回
+| 参数名 | 说明 |
+|---|---|
+| p_data | `const char` 指针类型。节点的值，为 JSON 字符串。|
+| f_callback | `CallBackFunc` 类型。服务端回应数据或者回应超时触发的回调函数, 类型是 `void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中 `pdata` 为创建的节点的 path ，`error` 是返回码，`arg` 是用户传入的自定义参数。|
+| arg | `void` 指针类型。用户自定义参数（可为 NULL）。|
 
-`int` : 返回 0:成功 <0:失败，注意，这里指的成功失败仅指是否成功加入发送队列。
+**返回值**
 
- 示例
+成功返回 0，失败返回 -1。注意，这里指的成功失败仅指是否成功加入发送队列。
+
+**示例**
+
 ```c
 void pushValueCallBack(const char *pdata, int error, void* arg){
     Serial.print("\n push error : ");
@@ -170,28 +198,35 @@ void loop(){
 }
 ```
 
-----
+</br>
 
-### removeValue()
+---
 
- 定义
+### removeValue
 
-int removeValue(CallBackFunc f\_callback,void \*arg)
+**定义**
 
- 说明
+```c
+int removeValue(CallBackFunc f_callback,void *arg)
+```
 
-删除当前节点的值。
+**说明**
 
- 参数
+删除当前路径的值。
 
-* f_callback `CallBackFunc` : 服务端回应数据或者回应超时触发的回调函数, 类型是`void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中`pdata`为NULL，`error`是返回码，`arg`是用户传入的自定义参数。
-* arg `void*` : 用户自定义参数（可为NULL）。
+**参数**
 
- 返回
+| 参数名 | 说明 |
+|---|---|
+| f_callback | `CallBackFunc` 类型。服务端回应数据或者回应超时触发的回调函数, 类型是 `void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中 `pdata` 为 NULL，`error` 是返回码，`arg` 是用户传入的自定义参数。|
+| arg | `void*` 类型。用户自定义参数（可为 NULL）。|
 
-`int` 返回 0:成功 <0:失败，注意，这里指的成功失败仅指是否成功加入发送队列。
+**返回值**
 
- 示例
+成功返回 0，失败返回 -1。注意，这里指的成功失败仅指是否成功加入发送队列。
+
+**示例**
+
 ```c
 void removeCallBack(const char *pdata, int error, void* arg){
     Serial.print("\n remove error : ");
@@ -217,29 +252,36 @@ void loop(){
 }
 ```
 
-----
+</br>
 
-### addObserver()
+---
 
- 定义
+### addObserver
 
-int addObserver(Wilddog\_EventType\_T event,CallBackFunc f\_callback,void \*arg)
+**定义**
 
- 说明
+```c
+int addObserver(Wilddog_EventType_T event,CallBackFunc f_callback,void *arg)
+```
 
-监听节点下的某个事件（如数据变化）,事件触发后，回调函数会被调用。
+**说明**
 
- 参数
+监听当前路径下的某个事件（如数据变化）,事件触发后，回调函数会被调用。
 
-* event `Wilddog_EventType_T` : 事件类型（目前只能设为1）。
-* f_callback `CallBackFunc` : 服务端回应数据或者回应超时触发的回调函数, 类型是`void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中`pdata`是返回的数据，`error`是返回码，`arg`是用户传入的自定义参数。
-* arg 用户自定义参数（可为NULL）。
+**参数**
 
- 返回
+| 参数名 | 说明 |
+|---|---|
+| event `Wilddog_EventType_T` 类型。事件类型（目前只能设为 1）。|
+| f_callback | `CallBackFunc` 类型。服务端回应数据或者回应超时触发的回调函数, 类型是 `void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中 `pdata` 是返回的数据，`error` 是返回码，`arg` 是用户传入的自定义参数。|
+| arg | `void` 指针类型。用户自定义参数（可为 NULL）。|
 
-`int` : 返回 0:成功 <0:失败，注意，这里指的成功失败仅指是否成功加入发送队列。
+**返回值**
 
- 示例
+成功返回 0，失败返回 -1。注意，这里指的成功失败仅指是否成功加入发送队列。
+
+**示例**
+
 ```c
 void addObserverCallBack(const char *pdata, int error, void* arg){
     Serial.print("\n observe error : ");
@@ -266,27 +308,34 @@ void loop(){
 }
 ```
 
-----
+</br>
 
-### removeObserver()
+---
 
- 定义
+### removeObserver
 
-int removeObserver(Wilddog\_EventType\_T event)
+**定义**
 
- 说明
+```c
+int removeObserver(Wilddog_EventType_T event)
+```
+
+**说明**
 
 取消监听事件。
 
- 参数
+**参数**
 
-* event `Wilddog_EventType_T` : 事件类型（目前只能设为1）。
+| 参数名 | 说明 |
+|---|---|
+| event | `Wilddog_EventType_T` 类型。事件类型（目前只能设为1）。|
 
- 返回
+**返回值**
 
-`int` : 返回 0:成功 <0:失败，注意，这里指的成功失败仅指是否成功加入发送队列。
+成功返回 0，失败返回 -1。注意，这里指的成功失败仅指是否成功加入发送队列。
 
- 示例
+**示例**
+
 ```c
 int observed = FALSE;
 
@@ -322,52 +371,53 @@ void loop(){
 }
 ```
 
-----
+</br>
 
-### trySync()
+---
 
- 定义
+### trySync
 
-void trySync()
+**定义**
 
- 说明
+```c
+void trySync(void)
+```
 
-通过调用wilddog_trySync来向Wilddog云端同步数据。每次调用都会处理来自云端的推送和请求超时的重发、长连接的维持 ，以及触发用户注册的回调函数。
+**说明**
 
- 返回值
+和云端维持连接、接收云端数据、管理数据重传，应该在空闲时调用。
 
-无。
+</br>
 
- 示例
+---
 
-见上面示例。
+### auth
 
-----
+**定义**
 
-# AuthData (*Methods*)
+```c
+int auth(const char *p_auth,const char *p_host,CallBackFunc onAuth,void *arg)
+```
 
-### auth()
+**说明**
 
- 定义
+发送 auth 数据到服务器进行认证。
 
-int auth(const char \*p\_auth,const char \*p\_host,CallBackFunc onAuth,void \*arg)
+**参数**
 
- 说明
+| 参数名 | 说明 |
+|---|---|
+| p_auth | `const char` 指针类型。auth 数据字符串。|
+| p_host | `const char` 指针类型。节点的 host（如 "appid.wilddogio.com"）。|
+| onAuth | `CallBackFunc` 类型。服务端回应数据或者回应超时触发的回调函数, 类型是 `void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中 `pdata` 为 NULL，`error` 是返回码，`arg` 是用户传入的自定义参数。|
+| arg | `void` 指针类型。用户自定义参数（可为 NULL）。|
 
-发送auth数据到服务器进行认证。
+**返回值**
 
- 参数
+成功返回 0，失败返回 -1。注意，这里指的成功失败仅指是否成功加入发送队列。
 
-* p_auth `const char*` : auth数据，字符串类型。
-* p_host `const char*` : 节点的host（如appid.wilddogio.com）。
-* onAuth `CallBackFunc` : 服务端回应数据或者回应超时触发的回调函数, 类型是`void (*CallBackFunc)(const char *pdata, int error, void* arg)`，其中`pdata`为NULL，`error`是返回码，`arg`是用户传入的自定义参数。
-* arg `void*` : 用户自定义参数（可为NULL）。
+**示例**
 
- 返回值
-
-`int` : 返回 0:成功 <0:失败，注意，这里指的成功失败仅指是否成功加入发送队列。
-
- 示例
 ```c
 void authCallBack(const char *pdata, int error, void* arg){
     Serial.print("\n auth error : ");
@@ -392,5 +442,4 @@ void loop(){
         ref->trySync();
 }
 ```
-
 

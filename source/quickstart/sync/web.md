@@ -44,10 +44,16 @@ wilddog.initializeApp(config);
 var ref = wilddog.sync().ref();
 ```
 
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+ Wilddog Sync 允许同时创建多个实例。
+
+</blockquote>
 
 ## 4. 写入数据
 
-[set()](/api/sync/web/api.html#set) 方法用于向指定节点写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
+`set()` 方法用于向指定节点写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
 例如，在应用的根节点下写入评论数据：
 
@@ -69,7 +75,7 @@ ref.set({
 
 
 ## 5. 监听数据
- [on()](/api/sync/web/api.html#on) 或 [once()](/api/sync/web/api.html#once) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+ `on()` 或 `once()` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 例如，从应用中获得评论数据：
 

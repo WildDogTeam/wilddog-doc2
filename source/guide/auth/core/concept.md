@@ -52,6 +52,6 @@ Provider 是身份认证提供方，Wilddog Auth 目前支持以下 Provider：
 | ------------------- | ---------------------------------------- |
 | Wilddog ID Token    | 用于获取 Wilddog Auth 用户的访问权限。用户登录 Wilddog 应用时由 Wilddog Auth 创建。该 Token 包含用户的用户属性。 |
 |  accessToken   | 用于获取第三方身份认证提供商用户的访问权限，由第三方身份认证提供商创建。     |
-| Wilddog CustomToken | 用于获取已有账户体系中用户在 Wilddog 应用中的访问权限。CustomToken 采用 [JWT](https://jwt.io/introduction/) 签名格式。更多 Wilddog CustomToken 的信息，请参考 |
+| Wilddog CustomToken | 用于获取已有帐户体系中用户在 Wilddog 应用中的访问权限。CustomToken 采用 [JWT](https://jwt.io/introduction/) 签名格式。更多 Wilddog CustomToken 相关信息，请参考 [创建 CustomToken](/guide/auth/server/server.html#创建Custom-Token) 。|
 
 

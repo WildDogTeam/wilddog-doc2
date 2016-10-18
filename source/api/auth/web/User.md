@@ -2,7 +2,7 @@
 title: User
 ---
 
-wilddog.User 对象包含所有维护账户个人信息的接口，我们不能直接创建此对象，只能通过 `wilddog.auth().currrentUser` 或者部分登录接口来获取 User 的实例。
+wilddog.User 对象包含所有维护帐户个人信息的接口，我们不能直接创建此对象，只能通过 `wilddog.auth().currrentUser` 或者部分登录接口来获取 User 的实例。
 
 ## 属性
 
@@ -16,7 +16,7 @@ nullable string
 
 **说明**
 
-账户名称
+帐户名称
 
 </br>
 
@@ -32,7 +32,7 @@ nullable string
 
 **说明**
 
-账户主邮箱地址
+帐户主邮箱地址
 
 </br>
 
@@ -48,7 +48,7 @@ boolean
 
 **说明**
 
-账户的主邮箱是否被验证过
+帐户的主邮箱是否被验证过
 
 </br>
 
@@ -64,7 +64,7 @@ boolean
 
 **说明**
 
-账户是否是匿名账户认证
+帐户是否是匿名帐户认证
 
 </br>
 
@@ -80,7 +80,7 @@ nullable string
 
 **说明**
 
-账户照片地址
+帐户照片地址
 
 </br>
 
@@ -96,7 +96,7 @@ non-null Array of wilddog.UserInfo
 
 **说明**
 
-账户下所有身份提供商信息
+帐户下所有身份提供商信息
 
 **返回值**
 
@@ -116,7 +116,7 @@ string
 
 **说明**
 
-当前账户登录使用的身份认证提供商名称，例如 weibo，weixin。
+当前帐户登录使用的身份认证提供商名称，例如 weibo，weixin。
 
 </br>
 
@@ -140,26 +140,6 @@ Wilddog Id
 
 ## 方法
 
-### delete
-
-**定义**
-
-```js
-delete()
-```
-
-**说明**
-
-删除当前账户并且变更成退出状态。
-
-**返回值**
-
-returns [wilddog.Promise](/api/auth/web/Promise.html) containing void
-
-</br>
-
-----
-
 ### link
 
 **定义**
@@ -170,7 +150,7 @@ link(credential)
 
 **说明**
 
-账户使用令牌关联其他身份提供商信息。
+帐户使用令牌关联其他身份提供商信息。
 
 **参数**
 
@@ -300,7 +280,7 @@ unlink(providerId)
 
 **说明**
 
-取消账户的特定登录方式
+取消帐户的特定登录方式
 
 **参数**
 
@@ -507,4 +487,17 @@ wilddog.auth().currentUser
 </br>
 
 ----
+
+### sendEmailVerification
+
+为当前用户发送邮箱确认邮件
+
+**定义**
+
+sendEmailVerification()
+
+**返回**
+
+ [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+
 

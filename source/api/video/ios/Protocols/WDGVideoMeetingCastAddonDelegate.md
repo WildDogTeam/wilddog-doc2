@@ -15,14 +15,14 @@ title: WDGVideoMeetingCastAddonDelegate
 
 **说明**
 
-当前会话的直播状态切换为开启直播后，通过该代理方法返回当前直播用户的 uid 与直播流的URL地址。
+当前会话的直播状态切换为开启直播后，通过该代理方法返回当前直播用户的 Wilddog ID 与直播流的URL地址。
 
 **参数**
 
  参数名 | 说明 
 ---|---
 meetingCastAddon|当前[WDGVideoMeetingCastAddon](../Classes/WDGVideoMeetingCastAddon.html)实例。
-castingUserID|当前直播中的用户uid。 
+castingUserID|当前直播中的用户 Wilddog ID 。 
 castURLs|包含直播流的URL地址，字典的key为直播流的种类，目前包含两类`pull-rtmp-url` 和 `pull-hls-url`，字典的value为该直播流种类对应的地址。
 
 </br>
@@ -39,14 +39,14 @@ castURLs|包含直播流的URL地址，字典的key为直播流的种类，目�
 
 **说明**
 
-当前会话的直播状态为开启直播时，若直播用户发生了切换，通过该代理方法返回切换后直播用户的 uid。
+当前会话的直播状态为开启直播时，若直播用户发生了切换，通过该代理方法返回切换后直播用户的 Wilddog ID 。
 
 **参数**
 
  参数名 | 说明 
 ---|---
 meetingCastAddon|当前[WDGVideoMeetingCastAddon](../Classes/WDGVideoMeetingCastAddon.html)实例。
-castingUserID|切换后直播用户的uid。
+castingUserID|切换后直播用户的 Wilddog ID 。
 
 </br>
 

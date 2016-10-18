@@ -69,6 +69,8 @@ SDK 的安装方式有两种，你可以任选其一：
 </div>
 </div>
 
+
+
 **2.初始化**
 
 <div class="slide">
@@ -98,9 +100,18 @@ let ref = WDGSync.sync().reference()
 </div>
 </div>
 
+
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+ Wilddog Sync 允许同时创建多个实例。
+
+</blockquote>
+
 ## 4. 写入数据
 
-[setValue](/api/sync/ios/api.html#–-setValue) 方法用于向指定节点写入数据。写入数据。Wilddog Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
+`setValue` 方法用于向指定节点写入数据。写入数据。Wilddog Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
 例如，在应用的根节点下写入天气数据：
 
@@ -132,7 +143,7 @@ ref.setValue(["messageboard" : ["message1" : ["content" : "Wilddog, Cool!", "pre
 
 ## 5. 监听数据
 
-[observeEventType](/api/sync/ios/api.html#–-observeEventType-withBlock) 或 [observeSingleEventOfType](/api/sync/ios/api.html#–-observeSingleEventOfType-withBlock) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+`observeEventType` 或 `observeSingleEventOfType` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 例如，从应用中获得评论数据：
 
@@ -172,6 +183,6 @@ ref.observeSingleEventOfType(.Value, withBlock: {
 
 ## 6.更多使用
 - 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
-- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios.html)。
+- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios/WDGSync.html)。
 
 
