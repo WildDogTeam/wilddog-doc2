@@ -30,7 +30,10 @@ window.onload = function () {
       removeClass(ele, className)
     }
   }
-
+/*  var wbrs = [].slice.call(document.querySelectorAll('.sublist .sidebar-link'));
+  wbrs.forEach(function (ele) {
+    ele.innerHTML = ele.textContent.replace(/\./g, ".<wbr>");
+  });*/
 //右侧目录判断是否显示
   var airticleContent = document.querySelector('.article .inner');
   var toc = getElementsByClassName('toc-content')[0];
@@ -82,9 +85,27 @@ window.onload = function () {
   var tocLinks = getElementsByClassName('toc-link');
   var tocLinksHref = [];
   var headingTops = [];
+  var titleContent = document.getElementsByClassName('toc-link-title')[0];
   tocLinks.forEach(function (ele, index) {
     var id = ele.getAttribute('href').replace('#', '');
+    ele.setAttribute('title', ele.textContent);
     tocLinksHref.push(id);
+    ele.addEventListener('mouseenter', function (e) {
+      var title = ele.getAttribute('title');
+      if (title.length > 20) {
+        titleContent.textContent = title;
+        titleContent.style.display = 'block';
+        titleContent.style.left = e.clientX + 'px';
+        titleContent.style.top = e.clientY - 40 + 'px';
+      }
+    });
+    ele.addEventListener('mousemove', function (e) {
+      titleContent.style.left = e.clientX + 'px';
+      titleContent.style.top = e.clientY - 40 + 'px';
+    });
+    ele.addEventListener('mouseleave', function (e) {
+      titleContent.style.display = 'none';
+    })
   });
   headings.forEach(function (ele) {
     var actualTop = ele.offsetTop;
@@ -148,8 +169,17 @@ window.onload = function () {
   });
 
   var jsVersionContent = getElementsByClassName('js-version');
+  var androidSyncVersionContent = getElementsByClassName('android-sync-version');
+  var androidAuthVersionContent = getElementsByClassName('android-auth-version');
+  var iosDownLoadSync = getElementsByClassName('ios-download-sync');
+  var iosDownLoadAuth = getElementsByClassName('ios-download-auth');
+  var iosDownLoadCore = getElementsByClassName('ios-download-core');
+  var videoWebVersionContent = getElementsByClassName('video-web-version');
+  var videoAndroidVersionContent = getElementsByClassName('video-android-version');
+  var videoIosVersionContent = getElementsByClassName('video-ios-version');
+  var videoAndroidDownloadSrc = getElementsByClassName('video-android-download');
+  var videoIosDownloadSrc = getElementsByClassName('video-ios-download');
 
-  if (jsVersionContent.length !== 0) {
     var config = {
       authDomain: "wd-download.wilddog.com",
       syncURL: "https://wd-download.wilddogio.com"
@@ -157,10 +187,68 @@ window.onload = function () {
 
     wilddog.initializeApp(config);
     var ref = wilddog.sync().ref();
-    ref.child('WilddogJavaScript/version').once('value', function (snap) {
+    ref.once('value', function (snap) {
+      var jsVersion = snap.val().WilddogJavaScript.version;
+      var iosAuthVersion = snap.val().WilddogAuthiOS.version;
+      var iosSyncVersion = snap.val().WilddogSynciOS.version;
+      var androidSyncVersion = snap.val().WilddogSyncAndroid.version;
+      var androidAuthVersion = snap.val().WilddogAuthAndroid.version;
+      var videoWebVersion = snap.val().WilddogVideoWeb.version;
+      var videoAndroidVersion = snap.val().WilddogVideoAndroid.version;
+      var videoIosVersion = snap.val().WilddogVideoiOS.version;
+      var videoAndroidDownload = snap.val().WilddogVideoAndroid.downUrl;
+      var videoIosDownload = snap.val().WilddogVideoiOS.downUrl;
       jsVersionContent.forEach(function (ele) {
-        ele.textContent = snap.val();
+        ele.textContent = jsVersion;
+      });
+      androidSyncVersionContent.forEach(function (ele) {
+        ele.textContent = androidSyncVersion;
+      });
+      androidAuthVersionContent.forEach(function (ele) {
+        ele.textContent = androidAuthVersion;
+      });
+      videoWebVersionContent.forEach(function (ele) {
+        ele.textContent = videoWebVersion;
+      });
+      videoAndroidVersionContent.forEach(function (ele) {
+        ele.textContent = videoAndroidVersion;
+      });
+      videoIosVersionContent.forEach(function (ele) {
+        ele.textContent = videoIosVersion;
+      });
+      iosDownLoadSync.forEach(function (ele) {
+        ele.setAttribute('href', snap.val().WilddogAuthiOS.cdn);
+      });
+      iosDownLoadAuth.forEach(function (ele) {
+        ele.setAttribute('href', snap.val().WilddogSynciOS.cdn);
+      });
+      iosDownLoadCore.forEach(function (ele) {
+        ele.setAttribute('href', 'https://cdn.wilddog.com/sdk/ios/' + iosAuthVersion + '/WilddogCore.framework-' + iosAuthVersion + '.zip');
+      });
+      videoAndroidDownloadSrc.forEach(function (ele) {
+        ele.setAttribute('href', videoAndroidDownload);
+      });
+      videoIosDownloadSrc.forEach(function (ele) {
+        ele.setAttribute('href', videoIosDownload);
+      });
+    });
+
+    var slides = getElementsByClassName('slide');
+    slides.forEach(function (ele) {
+      var tabs = [].slice.call(ele.getElementsByClassName('slide-tab'), 0);
+      var contents = [].slice.call(ele.getElementsByClassName('slide-content'), 0);
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          getSiblings(tab).forEach(function (sibling) {
+            removeClass(sibling, 'tab-current')
+          });
+          var index = tabs.indexOf(this);
+          addClass(this, 'tab-current');
+          contents.forEach(function (content) {
+            removeClass(content, 'slide-content-show')
+          });
+          addClass(contents[index], 'slide-content-show');
+        })
       })
     })
-  }
 };

@@ -2,6 +2,7 @@ overview:
   野狗概览:
     简介: /overview/index.html
     实时数据同步: /overview/sync.html
+    实时视频通话: /overview/video.html
     身份认证: /overview/auth.html
 
 quickstart:
@@ -11,6 +12,11 @@ quickstart:
     iOS: /quickstart/sync/ios.html
     C/嵌入式: /quickstart/sync/c.html
     REST: /quickstart/sync/rest.html
+    规则表达式: /quickstart/sync/rule.html
+  实时视频通话:
+    Web: /quickstart/video/web.html
+    Android: /quickstart/video/android.html
+    iOS: /quickstart/video/ios.html
   身份认证:
     Web: /quickstart/auth/web.html
     Android: /quickstart/auth/android.html
@@ -18,60 +24,88 @@ quickstart:
 
 guide:
   实时数据同步:
+    基础概念: /guide/sync/concept.html
     Web:
-      操作数据: /guide/sync/web/save-data.html
-      查询数据: /guide/sync/web/retrieve-data.html
+      数据操作: /guide/sync/web/save-data.html
+      事件监听: /guide/sync/web/retrieve-data.html
       离线功能: /guide/sync/web/offline-capabilities.html
+      高级特性: /guide/sync/web/advance-feature.html
       
     Android :
-      操作数据: /guide/sync/android/save-data.html
-      查询数据: /guide/sync/android/retrieve-data.html
+      数据操作: /guide/sync/android/save-data.html
+      事件监听: /guide/sync/android/retrieve-data.html
       离线功能: /guide/sync/android/offline-capabilities.html
+      高级特性: /guide/sync/android/advance-feature.html
       
     iOS:
-      操作数据: /guide/sync/ios/save-data.html
-      查询数据: /guide/sync/ios/retrieve-data.html
+      数据操作: /guide/sync/ios/save-data.html
+      事件监听: /guide/sync/ios/retrieve-data.html
       离线功能: /guide/sync/ios/offline-capabilities.html
+      高级特性: /guide/sync/ios/advance-feature.html
       
     C/嵌入式:
       配置和移植: /guide/sync/c/config-and-porting.html
-      操作数据: /guide/sync/c/save-data.html
-      查询数据: /guide/sync/c/retrieve-data.html
+      数据操作: /guide/sync/c/save-data.html
+      事件监听: /guide/sync/c/retrieve-data.html
       离线功能: /guide/sync/c/offline-capabilities.html
       
     REST:
-      操作数据: /guide/sync/rest/save-data.html
-      查询数据: /guide/sync/rest/retrieve-data.html
+      数据操作: /guide/sync/rest/save-data.html
+      数据查询: /guide/sync/rest/retrieve-data.html
       其他平台: /guide/sync/rest/library.html
     规则表达式:
       简介: /guide/sync/rules/introduce.html
-      指南: /guide/sync/rules/guide.html
+      #指南: /guide/sync/rules/guide.html
+      读写权限控制: /guide/sync/rules/access.html
+      用户访问控制: /guide/sync/rules/auth.html
+      数据校验: /guide/sync/rules/validate.html
+      数据索引: /guide/sync/rules/index.html
+      
+
     最佳实践:
       组织数据: /guide/sync/bestpractice/structure-data.html
-      数组: /guide/sync/bestpractice/array.html
+      数组处理: /guide/sync/bestpractice/array.html
+    数据限制: /guide/sync/data-limit.html
+  实时视频通话:
+    基础概念: /guide/video/core.html
+    Web:
+      安装 SDK: /guide/video/web/install-sdk.html
+      建立会话: /guide/video/web/setting-up-conversation.html
+      管理其他参与者: /guide/video/web/dealing-with-participants.html
+      加入会话相关: /guide/video/web/participating-conversation.html
+    Android:
+      安装 SDK: /guide/video/android/install-sdk.html
+      建立会话: /guide/video/android/setting-up-conversation.html
+      管理其他参与者: /guide/video/android/dealing-with-participants.html
+      加入会话相关: /guide/video/android/participating-conversation.html
+    iOS:
+      安装 SDK: /guide/video/ios/install-sdk.html
+      建立会话: /guide/video/ios/setting-up-conversation.html
+      管理其他参与者: /guide/video/ios/dealing-with-participants.html
+      加入会话相关: /guide/video/ios/participating-conversation.html
+    附加功能: /guide/video/add-ons.html
   身份认证:
-    核心概念:
-      Wilddog 用户: /guide/auth/core/concept.html
+    基础概念: /guide/auth/core/concept.html
     Web:
       管理用户: /guide/auth/web/manageuser.html
-      邮箱登录: /guide/auth/web/password.html
-      QQ登录: /guide/auth/web/qq.html
-      微信登录: /guide/auth/web/weixin.html
-      微信公众号登录: /guide/auth/web/weixinpublic.html
-      微博登录: /guide/auth/web/weibo.html
+      邮箱认证: /guide/auth/web/password.html
+      QQ 认证: /guide/auth/web/qq.html
+      微信认证: /guide/auth/web/weixin.html
+      微信公众号认证: /guide/auth/web/weixinpublic.html
+      微博认证: /guide/auth/web/weibo.html
       自定义身份认证: /guide/auth/web/custom.html
       匿名身份认证: /guide/auth/web/anonymous.html
-      绑定多种登录方式: /guide/auth/web/link.html
+      绑定多种认证方式: /guide/auth/web/link.html
       
     Android:
       管理用户: /guide/auth/android/manageuser.html
-      邮箱登录: /guide/auth/android/password.html
-      QQ登录: /guide/auth/android/qq.html
-      微信登录: /guide/auth/android/weixin.html
-      微博登录: /guide/auth/android/weibo.html
+      邮箱认证: /guide/auth/android/password.html
+      QQ 认证: /guide/auth/android/qq.html
+      微信认证: /guide/auth/android/weixin.html
+      微博认证: /guide/auth/android/weibo.html
       自定义身份认证: /guide/auth/android/custom.html
       匿名身份认证: /guide/auth/android/anonymous.html
-      绑定多种登录方式: /guide/auth/android/link.html
+      绑定多种认证方式: /guide/auth/android/link.html
     iOS:
       管理用户: /guide/auth/ios/manageuser.html
       邮箱登录: /guide/auth/ios/password.html
@@ -89,29 +123,158 @@ guide:
 api:
   实时数据同步:
     Web: 
-      API 文档: /api/sync/web/api.html
+#      API 文档: /api/sync/web/api.html
+      App : /api/sync/web/App.html
+      Sync: /api/sync/web/Sync.html
+      Reference: /api/sync/web/Reference.html
+      Query: /api/sync/web/Query.html
+      OnDisconnect: /api/sync/web/OnDisconnect.html
+      DataSnapshot: /api/sync/web/DataSnapshot.html
+      Promise: /api/sync/web/Promise.html
+      Void: /api/sync/web/Void.html
       错误码: /api/sync/web/error-code.html
-    Android: 
-      API 文档: /api/sync/android/api.html
-      错误码: /api/sync/android/error-code.html
+    #Android:
+     # API 文档: /api/sync/android/api.html
+      #错误码: /api/sync/android/error-code.html
+    Android:
+       ChildEventListener: /api/sync/android/ChildEventListener.html
+       Config: /api/sync/android/Config.html
+       DataSnapshot: /api/sync/android/DataSnapshot.html
+       MutableData: /api/sync/android/MutableData.html
+       OnDisconnect: /api/sync/android/OnDisconnect.html
+       Query: /api/sync/android/Query.html
+       ServerValue: /api/sync/android/ServerValue.html
+       SyncError: /api/sync/android/SyncError.html
+       SyncReference.CompletionListener: /api/sync/android/SyncReference.CompletionListener.html
+       SyncReference: /api/sync/android/SyncReference.html
+       ValueEventListener: /api/sync/android/ValueEventListener.html
+       WilddogApp: /api/sync/android/WilddogApp.html
+       WilddogOptions.Builder: /api/sync/android/WilddogOptions.Builder.html
+       WilddogOptions: /api/sync/android/WilddogOptions.html
+       WilddogSync: /api/sync/android/WilddogSync.html
+       错误码: /api/sync/android/error-code.html
     iOS: 
-      API 文档: /api/sync/ios/api.html
-      错误码: /api/sync/ios/error-code.html
+      WDGSync: /api/sync/ios/WDGSync.html
+      WDGSyncReference: /api/sync/ios/WDGSyncReference.html
+      WDGSyncQuery: /api/sync/ios/WDGSyncQuery.html
+      WDGDataSnapshot: /api/sync/ios/WDGDataSnapshot.html
+      WDGMutableData: /api/sync/ios/WDGMutableData.html
+      WDGTransactionResult: /api/sync/ios/WDGTransactionResult.html
+      WDGServerValue: /api/sync/ios/WDGServerValue.html
+      WDGSyncConfig: /api/sync/ios/WDGSyncConfig.html
+      WDGDataEventType: /api/sync/ios/WDGDataEventType.html
+      error-code: /api/sync/ios/error-code.html
     C/嵌入式: 
       API 文档: /api/sync/c/api.html
       错误码: /api/sync/c/error-code.html
     Arduino: /api/sync/arduino.html
     REST: /api/sync/rest.html
     规则表达式: /api/sync/rule.html
-  身份认证:
-    Web: 
-      API 文档: /api/auth/web/api.html
-      错误码: /api/auth/web/error-code.html
-    Android: /api/auth/android/api.html
-    iOS:
-      API 文档: /api/auth/ios/api.html
-      错误码: /api/auth/ios/error-code.html
+    更新日志: /api/sync/changelog.html
+  实时视频通话:
+    Web:
+      Video: /api/video/web/wilddogVideo.html
+      Client: /api/video/web/wilddogVideoClient.html
+      Conversation: /api/video/web/conversation.html
+      Participant: /api/video/web/participant.html
+      LocalStream: /api/video/web/localStream.html
+      RemoteStream: /api/video/web/remoteStream.html
+      Addons: /api/video/web/addons.html
+      MeetingCast: /api/video/web/meetingCast.html
+      OutgoingInvite: /api/video/web/outgoingInvite.html
+      IncomingInvite: /api/video/web/incomingInvite.html
+      #错误码: /api/video/web/error-code.html
+    Android:
+      Video: /api/video/android/video.html
+      ConversationClient: /api/video/android/conversation-client.html
+      ConversationClient.Listener: /api/video/android/conversation-client-listener.html
+      Conversation: /api/video/android/conversation.html
+      Conversation.Listener: /api/video/android/conversation-listener.html
+      ConversationCallback: /api/video/android/conversation-callback.html
+      InviteOptions: /api/video/android/invite-options.html
+      IncomingInvite: /api/video/android/incoming-invite.html
+      OutgoingInvite: /api/video/android/outgoing-invite.html
+      Stream: /api/video/android/stream.html
+      LocalStream: /api/video/android/local-stream.html
+      RemoteStream: /api/video/android/remote-stream.html
+      Participant: /api/video/android/participant.html
+      ConversationException: /api/video/android/conversation-exception.html
+      ConversationMode: /api/video/android/conversation-mode.html
+      MeetingCastStateListener: /api/video/android/meeting-cast-listener.html
+      MeetingCastAddon: /api/video/android/meeting-cast-addon.html
 
+      #错误码: /api/video/android/error-code.html
+    iOS:
+      WDGVideoClient: /api/video/ios/Classes/WDGVideoClient.html
+      "&ltWDGVideoClientDelegate&gt": /api/video/ios/Protocols/WDGVideoClientDelegate.html
+      WDGVideoConversation: /api/video/ios/Classes/WDGVideoConversation.html
+      "&ltWDGVideoConversationDelegate&gt": /api/video/ios/Protocols/WDGVideoConversationDelegate.html
+      WDGVideoParticipant: /api/video/ios/Classes/WDGVideoParticipant.html
+      WDGVideoIncomingInvite: /api/video/ios/Classes/WDGVideoIncomingInvite.html
+      WDGVideoOutgoingInvite: /api/video/ios/Classes/WDGVideoOutgoingInvite.html
+      WDGVideoLocalStreamConfiguration: /api/video/ios/Classes/WDGVideoLocalStreamConfiguration.html
+      WDGVideoStream: /api/video/ios/Classes/WDGVideoStream.html
+      WDGVideoLocalStream: /api/video/ios/Classes/WDGVideoLocalStream.html
+      WDGVideoRemoteStream: /api/video/ios/Classes/WDGVideoRemoteStream.html
+      WDGVideoView: /api/video/ios/Classes/WDGVideoView.html
+      WDGVideoMeetingCastAddon: /api/video/ios/Classes/WDGVideoMeetingCastAddon.html
+      "&ltWDGVideoMeetingCastAddonDelegate&gt": /api/video/ios/Protocols/WDGVideoMeetingCastAddonDelegate.html
+      #错误码: /api/video/ios/error-code.html
+    更新日志: /api/video/changelog.html
+
+  身份认证:
+    Web:
+      App: /api/auth/web/App.html
+      Auth: /api/auth/web/Auth.html
+      User: /api/auth/web/User.html
+      UserInfo: /api/auth/web/UserInfo.html
+      Provider: /api/auth/web/Provider.html
+      EmailAuthProvider: /api/auth/web/EmailAuthProvider.html
+      WeiboAuthProvider: /api/auth/web/WeiboAuthProvider.html
+      QQAuthProvider: /api/auth/web/QQAuthProvider.html
+      WeixinAuthProvider: /api/auth/web/WeixinAuthProvider.html
+      WeixinmpAuthProvider: /api/auth/web/WeixinmpAuthProvider.html
+      Credential: /api/auth/web/Credential.html
+      Promise: /api/auth/web/Promise.html
+      Void: /api/auth/web/Void.html
+      Error: /api/auth/web/error-code.html
+    #Android: /api/auth/android/api.html
+    Android:
+      AuthCredential: /api/auth/android/AuthCredential.html
+      AuthResult: /api/auth/android/AuthResult.html
+      EmailAuthCredential: /api/auth/android/EmailAuthCredential.html
+      EmailAuthProvider: /api/auth/android/EmailAuthProvider.html
+      GetTokenResult: /api/auth/android/GetTokenResult.html
+      ProviderQueryResult: /api/auth/android/ProviderQueryResult.html
+      QQAuthCredential: /api/auth/android/QQAuthCredential.html
+      QQAuthProvider: /api/auth/android/QQAuthProvider.html
+      UserInfo: /api/auth/android/UserInfo.html
+      UserProfileChangeRequest.Builder: /api/auth/android/UserProfileChangeRequest.Builder.html
+      UserProfileChangeRequest: /api/auth/android/UserProfileChangeRequest.html
+      WeiboAuthCredential: /api/auth/android/WeiboAuthCredential.html
+      WeiboAuthProvider: /api/auth/android/WeiboAuthProvider.html
+      WeiXinAuthCredential: /api/auth/android/WeiXinAuthCredential.html
+      WeiXinAuthProvider: /api/auth/android/WeiXinAuthProvider.html
+      WilddogAuth.AuthStateListener: /api/auth/android/WilddogAuth.AuthStateListener.html
+      WilddogAuth: /api/auth/android/WilddogAuth.html
+      WilddogAuthProvider: /api/auth/android/WilddogAuthProvider.html
+      WilddogUser: /api/auth/android/WilddogUser.html
+    #iOS:
+      #API 文档: /api/auth/ios/api.html
+      #错误码: /api/auth/ios/error-code.html
+    iOS:
+      WDGAuth: /api/auth/ios/WDGAuth.html
+      WDGAuthCredential: /api/auth/ios/WDGAuthCredential.html
+      WDGAuthErrors: /api/auth/ios/WDGAuthErrors.html
+      WDGEmailPasswordAuthProvider: /api/auth/ios/WDGEmailPasswordAuthProvider.html
+      WDGQQAuthProvider: /api/auth/ios/WDGQQAuthProvider.html
+      WDGWeiXinAuthProvider: /api/auth/ios/WDGWeiXinAuthProvider.html
+      WDGWeiboAuthProvider: /api/auth/ios/WDGWeiboAuthProvider.html
+      WDGUser: /api/auth/ios/WDGUser.html
+      WDGUserInfo: /api/auth/ios/WDGUserInfo.html
+      WDGUserProfileChangeRequest: /api/auth/ios/WDGUserProfileChangeRequest.html
+    更新日志: /api/auth/changelog.html
+     
 resources:
   实时数据同步:
     Web:
@@ -126,11 +289,22 @@ resources:
     C/嵌入式:
       实战教程: /resources/sync/c/tutorial.html
       示例库: /resources/sync/c/resources.html
+  实时视频通话:
+    Web:
+      实战教程: /resources/video/web/tutorial.html
+      示例库: /resources/video/web/resources.html
+    Android:  
+      实战教程: /resources/video/android/tutorial.html
+      示例库: /resources/video/android/resources.html
+    iOS:
+      实战教程: /resources/video/ios/tutorial.html
+      示例库: /resources/video/ios/resources.html
   身份认证:
   # Web: /resources/auth/web.html
     Android:
       示例库: /resources/auth/android/resources.html
-  # iOS: /resources/auth/ios.html
+    iOS: 
+      示例库: /resources/auth/ios/resources.html
 
 console:
   控制面板:

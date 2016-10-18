@@ -1,196 +1,365 @@
-title:  操作数据
+
+title:  数据操作
 ---
-本篇文档介绍操作数据的方法。
+本篇文档介绍如何进行数据操作，分为写入，更新和删除数据。
 
-以下四种方法用于操作数据：
+数据操作包含以下七种方法：
 
-方法 |  说明 
-----|------
-setValue |向某个节点写入数据。若此节点已存在数据，会覆盖这些数据。
-childByAutoId | 向某个节点添加子节点。子节点的 key 由野狗自动生成并保证唯一，value 是你要写入的数据。
-updateChildValues | 更新节点下指定 key 的值，而不影响其他数据。
-runTransactionBlock | 用于并发场景下的事务处理。
+| 方法                    | 说明                                       |
+| --------------------- | ---------------------------------------- |
+| setValue:             | 向指定 [节点](/guide/sync/concept.html#Sync-的数据结构是什么？)写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| setPriority:          | 设置节点优先级。                                 |
+| setValue:andPriority: | 向指定节点写入数据并且设置该节点优先级。                     |
+| childByAutoId         | 向指定节点添加 [子节点](/guide/sync/concept.html#子节点)。子节点的 [key](/guide/sync/concept.html#Key-Value-结构) 由 Wilddog Sync 自动生成并保证唯一。 |
+| removeValue           | 删除指定节点。                                  |
+| updateChildValues:    | 更新指定子节点。                                 |
+| runTransactionBlock:  | 并发操作时保证数据一致性。                            |
+
+
 
 ## 写入数据
 
-`setValue` 方法向某个节点写入数据。若节点已有数据，会覆盖原有数据，包括其子节点的数据。
+`setValue:` 方法用于向指定节点写入数据。此方法会先清空指定节点，再写入数据。
 
-`setValue` 可以传入数据类型有 `NSString`, `NSNumber`, `NSDictionary`, `NSArray` 。
+`setValue:` 方法可设置回调方法来获取操作的结果。
 
-例如，在博客的例子中使用 `setValue` 方法来添加用户信息：
+例如，向 ``Jobs`` 节点下写入 `full_name ` 和 `gender`：
 
-首先，我们需要初始化 WDGApp：
-
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
-// 初始化 WDGApp，同一个 appID 初始化一次即可
-WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
+// 初始化 
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
+// 获取一个 WDGSyncReference 实例
+WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"/web/saving-data/wildblog/users"];
+NSDictionary *jobs = @{
+                          @"full_name" : @"Steve Jobs",
+                          @"gender" : @"male"
+                      };
 
+// child 用来定位到某个节点。                           
+WDGSyncReference *usersRef = [ref childWithPath: @"Jobs"];
+[usersRef setValue:jobs];
 ```
-
-Swift
-
-```swift  
-//初始化 WDGApp，同一个 appID 初始化一次即可   
-let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
+</div>
+<div class="slide-content">
+```swift 
+//初始化
+let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
 WDGApp.configureWithOptions(options)
+// 获取一个 WDGSyncReference 实例
+let ref = WDGSync.sync().referenceWithPath("/web/saving-data/wildblog/users")
+var jobs = ["full_name": "Steve Jobs", "gender": "male"]
 
+// child 用来定位到某个节点。
+var usersRef = ref.child("jobs")
+usersRef.setValue(jobs)
 ```
+</div>
+</div>
 
-接下来，开始写入数据：
+设置回调方法：
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+NSDictionary *jobs = @{
+                          @"full_name" : @"Steve Jobs",
+                          @"gender" : @"male"
+                      };
+[[ref child:@"Jobs"] setValue:jobs withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+    if (error == nil) {
+        // 数据同步到野狗云端成功完成
+    }
+}];
+```
+</div>
+<div class="slide-content">
+```swift 
+ref.child("Jobs").setValue(jobs, withCompletionBlock: { error, ref in
+    if error == nil{
+         // 数据同步到野狗云端成功完成
+    }
+})
+```
+</div>
+</div>
+
+## 设置节点优先级
+
+`setPriority:` 方法用于设置节点的优先级。
+
+Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/ios/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
+
+例如，设置 `user` 节点的优先级为100：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 
 ```objectivec
-// 获取一个 WDGSyncReference 对象
-WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://samplechat.wilddogio.com//web/saving-data/wildblog"];
-NSDictionary *alanisawesome = @{
-                                @"full_name" : @"Alan Turing",
-                                @"date_of_birth": @"June 23, 1912"
-                                };
-NSDictionary *gracehop = @{
-                           @"full_name" : @"Grace Hopper",
-                           @"date_of_birth": @"December 9, 1906"
-                           };
-                           
-Wilddog *usersRef = [ref child: @"users"];
-NSDictionary *users = @{
-                        @"alanisawesome": alanisawesome,
-                        @"gracehop": gracehop
-                        };
-// 写入数据
-[usersRef setValue: users];
+WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"user"];
+[ref setPriority:@(100) withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+    if (error) {
+        NSLog(@"set priority failed'");
+        return;
+    }
+    NSLog(@"set priority success.");
+ }];
+```
+
+</div>
+<div class="slide-content">
+
+```swift
+let ref = WDGSync.sync().referenceWithPath("user")
+ref.setPriority(100) { (error, ref) in
+            if error == nil {
+                // set priority success.
+            }
+        }
 
 ```
 
-Swift
+</div>
+</div>
 
-```swift  
-// 获取一个 WDGSyncReference 对象
-let ref = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com//web/saving-data/wildblog")           
-var alanisawesome = ["full_name": "Alan Turing", "date_of_birth": "June 23, 1912"]
-var gracehop = ["full_name": "Grace Hopper", "date_of_birth": "December 9, 1906"]
+更多使用，请参考 [setPriority()](/api/sync/ios/WDGSyncReference.html#–-setPriority)。
 
-var usersRef = ref.child("users")
+## 写入数据并设置节点优先级
 
-var users = ["alanisawesome": alanisawesome, "gracehop": gracehop]
-// 写入数据
-usersRef.setValue(users)
+`setValue:andPriority:` 方法用于指定节点写入数据并且设置该节点优先级。
+
+例如，写入 `jack` 的姓名并且设置优先级为100：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+
+```objectivec
+WDGSyncReference *ref = [[WDGSync sync] reference:@"full_name"];
+[ref setValue:@"jack"
+  andPriority:@100
+withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
+     if (!error) {
+         // set data success.
+     }
+}];```
+
+</div>
+<div class="slide-content">
+
+​```swift
+let ref = WDGSync.sync().reference("full_name")
+ref.setValue("jack", andPriority: 100) { (error, ref) in
+    if error == nil {
+         // set data success.
+    }
+}
 
 ```
 
-访问 [博客数据页面](https://docs-examples.wilddogio.com/web/saving-data/wildblog/users)，将会看到刚才写入的数据。
+</div>
+</div>
 
-**注意**：`https://docs-examples.wilddogio.com`这个示例应用，数据为只读模式，主要用于野狗博客示例的数据展示。如果你想要体验写数据操作，可以将 `docs-examples` 替换成自己应用的 AppID。
+更多使用，请参考 [setValue:andPriority:](/api/sync/ios/WDGSyncReference.html#–-setValue-andPriority)。
 
 ## 追加子节点
 
-`childByAutoId` 方法会生成唯一 ID 作为 key ，要写入的数据作为 value ，进行数据写入。这个 key 基于时间戳和随机算法生成，即使生成在同一毫秒也不会重复，它标明了时间的先后。
+`childByAutoId` 方法向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
 
-例如，追加子节点到 `posts` 节点：
+例如，追加子节点到 `messages` 节点：
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
-WDGSyncReference *postRef = [ref child: @"posts"];
-NSDictionary *post1 = @{
-    @"author": @"gracehop",
-    @"title": @"Announcing COBOL, a New Programming Language"
+WDGSyncReference *messageRef = [ref child: @"messages"];
+NSDictionary *message1 = @{
+    @"full_name": @"Steve Jobs",
+    @"message": @"Think difference"
 };
-WDGSyncReference *post1Ref = [postRef childByAutoId];
-[post1Ref setValue: post1];
+[[messageRef childByAutoId] setValue:message1];
 
-NSDictionary *post2 = @{
-    @"author": @"alanisawesome",
-    @"title": @"The Turing Machine"
+NSDictionary *message2 = @{
+    @"full_name": @"Bill Gates",
+    @"message": @"Hello World"
 };
-WDGSyncReference *post2Ref = [postRef childByAutoId];
-[post2Ref setValue: post2];
+[[messageRef childByAutoId] setValue:message2];
 
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
-let postRef = ref.child("posts")
-let post1 = ["author": "gracehop", "title": "Announcing COBOL, a New Programming Language"]
-let post1Ref = postRef.childByAutoId()
-post1Ref.setValue(post1)
-
-let post2 = ["author": "alanisawesome", "title": "The Turing Machine"]
-let post2Ref = postRef.childByAutoId()
-post2Ref.setValue(post2)
-
+let messageRef = ref.child("messages")
+messageRef.childByAuthId().setValue(["full_name" : "Steve Jobs","message" : "Think difference"])
+messageRef.childByAuthId().setValue(["full_name" : "Bill Gates","message" : "Hello World"])
 ```
+</div>
+</div>
+
 产生的数据如下：
 
 ```json
 {
-  "posts": {
+  "messages": {
     "-JRHTHaIs-jNPLXOQivY": {
-      "author": "gracehop",
-      "title": "Announcing COBOL, a New Programming Language"
+      "full_name": "Steve Jobs",
+      "message": "Think difference"
      },
     "-JRHTHaKuITFIhnj02kE": {
-      "author": "alanisawesome",
-      "title": "The Turing Machine"
+      "full_name": "Bill Gates",
+      "message": "Hello World"
     }
   }
 }
-
 ```
 
-可以看到，每个数据都有一个唯一 ID 作为数据的 key 。
+
+</div>
 
 ## 更新数据
 
-`updateChildValues` 方法用于更新指定子节点，而不影响其他节点。
+`updateChildValues` 方法用于更新指定子节点。
+
+`updateChildValues` 方法支持多路径更新。可以只调用一次方法更新多个 [路径](/guide/reference/term.html#路径-path) 的数据。
+
+
+
+例如，更新 Jobs 的个人信息：
 
 ```json
 //原数据如下
 {
-    "gracehop": {
-        "nickname": "Nice Grace",
-        "date_of_birth": "December 9, 1906",
-        "full_name ": "Grace Lee"
+    "Jobs": {
+        "full_name": "Steve Jobs",
+        "gender": "male"
     }
 }
 ```
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
-WDGSyncReference *hopperRef = [usersRef child: @"gracehop"];
+WDGSyncReference *jobsRef = [usersRef child: @"Jobs"];
  
-NSDictionary *nickname = @{
-    @"nickname": @"Amazing Grace",
+NSDictionary *fullname = @{
+    @"full_name": @"Tim Cook",
 };
-//只更新 gracehop 的 nickname
-[hopperRef updateChildValues: nickname];
-
+//只更新 jobs 的 full_name
+[jobsRef updateChildValues:fullname];
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 
-var hopperRef = usersRef.child("gracehop")
-var nickname = ["nickname": "Amazing Grace"]
-//只更新 gracehop 的 nickname
-hopperRef.updateChildValues(nickname)
+var jobsRef = usersRef.child("jobs")
+var fullname = ["full_name": "Tim Cook"]
+//只更新 jobs 的 full_name
+jobsRef.updateChildValues(fullname)
 
 ```
+</div>
+</div>
 
-如果用 `setValue` 而不是 `updateChildValues`，则会删除 `date_of_birth` 和 `full_name`。
+
+例如，同时更新 b 节点下的 d 和 x 节点下的 z：
+
+```json
+//原数据如下
+{
+    "a": {
+        "b": {
+            "c": "cc",
+            "d": "dd"
+        },
+        "x": {
+            "y": "yy",
+            "z": "zz"
+        }
+    }
+}
+```
+正确示例：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+[newPostRef updateChildValues:@{@"b/d":@"updateD",@"x/z":@"updateZ"}];
+
+```
+</div>
+<div class="slide-content">
+```swift
+
+newPostRef.updateChildValues(["b/d":"updateD","x/z":"updateZ"])
+
+```
+</div>
+</div>
+
+错误示例：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+// 错误的多路径更新写法！！
+[newPostRef updateChildValues:@{@"b":@{@"d":@"updateD"},@"x":@{@"z":@"updateZ"}}];
+
+```
+</div>
+<div class="slide-content">
+```swift
+// 错误的多路径更新写法！！
+newPostRef.updateChildValues(["b":["d":"updateD"],"x":["z":"updateZ"]])
+
+```
+</div>
+</div>
+
 
 ## 删除数据
 
-`removeValue`方法用于删除数据：
+`removeValue`方法用于删除指定节点。
 
-Objective-C
 
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGSyncReference *ref = [[WDGSync sync] reference];
 [ref setValue:@{@"name" : @"Jone", @"age" : @"23"}];
@@ -198,8 +367,8 @@ WDGSyncReference *ref = [[WDGSync sync] reference];
 //删除上面写入的数据
 [ref removeValue];
 ```
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
 let ref = WDGSync.sync().reference()
 [ref.setValue(["name" : "Jone", "age" : "23"])
@@ -207,26 +376,33 @@ let ref = WDGSync.sync().reference()
 //删除上面写入的数据
 messagesRef.removeValue()
 ```
+</div>
+</div> 
 
-此外，还可以通过写入 nil 值（例如，`setValue:nil`）来删除数据。 
-
-**注意**：Sync 不会保存值为 nil 节点。如果某节点的值被设为 nil，云端就会把这个节点删除。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  设置节点的 value 为 nil 等同于 `removeValue` 方法。
+</blockquote>
 
 ## 事务处理
 
-`runTransactionBlock` 方法用于数据并发操作时保证数据一致性。
+`runTransactionBlock` 方法用于并发操作时保证数据一致性。
 
-例如，要实现一个记录点赞数量的功能，它会存在多人同时点赞的情况：
+例如，在实现多人点赞功能时，多人同时写入评分会产生覆盖，导致最终结果不准确。使用 `runTransactionBlock` 方法可以避免这种情况：
 
-Objective-C
-
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>  
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
-// 初始化 WDGApp
+// 初始化 
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://docs-examples.wilddogio.com"];
 [WDGApp configureWithOptions:option];  
 
-// 获取一个 WDGSyncReference 对象
-WDGSyncReference *upvotesRef =[[WDGSync sync] referenceFromURL:@"https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes"];
+// 获取一个 WDGSyncReference 实例
+WDGSyncReference *upvotesRef =[[WDGSync sync] referenceWithPath:@"/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes"];
     
 [upvotesRef runTransactionBlock:^WDGTransactionResult *(WDGMutableData *currentData) {
     NSNumber *value = currentData.value;
@@ -236,18 +412,16 @@ WDGSyncReference *upvotesRef =[[WDGSync sync] referenceFromURL:@"https://docs-ex
     [currentData setValue:[NSNumber numberWithInt:(1 + [value intValue])]];
     return [WDGTransactionResult successWithValue:currentData];
 }];
-
 ```
-
-Swift
-
+</div>
+<div class="slide-content">
 ```swift
-// 初始化 WDGApp
+// 初始化 
 let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
 WDGApp.configureWithOptions(options)
 
-// 获取一个 WDGSyncReference 对象
-let upvotesRef = WDGSync.sync().referenceFromURL("https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes")
+// 获取一个 WDGSyncReference 实例
+let upvotesRef = WDGSync.sync().referenceWithPath("/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes")
         
 upvotesRef.runTransactionBlock({
      (currentData:WDGMutableData!) in
@@ -260,9 +434,14 @@ upvotesRef.runTransactionBlock({
 })
 
 ```
+</div>
+</div>
 
-如果上面的代码没有使用事务, 那么两个客户端同时试图累加时，结果可能是为数字 1 而非数字 2。
 
-**注意**：`runTransactionBlock` 的回调可能会多次被调用，必须处理 currentData.value 变量为 nil 的情况。当执行事务时，云端有数据存在，但是本地可能没有缓存，此时 currentValue.value 为 nil。
 
-更多使用，请参考 [- runTransactionBlock:](https://docs.wilddog.com/api/sync/ios.html#–-runTransactionBlock)。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  回调方法的返回值可能为空，需要进行相应的处理。
+</blockquote>
+
+更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/WDGSyncReference.html#–-runTransactionBlock)。

@@ -28,7 +28,11 @@ message1节点：所有人都可以读取数据，所有人都可以输入数据
 
 message2节点：所有人都可以读取数据，所有人都不能输入数据，任何数据类型都不能输入。
 
-注意：应用创建之后，系统默认所有人都能读写。为了你的数据安全，尽快配置规则表达式。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  应用创建之后，系统默认所有人都能读写。为了你的数据安全，尽快配置规则表达式。
+</blockquote>
+
 
 ### 用 $ 通配符选择子节点
 
@@ -103,8 +107,8 @@ message2节点：所有人都可以读取数据，所有人都不能输入数据
   "rules": {
     "messages": {
       "$messages_timestamp": {
-        ".read": "$messages_uid == auth.uid"
-        ".write": "$messages_uid == auth.uid"
+        ".read": "$messages_uid === auth.uid"
+        ".write": "$messages_uid === auth.uid"
       }
     }
   }
@@ -150,7 +154,7 @@ auth 代表已经登录的用户对象，auth.uid 是通过 Wilddog Auth 验证�
 
 ```javascript
 {
-  ".write": "root.child('allow_writes').val() == true &&
+  ".write": "root.child('allow_writes').val() === true &&
             !data.parent().child('readOnly').exists() &&
             newData.child('message').exists()"
 }
@@ -168,7 +172,7 @@ auth 代表已经登录的用户对象，auth.uid 是通过 Wilddog Auth 验证�
  "rules": {
      "message": {
         // 允许/message/节点下的数据被读取
-        ".read": "data.child('content').val() == true",
+        ".read": "data.child('content').val() === true",
         "content": {
           // 当父节点的表达式授予了读权限时，这一规则设置false无效。
           ".read": false
@@ -217,7 +221,7 @@ auth 代表已经登录的用户对象，auth.uid 是通过 Wilddog Auth 验证�
             "content": {
               ".read": true,
               ".write": true,
-              // 写入/foo 的数据必须是字符串类型且长度小于100。
+              // 写入 /foo 的数据必须是字符串类型且长度小于100。
               ".validate": "newData.isString() && newData.val().length() < 100"
             }
        }
@@ -290,7 +294,7 @@ Wilddog Auth 身份认证集成 Sync 实时数据同步，能允许你控制每�
   "rules": {
     "users": {
       "$uid": {
-        ".read": "auth != null && auth.uid == $uid"
+        ".read": "auth != null && auth.uid === $uid"
       }
     }
   }
@@ -308,7 +312,7 @@ Wilddog Auth 身份认证集成 Sync 实时数据同步，能允许你控制每�
   "rules": {
     "secret": {
       // auth 里的 `isAdmin` 为 true 时才可以读取数据。
-      ".read": "auth.token.isAdmin == true"
+      ".read": "auth.token.isAdmin === true"
     }
   }
 }

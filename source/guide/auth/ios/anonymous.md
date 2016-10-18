@@ -1,139 +1,217 @@
+
 title: 匿名身份认证
 ---
 
-你可以在 Wilddog 身份认证中创建和使用临时匿名帐号来进行身份认证。如果你在应用中使用了规则表达式来保护数据的访问权限，即使用户未登录，使用临时匿名帐号也能正常访问数据。如果想长期保留临时匿名帐号，[可以绑定其它登录方式](/guide/auth/ios/link.html)。
 
-## 开始前的准备工作
-1. 将以下 pod 包含在你的 Podfile 中：
+本篇文档介绍在 Wilddog Auth 中如何使用临时匿名帐号来进行身份认证。
+
+## 前期准备
+
+1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
+
+2. 在 控制面板 身份认证—登录方式 中打开匿名登录方式。
+
+## 实现匿名身份认证
+
+1.安装 Wilddog Auth SDK：
+
+将以下 pod 包含在你的 Podfile 中：
+
 ```
   pod 'Wilddog/Auth'
 ```
-2. 在 Wilddog 控制面板中创建一个应用。
 
-3. 打开匿名登录方式:
+安装 SDK：
 
-  * 在野狗控制面板中选择身份认证
-  * 在｀登录方式｀标签中打开匿名登录方式
-    
-## 使用 Wilddog 匿名登录认证
-当一个未登录的用户想想使用一个 Wilddog 必须登录才能使用的特性，可以利用匿名登录，完成下面步骤：
-1、 导入 Wilddog Auth 模块:     
-	
-Objective-C
-```objectivec
-@import WilddogAuth;
 ```
-Swift
-```swift
-import WilddogAuth
+  $ pod install
 ```
-2、 初始化 WDGApp:
 
-Objective-C
+2.创建 Wilddog Auth 实例：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog-appid>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
 WDGApp.configureWithOptions(options)
 ```
-3、 调用 `signInAnonymouslyWithCompletion:`方法：
+</div>
+</div>
 
-Objective-C
+3.调用 `signInAnonymouslyWithCompletion:`方法：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuth *auth = [WDGAuth auth];
 [auth signInAnonymouslyWithCompletion:^(WDGUser *_Nullable user, NSError *_Nullable error) {
    // ...
 }];
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
 auth?.signInAnonymouslyWithCompletion(){(user, error) in
    //...
 }
 ```
-4、 如果 signInAnonymouslyWithCompletion: 方法调用成功并且没有返回错误信息，你可以在 WDGUser 对象中获取用户数据：
+</div>
+</div>
 
-Objective-C
+4.`signInAnonymouslyWithCompletion:` 方法调用成功后，可以在当前用户对象中获取用户数据：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
+WDGUser user = [WDGAuth auth].currentUser;
 BOOL isAnonymous = user.anonymous;  // YES
 NSString *uid = user.uid;
 ```
-Swift
+</div>
+<div class="slide-content">
 ```swift
+let user = WDGAuth.auth().currentUser;
 let isAnonymous = user!.anonymous  // true
 let uid = user!.uid
 ```
-## 将匿名帐号转变成永久帐号
-当使用匿名登录时，你可能想下次在其它设备上还能登录这个帐号。比如你有一个新闻类的应用，用户在使用应用时，收藏了很多新闻，但是当换一个设备时，却访问不到这些数据。完成下面步骤可以将其转换为永久帐号：
+</div>
+</div>
 
-1、 准备一个未在你的应用上登录过的邮箱或者第三方登录方式。
-2、 通过一种登录方式获取 WDGAuthCredential：
+## 匿名帐号转成永久帐号
 
-##### QQ 登录
+匿名登录的帐号数据将不会被保存，可以通过绑定邮箱认证或第三方认证方式将匿名帐号转成永久帐号。
 
-Objective-C
-```objectivec
-WDGAuthCredential *credential = [WDGQQAuthProvider credentialWithAccessToken:qqOAuth.accessToken];
-```
-Swift
-```swift
-let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth.accessToken)
+### 绑定邮箱认证方式
 
-```
-##### 微信登录
+绑定邮箱认证方式需要以下三个步骤：
 
-Objective-C
-```objectivec
-WDGAuthCredential *credential = [WDGWeiXinAuthProvider credentialWithCode:weixinOAuth.code];
-```
-Swift
-```swift
-let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
+1.以任意一种认证方式登录一个帐号。
 
-```
-##### 微博登录
+2.获取邮箱认证方式的 credential。
 
-Objective-C
-```objectivec
-WDGAuthCredential *credential = [WDGSinaAuthProvider credentialWithAccessToken:sinaOAuth.accessToken 
-                   userID:sinaOAuth.userID];
-```
-
-Swift
-```swift
-let credential = WDGSinaAuthProvider.credentialWithAccessToken(sinaOAuth.accessToken, userID: sinaOAuth.userID)
-
-```
-##### 邮箱登录
-
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential =
-    [WDGEmailPasswordAuthProvider credentialWithEmail:email
-                                             password:password];
+    [WDGEmailPasswordAuthProvider credentialWithEmail:@"12345678@wilddog.com" 
+           password:@"password123"];
 ```
-
-Swift
+</div>
+<div class="slide-content">
 ```swift
-let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, password: password)
-
+let credential = WDGEmailPasswordAuthProvider.credentialWithEmail("12345678@wilddog.com", password: "password123")
 ```
+</div>
+</div>
 
-3、 使用 `linkWithCredential:completion:` 方法来完成完成链接：
+3.使用邮箱认证方式绑定。
 
-Objective-C
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
 ```objectivec
 WDGAuth *auth = [WDGAuth auth];
 [auth.currentUser linkWithCredential:credential completion:^(WDGUser *_Nullable user,NSError *_Nullable error) {
       // ...
 }];
 ```
+</div>
+<div class="slide-content">
+```swift
+let auth = WDGAuth.auth()
+auth!.currentUser?.linkWithCredential(credential) { (user, error) in
+     // ...
+}
+```
+</div>
+</div>
 
-Swift
+
+### 绑定第三方认证方式
+
+绑定第三方认证方式需要以下三个步骤：
+
+1.以任意一种认证方式登录一个帐号。
+
+2.获取需要绑定认证方式的 credential。
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+// QQ 认证
+WDGAuthCredential *credential = [WDGQQAuthProvider credentialWithAccessToken:qqOAuth.accessToken];
+
+// 微博认证
+WDGAuthCredential *credential = [WDGSinaAuthProvider credentialWithAccessToken:sinaOAuth.accessToken 
+                   userID:sinaOAuth.userID];
+
+// 微信认证
+WDGAuthCredential *credential = [WDGWeiXinAuthProvider credentialWithCode:weixinOAuth.code];
+
+```
+</div>
+<div class="slide-content">
+```swift
+// QQ 认证
+let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth.accessToken)
+
+// 微博认证
+let credential = WDGSinaAuthProvider.credentialWithAccessToken(sinaOAuth.accessToken, userID: sinaOAuth.userID)
+
+// 微信认证
+let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
+
+```
+</div>
+</div>
+
+
+3.使用第三方认证方式绑定。
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+WDGAuth *auth = [WDGAuth auth];
+[auth.currentUser linkWithCredential:credential completion:^(WDGUser *_Nullable user,NSError *_Nullable error) {
+      // ...
+}];
+```
+</div>
+<div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
 auth!.currentUser?.linkWithCredential(credential) { (user, error) in
@@ -141,12 +219,48 @@ auth!.currentUser?.linkWithCredential(credential) { (user, error) in
 }
 
 ```
-
-如果调用 `linkWithCredential:completion:` 方法成功，被链接的帐号就可以访问这个匿名帐号的数据了。
-
-
->注： 这项技术可以链接任意两个类型的帐号。
+</div>
+</div>
 
 
-## 后续步骤
-现在我们已经学会了使用野狗进行用户认证，你可以配置 [规则表达式](/guide/sync/rules/introduce.html) 来控制野狗实时数据的访问权限。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  若使用 customToken 登录时，若 customToken 中 admin 属性为 true，则不能进行关联操作。
+</blockquote>
+
+
+## 退出登录
+
+`signOut:` 方法用于用户退出登录：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+NSError *error;
+[[WDGAuth auth] signOut:&error];
+if (!error) {
+    // 退出登录成功
+}
+
+```
+</div>
+<div class="slide-content">
+```swift
+try! WDGAuth.auth()!.signOut()
+
+```
+</div>
+</div>
+
+## 更多使用
+
+- 通过 `[WDGAuth auth].currentUser` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/ios/manageuser.html)。
+
+
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用匿名登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
+

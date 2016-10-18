@@ -9,6 +9,7 @@ title:  示例库
 | <a href="https://github.com/WildDogTeam/demo-ios-weather" target="_blank">Weather</a> | 野狗官方 | Weather 是一个基于 Wilddog iOS SDK 开发的修改天气状态 demo，主要实现 Wilddog 数据多设备同步修改和加载。 |
 | <a href="https://github.com/WildDogTeam/demo-ios-danmu" target="_blank">Danmu</a> | 野狗官方 | Danmu 是一个基于 Wilddog iOS SDK 实现的弹幕。       |
 | <a href="https://github.com/WildDogTeam/demo-ios-wildchat" target="_blank">WildChat</a> | 野狗官方 | WildChat 是一个基于 Wilddog iOS SDK 实现的简单聊天通讯类 APP。 |
+| <a href="https://github.com/WildDogTeam/demo-ios-officemover" target="_blank">OfficeMover</a> | 野狗官方 | OfficeMover 是一个基于 Wilddog iOS SDK 实现的关于室内设计 APP。 |
 
 [更多示例](https://github.com/WildDogTeam/awesome-wilddog)
 

@@ -1,49 +1,77 @@
-title: 绑定多种登录方式
+
+title:  绑定多种认证方式
 ---
 
-通过链接功能，你可以使用不同的登录方式来登录同一个帐号。不管采用哪种登录方式，用户都可以通过相同的 Wilddog ID 来标识身份。打个比方，一个用户使用邮箱登录然后链接 QQ 登录，那么他能使用这两种方式来登录这个帐号。或者一个匿名帐号链接微信登录方式，则可以使用微信登录方式来登录这个匿名帐号。
-
-## 开始前的准备工作
-
-在野狗控制面板中打开多种登录方式（可以是匿名登录）。
-
-## 给帐号链接多种登录方式
-
-完成以下步骤为已有帐号添加多种登录方式：
-1.以任意一种登录方式登录一个帐号。
-
-2.准备一个未在认证的应用上登录过的邮箱或者第三方登录方式。
-
-3.通过一种登录方式获取 'AuthCredential'登录凭据。
+本篇文档介绍在 Wilddog Auth 中如何给同一个帐号绑定多种认证方式。
 
 
-## QQ 登录
+## 前期准备
+
+1. 在控制面板 身份认证—登录方式 中打开需要绑定的登录方式。
+2. 配置需要绑定的登录方式。具体配置方法请参考对应文档。
+
+
+## 实现绑定多种认证方式
+
+### 绑定邮箱认证方式
+
+绑定邮箱认证方式需要以下三个步骤：
+
+1.以任意一种认证方式登录一个帐号。
+
+2.获取邮箱认证方式的 credential。
 
 ```java
-AuthCredential qqAuthCredential= QQAuthProvider.getCredential(jsonObject.getString("access_token"));
+AuthCredential authCredential= EmailAuthProvider.getCredential("12345678@wilddog.com","password123");
 ```
 
-## 微信登录
+3.使用邮箱认证方式绑定。
 
 ```java
-AuthCredential weiXinAuthCredential= WeiXinAuthProvider.getCredential(code);
+WilddogUser user = WilddogAuth.getInstance().getCurrentUser();
+
+user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+    @Override
+    public void onComplete(Task<AuthResult> var1) {
+     if(var1.isSuccessful()){
+         Log.d("success","Link success");
+     }else {
+         Log.d("failure","Link failure"+var1.getException().toString());
+     }
+    }
+});
+
 ```
 
-## 微博登录
+
+
+
+
+### 绑定第三方认证方式
+
+绑定第三方认证方式需要以下三个步骤：
+
+1.以任意一种认证方式登录一个帐号。
+
+2.获取需要绑定认证方式的 credential。
 
 ```java
-AuthCredential weiboAuthCredential= WeiboAuthProvider.getCredential(access_token,openid);
+// QQ 认证
+AuthCredential authCredential= QQAuthProvider.getCredential(access_token); 
+
+// 微博认证
+AuthCredential authCredential= WeiboAuthProvider.getCredential(access_token,openid);
+
+// 微信认证
+AuthCredential authCredential= WeiXinAuthProvider.getCredential(code);
 ```
 
-## 邮箱登录
+3.使用第三方认证方式绑定。
+
+例如，使用 linkWithCredential 进行绑定：
 
 ```java
-AuthCredential emailAuthCredential= EmailAuthProvider.getCredential("12345678@qq.com","password123");
-```
-
-4.使用 `linkWithCredential` 方法来完成完成链接如果链接的凭据已经链接到其它帐号上，则会返回失败：
-
-```java
+WilddogUser user = WilddogAuth.getInstance().getCurrentUser();
 user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
     @Override
     public void onComplete(Task<AuthResult> var1) {
@@ -55,16 +83,29 @@ user.linkWithCredential(authCredential).addOnCompleteListener(new OnCompleteList
     }
 });
 ```
- 
-如果调用 `linkWithCredential` 方法成功，被链接的帐号就可以访问这个匿名帐号的数据了。  
 
-## 解除一种登录方式
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  若使用 customToken 登录时，若 customToken 中 admin 属性为 true，则不能进行关联操作。
+</blockquote>
 
-如果不想再使用某种登录方式，你可以解除链接。
-为帐号解除登录方式，通过传递参数 provider ID 给 `unlink` 方法，你可以从 providerData 属性中获取到 provider ID。
+
+## 解除已绑定认证方式
+
+`unlink()` 方法用于解除已绑定认证方式。
+
+例如，解除微信绑定：
 
 ```java
-user.unlink("providerId");
-```    
-    
-    
+WilddogUser user = WilddogAuth.getInstance().getCurrentUser();
+user.unlink("weixin").addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Log.d("result","解绑成功");
+                }else {
+                    Log.d("result","解绑失败"+task.getException().toString());
+                }
+            }
+        })
+```

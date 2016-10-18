@@ -28,28 +28,22 @@ SDK 的安装方式有 2 种：
 
 创建新的工程，在应用级别的build.gradle里添加如下代码
 
-```
-dependencies {
-    compile 'com.wilddog.client:wilddog-auth-android:2.0.0'
-}
-```
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 - 使用maven
 
-```
-<dependency>
-    <groupId>com.wilddog.client</groupId>
-    <artifactId>wilddog-auth-android</artifactId>
-    <version>2.0.0</version>
-</dependency> 
-```
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-auth-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="android-auth-version"></span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 
-### 2.建立 Wilddog 引用
-初始化一个 Wilddog 对象，该对象连接到 `WILDDOG_URL` 。
+### 2.建立 SyncReference 引用
+初始化一个 SyncReference 对象，该对象连接到 `WILDDOG_URL` 。
 
 ```
-             Wilddog mWilddogRef = new Wilddog(WILDDOG_URL).child("chat");
+// 初始化
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogApp.initializeApp(this, options);
+
+             SyncReference mWilddogRef = WilddogSync.getInstance().getReference(WILDDOG_URL).child("chat");
 ```
 
 ### 3. 监听输入
@@ -58,7 +52,7 @@ dependencies {
 
 将推送内容解析，并且更新UI界面。
 
-    mListener = this.mRef.addChildEventListener(new ChildEventListener() {
+    mListener = mWilddogRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
     

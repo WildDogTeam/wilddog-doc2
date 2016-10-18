@@ -19,7 +19,7 @@ title:  错误码
 -14	  |		INVALID_PROVIDER					|	申请的第三方OAuth平台认证方式不存在。请参阅Wilddog认证的相关文档获得支持的方式列表。
 -15	  |		INVALID_EMAIL						|	指定的邮箱不可用。
 -16	  |		INVALID_PASSWORD					|	指定的用户帐号密码不正确。
--17	  |		USER_DOES_NOT_EXIST					|	指定的用户账户不存在。
+-17	  |		USER_DOES_NOT_EXIST					|	指定的用户帐户不存在。
 -18	  |		EMAIL_TAKEN							|	由于指定的邮箱地址已经被使用而不能建立新用户。
 -19	  |		DENIED_BY_USER						|	用户不能登录认证应用。当用户取消OAuth认证请求时会造成这个错误。
 -20	  |		INVALID_CREDENTIALS					|	指定的登录认证凭证不可用。当凭证不符合标准或者过期时会引发这个错误。

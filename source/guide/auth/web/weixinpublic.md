@@ -1,91 +1,79 @@
-title: 微信公众号登录
+
+title: 微信公众号认证
 ---
 
-通过集成微信公众账号登录，你可以让你的用户使用他们的微信公众帐号来进行 Wilddog 身份认证。
+本篇文档介绍在 Wilddog Auth 中如何使用微信公众号对用户进行身份认证。
 
-认证的用户可以访问野狗实时数据同步中用户登录受限的数据。
+## 前期准备
 
-## 开始前的准备工作
+1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
+2. 在 [微信公众开放平台管理中心](http://mp.weixin.qq.com/)，获取应用的 **AppID ** 和 **AppSecret**。
+3. 在 微信公众平台 网页服务—网页帐号—网页授权 中填入回调地址 `auth.wilddog.com`。
+4. 在控制面板 身份认证—登录方式 中打开微信公众平台登录方式，配置微信公众帐号 **AppID** 和 **AppSecret**。
 
-1. 在 [微信公众开放平台管理中心](http://mp.weixin.qq.com/)，获取应用的 **App Key** 和 **App Secret**。
+## 实现微信公众号认证
 
-2. 在野狗控制面板中打开微信公众者账号登录方式:
+1.安装 Wilddog Auth SDK：
+ <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>
 
- * 在野狗控制面板中选择 ”身份认证“->登录方式。
+2.创建 Wilddog Auth 实例：
 
- * 点击微信登录开关，点击配置，输入微信帐号 **APP ID** 和 **App Secret**。
-
-## Wilddog 身份认证
-
-1. 导入 WilddogAuth 模块：
- ```
-<script type="text/javascript" src="https://cdn.wilddog.com/sdk/js/2.0.0/wilddog-auth.js"></script>
- ```
-
-2. 初始化 `Wilddog` 应用实例：
- 
-```
+```javascript
  var config = {
-     authDomain: "<appId>.wilddog.com",
-     syncURL: "https://<appId>.wilddogio.com"
+     authDomain: "<appId>.wilddog.com"
  };
  wilddog.initializeApp(config, "DEFAULT");
 
- ```
-
-3.微信公众者账号登录(popup or redirect)
-
 ```
-    var provider = new wilddog.auth.WeixinmpAuthProvider();
-    
-    popup登录
 
-    wilddog.auth().signInWithPopup(provider).then(function         (result) {
-         console.log(result);
-     }).catch(function (error) {
-         // Handle Errors here.
-         console.log(error);
-         // ...
-     });
+3.Wilddog Auth 提供两种方式进行 QQ 认证，你可以任选其一：
 
+- popup
 
-
-    redirect登录
-
-    wilddog.auth().signInWithRedirect(provider).then(function (result) {
-         console.log(result);
-    }).catch(function (error) {
-         // Handle Errors here.
-         console.log(error);
-         // ...
-    });```
-
-## 后续步骤
-
-无论你采用哪种登录方式，用户第一次登录后，野狗服务器都会生成一个唯一的 Wilddog ID 来标识这个帐户，使用这个 Wilddog ID，可以在你 APP 中确认每个用户的身份。配合 [规则表达式](/guide/sync/rules/introduce.html)，`auth` 还可以控制野狗实时数据同步的用户访问权限。
-
-* 在你的应用中，你可以通过 Wilddog.auth().currentUser() 来获取用户的基本属性。参考 [管理用户](/guide/auth/web/manageuser.html)。
-
-* 在你的野狗实时数据同步 [规则表达式](/guide/sync/rules/introduce.html) 中，你可以获取到这个登录后生成的唯一用户 Wilddog ID， 通过他可以实现控制用户对数据的访问权限。
-
-你还可以通过 [链接多种登录方式](/guide/auth/web/link.html) 来实现不同的登录方式登录同一个帐号。
-
-#### 调用 [signOut](/guide/auth/web/api.html#signout) 退出登录：
-
+```js
+var provider = new wilddog.auth.WeixinmpAuthProvider();
+wilddog.auth().signInWithPopup(provider).then(function (user) {
+   console.log(user);
+}).catch(function (error) {
+    // 错误处理
+    console.log(error);
+    // ...
+});
 ```
-wilddog.auth().signOut().then(function() {
-     // Sign-out successful.
+
+- redirect
+
+```js
+var provider = new wilddog.auth.WeixinmpAuthProvider();
+wilddog.auth().signInWithRedirect(provider).then(function (user) {
+    console.log(user);
+}).catch(function (error) {
+    // 错误处理
+    console.log(error);
+    // ...
+});
+```
+
+## 退出登录
+
+`signOut()` 方法用于用户退出登录：
+
+```javascript
+ wilddog.auth().signOut().then(function() {
+     // 退出成功
      console.log("sign-out")
- }, function(error) {
-     // An error happened.
+ }).catch(function(error) {
+     // 发生错误
      console.log("sign-out-error")
  });
-
 ```
 
+## 更多使用
+
+- 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/web/manageuser.html)。
 
 
-
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用微信公众号登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
 
 
 

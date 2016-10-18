@@ -1,21 +1,41 @@
+
 title: 简介
 ---
 
-使用 Wilddog，你可以将你自己的已有服务与 Wilddog Auth 集成起来。
-你可以使用 Wilddog 官方提供的 Server SDK 来操作用户认证 token, 或者你可以用第三方的 JWT（JSON Web Token）库自己实现。
+本篇文档介绍自定义身份认证中 Server SDK 的作用。
 
-Wilddog 服务端身份认证 SDK 主要帮助用户实现以下两个功能：
+你可以使用 Server SDK 实现自定义身份认证，把野狗服务接入到你的用户系统当中。
 
-* **生成 Custom Token**
+### Server SDK 的功能
 
-  **
-  **你可以将已有用户系统与Wilddog集成，比如，你可能已经拥有一个用户数据库，或者你想要集成一个Wilddog不原生支持的第三方认证提供方（如Facebook）。
-  你可以生成自定义 Token，并且你可以添加任意标识用户的信息。然后，这个custom token就可以被用来作为Wilddog API 中自定义登录的参数来登录 Wilddog, 完成操作实时数据同步等。
+Server SDK 包含以下两个功能：
 
-* **认证 ID Token**
+- **生成 Custom Token**
 
-  **
-  **Wilddog Auth 主要用来认证你的 APP 用户，来限制用户对于 Wilddog 服务的权限。但是，你也可以在你自己的服务中认证用户。
-  要做到这样，你需要在客户端获取登录 Wilddog 的用户的ID Token，然后作为参数调用 Wilddog 提供的接口获得用户是否合法。
+  将野狗服务接入到你的用户系统时，需要通过 [Custom Token]() 进行认证。你可以使用 Server SDK 生成 Custom Token。
+
+  生成 Cutom Token 时，你可以添加用户的自定义属性。自定义身份认证成功后，你在规则表达式中可以获取自定义属性，实现[用户访问控制]()。
+
+- **认证 Wilddog ID Token(可选)**
+
+  经过野狗身份认证后，你可以使用 Server SDK 认证 [Wilddog ID Token]()，确认用户在 Wilddog Auth 中的身份。
+
+  <blockquote class="warning">
+    <p><strong>注意：</strong></p>
+  Server SDK 中包含的 Wilddog ID Token 认证方法不能认证你 Server SDK 生成的 Custom Token。
+  </blockquote>
+
+  ​
 
 
+
+### Server SDK 的工作机制
+
+1. Server SDK 在用户系统认证成功之后会生成 Custom Token。
+2. Server SDK 向 Wilddog Auth 发送验证请求，验证用户的合法性。
+
+![](http://ocpo37x5v.bkt.clouddn.com/2016-10-14-Custom%20Auth2.png)
+
+
+
+Server SDK 的使用方法，请参考 [使用 Server SDK]()。

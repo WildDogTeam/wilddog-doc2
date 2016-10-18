@@ -1,116 +1,114 @@
 
-title: 管理用户
+title: 用户管理
 ---
+
+本篇文档介绍如何使用 Wilddog Auth 管理用户。它包括：创建用户、获取用户信息、获取用户属性、更新用户信息、删除用户等。
 
 ## 创建用户
 
-通过调用 `createUserWithEmailAndPassword` 方法或首次使用第三方登录方式（如 `signInWithCredential(qqAuthCredential)`等）登录一个用户，就可以在你的 Wilddog 项目中创建一个新用户。
+创建用户包含以下三种方法：
+
+- 通过 [邮箱密码](/guide/auth/android/password.html) 创建
+- 通过第三方身份认证提供商授权创建
+- 在 控制面板—身份认证—用户 中手动创建
 
 
-你也可以从 Wilddog 控制面板的身份“认证部分”的“用户”页面中创建新的密码认证用户。
+## 获取用户信息
 
+用户信息包含 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
 
-## 获取当前登录用户
+### 获取当前登录用户
 
-获取当前用户的推荐方法是在 WilddogAuth 对象上设置一个侦听器：
+获取当前登录用户是管理用户的基础。
+
+使用监听器：
 
 ```java
-WilddogAuth auth=WilddogAuth.getInstance("YOURAPPID"，context);
-WilddogAuth.AuthStateListener authStateListener=new WilddogAuth.AuthStateListener(){
+WilddogAuth auth = WilddogAuth.getInstance();
+
+auth.addAuthStateListener(new WilddogAuth.AuthStateListener(){
+    // 设置 Auth 监听器
     @Override
-    public void onAuthStateChanged(WilddogAuth wilddogAuth) {
-        WilddogUser user=wilddogauth.getCurrentUser();
-        if(user!=null){
-         // User is signed in.
-          Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
-        }else{
-         // No user is signed in.
-           Log.d(TAG, "onAuthStateChanged:signed_out");
+    public void onAuthStateChanged(WilddogAuth wilddogauth){
+        WilddogUser user = wilddogauth.getCurrentUser();
+        if (user != null) {
+            // 用户已登录
+        } else {
+            // 没有用户登录
         }
     }
-};
-auth.addAuthStateListener(authStateListener);
+});
 ```
 
-使用侦听器可保证在你获取当前用户时 `WilddogAuth` 对象不会处于中间状态如初始化。
-你也可以使用 `getCurrentUser` 方法获取当前已登录的用户。 如果用户没有登录，`currentUser` 则为空：
+
+使用 `getCurrentUser ()` 方法获取当前登录：
+
 
 ```java
-WilddogUser user=auth.getCurrentUser();
-if(user!=null){
- // User is signed in.
-}else{
- // No user is signed in.
+WilddogAuth auth = WilddogAuth.getInstance();
+WilddogUser user = auth.getCurrentUser();
+if (user != null) {
+   // 用户已登录
+} else {
+   // 没有用户登录
 }
 ```
 
-注：getCurrentUser 可能为空，这是因为 auth 对象尚未完成初始化。 如果你使用侦听器跟踪用户登录状态，你将无需处理该情况。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  推荐使用监听器，这样可以保证在你获取当前用户时 Auth 实例不会处于中间状态，如用户正在登录时。 用户可以在登陆后通过 WilddogAuth.getInstance().getCurrentUser() 在任何需要的时候获取到 WilddogUser 对象。
+</blockquote>
 
-## 获取个人资料
+### 获取用户属性
 
-要获取用户的个人资料信息，请使用 `WilddogUser` 实例的访问器方法。 例如：
+ `WilddogUser` 实例可以用于获取用户属性。
 
 ```java
 WilddogUser user = auth.getCurrentUser();
 if (user != null) {
-    // User is signed in.
-    // The uid properties and providerId will never be empty.
-    // The user's ID, unique to the Wilddog
-    // project. Do NOT use this value to
-    // authenticate with your backend server, if
-    // you have one. Use
-    // user.getToken: instead.
     String uid = user.getUid();
     String providerId = user.getProviderId();
-    // The displayName and photoUrl in QQ or Weichat login will not be
-    // empty.
     String name = user.getDisplayName();
     Uri photoUrl = user.getPhotoUrl();
-    // The email will not be empty only by email login.
     String email = user.getEmail();
 } else {
-    // No user is signed in.
+    // 没有用户登录.
 }
 ```
 
-## 获取第三方个人资料信息
+### 获取 Provider 的用户属性
 
-要从已链接至用户的第三方登录中获取检索到的个人资料信息，请使用 providerData 属性。 例如：
+ `providerData` 用于获取所有 [Provider](/guide/auth/core/concept.html#Provider) 的用户属性。
 
 ```java
 WilddogUser user = auth.getCurrentUser();
-if (user != null) {
-    // User is signed in.
     String uid = user.getUid();
     List<WilddogUser> userProviderInfos = user.getProviderData();
     for (UserInfo profile : userProviderInfos) {
-        // Id of the provider (ex: qq)
         String providerId = profile.getProviderId();
-
-        // UID specific to the provider
         String uid = profile.getUid();
-
-        // Name, email address, and profile photo Url
         String name = profile.getDisplayName();
         String email = profile.getEmail();
         Uri photoUrl = profile.getPhotoUrl();
-    }
-    ;
-} else {
-    // No user is signed in.
-}
+    };
+
 ```
 
-## 更新个人资料
+## 更新用户信息
+ `WilddogUser` 实例用于更新 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
 
-你可以使用 `updateProfile` 方法更新用户的基本个人资料信息—用户的显示名称和个人资料照片网址。 例如：
+### 更新用户属性
+
+`updateProfile()` 方法用于更新用户属性。
+
+例如，更新用户的`displayName` 和 `photoURL` 属性：
 
 ```java
 WilddogUser user = auth.getCurrentUser();
 
 UserProfileChangeRequest profileUpdates = new  UserProfileChangeRequest.Builder()
-    .setDisplayName("xiaofei")
-    .setPhotoUri(Uri.parse("https://example.com/jane-q-user/profile.jpg"))
+    .setDisplayName("name")
+  .setPhotoUri(Uri.parse("https://example.com/path/photo.jpg"))
     .build();
 
 user.updateProfile(profileUpdates)
@@ -118,119 +116,169 @@ user.updateProfile(profileUpdates)
         @Override
         public void onComplete(Task<Void> task) {
             if (task.isSuccessful()) {
-                Log.d(TAG, "User profile updated.");
+                // 更新成功
+            }else{
+               // 发生错误
             }
-
         }
     });
 ```
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户属性。
+</blockquote>
 
-## 设置邮箱地址
+### 更新邮箱地址
 
-你可以使用 `updateEmail` 方法设置用户的电子邮件地址。例如：
+ `updateEmail()` 方法用于更新用户邮箱地址。
 
 ```java
 WilddogUser user = auth.getCurrentUser();
 
-user.updateEmail("user@example.com")
+user.updateEmail("12345678@gmail.com")
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete(Task<Void> task) {
             if (task.isSuccessful()) {
-                Log.d(TAG, "User email address updated.");
+               // 更新成功
+            }else{
+              // 发生错误
+              Log.d("result" ,task.getException().toString()) ;
             }
         }
     });
 ```
 
-重要说明：要设置用户的电子邮件地址，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。</li>
+  </ul>
+</blockquote>
 
-## 设置用户密码
-你可以使用 'updatePassword' 方法设置用户密码。例如：
+### 更新用户密码
+
+`updatePassword()` 方法用于更新用户密码。
 
 ```java
 WilddogUser user = auth.getCurrentUser();
-String newPassword = "SOME-SECURE-PASSWORD";
+String newPassword = "12345678";
 
 user.updatePassword(newPassword)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete(Task<Void> task) {
             if (task.isSuccessful()) {
-                Log.d(TAG, "User password updated.");
+                // 更新成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
             }
         }
     });
 ```
 
-重要说明：要设置用户密码，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。</li>
+  </ul>
+</blockquote>
 
-## 发送重设密码邮件
-你可以用 `sendPasswordResetEmail` 方法向用户发送一封重设密码电子邮件。 例如：
+
+### 发送重设密码邮件
+
+`sendPasswordResetEmail()` 方法用于向用户发送重设密码邮件。
 
 ```java
-String emailAddress = "user@example.com";
+String emailAddress = "12345678@gmail.com";
 
 auth.sendPasswordResetEmail(emailAddress)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete(Task<Void> task) {
-            if (task.isSuccessful()) {
-                Log.d(TAG, "Email sent.");
+             if (task.isSuccessful()) {
+                // 更新成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
             }
         }
     });
 ```
 
-你可以在 `Wilddog` 控制台 的“用户认证”部分的“邮件模板”页面中自定义使用的电子邮件模板。
-
-你也可以从 `Wilddog` 控制面板中发送重设密码电子邮件。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  在控制面板 身份认证—登录方式—邮箱登录 中可以设置邮件自定义模板。
+</blockquote>
 
 
 ## 删除用户
-你可以使用 `delete` 方法删除用户帐户。例如：
+
+删除用户的方式有以下两种：
+
+- 通过 `delete()` 方法删除
+- 在控制面板**身份认证—用户** 中手动删除
+
+使用 `delete()` 方法：
 
 ```java
-WilddogUser user = auth.getCurrentUser();
-
-user.delete()
+auth.getCurrentUser().delete()
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete(Task<Void> task) {
-            if (task.isSuccessful()) {
-                Log.d(TAG, "User account deleted.");
+             if (task.isSuccessful()) {
+                // 删除成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
             }
         }
     });
 ```
 
-重要说明：要删除用户，该用户必须最近登录过。请参阅对用户重新进行身份认证。
+使用控制面板：
 
-你可以从 Wilddog 控制面板的“用户认证”部分的“用户”页面中删除用户。
+ ![](/images/deleteuser.jpg)
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。</li>
+  </ul>
+</blockquote>
+
 
 
 ## 重新进行身份认证
-有些安全敏感性操作—如删除帐户、设置主电子邮件地址和更改密码—需要用户最近登录过方可执行。
 
-如果你执行一项这种操作，而该用户只是在很久以前登录过，该操作便会失败并引发 `WilddogAuthRecentLoginRequiredException`。发生这种错误时，请从用户获取新登录凭据并将该凭据传输至 `reauthenticate`，对该用户重新进行身份认证。
+用户长时间未登录的情况下进行下列安全敏感操作会失败：
 
-例如：
+- 删除帐户
+- 设置主邮箱地址
+- 更改密码
+
+此时需要重新对用户进行身份认证。
+
+`reauthenticate(credential)` 方法用于对用户重新进行身份认证。
 
 ```java
 WilddogUser user = auth.getCurrentUser();
-
-// Get auth credentials from the user for re-authentication. The example below shows
-// email and password credentials but there are multiple possible providers,
-// such as QQAuthProvider or WeixinAuthProvider.
 AuthCredential credential = EmailAuthProvider
-    .getCredential("user@example.com", "password1234");
-
-// Prompt the user to re-provide their sign-in credentials
+    .getCredential("12345678@gmail.com", "12345678");
 user.reauthenticate(credential)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
         public void onComplete( Task<Void> task) {
-            Log.d(TAG, "User re-authenticated.");
+           if (task.isSuccessful()) {
+                // 重新认证成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
+            }
         }
     });
 ```

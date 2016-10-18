@@ -3,6 +3,13 @@ title: 快速入门
 ---
 你可以通过快速入门了解在嵌入式设备上实时数据同步的用法。
 
+<div class="env">
+    <p class="env-title">环境准备</p>
+    <ul>
+        <li> 支持 C89 的 gcc 环境</li>
+    </ul>
+</div>
+
 ## 1. 创建应用
 
 首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
@@ -13,7 +20,7 @@ title: 快速入门
 
 从该网页下载 SDK [点此下载](https://www.wilddog.com/download/)
 
-Wilddog C/嵌入式 SDK 分为 C/RTOS、OpenWRT、Arduino 三种，具体支持的平台如下
+Wilddog C/嵌入式 SDK 分为 C/RTOS、OpenWRT、Arduino 三种，具体支持的平台如下：
 
 名称 | 支持的平台
 ---- | ----
@@ -48,10 +55,18 @@ Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。�
 Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
 ```
 
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+ Wilddog Sync 允许同时创建多个引用。
+
+</blockquote>
+
 ## 4. 写入数据
 
-使用 `wilddog_setValue()` 方法可向云端写入数据。
+`wilddog_setValue()` 方法用于向指定节点写入数据。
 
+例如，设置 Jack 为 beauty 描述：
 ```c
 #include "wilddog.h"
 void callback(void* arg, Wilddog_Return_T err){
@@ -84,13 +99,14 @@ int main(void){
 }
 ```
 当收到云端返回或者接收超时时，回调函数 callback 会被触发。
-写入的数据如下图
+
+写入的数据如下图：
 
  <img src="/images/c_quickstart.png" >
 
-## 5. 读取与监听 
+## 5. 监听数据 
 
-`widdog_addObserver()` 方法可以监听节点的数据。
+[wilddog_addObserver()](/api/sync/c/api.html#wilddog-addObserver) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 ```c
 #include "wilddog.h"
@@ -112,6 +128,8 @@ int main(){
     wilddog_destroy(&ref);
 }
 ```
-回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想读取一次，请使用 `wilddog_setValue()` 方法。
+回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 [wilddog_getValue()](/api/sync/c/api.html#wilddog-getValue) 方法。
 
-更多的数据读取方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。
+## 5.更多使用
+- 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
+- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。

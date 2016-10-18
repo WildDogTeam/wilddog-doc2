@@ -1,7 +1,18 @@
 
 title: 快速入门
 ---
-你可以通过编写一个简单的天气应用例子来了解实时数据同步的用法。
+
+你可以通过一个简单的 [评论墙示例](https://github.com/WildDogTeam/sync-quickstart-android) 来快速了解 Wilddog Sync 的用法。
+
+
+<div class="env">
+    <p class="env-title">环境准备</p>
+    <ul>
+        <li>支持 Android Studio 1.4 以上或者 Eclipse ADT 15.0.0 以上版本</li>
+        <li>支持 JDK 7.0 以上版本</li>
+        <li>支持 Android 手机系统 4.0.3 以上版本，即 Android SDK 15 以上版本</li>
+    </ul>
+</div>
 
 ## 1. 创建应用
 
@@ -9,29 +20,19 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-SDK 的安装方式有两种，你可以任选其一
+SDK 的安装方式有两种，你可以任选其一：
 
 * **使用 Maven**
 
-```xml
-<dependency>
-    <groupId>com.wilddog.client</groupId>
-    <artifactId>wilddog-sync-android</artifactId>
-    <version>2.0.1</version>
-</dependency> 
-```
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="android-sync-version"></span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 * **使用 Gradle**
 
-在build.gradle中添加
+在build.gradle中添加：
 
-```java
-dependencies {
-    compile 'com.wilddog.client:wilddog-sync-android:2.0.1'
-}
-```
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:<span class="android-sync-version"></span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
-如果出现文件重复导致的编译错误，可以选择在build.grade中添加packingOptions
+如果出现文件重复导致的编译错误，可以选择在build.grade中添加packagingOptions：
 
 ```java
 android {
@@ -43,15 +44,28 @@ android {
 }
 ```
 
+
 ## 3. 配置 Android 权限
 
-在 AndroidMainfest.xml 文件中添加
+在 AndroidMainfest.xml 文件中添加：
 
 ```xml
 <uses-permission android:name="android.permission.INTERNET"/>
+<application 
+...
+>
+<receiver android:name="com.wilddog.client.receiver.WilddogAuthCastReceiver">
+            <intent-filter>
+                <action android:name="com.wilddog.wilddogauth.signinsuccess"/>
+                <action android:name="com.wilddog.wilddogauth.signoutsuccess"/>
+            </intent-filter>
+        </receiver>
+</application>		
 ```
 
+
 ## 4. 创建 Wilddog Sync 实例
+
 ```java
 // 初始化
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
@@ -59,30 +73,38 @@ WilddogApp.initializeApp(this, options);
 SyncReference ref = WilddogSync.getInstance().getReference();
 ```
 
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+ Wilddog Sync 允许同时创建多个实例。
+
+</blockquote>
+
 ## 5. 写入数据
 
-`setValue()`方法可以写入数据。Sync 的数据存储格式采用 [JSON](http://json.org) 。
+`setValue()` 用于向指定节点写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
-例如，在应用的根节点下写入天气数据 
+例如，在应用的根节点下写入评论数据：
 
 ```java
-SyncReference myRef = WilddogSync.getInstance().getReference("weather")
-Map data = new HashMap();
-data.put("beijing","rain");
-data.put("shanghai","sunny");
-myRef.setValue(data);
-
+ Comment comment = new Comment("Jack","Wilddog, Cool!");
+ref.child("messageboard").child("message1").setValue(comment
+);
 ```
 
-写入的数据如下图
+写入的数据如下图：
 
-<img src="/images/saveapp.png" alt="savedata" width="300" >
+ <img src="/images/saveapp.png" alt="yourApp" width="400">
 
-## 6. 读取与监听数据
 
-`addValueEventListener()`方法可以读取并监听节点的数据。
+
+## 6. 监听数据
+ `addValueEventListener()`或 `addListenerForSingleValueEvent()` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+
+例如，从应用中获得评论数据：
 
 ```java
+// dataSnapshot 里面的数据会一直和云端保持同步
 myRef.addValueEventListener(new ValueEventListener() {
     @Override
     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -96,8 +118,24 @@ myRef.addValueEventListener(new ValueEventListener() {
      		Log.d("onCancelled",syncError.toString());}
         }
 });
+
+// 如果你只想监听一次，那么你可以使用addListenerForSingleValueEvent()
+
+myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+    @Override
+    public void onDataChange(DataSnapshot dataSnapshot) {
+        if(dataSnapshot.getValue()!=null){
+        	Log.d("onDataChange",dataSnapshot.toString());
+        }
+    }
+    @Override
+    public void onCancelled(SyncError syncError) {
+        if(syncError!=null){
+     		Log.d("onCancelled",syncError.toString());}
+        }
+});
+
 ```
-
-`snapshot` 里面的数据会一直与云端保持同步。如果你只想读取一次，不监听数据变化，那么你可以使用 `addListenerForSingleValueEvent()` 方法替代 `addValueEventListener()` 方法。
-
-更多的数据读取方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android.html)。
+## 7.更多使用
+- 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
+- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android/ChildEventListener.html)。

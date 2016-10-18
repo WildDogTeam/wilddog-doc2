@@ -18,9 +18,9 @@ title: 实战教程
 
 ### 1. 安装 SDK 
 
-SDK 的导入方式有两种，你可以选择下面方式的其中一种：
+SDK 的安装方式有两种，你可以任选其一
 
-** 第一种：使用 CocoaPods **
+- **使用 CocoaPods**
 
 要将 Wilddog SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问 [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 
@@ -39,13 +39,14 @@ SDK 的导入方式有两种，你可以选择下面方式的其中一种：
 	$ pod install
 	$ open your-project.xcworkspace
 
-** 第二种：手动集成 **
-
-1、下载 Sync SDK[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogSync.framework-2.0.1.zip)。
-2、下载 Core SDK[下载地址](https://cdn.wilddog.com/sdk/ios/2.0.1/WilddogCore.framework-2.0.1.zip)。        
-3、把 WilddogSync.framework 和 WilddogCore.framework 拖到工程目录中。  
-4、选中 Copy items if needed 、Create Groups，点击 Finish。  
-5、点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
+</br>
+- **手动集成**
+</br>
+1. 下载 Sync SDK <a href="#" class="ios-download-sync" target='_blank'>点此下载</a>。 
+2. 下载 Core SDK <a href="#" class="ios-download-core" target='_blank'>点此下载</a>。          
+3. 把 WilddogSync.framework 和 WilddogCore.framework 拖到工程目录中。  
+4. 选中 Copy items if needed 、Create Groups，点击 Finish。  
+5. 点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
 
 ### 2. 初始化
 
@@ -60,7 +61,7 @@ _wilddog = [[WDGSync sync] referenceWithPath:@"message"];
 ```
 
 ### 3. 发送弹幕
-使用写入数据的 API [childByAutoId](/guide/sync/ios/save-data.html#追加新节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
+使用写入数据的 API [childByAutoId](/guide/sync/ios/save-data.html#追加子节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
 
 
 ```objectivec
