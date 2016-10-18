@@ -15,7 +15,7 @@ title: WDGVideoParticipant
 
 **说明**
 
-当前参与者的用户 uid。
+当前参与者的用户 Wilddog ID 。
 
 </br>
 

@@ -15,7 +15,7 @@ title: WDGVideoOutgoingInvite
 
 **说明**
 
-被邀请者的用户 uid。
+被邀请者的用户 Wilddog ID 。
 
 </br>
 

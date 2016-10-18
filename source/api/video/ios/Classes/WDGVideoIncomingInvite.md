@@ -15,7 +15,7 @@ title: WDGVideoIncomingInvite
 
 **说明**
 
-邀请者的用户 uid，表明这个邀请来自哪个用户。
+邀请者的用户 Wilddog ID ，表明这个邀请来自哪个用户。
 
 </br>
 
