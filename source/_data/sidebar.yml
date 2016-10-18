@@ -165,7 +165,11 @@ api:
       WDGDataEventType: /api/sync/ios/WDGDataEventType.html
       error-code: /api/sync/ios/error-code.html
     C/嵌入式: 
-      API 文档: /api/sync/c/api.html
+      #API 文档: /api/sync/c/api.html
+      操作实例: /api/sync/c/reference.html
+      数据修改和同步: /api/sync/c/sync-with-server.html
+      离线事件: /api/sync/c/disconnect-sync.html
+      节点操作: /api/sync/c/local-node.html
       错误码: /api/sync/c/error-code.html
     Arduino: /api/sync/arduino.html
     REST: /api/sync/rest.html
