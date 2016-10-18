@@ -12,13 +12,13 @@ Server SDK 包含以下两个功能：
 
 - **生成 Custom Token**
 
-  将野狗服务接入到你的用户系统时，需要通过 [Custom Token]() 进行认证。你可以使用 Server SDK 生成 Custom Token。
+  将野狗服务接入到你的用户系统时，需要通过 [Custom Token](/guide/auth/core/concept.html#身份认证令牌) 进行认证。你可以使用 Server SDK 生成 Custom Token。
 
-  生成 Cutom Token 时，你可以添加用户的自定义属性。自定义身份认证成功后，你在规则表达式中可以获取自定义属性，实现[用户访问控制]()。
+  生成 Cutom Token 时，你可以添加用户的自定义属性。自定义身份认证成功后，你在规则表达式中可以获取自定义属性，实现 [用户访问控制](/guide/sync/rules/auth.html)。
 
 - **认证 Wilddog ID Token(可选)**
 
-  经过野狗身份认证后，你可以使用 Server SDK 认证 [Wilddog ID Token]()，确认用户在 Wilddog Auth 中的身份。
+  经过野狗身份认证后，你可以使用 Server SDK 认证 [Wilddog ID Token](/guide/auth/core/concept.html#身份认证令牌)，确认用户在 Wilddog Auth 中的身份。
 
   <blockquote class="warning">
     <p><strong>注意：</strong></p>
@@ -26,7 +26,6 @@ Server SDK 包含以下两个功能：
   </blockquote>
 
   ​
-
 
 
 ### Server SDK 的工作机制
@@ -38,4 +37,4 @@ Server SDK 包含以下两个功能：
 
 
 
-Server SDK 的使用方法，请参考 [使用 Server SDK]()。
+Server SDK 的使用方法，请参考 [使用 Server SDK](/guide/auth/server/server.html)。
