@@ -56,7 +56,7 @@ wilddog.auth().signInAnonymously()
 // 创建一个只有视频且分辨率为 640X480 的流
 var videoInstance = wilddog.video();
 // 获取html中id为'local'的video元素;
-var localVideoElement = document.getElementbyId('local');
+var localVideoElement = document.getElementById('local');
 var localStream = null;
 videoInstance.createStream({
         audio: false,
@@ -85,7 +85,7 @@ videoInstance.createStream({
 
 ```javascript
 // 获取html中id为'remote'的video元素;
-var remoteVideoElement = document.getElementbyId('remote');
+var remoteVideoElement = document.getElementById('remote');
 // 邀请他人加入会话
 // mode：选择 P2P 模式（更多选择请关注 API 文档的 Client 中对 ClientInviteConstraints 的介绍）;
 // 设置对方 Wilddog Id （需开发者在应用层自己实现获取方式，Wilddog Id 请参考 ClientInviteConstraints）;
