@@ -21,7 +21,7 @@ title: 管理其他参与者
 
 通过监听参与者加入或离开的事件，来获得参与者的状态通知。
 
-例如，打印参与者加入、离开及加入失败的日志：
+例如向控制台输出参与者加入/离开及加入失败情况的日志：
 
 ```java
     //会话监听，监听被邀请者加入状态
@@ -30,26 +30,22 @@ title: 管理其他参与者
         public void onParticipantConnected(Conversation conversation, Participant participant) {
             //当被邀请者成功加入会话后触发此方法
             RemoteStream remoteStream = participant.getRemoteStream();
-            Log.d("wilddog",participant.getParticipantId()+" 成功加入会话");
         }
 
         @Override
         public void onFailedToConnectParticipant(Conversation conversation, Participant participant,
                                                  ConversationException exception) {
             //当会话连接建立失败时触发此方法
-            Log.d("wilddog",participant.getParticipantId()+" 加入会话失败");
         }
 
         @Override
         public void onParticipantDisconnected(Conversation conversation, Participant participant) {
             //被邀请者离开会话后触发此方法
-            Log.d("wilddog",participant.getParticipantId()+" 参与者离开");
         }
 
         @Override
-        public void onConversationEnded(Conversation conversation, ConversationException exception) {
+        public void onConversationEnded(Conversation conversation, VideoException exception) {
             //当所有其他参与者离开会话时，判定会话已经结束，触发此方法
-            Log.d("wilddog","会话结束");
         }
     };
     mConversation.setConversationListener(conversationListener);

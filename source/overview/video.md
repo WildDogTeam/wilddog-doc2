@@ -2,7 +2,7 @@
 title: 实时视频通话 Wilddog Video
 ---
 <h2 id='简介' class="article-heading top-heading">简介</h2>
-**Wilddog Video** 是基于 WebRTC 的实时视频通话服务，支持多方视频通话，以及视频通话直播的功能，为你的业务提供高清流畅的通话体验。
+**Wilddog Video** 是基于 WebRTC 的实时视频通话服务，支持视频通话、多人视频会议、视频会议直播功能，为你的业务提供高清流畅的通话体验。
 
 ## Wilddog Video 能做什么
 
