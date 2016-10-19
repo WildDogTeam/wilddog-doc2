@@ -14,13 +14,7 @@ title:  简介
 
 ![](/images/introduction.jpg)
 
-
-身份认证 (Wilddog Auth) 用于帮助企业和开发者将野狗快速接入应用的身份认证系统，一次身份认证打通野狗所有产品。还可以用于增强已有帐户体系和简化新应用中账号系统的开发。
-
-
-![](/images/wilddogauth.jpg)
-
-实时视频通话（Wilddog Video）是基于 WebRTC 的实时视频通话服务，支持多方视频通话，以及视频通话直播的功能。为企业和开发者的业务提供高清流畅的通话体验。
+实时视频通话(Wilddog Video) 是基于 WebRTC 的实时视频通话服务，支持视频通话、多人视频会议、视频会议直播功能，为你的业务提供高清流畅的通话体验。
 
 ![](/images/videointro.jpg)
 

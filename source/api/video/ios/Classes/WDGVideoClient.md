@@ -21,69 +21,77 @@ title: WDGVideoClient
 
 ---
 
+### uid
+
+**定义**
+
+```objectivec
+@property (readonly, strong, nonatomic) NSString *_Nonnull uid;
+```
+
+**说明**
+
+Client 的 Wilddog ID 。
+
+</br>
+
+---
+
 ## 方法
+
+### -init
+
+**定义**
+
+```objectivec
+- (nonnull instancetype)init;
+```
+
+**说明**
+
+继承自NSObject的初始化方法不可用。
+
+**返回值**
+
+无效的 `WDGVideoClient` 实例。
+
+</br>
+
+---
 
 ### -initWithSyncReference:user:
 
 **定义**
 
 ```objectivec
-- (nullable instancetype)initWithSyncReference:(nonnull WDGSyncReference *)syncReferenceuser:(nonnull WDGUser *)user;
+- (nullable instancetype)initWithSyncReference:(nonnull WDGSyncReference *)syncReference user:(nonnull WDGUser *)user;
 ```
 
 **说明**
 
-初始化 `WDGVideoClient` 实例。初始化时会从野狗服务器获取控制台配置信息，若控制台未开启实时视频功能，则返回 nil 。
+初始化 `WDGVideoClient` 实例。初始化时会从野狗服务器获取控制台配置信息，若控制台未开启实时视频及网络穿越开关，返回 nil 。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-syncReference|用于数据交换的 [WDGSyncReference](../../../sync/ios/WDGSyncReference.html) 节点。如果建立 `Server-based` 模式的会话，则要保证 ‘WDGSyncReference’ 的路径和控制面板中的交互路径一致。
-user|代表已登录用户的[WDGUser](../../../auth/ios/WDGUser.html)实例。
+syncReference|用于数据交换的 `WilddogSync` 节点。如果后面使用 `Server-based` 模式建立会话，需要保证该路径和控制面板中的交互路径一致。
+user|代表已登录用户的 `WDGUser` 实例。
 
 **返回值**
 
-`WDGVideoClient` 实例，若初始化失败返回 nil。
+`WDGVideoClient` 实例，若初始化失败返回nil。
 
 </br>
 
 ---
 
-### -inviteUser:conversationMode:completion:
+### -inviteWithParticipantID:localStream:conversationMode:completion:
 
 **定义**
 
 ```objectivec
-- (WDGVideoOutgoingInvite *_Nullable)inviteUser:(nonnull NSString *)userIDconversationMode:(WDGVideoConversationMode)conversationModecompletion:(nonnull WDGVideoInviteAcceptanceBlock)completionHandler;
-```
-
-**说明**
-
-邀请其他用户进行视频会话。
-
-**参数**
-
- 参数名 | 说明 
----|---
-userID|被邀请的用户的 Wilddog ID 。
-conversationMode|视频会话的通信模式，分为 `P2P` 和 `Server-based` 两种模式。若要使用 `Server-based` 模式，需在野狗控制台中开启服务器中转功能，同时配置交互路径和超级密钥。 
-completionHandler|当邀请得到回应后，SDK通过该闭包通知邀请结果，若对方接受邀请，将以默认配置创建本地流，并在闭包中返回 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例，否则将在闭包中返回 `NSError` 说明邀请失败的原因。
-
-**返回值**
-
-[WDGVideoOutgoingInvite](../Classes/WDGVideoOutgoingInvite.html) 实例，可用于取消此次邀请。
-
-</br>
-
----
-
-### -inviteUser:localStream:conversationMode:completion:
-
-**定义**
-
-```objectivec
-- (WDGVideoOutgoingInvite *_Nullable)inviteUser:(nonnull NSString *)userIDlocalStream:(nonnull WDGVideoLocalStream *)localStreamconversationMode:(WDGVideoConversationMode)conversationModecompletion:(nonnull WDGVideoInviteAcceptanceBlock)completionHandler;
+- (WDGVideoOutgoingInvite *_Nullable)inviteWithParticipantID:(nonnull NSString *)participantID localStream:(nonnull WDGVideoLocalStream *)localStream conversationMode:(WDGVideoConversationMode)conversationMode completion:(nonnull WDGVideoInviteAcceptanceBlock)completionHandler;
 ```
 
 **说明**
@@ -94,10 +102,10 @@ completionHandler|当邀请得到回应后，SDK通过该闭包通知邀请结�
 
  参数名 | 说明 
 ---|---
-userID|被邀请的用户的 Wilddog ID 。
+participantID|被邀请者的 Wilddog ID 。 
 localStream|邀请成功时使用该视频流创建会话。 
 conversationMode|视频会话的通信模式，分为 `P2P` 和 `Server-based` 两种模式。若要使用 `Server-based` 模式，需在野狗控制台中开启服务器中转功能，同时配置交互路径和超级密钥。 
-completionHandler|当邀请得到回应后，SDK通过该闭包通知邀请结果，若对方接受邀请，将以默认配置创建本地流，并在闭包中返回 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例，否则将在闭包中返回 `NSError` 说明邀请失败的原因。
+completionHandler|当邀请得到回应后，SDK 通过该闭包通知邀请结果，若对方接受邀请，将以默认配置创建本地流，并在闭包中返回 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例，否则将在闭包中返回 `NSError` 说明邀请失败的原因。
 
 **返回值**
 
@@ -138,7 +146,7 @@ configuration|[WDGVideoLocalStreamConfiguration](../Classes/WDGVideoLocalStreamC
 **定义**
 
 ```objectivec
-- (WDGVideoMeetingCastAddon *_Nullable)meetingCastAddonWithConversation:(nonnull WDGVideoConversation *)conversationdelegate:(nonnull id<WDGVideoMeetingCastAddonDelegate>)delegate;
+- (WDGVideoMeetingCastAddon *_Nullable)meetingCastAddonWithConversation:(nonnull WDGVideoConversation *)conversation delegate:(nonnull id<WDGVideoMeetingCastAddonDelegate>)delegate;
 ```
 
 **说明**

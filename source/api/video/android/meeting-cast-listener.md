@@ -6,12 +6,12 @@ title: MeetingCastStateListener
 
 ## 方法
 
-### onCastUp(String, Map<String,String >)
+### onStarted(String, Map<String,String >)
 
 **定义**   
 
 ```java
-void onCastUp(String castUid, Map<String,String > urlMap)
+void onStarted(String participantId, Map<String,String > urlMap)
 ```
 
 **说明**
@@ -22,31 +22,31 @@ void onCastUp(String castUid, Map<String,String > urlMap)
 
 | 参数名 | 描述 |
 |---|---|
-|castUid|String,当前正在直播的流的发布者 Widdog ID|
+|participantId|String,当前正在直播的流的发布者 Widdog ID|
 |urlMap|Map<String,String>,直播地址,包含 rtmp 和 hls 两种类型的直播地址,rtmp地址 key 值为 "rtmp", hls地址 key 值为 "hls"|
 
-<span id="onCastUp" />
+<span id="onStarted" />
 **示例**
 
 ```java
 	meetingCastAddon = client.getMeetingCastAddon(mConversation, new MeetingCastStateListener() {
         @Override
-        public void onCastUp(String castUid, Map<String, String> urlMap) {
+        public void onStarted(String participantId, Map<String, String> urlMap) {
 
         }
 
         @Override
-        public void onCastChange(String castUid) {
+        public void onSwitchParticipant(String participantId) {
 
         }
 
         @Override
-        public void onCastDown() {
+        public void onStopped() {
 
         }
 
         @Override
-        public void onError(String message) {
+        public void onError(VideoException exception) {
 
         }
     });
@@ -56,12 +56,12 @@ void onCastUp(String castUid, Map<String,String > urlMap)
 
 ---
 
-### onCastChange(String)
+### onSwitchParticipant(String)
 
 **定义**   
 
 ```java
-void void onCastChange(String castUid)
+void void onSwitchParticipant(String participantId)
 ```
 
 **说明**
@@ -72,11 +72,11 @@ void void onCastChange(String castUid)
 
 | 参数名 | 描述 |
 |---|---|
-|castUid|String,当前正在直播的流的发布者 Widdog ID|
+|participantId|String,当前正在直播的流的发布者 Widdog ID|
 
 **示例**
 
-参照[onCastUp 示例](/api/video/android/meeting-cast-listener.html#onCastUp)
+参照[onStarted 示例](/api/video/android/meeting-cast-listener.html#onStarted)
 
 </br>
 
@@ -87,7 +87,7 @@ void void onCastChange(String castUid)
 **定义**   
 
 ```java
-void onCastDown()
+void onStopped()
 ```
 
 **说明**
@@ -96,18 +96,18 @@ void onCastDown()
 
 **示例**
 
-参照[onCastUp 示例](/api/video/android/meeting-cast-listener.html#onCastUp)
+参照[onStarted 示例](/api/video/android/meeting-cast-listener.html#onStarted)
 
 </br>
 
 ---
 
-### onError(String)
+### onError(VideoException)
 
 **定义**   
 
 ```java
-void onError(String message)
+void onError(VideoException exception)
 ```
 
 **说明**
@@ -118,9 +118,9 @@ void onError(String message)
 
 | 参数名 | 描述 |
 |---|---|
-|message|String,直播操作发生错误的详细信息|
+|exception|String,直播操作发生错误的详细信息|
 
 
 **示例**
 
-参照[onCastUp 示例](/api/video/android/meeting-cast-listener.html#onCastUp)
+参照[onStarted 示例](/api/video/android/meeting-cast-listener.html#onStarted)

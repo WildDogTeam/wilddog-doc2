@@ -32,7 +32,7 @@ void accpet(LocalStream localStream,ConversationCallback callback)
 	//localStream=video.createLocalStream(LocalStreamOptions.DEFAULT_OPTIONS, new CompleteListener(){//...});
 	incomingInvite.accept(localStream, new ConversationCallback() {
         @Override
-        public void onConversation(Conversation conversation, ConversationException exception) {
+        public void onConversation(Conversation conversation, VideoException exception) {
             //对方接受邀请并成功建立会话,conversation不为空,exception为空
             if (conversation != null) {
                 mConversation = conversation;

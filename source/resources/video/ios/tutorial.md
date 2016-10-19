@@ -113,7 +113,7 @@ WDGSyncReference *userWilddog = [[self.syncReference child:@"users"] child:self.
 选择用户列表中的用户，发起会话。
 
 ```objectivec
-WDGVideoOutgoingInvite *outgoingInvitation = [self.wilddogVideoClient inviteUser:userID localStream:self.localStream conversationMode:WDGVideoConversationModeP2P completion:^(WDGVideoConversation *conversation, NSError *error) {
+WDGVideoOutgoingInvite *outgoingInvitation = [self.wilddogVideoClient inviteWithParticipantID:participantID localStream:self.localStream conversationMode:WDGVideoConversationModeP2P completion:^(WDGVideoConversation *conversation, NSError *error) {
     __strong __typeof__(self) strongSelf = weakSelf;
     if (strongSelf == nil) {
         return;
@@ -125,7 +125,7 @@ WDGVideoOutgoingInvite *outgoingInvitation = [self.wilddogVideoClient inviteUser
         strongSelf.videoConversation.delegate = strongSelf;
     } else {
         // 邀请失败
-        NSString *errorMessage = [NSString stringWithFormat:@"邀请用户错误(%@): %@", userID, [error localizedDescription]];
+        NSString *errorMessage = [NSString stringWithFormat:@"邀请参与者错误(%@): %@", participantID, [error localizedDescription]];
         NSLog(@"%@",errorMessage);
 
         [strongSelf showAlertWithTitle:@"提示" message:errorMessage];

@@ -1,21 +1,21 @@
 title: WDGVideoParticipant
 ---
 
-代表除自己外会话的参与者。
+代表会话的参与者。
 
 ## 属性
 
-### userID
+### participantID
 
 **定义**
 
 ```objectivec
-@property (readonly, strong, nonatomic) NSString *_Nonnull userID;
+@property (readonly, strong, nonatomic) NSString *_Nonnull participantID;
 ```
 
 **说明**
 
-当前参与者的用户 Wilddog ID 。
+当前参与者的 Wilddog ID 。
 
 </br>
 
