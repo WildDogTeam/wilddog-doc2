@@ -63,13 +63,27 @@ title: 更新日志
 
 ## Android SDK
 
+### v0.4.0 - 2016.10.19
+
+**新增**
+
+- 新增安卓端错误码,增加错误边界判定以及错误返回。
+- 新增 VideoException 类。
+
+**优化**
+
+- Video 类改为 WilddogVideo 类。
+- MeetingCastAddon 类中方法重命名为 start、switchParticipant、stop。
+- MeetingCastListener 中方法重命名 onStarted、onSwitchParticipant、onStopped。
+- 删除 ConversationException 类。
+
 ### v0.3.1 - 2016.09.29
 
 **新增**
 
 - 增加 Conversation.Listener 回调方法触发。
 
-**改进**
+**优化**
 
 
 - 完善 Video ，完善 flipCamera方法。
