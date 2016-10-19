@@ -5,17 +5,17 @@ title: WDGVideoIncomingInvite
 
 ## 属性
 
-### fromUserID
+### fromParticipantID
 
 **定义**
 
 ```objectivec
-@property (readonly, strong, nonatomic) NSString *_Nonnull fromUserID;
+@property (readonly, strong, nonatomic) NSString *_Nonnull fromParticipantID;
 ```
 
 **说明**
 
-邀请者的用户 Wilddog ID ，表明这个邀请来自哪个用户。
+邀请者的 Wilddog ID ，表明这个邀请来自哪个用户。
 
 </br>
 
