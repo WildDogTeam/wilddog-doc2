@@ -189,7 +189,7 @@ api:
       IncomingInvite: /api/video/web/incomingInvite.html
       #错误码: /api/video/web/error-code.html
     Android:
-      Video: /api/video/android/video.html
+      WilddogVideo: /api/video/android/wilddog-video.html
       ConversationClient: /api/video/android/conversation-client.html
       ConversationClient.Listener: /api/video/android/conversation-client-listener.html
       Conversation: /api/video/android/conversation.html
@@ -202,12 +202,12 @@ api:
       LocalStream: /api/video/android/local-stream.html
       RemoteStream: /api/video/android/remote-stream.html
       Participant: /api/video/android/participant.html
-      ConversationException: /api/video/android/conversation-exception.html
+      VideoException: /api/video/android/video-exception.html
       ConversationMode: /api/video/android/conversation-mode.html
       MeetingCastStateListener: /api/video/android/meeting-cast-listener.html
       MeetingCastAddon: /api/video/android/meeting-cast-addon.html
 
-      #错误码: /api/video/android/error-code.html
+      错误码: /api/video/android/error-code.html
     iOS:
       WDGVideoClient: /api/video/ios/Classes/WDGVideoClient.html
       "&ltWDGVideoClientDelegate&gt": /api/video/ios/Protocols/WDGVideoClientDelegate.html

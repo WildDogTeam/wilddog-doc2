@@ -5,12 +5,12 @@ title: MeetingCastAddon
 
 ## 方法
 
-### castUp(String)
+### start(String)
 
 **定义**   
 
 ```java
-void castUp(String castUid)
+void start(String participantId)
 ```
 
 **说明**
@@ -21,12 +21,12 @@ void castUp(String castUid)
 
 | 参数名 | 描述 |
 |---|---|
-|castUid|String,需要直播的视频流的发布者的 Wilddog ID|
+|participantId|String,需要直播的视频流的发布者的 Wilddog ID|
 
 
 **示例**
 
-参照[onCastUp](/api/video/android/meeting-cast-listener.html#onCastUp)示例获取`meetingCastAddon` 对象的方式
+参照[onStarted](/api/video/android/meeting-cast-listener.html#onStarted)示例获取`meetingCastAddon` 对象的方式
 
 ```java
 	//先获取到 `meetingCastAddon` 对象,然后发布直播流
@@ -37,12 +37,12 @@ void castUp(String castUid)
 
 ---
 
-### castChange(String)
+### switchParticipant(String)
 
 **定义**   
 
 ```java
-void castChange(String castUid)
+void switchParticipant(String participantId)
 ```
 
 **说明**
@@ -53,11 +53,11 @@ void castChange(String castUid)
 
 | 参数名 | 描述 |
 |---|---|
-|castUid|String,需要切换直播的视频流的发布者的 Wilddog ID|
+|participantId|String,需要切换直播的视频流的发布者的 Wilddog ID|
 
 **示例**
 
-参照[onCastUp](/api/video/android/meeting-cast-listener.html#onCastUp)示例获取`meetingCastAddon` 对象的方式
+参照[onStarted](/api/video/android/meeting-cast-listener.html#onStarted)示例获取`meetingCastAddon` 对象的方式
 
 ```java
 	//切换直播流
@@ -68,12 +68,12 @@ void castChange(String castUid)
 
 ---
 
-### castDown()
+### stop()
 
 **定义**   
 
 ```java
-void castDown()
+void stop()
 ```
 
 **说明**
@@ -82,7 +82,7 @@ void castDown()
 
 **示例**
 
-参照[onCastUp](/api/video/android/meeting-cast-listener.html#onCastUp)示例获取`meetingCastAddon` 对象的方式
+参照[onStarted](/api/video/android/meeting-cast-listener.html#onStarted)示例获取`meetingCastAddon` 对象的方式
 
 ```java
 	//结束直播

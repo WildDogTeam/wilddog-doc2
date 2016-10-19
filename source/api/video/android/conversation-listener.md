@@ -28,12 +28,12 @@ void onParticipantConnected(Conversation conversation, Participant participant)
 
 ---
 
-### onFailedToConnectParticipant(Conversation, Participant, ConversationException)
+### onFailedToConnectParticipant(Conversation, Participant, VideoException)
 
 **定义**   
 
 ```java
-void onFailedToConnectParticipant(Conversation conversation, Participant participant, ConversationException exception)
+void onFailedToConnectParticipant(Conversation conversation, Participant participant, VideoException exception)
 ```
 
 **说明**
@@ -46,7 +46,7 @@ void onFailedToConnectParticipant(Conversation conversation, Participant partici
 |---|---|
 |conversation|[Conversation](/api/video/android/conversation.html),被邀请者接受邀请后建立的会话对象|
 |participant|[Participant](/api/video/android/participant.html),接收邀请的被邀请者|
-|exception|[ConversationException](/api/video/android/conversation-exception.html),会话建立连接失败信息|
+|exception|[VideoException](/api/video/android/video-exception.html),会话建立连接失败信息|
 
 </br>
 
@@ -75,12 +75,12 @@ void onParticipantDisconnected(Conversation conversation, Participant participan
 
 ---
 
-### onConversationEnded(Conversation, ConversationException)
+### onConversationEnded(Conversation, VideoException)
 
 **定义**   
 
 ```java
-void onConversationEnded(Conversation conversation, ConversationException exception)
+void onConversationEnded(Conversation conversation, VideoException exception)
 ```
 
 **说明**
@@ -92,4 +92,4 @@ void onConversationEnded(Conversation conversation, ConversationException except
 | 参数名 | 描述 |
 |---|---|
 |conversation|[Conversation](/api/video/android/conversation.html),已经结束的会话对象|
-|exception|[ConversationException](/api/video/android/conversation-exception.html),会话结束异常信息|
+|exception|[VideoException](/api/video/android/video-exception.html),会话结束异常信息|

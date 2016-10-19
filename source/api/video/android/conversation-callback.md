@@ -10,7 +10,7 @@ title: ConversationCallback
 **定义**   
 
 ```java
-void onConversation(Conversation conversation, ConversationException exception) 
+void onConversation(@Nullable  Conversation conversation,@Nullable  VideoException exception);
 ```
 
 **说明**
@@ -26,7 +26,7 @@ void onConversation(Conversation conversation, ConversationException exception)
 | 参数名 | 描述 |
 |---|---|
 |conversation|[Conversation](/api/video/android/conversation.html),会话对象|
-|exception|[ConversationException](/api/video/android/conversation-exception.html),会议异常对象|
+|exception|[VideoException](/api/video/android/video-exception.html),会议异常对象|
 
 **示例**
 
@@ -41,7 +41,7 @@ void onConversation(Conversation conversation, ConversationException exception)
 		}
 
 		@Override
-		public void onFailedToConnectParticipant(Conversation conversation, Participant participant,ConversationException exception) {
+		public void onFailedToConnectParticipant(Conversation conversation, Participant participant,VideoException exception) {
 		}
 
 		@Override
@@ -49,7 +49,7 @@ void onConversation(Conversation conversation, ConversationException exception)
 		}
 
         @Override
-        public void onConversationEnded(Conversation conversation, ConversationException exception) {
+        public void onConversationEnded(Conversation conversation, VideoException exception) {
 
         }
     });

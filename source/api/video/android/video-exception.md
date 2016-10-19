@@ -1,24 +1,25 @@
-title: ConversationException
+title: VideoException
 ---
 
 会话异常信息,有两个属性ErrorMsg与ErrorCode,分别代表错误详细信息与错误码。
 
 ## 构造方法
 
-### ConversationException(String, int) 
+### VideoException(int,String) 
 
 **定义**   
 
 ```java
-ConversationException(String errorMsg, int errorCode) 
+VideoException(int errorCode , String message) 
 ```
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|errorMsg|String,错误详细信息|
 |errorCode|String,错误代码|
+|message|String,错误详细信息|
+
 
 </br>
 
@@ -28,7 +29,7 @@ ConversationException(String errorMsg, int errorCode)
 
 所有属性均有get/set方法。
 
-### errorMsg
+### message
 
 **说明**
 
