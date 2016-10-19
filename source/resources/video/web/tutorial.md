@@ -16,7 +16,7 @@ title: 实战教程
 
 ## 具体步骤
 
-### 1. 引入 SDK
+### 1. 安装 SDK
 
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="video-web-version"></span>/wilddog-video.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
@@ -93,9 +93,9 @@ ref.child('users').on('child_removed', (snap) => {
 })
 ```
 
-数据库中的数据结构就是这个样子的：
+数据库中的数据结构如图所示：
 
-<img src='/images/video_resources_web_dataTree.png' alt="video_resources_web_dataTree"  >
+![](/images/video_resources_ios_datatree.png)
 
 ### 5. 获取和预览本地视频
 
