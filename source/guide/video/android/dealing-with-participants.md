@@ -34,7 +34,7 @@ title: 管理其他参与者
 
         @Override
         public void onFailedToConnectParticipant(Conversation conversation, Participant participant,
-                                                 ConversationException exception) {
+                                                 VideoException exception) {
             //当会话连接建立失败时触发此方法
         }
 

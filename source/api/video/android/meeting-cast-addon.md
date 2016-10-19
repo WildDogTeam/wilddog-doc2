@@ -30,7 +30,7 @@ void start(String participantId)
 
 ```java
 	//先获取到 `meetingCastAddon` 对象,然后发布直播流
-	meetingCastAddon.castUp("<需要直播的视频发布者Wilddog ID>");
+	meetingCastAddon.start("<需要直播的视频发布者Wilddog ID>");
 ```
 
 </br>
@@ -61,7 +61,7 @@ void switchParticipant(String participantId)
 
 ```java
 	//切换直播流
-	meetingCastAddon.castChange("<需要切换的视频发布者Wilddog ID>");
+	meetingCastAddon.switchParticipant("<需要切换的视频发布者Wilddog ID>");
 ```
 
 </br>
@@ -86,6 +86,6 @@ void stop()
 
 ```java
 	//结束直播
-	meetingCastAddon.castDown();
+	meetingCastAddon.stop();
 ```
 

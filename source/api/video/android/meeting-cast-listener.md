@@ -6,12 +6,12 @@ title: MeetingCastStateListener
 
 ## 方法
 
-### onStarted(String, Map<String,String >)
+### onStarted(String, Map&lt; String,String &gt;)
 
 **定义**   
 
 ```java
-void onStarted(String participantId, Map<String,String > urlMap)
+void onStarted(String participantId, Map< String,String > urlMap)
 ```
 
 **说明**
@@ -23,7 +23,7 @@ void onStarted(String participantId, Map<String,String > urlMap)
 | 参数名 | 描述 |
 |---|---|
 |participantId|String,当前正在直播的流的发布者 Widdog ID|
-|urlMap|Map<String,String>,直播地址,包含 rtmp 和 hls 两种类型的直播地址,rtmp地址 key 值为 "rtmp", hls地址 key 值为 "hls"|
+|urlMap|Map&lt;String,String&gt;,直播地址,包含 rtmp 和 hls 两种类型的直播地址,rtmp地址 key 值为 "rtmp", hls地址 key 值为 "hls"|
 
 <span id="onStarted" />
 **示例**
@@ -82,7 +82,7 @@ void void onSwitchParticipant(String participantId)
 
 ---
 
-### onCastDown()
+### onStopped()
 
 **定义**   
 

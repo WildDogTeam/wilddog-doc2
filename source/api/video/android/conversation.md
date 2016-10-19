@@ -15,7 +15,7 @@ void setConversationListener(Conversation.Listener listener)
 
 **说明**
 
-为会话设置会话状态监听,当被邀请者接受或拒绝时会改变会话的状态,Video SDK 会触发 `Conversation.Listener` 的回调方法通知监听者。
+为会话设置会话状态监听,当被邀请者接受或拒绝时会改变会话的状态, Wilddog Video SDK 会触发 `Conversation.Listener` 的回调方法通知监听者。
 
 **参数**
 
@@ -56,7 +56,7 @@ void setConversationListener(Conversation.Listener listener)
 
 ---
 
-### invite(Set<String>)
+### invite(Set&lt;String&gt;)
 
 **定义**   
 
@@ -72,7 +72,7 @@ void invite(Set<String> participantIdSet)
 
 | 参数名 | 描述 |
 |---|---|
-|participantIdSet| Set<String> ,受邀参与者列表,列表中的值为受邀参与者的 Wilddog ID|
+|participantIdSet| Set&lt;String&gt; ,受邀参与者列表,列表中的值为受邀参与者的 Wilddog ID|
 
 
 **示例**

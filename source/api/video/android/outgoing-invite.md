@@ -3,7 +3,7 @@ title : OutgoingInvite
 
 <span id="OutgoingInvite" />
 
-使用 Conversation.inviteToConversation 方法发起邀请时会生成 OutgoingInvite 对象,通过 cancel 方法可以取消邀请。
+使用 `Conversation.inviteToConversation` 方法发起邀请时会生成 `OutgoingInvite` 对象,通过 `cancel` 方法可以取消邀请。
 ## 方法
 ### cancel()
 
@@ -22,7 +22,7 @@ void cancel()
 ```java
 	//outgoingInvite = client.inviteToConversation(options, new ConversationCallback() {//...});
 	//取消发起会话邀请
-    outgoingInvite.cancel();
+	outgoingInvite.cancel();
 ```
 
 ****

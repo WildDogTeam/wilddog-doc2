@@ -1,11 +1,11 @@
 title: ConversationCallback
 ---
 
-会话回调,创建会话时会通过 `onConversation`方法传递会话实例对象或错误信息。
+会话回调,创建会话时会通过 `onConversation` 方法传递会话实例对象或错误信息。
 
 ## 方法
 
-### onConversation(Conversation, ConversationException) 
+### onConversation(Conversation, VideoException) 
 
 **定义**   
 
@@ -15,11 +15,11 @@ void onConversation(@Nullable  Conversation conversation,@Nullable  VideoExcepti
 
 **说明**
 
-创建会话时通过此接口传递 `Conversation` 和 `ConversationException`。
+创建会话时通过此接口传递 `Conversation` 和 `VideoException`。
 
-* 会话创建成功 传递 `conversation` 对象,`ConversationException` 为空。
+* 会话创建成功 传递 `conversation` 对象,`VideoException` 为空。
 
-* 会话创建失败 `conversation` 为 `null`,传递错误信息对象 `ConversationException`。
+* 会话创建失败 `conversation` 为 `null`,传递错误信息对象 `VideoException`。
 
 **参数**
 
@@ -48,10 +48,10 @@ void onConversation(@Nullable  Conversation conversation,@Nullable  VideoExcepti
 		public void onParticipantDisconnected(Conversation conversation, Participant participant) {
 		}
 
-        @Override
-        public void onConversationEnded(Conversation conversation, VideoException exception) {
+		@Override
+		public void onConversationEnded(Conversation conversation, VideoException exception) {
 
-        }
+		}
     });
 
 ```
