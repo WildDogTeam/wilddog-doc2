@@ -17,7 +17,7 @@ title: 实战教程
 
 ## 具体步骤
 
-### 1. 引入 SDK 
+### 1. 安装 SDK 
 
 要将 Wilddog SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问 [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 

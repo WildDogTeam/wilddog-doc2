@@ -13,8 +13,6 @@ title: 实战教程
 
 <img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation" width="300">
 
-可以[下载体验](https://github.com/WildDogTeam/video-quickstart-android/archive/master.zip)
-
 
 
 ## 具体步骤
@@ -43,12 +41,12 @@ android {
 }
 ```
 
-**引入 Video SDK**
+**安装 Video SDK**
 
 <a href="" class="video-android-download">下载 Wilddog Video SDK</a>，解压后将jniLibs文件夹拷贝到工程目录的main文件夹中，将`libs/wilddog-video-android-*.jar` 放入工程的 `app/libs` 中，右键点击 `addAsLibrary`，完成 jar 包引用。
 
 
-### 2.用户身份认证
+### 2. 用户身份认证
 
 视频通话的前提条件是要有可识别的用户身份。在这里使用 Auth SDK 的匿名登录实现身份认证。认证后会为每个用户分配唯一的 Wilddog ID。
 
@@ -115,13 +113,12 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
 
 <img src='/images/video_resources_ios_datatree.png' alt="video_resources_ios_datatree"  >
 
-#### 存储用户 Wilddog ID
+#### 4.1 存储用户的 Wilddog ID
 
-在登录时存储用户 Wilddog ID
+在登录时存储用户的 Wilddog ID：
 
 ```java
-
-//用户可以使用任意自定义节点来保存用户数据，但是不要使用 [交互路径/video]节点存放私有数据，以防和 Wilddog Video SDK 数据发生冲突
+//用户可以使用任意自定义节点来保存用户数据，但是不要使用 [交互路径/video]节点存放私有数据，以防和Video SDK 数据发生冲突
 //本示例采用根节点下的[交互路径/users] 节点作为用户列表存储节点,
 
 auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
@@ -142,11 +139,9 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
 		}
 	}
 });
-
-
 ```
 
-#### 监听在线用户
+#### 4.2 监听在线用户
 
 获取用户列表时，监听users节点，获取到在线用户信息
 

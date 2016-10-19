@@ -5,17 +5,17 @@ title: WDGVideoOutgoingInvite
 
 ## 属性
 
-### toUserID
+### toParticipantID
 
 **定义**
 
 ```objectivec
-@property (readonly, strong, nonatomic) NSString *_Nonnull toUserID;
+@property (readonly, strong, nonatomic) NSString *_Nonnull toParticipantID;
 ```
 
 **说明**
 
-被邀请者的用户 Wilddog ID 。
+被邀请者的 Wilddog ID 。
 
 </br>
 

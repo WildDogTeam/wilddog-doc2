@@ -142,7 +142,10 @@ localStream.attach(self.localStreamPreviewView)
   <div class="slide-content slide-content-show">
 ```objectivec
 __weak __typeof__(self) weakSelf = self;
-WDGVideoOutgoingInvite *outgoingInvite = [self.videoClient inviteWithParticipantID:@"被邀请者的Wilddog ID" localStream:localStream conversationMode:WDGVideoConversationModeP2P completion:^(WDGVideoConversation *conversation, NSError *error) {
+WDGVideoOutgoingInvite *outgoingInvite = [self.videoClient inviteWithParticipantID:@"被邀请者的Wilddog ID" 
+                                                                       localStream:localStream 
+                                                                  conversationMode:WDGVideoConversationModeP2P 
+                                                                        completion:^(WDGVideoConversation *conversation, NSError *error) {
     __strong __typeof__(self) strongSelf = weakSelf;
     if (strongSelf == nil) {
         return;
@@ -162,7 +165,9 @@ WDGVideoOutgoingInvite *outgoingInvite = [self.videoClient inviteWithParticipant
   </div>
   <div class="slide-content">
 ```swift
-let outgoingInvitation = wilddogVideoClient.inviteUser(withParticipantID: "被邀请者的Wilddog ID", localStream: localStream, conversationMode: .P2P) { [weak self] (conversation, error) in
+let outgoingInvitation = wilddogVideoClient.invite(withParticipantID: "被邀请者的Wilddog ID", 
+                                                   localStream: localStream, 
+                                                   conversationMode: .P2P) { [weak self] (conversation, error) in
     guard let strongSelf = self else { return }
 
     guard let conversation = conversation else {

@@ -22,6 +22,22 @@ title: WDGVideoConversation
 
 ---
 
+### participantID
+
+**定义**
+
+```objectivec
+@property (readonly, strong, nonatomic) NSString *_Nonnull participantID;
+```
+
+**说明**
+
+表示自己的 Wilddog ID 。
+
+</br>
+
+---
+
 ### conversationID
 
 **定义**
@@ -33,22 +49,6 @@ title: WDGVideoConversation
 **说明**
 
 表示当前会话的编号。
-
-</br>
-
----
-
-### userID
-
-**定义**
-
-```objectivec
-@property (readonly, strong, nonatomic) NSString *_Nonnull userID;
-```
-
-**说明**
-
-表示当前参加视频会话的用户 Wilddog ID 。
 
 </br>
 
@@ -80,7 +80,7 @@ title: WDGVideoConversation
 
 **说明**
 
-数组中包含除自己外，已加入视频会话用户。
+数组中包含除自己外，已加入视频会话参与者。
 
 </br>
 
@@ -96,7 +96,7 @@ title: WDGVideoConversation
 
 **说明**
 
-符合[WDGVideoConversationDelegate](../Protocols/WDGVideoConversationDelegate.html)协议的代理。
+符合 [WDGVideoConversationDelegate](../Protocols/WDGVideoConversationDelegate.html) 协议的代理。
 
 </br>
 
@@ -104,24 +104,24 @@ title: WDGVideoConversation
 
 ## 方法
 
-### -inviteUser:error:
+### -inviteWithParticipantID:error:
 
 **定义**
 
 ```objectivec
-- (BOOL)inviteUser:(nonnull NSString *)userIDerror:(NSError *_Nullable *_Nullable)error;
+- (BOOL)inviteWithParticipantID:(nonnull NSString *)participantID error:(NSError *_Nullable *_Nullable)error;
 ```
 
 **说明**
 
-邀请用户加入当前会话。
+邀请其他用户加入当前会话。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-userID|被邀请者的用户 Wilddog ID 。
-error|若邀请未能发出则通过error返回原因。
+participantID|被邀请者的 Wilddog ID 。
+error|若邀请未能发出则通过 error 返回原因。
 
 **返回值**
 
@@ -152,22 +152,22 @@ YES 表示邀请成功，NO 表示邀请失败。
 **定义**
 
 ```objectivec
-- (WDGVideoParticipant *_Nullable)getParticipant:(nonnull NSString *)participantUserID;
+- (WDGVideoParticipant *_Nullable)getParticipant:(nonnull NSString *)participantID;
 ```
 
 **说明**
 
-依据会话参与者的用户 Wilddog ID 获取对应的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 模型。
+依据会话参与者的 Wilddog ID 获取对应的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 模型。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participantUserID|会话参与者的用户 Wilddog ID 。
+participantID|会话参与者的 Wilddog ID 。
 
 **返回值**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例，若未找到相应用户，返回 nil。
+[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例，若未找到相应参与者，返回 nil 。
 
 </br>
 

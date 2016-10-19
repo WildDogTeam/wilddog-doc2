@@ -37,17 +37,17 @@ MeetingCast 插件，用于控制会话的直播状态。
 
 ---
 
-### castingUserID
+### castingParticipantID
 
 **定义**
 
 ```objectivec
-@property (readonly, strong, nonatomic, nullable) NSString *castingUserID;
+@property (readonly, strong, nonatomic, nullable) NSString *castingParticipantID;
 ```
 
 **说明**
 
-表明当前正在直播的用户 UserID。若当前没在直播，该属性为 nil。
+表明当前正在直播的参与者的 Wilddog ID 。若当前没在直播，该属性为 nil 。
 
 </br>
 
@@ -71,12 +71,12 @@ MeetingCast 插件，用于控制会话的直播状态。
 
 ## 方法
 
-### -castUpWithUserID:
+### -startWithParticipantID:
 
 **定义**
 
 ```objectivec
-- (void)castUpWithUserID:(nonnull NSString *)userID;
+- (void)startWithParticipantID:(nonnull NSString *)participantID;
 ```
 
 **说明**
@@ -87,40 +87,40 @@ MeetingCast 插件，用于控制会话的直播状态。
 
  参数名 | 说明 
 ---|---
-userID|开启直播，并将 Wilddog ID 为 userID 的用户设为正在直播的用户。
+participantID|开启直播，并直播 Wilddog ID 为 participantID 的参与者。
 
 </br>
 
 ---
 
-### -castChangeToUserID:
+### -switchToParticipantID:
 
 **定义**
 
 ```objectivec
-- (void)castChangeToUserID:(nonnull NSString *)userID;
+- (void)switchToParticipantID:(nonnull NSString *)participantID;
 ```
 
 **说明**
 
-切换直播视频流。
+在直播开启后，切换直播视频流。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-userID|将 Wilddog ID 为 userID 的用户设为正在直播的用户。
+participantID|直播 Wilddog ID 为 participantID 的参与者。
 
 </br>
 
 ---
 
-### -castDown
+### -stop
 
 **定义**
 
 ```objectivec
-- (void)castDown;
+- (void)stop;
 ```
 
 **说明**
