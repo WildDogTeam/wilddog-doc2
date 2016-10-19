@@ -2,6 +2,63 @@
 title: 更新日志
 ---
 
+## Javascript SDK
+
+### v2.1.2 - 2016.10.17
+
+**修复**
+
+修复 EmailAuthProvider.credential() 方法生成的 Credential 不合法的 bug。
+
+
+
+### v2.1.1 - 2016.10.17
+
+**修复**
+
+修复 iPhone 4s, iPhone 5s 微信公众账号登录失败的 bug。
+
+
+
+### v2.1.0 - 2016.09.30
+
+**新增**
+
+- 增加对 Node.js 的支持。
+- 增加对 ReactNative 的支持。
+
+**修复**
+
+- 修复 ServerValue 获取不到的 bug。
+- 修复 limits_exceeded 错误不能被捕获的 bug。
+- 修复微信公众号登录异常的 bug。
+
+
+
+### v2.0.0 - 2016.09.01
+
+**描述**
+
+Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
+
+**改进**
+
+- 移除原有 Wilddog SDK 中 Auth 功能。
+
+- Wilddog SDK 提供 Sync 与 Auth 两个模块。
+
+  新版的使用方式请参考 [新版 Wilddog 文档](/quickstart/sync/web.html)。
+
+
+
+</br>
+
+---
+
+
+
+
+
 ## iOS SDK
 
 ### V2.0.1 - 2016.09.10
@@ -165,3 +222,16 @@ WildUser 获取 token 空指针问题。
 **修复**
 
 修复 tinydtls 以及 mbedtls 握手有概率失败的bug。
+
+
+
+
+
+
+
+
+
+
+
+
+

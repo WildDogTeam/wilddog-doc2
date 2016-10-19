@@ -17,12 +17,12 @@ wilddog.initializeApp(config);
 
 ```js
 //上面的代码相当于如下初始化动作
-var wilddog = wilddog.initializeApp(config,DEFAULT);
+var wilddog = wilddog.initializeApp(config,"DEFAULT");
 //我们还可以使用不同配置声明多个不同的 App 实例
 var configA = {
   authDomain: "<appId-a>.wilddog.com"
 };
-var a = wilddog.initializeApp(configA, APP_A);
+var a = wilddog.initializeApp(configA, "APP_A");
 //通过 a 来访问 auth
 //a.auth().signInXxx().then(...)
 ```
