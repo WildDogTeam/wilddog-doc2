@@ -325,15 +325,13 @@ mConversation.setConversationListener(new Conversation.Listener() {
 会话过程中，调用下面方法离开会话。
 
 ```java
-
-    //需要离开会话时调用此方法，并做资源释放和其他自定义操作
-    mConversation.disconnect();
-
+//需要离开会话时调用此方法，并做资源释放和其他自定义操作
+mConversation.disconnect();
 ```
 
 
 ## 获取示例源码
-点此获取完整的[示例源码](https://github.com/WildDogTeam/video-quickstart-android)。
+点此获取完整的 [示例源码](https://github.com/WildDogTeam/video-quickstart-android)。
 
 
 
