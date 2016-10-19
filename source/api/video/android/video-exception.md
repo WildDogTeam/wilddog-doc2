@@ -1,7 +1,7 @@
 title: VideoException
 ---
 
-会话异常信息,有两个属性ErrorMsg与ErrorCode,分别代表错误详细信息与错误码。
+会话异常信息,有两个属性 `errorCode` 与 `message` ,分别代表错误码与错误详细信息。
 
 ## 构造方法
 

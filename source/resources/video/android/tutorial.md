@@ -3,9 +3,7 @@ title: 实战教程
 ---
 本文档将给出一些详尽的示例教程。
 
-## 教程说明
-
-示例说明
+## 示例说明
 
 本教程以一对一视频通话为例，讲解如何通过 Wilddog Video SDK 实现实时视频通话功能。
 
@@ -14,8 +12,6 @@ title: 实战教程
 示例的最终的展示效果如下图：
 
 <img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation" width="300">
-
-可以[下载体验](https://github.com/WildDogTeam/video-quickstart-android/archive/master.zip)
 
 
 
@@ -47,7 +43,7 @@ android {
 
 **安装 Video SDK**
 
-<a href="" class="video-android-download">下载 Video SDK</a>，解压后将jniLibs文件夹拷贝到工程目录的main文件夹中，将`libs/wilddog-video-android-*.jar` 放入工程的 `app/libs` 中，右键点击 `addAsLibrary`，完成 jar 包引用。
+<a href="" class="video-android-download">下载 Wilddog Video SDK</a>，解压后将jniLibs文件夹拷贝到工程目录的main文件夹中，将`libs/wilddog-video-android-*.jar` 放入工程的 `app/libs` 中，右键点击 `addAsLibrary`，完成 jar 包引用。
 
 
 ### 2. 用户身份认证
@@ -55,11 +51,11 @@ android {
 视频通话的前提条件是要有可识别的用户身份。在这里使用 Auth SDK 的匿名登录实现身份认证。认证后会为每个用户分配唯一的 Wilddog ID。
 
 ``` java
-//初始化WilddogApp,完成初始化之后可在项目任意位置通过getInstance()获取Sync & Auth对象
+//初始化 WilddogApp,完成初始化之后可在项目任意位置通过 getInstance() 获取 Sync & Auth 对象
 WilddogOptions.Builder builder = new WilddogOptions.Builder().setSyncUrl("http://" + mAppId + ".wilddogio.com");
 WilddogOptions options = builder.build();
 WilddogApp.initializeApp(getApplicationContext(), options);
-//获取Sync & Auth 对象
+//获取 Sync & Auth 对象
 SyncReference mRef = WilddogSync.getInstance().getReference();
 WilddogAuth auth = WilddogAuth.getInstance();
 //采用匿名登录方式认证
@@ -81,15 +77,15 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
 ```
 
 
-### 3. 初始化 Video SDK
+### 3. 初始化 Wilddog Video SDK
 
-用户身份认证成功后，可以初始化 Video SDK 。
+用户身份认证成功后，可以初始化 Wilddog Video SDK 。
 
 ```java
 
-        //初始化Video 时需要初始化两个类，Video和ConversationClient类，分别对其进行初始化
-        //初始化Video，传入Context
-        Video.initializeWilddogVideo(getApplicationContext());
+        //初始化 WilddogVideo 时需要初始化两个类，WilddogVideo 和 ConversationClient 类，分别对其进行初始化
+        //初始化 WilddogVideo，传入 Context
+        WilddogVideo.initializeWilddogVideo(getApplicationContext());
         //初始化视频根节点，mRef=WilddogSync.getReference().child([视频控制面板中配置的自定义根节点]);
         ConversationClient.init(mRef.child([视频控制面板中配置的自定义根节点]), new CompleteListener() {
             @Override
@@ -103,7 +99,7 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
             }
         });
         //获取video对象
-        video = Video.getInstance();
+        video = WilddogVideo.getInstance();
         //获取client对象
         client = video.getClient();
 
@@ -111,7 +107,7 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
 
 ### 4. 实现用户列表
 
-邀请对方加入视频通话，需要获取对方的在线状态。Video SDK 本身不提供获取在线用户列表功能，因此需要开发者使用 Sync SDK 来自己实现。用户登陆系统后将自己的 Wilddog ID 保存到用户列表中。
+邀请对方加入视频通话，需要获取对方的在线状态。Wilddog Video SDK 本身不提供获取在线用户列表功能，因此需要开发者使用 Sync SDK 来自己实现。用户登陆系统后将自己的 Wilddog ID 保存到用户列表中。
 
 数据库中的数据结构如图所示：
 
@@ -196,7 +192,7 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
 ### 5. 获取和预览本地视频
 
-通过 Video SDK 获取本地视频流，并在视频展示控件中预览。
+通过 Wilddog Video SDK 获取本地视频流，并在视频展示控件中预览。
 
 ```java
 
@@ -214,7 +210,7 @@ LocalStream localStream = video.createLocalStream(options, new CompleteListener(
     public void onSuccess() {
     } 
     @Override 
-    public void onError(String Error) { 
+    public void onError(VideoException exception) { 
     } 
 }); 
 //为视频流绑定播放控件
@@ -227,7 +223,7 @@ localStream.attach(localCallbacks);
 选择用户列表中的用户，发起会话。
 
 ```java
-//在使用inviteToConversation方法前需要先设置会话邀请监听，否则使用邀请功能会抛出IllegalStateException异常
+//在使用 inviteToConversation 方法前需要先设置会话邀请监听，否则使用邀请功能会抛出IllegalStateException异常
 client.setInviteListener(new InviteListener(){ 
 	//...
 });
@@ -235,14 +231,14 @@ client.setInviteListener(new InviteListener(){
 
 //选取用户列表中的用户，获得其 Wilddog ID
 String uid=[获得的用户 Wilddog ID];
-//ConversationMode可以选择P2P和SERVER_BASED两种
-//participants 为传入的用户Wilddog ID 列表，目前预览版仅支持单人邀请
+//ConversationMode 可以选择 P2P 和 SERVER_BASED 两种
+//participants 为传入的用户 Wilddog ID 列表，目前预览版仅支持单人邀请
 InviteOptions options = new InviteOptions(ConversationMode.SERVER_BASED, participants, stream);
 //inviteToConversation 方法会返回一个OutgoingInvite对象，
 //通过OutgoingInvite对象可以进行取消邀请操作
 outgoingInvite = client.inviteToConversation(options, new ConversationCallback() {
     @Override
-    public void onConversation(Conversation conversation, ConversationException exception) {
+    public void onConversation(Conversation conversation, VideoException exception) {
     
         if (conversation != null) {
             //对方接受邀请并成功建立会话，conversation不为空，exception为空
@@ -273,7 +269,7 @@ client.setInviteListener(new InviteListener(){
         //接受邀请 
         incomingInvite.accept(localStream,new ConversationCallback(){ 
             @Override 
-            public void onConversation(Conversation conversation,ConversationException exception){ 
+            public void onConversation(Conversation conversation,VideoException exception){ 
                 //获取到conversation对象，开始进行会话 
             } 
         }); 
@@ -305,7 +301,7 @@ mConversation.setConversationListener(new Conversation.Listener() {
 	}
 
 	@Override
-	public void onFailedToConnectParticipant(Conversation conversation, Participant participant,ConversationException exception) {
+	public void onFailedToConnectParticipant(Conversation conversation, Participant participant,VideoException exception) {
 
 	}
 
@@ -315,7 +311,7 @@ mConversation.setConversationListener(new Conversation.Listener() {
 	}
 
 	@Override
-	public void onConversationEnded(Conversation conversation, ConversationException exception) {
+	public void onConversationEnded(Conversation conversation, VideoException exception) {
 
 	}
 });
