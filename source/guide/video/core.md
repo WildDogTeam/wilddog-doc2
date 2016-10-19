@@ -18,7 +18,7 @@ Conversation 分为 P2P 和 Server-based 两种类型：
 
 ### Participant
 
-Participant，即会话中的参与者。同一个会话的参与者间可以互相分享视频和音频流。
+Participant，即会话中的参与者。同一个会话的参与者间可以互相分享音频和视频。
 
 ### Local Stream
 
