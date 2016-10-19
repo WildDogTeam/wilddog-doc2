@@ -64,14 +64,14 @@ WilddogAuth auth = WilddogAuth.getInstance();
 //auth.signInWithCredential();
 //auth.signInWithCustomToken();
 auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-	@Override
-	public void onComplete(Task<AuthResult> task) {
-		if (task.isSuccessful()) {
-			//身份认证成功
-		}else {
-			throw  new RuntimeException("auth 失败"+task.getException().getMessage());
-		}
-	}
+    @Override
+    public void onComplete(Task<AuthResult> task) {
+        if (task.isSuccessful()) {
+            //身份认证成功
+        }else {
+            throw  new RuntimeException("auth 失败"+task.getException().getMessage());
+        }
+    }
 });
 
 ```
@@ -122,22 +122,22 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
 //本示例采用根节点下的[交互路径/users] 节点作为用户列表存储节点,
 
 auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-	@Override
-	public void onComplete(Task<AuthResult> task) {
-		if (task.isSuccessful()) {
-			//获取Wilddog ID
-			String uid = auth.getCurrentUser().getUid();
+    @Override
+    public void onComplete(Task<AuthResult> task) {
+        if (task.isSuccessful()) {
+            //获取Wilddog ID
+            String uid = auth.getCurrentUser().getUid();
 
-			Map<String, Object> map = new HashMap<String, Object>();
-			map.put(uid, true);
-			//向users节点写入数据
-			mRef.child().child("users").updateChildren(map);
-			mRef.child("users/" + uid).onDisconnect().removeValue();
+            Map<String, Object> map = new HashMap<String, Object>();
+            map.put(uid, true);
+            //向users节点写入数据
+            mRef.child().child("users").updateChildren(map);
+            mRef.child("users/" + uid).onDisconnect().removeValue();
                         //其他初始化操作...
-		}else {
-			throw  new RuntimeException("auth 失败"+task.getException().getMessage());
-		}
-	}
+        }else {
+            throw  new RuntimeException("auth 失败"+task.getException().getMessage());
+        }
+    }
 });
 ```
 
@@ -149,43 +149,43 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
 private List<String> userList = new ArrayList<>();
 //监听users节点
 mRef.child("users").addChildEventListener(new ChildEventListener() {
-	@Override
-	public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-		if (dataSnapshot != null) {
-			//获取用户Wilddog ID并添加到用户列表中
-			String uid = dataSnapshot.getKey();
-			if (!mUid.equals(uid)) {
-				userList.add(uid);
-			}
-		}
-	}
+    @Override
+    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+        if (dataSnapshot != null) {
+            //获取用户Wilddog ID并添加到用户列表中
+            String uid = dataSnapshot.getKey();
+            if (!mUid.equals(uid)) {
+                userList.add(uid);
+            }
+        }
+    }
 
-	@Override
-	public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+    @Override
+    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-	}
+    }
 
-	@Override
-	public void onChildRemoved(DataSnapshot dataSnapshot) {
-		if (dataSnapshot != null) {
-			//用户离开时，从用户列表中删除用户数据
-			String key = dataSnapshot.getKey();
-			if (!mUid.equals(key)) {
-				userList.remove(key);
-				adapter.notifyDataSetChanged();
-			}
-		}
-	}
+    @Override
+    public void onChildRemoved(DataSnapshot dataSnapshot) {
+        if (dataSnapshot != null) {
+            //用户离开时，从用户列表中删除用户数据
+            String key = dataSnapshot.getKey();
+            if (!mUid.equals(key)) {
+                userList.remove(key);
+                adapter.notifyDataSetChanged();
+            }
+        }
+    }
 
-	@Override
-	public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+    @Override
+    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-	}
+    }
 
-	@Override
-	public void onCancelled(SyncError wilddogError) {
+    @Override
+    public void onCancelled(SyncError wilddogError) {
 
-	}
+    }
 });
 
 ```
@@ -225,7 +225,7 @@ localStream.attach(localCallbacks);
 ```java
 //在使用 inviteToConversation 方法前需要先设置会话邀请监听，否则使用邀请功能会抛出IllegalStateException异常
 client.setInviteListener(new InviteListener(){ 
-	//...
+    //...
 });
 
 
@@ -260,8 +260,8 @@ outgoingInvite = client.inviteToConversation(options, new ConversationCallback()
 
 client.setInviteListener(new InviteListener(){ 
 
-	//省略其他监听事件
-	//...
+    //省略其他监听事件
+    //...
 
     @Override 
     public void onIncomingInvite(ConversationClient client, final IncomingInvite incomingInvite) { 
@@ -291,29 +291,29 @@ client.setInviteListener(new InviteListener(){
 VideoRenderer.Callbacks remoteCallbacks = VideoRendererGui.createGuiRenderer(50, 0, 50, 100, RendererCommon.ScalingType.SCALE_ASPECT_FILL, false);
 //在InviteListener获取到conversation后，设置ConversationListener
 mConversation.setConversationListener(new Conversation.Listener() {
-	@Override
-	public void onParticipantConnected(Conversation conversation, Participant participant) {
-		//有参与者成功加入会话后，会触发此方法
-		//通过Participant.getRemoteStream()获取远端媒体流
-		RemoteStream remoteStream = participant.getRemoteStream();
-		//在视频展示控件中播放媒体流
-		remoteStream.attach(remoteCallbacks);
-	}
+    @Override
+    public void onParticipantConnected(Conversation conversation, Participant participant) {
+        //有参与者成功加入会话后，会触发此方法
+        //通过Participant.getRemoteStream()获取远端媒体流
+        RemoteStream remoteStream = participant.getRemoteStream();
+        //在视频展示控件中播放媒体流
+        remoteStream.attach(remoteCallbacks);
+    }
 
-	@Override
-	public void onFailedToConnectParticipant(Conversation conversation, Participant participant,VideoException exception) {
+    @Override
+    public void onFailedToConnectParticipant(Conversation conversation, Participant participant,VideoException exception) {
 
-	}
+    }
 
-	@Override
-	public void onParticipantDisconnected(Conversation conversation, Participant participant) {
+    @Override
+    public void onParticipantDisconnected(Conversation conversation, Participant participant) {
 
-	}
+    }
 
-	@Override
-	public void onConversationEnded(Conversation conversation, VideoException exception) {
+    @Override
+    public void onConversationEnded(Conversation conversation, VideoException exception) {
 
-	}
+    }
 });
 
 ```
@@ -326,8 +326,8 @@ mConversation.setConversationListener(new Conversation.Listener() {
 
 ```java
 
-	//需要离开会话时调用此方法，并做资源释放和其他自定义操作
-	mConversation.disconnect();
+    //需要离开会话时调用此方法，并做资源释放和其他自定义操作
+    mConversation.disconnect();
 
 ```
 

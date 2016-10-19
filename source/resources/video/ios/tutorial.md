@@ -23,18 +23,18 @@ title: 实战教程
 
 打开工程目录，新建一个 Podfile 文件
 
-	$ cd your-project-directory
-	$ pod init
-	$ open -a Xcode Podfile # opens your Podfile in XCode
+    $ cd your-project-directory
+    $ pod init
+    $ open -a Xcode Podfile # opens your Podfile in XCode
 
 然后在 Podfile 文件中添加以下语句
 
-	pod 'WilddogVideo'
+    pod 'WilddogVideo'
 
 最后安装 SDK
 
-	$ pod install
-	$ open your-project.xcworkspace
+    $ pod install
+    $ open your-project.xcworkspace
 
 ### 2. 用户身份认证
 

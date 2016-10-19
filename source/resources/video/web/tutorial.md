@@ -33,7 +33,7 @@ var config = {
 wilddog.initializeApp(config);
 wilddog.auth().signInAnonymously().then((user) => {
     //身份认证成功，可以进行 Video SDK 初始化
-	//该用户的 Wilddog ID : user.uid
+    //该用户的 Wilddog ID : user.uid
 }
 ```
 
