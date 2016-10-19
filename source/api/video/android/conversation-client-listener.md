@@ -49,12 +49,12 @@ void onStopListeningForInvites(ConversationClient client)
 
 ---
 
-### onFailedToStartListening(ConversationClient, ConversationException)
+### onFailedToStartListening(ConversationClient, VideoException)
 
 **定义**   
 
 ```java
-void onFailedToStartListening(ConversationClient client, ConversationException exception)
+void onFailedToStartListening(ConversationClient client, VideoException exception)
 ```
 
 **说明**
@@ -66,7 +66,7 @@ void onFailedToStartListening(ConversationClient client, ConversationException e
 | 参数名 | 描述 |
 |---|---|
 |client|[ConversationClient](/api/video/android/conversation-client.html) 对象|
-|exception|[ConversationException](/api/video/android/conversation-exception.html),失败错误信息|
+|exception|[VideoException](/api/video/android/video-exception.html),失败错误信息|
 
 </br>
 

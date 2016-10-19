@@ -35,7 +35,7 @@ void setConversationListener(Conversation.Listener listener)
 		}
 
 		@Override
-		public void onFailedToConnectParticipant(Conversation conversation, Participant participant, ConversationException exception) {
+		public void onFailedToConnectParticipant(Conversation conversation, Participant participant, VideoException exception) {
 
 		}
 
@@ -45,7 +45,7 @@ void setConversationListener(Conversation.Listener listener)
 		}
 
 		@Override
-		public void onConversationEnded(Conversation conversation, ConversationException exception) {
+		public void onConversationEnded(Conversation conversation, VideoException exception) {
 
 		}
 	});
