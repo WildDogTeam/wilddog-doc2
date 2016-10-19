@@ -18,7 +18,7 @@ title: 管理其他参与者
   <div class="slide-content slide-content-show">
 ```objectivec
 NSError *error = nil;
-if (![conversation inviteUser:@"被邀请者的Wilddog ID" error:&error]) {
+if (![conversation inviteWithParticipantID:@"被邀请者的Wilddog ID" error:&error]) {
     // 邀请失败，进行错误处理
     NSLog(@"%@", error);
 }
@@ -27,7 +27,7 @@ if (![conversation inviteUser:@"被邀请者的Wilddog ID" error:&error]) {
   <div class="slide-content">
 ```swift
 do {
-    try conversation.inviteUser("被邀请者的Wilddog ID")
+    try conversation.invite(withParticipantID: "被邀请者的Wilddog ID")
 } catch {
     // 邀请失败，进行错误处理
     NSLog("\(error)")
