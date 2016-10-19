@@ -33,7 +33,7 @@ Server SDK 包含以下两个功能：
 1. Server SDK 在用户系统认证成功之后会生成 Custom Token。
 2. Server SDK 向 Wilddog Auth 发送验证请求，验证用户的合法性。
 
-![](http://ocpo37x5v.bkt.clouddn.com/2016-10-14-Custom%20Auth2.png)
+![](/images/serversdk.jpg)
 
 
 
