@@ -25,7 +25,6 @@ Server SDK 包含以下两个功能：
   Server SDK 中包含的 Wilddog ID Token 认证方法不能认证你 Server SDK 生成的 Custom Token。
   </blockquote>
 
-  ​
 
 
 ### Server SDK 的工作机制
