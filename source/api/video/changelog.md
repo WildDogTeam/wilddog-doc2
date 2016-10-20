@@ -3,11 +3,18 @@ title: 更新日志
 
 ## iOS SDK
 
+### v0.4.0 - 2016.10.19
+
+**优化**
+
+- 更新错误码。
+- 发起会议等部分接口变更。
+
 ### v0.3.4 - 2016.10.14
 
 **修复**
 
-增加边界条件限制，API 调用参数错误时会给出提示。
+- 增加边界条件限制，API 调用参数错误时会给出提示。
 
 ### v0.3.3 - 2016.10.12
 
@@ -56,21 +63,35 @@ title: 更新日志
 
 ## Android SDK
 
+### v0.4.0 - 2016.10.19
+
+**新增**
+
+- 新增安卓端错误码,增加错误边界判定以及错误返回。
+- 新增 VideoException 类。
+
+**优化**
+
+- Video 类改为 WilddogVideo 类。
+- MeetingCastAddon 类中方法重命名为 start、switchParticipant、stop。
+- MeetingCastListener 中方法重命名 onStarted、onSwitchParticipant、onStopped。
+- 删除 ConversationException 类。
+
 ### v0.3.1 - 2016.09.29
 
 **新增**
 
-增加 Conversation.Listener 回调方法触发。
+- 增加 Conversation.Listener 回调方法触发。
 
-**改进**
+**优化**
 
 
 - 完善 Video ，完善 flipCamera方法。
 - 完善 Stream，修复 enableAudio/enableVideo 方法。
 
-**修改**
+**修复**
 
-修改 Conversation,修复邀请第三方加入会话连接建立失败 bug。
+- 修复 Conversation,修复邀请第三方加入会话连接建立失败 bug。
 
 ### v0.3.0 - 2016.09.22
 
@@ -79,7 +100,7 @@ title: 更新日志
 - 新增 SERVER_BASED 模式会话。
 - 新增直播接口，实现直播/切流/断开直播功能。
 
-**修改**
+**修复**
 
 - 修改原有 BASIC 模式为P2P模式，修改 ADVANCED 模式为 SERVER_BASED。
 - 修改 getConfig 功能，增加推流/收流地址。
@@ -108,13 +129,13 @@ title: 更新日志
 
 **优化**
 
-将回调修改为 promise。
+- 将回调修改为 promise。
 
 ### v0.3.3 - 2016.09.30
 
 **修复**
 
-修复同一用户退出会话后重新加入会话会读取过期信令的 bug。
+- 修复同一用户退出会话后重新加入会话会读取过期信令的 bug。
 
 ### v0.3.2 - 2016.09.29
 

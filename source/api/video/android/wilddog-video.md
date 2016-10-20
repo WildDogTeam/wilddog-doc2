@@ -2,9 +2,9 @@
 title: WilddogVideo
 ---
 
-`WilddogVideo` 对象是 WilddogVideo SDK 的核心,负责创建 `ConversationClient` 对象以及创建本地视频流。
+`WilddogVideo` 对象是 Wilddog Video SDK 的核心,负责创建 `ConversationClient` 对象以及创建本地视频流。
 
-`WilddogVideo` 对象为单例,维护着视频 SDK 全局上下文数据,每次通过 `getInstance()` 方法返回同一实例对象。在使用 WilddogVideo SDK 前,需要对 `WilddogVideo` 对象进行初始化。
+`WilddogVideo` 对象为单例,维护着视频 SDK 全局上下文数据,每次通过 `getInstance()` 方法返回同一实例对象。在使用 Wilddog Video SDK 前,需要对 `WilddogVideo` 对象进行初始化。
 
 ## 方法
 

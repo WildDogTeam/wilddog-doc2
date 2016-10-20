@@ -86,7 +86,7 @@ void setInviteListener(ConversationClient.Listener listener)
         }
 
         @Override
-        public void onIncomingInvite(ConversationClient client, final IncomingInvite invite) {
+        public void onIncomingInvite(ConversationClient client, IncomingInvite invite) {
 
         }
 
@@ -107,7 +107,7 @@ void setInviteListener(ConversationClient.Listener listener)
 **定义**   
 
 ```java
-inviteToConversation(InviteOptions options, final ConversationCallback callback)
+OutgiongInvite inviteToConversation(InviteOptions options, ConversationCallback callback)
 ```
 
 **说明**
@@ -119,7 +119,7 @@ inviteToConversation(InviteOptions options, final ConversationCallback callback)
 | 参数名 | 描述 |
 |---|---|
 |options|[InviteOptions](/api/video/android/invite-options.html) 对象,提供会话相关参数|
-|callback|[ConversationCallback](/api/video/android/conversation-callback.html)会话回调|
+|callback|[ConversationCallback](/api/video/android/conversation-callback.html) 会话回调|
 
 **返回值**
 
@@ -155,7 +155,7 @@ inviteToConversation(InviteOptions options, final ConversationCallback callback)
 **定义**   
 
 ```java
-getMeetingCastAddon(Conversation conversation, MeetingCastStateListener listener)
+MeetingCastAddon getMeetingCastAddon(Conversation conversation, MeetingCastStateListener listener)
 ```
 
 **说明**

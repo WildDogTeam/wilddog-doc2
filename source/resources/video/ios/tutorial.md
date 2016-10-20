@@ -17,24 +17,24 @@ title: 实战教程
 
 ## 具体步骤
 
-### 1. 引入 SDK 
+### 1. 安装 SDK 
 
 要将 Wilddog SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问 [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 
 打开工程目录，新建一个 Podfile 文件
 
-	$ cd your-project-directory
-	$ pod init
-	$ open -a Xcode Podfile # opens your Podfile in XCode
+    $ cd your-project-directory
+    $ pod init
+    $ open -a Xcode Podfile # opens your Podfile in XCode
 
 然后在 Podfile 文件中添加以下语句
 
-	pod 'WilddogVideo'
+    pod 'WilddogVideo'
 
 最后安装 SDK
 
-	$ pod install
-	$ open your-project.xcworkspace
+    $ pod install
+    $ open your-project.xcworkspace
 
 ### 2. 用户身份认证
 
@@ -195,5 +195,5 @@ self.videoConversation = nil;
 
 ## 获取示例源码
 
-点此获取完整的[示例源码](https://github.com/WildDogTeam/video-quickstart-ios)
+点此获取完整的 [示例源码](https://github.com/WildDogTeam/video-quickstart-ios)
 
