@@ -40,21 +40,21 @@ title: 管理应用
 
 <img src='/images/setwebhook.jpeg' alt="/images/group.png" >
 
-**配置数据路径**
+#### 配置数据路径
 
 数据路径（Path）是你要监听的节点路径，监听路径支持通配符 `$`。
 
-例如，配置监听 `/a/b` 的路径。当 `/a/b` 节点下的数据发生任何变化时，均会触发 Webhook；当父节点 `/a` 删除时，也会触发 webhook。
+例如，配置监听 `/a/b` 的路径。当 `/a/b` 节点下的数据发生任何变化时，均会触发 Webhook；当父节点 `/a` 删除时，也会触发 Webhook。
 
  <img src="/images/webhookpath.png" >
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-  Path 最多允许输入 768 个字符。最大层级不要超过 32 层。
+  数据路径最多允许输入 768 个字符，最大层级不要超过 32 层。
 </blockquote>
 
 
-**配置回调地址**
+#### 配置回调地址
 回调地址必须以`http://` 或 `https://` 开头。
 <blockquote class="notice">
   <p><strong>提示：</strong></p>

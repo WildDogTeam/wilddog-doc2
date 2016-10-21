@@ -60,7 +60,7 @@ guide:
       用户访问控制: /guide/sync/rules/auth.html
       数据校验: /guide/sync/rules/validate.html
       数据索引: /guide/sync/rules/index.html
-      
+    Webhook: /guide/sync/webhook.html 
 
     最佳实践:
       组织数据: /guide/sync/bestpractice/structure-data.html
