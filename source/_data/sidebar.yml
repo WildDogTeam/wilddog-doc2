@@ -172,7 +172,15 @@ api:
       节点操作: /api/sync/c/local-node.html
       错误码: /api/sync/c/error-code.html
     Arduino: /api/sync/arduino.html
-    REST: /api/sync/rest.html
+    REST:
+      简介: /api/sync/rest/introduce.html
+      Query : /api/sync/rest/Query.html
+      Auth : /api/sync/rest/Auth.html
+      Streaming : /api/sync/rest/Streaming.html
+      Priorities : /api/sync/rest/Priorities.html
+      ServerValues : /api/sync/rest/ServerValues.html
+      Rule : /api/sync/rest/Rule.html
+      错误码 : /api/sync/rest/Error.html
     规则表达式: /api/sync/rule.html
     更新日志: /api/sync/changelog.html
   实时视频通话:
