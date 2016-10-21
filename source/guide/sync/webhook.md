@@ -13,7 +13,7 @@ Webhook 目前仅支持 `POST` 请求，请求的`Content-type`类型为 `applic
 
 - `wilddog-webhook-request-id`由`appId`和一个与时间戳相关的递增数据组成，可以通过该字段完成请求的去重功能。
 
-- `wilddog-webhook-signature。`为请求签名，可以通过该字段验证请求是否被篡改或被伪造。签名生成方法，请参考 [安全性](/guide/sync/webhook.html#安全性)
+- `wilddog-webhook-signature。`为请求签名，可以通过该字段验证请求是否被篡改或被伪造。签名生成方法，请参考 [安全性](/guide/sync/webhook.html#安全性)。
 
 请求中包含的 Payload 格式示例如下：
 
@@ -106,10 +106,11 @@ public class DigestUtils {
   如果更新签名密钥，旧签名密钥将会立即失效，需要更改已有的签名验证程序，否则会造成签名验证不通过。
 </blockquote>
 
+## 可靠性
 
 ### 请求重试机制
 
-在如下情况请求会失败，为了保证请求的到达率，提供失败重试机制：
+为了保证请求的到达率，提供失败重试机制。在如下情况请求会失败：
 
 - URL 访问失败（域名无法访问）
 - 连接超时（长时间没有响应）
@@ -142,7 +143,7 @@ public class DigestUtils {
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-失败日志在 `控制台-实时数据同步-Webhook` 中查看，可查询最近的 50 条。
+失败日志在 `控制台-实时数据同步-Webhook` 中查看，可查询最近的 50 条记录。
 </blockquote>
 
 
