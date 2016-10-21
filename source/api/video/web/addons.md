@@ -26,7 +26,7 @@ initMeetingCast(conversation)
 
 **返回**
 
-[wilddog.video.addons.MeetingCast](/api/video/web/meetingCast.html)
+`Promise.`<[wilddog.video.addons.MeetingCast](/api/video/web/meetingCast.html)>
 
 **示例**
 

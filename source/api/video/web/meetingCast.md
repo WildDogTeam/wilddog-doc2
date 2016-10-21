@@ -6,12 +6,12 @@ MeetingCast 插件，为 Conversation 提供直播功能。
 
 ## 属性
 
-### isCasted
+### isStarted
 
 **类型**
 
 ```js
-String
+Boolean
 ```
 
 **说明**
@@ -20,14 +20,14 @@ String
 
 | 状态 | 说明 |
 |---|---|
-| on | 正在直播。 |
-| off | 停止直播。 |
+| true | 正在直播。 |
+| false | 停止直播。 |
 
 </br>
 
 ---
 
-### caster
+### currentParticipant
 
 **类型**
 
@@ -45,12 +45,12 @@ String
 
 ## 方法
 
-### meetingCastUp
+### start
 
 **定义**
 
 ```js
-meetingCastUp(participantId)
+start(participantId)
 ```
 
 **说明**
@@ -71,7 +71,7 @@ Promise.<[CastUrls](/api/video/web/meetingCast.html#CastUrls)>
 
 ```js
 //使用获取到的meetingCast开启直播，直播者为会议中ID为'123456789'的参与者
-meetingCast.meetingCastUp('123456789')
+meetingCast.start('123456789')
     .then(function(castUrls){
         //获取直播地址集合
     })
@@ -84,12 +84,12 @@ meetingCast.meetingCastUp('123456789')
 
 ---
 
-### meetingCastChange
+### switchParticipant
 
 **定义**
 
 ```js
-meetingCastChange(participantId)
+switchParticipant(participantId)
 ```
 
 **说明**
@@ -110,7 +110,7 @@ meetingCastChange(participantId)
 
 ```js
 //使用获取到的meetingCast切换直播者，新直播者为会议中ID为'987654321'的参与者
-meetingCast.meetingCastChange('987654321')
+meetingCast.switchParticipant('987654321')
     .then(function(){
         //切换成功
     })
@@ -123,12 +123,12 @@ meetingCast.meetingCastChange('987654321')
 
 ---
 
-### meetingCastDown
+### stop
 
 **定义**
 
 ```js
-meetingCastDown()
+stop()
 ```
 
 **说明**
@@ -149,7 +149,7 @@ meetingCastDown()
 
 ```js
 //使用获取到的meetingCast关闭直播
-meetingCast.meetingCastDown()
+meetingCast.stop()
     .then(function(){
         //关闭直播成功
     })
