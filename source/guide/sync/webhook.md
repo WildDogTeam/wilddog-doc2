@@ -2,7 +2,8 @@ title: Webhook
 ---
 本篇文档介绍如何使用 Webhook 实现服务端实时监听云端数据变化。
 
-Webhook，俗称钩子，在 Wilddog 中是可以由开发人员自定义的回调地址。
+Webhook，俗称钩子，在 Wilddog Sync 中是可以由开发人员自定义的回调地址。
+
 ## 配置 Webhook
 在控制面板中配置 Webhook ，具体方法请参考 [控制面板-管理应用-配置 Webhook](/console/administer.html#配置-Webhook)。
 
@@ -13,7 +14,7 @@ Webhook 目前仅支持 `POST` 请求，请求中 `Header` 的`Content-type`类�
 
 - `wilddog-webhook-request-id`由`appId`和一个与时间戳相关的递增数据组成，可以通过该字段完成请求的去重功能。
 
-- `wilddog-webhook-signature。`为请求签名，可以通过该字段验证请求是否被篡改或被伪造。签名生成方法，请参考 [安全性](/guide/sync/webhook.html#安全性)。
+- `wilddog-webhook-signature`为请求签名，可以通过该字段验证请求是否被篡改或被伪造。签名生成方法，请参考 [安全性](/guide/sync/webhook.html#安全性)。
 
 请求中包含的 Payload 格式示例如下：
 
@@ -117,11 +118,9 @@ public class DigestUtils {
 
 为了保证请求的到达率，Wilddog Sync 提供 3 次失败重试机制。
 
-若重试 3 次之后仍然失败，则放弃此次回调，产生一条失败日志，并且当前 Webhook 记录一次异常。
+若重试 3 次之后仍然失败，则放弃此次回调，产生一条失败日志，并且当前 Webhook 记录一次异常。连续 5 次异常，该 Webhook 置为“异常停用”状态，之后不会再触发该 Webhook。
 
-连续 5 次异常，该 Webhook 置为“异常停用”状态，之后不会再触发该 Webhook。
-
-通过 `控制台-实时数据同步-Webhook` 中手动开启，重新启用。
+你可以通过 `控制台-实时数据同步-Webhook` 中手动开启，重新启用。
 
 
 <blockquote class="warning">
@@ -134,7 +133,7 @@ public class DigestUtils {
 ### 请求失败日志
 请求重试 3 次仍然失败时，当前 Webhook 触发结束，不再尝试发送请求，同时生成一条请求失败日志。
 
-日志中包含如下内容：
+日志中包含以下内容：
 
 - appId
 - 失败类型
