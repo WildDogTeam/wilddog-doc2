@@ -2,14 +2,14 @@ title: Webhook
 ---
 本篇文档介绍如何使用 Webhook 实现服务端实时监听云端数据变化。
 
-Webhook，俗称钩子，是可以由开发人员自定义的回调地址。
+Webhook，俗称钩子，在 Wilddog 中是可以由开发人员自定义的回调地址。
 ## 配置 Webhook
 在控制面板中配置 Webhook ，具体方法请参考 [控制面板-管理应用-配置 Webhook](/console/administer.html#配置-Webhook)。
 
 ## 请求格式
-Webhook 目前仅支持 `POST` 请求，请求的`Content-type`类型为 `application/json`。
+Webhook 目前仅支持 `POST` 请求，请求中 `Header` 的`Content-type`类型为 `application/json`。
 
-请求中包含以下两个 Header 字段：
+请求中还包含以下两个 Wilddog 自定义 `Header` 字段：
 
 - `wilddog-webhook-request-id`由`appId`和一个与时间戳相关的递增数据组成，可以通过该字段完成请求的去重功能。
 
@@ -19,17 +19,22 @@ Webhook 目前仅支持 `POST` 请求，请求的`Content-type`类型为 `applic
 
 ```json
 {// action 部分的数据表示触发 Webhook 的操作行为和数据
-    "action": {  
-        "op": "PUT", // op 表示执行的操作
-        "path": "/a/b/c", // path 表示操作的节点
-        "data": { // data 表示操作的数据
+    "action": {   
+        // op 表示执行的操作
+        "op": "PUT", 
+        // path 表示操作的节点
+        "path": "/a/b/c", 
+        // data 表示操作的数据
+        "data": { 
             "d": "ddd"
         }
     },
     // result 部分的数据表示 Webhook 所监听节点在操作之后的最新数据。
     "result": {
-        "path": "/a/b/c", // path 表示 Webhook 监听的节点
-        "data": { // data 表示监听节点操作之后的最新数据。
+        // path 表示 Webhook 监听的节点
+        "path": "/a/b/c",
+        // data 表示监听节点操作之后的最新数据
+        "data": { 
             "d": "ddd"
         }
     }
@@ -41,15 +46,15 @@ op 目前只有 `PUT` 和 `MERGE` ，`PUT` 表示覆盖当前的节点数据，`
 
 ## 安全性
 
-为保证请求的安全性，通过签名密钥对请求进行签名，防止请求被篡改或伪造。签名密钥是每个 App 中一个唯一字符串。
+为保证请求的安全性，你可以通过签名密钥对请求进行签名，防止请求被篡改或伪造。
 
-请求的 Header 中增加了签名字段，签名的计算公式如下：
+签名密钥是每个 App 中一个唯一字符串。请求的 Header 中增加了签名，签名的计算公式如下：
 
 ```
 sign = SHA256(payload + requestId + secret)。
 ```
 
-验证签名的示例代码如下：
+验证签名需在服务端完成，示例代码如下：
 
 ```java
 String signNew = DigestUtils.sha256String((payload + requestId + secret).getBytes());
@@ -110,20 +115,13 @@ public class DigestUtils {
 
 ### 请求重试机制
 
-为了保证请求的到达率，提供失败重试机制。在如下情况请求会失败：
+为了保证请求的到达率，Wilddog Sync 提供 3 次失败重试机制。
 
-| 请求失败情况      | 说明                                       |
-| -------- | ---------------------------------------- |
-| URL 访问失败 | 域名无法访问|
-| 连接超时  | 长时间没有响应  |    
-| 返回非 2xx 的状态码 | 服务端未正常返回  |     
+若重试 3 次之后仍然失败，则放弃此次回调，产生一条失败日志，并且当前 Webhook 记录一次异常。
 
-分别在 5s、15s、45s 重新尝试发送请求。若重试 3 次之后仍然失败，则放弃此次回调，产生一条失败日志，并且当前 Webhook 记录一次异常。
+连续 5 次异常，该 Webhook 置为“异常停用”状态，之后不会再触发该 Webhook。
 
-连续5 次异常，该 Webhook 置为“异常停用”状态，之后不会再触发该 Webhook。
-
-
-你可以在 `控制台-实时数据同步-Webhook` 中手动开启，重新启用。
+通过 `控制台-实时数据同步-Webhook` 中手动开启，重新启用。
 
 
 <blockquote class="warning">
@@ -143,14 +141,23 @@ public class DigestUtils {
 - 创建时间
 - 如果服务端返回非 2xx 状态码，还会包含`http`状态码和相应内容
 
+其中失败类型包含以下三种情况：
+
+| 请求失败情况      | 说明                                       |
+| -------- | ---------------------------------------- |
+| URL 访问失败 | 域名无法访问|
+| 连接超时  | 长时间没有响应  |    
+| 返回非 2xx 的状态码 | 服务端未正常返回  |  
+
+
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
 失败日志在 `控制台-实时数据同步-Webhook` 中查看，可查询最近的 50 条记录。
 </blockquote>
 
 
-## 特殊说明
-### Beta 版说明
+## 说明
+### 已知问题
 Beta 版中，`PUT`造成的隐式删除，不会触发 Webhook。
 
 例如，监听 `/a`，`/a` 节点下原本的数据为：
