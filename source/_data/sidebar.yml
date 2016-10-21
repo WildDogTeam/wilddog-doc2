@@ -195,7 +195,7 @@ api:
       MeetingCast: /api/video/web/meetingCast.html
       OutgoingInvite: /api/video/web/outgoingInvite.html
       IncomingInvite: /api/video/web/incomingInvite.html
-      #错误码: /api/video/web/error-code.html
+      错误码: /api/video/web/error-code.html
     Android:
       WilddogVideo: /api/video/android/wilddog-video.html
       ConversationClient: /api/video/android/conversation-client.html
