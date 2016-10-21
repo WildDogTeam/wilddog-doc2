@@ -2,6 +2,7 @@ title: Webhook
 ---
 本篇文档介绍如何使用 Webhook 实现服务端实时监听云端数据变化。
 
+Webhook，俗称钩子，是可以由开发人员自定义的回调地址。
 ## 配置 Webhook
 在控制面板中配置 Webhook ，具体方法请参考 [控制面板-管理应用-配置 Webhook](/console/administer.html#配置-Webhook)。
 
@@ -10,9 +11,9 @@ Webhook 目前仅支持 `POST` 请求，请求的`Content-type`类型为 `applic
 
 请求中包含以下两个 Header 字段：
 
-- `wilddog-webhook-request-id`由 <appId> 和一个与时间戳相关的递增数据组成，可以通过该字段完成请求的去重功能。
+- `wilddog-webhook-request-id`由`appId`和一个与时间戳相关的递增数据组成，可以通过该字段完成请求的去重功能。
 
-- `wilddog-webhook-signature。`为请求签名，可以通过该字段验证请求是否被篡改或被伪造。签名生成方法，请参考[安全性]()
+- `wilddog-webhook-signature。`为请求签名，可以通过该字段验证请求是否被篡改或被伪造。签名生成方法，请参考 [安全性](/guide/sync/webhook.html#安全性)
 
 请求中包含的 Payload 格式示例如下：
 
@@ -43,7 +44,10 @@ op 目前只有 `PUT` 和 `MERGE` ，`PUT` 表示覆盖当前的节点数据，`
 为保证请求的安全性，通过签名密钥对请求进行签名，防止请求被篡改或伪造。签名密钥是每个 App 中一个唯一字符串。
 
 请求的 Header 中增加了签名字段，签名的计算公式如下：
-```sign = SHA256(payload + requestId + secret)。```
+
+```
+sign = SHA256(payload + requestId + secret)。
+```
 
 验证签名的示例代码如下：
 
@@ -142,6 +146,7 @@ public class DigestUtils {
 </blockquote>
 
 
+## 特殊说明
 ### Beta 版说明
 Beta 版中，`PUT`造成的隐式删除，不会触发 Webhook。
 
