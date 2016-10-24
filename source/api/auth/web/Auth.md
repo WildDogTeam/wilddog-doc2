@@ -2,7 +2,7 @@
 title: Auth
 ---
 
-wilddog.Auth 对象负责用户认证及密码找回等功能，它不能直接创建，只能通过 wilddog.App 实例的 [auth](/api/auth/web.html#auth) 方法获得。
+wilddog.Auth 对象负责用户认证及密码找回等功能，它不能直接创建，只能通过 wilddog.App 实例的 [auth](/api/auth/web/App.html#auth) 方法获得。
 
 ## 属性
 

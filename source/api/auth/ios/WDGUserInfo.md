@@ -1,4 +1,4 @@
-title: WDGUserInfo
+title: &ltWDGUserInfo&gt
 ---
 
 Wilddog Auth 用户信息，这是一个协议。

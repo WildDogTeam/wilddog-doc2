@@ -283,7 +283,7 @@ api:
       WDGWeiXinAuthProvider: /api/auth/ios/WDGWeiXinAuthProvider.html
       WDGWeiboAuthProvider: /api/auth/ios/WDGWeiboAuthProvider.html
       WDGUser: /api/auth/ios/WDGUser.html
-      WDGUserInfo: /api/auth/ios/WDGUserInfo.html
+      "&ltWDGUserInfo&gt": /api/auth/ios/WDGUserInfo.html
       WDGUserProfileChangeRequest: /api/auth/ios/WDGUserProfileChangeRequest.html
     更新日志: /api/auth/changelog.html
      
