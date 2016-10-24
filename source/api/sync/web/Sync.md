@@ -67,7 +67,7 @@ var refToA = wilddog.sync().ref('/a');
 
 **定义**
 
-Wilddog.goOffline()
+goOffline()
 
 **返回**
 
