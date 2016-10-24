@@ -225,7 +225,7 @@ signInWithRedirect(provider)
 ```js
 //微博登录
 var weiboProvider = new wilddog.auth.WeiboAuthProvider();
-wilddog.auth().signInWithPopup(weiboProvider).then(function () {
+wilddog.auth().signInWithRedirect(weiboProvider).then(function () {
     console.info("login success", wilddog.auth().currentUser)
 }).catch(function(err){
     console.info("login failed", err)
