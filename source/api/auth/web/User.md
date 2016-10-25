@@ -232,7 +232,7 @@ linkWithRedirect(provider)
 
 **说明**
 
-通过浏览器跳转的形式为用户关联新的 Oauth 登录方式。
+通过浏览器跳转的形式为用户关联新的 OAuth 登录方式。
 
 **参数**
 
