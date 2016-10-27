@@ -68,8 +68,8 @@ var platforms = ['sync', 'video', 'auth'];
 var srcs = [{
   overview: '/overview/sync.html',
   quickstart: '/quickstart/sync/web.html',
-  guide: '/guide/sync/web/save-data.html',
-  api: '/api/sync/web/api.html',
+  guide: '/guide/sync/concept.html',
+  api: '/api/sync/web/App.html',
   resources: '/resources/sync/web/tutorial.html',
   console: '/console/creat.html'
 },
