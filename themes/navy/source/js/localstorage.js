@@ -85,7 +85,7 @@ var srcs = [{
   overview: '/overview/auth.html',
   quickstart: '/quickstart/auth/web.html',
   guide: '/guide/auth/core/concept.html',
-  api: '/api/auth/web/api.html',
+  api: '/api/auth/web/App.html',
   resources: '/resources/auth/android/resources.html',
   console: '/console/creat.html'
 }];
