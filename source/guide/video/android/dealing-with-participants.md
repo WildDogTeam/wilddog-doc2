@@ -60,7 +60,8 @@ title: 管理其他参与者
 
 ```java
 //视频展示控件
-//VideoRenderer.Callbacks remoteCallback = VideoRendererGui.createGuiRenderer(50, 75, 25, 25, RendererCommon.ScalingType.SCALE_ASPECT_FILL, false);
+//WilddogVideoView remoteCallbacks = (WilddogVideoView) findViewById(R.id.remote_video_view);
+//remoteCallbacks.init(eglBase.getEglBaseContext(), null);
 //在会话Conversation.Listener监听中，通过onParticipantConnected可获取其他参与者的媒体流
 @Override public void onParticipantConnected(Conversation conversation, Participant participant) { 
     //获取到远端视频流  

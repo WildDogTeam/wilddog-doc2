@@ -85,3 +85,46 @@ ConversationClient getClient()
 	//获取client对象
 	client = video.getClient();
 ```
+
+</br>
+
+---
+
+### createLocalStream(LocalStreamOptions,EglBase.Context,CompleteListener)
+
+**定义**   
+
+```java
+public LocalStream createLocalStream(LocalStreamOptions options, EglBase.Context context, CompleteListener listener)
+```
+
+**说明**
+
+通过本方法获取本地视频流对象。
+
+| 参数名 | 描述 |
+|---|---|
+|options|LocalStreamOptions 对象，视频流参数|
+|context|WebRTC EglBase.Context 对象|
+|listener|CompleteListener 对象|
+
+**返回值**
+
+[LocalStream](/api/video/android/local-stream.html)
+
+**示例**
+
+```java
+localStream = video.createLocalStream(LocalStreamOptions.DEFAULT_OPTIONS, eglBase.getEglBaseContext(), new CompleteListener() {
+    @Override
+    public void onSuccess() {
+
+    }
+
+    @Override
+    public void onError(VideoException e) {
+
+    }
+});
+```
+
