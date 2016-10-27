@@ -19,7 +19,7 @@ title: 管理应用
 ![](http://7u2r36.com1.z0.glb.clouddn.com/16-8-18/45083791.jpg)
 
 
-当然你也可以通过一键导出的方式，把数据下载到本地：
+你也可以通过一键导出的方式，把数据下载到本地：
 
 ![](http://7u2r36.com1.z0.glb.clouddn.com/16-8-18/32430219.jpg)
 
@@ -28,13 +28,43 @@ title: 管理应用
 
 规则表达式是野狗保护你的数据安全的最重要手段之一，我们强烈建议在你开始实时同步数据时，第一件事就是配置它。
 
-参考文档 [规则表达式](/guide/sync/rules/introduce.html)  深入了解具体配置的方法。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  为了方便你测试自己设计的规则表达式是否有效。在正式配之前，建议现在模拟器配置，通过后再正式使用。
+</blockquote>
 
-![](http://7u2r36.com1.z0.glb.clouddn.com/16-8-18/21755337.jpg)
+
+### 配置 Webhook
+
+目前支持最多配置 10 个 Webhook，新添加的配置默认是关闭状态，需要手动开启。
+
+<img src='/images/setwebhook.jpeg' alt="/images/group.png" >
+
+#### 配置数据路径
+
+数据路径（Path）是你要监听的节点路径，监听路径支持通配符 `$`。
+
+例如，配置监听 `/a/b` 的路径。当 `/a/b` 节点下的数据发生任何变化时，均会触发 Webhook；当父节点 `/a` 删除时，也会触发 Webhook。
+
+ <img src="/images/webhookpath.png" >
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  数据路径最多允许输入 768 个字符，最大层级不要超过 32 层。
+</blockquote>
+
+
+#### 配置回调地址
+回调地址必须以`http://` 或 `https://` 开头。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  回调地址最多允许输入 200 个字符。
+</blockquote>
+
 
 ## 资源统计
 
-资源统计页面可以查看你的应用数据存储、流量和并发连接的使用情况。同时我们每个月会发送资源统计情况到你的绑定邮箱，野狗工程团队在不遗余力地进行服务优化，以期提供更好的应用性能和更经济的费用。
+资源统计页面可以查看你的应用数据存储、流量和并发连接的使用情况。
 
 ![](http://7u2r36.com1.z0.glb.clouddn.com/16-8-18/23554419.jpg)
 
@@ -54,7 +84,6 @@ title: 管理应用
 
 你可以参考 [身份认证](/guide/auth/core/concept.html) 文档了解更多细节。
 
-![](http://7u2r36.com1.z0.glb.clouddn.com/16-8-18/83626118.jpg)
 
 
 #### 登录方式的设置
@@ -64,7 +93,7 @@ title: 管理应用
 
 #### 超级密钥
 
-你可以配置 10 个超级密钥，并且可以为每一个超级密钥添加备注，使用时便于识别。
+目前支持最多配置 10 个 超级密钥，并且可以为每一个超级密钥添加备注，使用时便于识别。
 
 
 ## 安全

@@ -2,7 +2,7 @@
 title: Auth
 ---
 
-wilddog.Auth 对象负责用户认证及密码找回等功能，它不能直接创建，只能通过 wilddog.App 实例的 [auth](/api/auth/web.html#auth) 方法获得。
+wilddog.Auth 对象负责用户认证及密码找回等功能，它不能直接创建，只能通过 wilddog.App 实例的 [auth](/api/auth/web/App.html#auth) 方法获得。
 
 ## 属性
 
@@ -225,7 +225,7 @@ signInWithRedirect(provider)
 ```js
 //微博登录
 var weiboProvider = new wilddog.auth.WeiboAuthProvider();
-wilddog.auth().signInWithPopup(weiboProvider).then(function () {
+wilddog.auth().signInWithRedirect(weiboProvider).then(function () {
     console.info("login success", wilddog.auth().currentUser)
 }).catch(function(err){
     console.info("login failed", err)

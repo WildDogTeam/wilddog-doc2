@@ -60,7 +60,7 @@ guide:
       用户访问控制: /guide/sync/rules/auth.html
       数据校验: /guide/sync/rules/validate.html
       数据索引: /guide/sync/rules/index.html
-      
+    Webhook: /guide/sync/webhook.html 
 
     最佳实践:
       组织数据: /guide/sync/bestpractice/structure-data.html
@@ -172,7 +172,15 @@ api:
       节点操作: /api/sync/c/local-node.html
       错误码: /api/sync/c/error-code.html
     Arduino: /api/sync/arduino.html
-    REST: /api/sync/rest.html
+    REST:
+      简介: /api/sync/rest/introduce.html
+      Query : /api/sync/rest/Query.html
+      Auth : /api/sync/rest/Auth.html
+      Streaming : /api/sync/rest/Streaming.html
+      Priorities : /api/sync/rest/Priorities.html
+      ServerValues : /api/sync/rest/ServerValues.html
+      Rule : /api/sync/rest/Rule.html
+      错误码 : /api/sync/rest/Error.html
     规则表达式: /api/sync/rule.html
     更新日志: /api/sync/changelog.html
   实时视频通话:
@@ -187,7 +195,7 @@ api:
       MeetingCast: /api/video/web/meetingCast.html
       OutgoingInvite: /api/video/web/outgoingInvite.html
       IncomingInvite: /api/video/web/incomingInvite.html
-      #错误码: /api/video/web/error-code.html
+      错误码: /api/video/web/error-code.html
     Android:
       WilddogVideo: /api/video/android/wilddog-video.html
       ConversationClient: /api/video/android/conversation-client.html
@@ -275,7 +283,7 @@ api:
       WDGWeiXinAuthProvider: /api/auth/ios/WDGWeiXinAuthProvider.html
       WDGWeiboAuthProvider: /api/auth/ios/WDGWeiboAuthProvider.html
       WDGUser: /api/auth/ios/WDGUser.html
-      WDGUserInfo: /api/auth/ios/WDGUserInfo.html
+      "&ltWDGUserInfo&gt": /api/auth/ios/WDGUserInfo.html
       WDGUserProfileChangeRequest: /api/auth/ios/WDGUserProfileChangeRequest.html
     更新日志: /api/auth/changelog.html
      

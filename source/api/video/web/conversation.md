@@ -90,6 +90,10 @@ invite(participantId)
 |---|---|
 | participantId | `Array.<String>` 或 `String` 类型。被邀请者的 Wilddog ID。 |
 
+**返回值**
+
+`Promise`
+
 **示例**
 
 ```js
