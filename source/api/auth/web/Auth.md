@@ -444,7 +444,7 @@ sendPasswordResetSms(phone)
 **参考**
 
 可能发生的错误：
-- invalid_phone 表示邮箱错误。
+- invalid_phone 表示手机号错误。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
 </br>
