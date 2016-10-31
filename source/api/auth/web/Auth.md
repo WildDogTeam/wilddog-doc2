@@ -97,43 +97,6 @@ createUserWithEmailAndPassword(email, password)
 - invalid_password 密码不符合规定。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
-<!-- </br>
-
-----
-
-### createUserWithPhoneAndPassword
-
-**定义**
-
-```js
-createUserWithPhoneAndPassword(phone, password)
-```
-
-**说明**
-
-创建一个新用户，创建成功后会自动登录。
-
-**参数**
-
-| 参数名      | 描述       |
-| -------- | -------- |
-| phone    | 用户的手机号。 |
-| password | 用户指定的密码。 |
-
-**返回值**
-
-[wilddog.User](/api/auth/web/User.html) 对象
-
-**参考**
-
-可能发生的错误：
-
-- invalid_phone 表示手机号格式错误。
-- phone_already_in_use 表示手机号已经被注册。
-- authentication_disabled 表示手机号登录方式没有打开，可以在野狗的控制面板中打开这个选项。
-- invalid_password 密码不符合规定。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。 -->
-
 </br>
 
 ----
@@ -188,38 +151,6 @@ wilddog.auth().signInWithEmailAndPassword(email, password)
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
-
-<!-- <br/>
-
-----
-### signInWithPhoneAndPassword
-
-**定义**
-
-```js
-wilddog.auth().signInWithPhoneAndPassword(phone, password)
-```
-
-**说明**
-
-以手机号和密码的方式登录。
-
-**参数**
-
-| 参数名      | 描述       |
-| -------- | -------- |
-| phone    | 用户的手机号。 |
-| password | 用户指定的密码。 |
-
-**参考**
-
-可能发生的错误：
-
-- invalid_phone 表示邮箱格式错误。
-- phone_already_in_use 表示邮箱已经被注册。
-- authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
-- invalid_password 密码不符合规定。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。 -->
 
 <br/>
 
@@ -419,34 +350,6 @@ sendPasswordResetEmail(email)
 - invalid_email 表示邮箱错误。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
-<!-- </br>
-
-----
-
-### sendPasswordResetSms
-
-**定义**
-
-```objectivec
-sendPasswordResetSms(phone)
-```
-
- **说明**
-
-通过邮箱找回密码。
-
-**参数**
-
-| 参数名   | 描述                 |
-| ----- | ------------------ |
-| phone | string 类型，用户的手机号。 |
-
-**参考**
-
-可能发生的错误：
-- invalid_phone 表示手机号错误。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。 -->
-
 </br>
 
 ----
@@ -467,34 +370,4 @@ signOut()
 
 [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
 
-<!-- </br>
-
-----
-
-### confirmPasswordResetSms
-
-**定义**
-
-```js
-confirmPasswordResetSms(phone, code, newPassword)
-```
-
-**说明**
-
-根据手机号和收到的验证码重置密码。
-
-**参数**
-
-| 参数名   | 描述                 |
-| ----- | ------------------ |
-| phone | string 类型，用户的手机号。 |
-| code | string 类型，用户的收到的验证码。 |
-| newPassword | string 类型，新密码。 |
-
-**参考**
-
-**返回值**
-
-[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
- -->
 
