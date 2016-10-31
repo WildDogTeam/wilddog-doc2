@@ -38,6 +38,21 @@ nullable string
 
 ------
 
+### phone
+
+**定义**
+
+```js
+nullable string
+```
+
+**说明**
+
+用户主邮箱地址
+</br>
+
+------
+
 ### photoURL
 
 **定义**
