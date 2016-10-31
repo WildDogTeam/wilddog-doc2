@@ -214,7 +214,7 @@ api:
       ConversationMode: /api/video/android/conversation-mode.html
       MeetingCastStateListener: /api/video/android/meeting-cast-listener.html
       MeetingCastAddon: /api/video/android/meeting-cast-addon.html
-
+      WilddogVideoView: /api/video/android/wilddog-video-view.html
       错误码: /api/video/android/error-code.html
     iOS:
       WDGVideoClient: /api/video/ios/Classes/WDGVideoClient.html
