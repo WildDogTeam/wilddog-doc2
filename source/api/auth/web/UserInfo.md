@@ -34,22 +34,6 @@ nullable string
 
 用户主邮箱地址
 
-<!-- </br>
-
-------
-
-### phone
-
-**定义**
-
-```js
-nullable string
-```
-
-**说明**
-
-用户手机号 -->
-
 </br>
 
 ------
