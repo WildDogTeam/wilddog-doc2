@@ -154,14 +154,12 @@ presenceRef.cancelDisconnectOperations()
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-WDGSyncReference *ref = [[WDGSync sync] reference];
-[ref goOnline];
+[WDGSyncReference goOnline];
 ```
 </div>
 <div class="slide-content">
 ```swift
-let ref = WDGSync.sync().reference
-ref.goOnline()
+WDGSyncReference.goOnline()
 ```
 </div>
 </div>
