@@ -34,6 +34,22 @@ nullable string
 
 帐户主邮箱地址
 
+<!-- </br>
+
+------
+
+### phone
+
+**定义**
+
+```js
+nullable string
+```
+
+**说明**
+
+帐户手机号 -->
+
 </br>
 
 ------
@@ -50,7 +66,7 @@ boolean
 
 帐户的主邮箱是否被验证过
 
-</br>
+<!-- </br>
 
 ------
 
@@ -64,7 +80,7 @@ boolean
 
 **说明**
 
-帐户的手机号是否被验证过
+帐户的手机号是否被验证过 -->
 
 </br>
 
@@ -428,7 +444,7 @@ updateEmail(email)
 - invalid_email                   表示该电子邮件地址格式不正确。
 - credential_too_old_login_again  更新用户电子邮件是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用 reauthenticate(credential),来对该用户重新进行身份认证。
 
-</br>
+<!-- </br>
 
 ----
 ### updatePhone
@@ -460,7 +476,7 @@ updatePhone(phone)
 
 - phone_already_in_use            表示该手机号已被另一个帐户使用。
 - invalid_phone                   表示该手机号地址格式不正确。
-- credential_too_old_login_again  更新用户手机号是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用 reauthenticate(credential),来对该用户重新进行身份认证。
+- credential_too_old_login_again  更新用户手机号是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用 reauthenticate(credential),来对该用户重新进行身份认证。 -->
 
 </br>
 
@@ -550,7 +566,7 @@ sendEmailVerification()
 
  [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
 
-</br>
+<!-- </br>
 
 ----
 
@@ -589,4 +605,4 @@ verifiyPhone(code)
 
 **返回**
 
- [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+ [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)> -->

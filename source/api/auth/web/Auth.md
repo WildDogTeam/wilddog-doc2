@@ -97,7 +97,7 @@ createUserWithEmailAndPassword(email, password)
 - invalid_password 密码不符合规定。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
-</br>
+<!-- </br>
 
 ----
 
@@ -132,7 +132,7 @@ createUserWithPhoneAndPassword(phone, password)
 - phone_already_in_use 表示手机号已经被注册。
 - authentication_disabled 表示手机号登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。 -->
 
 </br>
 
@@ -189,7 +189,7 @@ wilddog.auth().signInWithEmailAndPassword(email, password)
 - invalid_password 密码不符合规定。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
-<br/>
+<!-- <br/>
 
 ----
 ### signInWithPhoneAndPassword
@@ -219,7 +219,7 @@ wilddog.auth().signInWithPhoneAndPassword(phone, password)
 - phone_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。 -->
 
 <br/>
 
@@ -419,7 +419,7 @@ sendPasswordResetEmail(email)
 - invalid_email 表示邮箱错误。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
-</br>
+<!-- </br>
 
 ----
 
@@ -445,7 +445,7 @@ sendPasswordResetSms(phone)
 
 可能发生的错误：
 - invalid_phone 表示手机号错误。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。 -->
 
 </br>
 
@@ -467,7 +467,7 @@ signOut()
 
 [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
 
-</br>
+<!-- </br>
 
 ----
 
@@ -496,5 +496,5 @@ confirmPasswordResetSms(phone, code, newPassword)
 **返回值**
 
 [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
-
+ -->
 
