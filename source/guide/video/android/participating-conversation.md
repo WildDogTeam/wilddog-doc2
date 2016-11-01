@@ -5,16 +5,18 @@
 
 ### 预览本地视频画面
 
-WilddogVideo SDK 都提供了在加入会话前预览本地的视频画面。 
+Wilddog Video SDK 都提供了在加入会话前预览本地的视频画面。 
 
 例如，创建一个同时有音频和视频的媒体流并展示出来：
 
 ```java
 //初始化视频展示控件
 //createGuiRenderer参数（起始x坐标,起始y坐标，控件宽，控件高，ScalingType,是否镜像），坐标以及宽高都是相对于surfaceView的百分比
-VideoRenderer.Callbacks localCallbacks = VideoRendererGui.createGuiRenderer(0, 0, 100, 75, RendererCommon.ScalingType.SCALE_ASPECT_FILL, true); 
+WilddogVideoView localCallbacks=(WilddogVideoView) findViewById(R.id.local_video_view);
+localCallbacks.init(eglBase.getEglBaseContext(), null);
 //通过video对象获取本地视频流,使用默认配置
-LocalStream localStream = video.createLocalStream(LocalStreamOptions.DEFAULT_OPTIONS, new CompleteListener() { 
+//private EglBase eglBase = EglBase.create();
+LocalStream localStream = video.createLocalStream(options,eglBase.getEglBaseContext(), new CompleteListener() { 
     @Override 
     public void onSuccess() {
 
