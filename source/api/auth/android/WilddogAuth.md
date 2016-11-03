@@ -6,7 +6,9 @@ WilddogAuth SDK 入口对象。进行登录认证操作。
 接着，可以使用一下方法进行用户登录认证：
     
 *      createUserWithEmailAndPassword(email, password)
+*      createUserWithPhoneAndPassword(phone, password)
 *      signInWithEmailAndPassword(email, password)
+*      signInWithPhoneAndPassword(phone, password)
 *      signInWithCredential(authCredential)
 *      signInAnonymously()
 *      signInWithCustomToken(token)

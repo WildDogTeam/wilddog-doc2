@@ -259,6 +259,7 @@ api:
       AuthCredential: /api/auth/android/AuthCredential.html
       AuthResult: /api/auth/android/AuthResult.html
       EmailAuthCredential: /api/auth/android/EmailAuthCredential.html
+      PhoneAuthCredential: /api/auth/android/PhoneAuthCredential.html
       EmailAuthProvider: /api/auth/android/EmailAuthProvider.html
       QQAuthCredential: /api/auth/android/QQAuthCredential.html
       QQAuthProvider: /api/auth/android/QQAuthProvider.html
