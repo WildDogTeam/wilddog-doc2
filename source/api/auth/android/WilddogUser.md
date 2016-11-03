@@ -180,6 +180,43 @@ public abstract boolean isAnonymous ()
 </br>
 
 ---
+### isPhoneVerified ()
+
+**定义**
+
+```java
+public boolean isPhoneVerified()
+```
+
+**说明**
+
+判断当前用户是否通过手机号验证。
+
+**返回值**
+
+`boolean`  true表示通过手机号验证，false 表示未通过手机号验证。
+</br>
+
+---
+### isEmailVerified ()
+
+**定义**
+
+```java
+public boolean isEmailVerified()
+```
+
+**说明**
+
+判断当前用户是否通过手邮箱验证。
+
+**返回值**
+
+
+`boolean`  true表示通过邮箱验证，false 表示未通过邮箱验证。
+</br>
+
+---
 ### linkWithCredential(credential)
 
 **定义**
@@ -248,6 +285,44 @@ Task<Void>	reload()
 </br>
 
 ---
+### sendEmailVerification ()
+
+**定义**
+
+```java
+Task<Void> sendEmailVerification()
+```
+
+**说明**
+
+发送邮箱验证，需要登录邮箱进行验证。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
+</br>
+
+---
+### sendPhoneVerification ()
+
+**定义**
+
+```java
+Task<Void> sendPhoneVerification()
+```
+
+**说明**
+
+发送验证码到手机，通过verifiyPhone（code）方法验证手机。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
+</br>
+
+---
+
+
 ### unlink (provider)
 
 **定义**
@@ -323,6 +398,30 @@ password | 当前用户要更新的密码。
 </br>
 
 ---
+### updatePhone (phone)
+
+**定义**
+
+```java
+public Task<Void> updatePhone(String phone)
+```
+
+**说明**
+
+更新当前用户的手机号信息
+
+**参数**
+
+参数名 | 描述
+--- | ---
+phone | 包含要更新的手机号码。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
+</br>
+
+---
 ### updateProfile (request)
 
 **定义**
@@ -340,6 +439,30 @@ Task<Void>	updateProfile(UserProfileChangeRequest request)
 参数名 | 描述
 --- | ---
 request | 包含要更新的昵称或者用户头像信息的请求对象。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
+</br>
+
+---
+### verifiyPhone (code)
+
+**定义**
+
+```java
+public Task<Void> verifiyPhone(String code)
+```
+
+**说明**
+
+通过验证码进行手机号验证。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+code | 手机验证码。
 
 **返回值**
 
