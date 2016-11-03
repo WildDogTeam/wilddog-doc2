@@ -48,7 +48,7 @@ public static final String PROVIDER_ID
  </br>
 
 ---
-### getPhoneCredential(email，password)
+### getPhoneCredential(phone，password)
  **定义**
 
   ```java
