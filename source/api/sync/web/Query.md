@@ -372,7 +372,7 @@ ref.limitToFirst(10).on("child_added",function(snapshot){
 
 **定义**
 
-limitToFirst(limit)
+limitToLast(limit)
 
 **参数**
 
