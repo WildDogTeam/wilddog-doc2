@@ -57,6 +57,10 @@ typedef NS_ENUM(NSInteger, WDGAuthErrorCode) {
     WDGAuthErrorCodeWeakPassword = 17026,
 
     WDGAuthErrorCodeAppNotAuthorized = 17028,
+    WDGAuthErrorCodeInvalidPhone = 17029,
+    WDGAuthErrorCodePhoneAlreadyInUse = 17030,
+    WDGAuthErrorCodePhoneNotExist = 17031,
+    WDGAuthErrorCodeSmsError = 17032,
     WDGAuthErrorCodeKeychainError = 17995,
 
     WDGAuthErrorCodeInternalError = 17999,
@@ -102,5 +106,9 @@ WDGAuthErrorCodeUserMismatch | 表示重新认证的这个用户不是现有用�
 WDGAuthErrorCodeCredentialAlreadyInUse | 表示尝试关联的凭据已与另一个不同 Wilddog 帐户关联
 WDGAuthErrorCodeWeakPassword | 表示尝试设置的密码被认为太弱
 WDGAuthErrorCodeAppNotAuthorized | 表示应用程序用提供的 API 密钥去认证时
+WDGAuthErrorCodeInvalidPhone | 表示无效的手机号码。
+WDGAuthErrorCodePhoneAlreadyInUse | 表示用该凭据声明的手机号已被一个现有帐户使用，无法用此登录方法进行身份验证。 
+WDGAuthErrorCodePhoneNotExist | 表示该手机号码用户不存在。
+WDGAuthErrorCodeSmsError | 表示手机验证码的相关错误。
 WDGAuthErrorCodeKeychainError | 表示在访问钥匙串时出错
 WDGAuthErrorCodeInternalError | 表示出现内部错误。 请用整个 NSError 对象报告错误

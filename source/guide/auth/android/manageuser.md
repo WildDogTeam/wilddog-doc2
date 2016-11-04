@@ -8,6 +8,7 @@ title: 用户管理
 
 创建用户包含以下三种方法：
 
+- 通过 [手机号密码](/guide/auth/android/phone.html) 创建
 - 通过 [邮箱密码](/guide/auth/android/password.html) 创建
 - 通过第三方身份认证提供商授权创建
 - 在 控制面板—身份认证—用户 中手动创建
@@ -68,6 +69,7 @@ WilddogUser user = auth.getCurrentUser();
 if (user != null) {
     String uid = user.getUid();
     String providerId = user.getProviderId();
+    String phone = user.getPhone();
     String name = user.getDisplayName();
     Uri photoUrl = user.getPhotoUrl();
     String email = user.getEmail();
