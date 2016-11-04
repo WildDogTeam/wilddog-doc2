@@ -1,17 +1,17 @@
 
-title: 邮箱登录
+title: 手机号登录
 ---
 
-本篇文档介绍在 Wilddog Auth 中如何使用邮箱地址和密码对用户进行身份认证。
+本篇文档介绍在 Wilddog Auth 中如何使用手机号和密码对用户进行身份认证。
 
 ## 前期准备
 
 1. 在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
-2. 在控制面板 身份认证—登录方式 中打开邮箱登录方式。
+2. 在控制面板 身份认证—登录方式 中打开手机号登录方式。
 
 ## 创建用户
 
-用邮箱密码创建一个新用户，需完成以下步骤：
+用手机号密码创建一个新用户，需完成以下步骤：
 
 1.安装 Wilddog Auth SDK：
 
@@ -48,7 +48,7 @@ WDGApp.configureWithOptions(options)
 </div>
 </div>
 
-3.使用 `createUserWithEmail:password:completion: ` 方法创建新用户：
+3.使用 `createUserWithPhone:password:completion: ` 方法创建新用户：
 
 <div class="slide">
 <div class='slide-title'>
@@ -57,17 +57,16 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-[[WDGAuth auth] createUserWithEmail:@"12345678@wilddog.com"
-                 password:@"password123"
-               completion:^(WDGUser *_Nullable user,
-                          NSError *_Nullable error) {
-                    // ...
-                  }];
+[[WDGAuth auth] createUserWithPhone:@"18812345678"
+                           password:@"password123"
+                         completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
+    // ...
+                         }];
 ```
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.createUserWithEmail("12345678@wilddog.com", password: "password123") { 
+WDGAuth.auth()?.createUserWithPhone("18812345678", password: "password123") { 
   (user, error) in
   // ...
 }
@@ -119,7 +118,7 @@ WDGApp.configureWithOptions(options)
 </div>
 </div>
 
-3.将该用户的电子邮件地址和密码传递到 `signInWithEmail:password:completion:`，即可在你应用中登录此用户：
+3.将该用户的手机号和密码传递到 `signInWithPhone:password:completion:`，即可在你应用中登录此用户：
 
 <div class="slide">
 <div class='slide-title'>
@@ -128,16 +127,16 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-[[WDGAuth auth] signInWithEmail:@"12345678@wilddog.com"
+[[WDGAuth auth] signInWithPhone:@"18812345678"
                        password:@"password123"
-                     completion:^(WDGUser *user, NSError *error) {
-                       // ...
+                     completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
+                         // ...
                      }];
 ```
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.signInWithEmail("12345678@wilddog.com", password: "password123") { (user, error) in
+WDGAuth.auth()?.signInWithPhone("18812345678", password: "password123") { (user, error) in
   // ...
 }
 ```
@@ -149,6 +148,52 @@ WDGAuth.auth()?.signInWithEmail("12345678@wilddog.com", password: "password123")
   如果用户成功登录，你可以在回调方法中获取登录用户。
 </blockquote>
 
+## 验证用户手机号
+1、发送验证用户的手机验证码：
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+[user sendPhoneVerificationWithCompletion:^(NSError * _Nullable error) {
+    //...
+}];
+```
+</div>
+<div class="slide-content">
+```swift
+user?.sendPhoneVerificationWithCompletion { (error) in
+  // ...
+}
+```
+</div>
+</div>
+
+2、确认验证用户手机验证码：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+[user verifyPhoneWithSmsCode:realSms
+                  completion:^(NSError * _Nullable error) {
+                      //...
+                  }];
+```
+</div>
+<div class="slide-content">
+```swift
+user?.verifyPhoneWithSmsCode(realSms){ (error) in
+  // ...
+}
+```
+</div>
+</div>
 
 ## 退出登录
 
