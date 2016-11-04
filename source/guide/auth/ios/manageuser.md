@@ -6,8 +6,9 @@ title: 用户管理
 
 ## 创建用户
 
-创建用户包含以下三种方法：
+创建用户包含以下四种方法：
 
+- 通过 [手机号密码](/guide/auth/ios/phone.html) 创建
 - 通过 [邮箱密码](/guide/auth/ios/password.html) 创建
 - 通过第三方身份认证提供商授权创建
 - 在 控制面板—身份认证—用户 中手动创建
@@ -110,6 +111,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 
 if (user != nil) {
   NSString *name = user.displayName;
+  NSString *phone = user.phone;
   NSString *email = user.email;
   NSURL *photoUrl = user.photoURL;
   NSString *uid = user.uid;       
@@ -122,6 +124,7 @@ if (user != nil) {
 ```swift
 if let user = WDGAuth.auth()?.currentUser {
     let name = user.displayName
+    let phone = user.phone
     let email = user.email
     let photoUrl = user.photoURL
     let uid = user.id;  
@@ -150,6 +153,7 @@ if (user != nil) {
     NSString *providerID = profile.providerID;
     NSString *uid = profile.uid;  // Provider-specific UID
     NSString *name = profile.displayName;
+    NSString *phone = profile.phone;
     NSString *email = profile.email;
     NSURL *photoURL = profile.photoURL;
   }
@@ -165,6 +169,7 @@ if let user = WDGAuth.auth()?.currentUser {
         let providerID = profile.providerID
         let uid = profile.uid;  // Provider-specific UID
         let name = profile.displayName
+        let phone = user.phone
         let email = profile.email
         let photoURL = profile.photoURL
     }
