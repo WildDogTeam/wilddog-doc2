@@ -35,6 +35,7 @@
   margin-bottom: 6px
   position: relative
   cursor: pointer
+  font-weight: 500
   &.current
     color: #e6501e
   &.select
@@ -62,7 +63,7 @@
   padding-bottom: 16px
 
 .sidebar-link
-  font-family: font-title
+  font-weight: 500
   display: block
   color: color-default
   text-decoration: none
@@ -80,12 +81,8 @@
 .sublist
   height: 0
   overflow: hidden
-  transform-origin: 0 0
-  transform: scale(1, 0)
-  transition: 0.2s
   border-left: 2px solid #eee
   &.current
-    transform: none
     height: auto
 
 .sublist-item
