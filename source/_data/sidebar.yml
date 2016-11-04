@@ -108,6 +108,7 @@ guide:
       绑定多种认证方式: /guide/auth/android/link.html
     iOS:
       管理用户: /guide/auth/ios/manageuser.html
+      手机号登录: /guide/auth/ios/phone.html
       邮箱登录: /guide/auth/ios/password.html
       QQ 登录: /guide/auth/ios/qq.html
       微信登录: /guide/auth/ios/weixin.html
@@ -278,6 +279,7 @@ api:
       WDGAuth: /api/auth/ios/WDGAuth.html
       WDGAuthCredential: /api/auth/ios/WDGAuthCredential.html
       WDGAuthErrors: /api/auth/ios/WDGAuthErrors.html
+      WDGWilddogAuthProvider: /api/auth/ios/WDGWilddogAuthProvider.html
       WDGEmailPasswordAuthProvider: /api/auth/ios/WDGEmailPasswordAuthProvider.html
       WDGQQAuthProvider: /api/auth/ios/WDGQQAuthProvider.html
       WDGWeiXinAuthProvider: /api/auth/ios/WDGWeiXinAuthProvider.html
