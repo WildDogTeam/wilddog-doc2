@@ -116,28 +116,6 @@ wilddog.auth().currentUser.updateProfile({
 </blockquote>
 
 
-### 更新邮箱地址
-
- `updateEmail()` 方法用于更新用户邮箱地址。
-
-```js
-wilddog.auth().currentUser.updateEmail("12345678@wilddog.com").then(function() {
-     // 更新成功
-}).catch(function(error) {
-     // 发生错误
-     console.log(error);
-});
-```
-
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  <ul>
-    <li>要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/web/manageuser.html#重新进行身份认证)。</li>
-    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。</li>
-  </ul>
-</blockquote>
-
-
 ### 更新手机号
 
  `updatePhone()` 方法用于更新用户手机号。
@@ -156,6 +134,28 @@ wilddog.auth().currentUser.updatePhone("18888888888").then(function() {
   <ul>
     <li>要更新用户的手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/web/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新手机号。</li>
+  </ul>
+</blockquote>
+
+
+### 更新邮箱地址
+
+ `updateEmail()` 方法用于更新用户邮箱地址。
+
+```js
+wilddog.auth().currentUser.updateEmail("12345678@wilddog.com").then(function() {
+     // 更新成功
+}).catch(function(error) {
+     // 发生错误
+     console.log(error);
+});
+```
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/web/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。</li>
   </ul>
 </blockquote>
 
@@ -182,12 +182,12 @@ wilddog.auth().currentUser.updatePassword("password123").then(function() {
 </blockquote>
 
 
-### 发送重设密码邮件
+### 发送重设密码短信
 
-`sendPasswordResetEmail()` 方法用于向用户发送重设密码邮件。
+`sendPasswordResetSms()` 方法用于向用户发送重设密码邮件。
 
 ```javascript
-wilddog.auth().sendPasswordResetEmail("12345678@wilddog.com").then(function() {
+wilddog.auth().sendPasswordResetSms("12345678@wilddog.com").then(function() {
     // 发送成功
 }).catch(function(error) {
     // 发生错误
@@ -201,12 +201,12 @@ wilddog.auth().sendPasswordResetEmail("12345678@wilddog.com").then(function() {
 </blockquote>
 
 
-### 发送重设密码短信
+### 发送重设密码邮件
 
-`sendPasswordResetSms()` 方法用于向用户发送重设密码邮件。
+`sendPasswordResetEmail()` 方法用于向用户发送重设密码邮件。
 
 ```javascript
-wilddog.auth().sendPasswordResetSms("12345678@wilddog.com").then(function() {
+wilddog.auth().sendPasswordResetEmail("12345678@wilddog.com").then(function() {
     // 发送成功
 }).catch(function(error) {
     // 发生错误
