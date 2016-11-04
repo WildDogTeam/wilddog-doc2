@@ -233,6 +233,95 @@ if let user = user {
   使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户属性。
 </blockquote>
 
+### 更新用户手机号
+
+`updatePhone:completion:` 方法用于更新用户手机号。
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+WDGUser *user = [WDGAuth auth].currentUser;
+
+[user updatePhone:@"15555555555" completion:^(NSError *_Nullable error) {
+  if (error) {
+    // 发生错误
+  } else {
+    // 更新成功
+  }
+}];
+```
+</div>
+<div class="slide-content">
+```swift
+let user = WDGAuth.auth()?.currentUser
+
+user?.updatePhone("15555555555") { error in
+    if let error = error {
+        // 发生错误
+    } else {
+        // 更新成功
+    }
+}
+```
+</div>
+</div>
+
+### 更新用户手机号认证密码
+
+1.发送修改密码的手机验证码：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+[[WDGAuth auth] sendPasswordResetSmsWithPhone:@"18888888888"
+                                   completion:^(NSError * _Nullable error) {
+                                       // ...
+                                   }];
+```
+</div>
+<div class="slide-content">
+```swift
+WDGAuth.auth()?.sendPasswordResetSmsWithPhone("18888888888") { (error) in
+  // ...
+}
+```
+</div>
+</div>
+
+2.确认重置密码手机验证码：
+
+<div class="slide">
+<div class='slide-title'>
+  <span class="slide-tab tab-current">Objective-C</span>
+  <span class="slide-tab">Swift</span>
+</div>
+<div class="slide-content slide-content-show">
+```objectivec
+[[WDGAuth auth] confirmPasswordResetSmsWithPhone:@"18888888888"
+                                         smsCode:realSms
+                                     newPassword:@"newpassword123"
+                                      completion:^(NSError * _Nullable error) {
+                                         // ...
+                                      }];
+```
+</div>
+<div class="slide-content">
+```swift
+WDGAuth.auth()?.confirmPasswordResetSmsWithPhone("18888888888", smsCode: realSms, newPassword: "newpassword123") { (error) in
+  // ...
+}
+```
+</div>
+</div>
+
 ### 更新邮箱地址
 
  `updateEmail:completion:` 方法用于更新用户邮箱地址。
@@ -278,10 +367,9 @@ user?.updateEmail("user@example.com") { error in
   </ul>
 </blockquote>
 
+### 更新用户邮箱认证密码
 
-### 更新用户密码
-
-`updatePassword:completion:` 方法用于更新用户密码。
+`updatePassword:completion:` 方法用于更新用户邮箱认证密码。
 
 <div class="slide">
 <div class='slide-title'>
@@ -369,7 +457,6 @@ WDGAuth.auth()?.sendPasswordResetWithEmail(email) { error in
   <p><strong>注意：</strong></p>
   在控制面板 身份认证—登录方式—邮箱登录 中可以设置邮件自定义模板。
 </blockquote>
-
 
 ## 删除用户
 

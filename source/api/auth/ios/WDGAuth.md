@@ -129,6 +129,38 @@ completion | 可以为空；当用户登录成功或者发生错误时触发。�
 </br>
 
 ----
+### - signInWithPhone:password:completion:
+
+**定义**
+
+```objectivec
+- (void)signInWithPhone:(NSString *)phone
+               password:(NSString *)password
+             completion:(nullable WDGAuthResultCallback)completion
+             ```
+
+**说明**
+
+以手机和密码的方式登录。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+phone | 用户的手机号。 
+password | 用户的登录密码。  
+completion | 可以为空；当用户登录成功或者发生错误时触发。异步等待，会在主线程中回调。
+
+**参考**
+
+可能发生的错误：
+
+ - WDGAuthErrorCodeUserDisabled 表示这个用户被禁止登录。
+ - WDGAuthErrorCodeWrongPassword 表示手机号码或者密码错误。
+ - See WDGAuthErrors API 调用可能发生的所有错误。
+</br>
+
+----
 ### - signInWithCredential:completion:
 
 **定义**
@@ -257,6 +289,67 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 </br>
 
 ----
+### - createUserWithPhone:password:completion:
+
+**定义**
+```objectivec
+- (void)createUserWithPhone:(NSString *)phone
+                   password:(NSString *)password
+                 completion:(nullable WDGAuthResultCallback)completion
+```
+
+**说明**
+
+用手机号的方式创建一个新用户，创建成功后会自动登录。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+phone | 用户的手机号。  
+password | 用户指定的密码。  
+completion | 可以为空；请求成功会触发的 block。异步等待，会在主线程中回调。
+
+**参考**
+
+可能发生的错误：
+
+ - WDGAuthErrorCodeWeakPassword 密码不符合规定。
+ - See WDGAuthErrors API 调用可能发生的所有错误。
+
+</br>
+
+----
+### - sendPasswordResetSmsWithPhone:completion:
+
+**定义**
+```objectivec
+- (void)sendPasswordResetSmsWithPhone:(NSString *)phone
+                           completion:(nullable WDGSendSmsResultCallback)completion
+```
+
+**说明**
+
+给手机发送重置密码的验证码。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+phone | 用户的手机号。  
+password | 用户指定的密码。  
+completion | 可以为空；请求成功会触发的 block。异步等待，会在主线程中回调。
+
+**参考**
+
+可能发生的错误：
+
+ - WDGAuthErrorCodeWeakPassword 密码不符合规定。
+ - See WDGAuthErrors API 调用可能发生的所有错误。
+
+</br>
+
+----
 ### - sendPasswordResetWithEmail:completion:
 
 **定义**
@@ -276,6 +369,40 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 参数名 | 描述
 --- | ---
 email | 用户的邮箱地址。  
+completion | 可以为空；请求成功会触发的 block。异步等待，会在主线程中回调。
+
+**参考**
+
+可能发生的错误：
+
+- 参见 WDGAuthErrors API 调用可能发生的所有错误。
+
+</br>
+
+----
+### - confirmPasswordResetSmsWithPhone:smsCode:newPassword:completion:
+
+**定义**
+
+```objectivec
+- (void)confirmPasswordResetSmsWithPhone:(NSString *)phone
+                                 smsCode:(NSString *)code
+                             newPassword:(NSString *)newPassword
+                              completion:(nullable WDGSendPasswordResetCallback)completion
+```
+
+**说明**
+
+通过手机验证码重置密码。
+
+**参数**
+
+
+参数名 | 描述
+--- | ---
+phone | 用户的手机号。 
+code | 手机验证码。
+newPassword | 新密码。
 completion | 可以为空；请求成功会触发的 block。异步等待，会在主线程中回调。
 
 **参考**

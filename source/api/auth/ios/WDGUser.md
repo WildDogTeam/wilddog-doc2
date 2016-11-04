@@ -37,6 +37,22 @@ Wilddog Auth 的用户对象。
 
 ------
 
+### phoneVerified
+
+**定义**
+
+```objectivec
+@property(nonatomic, readonly, getter=isPhoneVerified) BOOL phoneVerified
+```
+
+**说明**
+
+如果为 YES 则表示和这个帐号关联的手机号已经验证过。  
+
+</br>
+
+------
+
 ### providerData
 
 **定义**
@@ -135,6 +151,34 @@ completion | 可以为空；如果密码修改成功会调用这个 block。bloc
  - WDGAuthErrorCodeOperationNotAllowed 表明管理员关闭了这种登录方式。
  - WDGAuthErrorCodeRequiresRecentLogin 发生这个错误表明用户在短期内没有登录过，而修改密码为敏感操作，必须重新登录才能继续操作。可以调用 WDGUser.reauthenticateWithCredential:completion: 方法。
  - WDGAuthErrorCodeWeakPassword 密码设置不符合规定。
+ - 参见 WDGAuthErrors API 调用可能发生的所有错误。
+ 
+</br>
+
+----
+### - updatePhone:completion:
+
+**定义**
+
+```objectivec
+- (void)updatePhone:(NSString *)phone completion:(nullable WDGUserProfileChangeCallback)completion
+```
+
+**说明**
+
+更换用户手机号。如果成功，本地缓存也会被刷新。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+phone | 新手机号码。  
+completion | 可以为空；如果密码修改成功会调用这个 block。block 为异步等待，会在主线程中回调
+
+**参考**
+
+可能发生的错误：
+
  - 参见 WDGAuthErrors API 调用可能发生的所有错误。
  
 </br>
@@ -345,6 +389,60 @@ completion | 可以为空；当请求成功或失败时会调用这个 block，�
 可能发生的错误：
 
  - WDGAuthErrorCodeUserNotFound 没有这个帐号。
+ - 参见更多错误请参考 WDGAuthErrors。
+</br>
+
+----
+### - sendPhoneVerificationWithCompletion:
+
+**定义**
+
+```objectivec
+- (void)sendPhoneVerificationWithCompletion:(nullable WDGSendPhoneVerificationCallback)completion
+```
+
+**说明**
+
+发送验证手机的验证码。
+
+**参数**
+
+参数名 | 描述
+--- | ---  
+completion | 可以为空；当请求成功或失败时会调用这个 block，异步等待，主线程中回调。
+
+**参考**
+
+可能发生的错误：
+
+ - WDGAuthErrorCodeUserNotFound 没有这个帐号。
+ - 参见更多错误请参考 WDGAuthErrors。
+</br>
+
+----
+### - verifyPhoneWithSmsCode:completion:
+
+**定义**
+
+```objectivec
+- (void)verifyPhoneWithSmsCode:(NSString *)code completion:(nullable WDGVerifyPhoneCallback)completion
+```
+
+**说明**
+
+用 sendEmailVerificationWithCompletion 方法发送验证码后，收到的验证码需要用此方法验证。
+
+**参数**
+
+参数名 | 描述
+--- | ---  
+code | 手机验证码。
+completion | 可以为空；当请求成功或失败时会调用这个 block，异步等待，主线程中回调。
+
+**参考**
+
+可能发生的错误：
+
  - 参见更多错误请参考 WDGAuthErrors。
 </br>
 

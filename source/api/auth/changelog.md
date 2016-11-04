@@ -59,6 +59,26 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 ## iOS SDK
 
+### V2.0.2 - 2016.11.04
+
+**描述**
+
+Auth 新增手机号登录、手机号发送验证码等功能
+
+**新增**
+
+- 新增 WDGWilddogAuthProvider 类，包含邮箱和手机号登录的凭证。
+- 新增手机号登录、手机号重置密码、手机号验证用户
+- 新增手机号发送相关验证码方法
+
+**改进**
+
+- 统一 Auth 手机号和邮箱登录方式的凭证。
+
+**废弃**
+
+废弃 WDGEmailPasswordAuthProvider 类，用 WDGWilddogAuthProvider 类代替
+
 ### V2.0.1 - 2016.09.10
 
 **描述**
