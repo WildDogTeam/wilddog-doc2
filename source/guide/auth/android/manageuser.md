@@ -159,7 +159,7 @@ user.updatePhone(phone)
 </blockquote>
 
 
-### 重置用户认证密码
+### 重置手机号认证密码
 
 1.发送重置密码的手机验证码：
 
@@ -184,7 +184,7 @@ auth.sendPasswordResetSms(phone)
 ```java
 String phone = "18888888888";
 String code = "090909";
-String newPass = "newPassword1234";
+String newPass = "newpassword123";
 
 auth.confirmPasswordResetSms(phone，code，newPass)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
@@ -230,9 +230,9 @@ user.updateEmail("12345678@gmail.com")
   </ul>
 </blockquote>
 
-### 更新用户密码
+### 更新用户邮箱或手机号认证密码
 
-`updatePassword()` 方法用于更新用户密码。
+`updatePassword()` 方法用于更新用户邮箱或手机号认证密码。
 
 ```java
 WilddogUser user = auth.getCurrentUser();
@@ -262,7 +262,7 @@ user.updatePassword(newPassword)
 
 
 
-### 发送重设密码邮件
+### 发送重置密码邮件
 
 `sendPasswordResetEmail()` 方法用于向用户发送重设密码邮件。
 
