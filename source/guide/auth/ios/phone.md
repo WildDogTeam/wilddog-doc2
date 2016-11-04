@@ -57,7 +57,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-[[WDGAuth auth] createUserWithPhone:@"18812345678"
+[[WDGAuth auth] createUserWithPhone:@"18888888888"
                            password:@"password123"
                          completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
    			 // ...
@@ -66,7 +66,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.createUserWithPhone("18812345678", password: "password123") { 
+WDGAuth.auth()?.createUserWithPhone("18888888888", password: "password123") { 
   (user, error) in
   // ...
 }
@@ -127,7 +127,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-[[WDGAuth auth] signInWithPhone:@"18812345678"
+[[WDGAuth auth] signInWithPhone:@"18888888888"
                        password:@"password123"
                      completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
                          // ...
@@ -136,7 +136,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.signInWithPhone("18812345678", password: "password123") { (user, error) in
+WDGAuth.auth()?.signInWithPhone("18888888888", password: "password123") { (user, error) in
   // ...
 }
 ```
@@ -149,7 +149,7 @@ WDGAuth.auth()?.signInWithPhone("18812345678", password: "password123") { (user,
 </blockquote>
 
 ## 验证用户手机号
-1、发送验证用户的手机验证码：
+1.发送验证用户的手机验证码：
 <div class="slide">
 <div class='slide-title'>
   <span class="slide-tab tab-current">Objective-C</span>
@@ -164,14 +164,14 @@ WDGAuth.auth()?.signInWithPhone("18812345678", password: "password123") { (user,
 </div>
 <div class="slide-content">
 ```swift
-user?.sendPhoneVerificationWithCompletion { (error) in
+user?.sendPhoneVerificationWithCompletion { error in
   // ...
 }
 ```
 </div>
 </div>
 
-2、确认验证用户手机验证码：
+2.确认验证用户手机验证码：
 
 <div class="slide">
 <div class='slide-title'>
@@ -188,7 +188,7 @@ user?.sendPhoneVerificationWithCompletion { (error) in
 </div>
 <div class="slide-content">
 ```swift
-user?.verifyPhoneWithSmsCode(realSms){ (error) in
+user?.verifyPhoneWithSmsCode(realSms){ error in
   // ...
 }
 ```

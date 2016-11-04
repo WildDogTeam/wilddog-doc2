@@ -4,6 +4,16 @@ title: 更新日志
 
 ## iOS SDK
 
+### V0.4.2 - 2016.11.04
+
+**修复**
+
+MeetingCastAddon中castingParticipantID属性始终为nil的问题。
+
+**优化**
+
+WDGVideoStream不再强引用WDGVideoView，二者可以分别销毁，detach会在销毁前自动执行。
+
 ### V0.4.1 - 2016.10.27
 
 **优化**

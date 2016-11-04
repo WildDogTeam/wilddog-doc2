@@ -246,7 +246,7 @@ if let user = user {
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 
-[user updatePhone:@"15555555555" completion:^(NSError *_Nullable error) {
+[user updatePhone:@"13888888888" completion:^(NSError *_Nullable error) {
   if (error) {
     // 发生错误
   } else {
@@ -259,7 +259,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 ```swift
 let user = WDGAuth.auth()?.currentUser
 
-user?.updatePhone("15555555555") { error in
+user?.updatePhone("13888888888") { error in
     if let error = error {
         // 发生错误
     } else {
@@ -270,9 +270,9 @@ user?.updatePhone("15555555555") { error in
 </div>
 </div>
 
-### 更新用户手机号认证密码
+### 重置手机号认证密码
 
-1.发送修改密码的手机验证码：
+1.发送重置密码的手机验证码：
 
 <div class="slide">
 <div class='slide-title'>
@@ -296,7 +296,7 @@ WDGAuth.auth()?.sendPasswordResetSmsWithPhone("18888888888") { (error) in
 </div>
 </div>
 
-2.确认重置密码手机验证码：
+2.确认重置密码的手机验证码：
 
 <div class="slide">
 <div class='slide-title'>
@@ -367,9 +367,9 @@ user?.updateEmail("user@example.com") { error in
   </ul>
 </blockquote>
 
-### 更新用户邮箱认证密码
+### 更新用户邮箱或手机号认证密码
 
-`updatePassword:completion:` 方法用于更新用户邮箱认证密码。
+`updatePassword:completion:` 方法用于更新用户邮箱或手机号认证密码。
 
 <div class="slide">
 <div class='slide-title'>
@@ -415,9 +415,9 @@ user?.updatePassword(newPassword) { error in
 </blockquote>
 
 
-### 发送重设密码邮件
+### 发送重置密码邮件
 
-`sendPasswordResetWithEmail:completion:` 方法用于向用户发送重设密码邮件。
+`sendPasswordResetWithEmail:completion:` 方法用于向用户发送重置密码邮件。
 
 <div class="slide">
 <div class='slide-title'>
