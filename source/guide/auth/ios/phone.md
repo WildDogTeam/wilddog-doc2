@@ -60,7 +60,7 @@ WDGApp.configureWithOptions(options)
 [[WDGAuth auth] createUserWithPhone:@"18812345678"
                            password:@"password123"
                          completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
-    // ...
+   			 // ...
                          }];
 ```
 </div>
