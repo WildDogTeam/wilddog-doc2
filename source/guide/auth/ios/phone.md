@@ -57,7 +57,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-[[WDGAuth auth] createUserWithPhone:@"13888888888"
+[[WDGAuth auth] createUserWithPhone:@"18888888888"
                            password:@"password123"
                          completion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
    			 // ...
@@ -66,7 +66,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.createUserWithPhone("13888888888", password: "password123") { 
+WDGAuth.auth()?.createUserWithPhone("18888888888", password: "password123") { 
   (user, error) in
   // ...
 }
@@ -164,7 +164,7 @@ WDGAuth.auth()?.signInWithPhone("18888888888", password: "password123") { (user,
 </div>
 <div class="slide-content">
 ```swift
-user?.sendPhoneVerificationWithCompletion { (error) in
+user?.sendPhoneVerificationWithCompletion { error in
   // ...
 }
 ```
@@ -188,7 +188,7 @@ user?.sendPhoneVerificationWithCompletion { (error) in
 </div>
 <div class="slide-content">
 ```swift
-user?.verifyPhoneWithSmsCode(realSms){ (error) in
+user?.verifyPhoneWithSmsCode(realSms){ error in
   // ...
 }
 ```
