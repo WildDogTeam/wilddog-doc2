@@ -80,7 +80,7 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 **废弃**
 
-废弃 -childByAppendingPath: 方法，用 -child: 方法代替
+- 废弃 -childByAppendingPath: 方法，用 -child: 方法代替
 
 ### V2.0.0 - 2016.09.01
 
@@ -92,7 +92,6 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 - 移除原有 Wilddog SDK 中 Auth 功能。
 - 将 Wilddog SDK 改名为 WilddogSync SDK。
-
 
 
 </br>
