@@ -120,7 +120,7 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 **描述**
 
-Auth 新增手机号登录、手机号发送验证码等功能
+- Auth 新增手机号登录、手机号发送验证码等功能
 
 **新增**
 
@@ -134,7 +134,28 @@ Auth 新增手机号登录、手机号发送验证码等功能
 
 **废弃**
 
-废弃 EmailAuthProvider 类，用 WilddogAuthProvider 类代替
+- 废弃 EmailAuthProvider 类，用 WilddogAuthProvider 类代替
+
+
+### V2.0.1 - 2016.09.20
+
+**描述**
+
+该版本优化初始化过程。只需要初始化一次WilddogApp对象就可以使用WilddogAuth中使用。
+
+**新增**
+
+- 新增WilddogOptions，WilddogApp等类用于初始化。
+
+**改进**
+
+- 改进WilddogAuth初始化过程。将部分WilddogAuth初始化方法移除。
+
+
+**修复**
+
+- WildUser获取token空指针问题。
+
 
 ### V2.0.0 - 2016.09.01
 

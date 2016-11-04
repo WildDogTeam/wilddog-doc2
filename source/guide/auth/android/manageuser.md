@@ -185,7 +185,6 @@ auth.sendPasswordResetSms(phone)
 String phone = "18888888888";
 String code = "090909";
 String newPass = "newpassword123";
-
 auth.confirmPasswordResetSms(phone，code，newPass)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
@@ -207,7 +206,6 @@ auth.confirmPasswordResetSms(phone，code，newPass)
 
 ```java
 WilddogUser user = auth.getCurrentUser();
-
 user.updateEmail("12345678@gmail.com")
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
@@ -237,7 +235,6 @@ user.updateEmail("12345678@gmail.com")
 ```java
 WilddogUser user = auth.getCurrentUser();
 String newPassword = "12345678";
-
 user.updatePassword(newPassword)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
@@ -268,7 +265,6 @@ user.updatePassword(newPassword)
 
 ```java
 String emailAddress = "12345678@gmail.com";
-
 auth.sendPasswordResetEmail(emailAddress)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
