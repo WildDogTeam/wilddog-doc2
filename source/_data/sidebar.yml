@@ -109,6 +109,7 @@ guide:
       绑定多种认证方式: /guide/auth/android/link.html
     iOS:
       管理用户: /guide/auth/ios/manageuser.html
+      手机号登录: /guide/auth/ios/phone.html
       邮箱登录: /guide/auth/ios/password.html
       QQ 登录: /guide/auth/ios/qq.html
       微信登录: /guide/auth/ios/weixin.html
@@ -215,7 +216,7 @@ api:
       ConversationMode: /api/video/android/conversation-mode.html
       MeetingCastStateListener: /api/video/android/meeting-cast-listener.html
       MeetingCastAddon: /api/video/android/meeting-cast-addon.html
-
+      WilddogVideoView: /api/video/android/wilddog-video-view.html
       错误码: /api/video/android/error-code.html
     iOS:
       WDGVideoClient: /api/video/ios/Classes/WDGVideoClient.html
@@ -279,6 +280,7 @@ api:
       WDGAuth: /api/auth/ios/WDGAuth.html
       WDGAuthCredential: /api/auth/ios/WDGAuthCredential.html
       WDGAuthErrors: /api/auth/ios/WDGAuthErrors.html
+      WDGWilddogAuthProvider: /api/auth/ios/WDGWilddogAuthProvider.html
       WDGEmailPasswordAuthProvider: /api/auth/ios/WDGEmailPasswordAuthProvider.html
       WDGQQAuthProvider: /api/auth/ios/WDGQQAuthProvider.html
       WDGWeiXinAuthProvider: /api/auth/ios/WDGWeiXinAuthProvider.html

@@ -215,10 +215,10 @@ window.onload = function () {
         ele.textContent = videoIosVersion;
       });
       iosDownLoadSync.forEach(function (ele) {
-        ele.setAttribute('href', snap.val().WilddogAuthiOS.cdn);
+        ele.setAttribute('href', snap.val().WilddogSynciOS.cdn);
       });
       iosDownLoadAuth.forEach(function (ele) {
-        ele.setAttribute('href', snap.val().WilddogSynciOS.cdn);
+        ele.setAttribute('href', snap.val().WilddogAuthiOS.cdn);
       });
       iosDownLoadCore.forEach(function (ele) {
         ele.setAttribute('href', 'https://cdn.wilddog.com/sdk/ios/' + iosAuthVersion + '/WilddogCore.framework-' + iosAuthVersion + '.zip');

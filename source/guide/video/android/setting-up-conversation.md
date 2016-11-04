@@ -92,7 +92,8 @@ public void onCreate() {
 ```java
 //创建一个视频流，并绑定到播放控件上。
 //视频展示控件
-VideoRenderer.Callbacks localCallbacks = VideoRendererGui.createGuiRenderer(0, 0, 100, 75, RendererCommon.ScalingType.SCALE_ASPECT_FILL, true); 
+WilddogVideoView localCallbacks=(WilddogVideoView) findViewById(R.id.local_video_view);
+localCallbacks.init(eglBase.getEglBaseContext(), null);
 //配置本地音视频流
 LocalStreamOptions.VideoOptions videoOptions=new LocalStreamOptions.VideoOptions(true);
 //设置视频宽高。视频宽高以屏幕横向为准
@@ -100,7 +101,8 @@ videoOptions.setHeight(240);
 videoOptions.setWidth(320);
 LocalStreamOptions options=new LocalStreamOptions(videoOptions,true);
 //通过video对象获取本地视频流
-LocalStream localStream = video.createLocalStream(options, new CompleteListener() { 
+//private EglBase eglBase = EglBase.create();
+LocalStream localStream = video.createLocalStream(options,eglBase.getEglBaseContext(), new CompleteListener() { 
     @Override 
     public void onSuccess() {
 

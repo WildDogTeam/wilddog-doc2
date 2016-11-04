@@ -76,4 +76,18 @@ Wilddog Auth 用户信息，这是一个协议。
 **说明**
 
 用户邮箱地址。
+</br>
+
+------
+### phone
+
+**定义**
+
+```objectivec
+@property(nonatomic, copy, readonly, nullable) NSString *phone
+```
+
+**说明**
+
+用户手机号码。
 

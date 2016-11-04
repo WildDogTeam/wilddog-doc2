@@ -19,15 +19,17 @@ title: 实战教程
 
 ### 1. 安装 SDK
 
-**安装 Wilddog Sync 和 Auth Android SDK**
+可以使用 Maven 或 Gradle 获得 Wilddog Video Android SDK,Video SDK中已经包含了 Sync SDK 和 Auth Android SDK，无需重复引用。
 
-- 使用 Maven 安装 Sync 和 Auth SDK
+- **使用 Maven 安装 Wilddog Video SDK**
 
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="android-sync-version"></span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-auth-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="android-auth-version"></span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-video-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.4.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
-- 使用 Gradle 安装 Sync 和 Auth SDK
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:<span class="android-sync-version"></span>&apos;</span></div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+
+- **使用 Gradle 安装 Wilddog Video SDK**
+
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-android:0.4.1&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 如果出现由于文件重复导致的编译错误，可以在 build.gradle 中添加 packingOptions:
 
@@ -39,11 +41,8 @@ android {
         exclude 'META-INF/NOTICE' 
     }
 }
+
 ```
-
-**安装 Video SDK**
-
-<a href="" class="video-android-download">下载 Wilddog Video SDK</a>，解压后将jniLibs文件夹拷贝到工程目录的main文件夹中，将`libs/wilddog-video-android-*.jar` 放入工程的 `app/libs` 中，右键点击 `addAsLibrary`，完成 jar 包引用。
 
 
 ### 2. 用户身份认证
@@ -197,7 +196,9 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 ```java
 
 //视频展示控件
-localCallbacks = VideoRendererGui.createGuiRenderer(0, 0, 50, 100, RendererCommon.ScalingType.SCALE_ASPECT_FILL, true);
+//private EglBase eglBase = EglBase.create();
+WilddogVideoView localCallbacks = (WilddogVideoView) findViewById(R.id.local_video_view);
+localCallbacks.init(eglBase.getEglBaseContext(), null);
 //配置本地音视频流
 LocalStreamOptions.VideoOptions videoOptions=new LocalStreamOptions.VideoOptions(true);
 //视频宽高以屏幕横向为准
@@ -205,7 +206,7 @@ videoOptions.setHeight(240);
 videoOptions.setWidth(320);
 LocalStreamOptions options=new LocalStreamOptions(videoOptions,true);
 //通过video对象获取本地视频流
-LocalStream localStream = video.createLocalStream(options, new CompleteListener() { 
+LocalStream localStream = video.createLocalStream(options,eglBase.getEglBaseContext(), new CompleteListener() { 
     @Override 
     public void onSuccess() {
     } 
@@ -288,7 +289,8 @@ client.setInviteListener(new InviteListener(){
 
 ```java
 //设置视频展示控件
-VideoRenderer.Callbacks remoteCallbacks = VideoRendererGui.createGuiRenderer(50, 0, 50, 100, RendererCommon.ScalingType.SCALE_ASPECT_FILL, false);
+WilddogVideoView remoteCallbacks = (WilddogVideoView) findViewById(R.id.remote_video_view);
+remoteCallbacks.init(eglBase.getEglBaseContext(), null);
 //在InviteListener获取到conversation后，设置ConversationListener
 mConversation.setConversationListener(new Conversation.Listener() {
     @Override
