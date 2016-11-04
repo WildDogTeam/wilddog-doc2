@@ -280,7 +280,7 @@ api:
       WDGAuthCredential: /api/auth/ios/WDGAuthCredential.html
       WDGAuthErrors: /api/auth/ios/WDGAuthErrors.html
       WDGWilddogAuthProvider: /api/auth/ios/WDGWilddogAuthProvider.html
-      WDGEmailPasswordAuthProvider: /api/auth/ios/WDGEmailPasswordAuthProvider.html
+      #WDGEmailPasswordAuthProvider: /api/auth/ios/WDGEmailPasswordAuthProvider.html
       WDGQQAuthProvider: /api/auth/ios/WDGQQAuthProvider.html
       WDGWeiXinAuthProvider: /api/auth/ios/WDGWeiXinAuthProvider.html
       WDGWeiboAuthProvider: /api/auth/ios/WDGWeiboAuthProvider.html
