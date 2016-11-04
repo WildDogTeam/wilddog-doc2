@@ -246,7 +246,7 @@ if let user = user {
 ```objectivec
 WDGUser *user = [WDGAuth auth].currentUser;
 
-[user updatePhone:@"15555555555" completion:^(NSError *_Nullable error) {
+[user updatePhone:@"13888888888" completion:^(NSError *_Nullable error) {
   if (error) {
     // 发生错误
   } else {
@@ -259,7 +259,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 ```swift
 let user = WDGAuth.auth()?.currentUser
 
-user?.updatePhone("15555555555") { error in
+user?.updatePhone("13888888888") { error in
     if let error = error {
         // 发生错误
     } else {
