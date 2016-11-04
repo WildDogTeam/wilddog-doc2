@@ -54,6 +54,8 @@ emailCredential(email, password)
 
 ------
 
+## 方法
+
 ### phoneCredential
 
 **定义**
