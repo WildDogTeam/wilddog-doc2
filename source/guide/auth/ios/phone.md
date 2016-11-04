@@ -164,7 +164,7 @@ WDGAuth.auth()?.signInWithPhone("18888888888", password: "password123") { (user,
 </div>
 <div class="slide-content">
 ```swift
-user?.sendPhoneVerificationWithCompletion { (error) in
+user?.sendPhoneVerificationWithCompletion { error in
   // ...
 }
 ```
@@ -188,7 +188,7 @@ user?.sendPhoneVerificationWithCompletion { (error) in
 </div>
 <div class="slide-content">
 ```swift
-user?.verifyPhoneWithSmsCode(realSms){ (error) in
+user?.verifyPhoneWithSmsCode(realSms){ error in
   // ...
 }
 ```
