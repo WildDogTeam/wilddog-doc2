@@ -38,6 +38,22 @@ nullable string
 
 ------
 
+### phone
+
+**定义**
+
+```js
+nullable string
+```
+
+**说明**
+
+帐户手机号
+
+</br>
+
+------
+
 ### emailVerified
 
 **定义**
@@ -49,6 +65,22 @@ boolean
 **说明**
 
 帐户的主邮箱是否被验证过
+
+</br>
+
+------
+
+### phoneVerified
+
+**定义**
+
+```js
+boolean
+```
+
+**说明**
+
+帐户的手机号是否被验证过
 
 </br>
 
@@ -415,6 +447,40 @@ updateEmail(email)
 </br>
 
 ----
+### updatePhone
+
+**定义**
+
+```js
+updatePhone(phone)
+```
+
+ **说明**
+
+修改当前用户的手机号，修改成功之后会触发 [onAuthStateChanged](/api/auth/web/Auth.html#onAuthStateChanged)
+
+**参数**
+
+| 参数名   | 描述     |
+| ----- | ------ |
+| phone | 新邮箱地址。 |
+
+**返回值**
+
+[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
+
+
+**参考**
+
+可能发生的错误：
+
+- phone_already_in_use            表示该手机号已被另一个帐户使用。
+- invalid_phone                   表示该手机号地址格式不正确。
+- credential_too_old_login_again  更新用户手机号是一项安全相关操作，需要该用户的最近一次登录。此错误表示该用户近期长时间没有登录过。要解决此错误,调用 reauthenticate(credential),来对该用户重新进行身份认证。
+
+</br>
+
+----
 
 ### updatePassword
 
@@ -490,7 +556,7 @@ wilddog.auth().currentUser
 
 ### sendEmailVerification
 
-为当前用户发送邮箱确认邮件
+为当前用户的邮箱发送确认邮件。
 
 **定义**
 
@@ -500,4 +566,43 @@ sendEmailVerification()
 
  [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
 
+</br>
 
+----
+
+### sendPhoneVerification
+
+为当前用户的手机号发送短信获取验证码。
+
+**定义**
+
+sendPhoneVerification()
+
+**返回**
+
+ [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+
+
+</br>
+
+----
+
+### verifiyPhone
+
+根据验证码确认手机号。
+
+**定义**
+
+verifiyPhone(code)
+
+**参数**
+
+| 参数名      | 描述       |
+| -------- | -------- |
+| code    | 用户的手机上收到的验证码。 |
+
+**参考**
+
+**返回**
+
+ [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
