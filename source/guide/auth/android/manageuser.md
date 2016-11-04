@@ -6,7 +6,7 @@ title: 用户管理
 
 ## 创建用户
 
-创建用户包含以下三种方法：
+创建用户包含以下四种方法：
 
 - 通过 [手机号密码](/guide/auth/android/phone.html) 创建
 - 通过 [邮箱密码](/guide/auth/android/password.html) 创建
