@@ -149,7 +149,7 @@ WDGAuth.auth()?.signInWithPhone("18888888888", password: "password123") { (user,
 </blockquote>
 
 ## 验证用户手机号
-1、发送验证用户的手机验证码：
+1.发送验证用户的手机验证码：
 <div class="slide">
 <div class='slide-title'>
   <span class="slide-tab tab-current">Objective-C</span>
@@ -171,7 +171,7 @@ user?.sendPhoneVerificationWithCompletion { (error) in
 </div>
 </div>
 
-2、确认验证用户手机验证码：
+2.确认验证用户手机验证码：
 
 <div class="slide">
 <div class='slide-title'>
