@@ -30,7 +30,7 @@ wilddog.initializeApp(config, "DEFAULT");
 3.使用 `createUserWithPhoneAndPassword(phone,password) ` 方法创建新用户：
 
 ```javascript
-wilddog.auth().createUserWithPhoneAndPassword("13012341234", "password123").then(function(user){
+wilddog.auth().createUserWithPhoneAndPassword("18888888888", "password123").then(function(user){
 	 // 获取用户
 	 console.log(user);
 }).catch(function (error) {
@@ -63,7 +63,7 @@ wilddog.auth().createUserWithPhoneAndPassword("13012341234", "password123").then
 3.将该用户的手机号和密码传递到 `signInWithPhoneAndPassword(phone,password)`，即可在你应用中登录此用户：
 
 ```javascript
-wilddog.auth().signInWithPhoneAndPassword("13012341234", "password123").then(function(res){
+wilddog.auth().signInWithPhoneAndPassword("18888888888", "password123").then(function(res){
      console.log(res);
  }).catch(function (error) {
      // 错误处理
