@@ -88,8 +88,8 @@ guide:
     基础概念: /guide/auth/core/concept.html
     Web:
       管理用户: /guide/auth/web/manageuser.html
-      邮箱认证: /guide/auth/web/password.html
       手机认证: /guide/auth/web/phone.html
+      邮箱认证: /guide/auth/web/password.html
       QQ 认证: /guide/auth/web/qq.html
       微信认证: /guide/auth/web/weixin.html
       微信公众号认证: /guide/auth/web/weixinpublic.html

@@ -6,10 +6,10 @@ title: 用户管理
 
 ## 创建用户
 
-创建用户包含以下三种方法:
+创建用户包含以下四种方法:
 
-- 通过 [邮箱密码](/guide/auth/web/password.html) 创建
 - 通过 [手机号密码](/guide/auth/web/phone.html) 创建
+- 通过 [邮箱密码](/guide/auth/web/password.html) 创建
 - 通过第三方身份认证提供商授权创建
 - 在 控制面板—身份认证—用户 中手动创建
 
