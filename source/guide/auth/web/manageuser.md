@@ -9,6 +9,7 @@ title: 用户管理
 创建用户包含以下三种方法:
 
 - 通过 [邮箱密码](/guide/auth/web/password.html) 创建
+- 通过 [手机号密码](/guide/auth/web/phone.html) 创建
 - 通过第三方身份认证提供商授权创建
 - 在 控制面板—身份认证—用户 中手动创建
 
@@ -65,6 +66,7 @@ var user = wilddog.auth().currentUser;
 if (user != null) {
     var name = user.displayName;
     var email = user.email;
+    var phone = user.phone
     var photoUrl = user.photoURL;
     var uid = user.uid; 
 } else {
@@ -84,6 +86,7 @@ user.providerData.forEach(function (profile) {
     console.log(" Provider-specific UID: " + profile.uid);
     console.log(" Name: " + profile.displayName);
     console.log(" Email: " + profile.email);
+    console.log(" Phone: " + profile.phone);
     console.log(" Photo URL: " + profile.photoURL);
 });
 ```
@@ -135,6 +138,28 @@ wilddog.auth().currentUser.updateEmail("12345678@wilddog.com").then(function() {
 </blockquote>
 
 
+### 更新手机号
+
+ `updatePhone()` 方法用于更新用户手机号。
+
+```js
+wilddog.auth().currentUser.updatePhone("18888888888").then(function() {
+     // 更新成功
+}).catch(function(error) {
+     // 发生错误
+     console.log(error);
+});
+```
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要更新用户的手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/web/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新手机号。</li>
+  </ul>
+</blockquote>
+
+
 ### 更新用户密码
 
 `updatePassword()` 方法用于更新用户密码。
@@ -159,10 +184,29 @@ wilddog.auth().currentUser.updatePassword("password123").then(function() {
 
 ### 发送重设密码邮件
 
-`sendPasswordResetWithEmail()` 方法用于向用户发送重设密码邮件。
+`sendPasswordResetEmail()` 方法用于向用户发送重设密码邮件。
 
 ```javascript
 wilddog.auth().sendPasswordResetEmail("12345678@wilddog.com").then(function() {
+    // 发送成功
+}).catch(function(error) {
+    // 发生错误
+    console.log(error);
+});
+```
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  在控制面板 身份认证—登录方式—邮箱登录 中可以设置邮件自定义模板。
+</blockquote>
+
+
+### 发送重设密码短信
+
+`sendPasswordResetSms()` 方法用于向用户发送重设密码邮件。
+
+```javascript
+wilddog.auth().sendPasswordResetSms("12345678@wilddog.com").then(function() {
     // 发送成功
 }).catch(function(error) {
     // 发生错误

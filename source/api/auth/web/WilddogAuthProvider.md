@@ -31,12 +31,12 @@ string
 
 ## 方法
 
-### credential
+### emailCredential
 
 **定义**
 
 ```js
-credential(email, password)
+emailCredential(email, password)
 ```
 
 **参数**
@@ -44,6 +44,31 @@ credential(email, password)
 | 参数名      | 说明             |
 | -------- | -------------- |
 | email    | string 类型，邮箱地址 |
+| password | string 类型，密码信息 |
+
+**返回值**
+
+[wilddog.auth.Credential](/api/auth/web/Credential.html)
+
+</br>
+
+------
+
+## 方法
+
+### phoneCredential
+
+**定义**
+
+```js
+phoneCredential(phone, password)
+```
+
+**参数**
+
+| 参数名      | 说明             |
+| -------- | -------------- |
+| phone    | string 类型，手机号 |
 | password | string 类型，密码信息 |
 
 **返回值**

@@ -244,7 +244,7 @@ api:
       User: /api/auth/web/User.html
       UserInfo: /api/auth/web/UserInfo.html
       Provider: /api/auth/web/Provider.html
-      EmailAuthProvider: /api/auth/web/EmailAuthProvider.html
+      WilddogAuthProvider: /api/auth/web/WilddogAuthProvider.html
       WeiboAuthProvider: /api/auth/web/WeiboAuthProvider.html
       QQAuthProvider: /api/auth/web/QQAuthProvider.html
       WeixinAuthProvider: /api/auth/web/WeixinAuthProvider.html
