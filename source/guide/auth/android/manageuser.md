@@ -128,6 +128,79 @@ user.updateProfile(profileUpdates)
   使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户属性。
 </blockquote>
 
+### 更新用户手机号
+
+`updatePhone()` 方法用于更新用户手机号。
+
+```java
+WilddogUser user = auth.getCurrentUser();
+String phone = "12345678901";
+
+user.updatePhone(phone)
+    .addOnCompleteListener(new OnCompleteListener<Void>() {
+        @Override
+        public void onComplete(Task<Void> task) {
+            if (task.isSuccessful()) {
+                // 更新成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
+            }
+        }
+    });
+```
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要更新手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户手机号。</li>
+  </ul>
+</blockquote>
+
+
+### 重置用户认证密码
+
+1.发送重置密码的手机验证码：
+
+```java
+String phone = "18888888888";
+
+auth.sendPasswordResetSms(phone)
+    .addOnCompleteListener(new OnCompleteListener<Void>() {
+        @Override
+        public void onComplete(Task<Void> task) {
+             if (task.isSuccessful()) {
+                // 发送成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
+            }
+        }
+    });
+```
+2.确认重置密码手机验证码：
+
+```java
+String phone = "18888888888";
+String code = "090909";
+String newPass = "newPassword1234";
+
+auth.confirmPasswordResetSms(phone，code，newPass)
+    .addOnCompleteListener(new OnCompleteListener<Void>() {
+        @Override
+        public void onComplete(Task<Void> task) {
+             if (task.isSuccessful()) {
+                // 重置成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
+            }
+        }
+    });
+```
+
+
 ### 更新邮箱地址
 
  `updateEmail()` 方法用于更新用户邮箱地址。
@@ -187,35 +260,6 @@ user.updatePassword(newPassword)
   </ul>
 </blockquote>
 
-### 更新用户手机号
-
-`updatePhone()` 方法用于更新用户手机号。
-
-```java
-WilddogUser user = auth.getCurrentUser();
-String phone = "12345678901";
-
-user.updatePhone(phone)
-    .addOnCompleteListener(new OnCompleteListener<Void>() {
-        @Override
-        public void onComplete(Task<Void> task) {
-            if (task.isSuccessful()) {
-                // 更新成功
-            }else{
-               // 发生错误
-        Log.d("result",task.getException().toString()) ;
-            }
-        }
-    });
-```
-
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  <ul>
-    <li>要更新手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
-    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户手机号。</li>
-  </ul>
-</blockquote>
 
 
 ### 发送重设密码邮件
@@ -244,55 +288,7 @@ auth.sendPasswordResetEmail(emailAddress)
   在控制面板 身份认证—登录方式—邮箱登录 中可以设置邮件自定义模板。
 </blockquote>
 
-### 发送重设密码手机验证码
 
-`sendPasswordResetSms()` 方法用于向用户发送重设密码邮件。
-
-```java
-String phone = "12345678901";
-
-auth.sendPasswordResetSms(phone)
-    .addOnCompleteListener(new OnCompleteListener<Void>() {
-        @Override
-        public void onComplete(Task<Void> task) {
-             if (task.isSuccessful()) {
-                // 发送成功
-            }else{
-               // 发生错误
-        Log.d("result",task.getException().toString()) ;
-            }
-        }
-    });
-```
-
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  在控制面板 身份认证—登录方式—手机号登录 中可以设置手机验证码自定义模板。
-</blockquote>
-
-
-### 重置手机登录方式验证码
-
-`confirmPasswordResetSms()` 方法用于重置手机登录方式密码。
-
-```java
-String phone = "12345678901";
-String code = "054548";
-String newPass = "newPassword";
-
-auth.confirmPasswordResetSms(phone，code，newPass)
-    .addOnCompleteListener(new OnCompleteListener<Void>() {
-        @Override
-        public void onComplete(Task<Void> task) {
-             if (task.isSuccessful()) {
-                // 重置成功
-            }else{
-               // 发生错误
-        Log.d("result",task.getException().toString()) ;
-            }
-        }
-    });
-```
 
 ## 删除用户
 

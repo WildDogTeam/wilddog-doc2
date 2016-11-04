@@ -29,6 +29,8 @@ mAuth = WilddogAuth.getInstance();
 3.使用 `createUserWithPhoneAndPassword(phone,password) ` 方法创建新用户：
 
 ```java
+  String phone = "18888888888";
+  String password = "password123";
   mAuth.createUserWithPhoneAndPassword(phone, password)
         .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
@@ -71,14 +73,16 @@ mAuth = WilddogAuth.getInstance();
 3.将该用户的电子邮件地址和密码传递到 `signInWithPhoneAndPassword(phone,password)`，即可在你应用中登录此用户：
 
 ```java
-  mAuth.signInWithPhoneAndPassword(phone, password)
-        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete( Task<AuthResult> task) {
-                Log.d(TAG, "signInWithPhone:onComplete:" + task.isSuccessful());
-                if (!task.isSuccessful()) {
-                    Log.w(TAG, "signInWithPhone", task.getException());
-                    Toast.makeText(PhonePasswordActivity.this, "Authentication failed.",
+String phone = "18888888888";
+String password = "password123";
+mAuth.signInWithPhoneAndPassword(phone, password)
+     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+         @Override
+         public void onComplete( Task<AuthResult> task) {
+             Log.d(TAG, "signInWithPhone:onComplete:" + task.isSuccessful());
+             if (!task.isSuccessful()) {
+               Log.e(TAG, "signInWithPhone", task.getException());
+                 Toast.makeText(PhonePasswordActivity.this, "Authentication failed.",
                             Toast.LENGTH_SHORT).show();
                 }
 
@@ -92,6 +96,46 @@ mAuth = WilddogAuth.getInstance();
   如果用户成功登录，你可以在回调方法中获取登录用户。
 </blockquote>
 
+## 验证用户手机号
+1.发送验证用户的手机验证码：
+
+```java
+WilddogUser user = mAuth.getCurrentUser();
+user.sendPhoneVerification()
+    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                                  @Override
+                                  public void onComplete( Task<AuthResult> task) {
+                                          Log.d(TAG, "sendPhoneVerification:onComplete:" + task.isSuccessful());
+                                          if (!task.isSuccessful()) {
+                                              Log.e(TAG, "sendPhoneVerification", task.getException());
+                                              Toast.makeText(PhonePasswordActivity.this, "Authentication failed.",
+                                                    Toast.LENGTH_SHORT).show();
+                                               }
+
+                                           }
+                                       });
+
+
+```
+
+2.确认验证用户手机验证码：
+
+```java
+String code = "090909";
+mAuth.verifiyPhone(code)
+     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+       @Override
+       public void onComplete( Task<AuthResult> task) {
+                Log.d(TAG, "verifiyPhone:onComplete:" + task.isSuccessful());
+                if (!task.isSuccessful()) {
+                    Log.e(TAG, "verifiyPhone", task.getException());
+                    Toast.makeText(PhonePasswordActivity.this, "Authentication failed.",
+                            Toast.LENGTH_SHORT).show();
+                }
+
+            }
+        });
+```
 
 ## 退出登录
 
