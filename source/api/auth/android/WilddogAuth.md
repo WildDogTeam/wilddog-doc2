@@ -6,7 +6,9 @@ WilddogAuth SDK 入口对象。进行登录认证操作。
 接着，可以使用一下方法进行用户登录认证：
     
 *      createUserWithEmailAndPassword(email, password)
+*      createUserWithPhoneAndPassword(phone, password)
 *      signInWithEmailAndPassword(email, password)
+*      signInWithPhoneAndPassword(phone, password)
 *      signInWithCredential(authCredential)
 *      signInAnonymously()
 *      signInWithCustomToken(token)
@@ -49,6 +51,35 @@ listener | 监听用户状态的AuthStateListener 实例。
 
 ---
 
+### confirmPasswordResetSms (phone，code，newPass)
+
+**定义**
+
+```java
+  public Task<Void> confirmPasswordResetSms(String phone, String code,String newPass) 
+```
+
+**说明**
+
+通过手机号码，验证码来修改密码。之后可以使用新密码进行手机号认证方式登录。
+  
+
+**参数**
+
+参数名 | 描述
+--- | ---
+phone | 要重置密码的手机号。
+code | 要重置密码的手机号发送的验证码。
+newPass | 要重置的新密码。
+
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
+</br>
+
+---  
+
 ### createUserWithEmailAndPassword (email，password)
 
 **定义**
@@ -78,6 +109,37 @@ password | 要创建用户的密码。
 </br>
 
 ---  
+
+### createUserWithPhoneAndPassword (phone，password)
+
+**定义**
+
+```java
+  public  Task<AuthResult> createUserWithPhoneAndPassword(String phone,String password) 
+```
+
+**说明**
+
+用给定的手机号和密码创建一个用户账号，如果成功，这个用户也将登录成功。
+  
+然后可以通过`getCurrentUser()`访问用户信息和进行用户操作.
+  
+一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法
+
+**参数**
+
+参数名 | 描述
+--- | ---
+phone | 要创建用户的手机号码。
+password | 要创建用户的密码。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
+</br>
+
+---  
+
 ### fetchProvidersForEmail (email)
 
 **定义**
@@ -216,6 +278,30 @@ email | 要重置密码的邮箱地址。
 </br>
 
 --- 
+### sendPasswordResetSms(phone)
+
+**定义**
+
+```java
+public Task<Void> sendPasswordResetSms (String phone)
+```
+
+**说明**
+
+给当前手机号发送重置密码的验证码.
+
+**参数**
+
+参数名 | 描述
+--- | ---
+phone | 要重置密码的手机号码。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
+</br>
+
+--- 
 ### signInAnonymously ()
 
 **定义**
@@ -317,6 +403,37 @@ public Task<AuthResult> signInWithEmailAndPassword (String email, String passwor
 参数名 | 描述
 --- | ---
 email | 用户用来登录的邮箱地址。
+password | 用户用来登录的密码。
+
+**返回值**
+
+`Task`包含操作结果的任务对象。
+</br>
+
+---
+### signInWithPhoneAndPassword (phone，password)
+
+**定义**
+
+```java
+public  Task<AuthResult> signInWithPhoneAndPassword(String phone,String password)
+```
+
+**说明**
+
+通过手机号码和密码进行登录认证。
+
+可以通过getCurrentUser获取当前登录认证用户信息。
+
+一旦登录成功，就会回调所有的注册的`WilddogAuth.AuthStateListener`的`onAuthStateChanged(WilddogAuth)`方法.
+
+这个方法和`signInWithCredential（）`的`PhoneAuthCredential`登录认证方式是等效的。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+phone | 用户用来登录的手机号码。
 password | 用户用来登录的密码。
 
 **返回值**

@@ -128,13 +128,84 @@ user.updateProfile(profileUpdates)
   使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户属性。
 </blockquote>
 
+### 更新用户手机号
+
+`updatePhone()` 方法用于更新用户手机号。
+
+```java
+WilddogUser user = auth.getCurrentUser();
+String phone = "12345678901";
+
+user.updatePhone(phone)
+    .addOnCompleteListener(new OnCompleteListener<Void>() {
+        @Override
+        public void onComplete(Task<Void> task) {
+            if (task.isSuccessful()) {
+                // 更新成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
+            }
+        }
+    });
+```
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>要更新手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户手机号。</li>
+  </ul>
+</blockquote>
+
+
+### 重置手机号认证密码
+
+1.发送重置密码的手机验证码：
+
+```java
+String phone = "18888888888";
+
+auth.sendPasswordResetSms(phone)
+    .addOnCompleteListener(new OnCompleteListener<Void>() {
+        @Override
+        public void onComplete(Task<Void> task) {
+             if (task.isSuccessful()) {
+                // 发送成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
+            }
+        }
+    });
+```
+2.确认重置密码手机验证码：
+
+```java
+String phone = "18888888888";
+String code = "090909";
+String newPass = "newpassword123";
+auth.confirmPasswordResetSms(phone，code，newPass)
+    .addOnCompleteListener(new OnCompleteListener<Void>() {
+        @Override
+        public void onComplete(Task<Void> task) {
+             if (task.isSuccessful()) {
+                // 重置成功
+            }else{
+               // 发生错误
+        Log.d("result",task.getException().toString()) ;
+            }
+        }
+    });
+```
+
+
 ### 更新邮箱地址
 
  `updateEmail()` 方法用于更新用户邮箱地址。
 
 ```java
 WilddogUser user = auth.getCurrentUser();
-
 user.updateEmail("12345678@gmail.com")
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
@@ -157,14 +228,13 @@ user.updateEmail("12345678@gmail.com")
   </ul>
 </blockquote>
 
-### 更新用户密码
+### 更新用户邮箱或手机号认证密码
 
-`updatePassword()` 方法用于更新用户密码。
+`updatePassword()` 方法用于更新用户邮箱或手机号认证密码。
 
 ```java
 WilddogUser user = auth.getCurrentUser();
 String newPassword = "12345678";
-
 user.updatePassword(newPassword)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
@@ -188,13 +258,13 @@ user.updatePassword(newPassword)
 </blockquote>
 
 
-### 发送重设密码邮件
+
+### 发送重置密码邮件
 
 `sendPasswordResetEmail()` 方法用于向用户发送重设密码邮件。
 
 ```java
 String emailAddress = "12345678@gmail.com";
-
 auth.sendPasswordResetEmail(emailAddress)
     .addOnCompleteListener(new OnCompleteListener<Void>() {
         @Override
@@ -213,6 +283,7 @@ auth.sendPasswordResetEmail(emailAddress)
   <p><strong>注意：</strong></p>
   在控制面板 身份认证—登录方式—邮箱登录 中可以设置邮件自定义模板。
 </blockquote>
+
 
 
 ## 删除用户

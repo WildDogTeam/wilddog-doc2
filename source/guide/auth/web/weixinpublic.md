@@ -26,7 +26,7 @@ title: 微信公众号认证
 
 ```
 
-3.Wilddog Auth 提供两种方式进行 QQ 认证，你可以任选其一：
+3.Wilddog Auth 提供两种方式进行 微信 认证，你可以任选其一：
 
 - popup
 

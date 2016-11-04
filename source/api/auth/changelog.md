@@ -63,13 +63,13 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 **描述**
 
-Auth 新增手机号登录、手机号发送验证码等功能
+Auth 新增手机号登录、手机号发送验证码等功能。
 
 **新增**
 
 - 新增 WDGWilddogAuthProvider 类，包含邮箱和手机号登录的凭证。
-- 新增手机号登录、手机号重置密码、手机号验证用户
-- 新增手机号发送相关验证码方法
+- 新增手机号登录、手机号重置密码、手机号验证用户。
+- 新增手机号发送相关验证码方法。
 
 **改进**
 
@@ -77,7 +77,7 @@ Auth 新增手机号登录、手机号发送验证码等功能
 
 **废弃**
 
-废弃 WDGEmailPasswordAuthProvider 类，用 WDGWilddogAuthProvider 类代替
+- 废弃 WDGEmailPasswordAuthProvider 类，用 WDGWilddogAuthProvider 类代替。
 
 ### V2.0.1 - 2016.09.10
 
@@ -87,12 +87,12 @@ Auth 新增手机号登录、手机号发送验证码等功能
 
 **新增**
 
-新增 +auth 方法。
+- 新增 +auth 方法。
 
 **改进**
 
 - 统一 Auth 模块初始化接口。
-- 改进 -authWithApp: 方法，参数改为 WDGApp 类
+- 改进 -authWithApp: 方法，参数改为 WDGApp 类。
 
 ### V2.0.0 - 2016.09.01
 
@@ -108,13 +108,52 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 - 新增 WDGUserProfileChangeRequest 类用于修改用户信息。
 
 
-- ​
-
 </br>
 
 ---
 
 ## Android SDK
+
+### V2.0.2 - 2016.11.04
+
+**描述**
+
+- Auth 新增手机号登录、手机号发送验证码等功能
+
+**新增**
+
+- 新增 WilddogAuthProvider 类，包含邮箱和手机号登录的凭证。
+- 新增手机号登录、手机号重置密码、手机号验证用户
+- 新增手机号发送相关验证码方法
+
+**改进**
+
+- 统一 Auth 手机号和邮箱登录方式的凭证。
+
+**废弃**
+
+- 废弃 EmailAuthProvider 类，用 WilddogAuthProvider 类代替
+
+
+### V2.0.1 - 2016.09.20
+
+**描述**
+
+该版本优化初始化过程。只需要初始化一次WilddogApp对象就可以使用WilddogAuth中使用。
+
+**新增**
+
+- 新增WilddogOptions，WilddogApp等类用于初始化。
+
+**改进**
+
+- 改进WilddogAuth初始化过程。将部分WilddogAuth初始化方法移除。
+
+
+**修复**
+
+- WildUser获取token空指针问题。
+
 
 ### V2.0.0 - 2016.09.01
 

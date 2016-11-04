@@ -100,6 +100,7 @@ guide:
     Android:
       管理用户: /guide/auth/android/manageuser.html
       邮箱认证: /guide/auth/android/password.html
+      手机号认证: /guide/auth/android/phone.html
       QQ 认证: /guide/auth/android/qq.html
       微信认证: /guide/auth/android/weixin.html
       微博认证: /guide/auth/android/weibo.html
@@ -138,7 +139,14 @@ api:
      # API 文档: /api/sync/android/api.html
       #错误码: /api/sync/android/error-code.html
     Android:
+       WilddogOptions: /api/sync/android/WilddogOptions.html
+       WilddogOptions.Builder: /api/sync/android/WilddogOptions.Builder.html
+       WilddogApp: /api/sync/android/WilddogApp.html
+       WilddogSync: /api/sync/android/WilddogSync.html
+       SyncReference: /api/sync/android/SyncReference.html
+       SyncReference.CompletionListener: /api/sync/android/SyncReference.CompletionListener.html
        ChildEventListener: /api/sync/android/ChildEventListener.html
+       ValueEventListener: /api/sync/android/ValueEventListener.html
        Config: /api/sync/android/Config.html
        DataSnapshot: /api/sync/android/DataSnapshot.html
        MutableData: /api/sync/android/MutableData.html
@@ -146,13 +154,6 @@ api:
        Query: /api/sync/android/Query.html
        ServerValue: /api/sync/android/ServerValue.html
        SyncError: /api/sync/android/SyncError.html
-       SyncReference.CompletionListener: /api/sync/android/SyncReference.CompletionListener.html
-       SyncReference: /api/sync/android/SyncReference.html
-       ValueEventListener: /api/sync/android/ValueEventListener.html
-       WilddogApp: /api/sync/android/WilddogApp.html
-       WilddogOptions.Builder: /api/sync/android/WilddogOptions.Builder.html
-       WilddogOptions: /api/sync/android/WilddogOptions.html
-       WilddogSync: /api/sync/android/WilddogSync.html
        错误码: /api/sync/android/error-code.html
     iOS: 
       WDGSync: /api/sync/ios/WDGSync.html
@@ -253,25 +254,26 @@ api:
       Error: /api/auth/web/error-code.html
     #Android: /api/auth/android/api.html
     Android:
+      WilddogAuth: /api/auth/android/WilddogAuth.html
+      WilddogAuth.AuthStateListener: /api/auth/android/WilddogAuth.AuthStateListener.html
+      UserInfo: /api/auth/android/UserInfo.html
+      WilddogUser: /api/auth/android/WilddogUser.html
       AuthCredential: /api/auth/android/AuthCredential.html
       AuthResult: /api/auth/android/AuthResult.html
       EmailAuthCredential: /api/auth/android/EmailAuthCredential.html
-      EmailAuthProvider: /api/auth/android/EmailAuthProvider.html
-      GetTokenResult: /api/auth/android/GetTokenResult.html
-      ProviderQueryResult: /api/auth/android/ProviderQueryResult.html
+      PhoneAuthCredential: /api/auth/android/PhoneAuthCredential.html
+      #EmailAuthProvider: /api/auth/android/EmailAuthProvider.html
       QQAuthCredential: /api/auth/android/QQAuthCredential.html
       QQAuthProvider: /api/auth/android/QQAuthProvider.html
-      UserInfo: /api/auth/android/UserInfo.html
-      UserProfileChangeRequest.Builder: /api/auth/android/UserProfileChangeRequest.Builder.html
-      UserProfileChangeRequest: /api/auth/android/UserProfileChangeRequest.html
       WeiboAuthCredential: /api/auth/android/WeiboAuthCredential.html
       WeiboAuthProvider: /api/auth/android/WeiboAuthProvider.html
       WeiXinAuthCredential: /api/auth/android/WeiXinAuthCredential.html
       WeiXinAuthProvider: /api/auth/android/WeiXinAuthProvider.html
-      WilddogAuth.AuthStateListener: /api/auth/android/WilddogAuth.AuthStateListener.html
-      WilddogAuth: /api/auth/android/WilddogAuth.html
       WilddogAuthProvider: /api/auth/android/WilddogAuthProvider.html
-      WilddogUser: /api/auth/android/WilddogUser.html
+      GetTokenResult: /api/auth/android/GetTokenResult.html
+      ProviderQueryResult: /api/auth/android/ProviderQueryResult.html
+      UserProfileChangeRequest.Builder: /api/auth/android/UserProfileChangeRequest.Builder.html
+      UserProfileChangeRequest: /api/auth/android/UserProfileChangeRequest.html
     #iOS:
       #API 文档: /api/auth/ios/api.html
       #错误码: /api/auth/ios/error-code.html
@@ -280,7 +282,7 @@ api:
       WDGAuthCredential: /api/auth/ios/WDGAuthCredential.html
       WDGAuthErrors: /api/auth/ios/WDGAuthErrors.html
       WDGWilddogAuthProvider: /api/auth/ios/WDGWilddogAuthProvider.html
-      WDGEmailPasswordAuthProvider: /api/auth/ios/WDGEmailPasswordAuthProvider.html
+      #WDGEmailPasswordAuthProvider: /api/auth/ios/WDGEmailPasswordAuthProvider.html
       WDGQQAuthProvider: /api/auth/ios/WDGQQAuthProvider.html
       WDGWeiXinAuthProvider: /api/auth/ios/WDGWeiXinAuthProvider.html
       WDGWeiboAuthProvider: /api/auth/ios/WDGWeiboAuthProvider.html
