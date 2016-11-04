@@ -296,7 +296,7 @@ WDGAuth.auth()?.sendPasswordResetSmsWithPhone("18888888888") { (error) in
 </div>
 </div>
 
-2.确认重置密码手机验证码：
+2.确认重置密码的手机验证码：
 
 <div class="slide">
 <div class='slide-title'>
