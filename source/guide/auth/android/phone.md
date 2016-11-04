@@ -102,18 +102,18 @@ mAuth.signInWithPhoneAndPassword(phone, password)
 ```java
 WilddogUser user = mAuth.getCurrentUser();
 user.sendPhoneVerification()
-    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                                  @Override
-                                  public void onComplete( Task<AuthResult> task) {
-                                          Log.d(TAG, "sendPhoneVerification:onComplete:" + task.isSuccessful());
-                                          if (!task.isSuccessful()) {
-                                              Log.e(TAG, "sendPhoneVerification", task.getException());
-                                              Toast.makeText(PhonePasswordActivity.this, "Authentication failed.",
-                                                    Toast.LENGTH_SHORT).show();
-                                               }
+     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+             @Override
+             public void onComplete( Task<AuthResult> task) {
+                 Log.d(TAG, "sendPhoneVerification:onComplete:" + task.isSuccessful());
+                 if (!task.isSuccessful()) {
+                   Log.e(TAG, "sendPhoneVerification", task.getException());
+                     Toast.makeText(PhonePasswordActivity.this, "Authentication failed.",
+                                Toast.LENGTH_SHORT).show();
+                    }
 
-                                           }
-                                       });
+                }
+            });
 
 
 ```
@@ -124,17 +124,17 @@ user.sendPhoneVerification()
 String code = "090909";
 mAuth.verifiyPhone(code)
      .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-       @Override
-       public void onComplete( Task<AuthResult> task) {
-                Log.d(TAG, "verifiyPhone:onComplete:" + task.isSuccessful());
-                if (!task.isSuccessful()) {
-                    Log.e(TAG, "verifiyPhone", task.getException());
-                    Toast.makeText(PhonePasswordActivity.this, "Authentication failed.",
-                            Toast.LENGTH_SHORT).show();
-                }
+                  @Override
+                  public void onComplete( Task<AuthResult> task) {
+                      Log.d(TAG, "verifiyPhone:onComplete:" + task.isSuccessful());
+                      if (!task.isSuccessful()) {
+                        Log.e(TAG, "verifiyPhone", task.getException());
+                          Toast.makeText(PhonePasswordActivity.this, "Authentication failed.",
+                                     Toast.LENGTH_SHORT).show();
+                         }
 
-            }
-        });
+                     }
+                 });
 ```
 
 ## 退出登录
