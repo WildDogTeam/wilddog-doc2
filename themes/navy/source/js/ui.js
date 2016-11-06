@@ -221,7 +221,7 @@ window.onload = function () {
         ele.setAttribute('href', snap.val().WilddogAuthiOS.cdn);
       });
       iosDownLoadCore.forEach(function (ele) {
-        ele.setAttribute('href', 'https://cdn.wilddog.com/sdk/ios/' + iosAuthVersion + '/WilddogCore.framework-' + iosAuthVersion + '.zip');
+        ele.setAttribute('href', snap.val().WilddogCoreiOS.cdn);
       });
       videoAndroidDownloadSrc.forEach(function (ele) {
         ele.setAttribute('href', videoAndroidDownload);
