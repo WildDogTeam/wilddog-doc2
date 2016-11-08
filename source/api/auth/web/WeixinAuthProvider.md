@@ -2,7 +2,7 @@
 title: WeixinAuthProvider
 ---
 
-WeixinAuthProvider 是新浪微博登录方式中provider类
+WeixinAuthProvider 是微信登录方式中 provider 类
 
 ## 构造器
 ### new WeixinAuthProvider()
