@@ -579,11 +579,11 @@ Boolean
 
 ------
 
-### beginsWith()
+### startsWith()
 
 定义
 
-Boolean beginsWith(String substring)
+Boolean startsWith(String substring)
 
 说明
 
@@ -599,6 +599,18 @@ Boolean
 
 示例
 
+```
+{
+  "rules": {
+    "$conversation":{
+      "$users": {
+        ".read": "$users.startsWith('zhangsan')",
+        ".write": "$users.startsWith('zhangsan')"
+      }
+    }
+  }
+}
+```
 ------
 
 ### endsWith()
@@ -621,6 +633,18 @@ Boolean
 
 示例
 
+```
+{
+  "rules": {
+    "$conversation":{
+      "$users": {
+        ".read": "$users.endsWith('zhangsan')",
+        ".write": "$users.endsWith('zhangsan')"
+      }
+    }
+  }
+}
+```
 ------
 
 ### replace()
