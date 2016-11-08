@@ -1,5 +1,5 @@
 
-title:  微信认证
+title:  微信登录
 ---
 
 本篇文档介绍在 Wilddog Auth 中如何使用微信对用户进行身份认证。
@@ -11,7 +11,7 @@ title:  微信认证
 3. 在 微信开放平台—网站应用—网站信息 中填写回调域名 `auth.wilddog.com`。
 4. 在 控制面板 身份认证—登录方式 中打开微信登录方式，配置微信帐号 **AppID** 和 **AppSecret**。
 
-## 实现微信认证
+## 实现微信登录
 
 1.安装 Wilddog Auth SDK：
  <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>

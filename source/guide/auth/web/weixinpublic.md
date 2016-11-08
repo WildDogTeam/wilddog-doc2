@@ -1,5 +1,5 @@
 
-title: 微信公众号认证
+title: 微信公众号登录
 ---
 
 本篇文档介绍在 Wilddog Auth 中如何使用微信公众号对用户进行身份认证。
@@ -11,7 +11,7 @@ title: 微信公众号认证
 3. 在 微信公众平台 网页服务—网页帐号—网页授权 中填入回调地址 `auth.wilddog.com`。
 4. 在控制面板 身份认证—登录方式 中打开微信公众平台登录方式，配置微信公众帐号 **AppID** 和 **AppSecret**。
 
-## 实现微信公众号认证
+## 实现微信公众号登录
 
 1.安装 Wilddog Auth SDK：
  <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>

@@ -1,5 +1,5 @@
 
-title:  微信认证
+title:  微信登录
 ---
 
 本篇文档介绍在 Wilddog Auth 中如何使用微信对用户进行身份认证。
@@ -10,7 +10,7 @@ title:  微信认证
 2. 在 [微信开放平台管理中心](https://open.weixin.qq.com/)，获取应用的 **AppID** 和 **AppSecret**。
 3. 在 控制面板 身份认证—登录方式 中打开微信登录方式，配置微信帐号 **AppID** 和 **AppSecret**。
 
-## 实现微信认证
+## 实现微信登录
 1.安装 Wilddog Auth SDK：
 
 将以下 pod 包含在你的 Podfile 中：

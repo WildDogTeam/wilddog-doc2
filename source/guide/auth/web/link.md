@@ -1,8 +1,8 @@
 
-title:  绑定多种认证方式
+title:  绑定多种登录方式
 ---
 
-本篇文档介绍在 Wilddog Auth 中如何给同一个帐号绑定多种认证方式。
+本篇文档介绍在 Wilddog Auth 中如何给同一个帐号绑定多种登录方式。
 
 
 ## 前期准备
@@ -11,21 +11,21 @@ title:  绑定多种认证方式
 2. 配置需要绑定的登录方式。具体配置方法请参考对应文档。
 
 
-## 实现绑定多种认证方式
+## 实现绑定多种登录方式
 
-### 绑定邮箱认证方式
+### 绑定邮箱登录方式
 
-绑定邮箱认证方式需要以下三个步骤：
+绑定邮箱登录方式需要以下三个步骤：
 
-1.以任意一种认证方式登录一个帐号。
+1.以任意一种登录方式登录一个帐号。
 
-2.获取邮箱认证方式的 credential。
+2.获取邮箱登录方式的 credential。
 
 ```javascript
 var credentialEmail = wilddog.auth.EmailAuthProvider.credential("12345678@wilddog.com", "password123");
 ```
 
-3.使用邮箱认证方式绑定。
+3.使用邮箱登录方式绑定。
 
 ```javascript
 var user = wilddog.auth().currentUser;
@@ -40,29 +40,29 @@ user.link(credentialEmail).then(function (user) {
 
 
 
-### 绑定第三方认证方式
+### 绑定第三方登录方式
 
-绑定第三方认证方式需要以下三个步骤：
+绑定第三方登录方式需要以下三个步骤：
 
-1.以任意一种认证方式登录一个帐号。
+1.以任意一种登录方式登录一个帐号。
 
-2.获取需要绑定认证方式的 provider。
+2.获取需要绑定登录方式的 provider。
 
 ```javascript
-// QQ 认证
+// QQ 登录
 var provider = new wilddog.auth.QQAuthProvider(); 
 
-// 微博认证
+// 微博登录
 var provider = new wilddog.auth.WeiboProvider();
 
-// 微信认证
+// 微信登录
 var provider = new wilddog.auth.WeixinAuthProvider();
 
-// 微信公众帐号认证
+// 微信公众帐号登录
 var provider = new wilddog.auth.WeixinmpAuthProvider();
 ```
 
-3.使用第三方认证方式绑定。
+3.使用第三方登录方式绑定。
 
 例如，使用 linkWithPopup 进行绑定：
 
@@ -76,7 +76,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
 });
 ```
 
-更多认证绑定方式，请参考 [API 文档](/api/auth/web/User.html#link)。
+更多登录绑定方式，请参考 [API 文档](/api/auth/web/User.html#link)。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -84,9 +84,9 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
 </blockquote>
 
 
-## 解除已绑定认证方式
+## 解除已绑定登录方式
 
-`unlink()` 方法用于解除已绑定认证方式。
+`unlink()` 方法用于解除已绑定登录方式。
 
 例如，解除微信绑定：
 

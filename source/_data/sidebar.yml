@@ -88,26 +88,26 @@ guide:
     基础概念: /guide/auth/core/concept.html
     Web:
       管理用户: /guide/auth/web/manageuser.html
-      手机认证: /guide/auth/web/phone.html
-      邮箱认证: /guide/auth/web/password.html
-      QQ 认证: /guide/auth/web/qq.html
-      微信认证: /guide/auth/web/weixin.html
-      微信公众号认证: /guide/auth/web/weixinpublic.html
-      微博认证: /guide/auth/web/weibo.html
+      手机登录: /guide/auth/web/phone.html
+      邮箱登录: /guide/auth/web/password.html
+      QQ 登录: /guide/auth/web/qq.html
+      微信登录: /guide/auth/web/weixin.html
+      微信公众号登录: /guide/auth/web/weixinpublic.html
+      微博登录: /guide/auth/web/weibo.html
       自定义身份认证: /guide/auth/web/custom.html
       匿名身份认证: /guide/auth/web/anonymous.html
-      绑定多种认证方式: /guide/auth/web/link.html
+      绑定多种登录方式: /guide/auth/web/link.html
       
     Android:
       管理用户: /guide/auth/android/manageuser.html
-      邮箱认证: /guide/auth/android/password.html
-      手机号认证: /guide/auth/android/phone.html
-      QQ 认证: /guide/auth/android/qq.html
-      微信认证: /guide/auth/android/weixin.html
-      微博认证: /guide/auth/android/weibo.html
+      邮箱登录: /guide/auth/android/password.html
+      手机号登录: /guide/auth/android/phone.html
+      QQ 登录: /guide/auth/android/qq.html
+      微信登录: /guide/auth/android/weixin.html
+      微博登录: /guide/auth/android/weibo.html
       自定义身份认证: /guide/auth/android/custom.html
       匿名身份认证: /guide/auth/android/anonymous.html
-      绑定多种认证方式: /guide/auth/android/link.html
+      绑定多种登录方式: /guide/auth/android/link.html
     iOS:
       管理用户: /guide/auth/ios/manageuser.html
       手机号登录: /guide/auth/ios/phone.html

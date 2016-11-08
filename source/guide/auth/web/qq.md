@@ -1,5 +1,5 @@
 
-title:  QQ 认证
+title:  QQ 登录
 ---
 
 本篇文档介绍在 Wilddog Auth 中如何使用 QQ 对用户进行身份认证。
@@ -12,7 +12,7 @@ title:  QQ 认证
 3. 在 QQ 互联—我的应用 中，填写应用的回调地址:` https://auth.wilddog.com/v2/{wilddog-appId}/auth/qq/callback`。
 4. 在控制面板 身份认证—登录方式 中打开 QQ 登录方式，配置 QQ 帐号 **APP ID** 和 **APP KEY**。
 
-## 实现 QQ 认证
+## 实现 QQ 登录
 1.安装 Wilddog Auth SDK：
 
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag"><<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="js-version"></span>/wilddog-auth.js&quot;</span>></span><span class="undefined"></span><span class="tag"></<span class="name">script</span>></span></div></pre></td></tr></tbody></table></figure>

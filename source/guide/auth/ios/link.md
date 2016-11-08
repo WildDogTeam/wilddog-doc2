@@ -1,8 +1,8 @@
 
-title:  绑定多种认证方式
+title:  绑定多种登录方式
 ---
 
-本篇文档介绍在 Wilddog Auth 中如何给同一个帐号绑定多种认证方式。
+本篇文档介绍在 Wilddog Auth 中如何给同一个帐号绑定多种登录方式。
 
 
 ## 前期准备
@@ -11,15 +11,15 @@ title:  绑定多种认证方式
 2. 配置需要绑定的登录方式。具体配置方法请参考对应文档。
 
 
-## 实现绑定多种认证方式
+## 实现绑定多种登录方式
 
-### 绑定邮箱认证方式
+### 绑定邮箱登录方式
 
-绑定邮箱认证方式需要以下三个步骤：
+绑定邮箱登录方式需要以下三个步骤：
 
-1.以任意一种认证方式登录一个帐号。
+1.以任意一种登录方式登录一个帐号。
 
-2.获取邮箱认证方式的 credential。
+2.获取邮箱登录方式的 credential。
 
 <div class="slide">
 <div class='slide-title'>
@@ -43,7 +43,7 @@ let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, passwor
 
 
 
-3.使用邮箱认证方式绑定。
+3.使用邮箱登录方式绑定。
 
 <div class="slide">
 <div class='slide-title'>
@@ -72,13 +72,13 @@ WDGAuth.auth()?.currentUser?.linkWithCredential(credential, completion: { (user,
 
 
 
-### 绑定第三方认证方式
+### 绑定第三方登录方式
 
-绑定第三方认证方式需要以下三个步骤：
+绑定第三方登录方式需要以下三个步骤：
 
-1.以任意一种认证方式登录一个帐号。
+1.以任意一种登录方式登录一个帐号。
 
-2.获取需要绑定认证方式的 credential。
+2.获取需要绑定登录方式的 credential。
 
 <div class="slide">
 <div class='slide-title'>
@@ -87,27 +87,27 @@ WDGAuth.auth()?.currentUser?.linkWithCredential(credential, completion: { (user,
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-// QQ 认证
+// QQ 登录
 WDGAuthCredential *credential = [WDGQQAuthProvider credentialWithAccessToken:qqOAuth.accessToken];
 
-// 微博认证
+// 微博登录
 WDGAuthCredential *credential = [WDGSinaAuthProvider credentialWithAccessToken:sinaOAuth.accessToken 
                    userID:sinaOAuth.userID];
 
-// 微信认证
+// 微信登录
 WDGAuthCredential *credential = [WDGWeiXinAuthProvider credentialWithCode:weixinOAuth.code];
 
 ```
 </div>
 <div class="slide-content">
 ```swift
-// QQ 认证
+// QQ 登录
 let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth.accessToken)
 
-// 微博认证
+// 微博登录
 let credential = WDGSinaAuthProvider.credentialWithAccessToken(sinaOAuth.accessToken, userID: sinaOAuth.userID)
 
-// 微信认证
+// 微信登录
 let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
 
 ```
@@ -115,7 +115,7 @@ let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
 </div>
 
 
-3.使用第三方认证方式绑定。
+3.使用第三方登录方式绑定。
 
 <div class="slide">
 <div class='slide-title'>
@@ -147,9 +147,9 @@ auth!.currentUser?.linkWithCredential(credential) { (user, error) in
 </blockquote>
 
 
-## 解除已绑定认证方式
+## 解除已绑定登录方式
 
-`unlinkFromProvider:completion:` 方法用于解除已绑定认证方式。
+`unlinkFromProvider:completion:` 方法用于解除已绑定登录方式。
 
 例如，解除微信绑定：
 
@@ -178,5 +178,3 @@ WDGAuth.auth()?.currentUser?.unlinkFromProvider("weixin", completion: { (user, e
 ```
 </div>
 </div>
-
-
