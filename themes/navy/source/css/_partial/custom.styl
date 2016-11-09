@@ -88,4 +88,60 @@
 		font-size: 16px
 		border-bottom: 1px solid #e5e5e5
 
+.novice
+	position: relative
+	margin-top: 80px
+	padding-top: 30px
+	padding-bottom: 40px
+	background-color: #f9f9f9
+	border-radius: 3px
+	border: 1px dashed #e5e5e5
+	display: none
 
+.light
+	box-shadow: none
+	border: 0
+
+.novice-title
+	padding-top: 20px
+	padding-left: 10px
+	font-size: 20px
+	color: #333
+
+.register-text
+	padding-top: 16px
+	font-size: 16px
+
+.btn-group
+	padding-top: 30px
+	
+.register-link,
+.question-link,
+.service-link
+	width: 120px
+	height: 36px
+	line-height: 34px
+
+.close-novice
+	position: absolute
+	top: 14px
+	right: 14px
+	width: 20px
+	height: 20px
+	cursor: pointer
+	&:before,
+	&:after
+		content: ''
+		position: absolute
+		top: 50%
+		left: 1px
+		width: 18px
+		height: 1px
+		background-color: #888
+	&:before
+		transform: rotate(45deg)
+	&:after
+		transform: rotate(-45deg)
+		
+.question-link
+	margin-left: 18px

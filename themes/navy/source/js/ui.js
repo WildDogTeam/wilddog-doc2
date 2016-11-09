@@ -30,6 +30,10 @@ window.onload = function () {
       removeClass(ele, className)
     }
   }
+  var currentPath = window.location.href;
+  getElementsByClassName('register')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
+  getElementsByClassName('register-link')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
+  getElementsByClassName('login')[0].setAttribute('href', 'https://www.wilddog.com/my-account/login?next=' + currentPath);
 /*  var wbrs = [].slice.call(document.querySelectorAll('.sublist .sidebar-link'));
   wbrs.forEach(function (ele) {
     ele.innerHTML = ele.textContent.replace(/\./g, ".<wbr>");
@@ -249,4 +253,22 @@ window.onload = function () {
         })
       })
     })
+
+    var novice = getElementsByClassName('novice');
+    var showNovice = sessionStorage.getItem('ssn');
+    if (showNovice == undefined || showNovice == true) {
+      novice[0].style.display = 'block'
+    } else {
+      novice.forEach(function (ele) {
+        ele.style.display = 'none';
+      });
+    }
+
+    novice.forEach(function (ele, index) {
+      var close = ele.getElementsByClassName('close-novice')[0];
+      close.addEventListener('click', function () {
+        ele.style.display = 'none';
+        sessionStorage.setItem('ssn', false);
+      });
+    });
 };
