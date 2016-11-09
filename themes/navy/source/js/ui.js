@@ -61,7 +61,6 @@ window.onload = function () {
 
 // 侧边栏收起
   var sidebarTitle = getElementsByClassName('sidebar-title');
-  var sidebarItems = getElementsByClassName('sublist-item');
 
   sidebarTitle.forEach(function (ele) {
     ele.addEventListener('click', function () {

@@ -107,9 +107,9 @@ var navs = [].slice.call(document.getElementsByClassName('main-nav-link'));
 
 links.forEach(function(element, index){
   element.addEventListener('click', function (e) {
-    currentUrls[currentL] = e.target.href;
+    currentUrls[currentL] = this.href;
     localStorage.setItem('navsrc', JSON.stringify(currentUrls));
-    window.location.href = e.target.href;
+    window.location.href = this.href;
   })
 });
 

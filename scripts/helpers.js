@@ -79,14 +79,14 @@ hexo.extend.helper.register('doc_sidebar', function(className){
               thirList = thirList.replace('sublist', 'sublist current');
               currentClass += ' current';
             }
-            thirList += '<li class=\'sublist-item\'><a href="' + url + '" class="' + currentClass + '" title= ' + content + '>' + (content) + (content === '微信小程序' ? '<img src="/images/icon-01.svg">' : '') + '</a><\/li>';
+            thirList += '<li class=\'sublist-item\'><a href="' + url + '" class="' + currentClass + '" title= ' + content + '><span class="sidebar-link-text">' + (content) + '</span>' + (content === '微信小程序' ? '<img src="/images/new.svg" class="icon-new" width="34" height="15">' : '') + '</a><\/li>';
           })
           thirList += '<\/ul>';
           thirListStart += (thirList + '<\/li>');
           subList += thirListStart;
           subList += '<\/li>';
         } else {
-          subList += '<li class=\'sublist-item\'><a href="' + link + '" class="' + itemClass + '" title= ' + text + '>' + (text) + (text === '微信小程序' ? '<img src="/images/icon-01.svg">' : '') + '</a>';
+          subList += '<li class=\'sublist-item\'><a href="' + link + '" class="' + itemClass + '" title= ' + text + '><span class="sidebar-link-text">' + (text) + '</span>' + (text === '微信小程序' ? '<img src="/images/new.svg" class="icon-new" width="34" height="15">' : '') + '</a>';
         }
       })
       subList += '<\/ul><\/li>'

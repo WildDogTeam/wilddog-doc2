@@ -77,6 +77,11 @@
     color: #e6501e
   &:hover
     color: #e6501e
+  &:before,
+  &:after
+    content: ''
+    display: table
+    clear: both
 
 .sublist
   height: 0
@@ -94,3 +99,11 @@
   .sublist
     .sidebar-link
       line-height: 1.5
+      
+.sidebar-link-text,
+.icon-new
+  float: left
+
+.icon-new
+  margin-top: -1px
+  margin-left: 4px
