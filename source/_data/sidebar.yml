@@ -12,6 +12,7 @@ quickstart:
     iOS: /quickstart/sync/ios.html
     C/嵌入式: /quickstart/sync/c.html
     REST: /quickstart/sync/rest.html
+    微信小程序: /quickstart/sync/wechat.html
     规则表达式: /quickstart/sync/rule.html
   实时视频通话:
     Web: /quickstart/video/web.html
