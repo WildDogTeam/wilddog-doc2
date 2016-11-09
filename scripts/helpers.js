@@ -79,14 +79,14 @@ hexo.extend.helper.register('doc_sidebar', function(className){
               thirList = thirList.replace('sublist', 'sublist current');
               currentClass += ' current';
             }
-            thirList += '<li class=\'sublist-item\'><a href="' + url + '" class="' + currentClass + '" title= ' + content + '>' + (content) + '</a><\/li>';
+            thirList += '<li class=\'sublist-item\'><a href="' + url + '" class="' + currentClass + '" title= ' + content + '>' + (content) + (content === '微信小程序' ? '<img src="/images/icon-01.svg">' : '') + '</a><\/li>';
           })
           thirList += '<\/ul>';
           thirListStart += (thirList + '<\/li>');
           subList += thirListStart;
           subList += '<\/li>';
         } else {
-          subList += '<li class=\'sublist-item\'><a href="' + link + '" class="' + itemClass + '">' + (text) + '</a>';
+          subList += '<li class=\'sublist-item\'><a href="' + link + '" class="' + itemClass + '" title= ' + text + '>' + (text) + (text === '微信小程序' ? '<img src="/images/icon-01.svg">' : '') + '</a>';
         }
       })
       subList += '<\/ul><\/li>'
