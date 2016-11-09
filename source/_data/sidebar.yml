@@ -12,6 +12,7 @@ quickstart:
     iOS: /quickstart/sync/ios.html
     C/嵌入式: /quickstart/sync/c.html
     REST: /quickstart/sync/rest.html
+    微信小程序: /quickstart/sync/wechat.html
     规则表达式: /quickstart/sync/rule.html
   实时视频通话:
     Web: /quickstart/video/web.html
@@ -21,6 +22,7 @@ quickstart:
     Web: /quickstart/auth/web.html
     Android: /quickstart/auth/android.html
     iOS: /quickstart/auth/ios.html
+    微信小程序: /quickstart/auth/wechat.html
 
 guide:
   实时数据同步:
@@ -156,7 +158,9 @@ api:
        ServerValue: /api/sync/android/ServerValue.html
        SyncError: /api/sync/android/SyncError.html
        错误码: /api/sync/android/error-code.html
-    iOS: 
+    iOS:
+      WDGOptions: /api/sync/ios/WDGOptions.html
+      WDGApp: /api/sync/ios/WDGApp.html
       WDGSync: /api/sync/ios/WDGSync.html
       WDGSyncReference: /api/sync/ios/WDGSyncReference.html
       WDGSyncQuery: /api/sync/ios/WDGSyncQuery.html
