@@ -22,7 +22,6 @@ quickstart:
     Web: /quickstart/auth/web.html
     Android: /quickstart/auth/android.html
     iOS: /quickstart/auth/ios.html
-    微信小程序: /quickstart/sync/wechat.html
 
 guide:
   实时数据同步:

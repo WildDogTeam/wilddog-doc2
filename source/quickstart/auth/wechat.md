@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-本篇文档介绍 Wilddog Sync 微信小程序客户端的使用。
+本篇文档介绍 Wilddog Auth 微信小程序客户端的使用。
 
 
 ## 1.项目地址
@@ -58,7 +58,7 @@ wilddog.initializeApp(config)
 
 ## 5.更多使用
 
-了解 Wilddog Sync 微信小程序客户端的更多使用方式，请参考 [API 文档](https://docs.wilddog.com/api/sync/web/api.html)。
+了解 Wilddog Auth 微信小程序客户端的更多使用方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/web/App.html)。
 
 
 
