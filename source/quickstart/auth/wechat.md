@@ -44,7 +44,8 @@ var wilddog = require('wilddog-weapp-all')
 3.初始化
 
 
-```var config = {
+```
+var config = {
     syncURL: 'https://<WD-APPID>.wilddogio.com',
     authDomain: '<WD-APPID.wilddog.com>'
 }
