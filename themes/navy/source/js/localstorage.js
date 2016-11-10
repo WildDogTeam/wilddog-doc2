@@ -102,6 +102,11 @@ currentUrls = JSON.parse(localStorage.getItem('navsrc')) || currentUrls;
 
 var navlinks = ['overview', 'quickstart', 'guide', 'api', 'resources', 'console'];
 
+for (var i = 0; i < navlinks.length; i++) {
+  currentUrls[navlinks[i]] = (currentUrls[navlinks[i]].indexOf('undefined') === -1) ? currentUrls[navlinks[i]] : ''
+}
+localStorage.setItem('navsrc', JSON.stringify(currentUrls));
+
 var links = [].slice.call(document.getElementsByClassName('sidebar-link'));
 var navs = [].slice.call(document.getElementsByClassName('main-nav-link'));
 
