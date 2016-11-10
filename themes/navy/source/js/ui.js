@@ -1,39 +1,70 @@
+var creatIframe = function(cb) {
+    var iframe = document.createElement('iframe');
+    iframe.src = 'https://www.wilddog.com/iframe/dociframe';
+    iframe.style.opacity = 0;
+    iframe.width = 1;
+    iframe.height = 1;
+    document.body.appendChild(iframe);
+    cb();
+}
+
+function getElementsByClassName (className) {
+  return [].slice.call(document.getElementsByClassName(className))
+}
+
+function getSiblings (element) {
+  var siblings = [].slice.call(element.parentElement.children);
+  siblings.splice(siblings.indexOf(element), 1);
+  return siblings;
+}
+
+function addClass (ele, className) {
+  if (ele.className.indexOf(className) === -1) {
+    ele.className += (' ' + className)
+  }
+}
+
+function removeClass (ele, className) {
+  var classCurrent = ele.className;
+  var classReplace = classCurrent.replace(' ' + className, '');
+  ele.className = classReplace;
+}
+
+function toggleClass (ele, className) {
+  if (ele.className.indexOf(className) === -1) {
+    addClass(ele, className)
+  } else {
+    removeClass(ele, className)
+  }
+}
+var user;
+creatIframe(function () {
+  window.addEventListener('message', function(event) {
+    if (event.origin === "https://www.wilddog.com") {
+      user = event.data;
+      if (user.email && user.avatar) {
+        getElementsByClassName('user-email')[0].textContent = user.email;
+        getElementsByClassName('profile-avatar')[0].setAttribute('src', user.avatar);
+        getElementsByClassName('header-info')[0].style.display = 'block';
+        getElementsByClassName('header-user')[0].style.display = 'none';
+        getElementsByClassName('novice-register')[0].style.display = 'none';
+        getElementsByClassName('novice-help')[0].style.display = 'block';
+      } else {
+        getElementsByClassName('header-info')[0].style.display = 'none';
+        getElementsByClassName('header-user')[0].style.display = 'block';
+        getElementsByClassName('novice-register')[0].style.display = 'block';
+        getElementsByClassName('novice-help')[0].style.display = 'none';
+      }
+    }
+  })
+});
 window.onload = function () {
 	"use strict";
-
-  function getElementsByClassName (className) {
-    return [].slice.call(document.getElementsByClassName(className))
-  }
-
-	function getSiblings (element) {
-    var siblings = [].slice.call(element.parentElement.children);
-    siblings.splice(siblings.indexOf(element), 1);
-    return siblings;
-  }
-
-  function addClass (ele, className) {
-    if (ele.className.indexOf(className) === -1) {
-      ele.className += (' ' + className)
-    }
-  }
-
-  function removeClass (ele, className) {
-    var classCurrent = ele.className;
-    var classReplace = classCurrent.replace(' ' + className, '');
-    ele.className = classReplace;
-  }
-
-  function toggleClass (ele, className) {
-    if (ele.className.indexOf(className) === -1) {
-      addClass(ele, className)
-    } else {
-      removeClass(ele, className)
-    }
-  }
   var currentPath = window.location.href;
   getElementsByClassName('register')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
   getElementsByClassName('register-link')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
   getElementsByClassName('login')[0].setAttribute('href', 'https://www.wilddog.com/my-account/login?next=' + currentPath);
+  getElementsByClassName('logout-btn')[0].setAttribute('href', 'https://www.wilddog.com/account/logout?next=' + currentPath);
 /*  var wbrs = [].slice.call(document.querySelectorAll('.sublist .sidebar-link'));
   wbrs.forEach(function (ele) {
     ele.innerHTML = ele.textContent.replace(/\./g, ".<wbr>");

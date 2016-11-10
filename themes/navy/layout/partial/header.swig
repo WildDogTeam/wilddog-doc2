@@ -12,8 +12,8 @@
       <a href="javascript:;" class="main-nav-link">控制面板指南</a>
     </nav>
     <div class="header-info pull-right">
-        <span class="pull-left"><img src="/images/logo.svg" alt="" class="img-circle profile-avatar" width="24" height="24"></span>
-        <span class="user-email">dsadasdasddasd@qq.com</span>
+        <span class="pull-left"><img src="" alt="" class="img-circle profile-avatar" width="24" height="24"></span>
+        <span class="user-email"></span>
         <span class="arr-down icon-48"></span>
         <ul class="drop-menu clearfix">
             <li class="drop-menu-item header-item-profile col-sm-6 text-center">
@@ -49,7 +49,7 @@
                 </a>
             </li>
             <li class="drop-menu-item logout col-sm-12 text-center">
-                <a href="/account/logout" class="header-item-link">退出登录</a>
+                <a href="" class="header-item-link logout-btn">退出登录</a>
             </li>
         </ul>
     </div>
@@ -57,10 +57,5 @@
         <li class="pull-left login-tab"><a href="" class="login">登录</a></li>
         <li class="pull-right register-tab"><a href="" class="btn btn-org-empty register">免费注册</a></li>
     </ul>
-    <a id="mobile-nav-toggle">
-      <span class="mobile-nav-toggle-bar"></span>
-      <span class="mobile-nav-toggle-bar"></span>
-      <span class="mobile-nav-toggle-bar"></span>
-    </a>
   </div>
 </header>
