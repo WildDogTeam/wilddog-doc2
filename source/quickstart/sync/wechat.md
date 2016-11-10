@@ -5,7 +5,7 @@ title: 快速入门
 本篇文档介绍 Wilddog Sync 微信小程序客户端的使用。
 
 
-## 1.项目地址
+## 1.下载地址
 https://github.com/WildDogTeam/wilddog-weapp
 
 
@@ -52,14 +52,39 @@ var config = {
 wilddog.initializeApp(config)
 ```
 
+## API
 
-## 4.DEMO 演示
+微信小程序平台与一般的开放平台不同之一是它有默认的用户，所以我们提供了一个可以使用一个api进行auth的方法：
 
-该 Demo 是一个简单的 To-do list：[To-do list Demo ](https://github.com/stackOverMind/wilddog-weapp-demotodo)
+#### auth.signInWeapp(opt_callback)
+
+* opt_callback: function(err,user) 可选回调函数，认证成功后被调用，如果认证过程一切正常`err`为`null`,user是一个包含用户`id`和`provider`等信息的对象。否则 `err` 是一个Error对象，user为null
+
+return Promise 对象
+
+```js
+var config = {
+    syncURL: 'https://<WD-APPID>.wilddogio.com',
+    authDomain: '<WD-APPID.wilddog.com>'
+}
+wilddog.initializeApp(config)
+wilddog.auth().signInWeapp(function(err,user){
+    // do your logic
+})
+
+//或者使用Promise
+
+wilddog.auth().signInWeapp().then(function(user){
+
+}).catch(function(err){
+
+})
+
+```
 
 ## 5.更多使用
+完整的API请参考 [Sync API](https://docs.wilddog.com/api/sync/web/api.html) 和 [Auth API](https://docs.wilddog.com/api/auth/web/Auth.html)
 
-了解 Wilddog Sync 微信小程序客户端的更多使用方式，请参考 [API 文档](https://docs.wilddog.com/api/sync/web/api.html)。
 
 
 

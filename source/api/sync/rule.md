@@ -102,7 +102,7 @@ Wilddog 认证
 
 | 字段       | 描述                                       |
 | -------- | ---------------------------------------- |
-| provider | 认证提供商 ("password", "anonymous", "qq", "weibo", "weixin", or "weixinmp")。 |
+| provider | 认证提供商 ("password", "anonymous", "qq", "weibo", "weixin", "weixinmp" ,"phone" or "weapp")。 |
 | uid      | 一个唯一的用户id，保证独一无二。|
 | token      | 用户的其他属性 ,包括邮箱,邮箱验证,用户昵称以及用户的所有自定义属性。|
 
@@ -139,6 +139,8 @@ Wilddog 认证
 | email | 用户绑定的主邮箱 |
 | email_verified      | 用户是否验证过主邮箱 |
 | name      | 用户的昵称 |
+| phone_number | 用户绑定的手机号 |
+| phone_number_verified | 用户是否验证过手机号 |
 
 
 如果要求只有用户验证过邮箱才能进行数据读取可以修改rule规则配置。
