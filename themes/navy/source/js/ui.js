@@ -38,22 +38,43 @@ function toggleClass (ele, className) {
   }
 }
 var user;
+
+var novice = getElementsByClassName('novice');
+var showNovice = sessionStorage.getItem('ssn');
+
+novice.forEach(function (ele, index) {
+  var close = ele.getElementsByClassName('close-novice')[0];
+  close.addEventListener('click', function () {
+    ele.style.display = 'none';
+    sessionStorage.setItem('ssn', false);
+  });
+});
+
 creatIframe(function () {
   window.addEventListener('message', function(event) {
     if (event.origin === "https://www.wilddog.com") {
       user = event.data;
+      if (showNovice == undefined || showNovice == true) {
+        if (user.email && user.avatar) {
+          getElementsByClassName('novice-register')[0].style.display = 'none';
+          getElementsByClassName('novice-help')[0].style.display = 'block';
+        } else {
+          getElementsByClassName('novice-register')[0].style.display = 'block';
+          getElementsByClassName('novice-help')[0].style.display = 'none';
+        }
+      } else {
+        novice.forEach(function (ele) {
+          ele.style.display = 'none';
+        });
+      }
       if (user.email && user.avatar) {
         getElementsByClassName('user-email')[0].textContent = user.email;
         getElementsByClassName('profile-avatar')[0].setAttribute('src', user.avatar);
         getElementsByClassName('header-info')[0].style.display = 'block';
         getElementsByClassName('header-user')[0].style.display = 'none';
-        getElementsByClassName('novice-register')[0].style.display = 'none';
-        getElementsByClassName('novice-help')[0].style.display = 'block';
       } else {
         getElementsByClassName('header-info')[0].style.display = 'none';
         getElementsByClassName('header-user')[0].style.display = 'block';
-        getElementsByClassName('novice-register')[0].style.display = 'block';
-        getElementsByClassName('novice-help')[0].style.display = 'none';
       }
     }
   })
@@ -284,21 +305,4 @@ window.onload = function () {
       })
     })
 
-    var novice = getElementsByClassName('novice');
-    var showNovice = sessionStorage.getItem('ssn');
-    if (showNovice == undefined || showNovice == true) {
-      novice[0].style.display = 'block'
-    } else {
-      novice.forEach(function (ele) {
-        ele.style.display = 'none';
-      });
-    }
-
-    novice.forEach(function (ele, index) {
-      var close = ele.getElementsByClassName('close-novice')[0];
-      close.addEventListener('click', function () {
-        ele.style.display = 'none';
-        sessionStorage.setItem('ssn', false);
-      });
-    });
 };
