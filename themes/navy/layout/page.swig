@@ -48,7 +48,7 @@
                 <span class="close-novice"></span>
                 <img src="/images/light.svg" width="52" height="56" alt="" class="light">
                 <div class="novice-title">野狗新手？</div>
-                <div class="register-text">立即注册，为你节约 50% 以上的开发时间</div>
+                <div class="register-text">立即注册，为你提供安全可靠的实时通信云服务。</div>
                 <div class="btn-group">
                   <a href="https://www.wilddog.com/my-account/signup?next=https://docs.wilddog.com" class="btn btn-org-full register-link">免费注册</a>
                 </div>
