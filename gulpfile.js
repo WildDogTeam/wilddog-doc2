@@ -7,33 +7,35 @@ const clean = require('gulp-clean');
 const htmlmin = require('gulp-minify-html');
 const revCollector = require('gulp-rev-collector');
 const sequence = require('gulp-sequence');
+const del = require('del');
+const gulpsync = require('gulp-sync')(gulp);
 
-gulp.task('clean', (cb) => {
-	gulp.src(['dist', 'rev'], {read: false})
-		.pipe(clean())
+gulp.task('clean', function () {
+	del.sync(['dist/**/*', 'rev/**/*'])
 })
 
 gulp.task('imagerev', () => {
 	gulp.src('public/images/*')
+		.pipe(imagemin())
 		.pipe(rev())
 		.pipe(gulp.dest('dist/images'))
 		.pipe(rev.manifest())
 		.pipe(gulp.dest('rev/images'))
 		.on('end', function () {
-			gulp.start('imagemin')
-		})
-})
-
-gulp.task('imagemin', () => {
-	gulp.src('dist/images/*')
-		.pipe(imagemin())
-		.pipe(gulp.dest('dist/images'))
-		.on('end', function () {
 			gulp.start('rev')
 		})
 })
 
-gulp.task('uglify', ['clean'],() => {
+// gulp.task('imagemin', () => {
+// 	gulp.src('dist/images/*')
+// 		.pipe(imagemin())
+// 		.pipe(gulp.dest('dist/images'))
+// 		.on('end', function () {
+// 			gulp.start('rev')
+// 		})
+// })
+
+gulp.task('uglify', () => {
 	gulp.src('public/js/*')
 		.pipe(uglify())
 		.pipe(rev())
@@ -70,4 +72,4 @@ gulp.task('rev', () => {
 		.pipe(gulp.dest('dist'))
 })
 
-gulp.task('build', ['clean' ,'uglify']);
+gulp.task('build', gulpsync.sync(['clean', ['uglify']]));
