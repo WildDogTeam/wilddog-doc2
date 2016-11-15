@@ -1,7 +1,7 @@
 nguage: node_js
 node_js:
 - '6'
-- '6.1'
+- '9.1'
 branches:
   only:
   - master
