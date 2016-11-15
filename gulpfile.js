@@ -3,7 +3,6 @@ var cssmin = require('gulp-cssmin');
 var uglify = require('gulp-uglify');
 var rev = require('gulp-rev');
 var imagemin = require('gulp-imagemin');
-var clean = require('gulp-clean');
 var htmlmin = require('gulp-minify-html');
 var revCollector = require('gulp-rev-collector');
 var del = require('del');
