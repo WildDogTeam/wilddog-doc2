@@ -1,20 +1,19 @@
-const gulp = require('gulp');
-const cssmin = require('gulp-cssmin');
-const uglify = require('gulp-uglify');
-const rev = require('gulp-rev');
-const imagemin = require('gulp-imagemin');
-const clean = require('gulp-clean');
-const htmlmin = require('gulp-minify-html');
-const revCollector = require('gulp-rev-collector');
-const sequence = require('gulp-sequence');
-const del = require('del');
-const gulpsync = require('gulp-sync')(gulp);
+var gulp = require('gulp');
+var cssmin = require('gulp-cssmin');
+var uglify = require('gulp-uglify');
+var rev = require('gulp-rev');
+var imagemin = require('gulp-imagemin');
+var clean = require('gulp-clean');
+var htmlmin = require('gulp-minify-html');
+var revCollector = require('gulp-rev-collector');
+var del = require('del');
+var gulpsync = require('gulp-sync')(gulp);
 
 gulp.task('clean', function () {
 	del.sync(['dist/**/*', 'rev/**/*'])
 })
 
-gulp.task('imagerev', () => {
+gulp.task('imagerev', function () {
 	gulp.src('public/images/*')
 		.pipe(imagemin())
 		.pipe(rev())
@@ -26,16 +25,7 @@ gulp.task('imagerev', () => {
 		})
 })
 
-// gulp.task('imagemin', () => {
-// 	gulp.src('dist/images/*')
-// 		.pipe(imagemin())
-// 		.pipe(gulp.dest('dist/images'))
-// 		.on('end', function () {
-// 			gulp.start('rev')
-// 		})
-// })
-
-gulp.task('uglify', () => {
+gulp.task('uglify', function () {
 	gulp.src('public/js/*')
 		.pipe(uglify())
 		.pipe(rev())
@@ -49,7 +39,7 @@ gulp.task('uglify', () => {
 		})
 })
 
-gulp.task('cssmin', () => {
+gulp.task('cssmin', function () {
 	gulp.src('public/css/*')
 		.pipe(cssmin())
 		.pipe(rev())
@@ -61,7 +51,7 @@ gulp.task('cssmin', () => {
 		})
 })
 
-gulp.task('rev', () => {
+gulp.task('rev', function () {
 	gulp.src(['rev/**/*.json', 'public/**/*.html', 'dist/**/*.css'])
 		.pipe(revCollector())
 		.pipe(htmlmin({
