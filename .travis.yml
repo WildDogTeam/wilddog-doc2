@@ -24,4 +24,7 @@ install:
 
 script: hexo generate
 after_success:
+- gulp build
+- rm -rf public/
+- mv dist/ public
 - hexo deploy
