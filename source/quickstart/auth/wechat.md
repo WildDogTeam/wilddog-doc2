@@ -52,7 +52,7 @@ var config = {
 wilddog.initializeApp(config)
 ```
 
-## API
+## 4.API
 
 微信小程序平台与一般的开放平台不同之一是它有默认的用户，所以我们提供了一个可以使用一个api进行auth的方法：
 

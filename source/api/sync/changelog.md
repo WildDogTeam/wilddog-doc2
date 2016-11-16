@@ -9,14 +9,14 @@ title: 更新日志
 
 <span class="changelog add">新增</span>
 
-增加对微信小程序的支持。
+- 增加对微信小程序的支持。
 
 
 ### V2.1.2 - 2016.10.17
 
 <span class="changelog fix">修复</span>
 
-修复 EmailAuthProvider.credential() 方法生成的 Credential 不合法的 bug。
+- 修复 EmailAuthProvider.credential() 方法生成的 Credential 不合法的 bug。
 
 
 
@@ -24,7 +24,7 @@ title: 更新日志
 
 <span class="changelog fix">修复</span>
 
-修复 iPhone 4s, iPhone 5s 微信公众账号登录失败的 bug。
+- 修复 iPhone 4s, iPhone 5s 微信公众账号登录失败的 bug。
 
 
 
@@ -47,7 +47,7 @@ title: 更新日志
 
 <span class="changelog describe">描述</span>
 
-Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
+- Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 <span class="changelog feature">改进</span>
 
@@ -73,7 +73,7 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 <span class="changelog describe">描述</span>
 
-修复了 WilddogSync SDK 中事务操作出现的问题。
+- 修复了 WilddogSync SDK 中事务操作出现的问题。
 
 <span class="changelog fix">修复</span>
 
@@ -84,7 +84,7 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 <span class="changelog describe">描述</span>
 
-将原有的 Wilddog 全部改名为 Sync, 部分类有新增和拆解。新增 WilddogCore SDK，新版 Sync 的初始化方法依赖 WilddogCore SDK。
+- 将原有的 Wilddog 全部改名为 Sync, 部分类有新增和拆解。新增 WilddogCore SDK，新版 Sync 的初始化方法依赖 WilddogCore SDK。
 
 <span class="changelog add">新增</span>
 
@@ -132,11 +132,11 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 <span class="changelog feature">改进</span>
 
-改进 WilddogAuth 初始化过程。将部分 WilddogAuth 初始化方法移除。
+- 改进 WilddogAuth 初始化过程。将部分 WilddogAuth 初始化方法移除。
 
 <span class="changelog fix">修复</span>
 
-WildUser 获取 token 空指针问题。
+- WildUser 获取 token 空指针问题。
 
 
 
@@ -144,12 +144,12 @@ WildUser 获取 token 空指针问题。
 
 <span class="changelog describe">描述</span>
 
-该版本将Auth SDK 从Wilddog SDK中分离。
+- 该版本将 Auth SDK 从 Wilddog SDK 中分离。
 
 
 <span class="changelog feature">改进</span>
 
-将Wilddog中Auth相关代码移除。
+- 将 Wilddog 中 Auth 相关代码移除。
 
 
 
@@ -164,19 +164,19 @@ WildUser 获取 token 空指针问题。
 
 <span class="changelog fix">修复</span>
 
-修复 Espressif 平台下拷贝不对齐字段导致死机的 bug。
+- 修复 Espressif 平台下拷贝不对齐字段导致死机的 bug。
 
 ### V1.0.6 - 2016.09.03
 
 <span class="changelog fix">修复</span>
 
-修复 wilddog_push 的回调中 path 不正确的 bug。
+- 修复 wilddog_push 的回调中 path 不正确的 bug。
 
 ### V1.0.5 - 2016.08.04
 
 <span class="changelog fix">修复</span>
 
-修复离线时新建 wilddog 和发送数据会导致内存未释放的 bug。
+- 修复离线时新建 wilddog 和发送数据会导致内存未释放的 bug。
 
 ### V1.0.4 - 2016.07.12
 
@@ -189,13 +189,13 @@ WildUser 获取 token 空指针问题。
 
 <span class="changelog fix">修复</span>
 
-修复频繁收发数据包时心跳机制策略导致断连问题。
+- 修复频繁收发数据包时心跳机制策略导致断连问题。
 
 ### V1.0.2 - 2016.06.24
 
 <span class="changelog fix">修复</span>
 
-修复心跳机制不生效的 bug。
+- 修复心跳机制不生效的 bug。
 
 ### V1.0.1 - 2016.04.26
 
@@ -209,11 +209,11 @@ WildUser 获取 token 空指针问题。
 
 <span class="changelog fix">修复</span>
 
-修复 windows 下编译 CoAP 库出错的 bug。
+- 修复 windows 下编译 CoAP 库出错的 bug。
 
 <span class="changelog optimize">优化</span>
 
-优化重连机制，重连后服务器会将订阅的数据重新推送到客户端，使用返回码 WILDDOG_ERR_RECONNECT 标识。
+- 优化重连机制，重连后服务器会将订阅的数据重新推送到客户端，使用返回码 WILDDOG_ERR_RECONNECT 标识。
 
 ### v0.8.0 - 2016.01.18
 
@@ -239,7 +239,7 @@ WildUser 获取 token 空指针问题。
 
 <span class="changelog fix">修复</span>
 
-修复 tinydtls 以及 mbedtls 握手有概率失败的bug。
+- 修复 tinydtls 以及 mbedtls 握手有概率失败的bug。
 
 
 
