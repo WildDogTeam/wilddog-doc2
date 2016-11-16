@@ -1,3 +1,4 @@
+dist: trusty
 nguage: node_js
 node_js:
 - '6'
@@ -24,4 +25,7 @@ install:
 
 script: hexo generate
 after_success:
+- gulp build
+- rm -rf public/
+- mv dist/ public
 - hexo deploy

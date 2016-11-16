@@ -6,40 +6,40 @@ var creatIframe = function(cb) {
     iframe.height = 1;
     document.body.appendChild(iframe);
     cb();
-}
+};
 
-function getElementsByClassName (className) {
+var getClass = function (className) {
   return [].slice.call(document.getElementsByClassName(className))
-}
+};
 
-function getSiblings (element) {
+var getSiblings = function (element) {
   var siblings = [].slice.call(element.parentElement.children);
   siblings.splice(siblings.indexOf(element), 1);
   return siblings;
-}
+};
 
-function addClass (ele, className) {
+var addClass = function (ele, className) {
   if (ele.className.indexOf(className) === -1) {
     ele.className += (' ' + className)
   }
-}
+};
 
-function removeClass (ele, className) {
+var removeClass = function (ele, className) {
   var classCurrent = ele.className;
   var classReplace = classCurrent.replace(' ' + className, '');
   ele.className = classReplace;
-}
+};
 
-function toggleClass (ele, className) {
+var toggleClass = function (ele, className) {
   if (ele.className.indexOf(className) === -1) {
     addClass(ele, className)
   } else {
     removeClass(ele, className)
   }
-}
+};
 var user;
 
-var novice = getElementsByClassName('novice');
+var novice = getClass('novice');
 var showNovice = sessionStorage.getItem('ssn');
 
 novice.forEach(function (ele, index) {
@@ -56,11 +56,11 @@ creatIframe(function () {
       user = event.data;
       if (showNovice == undefined || showNovice == true) {
         if (user.email && user.avatar) {
-          getElementsByClassName('novice-register')[0].style.display = 'none';
-          getElementsByClassName('novice-help')[0].style.display = 'block';
+          getClass('novice-register')[0].style.display = 'none';
+          getClass('novice-help')[0].style.display = 'block';
         } else {
-          getElementsByClassName('novice-register')[0].style.display = 'block';
-          getElementsByClassName('novice-help')[0].style.display = 'none';
+          getClass('novice-register')[0].style.display = 'block';
+          getClass('novice-help')[0].style.display = 'none';
         }
       } else {
         novice.forEach(function (ele) {
@@ -68,39 +68,36 @@ creatIframe(function () {
         });
       }
       if (user.email && user.avatar) {
-        getElementsByClassName('user-email')[0].textContent = user.email;
-        getElementsByClassName('profile-avatar')[0].setAttribute('src', user.avatar);
-        getElementsByClassName('header-info')[0].style.display = 'block';
-        getElementsByClassName('header-user')[0].style.display = 'none';
+        getClass('user-email')[0].textContent = user.email;
+        getClass('profile-avatar')[0].setAttribute('src', user.avatar);
+        getClass('header-info')[0].style.display = 'block';
+        getClass('header-user')[0].style.display = 'none';
       } else {
-        getElementsByClassName('header-info')[0].style.display = 'none';
-        getElementsByClassName('header-user')[0].style.display = 'block';
+        getClass('header-info')[0].style.display = 'none';
+        getClass('header-user')[0].style.display = 'block';
       }
     }
   })
 });
 window.onload = function () {
-	"use strict";
   var currentPath = window.location.href;
-  getElementsByClassName('register')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
-  getElementsByClassName('register-link')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
-  getElementsByClassName('login')[0].setAttribute('href', 'https://www.wilddog.com/my-account/login?next=' + currentPath);
-  getElementsByClassName('logout-btn')[0].setAttribute('href', 'https://www.wilddog.com/account/logout?next=' + currentPath);
-/*  var wbrs = [].slice.call(document.querySelectorAll('.sublist .sidebar-link'));
-  wbrs.forEach(function (ele) {
-    ele.innerHTML = ele.textContent.replace(/\./g, ".<wbr>");
-  });*/
+  getClass('register')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
+  getClass('register-link')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
+  getClass('login')[0].setAttribute('href', 'https://www.wilddog.com/my-account/login?next=' + currentPath);
+  getClass('logout-btn')[0].setAttribute('href', 'https://www.wilddog.com/account/logout?next=' + currentPath);
+
+
 //右侧目录判断是否显示
   var airticleContent = document.querySelector('.article .inner');
-  var toc = getElementsByClassName('toc-content')[0];
+  var toc = getClass('toc-content')[0];
 
-  if(getElementsByClassName('toc-item').length < 1 && airticleContent) {
+  if(getClass('toc-item').length < 1 && airticleContent) {
     airticleContent.removeChild(toc)
   }
 
 //  切换头部选中状态
   var type = window.location.pathname.split('/')[1];
-  var headerNavs = getElementsByClassName('main-nav-link');
+  var headerNavs = getClass('main-nav-link');
   if (type === 'overview') {
     addClass(headerNavs[0], 'current')
   } else if (type === 'quickstart') {
@@ -116,7 +113,7 @@ window.onload = function () {
   }
 
 // 侧边栏收起
-  var sidebarTitle = getElementsByClassName('sidebar-title');
+  var sidebarTitle = getClass('sidebar-title');
 
   sidebarTitle.forEach(function (ele) {
     ele.addEventListener('click', function () {
@@ -136,8 +133,8 @@ window.onload = function () {
   });
 
 //滚屏时右侧边栏根据当前标题高亮对应目录项
-  var headings = getElementsByClassName('article-heading');
-  var tocLinks = getElementsByClassName('toc-link');
+  var headings = getClass('article-heading');
+  var tocLinks = getClass('toc-link');
   var tocLinksHref = [];
   var headingTops = [];
   var titleContent = document.getElementsByClassName('toc-link-title')[0];
@@ -221,17 +218,17 @@ window.onload = function () {
     window.scrollTo(0, 0);
   });
 
-  var jsVersionContent = getElementsByClassName('js-version');
-  var androidSyncVersionContent = getElementsByClassName('android-sync-version');
-  var androidAuthVersionContent = getElementsByClassName('android-auth-version');
-  var iosDownLoadSync = getElementsByClassName('ios-download-sync');
-  var iosDownLoadAuth = getElementsByClassName('ios-download-auth');
-  var iosDownLoadCore = getElementsByClassName('ios-download-core');
-  var videoWebVersionContent = getElementsByClassName('video-web-version');
-  var videoAndroidVersionContent = getElementsByClassName('video-android-version');
-  var videoIosVersionContent = getElementsByClassName('video-ios-version');
-  var videoAndroidDownloadSrc = getElementsByClassName('video-android-download');
-  var videoIosDownloadSrc = getElementsByClassName('video-ios-download');
+  var jsVersionContent = getClass('js-version');
+  var androidSyncVersionContent = getClass('android-sync-version');
+  var androidAuthVersionContent = getClass('android-auth-version');
+  var iosDownLoadSync = getClass('ios-download-sync');
+  var iosDownLoadAuth = getClass('ios-download-auth');
+  var iosDownLoadCore = getClass('ios-download-core');
+  var videoWebVersionContent = getClass('video-web-version');
+  var videoAndroidVersionContent = getClass('video-android-version');
+  var videoIosVersionContent = getClass('video-ios-version');
+  var videoAndroidDownloadSrc = getClass('video-android-download');
+  var videoIosDownloadSrc = getClass('video-ios-download');
 
     var config = {
       authDomain: "wd-download.wilddog.com",
@@ -286,7 +283,7 @@ window.onload = function () {
       });
     });
 
-    var slides = getElementsByClassName('slide');
+    var slides = getClass('slide');
     slides.forEach(function (ele) {
       var tabs = [].slice.call(ele.getElementsByClassName('slide-tab'), 0);
       var contents = [].slice.call(ele.getElementsByClassName('slide-content'), 0);
