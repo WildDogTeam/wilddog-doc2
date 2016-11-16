@@ -34,7 +34,7 @@
                       <span class="slide-dot"></span>
                       <div id="article-toc-inner">
                         <strong class="sidebar-title">{{ __('page.contents') }}</strong>
-                        {{ toc(page.content, {list_number: false}) }}
+                        {{ toc(page.content, {list_number: true}) }}
                       </div>
                     </div>
                   </div>

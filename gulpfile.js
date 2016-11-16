@@ -3,10 +3,10 @@ var cssmin = require('gulp-cssmin');
 var uglify = require('gulp-uglify');
 var rev = require('gulp-rev');
 var imagemin = require('gulp-imagemin');
-var htmlmin = require('gulp-minify-html');
 var revCollector = require('gulp-rev-collector');
 var del = require('del');
 var gulpsync = require('gulp-sync')(gulp);
+require('events').EventEmitter.prototype._maxListeners = 100;
 
 gulp.task('clean', function () {
 	del.sync(['dist/**/*', 'rev/**/*'])
@@ -53,11 +53,6 @@ gulp.task('cssmin', function () {
 gulp.task('rev', function () {
 	gulp.src(['rev/**/*.json', 'public/**/*.html', 'dist/**/*.css'])
 		.pipe(revCollector())
-		.pipe(htmlmin({
-			empty: true,
-			spare: true,
-			quotes: true
-		}))
 		.pipe(gulp.dest('dist'))
 })
 
