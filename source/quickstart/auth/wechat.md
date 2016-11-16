@@ -15,7 +15,7 @@ https://github.com/WildDogTeam/wilddog-weapp
 
 2.在 [微信公众开放平台管理中心](http://mp.weixin.qq.com/)   设置—开发设置—服务器配置，配置域名白名单。为了简化配置，你需要增加以下 2 个域名到白名单：
 
-- socket 合法域名： wss://sdal-wx-nss-1.wilddogio.com
+- socket 合法域名： wss://s-dalwx-nss-1.wilddogio.com
 - request 合法域名：https://auth.wilddog.com
 
 

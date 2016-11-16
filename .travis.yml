@@ -1,7 +1,8 @@
+dist: trusty
 nguage: node_js
 node_js:
 - '6'
-- '6.1'
+- '9.1'
 branches:
   only:
   - master
@@ -24,4 +25,7 @@ install:
 
 script: hexo generate
 after_success:
+- gulp build
+- rm -rf public/
+- mv dist/ public
 - hexo deploy

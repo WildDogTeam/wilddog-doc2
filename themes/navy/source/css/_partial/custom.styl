@@ -88,4 +88,96 @@
 		font-size: 16px
 		border-bottom: 1px solid #e5e5e5
 
+.novice
+	position: relative
+	margin-top: 80px
+	padding-top: 30px
+	padding-bottom: 40px
+	background-color: #f9f9f9
+	border-radius: 3px
+	border: 1px dashed #e5e5e5
+	display: none
 
+.light
+	box-shadow: none
+	border: 0
+
+.novice-title
+	padding-top: 20px
+	padding-left: 10px
+	font-size: 20px
+	color: #333
+
+.register-text
+	padding-top: 16px
+	font-size: 16px
+
+.btn-group
+	padding-top: 30px
+	
+.register-link,
+.question-link,
+.service-link
+	width: 120px
+	height: 36px
+	line-height: 34px
+
+.close-novice
+	position: absolute
+	top: 14px
+	right: 14px
+	width: 20px
+	height: 20px
+	cursor: pointer
+	&:before,
+	&:after
+		content: ''
+		position: absolute
+		top: 50%
+		left: 1px
+		width: 18px
+		height: 1px
+		background-color: #888
+	&:before
+		transform: rotate(45deg)
+	&:after
+		transform: rotate(-45deg)
+		
+.question-link
+	margin-left: 18px
+	
+.changelog
+	display: block
+	width: 47px
+	height: 26px
+	border-width: 1px 
+	border-style: solid
+	line-height: 24px
+	font-size: 12px
+	text-align: center
+	border-radius: 13px
+	font-weight: 700
+	&.add
+		border-color: #32af5a
+		color: #32af5a
+		background-color: #f5fbf7
+	&.fix
+		border-color: #3c96e6
+		color: #3c96e6
+		background-color: #f5fafe
+	&.optimize
+		border-color: #e69628
+		color: #e69628
+		background-color: #fefaf4
+	&.deprecated
+		border-color: #eb3232
+		color: #eb3232
+		background-color: #fef5f5
+	&.feature
+		border-color: #e6501e
+		color: #e6501e
+		background-color: #fef6f4
+	&.describe
+		border-color: #8c9ba5
+		color: #8c9ba5
+		background-color: #f9fafa

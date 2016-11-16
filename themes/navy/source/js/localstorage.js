@@ -45,7 +45,8 @@ if (!window.localStorage) {
         delete oStorage[sKey];
       }
       for (aKeys; aKeys.length > 0; aKeys.splice(0, 1)) { oStorage.removeItem(aKeys[0]); }
-      for (var aCouple, iKey, nIdx = 0, aCouples = document.cookie.split(/\s*;\s*/); nIdx < aCouples.length; nIdx++) {
+      var aCouples = document.cookie.split(/\s*;\s*/);
+      for (var aCouple, iKey, nIdx = 0; nIdx < aCouples.length; nIdx++) {
         aCouple = aCouples[nIdx].split(/\s*=\s*/);
         if (aCouple.length > 1) {
           oStorage[iKey = unescape(aCouple[0])] = unescape(aCouple[1]);
@@ -103,7 +104,11 @@ currentUrls = JSON.parse(localStorage.getItem('navsrc')) || currentUrls;
 var navlinks = ['overview', 'quickstart', 'guide', 'api', 'resources', 'console'];
 
 for (var i = 0; i < navlinks.length; i++) {
-  currentUrls[navlinks[i]] = (currentUrls[navlinks[i]].indexOf('undefined') === -1) ? currentUrls[navlinks[i]] : ''
+  if (currentUrls[navlinks[i]]) {
+    currentUrls[navlinks[i]] = (currentUrls[navlinks[i]].indexOf('undefined') === -1) ? currentUrls[navlinks[i]] : ''
+  } else {
+    currentUrls[navlinks[i]] = ''
+  }
 }
 localStorage.setItem('navsrc', JSON.stringify(currentUrls));
 

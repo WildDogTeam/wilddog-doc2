@@ -400,7 +400,7 @@ int main(void){
 **定义**
 
 ```c
-Wilddog\_Return\_T wilddog\_auth(Wilddog\_Str\_T \*p\_host, u8 \*p\_auth, int len, onAuthFunc onAuth, void \*args)
+Wilddog_Return_T wilddog_auth(Wilddog_Str_T *p_host, u8 *p_auth, int len, onAuthFunc onAuth, void *args)
 ```
 
 **说明**

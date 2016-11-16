@@ -256,7 +256,7 @@ api:
       Credential: /api/auth/web/Credential.html
       Promise: /api/auth/web/Promise.html
       Void: /api/auth/web/Void.html
-      Error: /api/auth/web/error-code.html
+      错误码: /api/auth/web/error-code.html
     #Android: /api/auth/android/api.html
     Android:
       WilddogAuth: /api/auth/android/WilddogAuth.html

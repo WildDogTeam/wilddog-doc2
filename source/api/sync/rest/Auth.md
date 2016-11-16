@@ -24,12 +24,12 @@ curl 'https://samplechat.wilddogio.com/users/jack/name.json?auth=CREDENTIAL'
 
 **说明**
 
-将 SDK 生成的 CustomToken 转换为 Wilddog ID Token。仅支持 `POST` 方式。
+将 SDK 生成的 CustomToken 转换为 Wilddog ID Token。仅支持 `POST` 方式且 `Content-type` 为`application/json`格式。
 
 **定义**
 
 ```
-curl -X POST -d '{"token":"<YOUR CUSTOM TOKEN HERE>"}' \
+curl -X POST -H "Content-type: application/json;charset=UTF-8" -d '{"token":"<YOUR CUSTOM TOKEN HERE>"}' \
 'https://<appid>.wilddogio.com/.auth/customTokenToIdToken.json'
 ```
 
