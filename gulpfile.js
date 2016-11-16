@@ -1,39 +1,30 @@
-const gulp = require('gulp');
-const cssmin = require('gulp-cssmin');
-const uglify = require('gulp-uglify');
-const rev = require('gulp-rev');
-const imagemin = require('gulp-imagemin');
-const clean = require('gulp-clean');
-const htmlmin = require('gulp-minify-html');
-const revCollector = require('gulp-rev-collector');
-const sequence = require('gulp-sequence');
+var gulp = require('gulp');
+var cssmin = require('gulp-cssmin');
+var uglify = require('gulp-uglify');
+var rev = require('gulp-rev');
+var imagemin = require('gulp-imagemin');
+var revCollector = require('gulp-rev-collector');
+var del = require('del');
+var gulpsync = require('gulp-sync')(gulp);
+require('events').EventEmitter.prototype._maxListeners = 100;
 
-gulp.task('clean', (cb) => {
-	gulp.src(['dist', 'rev'], {read: false})
-		.pipe(clean())
+gulp.task('clean', function () {
+	del.sync(['dist/**/*', 'rev/**/*'])
 })
 
-gulp.task('imagerev', () => {
+gulp.task('imagerev', function () {
 	gulp.src('public/images/*')
+		.pipe(imagemin())
 		.pipe(rev())
 		.pipe(gulp.dest('dist/images'))
 		.pipe(rev.manifest())
 		.pipe(gulp.dest('rev/images'))
 		.on('end', function () {
-			gulp.start('imagemin')
-		})
-})
-
-gulp.task('imagemin', () => {
-	gulp.src('dist/images/*')
-		.pipe(imagemin())
-		.pipe(gulp.dest('dist/images'))
-		.on('end', function () {
 			gulp.start('rev')
 		})
 })
 
-gulp.task('uglify', ['clean'],() => {
+gulp.task('uglify', function () {
 	gulp.src('public/js/*')
 		.pipe(uglify())
 		.pipe(rev())
@@ -47,7 +38,7 @@ gulp.task('uglify', ['clean'],() => {
 		})
 })
 
-gulp.task('cssmin', () => {
+gulp.task('cssmin', function () {
 	gulp.src('public/css/*')
 		.pipe(cssmin())
 		.pipe(rev())
@@ -59,15 +50,10 @@ gulp.task('cssmin', () => {
 		})
 })
 
-gulp.task('rev', () => {
+gulp.task('rev', function () {
 	gulp.src(['rev/**/*.json', 'public/**/*.html', 'dist/**/*.css'])
 		.pipe(revCollector())
-		.pipe(htmlmin({
-			empty: true,
-			spare: true,
-			quotes: true
-		}))
 		.pipe(gulp.dest('dist'))
 })
 
-gulp.task('build', ['clean' ,'uglify']);
+gulp.task('build', gulpsync.sync(['clean', ['uglify']]));

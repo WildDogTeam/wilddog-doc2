@@ -8,12 +8,11 @@
   "dependencies": {
     "cheerio": "^0.20.0",
     "gulp": "^3.9.1",
-    "gulp-clean": "^0.3.2",
     "gulp-cssmin": "^0.1.7",
     "gulp-imagemin": "^3.1.1",
-    "gulp-minify-html": "^1.0.6",
     "gulp-rev": "^7.1.2",
     "gulp-rev-collector": "^1.0.5",
+    "gulp-sync": "^0.1.4",
     "gulp-uglify": "^2.0.0",
     "hexo": "^3.2.0",
     "hexo-deployer-git": "^0.2.0",
@@ -28,6 +27,9 @@
     "hexo-server": "^0.2.0",
     "lodash": "^4.5.1",
     "lunr": "^0.6.0",
-    "run-sequence": "^1.2.2"
+    "pump": "^1.0.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.2"
   }
 }
