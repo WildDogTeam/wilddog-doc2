@@ -8,14 +8,14 @@ title: 更新日志
 
 **新增**
 
-增加对微信小程序的支持。
+- 增加对微信小程序的支持。
 
 
 ### V2.2.0 - 2016.11.04
 
 **描述**
 
-Auth 新增手机号登录、手机号发送验证码等功能
+- Auth 新增手机号登录、手机号发送验证码等功能
 
 **新增**
 
@@ -29,13 +29,13 @@ Auth 新增手机号登录、手机号发送验证码等功能
 
 **废弃**
 
-废弃 EmailAuthProvider 类，用 WilddogAuthProvider 类代替
+- 废弃 EmailAuthProvider 类，用 WilddogAuthProvider 类代替
 
 ### V2.1.2 - 2016.10.17
 
 **修复**
 
-修复 EmailAuthProvider.credential() 方法生成的 Credential 不合法的 bug。
+- 修复 EmailAuthProvider.credential() 方法生成的 Credential 不合法的 bug。
 
 
 
@@ -43,8 +43,7 @@ Auth 新增手机号登录、手机号发送验证码等功能
 
 **修复**
 
-修复 iPhone 4s, iPhone 5s 微信公众账号登录失败的 bug。
-
+- 修复 iPhone 4s, iPhone 5s 微信公众账号登录失败的 bug。
 
 
 ### V2.1.0 - 2016.09.30
@@ -66,7 +65,7 @@ Auth 新增手机号登录、手机号发送验证码等功能
 
 **描述**
 
-Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
+- Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 **改进**
 
@@ -90,7 +89,7 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 **描述**
 
-Auth 新增手机号登录、手机号发送验证码等功能。
+- Auth 新增手机号登录、手机号发送验证码等功能。
 
 **新增**
 
@@ -110,7 +109,7 @@ Auth 新增手机号登录、手机号发送验证码等功能。
 
 **描述**
 
-改进 Auth 的初始化方法，与 WilddogCore SDK 对接。
+- 改进 Auth 的初始化方法，与 WilddogCore SDK 对接。
 
 **新增**
 
@@ -125,7 +124,7 @@ Auth 新增手机号登录、手机号发送验证码等功能。
 
 **描述**
 
-Auth 部分全面升级，脱离 WilddogSync 可独立使用。
+- Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 **新增**
 
@@ -166,7 +165,7 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 **描述**
 
-该版本优化初始化过程。只需要初始化一次WilddogApp对象就可以使用WilddogAuth中使用。
+- 该版本优化初始化过程。只需要初始化一次WilddogApp对象就可以使用WilddogAuth中使用。
 
 **新增**
 
@@ -186,7 +185,7 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 **描述**
 
- 该版本将 Auth SDK 从 Wilddog SDK 中分离。
+ - 该版本将 Auth SDK 从 Wilddog SDK 中分离。
 
 **新增**
 
@@ -206,11 +205,11 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 **描述**
 
-优化 Wilddog Auth Server SDK。
+- 优化 Wilddog Auth Server SDK。
 
 **增加**
 
-增加 CustomToken 的生成器中,允许有 ',' 的规则判断。
+- 增加 CustomToken 的生成器中,允许有 ',' 的规则判断。
 
 
 
@@ -218,31 +217,31 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 **描述**
 
-优化 Wilddog Auth Server SDK。
+- 优化 Wilddog Auth Server SDK。
 
 **优化**
 
-加强 Wilddog ID Token 校验功能。
+- 加强 Wilddog ID Token 校验功能。
 
 ### V2.0.2 - 2016.09.06
 
 **描述**
 
-优化 Wilddog Auth Server SDK。
+- 优化 Wilddog Auth Server SDK。
 
 **修复**
 
-修复 CustomToken 的生成器中,允许有 ',' 的规则判断。
+- 修复 CustomToken 的生成器中,允许有 ',' 的规则判断。
 
 ### V2.0.1 - 2016.09.01
 
 **描述**
 
-优化Wilddog Auth Server SDK。
+- 优化Wilddog Auth Server SDK。
 
 **优化**
 
-对 Server SDK 进行了代码重构优化。
+- 对 Server SDK 进行了代码重构优化。
 
 
 
@@ -250,7 +249,7 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 **描述**
 
-新增 Wilddog Auth Server SDK 服务。
+- 新增 Wilddog Auth Server SDK 服务。
 
 **新增**
 
