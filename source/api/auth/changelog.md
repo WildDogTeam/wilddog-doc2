@@ -6,34 +6,34 @@ title: 更新日志
 
 ### V2.3.0 - 2016.11.10
 
-**新增**
+<span class="changelog add">新增</span>
 
 增加对微信小程序的支持。
 
 
 ### V2.2.0 - 2016.11.04
 
-**描述**
+<span class="changelog describe">描述</span>
 
 Auth 新增手机号登录、手机号发送验证码等功能
 
-**新增**
+<span class="changelog add">新增</span>
 
 - 新增 WilddogAuthProvider 类，包含邮箱和手机号登录的凭证。
 - 新增手机号登录、手机号重置密码、手机号验证用户
 - 新增手机号发送相关验证码方法
 
-**改进**
+<span class="changelog feature">改进</span>
 
 - 统一 Auth 手机号和邮箱登录方式的凭证。
 
-**废弃**
+<span class="changelog deprecated">废弃</span>
 
 废弃 EmailAuthProvider 类，用 WilddogAuthProvider 类代替
 
 ### V2.1.2 - 2016.10.17
 
-**修复**
+<span class="changelog fix">修复</span>
 
 修复 EmailAuthProvider.credential() 方法生成的 Credential 不合法的 bug。
 
@@ -41,7 +41,7 @@ Auth 新增手机号登录、手机号发送验证码等功能
 
 ### V2.1.1 - 2016.10.17
 
-**修复**
+<span class="changelog fix">修复</span>
 
 修复 iPhone 4s, iPhone 5s 微信公众账号登录失败的 bug。
 
@@ -49,12 +49,12 @@ Auth 新增手机号登录、手机号发送验证码等功能
 
 ### V2.1.0 - 2016.09.30
 
-**新增**
+<span class="changelog add">新增</span>
 
 - 增加对 Node.js 的支持。
 - 增加对 ReactNative 的支持。
 
-**修复**
+<span class="changelog fix">修复</span>
 
 - 修复 ServerValue 获取不到的 bug。
 - 修复 limits_exceeded 错误不能被捕获的 bug。
@@ -64,11 +64,11 @@ Auth 新增手机号登录、手机号发送验证码等功能
 
 ### V2.0.0 - 2016.09.01
 
-**描述**
+<span class="changelog describe">描述</span>
 
 Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
-**改进**
+<span class="changelog feature">改进</span>
 
 - 移除原有 Wilddog SDK 中 Auth 功能。
 
@@ -88,46 +88,46 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 ### V2.0.3 - 2016.11.04
 
-**描述**
+<span class="changelog describe">描述</span>
 
 Auth 新增手机号登录、手机号发送验证码等功能。
 
-**新增**
+<span class="changelog add">新增</span>
 
 - 新增 WDGWilddogAuthProvider 类，包含邮箱和手机号登录的凭证。
 - 新增手机号登录、手机号重置密码、手机号验证用户。
 - 新增手机号发送相关验证码方法。
 
-**改进**
+<span class="changelog feature">改进</span>
 
 - 统一 Auth 手机号和邮箱登录方式的凭证。
 
-**废弃**
+<span class="changelog deprecated">废弃</span>
 
 - 废弃 WDGEmailPasswordAuthProvider 类，用 WDGWilddogAuthProvider 类代替。
 
 ### V2.0.1 - 2016.09.10
 
-**描述**
+<span class="changelog describe">描述</span>
 
 改进 Auth 的初始化方法，与 WilddogCore SDK 对接。
 
-**新增**
+<span class="changelog add">新增</span>
 
 - 新增 +auth 方法。
 
-**改进**
+<span class="changelog feature">改进</span>
 
 - 统一 Auth 模块初始化接口。
 - 改进 -authWithApp: 方法，参数改为 WDGApp 类。
 
 ### V2.0.0 - 2016.09.01
 
-**描述**
+<span class="changelog describe">描述</span>
 
 Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
-**新增**
+<span class="changelog add">新增</span>
 
 - 新增 WDGAuth 类进行 auth 操作。
 - 新增 WDGUser 类用于获取用户信息。
@@ -143,52 +143,52 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 ### V2.0.2 - 2016.11.04
 
-**描述**
+<span class="changelog describe">描述</span>
 
 - Auth 新增手机号登录、手机号发送验证码等功能
 
-**新增**
+<span class="changelog add">新增</span>
 
 - 新增 WilddogAuthProvider 类，包含邮箱和手机号登录的凭证。
 - 新增手机号登录、手机号重置密码、手机号验证用户
 - 新增手机号发送相关验证码方法
 
-**改进**
+<span class="changelog feature">改进</span>
 
 - 统一 Auth 手机号和邮箱登录方式的凭证。
 
-**废弃**
+<span class="changelog deprecated">废弃</span>
 
 - 废弃 EmailAuthProvider 类，用 WilddogAuthProvider 类代替
 
 
 ### V2.0.1 - 2016.09.20
 
-**描述**
+<span class="changelog describe">描述</span>
 
 该版本优化初始化过程。只需要初始化一次WilddogApp对象就可以使用WilddogAuth中使用。
 
-**新增**
+<span class="changelog add">新增</span>
 
 - 新增WilddogOptions，WilddogApp等类用于初始化。
 
-**改进**
+<span class="changelog feature">改进</span>
 
 - 改进WilddogAuth初始化过程。将部分WilddogAuth初始化方法移除。
 
 
-**修复**
+<span class="changelog fix">修复</span>
 
 - WildUser获取token空指针问题。
 
 
 ### V2.0.0 - 2016.09.01
 
-**描述**
+<span class="changelog describe">描述</span>
 
  该版本将 Auth SDK 从 Wilddog SDK 中分离。
 
-**新增**
+<span class="changelog add">新增</span>
 
 - 新增 WilddogAuth 对象进行 auth 操作。
 - 新增 WilddogUse r对象用于获取登录后用户信息。
@@ -204,11 +204,11 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 ### V2.0.4 - 2016.10.17
 
-**描述**
+<span class="changelog describe">描述</span>
 
 优化 Wilddog Auth Server SDK。
 
-**增加**
+<span class="changelog add">新增</span>
 
 增加 CustomToken 的生成器中,允许有 ',' 的规则判断。
 
@@ -216,31 +216,31 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 ### V2.0.3 - 2016.09.06
 
-**描述**
+<span class="changelog describe">描述</span>
 
 优化 Wilddog Auth Server SDK。
 
-**优化**
+<span class="changelog optimize">优化</span>
 
 加强 Wilddog ID Token 校验功能。
 
 ### V2.0.2 - 2016.09.06
 
-**描述**
+<span class="changelog describe">描述</span>
 
 优化 Wilddog Auth Server SDK。
 
-**修复**
+<span class="changelog fix">修复</span>
 
 修复 CustomToken 的生成器中,允许有 ',' 的规则判断。
 
 ### V2.0.1 - 2016.09.01
 
-**描述**
+<span class="changelog describe">描述</span>
 
 优化Wilddog Auth Server SDK。
 
-**优化**
+<span class="changelog optimize">优化</span>
 
 对 Server SDK 进行了代码重构优化。
 
@@ -248,11 +248,11 @@ Auth 部分全面升级，脱离 WilddogSync 可独立使用。
 
 ### V2.0.0 - 2016.08.19
 
-**描述**
+<span class="changelog describe">描述</span>
 
 新增 Wilddog Auth Server SDK 服务。
 
-**新增**
+<span class="changelog add">新增</span>
 
 - Auth2.0 版本的 customToken 生成器功能。
 - Wilddog ID Token 的校验功能。
