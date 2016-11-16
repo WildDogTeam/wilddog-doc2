@@ -105,7 +105,7 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 <span class="changelog describe">描述</span>
 
-对 Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的部分。其中将原有的 Wilddog SDK 更名为 WilddogSync SDK。
+- 对 Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的部分。其中将原有的 Wilddog SDK 更名为 WilddogSync SDK。
 
 <span class="changelog feature">改进</span>
 
@@ -124,11 +124,11 @@ Wilddog SDK 全面升级，拆分为 Sync 和 Auth 两个独立的模块。
 
 <span class="changelog describe">描述</span>
 
-该版本优化初始化过程。只需要初始化一次 WilddogApp 对象就可以使用 WilddogAuth 中使用。
+- 该版本优化初始化过程。只需要初始化一次 WilddogApp 对象就可以使用 WilddogAuth 中使用。
 
 <span class="changelog add">新增</span>
 
-新增 WilddogOptions，WilddogApp 等类用于初始化。
+- 新增 WilddogOptions，WilddogApp 等类用于初始化。
 
 <span class="changelog feature">改进</span>
 
