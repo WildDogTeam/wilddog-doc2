@@ -851,10 +851,10 @@ Boolean 如果满足正则表达式返回true,否则返回false。
 
 说明
 
-This validation rule checks that the new value is the inverse of a child value at the Wilddog location: 下面的校验规则用来检查新值是否是某子节点数据的取反。
+下面的校验规则用来检查新数据是否是原数据的负值。
 
 ```
-".validate": "newData.val() == -(data.child('quantity').val())"
+".validate": "newData.val() == -(data.val())"
 
 ```
 
