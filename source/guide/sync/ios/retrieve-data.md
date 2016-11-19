@@ -12,11 +12,11 @@ title:  事件监听
 
 | 事件类型                         | 说明                    |
 | ---------------------------- | --------------------- |
-| WDGDataEventTypeValue        | 初始化监听或有新增子节点。         |
-| WDGDataEventTypeChildAdded   | 子节点数据发生更改。            |
-| WDGDataEventTypeChildChanged | 子节点被删除。               |
-| WDGDataEventTypeChildRemoved | 子节点排序发生变化。            |
-| WDGDataEventTypeChildMoved   | 初始化监听或指定节点及子节点数据发生变化。 |
+| WDGDataEventTypeChildAdded       | 初始化监听或有新增子节点。         |
+| WDGDataEventTypeChildChanged   | 子节点数据发生更改。            |
+| WDGDataEventTypeChildRemoved | 子节点被删除。               |
+| WDGDataEventTypeChildMoved | 子节点排序发生变化。            |
+| WDGDataEventTypeValue | 初始化监听或指定节点及子节点数据发生变化。 |
 
 
 <blockquote class="warning">
