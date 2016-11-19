@@ -172,6 +172,20 @@ Wilddog Id
 
 ## 方法
 
+### getToken
+
+**定义**
+
+```js
+getToken()
+```
+
+**说明**
+
+获取当前账户的token
+
+----
+
 ### link
 
 **定义**
