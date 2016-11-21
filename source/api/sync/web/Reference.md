@@ -271,6 +271,18 @@ wilddog.sync().ref("city").push('chengdu')
     });
 
 ```
+
+```js
+//也可以同步获取新的reference
+var newRef = wilddog.sync().ref("city").push('chengdu',function onComplete(err){
+    if(err == null){
+        //success
+    }
+})
+var newKey = newRef.key()
+
+```
+
 ---
 
 ### setWithPriority
