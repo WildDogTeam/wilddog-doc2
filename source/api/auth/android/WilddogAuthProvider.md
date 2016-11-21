@@ -20,9 +20,9 @@ public static final String PROVIDER_ID
 </br>
 
 ---
- ## 方法
+## 方法
 
- ### getEmailCredential(email，password)
+### getEmailCredential(email，password)
  **定义**
 
  ```java
@@ -72,3 +72,4 @@ public static final String PROVIDER_ID
   AuthCredential 对象。
 
   </br>
+

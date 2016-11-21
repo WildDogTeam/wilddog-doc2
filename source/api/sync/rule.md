@@ -680,8 +680,8 @@ String 返回替换后的新字符串。
    }
  },
  "whitelist": {
-   "fred@gmail%2Ecom": true,
-   "barney@aol%2Ecom": true
+   "fred@gmail%2ecom": true,
+   "barney@aol%2ecom": true
  }
 }
 
@@ -695,7 +695,7 @@ String 返回替换后的新字符串。
     "users": {
       "$uid": {
         ".read": "true",
-        ".write": "root.child('whitelist').child(newData.child('email').val().replace('.', '%2E')).exists()"
+        ".write": "root.child('whitelist').child(newData.child('email').val().replace('.', '%2e')).exists()"
       }
     }
   }
@@ -1140,3 +1140,4 @@ Boolean 如果满足正则表达式返回true,否则返回false。
 ```
 ".validate": "newData.isNumber() ? newData.val() > 0 : newData.isBoolean()"
 ```
+
