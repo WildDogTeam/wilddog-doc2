@@ -83,9 +83,7 @@ wilddog.auth().signInWeapp().then(function(user){
 ```
 
 ## 5.更多使用
-完整的API请参考  [Sync API] (https://docs.wilddog.com/api/sync/web/api.html) 和 [Auth API](https://docs.wilddog.com/api/auth/web/Auth.html)
-
-
+- 了解更多使用方式，请参考 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。
 
 
 　
