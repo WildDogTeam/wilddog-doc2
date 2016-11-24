@@ -21,6 +21,6 @@ closeSearch.addEventListener('click', function (e) {
 
 getClass('search-input')[0].addEventListener('keydown', function (e) {
   if (e.keyCode === 13) {
-    window.location.href = '/search/index.html?keyword=' + encodeURIComponent(this.value.split('').slice(0, 19).join(''));
+    window.location.href = '/result/index.html?keyword=' + encodeURIComponent(this.value.split('').slice(0, 19).join(''));
   }
 })
