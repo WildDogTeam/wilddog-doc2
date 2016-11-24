@@ -140,7 +140,7 @@ var doSearch = function (word, page) {
     return
   }
   ajax({
-    url: 'http://10.18.6.85:3000/search?keyword=' + word + '&page=' + page,
+    url: '/search?keyword=' + word + '&page=' + page,
     type: 'get',
     success: function (data, err) {
       if (data.code == 0) {
