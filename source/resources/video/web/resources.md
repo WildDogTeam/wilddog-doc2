@@ -1,4 +1,4 @@
-﻿title:  示例库
+title:  示例库
 ---
 
 | 名称                                       | 贡献者  | 说明                                       |
@@ -8,3 +8,5 @@
 
 
 [更多示例](https://github.com/WildDogTeam/awesome-wilddog)
+
+
