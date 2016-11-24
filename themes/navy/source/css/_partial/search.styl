@@ -1,0 +1,216 @@
+.search-header
+	margin: 0 auto
+	padding-top: 70px
+	padding-bottom: 10px
+	border-bottom: 1px solid #e5e5e5
+	font-size: 28px
+	font-weight: 300
+	
+.searching
+	padding-bottom: 60px
+
+.search-animate
+	position: relative
+	margin-left: auto
+	margin-right: auto
+	margin-top: 100px
+	width: 300px
+	height: 180px
+
+.scale-finding,
+.scale-failed
+	position: absolute
+	top: 30%
+	left: 50%
+	z-index: 6
+	width: 20px
+	height: 20px
+	border-radius: 50%
+
+.scale-finding
+	animation: 2s rotate linear infinite
+
+.scale-failed
+	display: none
+
+.scale,
+.failed
+	position: absolute
+	top: 0
+	left: 0
+	box-shadow: none
+	border: 0
+
+.scale
+	animation: 2s resRotate linear infinite
+
+@keyframes rotate {
+	from {
+		transform: rotate(0)
+	}
+	to {
+		transform: rotate(360deg)
+	}
+}
+	
+@keyframes resRotate {
+	from {
+		transform: rotate(360deg)
+	}
+	to {
+		transform: rotate(0)
+	}
+}
+	
+.search-edge
+	position: absolute
+	padding-left: 10px
+	padding-right: 10px
+	width: 160px
+	height: 26px
+	line-height: 24px
+	letter-spacing: 0
+	border: 1px solid #ddd
+	border-radius: 3px
+	background-color: #fcfcfc
+	box-shadow: 0 0 4px #eee
+	transition: 0.4s ease-in
+	font-size: 12px
+	&.search-edge-0
+		left: 87px
+		top: 0
+		z-index: 1
+		color: #999
+		border-color: #d8d8d8
+		&.search-failed
+			color: #eaa0a0
+	&.search-edge-1
+		left: 40px
+		top: 32px
+		z-index: 2
+		color: #b7b7b7
+		border-color: #dedede
+		&.search-failed
+			color: #eabbbb
+	&.search-edge-2
+		left: 0
+		top: 75px
+		z-index: 3
+		color: #999
+		border-color: #d8d8d8
+		&.search-failed
+			color: #eaa0a0
+	&.search-edge-3
+		left: 105px
+		top: 92px
+		z-index: 4
+		color: #7c7c7c
+		border-color: #d8d8d8
+		&.search-failed
+			color: #e27171
+	&.search-edge-4
+		left: 110px
+		top: 50px
+		z-index: 5
+		width: 200px
+		color: #7c7c7c
+		border-color: #d5d5d5
+		&.search-failed
+			color: #e27171
+		
+.search-tips-text
+	text-align: center
+	font-size: 18px
+	&.search-failed-text
+		font-size: 14px
+
+.novice
+	margin-bottom: 40px
+	
+.search-result
+	padding-bottom: 90px
+	display: none
+
+.search-result-list
+	padding-top: 40px
+	border-bottom: 1px solid #e5e5e5
+
+.search-result-item
+	padding-bottom: 36px
+	em
+		padding-left: 2px
+		padding-right: 2px
+		display: inline-block
+		border-radius: 3px
+		background-color: #fef2b2
+		color: #333
+
+.result-title
+	padding-bottom: 10px
+	font-size: 16px
+	line-height: 1
+	.result-link
+		color: #3c96e6
+		text-decoration: none
+	
+.result-content
+	font-size: 14px
+	line-height: 1.5
+	letter-spacing: 1px
+	
+.page-control
+	padding-top: 10px
+	text-align: right
+	font-size: 0
+	line-height: 1
+	.page-pre,
+	.page-next
+		position: relative
+		margin-left: 4px
+		display: inline-block
+		width: 16px
+		height: 16px
+		border: 1px solid #666
+		cursor: pointer
+		&::before
+			content: ''
+			position: absolute
+			left: 50%
+			top: 50%
+			margin-left: -6px
+			margin-top: -4px
+			width: 8px
+			height: 8px
+			border: 1px solid #666
+			border-left-color: transparent
+			border-bottom-color: transparent
+			transform: rotate(45deg)
+		&.page-gray
+			border-color: #e5e5e5
+			cursor: default
+			&::before
+				border-color: #e5e5e5
+				border-left-color: transparent
+				border-bottom-color: transparent
+	.page-pre
+		margin-right: 24px
+		&::before
+			margin-left: -2px
+			transform:rotate(-135deg)
+	.page-number,
+	.page-omit
+		display: inline-block
+		margin-right: 20px
+		height: 16px
+		line-height: 16px
+		color: #999
+		font-size: 12px
+		vertical-align: bottom
+		text-align: center
+		cursor: pointer
+		&.page-current
+			color: #333
+	.page-omit
+		cursor: default
+		margin-left: -10px
+		margin-right: 10px
