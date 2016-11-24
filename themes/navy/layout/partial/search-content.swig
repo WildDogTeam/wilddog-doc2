@@ -19,16 +19,7 @@
 	<ul class="search-result-list"></ul>
 	<div class="page-control">
 		<span class="page-pre"></span>
-		<span class="pages">
-			<span class="page-number">1</span>
-			<span class="page-number">2</span>
-			<span class="page-number">3</span>
-			<span class="page-number">4</span>
-			<span class="page-number">5</span>
-			<span class="page-number page-current">6</span>
-			<span class="page-omit">...</span>
-			<span class="page-number">999</span>
-		</span>
+		<span class="pages"></span>
 		<span class="page-next"></span>
 	</div>
 </div>

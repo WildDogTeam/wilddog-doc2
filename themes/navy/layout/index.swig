@@ -8,7 +8,7 @@
   <div id="content-inner">
     <div class="article-container">
       <div class="article-inner">
-        {% if page.path === 'search/index.html' %}
+        {% if page.path === 'result/index.html' %}
         {{ partial('partial/search-content') }}
         {% endif %}
         <div class="novice novice-register text-center">
