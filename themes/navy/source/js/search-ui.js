@@ -17,14 +17,14 @@ window.addEventListener('load', function () {
     flag ++
   }, 1000);
 
-  var searchFailed = function (err) {
+  var searchFailed = function (keyword, err) {
     clearInterval(timer);
     searchContents.forEach(function(element, index){
       addClass(element, 'search-failed');
       element.textContent = 'CAN NOT FIND';
     });
     addClass(getClass('search-tips-text')[0], 'search-failed-text');
-    if (!err) {
+    if (keyword) {
       getClass('search-header')[0].innerHTML = '“<em>' + keyword + '</em>”的搜索结果';
       getClass('search-tips-text')[0].innerHTML = '抱歉，未找到“<em>' + keyword + '</em>”的相关结果，请尝试其他关键词搜索';
     } else {
@@ -167,7 +167,7 @@ window.addEventListener('load', function () {
         }
       },
       failed: function (err) {
-        searchFailed(err)
+        searchFailed(null, err)
       }
     })
   }

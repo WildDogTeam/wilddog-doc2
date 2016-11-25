@@ -60,8 +60,6 @@ function ajax(options){
       } else {
         options.failed(xmlreq.responseText)
       }
-    } else {
-      options.failed(xmlreq.responseText)
     }
   }
   xmlreq.open(options.type, options.url, true);
