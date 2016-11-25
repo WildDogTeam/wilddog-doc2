@@ -1,10 +1,10 @@
 window.addEventListener('load', function () {
   var keyword = getQueryStringByName('keyword');
-  var currentPage = 1, pageCount, searchHistory = {};
+  var currentPage = 1, pageCount, searchHistory = {}, totalResult;
   getClass('search-input')[0].value = keyword;
-
+  var searchbar = getClass('searchbar')[0];
   searchbar.click();
-
+  addClass(getClass('mask')[0], 'fadeHide');
   var searchContents = getClass('search-edge');
   var flag = 0;
 
@@ -25,7 +25,8 @@ window.addEventListener('load', function () {
     });
     addClass(getClass('search-tips-text')[0], 'search-failed-text');
     if (word) {
-      getClass('search-tips-text')[0].textContent = '抱歉，未找到“' + word + '”的相关结果，请尝试其他关键词搜索';
+      getClass('search-header')[0].innerHTML = '“<em>' + word + '</em>”的搜索结果';
+      getClass('search-tips-text')[0].innerHTML = '抱歉，未找到“<em>' + word + '</em>”的相关结果，请尝试其他关键词搜索';
     } else {
       getClass('search-tips-text')[0].textContent = err;
     }
@@ -37,7 +38,7 @@ window.addEventListener('load', function () {
 
   var searchSuccess = function (word) {
     clearInterval(timer);
-    getClass('search-header')[0].textContent = '“' + word + '”的搜索结果';
+    getClass('search-header')[0].innerHTML = '“<em>' + word + '</em>”的搜索结果，共'+ totalResult +'个';
     getClass('searching')[0].style.display = 'none';
     getClass('search-result')[0].style.display = 'block';
   }
@@ -138,6 +139,7 @@ window.addEventListener('load', function () {
   var doSearch = function (word, page) {
     if (searchHistory[page]) {
       createResultList(searchHistory[page]);
+      document.body.scrollTop = 0;
       return
     }
     ajax({
@@ -151,14 +153,16 @@ window.addEventListener('load', function () {
           }
           var timer1 = setTimeout(function () {
             var hits = data.hits;
-            var total = data.total;
+            totalResult = data.total;
             searchHistory[page] = hits;
-            pageCount = Math.ceil(total / 10);
+            pageCount = Math.ceil(totalResult / 10);
             createResultList(hits);
             clearTimeout(timer1)
-          }, 1000)
+            document.body.scrollTop = 0;
+          }, 1000);
         } else {
           searchFailed(null, data.message);
+          document.body.scrollTop = 0;
         }
       }
     })

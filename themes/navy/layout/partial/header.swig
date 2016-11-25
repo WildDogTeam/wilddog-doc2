@@ -14,7 +14,7 @@
     <div class="searchbar">
       <div class="search-tips">
         <img src="/images/search-icon.svg" alt="" width="15" height="15" class="search-icon">
-        <span class="serach-placeholder">搜索</span>
+        <!-- <span class="serach-placeholder">搜索</span> -->
       </div>
     </div>
     <div class="searchbar-inputting">
@@ -22,7 +22,7 @@
         <img src="/images/search-icon.svg" alt="" width="15" height="15" class="search-icon">
       </div>
       <input type="text" class="search-input" placeholder="搜索">
-      <span class="close-search"></span>
+      <span class="close-search"><img src="/images/close.svg" alt=""></span>
     </div>
     <div class="header-info pull-right">
         <span class="pull-left"><img src="" alt="" class="img-circle profile-avatar" width="24" height="24"></span>
@@ -72,3 +72,4 @@
     </ul>
   </div>
 </header>
+<div class="mask fadeHide"></div>
