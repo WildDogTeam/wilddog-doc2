@@ -1,4 +1,4 @@
-title : 安装和初始化
+title : 安装和初始化 SDK
 ---
 
 本篇文档介绍如何安装和初始化 SDK。
@@ -15,13 +15,13 @@ Wilddog Video SDK 的实现依赖于 Wilddog Sync SDK 和 Wilddog Auth SDK，所
 
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="video-web-version"></span>/wilddog-video.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
-### 初始化 SDK
+### 初始化 Video SDK
 
-客户端在使用 Video SDK 前需要初始化一个 Client 来连接客户端和野狗服务器。
+客户端在使用 Video SDK 前需要初始化 Client 来连接客户端和野狗服务器。
 
 初始化 Client 之前，要先经过 [野狗身份认证](/overview/auth.html)。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式进行身份认证。
 
-例如，以匿名方式登录后创建 Client ：
+例如，以匿名方式登录后初始化 Client ：
 
 **需要修改为最新代码！！！**
 
