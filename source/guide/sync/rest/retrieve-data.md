@@ -124,7 +124,7 @@ data: JSON encoded data payload
 
 服务器会返回以下的事件：
 
-|               |                                          |
+|        事件       |   说明                                       |
 | :------------ | ---------------------------------------- |
 | put           | JSON格式数据，有两个key：path和data；path指向请求URL的路径；客户端应该使用消息中包含的数据替换本地缓存中的数据 |
 | patch         | JSON格式数据，有两个key：path和data；path指向请求URL的路径；对与数据的每一个key，客户端应该用消息中包含的key替代缓存中的key |
