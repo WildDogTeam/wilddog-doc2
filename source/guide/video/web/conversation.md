@@ -1,21 +1,21 @@
 title: 视频通话
 ---
 
-本篇文档介绍如何建立视频通话。
+本篇文档介绍在开发视频通话时可能遇到的主要环节，包括创建视频通话、管理其他参与者和加入视频通话相关。
 
 **需要修改为最新代码！！！**
 
-## 建立通话
+## 创建视频通话
 
-介绍如何配置本地媒体流，预览本地视频画面以及发起视频通话。
+包括如何配置和预览本地媒体流，以及发起视频通话。
 
-### 配置本地媒体流
+### 配置和预览本地媒体流
 
-本地媒体流包括音频和视频。需要在发起视频通话前配置本地媒体流( [LocalStream](/api/video/web/localStream.html) )。视频通话建立后该媒体流会发给其他 Clients。
+本地媒体流( [LocalStream](/api/video/web/localStream.html) )包括音频和视频，发起视频通话前需要配置其属性，视频通话创建成功后该媒体流会发给其他参与者。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  只有通过 HTTPS 服务器打开的页面才可以成功获取本地摄像头和麦克等资源。
+  只有通过 HTTPS 服务打开的页面才可以成功获取本地摄像头和麦克等资源。
 </blockquote>
 
 例如，创建一个只有视频且分辨率为 640X480 的流，并展示到页面上：
@@ -38,9 +38,8 @@ videoInstance.createStream({
         console.log("Catch error! Error code is " + err);
     })
 ```
-### 预览本地视频画面
 
-Video SDK 允许在加入通话前预览本地的视频画面。
+配置成功后，可以在加入视频通话前预览本地画面。
 
 例如，创建一个同时有音频和视频的本地媒体流并展示出来：
 
@@ -55,12 +54,7 @@ wilddog.video().createStream({audio:true,video:true})
 
 ### 发起视频通话
 
-视频通话的建立基于邀请机制，只有另一个 [Client](/api/video/web/wilddogVideoClient.html) 接受了通话邀请，通话才能建立成功。
-
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  通话邀请必须在 Client 初始化完成之后来进行。
-</blockquote>
+只有另一个 [Client](/api/video/web/wilddogVideoClient.html) 接受了一方的邀请，通话才能建立成功。
 
 例如，发起一对一视频通话：
 
@@ -90,37 +84,17 @@ client.inviteToConversation('wilddogId',{
 
 ## 管理其他参与者
 
-介绍如何邀请其他 Client 加入Conversation、处理参与者的连接事件，以及播放参与者的媒体流。
+管理其他参与者包括处理参与者的连接事件和播放参与者的媒体流。
 
-### 邀请其他 Client 建立Conversation
 
-通过 inviteToConversation 方法向其他 Client （以 Wilddog ID 作为身份标识）发起一对一通话邀请。
+### 处理本参与者的连接事件
 
-例如，邀请某个 Wilddog ID 为 12345 的用户加入一对一通话：
-
-```javascript
-client.inviteToConversation('12345',{'stream':localStream,'userDate':'somethings'});
-```
-
-### 处理本地和参与者的连接事件
-
-通过监听本地和参与者加入或离开的事件，来获得本地和参与者的状态通知。
+通过监听参与者加入或离开的事件，来获得参与者的状态通知。
 
 例如，打印加入、离开及加入失败的日志：
 
 ```javascript
-//监听本地加入事件
-conversation.on('connected', function(){
-    console.log('You connected！');
-});
-//监听本地加入失败事件
-conversation.on('connect_failed', function(){
-    console.log('You connect failed！');
-});
-//监听本地断开事件
-conversation.on('disconnected', function(){
-    console.log('You disconnected！');
-});
+
 //监听参与者加入事件
 conversation.on('participant_connected', function(participant){
     console.log('New participant connected: ', participant.Id);
@@ -133,7 +107,7 @@ conversation.on('participant_disconnected', function(participant){
 
 ### 播放其他参与者的媒体流
 
-通话中想播放其他参与者的媒体流，需要将媒体流展示到屏幕上。
+通过展示他参与者的视频流来观看其画面。
 
 例如，当监听到参与者加入会话时展示参与者的媒体流：
 
@@ -147,11 +121,11 @@ participant.on('streamAdded', function(stream){
 
 ## 加入会话相关
 
-介绍如何接受或拒绝邀请，以及离开会话。
+加入会话相关包括接受或拒绝邀请，以及离开视频通话。
 
 ### 接受或拒绝邀请
 
-初始化 Client 后，可以通过监听邀请事件接收其他 Client 发起的会话邀请，收到邀请后可以选择接受或拒绝邀请。
+初始化 Client 之后，监听邀请事件接收另一个 Client 发起的会话邀请，收到邀请后可以选择接受或拒绝邀请。
 
 例如，收到邀请后，接受邀请：
 
