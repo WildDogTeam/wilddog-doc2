@@ -25,7 +25,7 @@
   })
 
   getClass('search-input')[0].addEventListener('keydown', function (e) {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && this.value.trim() !== '') {
       window.location.href = '/result/index.html?keyword=' + encodeURIComponent(this.value.split('').slice(0, 19).join(''));
     }
   })

@@ -17,18 +17,19 @@ window.addEventListener('load', function () {
     flag ++
   }, 1000);
 
-  var searchFailed = function (word, err) {
+  var searchFailed = function (keyword, err) {
     clearInterval(timer);
     searchContents.forEach(function(element, index){
       addClass(element, 'search-failed');
       element.textContent = 'CAN NOT FIND';
     });
     addClass(getClass('search-tips-text')[0], 'search-failed-text');
-    if (word) {
-      getClass('search-header')[0].innerHTML = '“<em>' + word + '</em>”的搜索结果';
-      getClass('search-tips-text')[0].innerHTML = '抱歉，未找到“<em>' + word + '</em>”的相关结果，请尝试其他关键词搜索';
+    if (keyword) {
+      getClass('search-header')[0].innerHTML = '“<em>' + keyword + '</em>”的搜索结果';
+      getClass('search-tips-text')[0].innerHTML = '抱歉，未找到“<em>' + keyword + '</em>”的相关结果，请尝试其他关键词搜索';
     } else {
-      getClass('search-tips-text')[0].textContent = err;
+      getClass('search-header')[0].innerHTML = '“<em>' + keyword + '</em>”的搜索结果';
+      getClass('search-tips-text')[0].textContent = '抱歉，由于网络原因搜索失败，请稍后尝试搜索，错误原因：' + err;
     }
     getClass('searching')[0].style.display = 'block';
     getClass('search-result')[0].style.display = 'none';
@@ -36,9 +37,9 @@ window.addEventListener('load', function () {
     getClass('scale-failed')[0].style.display = 'block';
   }
 
-  var searchSuccess = function (word) {
+  var searchSuccess = function () {
     clearInterval(timer);
-    getClass('search-header')[0].innerHTML = '“<em>' + word + '</em>”的搜索结果，共'+ totalResult +'个';
+    getClass('search-header')[0].innerHTML = '“<em>' + keyword + '</em>”的搜索结果，共'+ totalResult +'个';
     getClass('searching')[0].style.display = 'none';
     getClass('search-result')[0].style.display = 'block';
   }
@@ -136,14 +137,14 @@ window.addEventListener('load', function () {
     searchSuccess(keyword);
   }
 
-  var doSearch = function (word, page) {
+  var doSearch = function (page) {
     if (searchHistory[page]) {
       createResultList(searchHistory[page]);
       document.body.scrollTop = 0;
       return
     }
     ajax({
-      url: '/search?keyword=' + word + '&page=' + page,
+      url: '/search?keyword=' + keyword + '&page=' + page,
       type: 'get',
       success: function (data, err) {
         if (data.code == 0) {
@@ -164,6 +165,9 @@ window.addEventListener('load', function () {
           searchFailed(null, data.message);
           document.body.scrollTop = 0;
         }
+      },
+      failed: function (err) {
+        searchFailed(null, err)
       }
     })
   }
