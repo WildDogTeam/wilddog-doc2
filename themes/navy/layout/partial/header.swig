@@ -11,6 +11,19 @@
       <a href="javascript:;" class="main-nav-link">示例代码</a>
       <a href="javascript:;" class="main-nav-link">控制面板指南</a>
     </nav>
+    <div class="searchbar">
+      <div class="search-tips">
+        <img src="/images/search-icon.svg" alt="" width="15" height="15" class="search-icon">
+        <!-- <span class="serach-placeholder">搜索</span> -->
+      </div>
+    </div>
+    <div class="searchbar-inputting">
+      <div class="search-tips">
+        <img src="/images/search-icon.svg" alt="" width="15" height="15" class="search-icon">
+      </div>
+      <input type="text" class="search-input" placeholder="搜索">
+      <span class="close-search"><img src="/images/close.svg" alt=""></span>
+    </div>
     <div class="header-info pull-right">
         <span class="pull-left"><img src="" alt="" class="img-circle profile-avatar" width="24" height="24"></span>
         <span class="user-email"></span>
@@ -59,3 +72,4 @@
     </ul>
   </div>
 </header>
+<div class="mask fadeHide"></div>
