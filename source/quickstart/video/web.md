@@ -43,7 +43,7 @@ node https_channel_server.js
 
 <img src='/images/video_quickstart_js_login.png' alt="video_quickstart_js_login">
 
-### 5.2 登录快速入门
+### 5.2 登录
 
 输入应用 ID（下图 `wilddogio` 之前的字段），然后点击匿名登录。
 
