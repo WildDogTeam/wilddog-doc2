@@ -54,10 +54,14 @@ function ajax(options){
   };
   xmlreq.onreadystatechange = function () {
     if (xmlreq.readyState == 4) {
+      var res = xmlreq.responseText;
       if (xmlreq.status == 200) {
-        var res = xmlreq.responseText;
         options.success(JSON.parse(res), null)
+      } else {
+        options.failed(xmlreq.responseText)
       }
+    } else {
+      options.failed(xmlreq.responseText)
     }
   }
   xmlreq.open(options.type, options.url, true);
