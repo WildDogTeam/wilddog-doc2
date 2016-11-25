@@ -12,7 +12,7 @@ title:  离线事件
 为避免上述情况，可通过手动重新注册离线事件，保证异常断连时，离线事件也能触发。
 
 ## 手动注册离线事件
-通过 [离线事件](guide/sync/web/offline-capabilities.html#离线事件) 与 [监听连接状态](/guide/sync/web/offline-capabilities.html#监听连接状态) 配合，将离线事件的注册代码放到监听连接状态的回调函数中，可以实现异常情况下离线事件的重新注册：
+通过 [离线事件](/guide/sync/web/offline-capabilities.html#离线事件) 与 [监听连接状态](/guide/sync/web/offline-capabilities.html#监听连接状态) 配合使用，将离线事件的注册代码放到监听连接状态的回调函数中，可实现异常情况下离线事件的重新注册：
 
 ```
 var config = {
@@ -37,8 +37,7 @@ connectedRef.on("value", function(snap) {
 
 ## 修正在线状态不一致
 
-因网络中断断连时，可能出现客户端实际的在线状态与云端记录不一致的情况。
-如下所示：
+因网络中断断连时，可能出现客户端实际的在线状态与云端记录不一致的情况。如下所示：
 
 ![](/images/offlinebp.jpg)
 
@@ -52,7 +51,7 @@ connectedRef.on("value", function(snap) {
 
 此时，客户端实际在线，但云端被标记为该客户端离线。
 
-建议在代码中增加监听云端在线状态的节点。如出现上述情况：云端在线状态与当前实际的在线状态不一致，可及时修正。
+因此，建议在代码中增加监听云端在线状态的节点。如出现上述情况：云端在线状态与当前实际的在线状态不一致，可及时修正。
 
 例如，节点 `/user-status` 下记录着所有客户端的在线状态，客户端在线状态为 `online`，客户端离线状态则为 `offline`：
 
