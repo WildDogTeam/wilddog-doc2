@@ -96,20 +96,20 @@ guide:
   即时通讯:
     基础概念:
     Android:
-      初始化: /guide/video/android/initalize.html
-      用户集成: /guide/video/android/users.html
-      收发消息: /guide/video/android/message.html
-      未读消息计数: /guide/video/android/unread.html
-      群组管理: /guide/video/android/group.html
-      离线推送: /guide/video/android/push.html
+      初始化: /guide/im/android/intialize.html
+      用户集成: /guide/im/android/users.html
+      收发消息: /guide/im/android/message.html
+      未读消息计数: /guide/im/android/unread.html
+      群组管理: /guide/im/android/group.html
+      离线推送: /guide/im/android/push.html
 
     iOS:
-      初始化: /guide/video/iOS/initalize.html
-      用户集成: /guide/video/iOS/users.html
-      收发消息: /guide/video/iOS/message.html
-      未读消息计数: /guide/video/iOS/unread.html
-      群组管理: /guide/video/iOS/group.html
-      离线推送: /guide/video/iOS/push.html
+      初始化: /guide/im/ios/intialize.html
+      用户集成: /guide/im/ios/users.html
+      收发消息: /guide/im/ios/message.html
+      未读消息计数: /guide/im/ios/unread.html
+      群组管理: /guide/im/ios/group.html
+      离线推送: /guide/im/ios/push.html
 
       
   
