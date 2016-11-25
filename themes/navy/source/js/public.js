@@ -58,7 +58,7 @@ function ajax(options){
       if (xmlreq.status == 200) {
         options.success(JSON.parse(res), null)
       } else {
-        options.failed(xmlreq.responseText)
+        options.failed(xmlreq)
       }
     }
   }

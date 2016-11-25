@@ -17,19 +17,19 @@ window.addEventListener('load', function () {
     flag ++
   }, 1000);
 
-  var searchFailed = function (keyword, err) {
+  var searchFailed = function (word, err) {
     clearInterval(timer);
     searchContents.forEach(function(element, index){
       addClass(element, 'search-failed');
       element.textContent = 'CAN NOT FIND';
     });
     addClass(getClass('search-tips-text')[0], 'search-failed-text');
-    if (keyword) {
-      getClass('search-header')[0].innerHTML = '“<em>' + keyword + '</em>”的搜索结果';
-      getClass('search-tips-text')[0].innerHTML = '抱歉，未找到“<em>' + keyword + '</em>”的相关结果，请尝试其他关键词搜索';
+    if (word) {
+      getClass('search-header')[0].innerHTML = '“<em>' + word + '</em>”的搜索结果';
+      getClass('search-tips-text')[0].innerHTML = '抱歉，未找到“<em>' + word + '</em>”的相关结果，请尝试其他关键词搜索';
     } else {
       getClass('search-header')[0].innerHTML = '“<em>' + keyword + '</em>”的搜索结果';
-      getClass('search-tips-text')[0].textContent = '抱歉，由于网络原因搜索失败，请稍后尝试搜索，错误原因：' + err;
+      getClass('search-tips-text')[0].textContent = '抱歉，由于网络原因搜索失败，请稍后尝试搜索。';
     }
     getClass('searching')[0].style.display = 'block';
     getClass('search-result')[0].style.display = 'none';
@@ -137,7 +137,7 @@ window.addEventListener('load', function () {
     searchSuccess(keyword);
   }
 
-  var doSearch = function (page) {
+  var doSearch = function (keyword, page) {
     if (searchHistory[page]) {
       createResultList(searchHistory[page]);
       document.body.scrollTop = 0;
