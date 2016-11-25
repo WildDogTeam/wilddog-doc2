@@ -150,7 +150,7 @@ participant.on('streamAdded', function(stream){
 });
 ```
 
-title: 加入会议相关
+## 加入会议相关
 ---
 
 介绍如何预览本地视频画面、接受或拒绝邀请，以及离开视频会议。
