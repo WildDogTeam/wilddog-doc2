@@ -25,6 +25,7 @@ title: 快速入门
 
 进入 管理应用-实时视频通话，开启视频通话功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
 
+<img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
 
 ## 4. 启动本地 Web 服务
 
