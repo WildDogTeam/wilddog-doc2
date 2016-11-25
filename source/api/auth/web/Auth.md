@@ -21,7 +21,15 @@ wilddog.Auth 对象负责用户认证及密码找回等功能，它不能直接�
 
 同步的获取当前缓存的用户，如果没有登录用户则为 null。
 
-
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  currentUser 在身份认证完成前为 null ，必要时（如：刷新页面后立即调用 currentUser 等情况）需要配合 onAuthStateChanged()使用，在回调中调用 currentUser 。
+  ```js
+  wilddog.auth().onAuthStateChanged(function(user){
+    console.log(wilddog.auth().currentUser);
+  })
+  ```
+</blockquote>
 
 </br>
 
@@ -496,5 +504,3 @@ confirmPasswordResetSms(phone, code, newPassword)
 **返回值**
 
 [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
-
-
