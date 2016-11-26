@@ -161,7 +161,7 @@ conversation.on('disconnected', function(){
 })
 ```
 
-## 安全性考虑
+## 数据安全性
 
 ### 保护信令交互的安全
 
