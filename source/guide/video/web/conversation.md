@@ -57,6 +57,12 @@ wilddog.video().createStream({audio:true,video:true})
 
 只有另一个 [Client](/api/video/web/wilddogVideoClient.html) 接受了一方的邀请，通话才能建立成功。
 
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为避免影响视频通话功能的使用，请勿操作该节点。
+</blockquote>
+
+
 例如，发起一对一视频通话：
 
 ```javascript
@@ -154,3 +160,22 @@ conversation.on('disconnected', function(){
     //释放资源
 })
 ```
+
+## 安全性考虑
+
+### 保护信令交互的安全
+
+视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置规则表达式。
+
+规则表达式设置页面如下：
+
+<img src="/images/video_guide_rule.png" alt="video_guide_rule">
+
+例如，对 `wilddogVideo` 节点配置规则表达式，保证信令只被交互双方读写：
+
+	{
+	  "rules": {
+	    "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
+	  }
+	}
+	
