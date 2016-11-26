@@ -18,7 +18,7 @@ title: 初始化
 
 ## 监听连接状态
 
-`- wilddogIMClientDidConnect:` 和 `- wilddogIMClientDidDisconnect:` 代理方法可以用于监听 SDK 与服务器连接状况：
+`- wilddogIMClientDidConnect:` 和 `- wilddogIMClientDidDisconnect:` 代理方法用于监听 SDK 与服务器连接状况：
 ```objectivec
 - (void)wilddogIMClientDidConnect:(nonnull WDGIMClient *)client {
 	// 与服务器建立连接。

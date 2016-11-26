@@ -1,7 +1,7 @@
 title: 快速入门
 ---
 
-通过以下教程，快速了解和使用 Wilddog IM SDK。
+你可以通过以下教程快速了解 Wilddog IM 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -13,7 +13,9 @@ title: 快速入门
 
 ## 1. 创建应用
 
-[登录](https://www.wilddog.com/my-account/login) 野狗开发账号，在控制面板中创建应用，并获取 AppID。请参考 [控制面板-创建应用](/console/creat.html)。
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
+
+
 
 ## 2. 安装 SDK
 
