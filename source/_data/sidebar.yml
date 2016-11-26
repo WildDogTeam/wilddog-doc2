@@ -281,6 +281,19 @@ api:
       WDGIMMessageVoice: /api/im/ios/WDGIMMessageVoice.html
       WDGIMUser: /api/im/ios/WDGIMUser.html
     Android:
+      WilddogIMClient: /api/im/android/WilddogIMClient.html    
+      Conversation: /api/im/android/Conversation.html
+      Message: /api/im/android/Message.html    
+      GroupTipMessage: /api/im/android/GroupTipMessage.html
+      ImageMessage: /api/im/android/ImageMessage.html    
+      TextMessage: /api/im/android/TextMessage.html
+      VoiceMessage: /api/im/android/VoiceMessage.html    
+      WilddogIMClient.CompletionListener: /api/im/android/WilddogIMClient.CompletionListener.html
+      WilddogIMClient.WilddogIMAuthStateListener: /api/im/android/WilddogIMClient.WilddogIMAuthStateListener.html
+      WilddogIMClient.WilddogIMConnectionListener: /api/im/android/WilddogIMClient.WilddogIMConnectionListener.html
+      WilddogIMClient.WilddogIMGroupChangeListener: /api/im/WilddogIMClient.WilddogIMGroupChangeListener.html
+      WilddogIMClient.WilddogIMMessageListener: /api/im/android/WilddogIMClient.WilddogIMMessageListener.html
+     
   
   身份认证:
     Web:
