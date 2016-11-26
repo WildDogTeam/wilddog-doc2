@@ -1,7 +1,7 @@
 title: 快速入门
 ---
 
-你可以通过以下教程快速了解 Wilddog IM 的用法。
+你可以通过快速入门教程快速了解 Wilddog IM 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -70,26 +70,31 @@ SDK 的安装方式有两种，你可以任选其一：
 
 ## 4. 集成用户
 
-Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。流程如下：
+Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。
+具体流程如下：
 1. 客户端向开发者服务器请求 customToken。
 2. 开发者服务器使用野狗 Server SDK 生成 customToken 返回给客户端。
 3. 客户端使用 customToken 登录 Wilddog IM 服务。
 
-也可以在 `IM 控制面板` -> `接口测试` 中生成 Token 用于测试。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  你可以在 `IM 控制面板`-`接口测试` 中手动生成 Token 用于测试。
+</blockquote>
 
-```objc
-// 用 Wilddog Auth Token 登录
-[[WDGIMClient defaultClient] signInWithCustomToken:wilddogToken completion:^(WDGIMUser * _Nullable currentUser, NSError * _Nullable error) {
-        
-}];
-```
 ## 5. 发起聊天
-发送消息前需要先创建会话和消息体。
+发起聊天需要三个步骤：
+1. 创建会话
+2. 创建消息体
+3. 发送消息
+
+例如，发送一条文本消息：
+
 ```
 //创建会话，传入的数组中默认包含登录用户 ID
 [[WDGIMClient defaultClient] newConversationWithMembers:@[@"UserID"] completion:^(WDGIMConversation * _Nullable conversation, NSError *__autoreleasing  _Nullable * _Nullable error) {
-     //发文字消息
+     //创建文字消息
      WDGIMMessageText *textMessage = [WDGIMMessage messageWithText:@"Hello, Wilddog!"];
+     //发送消息
      [conversation sendMessage:textMessage completion:^(WDGIMMessage * _Nullable msg, NSError * _Nullable err) {
          //msg 是发送成功后的消息
      }];
@@ -97,7 +102,7 @@ Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统�
 ```
 ## 6. 接收消息
 
-在 WDGIMClientDelegate 的代理方法 `-wilddogClient:didRecieveMessages:` 中接收新消息。
+WDGIMClientDelegate 的代理方法  `-wilddogClient:didRecieveMessages:` 用于接收新消息。
 
 ```objc
 
