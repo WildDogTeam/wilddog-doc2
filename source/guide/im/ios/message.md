@@ -1,21 +1,19 @@
 title: 消息收发
 ---
 
-本篇文章主要介绍 Wilddog IM SDK 的消息收发和会话操作。
+本篇文档介绍 Wilddog IM SDK 的消息收发和会话操作。
 
-* 1.发送消息
-* 2.接收消息
-* 3.消息属性
-* 4.会话操作
 
 ### 发送消息
+发送消息前需要先创建会话和消息体。
 
-####  会话获取
+####  创建会话
 
-会话是指面向一个人或者一个群组的对话，发消息时首先需要先获取会话，会话的获取通过 `-newConversationWithMembers:completion` 方法来实现，比如创建一个单聊会话：
+会话是指面向一个人或者一个群组的对话，发消息时需要先获取会话。
+使用 `-newConversationWithMembers:completion` 方法获取会话，比如创建一个单聊会话：
 
 ```objc
-[[WDGIMClient defaultClient] newConversationWithMembers:@[@"WilddogUserId"] completion:^(WDGIMConversation * _Nullable conversation, NSError *__autoreleasing  _Nullable * _Nullable error) {
+[[WDGIMClient defaultClient] newConversationWithMembers:@[@"User Id"] completion:^(WDGIMConversation * _Nullable conversation, NSError *__autoreleasing  _Nullable * _Nullable error) {
    //...
 }];
 
@@ -23,7 +21,7 @@ title: 消息收发
 
 #### 创建文本消息
 
-WDGIMConversation 会话创建成功后，可以通过 `-sendMessage:completion:` 方法来发送消息。例如，发送一个文本消息：
+`-messageWithText:` 方法用于创建文本消息。
 
 ```objc
 WDGIMMessageText *textMsg = [WDGIMMessage messageWithText:@"Hi, Wilddog!"];
@@ -31,16 +29,16 @@ WDGIMMessageText *textMsg = [WDGIMMessage messageWithText:@"Hi, Wilddog!"];
 
 #### 创建图片消息
 
-图片消息由 WDGIMMessageImage 定义，它是 WDGIMMessage 的一个子类。
+`-messageWithImage:` 方法用于创建图片消息。
  
 ```objc
 // 创建图片消息
-WDGIMMessageImage *imageMsg = [WDGIMMessage messageWithImagePath:picPath];
+WDGIMMessageImage *imageMsg = [WDGIMMessage messageWithImage:image];
 ```
 
 #### 创建语音消息
 
-语音消息由 WDGIMMessageVoice 定义，它是 WDGIMMessage 的一个子类。
+`-messageWithVoiceData:duration:` 方法用于创建语言消息。
  
 ```objc
 // 创建语音消息
@@ -49,7 +47,7 @@ WDGIMMessageVoice *voiceMsg = [WDGIMMessage messageWithVoiceData:voiceData durat
 
 #### 发送消息：
 
-结合以上方法，就可以发送信息：
+`-sendMessage:completion:` 方法用于发送一条消息。
 
 ```objc
 // 回调中可以获取消息的发送状态
@@ -61,25 +59,24 @@ WDGIMMessageText *textMessage = [WDGIMMessage messageWithText:@"Hi, Wilddog!"];
 
 ### 接收消息
 
-接收消息需要调用 WDGIMClientDelegate 中的代理方法 `- wilddogClient:didRecieveMessages:` ，如果用户是登录状态，SDK 会通过此回调方法收到新消息。
+新消息通知会在 `-wilddogIMClient:didRecieveMessages:` 方法中回调给用户。
 
 #### 注册监听
 
-设置代理之后，用实例方法注册监听
+在 SDK 初始化时设置消息接收代理。
 
 ```objc 
-- (void)wilddogClient:(WIMClient *)client didRecieveMessages:(NSArray<WIMMessage *> *)messages
-{
-	//消息解析
-}
+// 设置代理
+[WDGIMClient clientWithAppID:@"your appID" delegate:self];
+
 ```
 	
 #### 消息解析
 
-实现 WDGIMClientDelegate 的 `- wilddogClient:didRecieveMessages:` 方法，从 messages 集合中能获取所有的新的聊天消息。
+实现 WDGIMClientDelegate 的 `-wilddogIMClient:didRecieveMessages:` 方法，从 messages 中能获取所有的新的聊天消息。
 
 ```objc
-- (void)wilddogClient:(WDGIMClient *)client didRecieveMessages:(NSArray<WDGIMMessage *> *)messages
+- (void)wilddogIMClient:(WDGIMClient *)client didRecieveMessages:(NSArray<WDGIMMessage *> *)messages
 {
     for (WDGIMMessage *msg in messages) {
         switch (msg.messageType) {
@@ -102,11 +99,19 @@ WDGIMMessageText *textMessage = [WDGIMMessage messageWithText:@"Hi, Wilddog!"];
 }
 ```
 
+#### 消息删除
+
+`-deleteMessage` 方法用于删除本地消息。
+
+```objc
+   - (BOOL)deleteMessage;
+```
+
 ### 消息属性
 
 #### 消息状态
 
-通过 WDGIMMessage 的 messageStatus 属性可以获取当前消息的状态，如发送中、发送成功、发送失败和删除，对于删除的消息，需要 UI 判断状态并隐藏。
+通过 WDGIMMessage 的 messageStatus 属性可以获取当前消息的状态，如发送中、发送成功、发送失败和删除等。
 
 四种状态在 WDGIMMessageStatus 枚举中：
 
@@ -135,51 +140,50 @@ typedef NS_ENUM(NSInteger, WDGIMMessageStatus) {
 
 ```
 
-##### 消息时间
+#### 消息时间
 
 通过 `sentAt` 方法可以获取到消息的发送时间。该时间是服务器时间，而非本地时间。
 
-```
+```objc
 @property (nonatomic, readonly) long long sentAt
 ```
 
 #### 消息 ID
 
 消息 ID 是由服务器统一生成的有序 ID。
-
+```objc
 	@property (nonatomic, readonly) NSString *messageId
+```
 	
 #### 消息发送者
 
 消息的发送方的 ID。
-
+```objc
 	@property (nonatomic, readonly) NSString *sender
-	
-#### 消息删除
+```
 
-删除消息只支持本地消息删除，调用 `-deleteMessage` 方法来删除。
-
-	- (BOOL)deleteMessage;
 
 ###  会话操作
 
 #### 获取所有会话
 
 调用 `-getConversations` 方法可以获取本地所有会话列表，例如：
-
+```objc
 	NSArray *conversations = [[WDGIMClient defaultClient] getConversations];
+```
 	
 #### 获取会话本地消息
 
-通过 WDGIMConversation 中的 `- getMessageFromLast:limit:` 方法可以获取本地历史消息，可以实现分页拉取。此方法为同步方法，例如:
-
+通过 WDGIMConversation 中的 `- getMessageFromLast:limit:` 方法可以获取本地历史消息，可以实现分页拉取(从后往前获取)。此方法为同步方法，例如:
+```objc
 	NSArray *messages = [conversation getMessageFromLast:lastMsg limit:20];
+```
 	
 #### 删除会话
 
 通过 WDGIMConversation 中的 `- deleteConversation` 方法删除会话。删除会话的同时，默认会删除本地会话的相关消息。
-
-	BOOL result = conversation.deleteConversation;
- 
+```objc
+	BOOL result = [conversation deleteConversation];
+ ```
  
  

@@ -68,7 +68,7 @@ theme: navy
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:WildDogTeam/WildDogTeam.github.io.git
+  repo: git@github.com:gzztz-wilddog/gzztz-wilddog.github.io.git
 search:
   path: search.xml
   field: post

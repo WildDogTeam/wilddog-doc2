@@ -1,10 +1,6 @@
 title: 未读消息计数
 ---
-
-* 1.未读消息
-* 2.获取当前围堵消息数量
-* 3.标记为已读
-
+本篇文档介绍如何处理未读消息。
 
 ### 未读消息
 
@@ -23,5 +19,6 @@ NSUInteger num = conversation.totalNumberOfUnreadMessages;
 当用户阅读某个会话的消息后，需要对会话消息的进行已读处理。SDK 会根据会话中最后一条阅读的消息，设置会话中之前所有消息为已读。
 	
 ```objc
-BOOL success = [conversation markAllMessagesAsRead:nil];
+NSError **error;
+BOOL success = [conversation markAllMessagesAsRead:&error];
 ```
