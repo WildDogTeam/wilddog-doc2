@@ -6,7 +6,7 @@ title: 讨论组管理
 
 
 ## 创建讨论组
-Wilddog IM SDK 不严格区分单聊和讨论组，创建会话时，当会话成员为 2 个时，则为单聊。当大于 2 个时则自动升级为讨论组。
+Wilddog IM SDK 不严格区分单聊和讨论组，创建会话时，当会话成员为 1 个时，则为单聊。当大于 1 个时则自动升级为讨论组。
 `newConversation(List<String> members,CompletionListener completionListener)` 用于创建讨论组。
 例如，创建一个讨论组：
 
