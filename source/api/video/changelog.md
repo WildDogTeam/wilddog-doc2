@@ -1,6 +1,7 @@
 
 title: 更新日志
 ---
+
 ## Javascript SDK
 
 ### v0.4.5 - 2016.11.02
@@ -59,8 +60,8 @@ title: 更新日志
 - 修复离开 conversation 后还会监听 conversation 中消息的 bug。
 
 </br>
----
 
+---
 ## Android SDK
 
 ### V0.4.1 - 2016.10.27
@@ -192,8 +193,6 @@ title: 更新日志
 - WDGVideoView 适用 contentMode 选项，支持 AspectFit 、 AspectFill 和 Fill 三种显示模式。
 - WDGVideoConversation 中的邀请API返回值改为 BOOL。
 - 修复 WDGVideoConversation 中 participants 只增不减的问题。
-
-</br>
 
 
 
