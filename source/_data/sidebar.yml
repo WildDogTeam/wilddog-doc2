@@ -94,7 +94,7 @@ guide:
     附加功能: /guide/video/add-ons.html
   
   即时通讯:
-    基础概念:
+    #基础概念:
     Android:
       初始化: /guide/im/android/intialize.html
       用户集成: /guide/im/android/users.html

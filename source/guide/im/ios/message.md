@@ -1,7 +1,7 @@
 title: 消息收发
 ---
 
-本篇文章主要介绍 Wilddog IM SDK 的消息收发和会话操作。
+本篇文档介绍 Wilddog IM SDK 的消息收发和会话操作。
 
 
 ### 发送消息
