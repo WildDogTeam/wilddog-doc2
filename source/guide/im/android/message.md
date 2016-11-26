@@ -95,7 +95,7 @@ client.addMessageListener(listener);
 	
 #### 消息解析
 
-WilddogIMClient.WilddogIMMessageListener 的 `onNewMessage（）` 方法用于获取 messages 中所有新的聊天消息：
+`WilddogIMClient.WilddogIMMessageListener` 的 `onNewMessage（）` 方法用于获取 messages 中所有新的聊天消息：
 
 
 ```java
