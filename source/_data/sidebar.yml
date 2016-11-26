@@ -290,7 +290,7 @@ api:
       WilddogIMClient.CompletionListener: /api/im/android/WilddogIMClient.CompletionListener.html
       WilddogIMClient.WilddogIMAuthStateListener: /api/im/android/WilddogIMClient.WilddogIMAuthStateListener.html
       WilddogIMClient.WilddogIMConnectionListener: /api/im/android/WilddogIMClient.WilddogIMConnectionListener.html
-      WilddogIMClient.WilddogIMGroupChangeListener: /api/im/WilddogIMClient.WilddogIMGroupChangeListener.html
+      WilddogIMClient.WilddogIMGroupChangeListener: /api/im/android/WilddogIMClient.WilddogIMGroupChangeListener.html
       WilddogIMClient.WilddogIMMessageListener: /api/im/android/WilddogIMClient.WilddogIMMessageListener.html
      
   

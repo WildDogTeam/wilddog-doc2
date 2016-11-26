@@ -22,7 +22,6 @@ WilddogIMClient client=client.newInstance(this,"appId");
 `addConnectionListener(WilddogIMConnectionListener listener)` 代理方法可以用于监听 SDK 与服务器连接状况：
 
 ```java
-
 client.addConnectionListener(new  WilddogIMClient.WilddogIMConnectionListener(){
     @Override
     public void onConnectionConnected(WilddogIMClient client) {
