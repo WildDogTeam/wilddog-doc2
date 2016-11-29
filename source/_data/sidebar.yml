@@ -82,9 +82,8 @@ guide:
       加入会话相关: /guide/video/android/participating-conversation.html
     iOS:
       安装和初始化 SDK: /guide/video/ios/install-sdk.html
-      建立会话: /guide/video/ios/setting-up-conversation.html
-      管理其他参与者: /guide/video/ios/dealing-with-participants.html
-      加入会话相关: /guide/video/ios/participating-conversation.html
+      视频通话: /guide/video/ios/conversation.html
+      多人视频会议: /guide/video/ios/conference.html
     附加功能: /guide/video/add-ons.html
 
   身份认证:
