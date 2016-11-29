@@ -15,7 +15,7 @@ title: 视频通话
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  只有通过 HTTPS 服务打开的页面才可以成功获取本地摄像头和麦克等资源。
+  只有通过 HTTPS 服务加载的页面才可以成功获取本地摄像头和麦克风等资源。
 </blockquote>
 
 例如，创建一个只有视频且分辨率为 640X480 的流，并展示到页面上：

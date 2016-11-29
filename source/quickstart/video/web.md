@@ -31,6 +31,11 @@ title: 快速入门
 
 启动本地 Web 服务，建立 HTTPS 环境。快速入门中采用 Node.js 搭建本地服务，用户**也可以使用其他方式**启动本地 Web 服务。
 
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  只有通过 HTTPS 服务加载的页面才可以成功获取本地摄像头和麦克风等资源，正常运行快速入门。
+</blockquote>
+
 使用 Node.js 开启本地 Web 服务：
 
 ```javascript
