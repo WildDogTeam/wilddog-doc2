@@ -26,6 +26,7 @@ title: 实战教程
 
 ```js
 // 创建数据库引用。最好自己创建一个应用，把 `appId` 换成你自己的应用 ID
+// wilddog video 依赖 auth 和 sync，authDomain 和 syncURL 都需要配置。
 var config = {
     authDomain: "appId.wilddog.com",
     syncURL: "https://appId.wilddogio.com"
@@ -44,21 +45,8 @@ wilddog.auth().signInAnonymously().then((user) => {
 ```js
 //获取Video对象
 var videoInstance = wilddog.video();
-//获取Client对象
+//获取Client对象，注意：client只有在身份认证成功后才可获取。
 var clientInstance = videoInstance.client();
-//指定交互路径，可以自定义，如果是服务器中转方式，
-//需要保证该路径和控制面板中的交互路径一致
-wilddogref = wilddog.sync().ref().child('你的自定义路径');
-//初始化 Client，
-// wilddogref 即上面交互路径的 Sync 引用，
-// user 为身份认证成功后回调中的参数
-clientInstance.init({
-    ref: wilddogref,
-    user: user
-})
-    .then(() => {
-        //初始化成功
-    });
 ```
 
 ### 4. 实现用户列表
@@ -122,10 +110,9 @@ videoInstance.createStream({
 
 ```js
 //选择p2p模式，uid 即选中的用户的 Wilddog ID，localStream 为之前获取的本地视频流
-var outInvite = clientInstance.inviteToConversation({
-    'mode': 'p2p',
-    'participantId': uid,
-    'localStream': localStream,
+var outInvite = clientInstance.inviteToConversation(uid， {
+    'stream': localStream,
+    'userData': 'somethings'
 })
 //如果会话建立，在outInvite的.then中能获取到 conversation
 outInvite.then((conversation) => {
@@ -167,8 +154,9 @@ var reject = function() {
 ```js
 //监听 conversation 的 participant_connected 事件，回调的参数中携带对方的视频流。
 conversation.on('participant_connected', (participant) => {
-    //展示到 remote 元素中
-    participant.stream.attach(remoteEl);
+    // 监听参与者的 streamAdded 事件，将参与者携带的媒体流绑定到页面的remote元素中
+    participant.on('streamAdded', function(stream){
+        stream.attach(remoteEl);
 });
 ```
 ### 9. 离开会话

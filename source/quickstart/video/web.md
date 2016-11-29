@@ -7,7 +7,7 @@ title: 快速入门
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li> Chrome、Firefox、Opera 浏览器 </li>
+        <li> Chrome、Firefox、Safari 浏览器 </li>
     </ul>
 </div>
 

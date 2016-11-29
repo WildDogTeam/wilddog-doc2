@@ -3,8 +3,6 @@ title: 多人视频会议
 
 本篇文档介绍开发多人视频会议时会时的主要环节，包括创建视频会议、管理其他参与者和加入会议相关。
 
-**需要修改为最新代码！！！**
-
 ## 创建视频会议
 
 创建视频会议包括配置和预览本地媒体流、发起/加入视频会议。
@@ -43,8 +41,6 @@ videoInstance.createStream({
 
 通过 Conference ID 发起/加入一个视频会议。如果该 Conference ID 不存在，系统会以你作为第一个参与者发起该会议。
 
-**TODO：将监听自己加入会议成功与否的事件放在这里**
-
 例如，加入 Conference ID 为 '123456' 的视频会议：
 
 ```javascript
@@ -58,16 +54,16 @@ var conference =  client.connectToConference('123456',{'stream':localStream,'use
 //监听本地加入事件
 conference.on('connected', function(){
     console.log('You connected！');
-	//监听参与者加入事件
-	conference.on('participant_connected', function(participant){
-		console.log('New participant connected: ', participant.Id);
-		var remoteEl = document.getElementById('remote');
-		// 监听 streamAdded事件，将收到的stream展示到页面
-		participant.on('streamAdded', function(stream){
-			console.log('Receive stream!');
-			stream.attach(remoteEl);
-		});
-	});
+});
+//监听参与者加入事件
+conference.on('participant_connected', function(participant){
+    console.log('New participant connected: ', participant.Id);
+	  var remoteEl = document.getElementById('remote');
+	  // 监听 streamAdded事件，将收到的stream展示到页面
+    participant.on('streamAdded', function(stream){
+		    console.log('Receive stream!');
+        stream.attach(remoteEl);
+    });
 });
 //监听本地加入失败事件
 conference.on('connect_failed', function(){
@@ -75,7 +71,7 @@ conference.on('connect_failed', function(){
 });
 //监听本地断开事件
 conference.on('disconnected', function(){
-    console.log('You disconnected！');
+  console.log('You disconnected！');
 });
 
 ```

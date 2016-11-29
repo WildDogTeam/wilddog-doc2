@@ -68,7 +68,7 @@ guide:
       组织数据: /guide/sync/bestpractice/structure-data.html
       数组处理: /guide/sync/bestpractice/array.html
     数据限制: /guide/sync/data-limit.html
-    
+
   实时视频通话:
     基础概念: /guide/video/core.html
     Web:
@@ -86,7 +86,7 @@ guide:
       管理其他参与者: /guide/video/ios/dealing-with-participants.html
       加入会话相关: /guide/video/ios/participating-conversation.html
     附加功能: /guide/video/add-ons.html
-    
+
   身份认证:
     基础概念: /guide/auth/core/concept.html
     Web:
@@ -195,11 +195,12 @@ api:
     Web:
       Video: /api/video/web/wilddogVideo.html
       Client: /api/video/web/wilddogVideoClient.html
+      Conference: /api/video/web/conference.html
       Conversation: /api/video/web/conversation.html
+      LocalParticipant: /api/video/web/localParticipant.html
       Participant: /api/video/web/participant.html
       LocalStream: /api/video/web/localStream.html
       RemoteStream: /api/video/web/remoteStream.html
-      Addons: /api/video/web/addons.html
       MeetingCast: /api/video/web/meetingCast.html
       OutgoingInvite: /api/video/web/outgoingInvite.html
       IncomingInvite: /api/video/web/incomingInvite.html
