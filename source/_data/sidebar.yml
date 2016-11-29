@@ -373,7 +373,11 @@ resources:
     iOS:
       实战教程: /resources/video/ios/tutorial.html
       示例库: /resources/video/ios/resources.html
-  #即时通讯:
+  即时通讯:
+    Android:
+      示例库: /resources/im/android/resources.html
+    iOS:
+      示例库: /resources/im/ios/resources.html
   身份认证:
   # Web: /resources/auth/web.html
     Android:
