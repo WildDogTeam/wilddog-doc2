@@ -53,13 +53,13 @@ SDK 的安装方式有两种，你可以任选其一：
 
 ## 3. 初始化
 
-**1.引入头文件**
+1.引入头文件
 
 ```objc
 ＃import <WilddogIM/WilddogIM.h>
 ```
 
-**2.初始化**
+2.初始化
 
 调用 `+clientWithAppID:delegate:` 方法初始化 SDK。
 
@@ -89,7 +89,7 @@ Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统�
 
 例如，发送一条文本消息：
 
-```
+```objc
 //创建会话，传入的数组中默认包含登录用户 ID
 [[WDGIMClient defaultClient] newConversationWithMembers:@[@"UserID"] completion:^(WDGIMConversation * _Nullable conversation, NSError *__autoreleasing  _Nullable * _Nullable error) {
      //创建文字消息

@@ -58,7 +58,7 @@ byte[] fileData = "生成语音二进制数据";
 VoiceMessage voiceMessage = Message.newMessage(duration,fileData);
 ```
 
-### 发送消息：
+### 发送消息
 
 `sendMessage(Message message, final WildValueCallBack callBack)` 方法用于发送一条消息：
 
@@ -136,7 +136,7 @@ private WilddogIMClient.WilddogIMMessageListener listener=new WilddogIMClient.Wi
 
 ### 消息状态
 
-Message 的 status（） 方法用于获取当前消息的状态，如发送中、发送成功和发送失败等。
+Message 的 status() 方法用于获取当前消息的状态，如发送中、发送成功和发送失败等。
 
 三种状态在 MessageStatus 枚举中：
 
@@ -153,7 +153,7 @@ public class  MessageStatus {
 
 ### 消息时间
 
- `getSendAt（）` 方法用于获取到消息的发送时间：
+ `getSendAt()` 方法用于获取到消息的发送时间：
 
 
 ```java
@@ -175,6 +175,7 @@ public class  MessageStatus {
 ```
 	
 ### 消息发送者
+消息发送者是消息的发送方的 ID:
 
 ```java
 	String senderId = textMessage.getSender();

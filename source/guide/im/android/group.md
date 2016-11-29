@@ -43,8 +43,6 @@ conversation.addMember(members);
  
 ### 删除讨论组成员
 
-Conversation 的接口 `:` 可以删除讨论组成员，只有群主可以删除讨论组成员，群主为创建会话的用户。另外用户自己可以删除自己，意思就是退出讨论组。例如：
-
 `Conversation` 的接口 `removeMember(List<String> members)` 用于删除讨论组成员。
 只有创建讨论组的用户可以删除其他讨论组成员。用户在讨论组中删除自己可以退出讨论组。
 例如，删除两个讨论组成员：

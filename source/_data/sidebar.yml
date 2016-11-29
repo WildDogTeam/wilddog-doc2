@@ -101,7 +101,7 @@ guide:
       用户集成: /guide/im/android/users.html
       收发消息: /guide/im/android/message.html
       未读消息计数: /guide/im/android/unread.html
-      群组管理: /guide/im/android/group.html
+      讨论组管理: /guide/im/android/group.html
       离线推送: /guide/im/android/push.html
 
     iOS:
@@ -373,7 +373,7 @@ resources:
     iOS:
       实战教程: /resources/video/ios/tutorial.html
       示例库: /resources/video/ios/resources.html
-  即时通讯:
+  #即时通讯:
   身份认证:
   # Web: /resources/auth/web.html
     Android:

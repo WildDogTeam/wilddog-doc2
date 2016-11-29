@@ -45,7 +45,7 @@ WDGIMMessageImage *imageMsg = [WDGIMMessage messageWithImage:image];
 WDGIMMessageVoice *voiceMsg = [WDGIMMessage messageWithVoiceData:voiceData duration:voiceDuration];
 ```
 
-### 发送消息：
+### 发送消息
 
 `-sendMessage:completion:` 方法用于发送一条消息：
 
