@@ -3,7 +3,9 @@ overview:
     简介: /overview/index.html
     实时数据同步: /overview/sync.html
     实时视频通话: /overview/video.html
+    即时通讯: /overview/im.html
     身份认证: /overview/auth.html
+
 
 quickstart:
   实时数据同步:
@@ -18,6 +20,9 @@ quickstart:
     Web: /quickstart/video/web.html
     Android: /quickstart/video/android.html
     iOS: /quickstart/video/ios.html
+  即时通讯: 
+    Android: /quickstart/im/android.html
+    iOS: /quickstart/im/ios.html
   身份认证:
     Web: /quickstart/auth/web.html
     Android: /quickstart/auth/android.html
@@ -69,6 +74,7 @@ guide:
       数组处理: /guide/sync/bestpractice/array.html
       离线事件: /guide/sync/bestpractice/offline.html
     数据限制: /guide/sync/data-limit.html
+  
   实时视频通话:
     基础概念: /guide/video/core.html
     Web:
@@ -87,6 +93,27 @@ guide:
       管理其他参与者: /guide/video/ios/dealing-with-participants.html
       加入会话相关: /guide/video/ios/participating-conversation.html
     附加功能: /guide/video/add-ons.html
+  
+  即时通讯:
+    #基础概念:
+    Android:
+      初始化: /guide/im/android/intialize.html
+      用户集成: /guide/im/android/users.html
+      收发消息: /guide/im/android/message.html
+      未读消息计数: /guide/im/android/unread.html
+      群组管理: /guide/im/android/group.html
+      离线推送: /guide/im/android/push.html
+
+    iOS:
+      初始化: /guide/im/ios/intialize.html
+      用户集成: /guide/im/ios/users.html
+      收发消息: /guide/im/ios/message.html
+      未读消息计数: /guide/im/ios/unread.html
+      讨论组管理: /guide/im/ios/group.html
+      离线推送: /guide/im/ios/push.html
+
+      
+  
   身份认证:
     基础概念: /guide/auth/core/concept.html
     Web:
@@ -242,6 +269,31 @@ api:
       错误码: /api/video/ios/error-code.html
     更新日志: /api/video/changelog.html
 
+  即时通讯:
+    iOS:
+      WDGIMClient: /api/im/ios/WDGIMClient.html
+      WDGIMConversation: /api/im/ios/WDGIMConversation.html
+      WDGIMMessage: /api/im/ios/WDGIMMessage.html
+      WDGIMMessageGroupTip: /api/im/ios/WDGIMMessageGroupTip.html
+      WDGIMMessageImage: /api/im/ios/WDGIMMessageImage.html
+      WDGIMMessageText: /api/im/ios/WDGIMMessageText.html
+      WDGIMMessageVoice: /api/im/ios/WDGIMMessageVoice.html
+      WDGIMUser: /api/im/ios/WDGIMUser.html
+    Android:
+      WilddogIMClient: /api/im/android/WilddogIMClient.html
+      WilddogIMClient.CompletionListener: /api/im/android/WilddogIMClient.CompletionListener.html
+      WilddogIMClient.WilddogIMAuthStateListener: /api/im/android/WilddogIMClient.WilddogIMAuthStateListener.html
+      WilddogIMClient.WilddogIMConnectionListener: /api/im/android/WilddogIMClient.WilddogIMConnectionListener.html
+      WilddogIMClient.WilddogIMGroupChangeListener: /api/im/android/WilddogIMClient.WilddogIMGroupChangeListener.html
+      WilddogIMClient.WilddogIMMessageListener: /api/im/android/WilddogIMClient.WilddogIMMessageListener.html    
+      Conversation: /api/im/android/Conversation.html
+      Message: /api/im/android/Message.html    
+      GroupTipMessage: /api/im/android/GroupTipMessage.html
+      ImageMessage: /api/im/android/ImageMessage.html    
+      TextMessage: /api/im/android/TextMessage.html
+      VoiceMessage: /api/im/android/VoiceMessage.html    
+      
+  
   身份认证:
     Web:
       App: /api/auth/web/App.html
@@ -321,6 +373,7 @@ resources:
     iOS:
       实战教程: /resources/video/ios/tutorial.html
       示例库: /resources/video/ios/resources.html
+  即时通讯:
   身份认证:
   # Web: /resources/auth/web.html
     Android:
