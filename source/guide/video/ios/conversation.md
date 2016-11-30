@@ -1,7 +1,7 @@
 title: 视频通话
 ---
 
-本篇文档介绍在开发视频通话时的主要环节，包括创建视频通话、管理其他参与者和加入视频通话相关。
+本篇文档介绍在开发视频通话的主要环节，包括 [创建视频通话](/guide/video/ios/conversation.html#创建视频通话)、[管理其他参与者](/guide/video/ios/conversation.html#管理其他参与者)、[视频通话相关](/guide/video/ios/conversation.html#视频通话相关) 和 [数据安全性](/guide/video/ios/conversation.html#数据安全性)。
 
 ## 创建视频通话
 
@@ -20,7 +20,7 @@ localStreamOptions.audioOn = YES;
 localStreamOptions.videoOption = WDGVideoConstraintsHigh;
 // 创建本地媒体流
 self.localStream = [[WDGVideoLocalStream alloc] initWithOptions:localStreamOptions];
-// 展示本地媒体流
+// 预览本地媒体流
 [self.localStream attach:self.localVideoView];
 ```
 
@@ -143,7 +143,7 @@ self.videoConversation = nil;
 
 ### 保护信令交互的安全
 
-视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置规则表达式。
+视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置 [规则表达式](/guide/sync/rules/introduce.html) 。
 
 规则表达式设置页面如下：
 
@@ -151,11 +151,9 @@ self.videoConversation = nil;
 
 例如，配置规则表达式，`wilddogVideo` 节点只允许信令交互双方读写，其他节点允许所有人读写：
 
-```
-{
+```{
   "rules": {
     "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
     "$others":{ ".read": true，".write": true}
   }
-}
-```
+}```
