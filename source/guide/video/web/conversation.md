@@ -102,7 +102,7 @@ participant.on('streamAdded', function(stream){
 });
 ```
 
-## 视频通话相关操作
+## 视频通话相关
 
 视频通话相关操作包括接受或拒绝邀请、离开视频通话。
 
