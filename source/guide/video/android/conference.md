@@ -1,8 +1,7 @@
 title: 多人视频会议
 ---
 
-本篇文档介绍开发多人视频会议时会时的主要环节，包括创建视频会议、管理其他参与者和加入会议相关。
-
+本篇文档介绍开发多人视频会议的主要环节，包括 [创建视频会议](/guide/video/android/conference.html#创建视频会议)、[管理其他参与者](/guide/video/android/conference.html#管理其他参与者) 和 [加入视频会议相关](/guide/video/android/conference.html#加入视频会议相关)。
 
 ## 创建视频会议
 
