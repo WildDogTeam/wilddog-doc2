@@ -123,11 +123,12 @@ window.onload = function () {
     } else {
       removeClass(backTop, 'back-top-show')
     };
-    if(scrollTop > scrollStart) {
+    if(scrollTop < scrollStart) {
       addClass(feedBack, 'scrollHide')
     } else {
       removeClass(feedBack, 'scrollHide')
     }
+    scrollStart = scrollTop;
 
     if (scrollTop > currentRangeEnd || scrollTop < currentRangeStart) {
       var currentHeading = getCurrentHeading(scrollTop) || (scrollTop > headingTops[headingTops.length - 1] ? headings[headings.length - 1] : headings[0]);
