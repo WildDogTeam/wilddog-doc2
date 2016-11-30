@@ -1,26 +1,25 @@
 title: MeetingCastStatus
 ---
 
-直播状态枚举,表示当前会议的直播状态，共有二种状态 `WAIT`，`CASTING`。
+直播状态枚举,表示当前会议的直播状态。
 
-## Constants
+## 枚举
 
-### WAIT
+### MeetingCastStatus
 
-**说明**
+**定义**
 
-当前会议未开始直播。
+```Android
 
-</br>
-
----
-
-### CASTING
+```
 
 **说明**
 
-当前会议直播进行中。
+直播状态枚举,表示当前会议的直播状态，共有两种状态 `WAIT`，`CASTING`。
 
-</br>
+**参数**
 
-
+参数名 | 描述
+--- | ---
+WAIT | 当前会议未开始直播。
+CASTING | 当前会议直播进行中。

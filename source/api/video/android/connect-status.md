@@ -3,7 +3,7 @@ title: ConnectStatus
 
 会话状态枚举,表示当前会话状态，共有三种状态 `CONNECTING`，`CONNECTED`，`DISCONNECTED`。
 
-## Constants
+## 常量
 
 ### CONNECTING
 
