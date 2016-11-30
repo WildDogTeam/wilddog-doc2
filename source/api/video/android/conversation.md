@@ -1,7 +1,7 @@
 title: Conversation
 ---
 
-会话类，实现一对一的会话功能。
+视频通话类，实现一对一的视频通话功能。
 
 ## 属性
 
@@ -15,12 +15,12 @@ public String getId()
 
 **说明**
 
-获取当前会话 ID，此会话 ID 为不重复的字符串。
+获取当前视频通话 ID，此 ID 为不重复的字符串。
 
 
 **返回值**
 
-当前会话 ID。
+当前视频通话 ID。
 
 ---
 
@@ -34,12 +34,12 @@ public LocalParticipant getLocalParticipant()
 
 **说明**
 
-获取当前会话中的 '[LocalParticipant](/api/video/android/local-participant.html)' 对象，代表本地参与者。
+获取当前视频通话中的 '[LocalParticipant](/api/video/android/local-participant.html)' 对象，代表本地参与者。
 
 
 **返回值**
 
-当前会话中的 'LocalParticipant'。
+当前视频通话中的 'LocalParticipant'。
 
 ---
 
@@ -53,12 +53,12 @@ public Participant getParticipant()
 
 **说明**
 
-获取当前会话中的 '[Participant](/api/video/android/participant.html)' 对象,代表远端参与者。
+获取当前视频通话中的 '[Participant](/api/video/android/participant.html)' 对象,代表远端参与者。
 
 
 **返回值**
 
-当前会话中的 'Participant'。
+当前视频通话中的 'Participant'。
 
 ---
 
@@ -72,12 +72,12 @@ public ConnectStatus getStatus()
 
 **说明**
 
-获取当前的会话状态。
+获取当前的视频通话状态。
 
 
 **返回值**
 
-当前会话状态[ConnectStatus](/api/video/android/connect-status.html)。
+当前视频通话状态[ConnectStatus](/api/video/android/connect-status.html)。
 
 ---
 
@@ -93,13 +93,13 @@ void setConversationListener(Conversation.Listener listener)
 
 **说明**
 
-为会话设置会话状态监听,当被邀请者接受或拒绝时会改变会话的状态, Wilddog Video SDK 会触发 `Conversation.Listener` 的回调方法通知监听者。
+为视频通话设置状态监听,当被邀请者接受或拒绝时会改变视频通话的状态, Wilddog Video SDK 会触发 `Conversation.Listener` 的回调方法通知监听者。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|listener|聊天会话监听[Conversation.Listener](/api/video/android/conversation-listener.html),参与者连接成功后会触发 onParticipantConnected 事件|
+|listener|视频通话状态监听[Conversation.Listener](/api/video/android/conversation-listener.html),参与者连接成功后会触发 onParticipantConnected 事件|
 
 
 **示例**
@@ -149,11 +149,11 @@ void disconnect()
 
 **说明**
 
-关闭会话
+关闭视频通话
 
 **示例**
 
 ```java
-	//需要离开会话时调用此方法，释放会话持有的相关资源
+	//需要离开视频通话时调用此方法，释放视频通话持有的相关资源
 	mConversation.disconnect();
 ```

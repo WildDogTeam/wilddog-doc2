@@ -10,13 +10,13 @@ title: 错误码
 | 40101 | WDGVideoErrorInvalidAuthArgument | Client初始化失败，Auth token 过期。 |
 | 40102 | WDGVideoErrorInvalidSyncArgument | Client初始化失败，Sync 对象无效。 |
 | 40103 | WDGVideoErrorInvalidStreamState | 媒体流无效。 |
-| 40104 | WDGVideoErrorInvalidConversationMode | 无法以该会话模式发起会话，未开启该会话模式。 |
-| 40200 | WDGVideoErrorTooManyParticipants | 会话人数超过上限。 |
-| 40201 | WDGVideoErrorConversationInvitationFailed | 会话邀请发起失败。 |
-| 40202 | WDGVideoErrorConversationInvitationRejected | 会话邀请被拒绝。 |
+| 40104 | WDGVideoErrorInvalidConversationMode | 无法使用该模式，未开启该模式。 |
+| 40200 | WDGVideoErrorTooManyParticipants | 会议人数超过上限。 |
+| 40201 | WDGVideoErrorConversationInvitationFailed | 视频通话邀请发起失败。 |
+| 40202 | WDGVideoErrorConversationInvitationRejected | 视频通话邀请被拒绝。 |
 | 40203 | WDGVideoErrorConversationInvitationIgnored | 被邀请者繁忙，不能响应邀请。 |
 | 40204 | WDGVideoErrorParticipantConnectionFailed | 无法与参与者建立连接。 |
-| 40205 |	WDGVideoErrorTooManyActiveConversations | 会话数超过上限。 |
+| 40205 |	WDGVideoErrorTooManyActiveConversations | 视频通话或视频会议数超过上限。 |
 | 40310 | WDGVideoErrorMeetingCastRegistrationFailed | MeetingCast 初始化失败，未在控制面板中开启功能。 |
 | 40311 | WDGVideoErrorMeetingCastStartFailed | MeetingCast 操作冲突，当前已经开启 MeetingCast 。 |
 | 40312 | WDGVideoErrorMeetingCastSwitchFailed | MeetingCast 切换参与者失败，未开启 MeetingCast 或切换失败。 |

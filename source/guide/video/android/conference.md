@@ -141,7 +141,21 @@ Conference.Listener listener = new Conference.Listener() {
 
 例如，选择参与者 '12345' 作为直播源开启直播：
 
-```objectivec
+```java
+    //获取直播插件
+    meetingCast = mConference.getMeetingCast(new MeetingCastStateListener() {
+        @Override
+        public void onMeetingCastStateChanged(String state, String participantId, Map<String, String> urlMap) {
+            //直播状态改变时会触发此方法
+        }
+    });
+    meetingCast.start("12345", new CompleteListener() {
+        @Override
+        public void onCompleted(VideoException exception) {
+            //操作异常则会返回错误
+            //操作成功会调用onMeetingCastStateChanged() 方法
+        }
+    });
 
 ```
 
@@ -152,8 +166,14 @@ Conference.Listener listener = new Conference.Listener() {
 例如，切换直播源为参与者 '99999'：
 
 
-```objectivec
-
+```java
+    meetingCast.switchParticipant("99999", new CompleteListener() {
+        @Override
+        public void onCompleted(VideoException exception) {
+            //操作异常则会返回错误
+            //操作成功会调用onMeetingCastStateChanged() 方法
+        }
+    });
 ```
 
 **停止直播**
@@ -163,6 +183,13 @@ Conference.Listener listener = new Conference.Listener() {
 例如，直播开启后，停止直播：
 
 
-```objectivec
+```java
+    meetingCast.stop(new CompleteListener() {
+        @Override
+        public void onCompleted(VideoException exception) {
+            //操作异常则会返回错误
+            //操作成功会调用onMeetingCastStateChanged() 方法
+        }
+    });
 
 ```

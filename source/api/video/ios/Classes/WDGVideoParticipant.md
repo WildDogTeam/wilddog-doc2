@@ -1,7 +1,7 @@
 title: WDGVideoParticipant
 ---
 
-代表会话的一个参与者。
+代表视频通话或视频会议的一个参与者。
 
 ## 属性
 

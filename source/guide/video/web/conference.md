@@ -148,10 +148,10 @@ conference.on('disconnected', function(){
 ```js
 conference.meetingCast.start('12345')
   .then(function () {
-    console.log('成功开启直播！');
+    console.log('Open MeetingCast succeed!');
   })
   .catch(function (error) {
-    console.log('开启直播失败，原因：'，error.meesage);
+    console.log('Open MeetingCast failed! Error is '，error.meesage);
   })
 ```
 
@@ -164,10 +164,10 @@ conference.meetingCast.start('12345')
 ```js
 conference.meetingCast.start('99999')
   .then(function () {
-    console.log('切换直播人成功！');
+    console.log('Switch participant succeed!');
   })
   .catch(function (error) {
-    console.log('切换直播人失败，原因：'，error.meesage);
+    console.log('Switch participant failed! Error is '，error.meesage);
   })
 ```
 
@@ -179,9 +179,9 @@ conference.meetingCast.start('99999')
 ```js
 conference.meetingCast.stop()
   .then(function () {
-    console.log('停止直播成功！');
+    console.log('Stop MeetingCast succeed!');
   })
   .catch(function (error) {
-    console.log('停止直播失败，原因：'，error.meesage);
+    console.log('Stop MeetingCast failed! Error is '，error.meesage);
   })
 ```

@@ -1,7 +1,7 @@
 ﻿title: wilddog.video.Participant
 ---
 
-会话参与者。
+代表视频通话和会议的本地参与者。
 
 ## 属性
 

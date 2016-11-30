@@ -1,7 +1,7 @@
 title: WDGVideoConversation
 ---
 
-表示加入的会话，同一时间只能加入一个会话。
+表示加入的视频通话，同一时间只能加入一个视频通话。
 
 ## 属性
 
@@ -15,7 +15,7 @@ title: WDGVideoConversation
 
 **说明**
 
-表示当前会话的编号。
+表示当前视频通话的编号。
 
 </br>
 
@@ -31,7 +31,7 @@ title: WDGVideoConversation
 
 **说明**
 
-`WDGVideoConnectionStatus` 类型，表示会话的状态。
+`WDGVideoConnectionStatus` 类型，表示视频通话的状态。
 
 </br>
 
@@ -47,7 +47,7 @@ title: WDGVideoConversation
 
 **说明**
 
-[WDGVideoLocalParticipant](../Classes/WDGVideoLocalParticipant.html) 类型，表示当前视频会话所使用的本地视频、音频流。
+[WDGVideoLocalParticipant](../Classes/WDGVideoLocalParticipant.html) 类型，表示当前视频通话所使用的本地视频、音频流。
 
 </br>
 
@@ -63,7 +63,7 @@ title: WDGVideoConversation
 
 **说明**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 对象，视频会话的对方。
+[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 对象，视频通话的对方。
 
 </br>
 
@@ -97,7 +97,7 @@ title: WDGVideoConversation
 
 **说明**
 
-断开当前会话的连接。
+断开当前视频通话的连接。
 
 </br>
 
@@ -109,8 +109,8 @@ title: WDGVideoConversation
 
 **说明**
 
-表示会话或会议的连接状态。
+表示视频通话或会议的连接状态。
 
-- WDGVideoConnectionStatusConnecting: 表示会话或会议正在连接中。
-- WDGVideoConnectionStatusConnected: 表示会话或会议已连接。
-- WDGVideoConnectionStatusDisconnected: 表示会话或会议已断开连接。
+- WDGVideoConnectionStatusConnecting: 表示视频通话或会议正在连接中。
+- WDGVideoConnectionStatusConnected: 表示视频通话或会议已连接。
+- WDGVideoConnectionStatusDisconnected: 表示视频通话或会议已断开连接。

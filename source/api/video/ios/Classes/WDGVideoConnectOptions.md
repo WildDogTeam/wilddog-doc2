@@ -1,7 +1,7 @@
 title: WDGVideoConnectOptions
 ---
 
-发起会话或连接到会议时使用的配置选项。
+发起视频通话或连接到会议时使用的配置选项。
 
 ## 属性
 
@@ -15,7 +15,7 @@ title: WDGVideoConnectOptions
 
 **说明**
 
-发起会话或连接到会议时使用的本地媒体流。
+发起视频通话或连接到会议时使用的本地媒体流。
 
 </br>
 
@@ -31,7 +31,7 @@ title: WDGVideoConnectOptions
 
 **说明**
 
-可选，自定义字符串。发起会话时，被邀请者将在 [WDGVideoIncomingInvite](../Classes/WDGVideoIncomingInvite.html) 对象中得到该数据。连接会议时，该数据发往后端服务器。
+可选，自定义字符串。发起视频通话时，被邀请者将在 [WDGVideoIncomingInvite](../Classes/WDGVideoIncomingInvite.html) 对象中得到该数据。连接会议时，该数据发往后端服务器。
 
 </br>
 

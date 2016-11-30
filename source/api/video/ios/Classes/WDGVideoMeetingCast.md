@@ -1,7 +1,7 @@
 title: WDGVideoMeetingCast
 ---
 
-用于控制会话的直播状态。
+用于控制视频会议的直播状态。
 
 ## 属性
 

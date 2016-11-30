@@ -34,7 +34,7 @@ android {
 
 #### 安装 Video SDK
 
-[下载]() Video SDK 的 zip 压缩包。
+[下载](https://cdn.wilddog.com/sdk/android/0.5.0/wilddog-video-android-0.5.0.zip) Video SDK 的 zip 压缩包。
 解压后将 libs 文件夹下的 .jar 文件拷贝到工程的 /libs 目录下，添加为工程的依赖库。
 将 jniLibs 文件夹下的 armeabi-v7a 文件夹拷贝到 /src/main/jniLibs 目录下，完成 Video SDK 的引用。
 
