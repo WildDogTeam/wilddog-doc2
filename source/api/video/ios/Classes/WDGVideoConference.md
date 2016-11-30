@@ -146,3 +146,13 @@ participantID|会话参与者的 Wilddog ID 。
 ---
 
 ## 常量
+
+### WDGVideoConnectionStatus 
+
+**说明**
+
+表示会话或会议的连接状态。
+
+- WDGVideoConnectionStatusConnecting: 表示会话或会议正在连接中。
+- WDGVideoConnectionStatusConnected: 表示会话或会议已连接。
+- WDGVideoConnectionStatusDisconnected: 表示会话或会议已断开连接。

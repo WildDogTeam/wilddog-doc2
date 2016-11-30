@@ -60,3 +60,14 @@ title: WDGVideoLocalStreamOptions
 ---
 
 ## 常量
+
+### WDGVideoConstraints
+
+**说明**
+
+视频质量选项。
+
+- WDGVideoConstraintsOff: 关闭视频
+- WDGVideoConstraintsLow: 视频尺寸 352x288
+- WDGVideoConstraintsStandard: 视频尺寸 640x480
+- WDGVideoConstraintsHigh: 视频尺寸 1280x720
