@@ -1,3 +1,4 @@
+
 title: 快速入门
 ---
 
@@ -13,7 +14,7 @@ title: 快速入门
 </div>
 
 ## 1. 创建应用
- 
+
 首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 ## 2. 安装 SDK
@@ -34,7 +35,7 @@ Wilddog IM 解决方案在 Android 上需要 android.permission.INTERNET 权限�
 
 1.引入SDK
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-IM-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">'com.wilddog.client:wilddog-IM-android:<span class="android-auth-version"></span>'</span></div></pre></td></tr></tbody></table></figure>
 
 2.初始化
 
@@ -51,10 +52,6 @@ IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗�
 2. 开发者服务器使用野狗 Server SDK 生成 customToken 返回给客户端。
 3. 客户端使用 customToken 登录 Wilddog IM 服务。
 
-也可以在 `控制面板` -> `即时通讯` -> `接口测试` 中生成 Token 用于测试。
-
-Wilddog IM 解决方案会和野狗服务器建立一个长连接，以达到能实时接收消息的目的。你可以通过 addConnectionListener 方法来监听连接状态。调用 connect() 方法来建立连接。
-
 ```java
 client.signIn(token, new WildValueCallBack<WilddogUser>() {
      @Override
@@ -67,8 +64,14 @@ client.signIn(token, new WildValueCallBack<WilddogUser>() {
               Log.e("result",des);
           }
       });
- ```
+```
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  你可以在 控制面板 - 即时通讯 - 接口测试 中手动生成 Token 用于测试。
+</blockquote> 
+
 ## 5. 发起聊天
+
 发送消息前需要先创建会话和消息体。
 ```java
 List<String> ids = new ArrayList<>();
@@ -98,7 +101,7 @@ WilddogIMClient.newConversation(ids, new WilddogIMClient.CompletionListener() {
            }
       }
 });
- ```
+```
 ## 6. 接收消息
 
 在 `WilddogIMClient.WilddogIMMessageListener` 的代理方法 `onNewMessage()` 中接收新消息。
