@@ -51,7 +51,7 @@ Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统�
 2. 开发者服务器使用野狗 Server SDK 生成 customToken 返回给客户端。
 3. 客户端使用 customToken 登录 Wilddog IM 服务。
 
-也可以在 `IM 控制面板` -> `接口测试` 中生成 Token 用于测试。
+也可以在 `控制面板` -> `即时通讯` -> `接口测试` 中生成 Token 用于测试。
 
 Wilddog IM 解决方案会和野狗服务器建立一个长连接，以达到能实时接收消息的目的。你可以通过 addConnectionListener 方法来监听连接状态。调用 connect() 方法来建立连接。
 
@@ -101,7 +101,7 @@ WilddogIMClient.newConversation(ids, new WilddogIMClient.CompletionListener() {
  ```
 ## 6. 接收消息
 
-在 `WilddogIMClient.WilddogIMMessageListener` 的代理方法 `onNewMessage（）` 中接收新消息。
+在 `WilddogIMClient.WilddogIMMessageListener` 的代理方法 `onNewMessage()` 中接收新消息。
 
 ```java
 private WilddogIMClient.WilddogIMMessageListener listener=new WilddogIMClient.WilddogIMMessageListener() {
