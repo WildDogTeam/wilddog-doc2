@@ -22,7 +22,7 @@ title: 快速入门
 
 应用创建成功后，进入 管理应用-身份认证-登录方式，开启匿名登录。
 
-<img src='/images/openanonymous.png' alt="video_quickstart_openanonymous" >
+<img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
 
 ## 3. 开启实时视频通话服务
 
