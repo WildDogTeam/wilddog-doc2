@@ -2,7 +2,7 @@
 title: wilddog.video.Conference
 ---
 
-正在进行的会话。
+正在进行的多人视频会议。
 
 ## 属性
 
@@ -48,7 +48,7 @@ String
 
 **说明**
 
-当前 Conference 的 Id。
+当前 Conference 的 ID。
 
 </br>
 
@@ -137,7 +137,7 @@ conference.disconnect();
 
 | 参数名 | 说明 |
 |---|---|
-| conferenceId | String Conference 的唯一标识Id。|
+| conferenceId | String Conference 的唯一标识 ID。|
 
 **示例**
 
@@ -154,7 +154,7 @@ conference.on('connected', function(conferenceId){
 
 | 参数名 | 说明 |
 |---|---|
-| conferenceId | String 类型。Conference 的唯一标识Id。|
+| conferenceId | String 类型。Conference 的唯一标识 ID。|
 
 **示例**
 

@@ -46,7 +46,7 @@ videoInstance.createStream({
 ```javascript
 // 获取html中id为'remote'的video元素;
 var remoteVideoElement = document.getElementById('remote');
-// 设置会议 Conference Id （用户自定义）;
+// 设置会议 Conference ID （用户自定义）;
 // 并传入本地媒体流（localStream ，之前创建的本地流）;
 // 可选择传入用户自定义信息 userData;
 var conference =  client.connectToConference('123456',{'stream':localStream,'userData':'somethings'});

@@ -2,7 +2,7 @@
 title: wilddog.video.Conversation
 ---
 
-正在进行的会话。
+正在进行的视频通话。
 
 ## 属性
 
@@ -48,7 +48,7 @@ String
 
 **说明**
 
-当前 Conversation 的唯一标识 Id。
+当前 Conversation 的唯一标识 ID。
 
 </br>
 
@@ -125,7 +125,7 @@ conversation.disconnect();
 
 | 参数名 | 说明 |
 |---|---|
-| conversationId | String 类型。Conversation 的唯一标识Id。|
+| conversationId | String 类型。Conversation 的唯一标识 ID。|
 
 **示例**
 
@@ -142,7 +142,7 @@ conversation.on('connected', function(conversationId){
 
 | 参数名 | 说明 |
 |---|---|
-| conversationId | String 类型。Conversation 的唯一标识Id。|
+| conversationId | String 类型。Conversation 的唯一标识 ID。|
 
 **示例**
 

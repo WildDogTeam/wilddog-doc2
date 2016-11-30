@@ -45,7 +45,7 @@ wilddog.video().createStream({audio:true,video:true})
 // 获取html中id为'remote'的video元素;
 var remoteVideoElement = document.getElementById('remote');
 // 邀请他人加入通话
-// 设置对方 Wilddog Id （需开发者在应用层自己实现获取方式，Wilddog Id 请参考 ClientInviteConstraints）;
+// 设置对方 Wilddog ID （需开发者在应用层自己实现获取方式，Wilddog ID 请参考 ClientInviteConstraints）;
 // 并传入本地媒体流（localStream ，之前创建的本地流）;
 client.inviteToConversation('wilddogId',{
         'stream':localStream,

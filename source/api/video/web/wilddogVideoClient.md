@@ -138,7 +138,7 @@ connectToConference(conferenceId, options)
 
 | 参数名 | 说明 |
 |---|---|
-| conferenceId | `string` 类型。Conference 的唯一标识 Id , 由用户自由填写。 |
+| conferenceId | `string` 类型。Conference 的唯一标识 ID , 由用户自由填写。 |
 | options | [ClientConstraints](/api/video/web/wilddogVideoClient.html#ClientInviteConstraints) 类型。Client 发起 Conversation 需要的参数。|
 
 **返回值**
