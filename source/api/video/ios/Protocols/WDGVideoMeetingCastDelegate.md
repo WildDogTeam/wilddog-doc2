@@ -21,9 +21,9 @@ MeetingCast 代理方法。
 
  参数名 | 说明 
 ---|---
-meetingCast|当前 [WDGVideoMeetingCast](../Classes/WDGVideoMeetingCast.html) 实例。 
+meetingCast|当前 [WDGVideoMeetingCast](../Classes/WDGVideoMeetingCast.html) 实例。
 status|最新的直播状态。
-castingParticipantID|当前直播中的参与者的 Wilddog ID 。
+participantID|当前直播中的参与者的 Wilddog ID 。
 castURLs|包含直播流的 URL 地址，字典的 Key 为直播流的种类，目前包含 `rtmp` 和 `hls` 两类，字典的 Value 为该直播流种类对应的地址。
 
 </br>

@@ -32,3 +32,19 @@ title: WDGVideoParticipant
 **说明**
 
 该参与者发布的音视频流。
+
+</br>
+
+---
+
+### delegate
+
+**定义**
+
+```objectivec
+@property (readwrite, nonatomic, nullable) id<WDGVideoParticipantDelegate>delegate;
+```
+
+**说明**
+
+符合 [WDGVideoParticipantDelegate](../Protocols/WDGVideoParticipantDelegate.html) 协议的代理。
