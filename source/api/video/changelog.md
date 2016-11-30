@@ -4,6 +4,20 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.0 - 2016.11.30
+
+<span class="changelog optimize">优化</span>
+
+- 使用两种呼叫模型：conversation 和 conference 代替 P2P 和 Server-based 模式。
+- 使用固定交互路径 '/wilddogVideo' ，降低用户使用难度。
+
+<span class="changelog add">新增</span>
+
+- 修改 conversation 为一对一视频通话呼叫模型，使用点对点方式通信。
+- conversation 呼叫模型可以在发出邀请时携带自定义额外信息给对方。
+- 新增 conference 多人视频会议呼叫模型，使用服务器中转方式通信。
+- 可以自定义视频会议 ID。
+
 ### v0.4.5 - 2016.11.02
 
 <span class="changelog add">新增</span>
@@ -38,7 +52,7 @@ title: 更新日志
 <span class="changelog optimize">优化</span>
 
 - 压缩 SDK 大小，从 300+K 压缩为 100+K。
-- 被邀请方接受邀请后，邀请方的 OutgoingInvite 会触发 promise，得到 Conversation 对象。 
+- 被邀请方接受邀请后，邀请方的 OutgoingInvite 会触发 promise，得到 Conversation 对象。
 
 ### V0.4.0 - 2016.10.08
 
@@ -193,6 +207,3 @@ title: 更新日志
 - WDGVideoView 适用 contentMode 选项，支持 AspectFit 、 AspectFill 和 Fill 三种显示模式。
 - WDGVideoConversation 中的邀请API返回值改为 BOOL。
 - 修复 WDGVideoConversation 中 participants 只增不减的问题。
-
-
-
