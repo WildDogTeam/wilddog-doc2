@@ -1,8 +1,8 @@
 ﻿
-title: wilddog.video.Conversation
+title: wilddog.video.Conference
 ---
 
-正在进行的视频通话。
+正在进行的多人视频会议。
 
 ## 属性
 
@@ -16,13 +16,13 @@ wilddog.video.LocalParticipant
 
 **说明**
 
-Conversation 中的本地参与者。
+Conference 中的本地参与者。
 
 </br>
 
 ---
 
-### participant
+### participants
 
 **类型**
 
@@ -32,7 +32,7 @@ Map.<Participant.Id, Participant>
 
 **说明**
 
-当前 Conversation 中远端的参与者。
+当前 Conference 中除自身外的所有参与者。
 
 </br>
 
@@ -48,7 +48,7 @@ String
 
 **说明**
 
-当前 Conversation 的唯一标识 ID。
+当前 Conference 的 ID。
 
 </br>
 
@@ -64,7 +64,7 @@ String
 
 **说明**
 
-当前 Conversation 的状态。
+当前 Conference 的状态。
 
 **状态类型**
 
@@ -78,6 +78,18 @@ String
 
 ---
 
+### meetingCast
+
+**类型**
+
+```js
+Object
+```
+
+**说明**
+
+[meetingCast](/api/video/web/meetingCast.html) 为直播推流功能的接口，拥有 start/switchParticipant/stop 三个方法。
+
 ## 方法
 
 ### disconnect
@@ -90,13 +102,13 @@ disconnect()
 
 **说明**
 
-离开当前的 Conversation，会触发 `disconnected` 事件。
+离开当前的 Conference，会触发 `disconnected` 事件。
 
 **示例**
 
 ```js
 //离开会议
-conversation.disconnect();
+conference.disconnect();
 ```
 
 </br>
@@ -109,9 +121,9 @@ conversation.disconnect();
 
 | 事件类型 | 说明                            |
 | -------- | ------------------------------- |
-| connected | Client 与 Conversation 连接成功触发。 |
-| connect_failed | Client 与 Conversation 连接失败触发。|
-| disconnected | Client 与 Conversation 断开连接触发。 |
+| connected | Client 与 Conference 连接成功触发。 |
+| connect_failed | Client 与 Conference 连接失败触发。|
+| disconnected | Client 与 Conference 断开连接触发。 |
 | participant_connected | 有新的参与者加入触发。 |
 | participant_disconnected | 有参与者离开触发。 |
 
@@ -125,14 +137,14 @@ conversation.disconnect();
 
 | 参数名 | 说明 |
 |---|---|
-| conversationId | String 类型。Conversation 的唯一标识 ID。|
+| conferenceId | String Conference 的唯一标识 ID。|
 
 **示例**
 
 ```js
 //监听参与者加入失败事件
-conversation.on('connected', function(conversationId){
-    console.log('Conversation connect success, conversationId is :', conversationId);
+conference.on('connected', function(conferenceId){
+    console.log('Conference connect success, conferenceId is :', conferenceId);
 });
 ```
 
@@ -142,14 +154,14 @@ conversation.on('connected', function(conversationId){
 
 | 参数名 | 说明 |
 |---|---|
-| conversationId | String 类型。Conversation 的唯一标识 ID。|
+| conferenceId | String 类型。Conference 的唯一标识 ID。|
 
 **示例**
 
 ```js
 //监听参与者加入失败事件
-conversation.on('connect_failed', function(conversationId){
-    console.log('Conversation connect failed, conversationId is :', conversationId);
+conference.on('connect_failed', function(conferenceId){
+    console.log('Conference connect failed, conferenceId is :', conferenceId);
 });
 ```
 
@@ -159,14 +171,14 @@ conversation.on('connect_failed', function(conversationId){
 
 | 参数名 | 说明 |
 |---|---|
-| conversationId | `String` 类型。断开的 Conversation 的 ID。|
+| conferenceId | `String` 类型。断开的 Conference 的 ID。|
 
 **示例**
 
 ```js
 //监听断开事件
-conversation.on('disconnected', function(conversationId){
-    console.log('Conversation ' + conversationId + ' disconnected.');
+conference.on('disconnected', function(conferenceId){
+    console.log('Conference ' + conferenceId + ' disconnected.');
 });
 ```
 
@@ -186,7 +198,7 @@ conversation.on('disconnected', function(conversationId){
 
 ```js
 //监听参与者加入事件
-conversation.on('participant_connected', function(participant){
+conference.on('participant_connected', function(participant){
     console.log('Participant ' + participant.Id + ' connected.');
 });
 ```
@@ -207,7 +219,7 @@ conversation.on('participant_connected', function(participant){
 
 ```js
 //监听参与者的断开事件
-conversation.on('participant_disconnected', function(conversationId){
+conference.on('participant_disconnected', function(conferenceId){
     console.log('Participant ' + participant.Id + ' connected.');
 });
 ```

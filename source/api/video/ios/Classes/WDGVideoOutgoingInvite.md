@@ -66,3 +66,22 @@ title: WDGVideoOutgoingInvite
 **说明**
 
 调用此方法取消当前邀请。
+
+</br>
+
+---
+
+## 常量
+
+### WDGVideoInviteStatus
+
+**说明**
+
+表示邀请的状态。
+
+- WDGVideoInviteStatusPending: 邀请刚刚被发送或接收
+- WDGVideoInviteStatusAccepting: 被邀请方接受邀请
+- WDGVideoInviteStatusAccepted: 邀请方确认邀请被接收，双方建立会话
+- WDGVideoInviteStatusRejected: 邀请被本地客户端拒绝
+- WDGVideoInviteStatusCancelled: 邀请被邀请方撤销
+- WDGVideoInviteStatusFailed: 邀请被接受但无法建立会话

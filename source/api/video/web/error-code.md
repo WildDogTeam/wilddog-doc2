@@ -20,4 +20,4 @@ title: 错误码
 | 40310 | VIDEO_MEETINGCAST_REGISTRATION_FAILED | MeetingCast 初始化失败，未在控制面板中开启功能。 |
 | 40311 | VIDEO_MEETINGCAST_START_FAILED | MeetingCast 操作冲突，当前已经开启 MeetingCast 。 |
 | 40312 | VIDEO_MEETINGCAST_SWITCH_FAILED | MeetingCast 切换参与者失败，未开启 MeetingCast 或切换失败。 |
-
+| 40313 | VIDEO_MEETINGCAST_STOP_FAILED | MeetingCast 关闭直播失败，未开启 MeetingCast 或关闭失败。 |
