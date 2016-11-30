@@ -5,7 +5,7 @@ title: 实战教程
 
 ## 示例说明
 
-本教程以一对一视频通话为例，讲解如何通过 Wilddog Video SDK 实现实时视频通话功能。
+本教程以一对一视频通话为例，讲解如何通过 Video SDK 实现实时视频通话功能。
 
 在此之前需要开启控制面板中的“实时视频通话”功能。
 
@@ -23,18 +23,16 @@ title: 实战教程
 解压缩后将 libs 文件夹下的 .jar 文件拷贝到工程的 /libs 目录下，添加为工程的依赖库。
 将 jniLibs 文件夹下的 armeabi-v7a 文件夹拷贝到 /src/main/jniLibs 目录下，完成 Video SDK 的引用。
 
-
 ### 2. 添加 Sync / Auth 依赖
 
-Wilddog Video SDK 依赖于 Wilddog Sync 与 Wilddog Auth SDK，可以使用 Maven 或 Gradle 获得 Wilddog Sync/Auth SDK。
+Video SDK 依赖于 Sync 和 Auth SDK，可以使用 Maven 或 Gradle 获得 Sync/Auth SDK。
 
-- **使用 Maven 安装 Wilddog Sync/Auth SDK**
+- **使用 Maven 安装 Sync/Auth SDK**
 
 <figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-auth-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 
-
-- **使用 Gradle 安装 Wilddog Sync/Auth SDK**
+- **使用 Gradle 安装 Sync/Auth SDK**
 
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:2.0.1&apos;</span></div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:2.0.1&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
@@ -101,7 +99,7 @@ android {
 
 ### 4. 实现用户列表
 
-邀请对方加入视频通话，需要获取对方的在线状态。Wilddog Video SDK 本身不提供获取在线用户列表功能，因此需要开发者使用 Sync SDK 来自己实现。用户登陆系统后将自己的 Wilddog ID 保存到用户列表中。
+邀请对方加入视频通话，需要获取对方的在线状态。Video SDK 本身不提供获取在线用户列表功能，因此需要开发者使用 Sync SDK 来自己实现。用户登陆系统后将自己的 Wilddog ID 保存到用户列表中。
 
 数据库中的数据结构如图所示：
 
@@ -188,7 +186,7 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
 ### 5. 获取和预览本地视频
 
-通过 Wilddog Video SDK 获取本地视频流，并在视频展示控件中预览。
+通过 Video SDK 获取本地视频流，并在视频展示控件中预览。
 
 ```java
 
