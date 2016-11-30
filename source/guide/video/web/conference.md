@@ -84,7 +84,7 @@ conference.on('disconnected', function(){
 
 通过监听其他参与者加入或离开的事件，来获得其状态通知。
 
-例如，打印加入、离开及加入失败的日志：
+例如，打印加入、离开的日志：
 
 ```javascript
 
