@@ -1,7 +1,7 @@
 title: 多人视频会议
 ---
 
-本篇文档介绍开发多人视频会议时会时的主要环节，包括创建视频会议、管理其他参与者和加入会议相关。
+本篇文档介绍开发多人视频会议时会时的主要环节，包括 [创建视频会议](/guide/video/web/conference.html#创建视频会议)、[管理其他参与者](/guide/video/web/conference.html#管理其他参与者) 和 [视频会议相关操作](/guide/video/web/conference.html#视频会议相关操作)。
 
 ## 创建视频会议
 
@@ -39,7 +39,7 @@ videoInstance.createStream({
 
 ### 发起/加入视频会议
 
-通过 Conference ID 发起/加入一个视频会议。如果该 Conference ID 不存在，系统会以你作为第一个参与者发起该会议。
+通过 Conference ID 发起/加入一个视频会议。如果该会议不存在，系统会以你作为第一个参与者发起该会议。
 
 例如，加入 Conference ID 为 '123456' 的视频会议：
 
