@@ -74,10 +74,10 @@ self.conference = [self.wilddogVideoClient connectToConferenceWithID:@"123456" o
 }
 ```
 
-## 加入会议相关
+## 视频会议相关操作
 ---
 
-介绍如何离开视频会议。
+视频会议相关操作包括视频会议直播和离开视频会议。
 
 ### 离开视频会议
 
@@ -90,4 +90,42 @@ self.conference = [self.wilddogVideoClient connectToConferenceWithID:@"123456" o
 [self.remoteStream detach:self.remoteVideoView];
 self.remoteStream = nil;
 self.conference = nil;
+```
+
+### 视频会议直播
+
+视频会议直播采用野狗独有的 MeetingCast 技术，能直播视频会议中指定客户端的视频和音频，并根据需要无缝切换直播的客户端。
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-多人视频会议` 下的 “视频会议直播” 开关。
+</blockquote>
+
+**开启直播**
+
+在视频会议开始后，选择一个参与者作为直播源，打开直播功能。
+
+例如，选择参与者 '12345' 作为直播源开启直播：
+
+```objectivec
+
+```
+
+**切换直播者**
+
+直播进行时无缝切换直播源。
+
+例如，切换直播源为参与者 '99999'：
+
+```objectivec
+```
+
+**关闭直播**
+
+停止直播功能。
+
+例如，直播开启后，停止直播：
+
+```objectivec
+
 ```
