@@ -1,7 +1,7 @@
 title: 视频通话
 ---
 
-本篇文档介绍在开发视频通话的主要环节，包括 [创建视频通话](/guide/video/web/conversation.html#创建视频通话)、[管理其他参与者](/guide/video/web/conversation.html#管理其他参与者)、[视频通话相关](/guide/video/web/conversation.html#视频通话相关) 和 [数据安全性](/guide/video/web/conversation.html#数据安全性)。
+本篇文档介绍在开发视频通话的主要环节，包括 [创建视频通话](/guide/video/web/conversation.html#创建视频通话)、[管理其他参与者](/guide/video/web/conversation.html#管理其他参与者)、[加入视频通话相关](/guide/video/web/conversation.html#加入视频通话相关) 和 [数据安全性](/guide/video/web/conversation.html#数据安全性)。
 
 ## 创建视频通话
 
@@ -102,7 +102,7 @@ participant.on('streamAdded', function(stream){
 });
 ```
 
-## 视频通话相关
+## 加入视频通话相关
 
 视频通话相关操作包括接受或拒绝邀请、离开视频通话。
 
