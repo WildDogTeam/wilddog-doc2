@@ -118,9 +118,9 @@ Conference.Listener listener = new Conference.Listener() {
 ```
 
 ## 加入会议相关
----
 
-介绍如何离开视频会议。
+
+介绍如何离开视频会议和直播视频会议。
 
 ### 离开视频会议
 
