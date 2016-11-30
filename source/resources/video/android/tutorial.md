@@ -19,17 +19,24 @@ title: 实战教程
 
 ### 1. 安装 SDK
 
-可以使用 Maven 或 Gradle 获得 Wilddog Video Android SDK,Video SDK中已经包含了 Sync SDK 和 Auth Android SDK，无需重复引用。
-
-- **使用 Maven 安装 Wilddog Video SDK**
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-video-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.4.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+[下载]() Wilddog Video SDK 的 zip 压缩包。
+解压缩后将 libs 文件夹下的 .jar 文件拷贝到工程的 /libs 目录下，添加为工程的依赖库。
+将 jniLibs 文件夹下的 armeabi-v7a 文件夹拷贝到 /src/main/jniLibs 目录下，完成 Video SDK 的引用。
 
 
+### 2. 添加 Sync / Auth 依赖
 
-- **使用 Gradle 安装 Wilddog Video SDK**
+Wilddog Video SDK 依赖于 Wilddog Sync 与 Wilddog Auth SDK，可以使用 Maven 或 Gradle 获得 Wilddog Sync/Auth SDK。
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-android:0.4.1&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+- **使用 Maven 安装 Wilddog Sync/Auth SDK**
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-auth-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+
+
+
+- **使用 Gradle 安装 Wilddog Sync/Auth SDK**
+
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:2.0.1&apos;</span></div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:2.0.1&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 如果出现由于文件重复导致的编译错误，可以在 build.gradle 中添加 packingOptions:
 
@@ -50,28 +57,28 @@ android {
 视频通话的前提条件是要有可识别的用户身份。在这里使用 Auth SDK 的匿名登录实现身份认证。认证后会为每个用户分配唯一的 Wilddog ID。
 
 ``` java
-//初始化 WilddogApp,完成初始化之后可在项目任意位置通过 getInstance() 获取 Sync & Auth 对象
-WilddogOptions.Builder builder = new WilddogOptions.Builder().setSyncUrl("http://" + mAppId + ".wilddogio.com");
-WilddogOptions options = builder.build();
-WilddogApp.initializeApp(getApplicationContext(), options);
-//获取 Sync & Auth 对象
-SyncReference mRef = WilddogSync.getInstance().getReference();
-WilddogAuth auth = WilddogAuth.getInstance();
-//采用匿名登录方式认证
-//还可以选择其他登录方式
-//auth.signInWithEmailAndPassword();
-//auth.signInWithCredential();
-//auth.signInWithCustomToken();
-auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-    @Override
-    public void onComplete(Task<AuthResult> task) {
-        if (task.isSuccessful()) {
-            //身份认证成功
-        }else {
-            throw  new RuntimeException("auth 失败"+task.getException().getMessage());
+    //初始化 WilddogApp,完成初始化之后可在项目任意位置通过 getInstance() 获取 Sync & Auth 对象
+    WilddogOptions.Builder builder = new WilddogOptions.Builder().setSyncUrl("http://" + mAppId + ".wilddogio.com");
+    WilddogOptions options = builder.build();
+    WilddogApp.initializeApp(getApplicationContext(), options);
+    //获取 Sync & Auth 对象
+    SyncReference mRef = WilddogSync.getInstance().getReference();
+    WilddogAuth auth = WilddogAuth.getInstance();
+    //采用匿名登录方式认证
+    //还可以选择其他登录方式
+    //auth.signInWithEmailAndPassword();
+    //auth.signInWithCredential();
+    //auth.signInWithCustomToken();
+    auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        @Override
+        public void onComplete(Task<AuthResult> task) {
+            if (task.isSuccessful()) {
+                //身份认证成功
+            }else {
+                throw  new RuntimeException("auth 失败"+task.getException().getMessage());
+            }
         }
-    }
-});
+    });
 
 ```
 
@@ -82,25 +89,13 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
 
 ```java
 
-        //初始化 WilddogVideo 时需要初始化两个类，WilddogVideo 和 ConversationClient 类，分别对其进行初始化
-        //初始化 WilddogVideo，传入 Context
-        WilddogVideo.initializeWilddogVideo(getApplicationContext());
-        //初始化视频根节点，mRef=WilddogSync.getReference().child([视频控制面板中配置的自定义根节点]);
-        ConversationClient.init(mRef.child([视频控制面板中配置的自定义根节点]), new CompleteListener() {
-            @Override
-            public void onSuccess() {
-
-            }
-
-            @Override
-            public void onError(String s) {
-
-            }
-        });
-        //获取video对象
-        video = WilddogVideo.getInstance();
-        //获取client对象
-        client = video.getClient();
+    //初始化 WilddogVideo SDK
+    WilddogVideo.initializeWilddogVideo(getApplicationContext(), <Wilddog APPID>);
+    //获取 WilddogVideo对象
+    WilddogVideo video＝WilddogVideo.getInstance();
+    //获取client对象
+    WilddogVideoClient client = video.getClient();
+    //....
 
 ```
 
@@ -127,12 +122,14 @@ auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult
             //获取Wilddog ID
             String uid = auth.getCurrentUser().getUid();
 
+            //用户可以使用任意自定义节点来保存用户数据，但是不要使用 [wilddogVideo]节点存放私有数据
+            //以防和Video SDK 数据发生冲突
+            //本示例采用根节点下的[users] 节点作为用户列表存储节点
             Map<String, Object> map = new HashMap<String, Object>();
             map.put(uid, true);
-            //向users节点写入数据
-            mRef.child().child("users").updateChildren(map);
-            mRef.child("users/" + uid).onDisconnect().removeValue();
-                        //其他初始化操作...
+            SyncReference userRef=WilddogSync.getInstance().getReference("users");
+            userRef.updateChildren(map);
+            userRef.child(uid).onDisconnect().removeValue();
         }else {
             throw  new RuntimeException("auth 失败"+task.getException().getMessage());
         }
@@ -195,27 +192,22 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
 ```java
 
-//视频展示控件
-//private EglBase eglBase = EglBase.create();
-WilddogVideoView localCallbacks = (WilddogVideoView) findViewById(R.id.local_video_view);
-localCallbacks.init(eglBase.getEglBaseContext(), null);
-//配置本地音视频流
-LocalStreamOptions.VideoOptions videoOptions=new LocalStreamOptions.VideoOptions(true);
-//视频宽高以屏幕横向为准
-videoOptions.setHeight(240);
-videoOptions.setWidth(320);
-LocalStreamOptions options=new LocalStreamOptions(videoOptions,true);
-//通过video对象获取本地视频流
-LocalStream localStream = video.createLocalStream(options,eglBase.getEglBaseContext(), new CompleteListener() { 
-    @Override 
-    public void onSuccess() {
-    } 
-    @Override 
-    public void onError(VideoException exception) { 
-    } 
-}); 
-//为视频流绑定播放控件
-localStream.attach(localCallbacks);
+    //视频展示控件
+    //private EglBase eglBase = EglBase.create();
+    WilddogVideoView localView = (WilddogVideoView) findViewById(R.id.local_video_view);
+    localView.init(eglBase.getEglBaseContext(), null);
+    //配置本地音视频流
+    LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
+    LocalStreamOptions options = builder.height(240).width(320).build();
+    localStream = video.createLocalStream(options, eglBase.getEglBaseContext(), new
+        CompleteListener() {
+            @Override
+            public void onCompleted(VideoException e) {
+
+            }
+    });
+    //为视频流绑定播放控件
+    localStream.attach(localView);
 
 ```
 
@@ -224,32 +216,31 @@ localStream.attach(localCallbacks);
 选择用户列表中的用户，发起会话。
 
 ```java
-//在使用 inviteToConversation 方法前需要先设置会话邀请监听，否则使用邀请功能会抛出IllegalStateException异常
-client.setInviteListener(new InviteListener(){ 
-    //...
-});
+    //在使用 inviteToConversation 方法前需要先设置会话邀请监听，否则使用邀请功能会抛出IllegalStateException异常
+    client.setInviteListener(new InviteListener(){ 
+        //...
+    });
 
-
-//选取用户列表中的用户，获得其 Wilddog ID
-String uid=[获得的用户 Wilddog ID];
-//ConversationMode 可以选择 P2P 和 SERVER_BASED 两种
-//participants 为传入的用户 Wilddog ID 列表，目前预览版仅支持单人邀请
-InviteOptions options = new InviteOptions(ConversationMode.SERVER_BASED, participants, stream);
-//inviteToConversation 方法会返回一个OutgoingInvite对象，
-//通过OutgoingInvite对象可以进行取消邀请操作
-outgoingInvite = client.inviteToConversation(options, new ConversationCallback() {
-    @Override
-    public void onConversation(Conversation conversation, VideoException exception) {
-    
-        if (conversation != null) {
-            //对方接受邀请并成功建立会话，conversation不为空，exception为空
-            mConversation = conversation;
-            mConversation.setConversationListener(conversationListener);
-        } else {
-            //对方拒绝时，exception不为空
+    //选取用户列表中的用户，获得其 Wilddog ID
+    String participantId=[获得的用户 Wilddog ID];
+    //创建连接参数对象
+    //localStream 为video.createLocalStream()获取的本地视频流
+    //第二个参数为用户自定义的数据，类型为字符串
+    ConnectOptions options = new ConnectOptions(localStream, "chaih");
+    //inviteToConversation 方法会返回一个OutgoingInvite对象，
+    //通过OutgoingInvite对象可以进行取消邀请操作
+    outgoingInvite = client.inviteToConversation(participantId,options, new ConversationCallback() {
+        @Override
+        public void onConversation(Conversation conversation, VideoException exception) {
+            if (conversation != null) {
+                //对方接受邀请并成功建立会话，conversation不为空，exception为空
+                mConversation = conversation;
+            
+            } else {
+                //对方拒绝时，exception不为空
+            }
         }
-    }
-});
+    });
 
 ```
 
@@ -258,29 +249,24 @@ outgoingInvite = client.inviteToConversation(options, new ConversationCallback()
 发起会话后，被邀请人会收到邀请事件，被邀请人可以选择接受或拒绝该邀请，接受邀请则会话建立。
 
 ```java
+    this.client.setInviteListener(new WilddogVideoClient.Listener() {
+        @Override
+        public void onIncomingInvite(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
+            //收到邀请，接受会话发起者的邀请
+            ConnectOptions connectOptions = new ConnectOptions(localStream, "");
+            incomingInvite.accept(connectOptions, new ConversationCallback() {
+                @Override
+                public void onConversation(@Nullable Conversation conversation, @Nullable VideoException e) {
 
-client.setInviteListener(new InviteListener(){ 
+                }
+            });
+        }
 
-    //省略其他监听事件
-    //...
-
-    @Override 
-    public void onIncomingInvite(ConversationClient client, final IncomingInvite incomingInvite) { 
-        //获取到incomingInvite对象 
-        //接受邀请 
-        incomingInvite.accept(localStream,new ConversationCallback(){ 
-            @Override 
-            public void onConversation(Conversation conversation,VideoException exception){ 
-                //获取到conversation对象，开始进行会话 
-            } 
-        }); 
-        //拒绝邀请 
-        //incomingInvite.reject(); 
-    }
-});
-
-
-
+        @Override
+        public void onIncomingInviteCanceled(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
+            //会话发起者取消了邀请
+        }
+    });
 ```
 
 ### 8. 展示对方视频
@@ -288,36 +274,64 @@ client.setInviteListener(new InviteListener(){
 会话建立成功后，在会话中能够获取到对方视频流，在视频展示控件中展示。
 
 ```java
-//设置视频展示控件
-WilddogVideoView remoteCallbacks = (WilddogVideoView) findViewById(R.id.remote_video_view);
-remoteCallbacks.init(eglBase.getEglBaseContext(), null);
-//在InviteListener获取到conversation后，设置ConversationListener
-mConversation.setConversationListener(new Conversation.Listener() {
-    @Override
-    public void onParticipantConnected(Conversation conversation, Participant participant) {
-        //有参与者成功加入会话后，会触发此方法
-        //通过Participant.getRemoteStream()获取远端媒体流
-        RemoteStream remoteStream = participant.getRemoteStream();
-        //在视频展示控件中播放媒体流
-        remoteStream.attach(remoteCallbacks);
-    }
+    //设置视频展示控件
+    WilddogVideoView remoteCallbacks = (WilddogVideoView) findViewById(R.id.remote_video_view);
+    WilddogVideoViewLayout remoteViewLayout = (WilddogVideoViewLayout) findViewById(R.id.remote_video_view_layout);
+    remoteViewLayout.setPosition(REMOTE_X, REMOTE_Y, REMOTE_WIDTH, REMOTE_HEIGHT);
+    remoteView.init(eglBase.getEglBaseContext(), null);
+    remoteView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
+    remoteView.setMirror(false);
+    remoteView.requestLayout();
 
-    @Override
-    public void onFailedToConnectParticipant(Conversation conversation, Participant participant,VideoException exception) {
+```
+在成功建立连接后，为已建立的 `conversation` 建立监听参与者加入信息，并获取视频流。
+```java
 
-    }
+    mConversation.setConversationListener(new Conversation.Listener() {
+        @Override
+        public void onConnected(Conversation conversation) {
+        //监听会话连接事件
+        }
 
-    @Override
-    public void onParticipantDisconnected(Conversation conversation, Participant participant) {
+        @Override
+        public void onConnectFailed(Conversation conversation, VideoException e) {
+        //监听会话连接失败事件
+        }
 
-    }
+        @Override
+        public void onDisconnected(Conversation conversation, VideoException e) {
+        //监听会话断开连接事件
+        }
 
-    @Override
-    public void onConversationEnded(Conversation conversation, VideoException exception) {
+        @Override
+        public void onParticipantConnected(Conversation conversation, Participant participant) {
+        //监听参与者接受邀请并加入会话的事件
+        //在参与者加入时获得到加入的参与者，并设置监听
+            participant.setListener(new Participant.Listener() {
+                @Override
+                public void onStreamAdded(RemoteStream remoteStream) {
+                    //远端参与者流可用，展示远端视频流
+                    remoteStream.attach(remoteView);
+                }
 
-    }
-});
+                @Override
+                public void onStreamRemoved(RemoteStream remoteStream) {
 
+                }
+
+                @Override
+                public void onError(VideoException e) {
+
+                }
+            });
+        }
+
+        @Override
+        public void onParticipantDisconnected(Conversation conversation, Participant participant) {
+        //监听参与者离开事件
+        }
+    });
+    
 ```
 
 
@@ -327,8 +341,17 @@ mConversation.setConversationListener(new Conversation.Listener() {
 会话过程中，调用下面方法离开会话。
 
 ```java
-//需要离开会话时调用此方法，并做资源释放和其他自定义操作
-mConversation.disconnect();
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //需要离开会话时调用此方法，并做资源释放和其他自定义操作
+        if (mConversation != null) {
+            mConversation.disconnect();
+        }
+        localStream.detach();
+        localStream.close();
+        video.dispose();
+    }
 ```
 
 

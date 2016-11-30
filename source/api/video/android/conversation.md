@@ -1,7 +1,85 @@
 title: Conversation
 ---
 
-会话类接口,提供会话服务,使用 `Conversation` 接口创建和获取会话,根据传入的不同 `Conversation.Mode`,返回 `P2P` 模式或者 `SERVER_BASED` 模式会话实例。
+会话类，实现一对一的会话功能。
+
+## 属性
+
+### getId()
+
+**定义**   
+
+```java
+public String getId()
+```
+
+**说明**
+
+获取当前会话 ID，此会话 ID 为不重复的字符串。
+
+
+**返回值**
+
+当前会话 ID。
+
+---
+
+### getLocalParticipant()
+
+**定义**   
+
+```java
+public LocalParticipant getLocalParticipant()
+```
+
+**说明**
+
+获取当前会话中的 '[LocalParticipant](/api/video/android/local-participant.html)' 对象，代表本地参与者。
+
+
+**返回值**
+
+当前会话中的 'LocalParticipant'。
+
+---
+
+### getParticipant()
+
+**定义**   
+
+```java
+public Participant getParticipant()
+```
+
+**说明**
+
+获取当前会话中的 '[Participant](/api/video/android/participant.html)' 对象,代表远端参与者。
+
+
+**返回值**
+
+当前会话中的 'Participant'。
+
+---
+
+### getStatus()
+
+**定义**   
+
+```java
+public ConnectStatus getStatus()
+```
+
+**说明**
+
+获取当前的会话状态。
+
+
+**返回值**
+
+当前会话状态[ConnectStatus](/api/video/android/connect-status.html)。
+
+---
 
 ## 方法
 
@@ -27,60 +105,34 @@ void setConversationListener(Conversation.Listener listener)
 **示例**
 
 ```java
-	//成功建立会话后,设置监听
-	mConversation.setConversationListener(new Conversation.Listener() {
-		@Override
-		public void onParticipantConnected(Conversation conversation, Participant participant) {
+ @Override
 
-		}
+    mConversation.setConversationListener(new Conversation.Listener() {
+        @Override
+        public void onConnected(Conversation conversation) {
+                            
+        }
 
-		@Override
-		public void onFailedToConnectParticipant(Conversation conversation, Participant participant, VideoException exception) {
+        @Override
+        public void onConnectFailure(Conversation conversation, VideoException exception) {
 
-		}
+        }
 
-		@Override
-		public void onParticipantDisconnected(Conversation conversation, Participant participant) {
+        @Override
+        public void onDisconnected(Conversation conversation, VideoException exception) {
+        
+        }
 
-		}
+        @Override
+        public void onParticipantConnected(Conversation conversation, Participant participant) {
 
-		@Override
-		public void onConversationEnded(Conversation conversation, VideoException exception) {
+        }
 
-		}
-	});
+        @Override
+        public void onParticipantDisconnected(Conversation conversation, Participant participant) {
 
-```
-
-</br>
-
----
-
-### invite(Set&lt;String&gt;)
-
-**定义**   
-
-```java
-void invite(Set<String> participantIdSet)
-```
-
-**说明**
-
-在已建立的会话中,邀请其他人加入视频通话。
-
-**参数**
-
-| 参数名 | 描述 |
-|---|---|
-|participantIdSet| Set&lt;String&gt; ,受邀参与者列表,列表中的值为受邀参与者的 Wilddog ID|
-
-
-**示例**
-
-```java
-	//Set<String> participants=new new HashSet<>();
-	//participants.add("[被邀请者]");
-	mConversation.invite(participants);
+        }
+    });
 ```
 
 </br>
@@ -102,6 +154,6 @@ void disconnect()
 **示例**
 
 ```java
-	//需要离开会话时调用此方法,并做资源释放和其他自定义操作
+	//需要离开会话时调用此方法，释放会话持有的相关资源
 	mConversation.disconnect();
 ```

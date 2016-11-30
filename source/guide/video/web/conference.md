@@ -1,7 +1,7 @@
 title: 多人视频会议
 ---
 
-本篇文档介绍开发多人视频会议的主要环节，包括 [创建视频会议](/guide/video/web/conference.html#创建视频会议)、[管理其他参与者](/guide/video/web/conference.html#管理其他参与者) 和 [视频会议相关操作](/guide/video/web/conference.html#视频会议相关操作)。
+本篇文档介绍开发多人视频会议的主要环节，包括 [创建视频会议](/guide/video/web/conference.html#创建视频会议)、[管理其他参与者](/guide/video/web/conference.html#管理其他参与者) 和 [加入视频会议相关](/guide/video/web/conference.html#加入视频会议相关)。
 
 ## 创建视频会议
 
@@ -9,7 +9,7 @@ title: 多人视频会议
 
 ### 配置和预览本地媒体流
 
-本地媒体流([LocalStream](/api/video/web/localStream.html))包括音频和视频，发起或加入会议前需要配置其属性，成功加入一个会议后，该媒体流会发给其他参与者。
+本地媒体流( [Local Stream](/guide/video/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -112,10 +112,10 @@ participant.on('streamAdded', function(stream){
 });
 ```
 
-## 视频会议相关操作
+## 加入视频会议相关
 ---
 
-视频会议相关操作包括视频会议直播和离开视频会议。
+视频会议相关操作包括离开视频会议和直播视频会议。
 
 ### 离开视频会议
 
@@ -134,13 +134,54 @@ conference.on('disconnected', function(){
 
 视频会议直播采用野狗独有的 MeetingCast 技术，能直播视频会议中指定客户端的视频和音频，并根据需要无缝切换直播的客户端。
 
-<blockquote class="notice">
-  <p><strong>提示：</strong></p>
-MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-多人视频会议` 下的“视频会议直播”开关。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-多人视频会议` 下的 “视频会议直播” 开关。
 </blockquote>
 
 **开启直播**
 
+在视频会议开始后，选择一个参与者作为直播源，打开直播功能。
+
+例如，选择参与者 '12345' 作为直播源开启直播：
+```js
+conference.meetingCast.start('12345')
+  .then(function () {
+    console.log('成功开启直播！');
+  })
+  .catch(function (error) {
+    console.log('开启直播失败，原因：'，error.meesage);
+  })
+```
+
 **切换直播者**
 
-**关闭直播**
+直播进行时无缝切换直播源。
+
+例如，切换直播源为参与者 '99999'：
+
+```js
+conference.meetingCast.start('99999')
+  .then(function () {
+    console.log('切换直播人成功！');
+  })
+  .catch(function (error) {
+    console.log('切换直播人失败，原因：'，error.meesage);
+  })
+```
+
+**停止直播**
+
+停止直播功能。
+
+例如，直播开启后，停止直播：
+```js
+conference.meetingCast.stop()
+  .then(function () {
+    console.log('停止直播成功！');
+  })
+  .catch(function (error) {
+    console.log('停止直播失败，原因：'，error.meesage);
+  })
+```

@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过以下教程快速了解 Wilddog IM 的用法。
+你可以通过以下教程快速了解  IM 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -47,7 +47,7 @@ WilddogIMClient wilddogIMClient = WilddogIMClient.newInstance(context, "APP ID")
 ```
 ## 4. 集成用户
 
-Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。流程如下：
+IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。流程如下：
 1. 客户端向开发者服务器请求 customToken。
 2. 开发者服务器使用野狗 Server SDK 生成 customToken 返回给客户端。
 3. 客户端使用 customToken 登录 Wilddog IM 服务。

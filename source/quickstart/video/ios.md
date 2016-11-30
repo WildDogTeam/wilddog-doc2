@@ -1,4 +1,4 @@
-﻿
+
 title: 快速入门
 ---
 我们通过一个简单的一对一视频聊天示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-ios/archive/master.zip)
@@ -20,11 +20,13 @@ title: 快速入门
 
 应用创建成功后，进入 管理应用-身份认证-登录方式，开启匿名登录。
 
-![](/images/openanonymous.png)
+<img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，打开实时视频功能。
+进入 管理应用-实时视频通话，开启视频通话功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
+
+<img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
 
 ## 4. 安装快速入门
 
@@ -46,7 +48,7 @@ title: 快速入门
 
 在 Xcode 中编译运行快速入门，把快速入门安装到 iPhone 中。
 
-## 5. 建立会话
+## 5. 建立视频通话
 
 ### 5.1 运行快速入门
 
@@ -66,15 +68,15 @@ title: 快速入门
 
 <img src='/images/video_quickstart_ios_mainUI.png' alt="video_quickstart_ios_mainUI" width="300">
 
-### 5.3 邀请他人加入会话
+### 5.3 邀请他人加入视频通话
 
-在其他 iPhone 上使用同一应用 ID 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入会话。
+在其他 iPhone 上使用同一应用 ID 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入视频通话。
 
 <img src='/images/video_quickstart_ios_userList.png' alt="video_quickstart_ios_userList" width="300">
 
 ### 5.4 接受邀请
 
-被邀请人收到邀请提示后，点击确认加入，会话建立。
+被邀请人收到邀请提示后，点击确认加入，视频通话建立。
 
 <img src='/images/video_quickstart_ios_conversation.jpg' alt="video_quickstart_ios_conversation" width="300">
 

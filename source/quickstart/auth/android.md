@@ -51,7 +51,7 @@ android {
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 
-## 4. 创建 Wilddog Auth 实例
+## 4. 创建 Auth 实例
 
 使用 Wilddog Auth SDK 之前，需要先创建实例：
 
@@ -111,4 +111,4 @@ wildoogAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompl
 wilddogAuth.signOut();
 ```
 
-Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/android/AuthCredential.html)。
+Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/android/AuthCredential.html)。
