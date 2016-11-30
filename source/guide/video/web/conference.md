@@ -134,9 +134,10 @@ conference.on('disconnected', function(){
 
 视频会议直播采用野狗独有的 MeetingCast 技术，能直播视频会议中指定客户端的视频和音频，并根据需要无缝切换直播的客户端。
 
-<blockquote class="notice">
-  <p><strong>提示：</strong></p>
-MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-多人视频会议` 下的 “视频会议直播” 开关。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-多人视频会议` 下的 “视频会议直播” 开关。
 </blockquote>
 
 **开启直播**
@@ -151,7 +152,7 @@ MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-�
 
 例如，切换直播源为参与者 '99999'：
 
-**关闭直播**
+**停止直播**
 
 停止直播功能。
 

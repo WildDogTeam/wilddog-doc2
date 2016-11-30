@@ -34,7 +34,7 @@ Participant(String participantId, RemoteStream remoteStream)
 
 ---
 
-## 方法
+## 属性
 
 ### getParticipantId()
 

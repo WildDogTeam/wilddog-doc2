@@ -3,40 +3,16 @@ title: Stream
 
 视频流对象。
 
-## 属性
 
-所有属性均有 get/set 方法。
-
-### mediaStream
-
-**说明**
-
-视频流对象中的 MediaStream 视频流。
-
-### uid
-
-**说明**
-
-表示流发送者身份的 uid，即 Wilddog ID。
-
-### senderId
-
-**说明**
-
-标识流身份的 senderId，由用户自定义生成,建议使用野狗 `mRef.push.getKey()` 方法获取。
-
-</br>
-
----
 
 ## 方法
 
-### attach
+### attach()
 
 **定义**   
 
 ```java
-void attach(VideoRenderer.Callbacks callbacks)
+void attach(WilddogVideoView videoView)
 ```
 
 **说明**
@@ -47,16 +23,21 @@ void attach(VideoRenderer.Callbacks callbacks)
 
 | 参数名 | 描述 |
 |---|---|
-|callbacks|VideoRenderer.Callbacks,用户定义的 `VideoRenderer.Callbacks` 对象,在此范围内显示视频流|
+|videoView|[WilddogVideoView](/api/video/android/wilddog-video-view.html),用户创建的视频展示控件,讲当前流在视频展示控件上播放。|
 
 
 **示例**
 
 ```java
-	//VideoRenderer.Callbacks localCallbacks=VideoRendererGui
-		.createGuiRenderer(0, 0, 50, 100, RendererCommon.ScalingType.SCALE_ASPECT_FILL, true);
+	WilddogVideoView local_video_view=(WilddogVideoView)findViewById(R.id.local_video_view);
+	local_video_view.init(eglBaseContext, null);
+        localRenderLayout.setPosition(0, 0, 50, 50);
+        local_video_view.setZOrderMediaOverlay(true);
+        local_video_view.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
+        local_video_view.setMirror(true);
+        local_video_view.requestLayout();
 	//为视频流绑定播放控件
-	stream.attach(localCallbacks);
+	localStream.attach(local_video_view);
 ```
 
 </br>

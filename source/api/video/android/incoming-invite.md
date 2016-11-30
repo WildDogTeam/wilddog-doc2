@@ -29,7 +29,7 @@ void accpet(LocalStream localStream,ConversationCallback callback)
 
 ```java
 	//接受邀请
-	//localStream=video.createLocalStream(LocalStreamOptions.DEFAULT_OPTIONS, new CompleteListener(){//...});
+	//localStream=video.createLocalStream();
 	incomingInvite.accept(localStream, new ConversationCallback() {
         @Override
         public void onConversation(Conversation conversation, VideoException exception) {

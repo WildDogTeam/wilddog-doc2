@@ -1,0 +1,206 @@
+title: 视频通话
+---
+
+本篇文档介绍在开发视频通话时的主要环节，包括创建视频通话、管理其他参与者和加入视频通话相关。
+
+
+## 创建视频通话
+
+创建视频通话包括配置和预览本地媒体流、发起视频通话。
+
+
+
+### 配置和预览本地媒体流
+
+本地媒体流( [LocalStream](/api/video/android/local-stream.html) )包括音频和视频，发起视频通话前需要配置其属性，视频通话创建成功后该媒体流会发给其他参与者。
+
+
+例如，创建一个同时有音频和视频的本地媒体流并展示出来：
+
+```java
+    LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
+
+    LocalStreamOptions options = builder.height(240).width(320).build();
+    localStream = video.createLocalStream(options, eglBase.getEglBaseContext(), new
+        CompleteListener() {
+            @Override
+            public void onCompleted(VideoException e) {
+
+            }
+    });
+    //为视频流绑定播放控件
+    localStream.attach(localView);
+```
+
+### 发起视频通话
+
+只有另一个 [WilddogVideoClient](/api/video/android/wilddog-video-client.html) 接受了一方的邀请，通话才能建立成功。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为避免影响视频通话功能的使用，请勿操作该节点。
+</blockquote>
+
+
+例如，发起一对一视频通话：
+
+```java
+    //创建连接参数对象
+    //localStream 为video.createLocalStream()获取的本地视频流
+    //第二个参数为用户自定义的数据，类型为字符串
+    ConnectOptions options = new ConnectOptions(localStream, "chaih");
+    //inviteToConversation 方法会返回一个OutgoingInvite对象，
+    //通过OutgoingInvite对象可以进行取消邀请操作
+    outgoingInvite = client.inviteToConversation(participant,options, new ConversationCallback() {
+        @Override
+        public void onConversation(Conversation conversation, VideoException exception) {
+            if (conversation != null) {
+                //对方接受邀请并成功建立会话，conversation不为空，exception为空
+                mConversation = conversation;
+            
+            } else {
+                //对方拒绝时，exception不为空
+            }
+        }
+    });
+```
+
+## 管理其他参与者
+
+管理其他参与者包括处理其他参与者的连接事件和播放其他参与者的媒体流。
+
+
+### 处理其他参与者的连接事件
+
+通过监听其他参与者加入或离开的事件，来获得其状态通知。
+
+例如，打印加入、离开及加入失败的日志：
+
+```java
+
+    mConversation.setConversationListener(new Conversation.Listener() {
+        @Override
+        public void onConnected(Conversation conversation) {
+        //监听会话连接事件
+        }
+
+        @Override
+        public void onConnectFailed(Conversation conversation, VideoException e) {
+        //监听会话连接失败事件
+        }
+
+        @Override
+        public void onDisconnected(Conversation conversation, VideoException e) {
+        //监听会话断开连接事件
+        }
+
+        @Override
+        public void onParticipantConnected(Conversation conversation, Participant participant) {
+        //监听参与者接受邀请并加入会话的事件
+            Log.d(TAG, "onParticipantConnected :" + participant.getParticipantId());
+        }
+
+        @Override
+        public void onParticipantDisconnected(Conversation conversation, Participant participant) {
+        //监听参与者离开事件
+            Log.d(TAG, "onParticipantDisconnected :" + participant.getParticipantId());
+        }
+    });
+```
+
+### 播放其他参与者的媒体流
+
+通过展示其他参与者的视频流来观看其视频画面。
+
+例如，当监听到参与者加入会话时展示参与者的媒体流：
+
+```java
+    //在参与者加入时获得到加入的参与者，并设置监听
+    participant.setListener(new Participant.Listener() {
+        @Override
+        public void onStreamAdded(RemoteStream remoteStream) {
+            //远端参与者流可用,播放远端流
+            remoteStream.attach(remoteView);
+        }
+
+        @Override
+        public void onStreamRemoved(RemoteStream remoteStream) {
+
+        }
+
+        @Override
+        public void onError(VideoException e) {
+
+        }
+    });
+```
+
+## 加入视频通话相关
+
+加入会话相关包括接受或拒绝邀请、离开视频通话。
+
+### 接受或拒绝邀请
+
+初始化 Client 之后，监听邀请事件接收另一个 Client 发起的会话邀请，收到邀请后可以选择接受或拒绝邀请。
+
+例如，收到邀请后，接受邀请：
+
+```java
+    this.client.setInviteListener(new WilddogVideoClient.Listener() {
+        @Override
+        public void onIncomingInvite(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
+            //收到邀请，接受会话发起者的邀请
+            ConnectOptions connectOptions = new ConnectOptions(localStream, "");
+            incomingInvite.accept(connectOptions, new ConversationCallback() {
+                @Override
+                public void onConversation(@Nullable Conversation conversation, @Nullable VideoException e) {
+
+                }
+            });
+        }
+
+        @Override
+        public void onIncomingInviteCanceled(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
+            //会话发起者取消了邀请
+        }
+    });
+```
+
+### 离开视频通话
+
+离开一个正在进行的会话并释放媒体资源。可以直接释放媒体资源或通过监听离开会话事件在成功离开会话后释放媒体资源。
+
+例如，断开会话并释放不使用的资源：
+
+```java
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //需要离开会话时调用此方法，并做资源释放和其他自定义操作
+        if (mConversation != null) {
+            mConversation.disconnect();
+        }
+        localStream.detach();
+        localStream.close();
+        video.dispose();
+    }
+```
+
+## 数据安全性
+
+### 保护信令交互的安全
+
+视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置规则表达式。
+
+规则表达式设置页面如下：
+
+<img src="/images/video_guide_rule.png" alt="video_guide_rule">
+
+例如，对 `wilddogVideo` 节点配置规则表达式，保证信令只被交互双方读写：
+
+	{
+	  "rules": {
+	    "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
+	  }
+	}
+	

@@ -1,4 +1,4 @@
-title: InviteOptions
+title: ConnectOptions
 ---
 
 ## 构造方法
@@ -6,20 +6,19 @@ title: InviteOptions
 **定义**   
 
 ```java
-InviteOptions（ConversationMode mode,Set<String> participantId,LocalStream localStream）
+InviteOptions（LocalStream localStream，String userData）
 ```
 
 **说明**
 
-邀请加入会话的参数对象，参数为会话模式，参与者列表和本地视频流。
+会话/会议连接参数对象，包含本地视频流对象以及用户自定义数据。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|mode|[ConversationMode](/api/video/android/conversation-mode.html),会话模式,包括 `ConversationMode.P2P`,`ConversationMode.SERVER_BASED` 两种类型,P2P 模式下使用 P2P 连接方式,SERVER_BASED 模式下使用服务器中转连接方式。|
-|participantId|Set<String>,参与者列表。列表内容为参与者的 Wilddog ID。|
 |localStream|[LocalStream](/api/video/android/local-stream.html),会话发起人通过 `Video.createLocalStream` 获取的本地视频流。|
+|userData|String 用户自定义数据，用户可以在加入会话/会议时传递自定义字符串数据，在其他用户收到加入信息时可以解析自定义数据。|
 
 </br>
 

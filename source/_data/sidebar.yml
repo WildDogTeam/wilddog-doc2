@@ -83,9 +83,8 @@ guide:
       多人视频会议: /guide/video/web/conference.html
     Android:
       安装和初始化 SDK: /guide/video/android/install-sdk.html
-      建立会话: /guide/video/android/setting-up-conversation.html
-      管理其他参与者: /guide/video/android/dealing-with-participants.html
-      加入会话相关: /guide/video/android/participating-conversation.html
+      视频通话: /guide/video/android/conversation.html
+      多人视频会议: /guide/video/android/conference.html
     iOS:
       安装和初始化 SDK: /guide/video/ios/install-sdk.html
       视频通话: /guide/video/ios/conversation.html
@@ -230,23 +229,28 @@ api:
       错误码: /api/video/web/error-code.html
     Android:
       WilddogVideo: /api/video/android/wilddog-video.html
-      ConversationClient: /api/video/android/conversation-client.html
-      ConversationClient.Listener: /api/video/android/conversation-client-listener.html
+      WilddogVideoClient: /api/video/android/wilddog-video-client.html
+      WilddogVideoClient.Listener: /api/video/android/wilddog-video-client-listener.html
       Conversation: /api/video/android/conversation.html
       Conversation.Listener: /api/video/android/conversation-listener.html
       ConversationCallback: /api/video/android/conversation-callback.html
-      InviteOptions: /api/video/android/invite-options.html
+      Conference: /api/video/android/conference.html
+      Conference.Listener: /api/video/android/conference-listener.html
+      ConnectOptions: /api/video/android/connect-options.html
+      ConnectStatus: /api/video/android/connect-status.html
       IncomingInvite: /api/video/android/incoming-invite.html
       OutgoingInvite: /api/video/android/outgoing-invite.html
       Stream: /api/video/android/stream.html
       LocalStream: /api/video/android/local-stream.html
       RemoteStream: /api/video/android/remote-stream.html
       Participant: /api/video/android/participant.html
+      LocalParticipant: /api/video/android/local-participant.html
       VideoException: /api/video/android/video-exception.html
-      ConversationMode: /api/video/android/conversation-mode.html
+      MeetingCast: /api/video/android/meeting-cast.html
       MeetingCastStateListener: /api/video/android/meeting-cast-listener.html
-      MeetingCastAddon: /api/video/android/meeting-cast-addon.html
+      MeetingCastStatus: /api/video/android/meeting-cast-status.html
       WilddogVideoView: /api/video/android/wilddog-video-view.html
+      WilddogVideoViewLayout: /api/video/android/wilddog-video-view-layout.html
       错误码: /api/video/android/error-code.html
     iOS:
       WDGVideoClient: /api/video/ios/Classes/WDGVideoClient.html
