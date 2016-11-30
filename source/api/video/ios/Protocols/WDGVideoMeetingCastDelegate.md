@@ -31,3 +31,12 @@ castURLs|包含直播流的 URL 地址，字典的 Key 为直播流的种类，�
 ---
 
 ## 常量
+
+### WDGVideoMeetingCastStatus
+
+**说明**
+
+代表当前直播状态
+
+- WDGVideoMeetingCastStatusClosed: 表示直播未开启或已关闭
+- WDGVideoMeetingCastStatusOpen: 表示直播正在进行中
