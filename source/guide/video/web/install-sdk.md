@@ -23,8 +23,6 @@ Wilddog Video SDK 的实现依赖于 Wilddog Sync SDK 和 Wilddog Auth SDK，所
 
 例如，以匿名方式登录后初始化 Client ：
 
-**需要修改为最新代码！！！**
-
 ```javascript
 var config = {
     authDomain: "<appId>.wilddog.com",

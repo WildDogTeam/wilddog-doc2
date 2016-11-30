@@ -3,8 +3,6 @@ title: 视频通话
 
 本篇文档介绍在开发视频通话时的主要环节，包括创建视频通话、管理其他参与者和加入视频通话相关。
 
-**需要修改为最新代码！！！**
-
 ## 创建视频通话
 
 创建视频通话包括配置和预览本地媒体流、发起视频通话。
@@ -18,37 +16,15 @@ title: 视频通话
   只有通过 HTTPS 服务加载的页面才可以成功获取本地摄像头和麦克风等资源。
 </blockquote>
 
-例如，创建一个只有视频且分辨率为 640X480 的流，并展示到页面上：
-
-```javascript
-// 创建一个只有视频且分辨率为 640X480 的流
-// 获取html中id为'local'的video元素;
-var localVideoElement = document.getElementById('local');
-var localStream = null;
-videoInstance.createStream({
-        audio: false,
-        video: 'standard'
-    })
-    .then(function(stream){
-        localStream = stream;
-        // 获取到localStream,将媒体流绑定到页面的video类型的标签上
-        localStream.attach(localVideoElement);
-    })
-    .catch(function(err){
-        console.log("Catch error! Error code is " + err);
-    })
-```
-
-
-配置成功后，可以在加入视频通话前预览本地画面。
-
 例如，创建一个同时有音频和视频的本地媒体流并展示出来：
 
 ```javascript
+// 获取html中id为'local'的video元素;
 var localElement = document.getElementById('local');
 //创建一个同时有音频和视频的媒体流
 wilddog.video().createStream({audio:true,video:true})
     .then(function(localstream){
+        // 获取到localStream,将媒体流绑定到页面的video类型的标签上
         localStream.attach(localElement);
     });
 ```
@@ -126,13 +102,13 @@ participant.on('streamAdded', function(stream){
 });
 ```
 
-## 加入会话相关
+## 加入视频通话相关
 
-加入会话相关包括接受或拒绝邀请、离开视频通话。
+加入视频通话相关包括接受或拒绝邀请、离开视频通话。
 
 ### 接受或拒绝邀请
 
-初始化 Client 之后，监听邀请事件接收另一个 Client 发起的会话邀请，收到邀请后可以选择接受或拒绝邀请。
+初始化 Client 之后，监听邀请事件接收另一个 Client 发起的邀请，收到邀请后可以选择接受或拒绝邀请。
 
 例如，收到邀请后，接受邀请：
 
@@ -148,11 +124,11 @@ client.on('invite', function(incomingInvite){
 });
 ```
 
-### 离开会话
+### 离开视频通话
 
-离开一个正在进行的会话并释放媒体资源。可以直接释放媒体资源或通过监听离开会话事件在成功离开会话后释放媒体资源。
+离开一个正在进行的视频通话并释放媒体资源。可以直接释放媒体资源或通过监听离开通话事件在成功离开通话后释放媒体资源。
 
-例如，断开会话并释放不使用的资源：
+例如，断开视频通话并释放不使用的资源：
 
 ```javascript
 conversation.disconnect();
@@ -171,11 +147,12 @@ conversation.on('disconnected', function(){
 
 <img src="/images/video_guide_rule.png" alt="video_guide_rule">
 
-例如，对 `wilddogVideo` 节点配置规则表达式，保证信令只被交互双方读写：
+例如，配置规则表达式，`wilddogVideo` 节点只允许信令交互双方读写，其他节点允许所有人读写：
 
-	{
-	  "rules": {
-	    "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
-	  }
-	}
-	
+```{
+  "rules": {
+    "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
+    "$others":{ ".read": true，".write": true}
+  }
+}```
+
