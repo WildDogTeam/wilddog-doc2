@@ -33,7 +33,7 @@ Web SDK 有直接引用和 `npm` 安装两种方式可供选择。直接引用
 npm install wilddog --save
 ```
 
-## 3. 创建 Wilddog Auth 实例
+## 3. 创建 Auth 实例
 
 使用 Wilddog Auth SDK 之前，需要先创建实例：
 
@@ -90,4 +90,4 @@ wilddog.auth().signOut().then(function () {
 ```
 
 
-Wilddog Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/web/User.html)。
+Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/web/User.html)。
