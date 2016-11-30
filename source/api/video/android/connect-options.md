@@ -11,14 +11,14 @@ InviteOptions（LocalStream localStream,String userData）
 
 **说明**
 
-会话/会议的参数对象，包含参数本地视频流和用户自定义数据。
+视频通话和视频会议的参数对象，包含参数本地视频流和用户自定义数据。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
 |localStream|[LocalStream](/api/video/android/local-stream.html),本地参与者通过 `Video.createLocalStream` 获取的本地视频流。|
-|userData|用户自定义数据，用户在加入会话/会议时，可以传递一个自定义字符串数据，其他参与者收到用户加入信息时可以解析此参数。|
+|userData|用户自定义数据，用户在加入视频通话和视频会议时，可以传递一个自定义字符串数据，其他参与者收到用户加入信息时可以解析此参数。|
 
 </br>
 
@@ -63,7 +63,7 @@ LocalStream getLocalStream()
 
 **说明**
 
-获取会话发起人的视频流。
+获取自身的音频和视频流。
 
 **返回值**
 

@@ -1,7 +1,7 @@
 title: WDGVideoIncomingInvite
 ---
 
-表示来自其它用户的会话邀请。
+表示来自其它用户的视频通话邀请。
 
 ## 属性
 
@@ -120,7 +120,7 @@ completionHandler|当邀请得到确认后，SDK通过该闭包通知邀请结�
 
 - WDGVideoInviteStatusPending: 邀请刚刚被发送或接收
 - WDGVideoInviteStatusAccepting: 被邀请方接受邀请
-- WDGVideoInviteStatusAccepted: 邀请方确认邀请被接收，双方建立会话
+- WDGVideoInviteStatusAccepted: 邀请方确认邀请被接收，双方建立视频通话
 - WDGVideoInviteStatusRejected: 邀请被本地客户端拒绝
 - WDGVideoInviteStatusCancelled: 邀请被邀请方撤销
-- WDGVideoInviteStatusFailed: 邀请被接受但无法建立会话
+- WDGVideoInviteStatusFailed: 邀请被接受但无法建立视频通话

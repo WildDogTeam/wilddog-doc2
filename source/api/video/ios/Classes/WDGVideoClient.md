@@ -1,7 +1,7 @@
 title: WDGVideoClient
 ---
 
-用于创建本地流，发起会话。
+用于创建本地流，发起、加入视频通话。
 
 ## 属性
 
@@ -15,7 +15,7 @@ title: WDGVideoClient
 
 **说明**
 
-符合 [WDGVideoClientDelegate](../Protocols/WDGVideoClientDelegate.html) 协议的代理，用于处理视频会话邀请消息。
+符合 [WDGVideoClientDelegate](../Protocols/WDGVideoClientDelegate.html) 协议的代理，用于处理视频通话邀请消息。
 
 </br>
 
@@ -102,14 +102,14 @@ options|配置选项。
 
 **说明**
 
-邀请其他用户进行视频会话。
+邀请其他用户进行视频通话。
 
 **参数**
 
  参数名 | 说明 
 ---|---
 participantID|被邀请者的 Wilddog ID 。 
-options|邀请成功时使用该配置项创建会话。 
+options|邀请成功时使用该配置项创建通话。 
 completionHandler|当邀请得到回应后，SDK 通过该闭包通知邀请结果，若对方接受邀请，在闭包中返回 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例，否则将在闭包中返回 `NSError` 说明邀请失败的原因。
 
 **返回值**

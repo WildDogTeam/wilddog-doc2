@@ -80,7 +80,7 @@ void start(String participantId,CompleteListener listener)
 
 **说明**
 
-直播当前会话中某个参与者发送的视频流，如果发生错误则在回调中返回错误原因，如果执行成功则会触发 `MeetingCastStateListener` 的 `onMeetingCastStateChanged`方法，不会触发 `CompleteListener` 的回调方法。
+直播当前视频会议中某个参与者发送的视频流，如果发生错误则在回调中返回错误原因，如果执行成功则会触发 `MeetingCastStateListener` 的 `onMeetingCastStateChanged`方法，不会触发 `CompleteListener` 的回调方法。
 
 **参数**
 
@@ -115,7 +115,7 @@ void start(String participantId)
 
 **说明**
 
-直播当前会话中某个参与者发送的视频流,等同于调用 `start(participantId,null)`。
+直播当前视频会议中某个参与者发送的视频流,等同于调用 `start(participantId,null)`。
 
 **参数**
 

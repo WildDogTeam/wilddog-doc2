@@ -1,7 +1,7 @@
 title: WDGVideoLocalParticipant
 ---
 
-代表会话和会议的本地参与者。
+代表视频通话和会议的本地参与者。
 
 ## 属性
 
