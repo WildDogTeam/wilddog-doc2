@@ -26,5 +26,22 @@ pod 'WilddogVideo'
 例如，以匿名方式登录后初始化 Client ：
 
 ```objectivec
+[WDGApp configureWithOptions:[[WDGOptions alloc] initWithSyncURL:@"https://<#appId#>.wilddogio.com"]];
+[[WDGAuth auth] signOut:nil];
 
+__weak __typeof__(self) weakSelf = self;
+[[WDGAuth auth] signInAnonymouslyWithCompletion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
+    __strong __typeof__(self) strongSelf = weakSelf;
+    if (strongSelf == nil) {
+        return;
+    }
+
+    if (error) {
+        NSLog(@"请在控制台为您的AppID开启匿名登录功能，错误信息: %@", error);
+        return;
+    }
+
+    strongSelf.wilddogVideoClient = [[WDGVideoClient alloc] initWithApp:[WDGApp defaultApp]];
+    strongSelf.wilddogVideoClient.delegate = self;
+}];
 ```

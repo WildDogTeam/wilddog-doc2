@@ -14,7 +14,14 @@ title: 多人视频会议
 例如，创建一个只有视频且分辨率为 640X480 的流，并展示到页面上：
 
 ```objectivec
-
+// 设置本地媒体流选项
+WDGVideoLocalStreamOptions *localStreamOptions = [[WDGVideoLocalStreamOptions alloc] init];
+localStreamOptions.audioOn = NO;
+localStreamOptions.videoOption = WDGVideoConstraintsStandard;
+// 创建本地媒体流
+self.localStream = [[WDGVideoLocalStream alloc] initWithOptions:localStreamOptions];
+// 展示本地媒体流
+[self.localStream attach:self.localVideoView];
 ```
 
 ### 发起/加入视频会议
@@ -24,7 +31,8 @@ title: 多人视频会议
 例如，加入 Conference ID 为 '123456' 的视频会议：
 
 ```objectivec
-
+WDGVideoConnectOptions *connectOptions = [[WDGVideoConnectOptions alloc] initWithLocalStream:self.localStream];
+self.conference = [self.wilddogVideoClient connectToConferenceWithID:@"123456" options:connectOptions delegate:self];
 ```
 
 ## 管理其他参与者
@@ -35,10 +43,19 @@ title: 多人视频会议
 
 通过监听其他参与者加入或离开的事件，来获得其状态通知。
 
-例如，打印加入、离开及加入失败的日志：
+例如，打印加入、离开的日志：
 
 ```objectivec
+- (void)conference:(WDGVideoConference *)conference didConnectParticipant:(WDGVideoParticipant *)participant
+{
+    NSLog(@"Participant %@ connected", participant);
+    participant.delegate = self;
+}
 
+- (void)conference:(WDGVideoConference *)conference didDisconnectParticipant:(WDGVideoParticipant *)participant
+{
+    NSLog(@"Participant %@ disconnected", participant);
+}
 ```
 
 ### 播放其他参与者的媒体流
@@ -48,7 +65,13 @@ title: 多人视频会议
 例如，当监听到参与者加入视频会议时展示参与者的媒体流：
 
 ```objectivec
-
+- (void)participant:(WDGVideoParticipant *)participant didAddStream:(WDGVideoRemoteStream *)stream
+{
+    // 参与者成功加入会话，将参与者的视频流展示出来
+    NSLog(@"receive stream %@ from participant %@", stream, participant);
+    self.remoteStream = stream;
+    [self.remoteStream attach:self.remoteVideoView];
+}
 ```
 
 ## 加入会议相关
@@ -63,5 +86,8 @@ title: 多人视频会议
 例如，断开视频会议并释放不使用的资源：
 
 ```objectivec
-
+[self.conference disconnect];
+[self.remoteStream detach:self.remoteVideoView];
+self.remoteStream = nil;
+self.conference = nil;
 ```
