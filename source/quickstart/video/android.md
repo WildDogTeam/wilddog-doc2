@@ -26,7 +26,9 @@ title: 快速入门
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，打开实时视频功能。
+进入 管理应用-实时视频通话，开启视频通话功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
+
+<img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
 
 ## 4. 导入快速入门
 
