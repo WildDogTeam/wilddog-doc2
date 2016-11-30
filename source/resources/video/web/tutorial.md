@@ -45,7 +45,7 @@ wilddog.auth().signInAnonymously().then((user) => {
 ```js
 //获取Video对象
 var videoInstance = wilddog.video();
-//获取Client对象，注意：client只有在身份认证成功后才可获取。
+//获取 Client 对象，注意：client 只有在身份认证成功后才可获取。
 var clientInstance = videoInstance.client();
 ```
 
@@ -109,27 +109,27 @@ videoInstance.createStream({
 选择用户列表中的用户，发起视频通话。
 
 ```js
-//选择p2p模式，uid 即选中的用户的 Wilddog ID，localStream 为之前获取的本地视频流
+// uid 即选中的用户的 Wilddog ID，localStream 为之前获取的本地视频流，userData 是传递给对方的自定义字符串。
 var outInvite = clientInstance.inviteToConversation(uid， {
     'stream': localStream,
     'userData': 'somethings'
 })
-//如果会话建立，在outInvite的.then中能获取到 conversation
+//如果视频通话建立，在outInvite的.then中能获取到 conversation
 outInvite.then((conversation) => {
-    //会话建立成功
+    //视频通话建立成功
 });
 ```
 
 ### 7. 接受或拒绝邀请
 
-发起视频通话后，被邀请人会收到邀请事件，被邀请人可以选择接受或拒绝该邀请，接受邀请则会话建立。
+发起视频通话后，被邀请人会收到邀请事件，被邀请人可以选择接受或拒绝该邀请，接受邀请则视频通话建立。
 
 ```js
 //初始化 Client 成功后，监听邀请事件，显示在网页上
 clientInstance.on('invite', (incomingInvite) => {
     currentInvite = incomingInvite;
     inviteEl.hidden = false;
-    invitInfo.textContent = incomingInvite.from + '向你发出会话邀请';
+    invitInfo.textContent = incomingInvite.from + '向你发出视频通话邀请';
 );
 
 //用户点击接受后的触发，localStream为之前获取的本地视频流
@@ -137,7 +137,7 @@ var accept = function() {
     //接受邀请
     currentInvite.accept(localStream)
         .then((conversation) => {
-            //会话建立成功
+            //视频通话建立成功
         });
 }
 //用户点击拒绝后的触发
@@ -166,7 +166,7 @@ conversation.on('participant_connected', (participant) => {
 ```js
 //取消对方视频流的展示
 remoteStream.detach(remoteEl);
-//离开会话
+//离开视频通话
 currentConversation.disconnect();
 ```
 
