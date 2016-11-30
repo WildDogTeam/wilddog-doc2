@@ -79,6 +79,14 @@ title: 更新日志
 
 ### v0.5.0 - 2016.11.30
 
+<span class="changelog add">新增</span>
+
+- conversation 呼叫模型可以在发出邀请时携带自定义额外信息给对方。
+- 新增 conference 多人视频会议呼叫模型，使用服务器中转方式通信。
+- 新增自定义视频会议 ID 功能。
+- 新增 WilddogVideoViewLayout 容器控件，可包裹 WilddogVideoView 实现多窗口播放视频流。
+- 新增 LocaoParticipant 类，作为本地视频流容器。
+
 <span class="changelog optimize">优化</span>
 
 - 使用两种呼叫模型：conversation 和 conference 代替 P2P 和 Server-based 模式。
@@ -90,14 +98,6 @@ title: 更新日志
 - 优化媒体流返回时机，在 Participant 的回调中返回其他客户端的媒体流。
 - 为MeetingCast 直播操作增加操作错误原因回调。
 - 简化 MeetingCastStateListener 回调方法。
-
-<span class="changelog add">新增</span>
-
-- conversation 呼叫模型可以在发出邀请时携带自定义额外信息给对方。
-- 新增 conference 多人视频会议呼叫模型，使用服务器中转方式通信。
-- 新增自定义视频会议 ID 功能。
-- 新增 WilddogVideoViewLayout 容器控件，可包裹 WilddogVideoView 实现多窗口播放视频流。
-- 新增 LocaoParticipant 类，作为本地视频流容器。
 
 <span class="changelog add">修复</span>
 
