@@ -56,7 +56,7 @@ String
 
 **说明**
 
-Conversation 的唯一标识 Id。
+Conversation 的唯一标识 ID。
 
 </br>
 

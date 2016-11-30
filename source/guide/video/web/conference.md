@@ -46,7 +46,7 @@ videoInstance.createStream({
 ```javascript
 // 获取html中id为'remote'的video元素;
 var remoteVideoElement = document.getElementById('remote');
-// 设置会议 Conference Id （用户自定义）;
+// 设置会议 Conference ID （用户自定义）;
 // 并传入本地媒体流（localStream ，之前创建的本地流）;
 // 可选择传入用户自定义信息 userData;
 var conference =  client.connectToConference('123456',{'stream':localStream,'userData':'somethings'});
@@ -58,10 +58,10 @@ conference.on('connected', function(){
 //监听参与者加入事件
 conference.on('participant_connected', function(participant){
     console.log('New participant connected: ', participant.Id);
-	  var remoteEl = document.getElementById('remote');
-	  // 监听 streamAdded事件，将收到的stream展示到页面
+      var remoteEl = document.getElementById('remote');
+      // 监听 streamAdded事件，将收到的stream展示到页面
     participant.on('streamAdded', function(stream){
-		    console.log('Receive stream!');
+            console.log('Receive stream!');
         stream.attach(remoteEl);
     });
 });
@@ -84,7 +84,7 @@ conference.on('disconnected', function(){
 
 通过监听其他参与者加入或离开的事件，来获得其状态通知。
 
-例如，打印加入、离开及加入失败的日志：
+例如，打印加入、离开的日志：
 
 ```javascript
 
@@ -112,10 +112,10 @@ participant.on('streamAdded', function(stream){
 });
 ```
 
-## 加入会议相关
+## 视频会议相关操作
 ---
 
-介绍如何离开视频会议。
+视频会议相关操作包括视频会议直播和离开视频会议。
 
 ### 离开视频会议
 
@@ -129,3 +129,18 @@ conference.on('disconnected', function(){
     //释放资源
 })
 ```
+
+### 视频会议直播
+
+视频会议直播采用野狗独有的 MeetingCast 技术，能直播视频会议中指定客户端的视频和音频，并根据需要无缝切换直播的客户端。
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-服务器中转-附加功能` 下的直播推流开关。
+</blockquote>
+
+**开启直播**
+
+**切换直播者**
+
+**关闭直播**

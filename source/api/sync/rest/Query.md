@@ -68,7 +68,7 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 
 **说明**
 
-仅支持 `get` 方式。为了让 web 客户端的 rest 请求实现跨域，你可以用 JSONNP 在 JavaScript 回调方法中封装一个响应。使用 `callback=` 让 rest API 在你指定的回调方法中封装返回的数据。
+仅支持 `get` 方式。为了让 web 客户端的 rest 请求实现跨域，你可以用 JSONP 在 JavaScript 回调方法中封装一个响应。使用 `callback=` 让 rest API 在你指定的回调方法中封装返回的数据。
 
 **示例**
 
@@ -143,7 +143,7 @@ curl 'https://class-demo.wilddogio.com/students.json?orderBy="height"'
 
 **示例**
 
-例如，[班级示例应用](https://class-demo.wilddogio.com),如果你只想知道最高的是那三位学生，就可以这样写：
+例如，[班级示例应用](https://class-demo.wilddogio.com) 如果你只想知道最高的是那三位学生，就可以这样写：
 
 ```
 curl 'https://class-demo.wilddogio.com/students.json?orderBy="height"&limitToLast=3'

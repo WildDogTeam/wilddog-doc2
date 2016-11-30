@@ -1,9 +1,11 @@
 <!-- Scripts -->
 <!-- build:js build/js/main.js -->
+{{ js('js/public') }}
 {{ js('js/localstorage') }}
 {{ js('js/toc') }}
 {{ js('js/mobile_nav') }}
 {{ js('js/ui') }}
+{{ js('js/search') }}
 <!-- endbuild -->
 {% if page.layout === 'plugins' %}
 <!-- Plugin search -->
