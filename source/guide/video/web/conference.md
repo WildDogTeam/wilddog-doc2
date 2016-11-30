@@ -141,6 +141,36 @@ MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-�
 
 **开启直播**
 
+```js
+conference.meetingCast.start('participantId')
+  .then(function(){
+    console.log('成功开启直播！');
+  })
+  .catch(function(err){
+    console.log('开启直播失败，错误信息：'，err.message);
+  })
+```
+
 **切换直播者**
 
+```js
+conference.meetingCast.switchParticipant('participantId')
+  .then(function(){
+    console.log('成功切换直播人！');
+  })
+  .catch(function(err){
+    console.log('切换直播人失败，错误信息：'，err.message);
+  })
+```
+
 **关闭直播**
+
+```js
+conference.meetingCast.stop()
+  .then(function(){
+    console.log('成功关闭直播！');
+  })
+  .catch(function(err){
+    console.log('关闭直播失败，错误信息：'，err.message);
+  })
+```
