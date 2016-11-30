@@ -21,9 +21,7 @@ title: 快速入门
 
 1.安装 Wilddog IM SDK
 
-Android Studio 使用 Gradle 添加 Wilddog IM 的依赖。在你的 build.gradle 添加：
-
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-IM-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
+你可以直接直接下载 [Android SDK]()。
 
 2.工程配置
 

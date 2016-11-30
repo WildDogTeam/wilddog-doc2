@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过快速入门教程快速了解 IM 的用法。
+你可以通过以下教程快速了解 IM 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
