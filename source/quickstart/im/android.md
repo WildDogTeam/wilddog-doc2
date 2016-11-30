@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过以下教程快速了解  IM 的用法。
+你可以通过以下教程快速了解 IM 的用法。同时，你可以通过 [IM Demo](https://github.com/WildDogTeam/demo-android-wilddogim) 进行体验。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -21,12 +21,12 @@ title: 快速入门
 
 1.安装 Wilddog IM SDK
 
-你可以直接下载 [Android SDK](https://cdn.wilddog.com/sdk/android/0.1.0/wilddog-im-0.1.0.zip)。
+你可以直接下载 [Android SDK](https://cdn.wilddog.com/sdk/android/0.1.0/wilddog-im-0.1.0.zip) 进行安装。
 
 2.工程配置
 
 Wilddog IM 解决方案在 Android 上需要 android.permission.INTERNET 权限。你需要在 AndroidMainfest.xml 文件添加以下内容：
-[xml 添加内容](http://ocpo37x5v.bkt.clouddn.com/im-android.html)
+[xml 添加内容](https://cdn.wilddog.com/docs/android/android-xml.html)；
 
 
 ## 3. 初始化
