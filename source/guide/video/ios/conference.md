@@ -108,7 +108,7 @@ MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-�
 例如，选择参与者 '12345' 作为直播源开启直播：
 
 ```objectivec
-
+[self.conference.meetingCast startWithParticipantID:@"12345"];
 ```
 
 **切换直播者**
@@ -119,6 +119,7 @@ MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-�
 
 
 ```objectivec
+[self.conference.meetingCast switchToParticipantID:@"99999"];
 ```
 
 **关闭直播**
@@ -129,5 +130,5 @@ MeetingCast 功能配置之前，需要开启 `控制面板-实时视频通话-�
 
 
 ```objectivec
-
+[self.conference.meetingCast stop];
 ```
