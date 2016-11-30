@@ -58,10 +58,10 @@ conference.on('connected', function(){
 //监听参与者加入事件
 conference.on('participant_connected', function(participant){
     console.log('New participant connected: ', participant.Id);
-	  var remoteEl = document.getElementById('remote');
-	  // 监听 streamAdded事件，将收到的stream展示到页面
+      var remoteEl = document.getElementById('remote');
+      // 监听 streamAdded事件，将收到的stream展示到页面
     participant.on('streamAdded', function(stream){
-		    console.log('Receive stream!');
+            console.log('Receive stream!');
         stream.attach(remoteEl);
     });
 });

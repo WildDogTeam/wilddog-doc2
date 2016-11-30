@@ -37,7 +37,7 @@ var client;
 // 初始化 Video Client 之前，要先经过身份认证。这里采用匿名登录的方式。
 wilddog.auth().signInAnonymously()
     .then(function(user){
-		//认证成功后，初始化 Client
+        //认证成功后，初始化 Client
         client = wilddog.video().client()
     }).catch(function (error) {
         // Handle Errors here.
