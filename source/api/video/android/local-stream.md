@@ -1,4 +1,4 @@
 title: LocalStream
 ---
 
-`Stream` 子类,代表本地视频流对象。
+`Stream` 子类,本地媒体流对象。

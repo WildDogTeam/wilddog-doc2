@@ -118,7 +118,7 @@ title: 视频通话
     participant.setListener(new Participant.Listener() {
         @Override
         public void onStreamAdded(RemoteStream remoteStream) {
-            //远端参与者流可用,播放远端流
+            //其他客户端的媒体流可用,播放其他客户端的媒体流
             remoteStream.attach(remoteView);
         }
 

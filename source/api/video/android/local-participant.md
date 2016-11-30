@@ -47,11 +47,11 @@ String getParticipantId()
 
 **说明**
 
-获取参与者 Wilddog ID
+获取参与者 Wilddog ID。
 
 **返回值**
 
-`String` 参与者 Wilddog ID 字符串
+`String` 参与者 Wilddog ID 字符串。
 
 </br>
 
