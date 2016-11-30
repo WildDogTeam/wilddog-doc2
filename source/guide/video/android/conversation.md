@@ -33,7 +33,7 @@ title: 视频通话
 
 ### 发起视频通话
 
-只有另一个 [WilddogVideoClient](/api/video/android/wilddog-video-client.html) 接受了一方的邀请，通话才能建立成功。
+只有另一个 [Client](/api/video/android/wilddog-video-client.html) 接受了一方的邀请，通话才能建立成功。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
