@@ -145,16 +145,42 @@ conference.on('disconnected', function(){
 在视频会议开始后，选择一个参与者作为直播源，打开直播功能。
 
 例如，选择参与者 '12345' 作为直播源开启直播：
+```js
+conference.meetingCast.start('12345')
+  .then(function () {
+    console.log('成功开启直播！');
+  })
+  .catch(function (error) {
+    console.log('开启直播失败，原因：'，error.meesage);
+  })
+```
 
 **切换直播者**
 
 直播进行时无缝切换直播源。
 
 例如，切换直播源为参与者 '99999'：
+```js
+conference.meetingCast.start('99999')
+  .then(function () {
+    console.log('切换直播人成功！');
+  })
+  .catch(function (error) {
+    console.log('切换直播人失败，原因：'，error.meesage);
+  })
+```
 
 **停止直播**
 
 停止直播功能。
 
 例如，直播开启后，停止直播：
-
+```js
+conference.meetingCast.stop()
+  .then(function () {
+    console.log('停止直播成功！');
+  })
+  .catch(function (error) {
+    console.log('停止直播失败，原因：'，error.meesage);
+  })
+```
