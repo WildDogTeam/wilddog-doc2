@@ -114,9 +114,3 @@ participant|代表新的参与者的 [WDGVideoParticipant](../Classes/WDGVideoPa
 ---|---
 conversation|调用该方法的 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例。
 participant|代表已断开连接的参与者的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例。
-
-</br>
-
----
-
-## 常量
