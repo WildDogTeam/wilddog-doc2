@@ -1,8 +1,7 @@
 title: 视频通话
 ---
 
-本篇文档介绍在开发视频通话时的主要环节，包括创建视频通话、管理其他参与者和加入视频通话相关。
-
+本篇文档介绍在开发视频通话的主要环节，包括 [创建视频通话](/guide/video/android/conversation.html#创建视频通话)、[管理其他参与者](/guide/video/android/conversation.html#管理其他参与者)、[加入视频通话相关](/guide/video/android/conversation.html#加入视频通话相关) 和 [数据安全性](/guide/video/android/conversation.html#数据安全性)。
 
 ## 创建视频通话
 
