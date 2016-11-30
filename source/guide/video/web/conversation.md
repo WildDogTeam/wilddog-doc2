@@ -148,10 +148,12 @@ conversation.on('disconnected', function(){
 
 例如，配置规则表达式，`wilddogVideo` 节点只允许信令交互双方读写，其他节点允许所有人读写：
 
-```{
+```
+{
   "rules": {
     "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
     "$others":{ ".read": true，".write": true}
   }
-}```
+}
+```
 

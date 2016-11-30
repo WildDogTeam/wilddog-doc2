@@ -1,4 +1,4 @@
-﻿
+
 title: 快速入门
 ---
 我们通过一个简单的一对一视频聊天示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-ios/archive/master.zip)

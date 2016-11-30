@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过一个简单的 [评论墙示例](https://github.com/WildDogTeam/sync-quickstart-android) 来快速了解 Wilddog Sync 的用法。
+你可以通过一个简单的 [评论墙示例](https://github.com/WildDogTeam/sync-quickstart-android) 来快速了解 Sync 的用法。
 
 
 <div class="env">
@@ -64,7 +64,7 @@ android {
 ```
 
 
-## 4. 创建 Wilddog Sync 实例
+## 4. 创建 Sync 实例
 
 ```java
 // 初始化
@@ -82,7 +82,7 @@ SyncReference ref = WilddogSync.getInstance().getReference();
 
 ## 5. 写入数据
 
-`setValue()` 用于向指定节点写入数据。Sync的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
+`setValue()` 用于向指定节点写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
 例如，在应用的根节点下写入评论数据：
 
@@ -137,5 +137,5 @@ myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
 ```
 ## 7.更多使用
-- 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
-- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android/ChildEventListener.html)。
+- 了解 Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
+- 了解 Sync 更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android/ChildEventListener.html)。

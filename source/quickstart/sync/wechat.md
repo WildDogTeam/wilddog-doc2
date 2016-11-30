@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-本篇文档介绍 Wilddog Sync 微信小程序客户端的使用。
+本篇文档介绍  Sync 微信小程序客户端的使用。
 
 
 ## 1.下载地址
@@ -54,7 +54,7 @@ wilddog.initializeApp(config)
 
 ## 4.API
 
-微信小程序平台与一般的开放平台不同之一是它有默认的用户，所以我们提供了一个可以使用一个api进行auth的方法：
+微信小程序平台与一般的开放平台不同之一是它有默认的用户，所以我们提供了一个可以使用一个 api 进行 auth 的方法：
 
 #### auth.signInWeapp(opt_callback)
 

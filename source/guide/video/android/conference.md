@@ -55,26 +55,11 @@ title: 多人视频会议
 
 通过监听其他参与者加入或离开的事件，来获得其状态通知。
 
-例如，打印加入、离开及加入失败的日志：
+例如，打印加入、离开的日志：
 
 ```java
 
 Conference.Listener listener = new Conference.Listener() {
-        @Override
-        public void onConnected(Conference conference) {
-        //监听会议连接事件
-        }
-
-        @Override
-        public void onConnectFailed(Conference conference, VideoException e) {
-        //监听会议连接失败事件
-        }
-
-        @Override
-        public void onDisconnected(Conference conference, VideoException e) {
-        //监听会议断开连接事件
-        }
-
         @Override
         public void onParticipantConnected(Conference conference, Participant participant) {
         //监听参与者加入事件
@@ -100,7 +85,7 @@ Conference.Listener listener = new Conference.Listener() {
     participant.setListener(new Participant.Listener() {
         @Override
         public void onStreamAdded(RemoteStream remoteStream) {
-            //远端参与者流可用
+            //其他客户端的媒体流可用,播放其他客户端的媒体流
             remoteStream.attach(remoteView);
         }
 
@@ -116,10 +101,10 @@ Conference.Listener listener = new Conference.Listener() {
     });
 ```
 
-## 加入会议相关
+## 加入视频会议相关
 ---
 
-介绍如何离开视频会议。
+视频会议相关操作包括离开视频会议和直播视频会议。
 
 ### 离开视频会议
 

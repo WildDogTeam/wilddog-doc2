@@ -77,7 +77,7 @@ self.conference = [self.wilddogVideoClient connectToConferenceWithID:@"123456" o
 ## 加入视频会议相关
 ---
 
-视频会议相关操作包括视频会议直播和离开视频会议。
+视频会议相关操作包括离开视频会议和直播视频会议。
 
 ### 离开视频会议
 
