@@ -1,7 +1,7 @@
 title: 多人视频会议
 ---
 
-本篇文档介绍开发多人视频会议的主要环节，包括 [创建视频会议](/guide/video/ios/conference.html#创建视频会议)、[管理其他参与者](/guide/video/ios/conference.html#管理其他参与者) 和 [视频会议相关](/guide/video/ios/conference.html#视频会议相关)。
+本篇文档介绍开发多人视频会议的主要环节，包括 [创建视频会议](/guide/video/ios/conference.html#创建视频会议)、[管理其他参与者](/guide/video/ios/conference.html#管理其他参与者) 和 [加入视频会议相关](/guide/video/ios/conference.html#加入视频会议相关)。
 
 ## 创建视频会议
 
@@ -74,7 +74,7 @@ self.conference = [self.wilddogVideoClient connectToConferenceWithID:@"123456" o
 }
 ```
 
-## 视频会议相关
+## 加入视频会议相关
 ---
 
 视频会议相关操作包括视频会议直播和离开视频会议。
