@@ -1,7 +1,7 @@
 title: Conference
 ---
 
-多人会议类。
+多人视频会议类。
 
 ## 属性
 
@@ -15,12 +15,12 @@ public String getId()
 
 **说明**
 
-获取当前会话 ID，此会话 ID 为不重复的字符串。
+获取当前视频会议 ID，此视频会议 ID 为不重复的字符串。
 
 
 **返回值**
 
-当前会话 ID。
+当前视频会议 ID。
 
 ---
 
@@ -34,12 +34,12 @@ public LocalParticipant getLocalParticipant()
 
 **说明**
 
-获取当前会话中的 '[LocalParticipant](/api/video/android/local-participant.html)' 对象，代表本地参与者。
+获取当前视频会议中的 '[LocalParticipant](/api/video/android/local-participant.html)' 对象，代表本地参与者。
 
 
 **返回值**
 
-当前会话中的 'LocalParticipant'。
+当前视频会议中的 'LocalParticipant'。
 
 ---
 
@@ -53,12 +53,12 @@ public Participant getParticipant()
 
 **说明**
 
-获取当前会话中的 '[Participant](/api/video/android/participant.html)' 对象,代表远端参与者。
+获取当前视频会议中的 '[Participant](/api/video/android/participant.html)' 对象,代表远端参与者。
 
 
 **返回值**
 
-当前会话中的 'Participant'。
+当前视频会议中的 'Participant'。
 
 ---
 
@@ -72,12 +72,12 @@ public ConnectStatus getStatus()
 
 **说明**
 
-获取当前的会话状态。
+获取当前的视频会议状态。
 
 
 **返回值**
 
-当前会话状态[ConnectStatus](/api/video/android/connect-status.html)。
+当前视频会议状态[ConnectStatus](/api/video/android/connect-status.html)。
 
 ---
 
@@ -93,19 +93,19 @@ public MeetingCast getMeetingCast(MeetingCastStateListener listener)
 
 **说明**
 
-获取当前会议直播插件，通过直播插件可以控制当前会话的直播相关功能。
+获取当前会议直播插件，通过直播插件可以控制当前视频会议的直播相关功能。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|listener|聊天会话监听[MeetingCastStateListener](/api/video/android/meeting-cast-listener.html),参与者连接成功后会触发 onParticipantConnected 事件|
+|listener|视频会议监听[MeetingCastStateListener](/api/video/android/meeting-cast-listener.html),参与者连接成功后会触发 onParticipantConnected 事件|
 
 
 **示例**
 
 ```java
-	//成功建立会话后,设置监听
+	//成功建立视频会议后,设置监听
     meetingCast = mConference.getMeetingCast(new MeetingCastStateListener() {
         @Override
         public void onMeetingCastStateChanged(String state, String participantId, Map<String, String> urlMap) {
@@ -130,11 +130,11 @@ void disconnect()
 
 **说明**
 
-关闭会话
+关闭视频会议
 
 **示例**
 
 ```java
-	//需要离开会话时调用此方法,释放 Conference 持有的资源
+	//需要离开视频会议时调用此方法,释放 Conference 持有的资源
 	mConference.disconnect();
 ```

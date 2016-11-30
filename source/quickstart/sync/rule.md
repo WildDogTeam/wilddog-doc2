@@ -40,4 +40,4 @@ title: 快速入门
 
 ## 4.更多使用
 
-关于 Wilddog Sync 规则表达式的更多使用，请参考 [完整指南](/guide/sync/rules/introduce.html)。
+关于 Sync 规则表达式的更多使用，请参考 [完整指南](/guide/sync/rules/introduce.html)。

@@ -62,6 +62,7 @@ hr
   width: 179px
 
 .toc-scroll-content
+  min-height: 130px
   max-height: 80%
   overflow-x: hidden
   overflow-y: auto
@@ -335,7 +336,6 @@ $article-footer-link
     display: none
   span
     padding: 0 6px
-    text-transform: lowercase
     font-weight: 500
 
 .article-footer-prev
@@ -429,3 +429,64 @@ p:nth-child(1)
 .page-title
   margin-top: 10px
   display: block
+  
+.feed-back
+  position: fixed
+  bottom: 0
+  left: 0
+  z-index: 1000
+  padding-top: 15px
+  padding-bottom: 15px
+  width: 100%
+  height: 79px
+  background-color: #fff
+  border-top: 1px solid #ffd2c3
+  transition: 0.3s
+  img
+    border: 0
+    box-shadow: none
+  .feed-bg
+    position: absolute
+    left: 0
+    top: 9px
+    width: 100%
+  .feed-content
+    position: relative
+    z-index: 1
+    margin-left: auto
+    margin-right: auto
+    width: 678px
+    .feed-text-content
+      img
+        float: left
+      .feed-text
+        float: left
+        margin-top: 16px
+        margin-left: 18px
+        line-height: 1
+        font-size: 18px
+        color: #333
+    .feed-link
+      float: right
+      margin-top: 8px
+      margin-right: 30px
+      width: 120px
+      height: 36px
+      color: #fff
+      text-decoration: none
+      background-color: #e6501e
+      text-align: center
+      line-height: 36px
+      border-radius: 3px
+      &:hover
+        background-color: #eb734b;
+  .close-feed
+    position: absolute
+    top: 30px
+    right: 100px
+    width: 20px
+    height: 20px
+    cursor: pointer
+
+.scrollHide
+  bottom: -80px

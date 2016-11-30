@@ -49,7 +49,7 @@ Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。�
     $ ls bin
     demo  my_app
 
-## 3. 创建 Wdilddog Sync 引用
+## 3. 创建 Sync 引用
 
 ```c
 Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
@@ -131,5 +131,5 @@ int main(){
 回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 [wilddog_getValue()](/api/sync/c/api.html#wilddog-getValue) 方法。
 
 ## 5.更多使用
-- 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
-- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。
+- 了解 Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
+- 了解 Sync 更多使用方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。

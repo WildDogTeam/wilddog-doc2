@@ -9,7 +9,7 @@ title: 多人视频会议
 
 ### 配置和预览本地媒体流
 
-本地媒体流([LocalStream](/api/video/web/localStream.html))包括音频和视频，发起或加入会议前需要配置其属性，成功加入一个会议后，该媒体流会发给其他参与者。
+本地媒体流( [Local Stream](/guide/video/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -115,7 +115,7 @@ participant.on('streamAdded', function(stream){
 ## 加入视频会议相关
 ---
 
-视频会议相关操作包括视频会议直播和离开视频会议。
+视频会议相关操作包括离开视频会议和直播视频会议。
 
 ### 离开视频会议
 
@@ -148,10 +148,10 @@ conference.on('disconnected', function(){
 ```js
 conference.meetingCast.start('12345')
   .then(function () {
-    console.log('成功开启直播！');
+    console.log('Open MeetingCast succeed!');
   })
   .catch(function (error) {
-    console.log('开启直播失败，原因：'，error.meesage);
+    console.log('Open MeetingCast failed! Error is '，error.meesage);
   })
 ```
 
@@ -160,13 +160,14 @@ conference.meetingCast.start('12345')
 直播进行时无缝切换直播源。
 
 例如，切换直播源为参与者 '99999'：
+
 ```js
 conference.meetingCast.start('99999')
   .then(function () {
-    console.log('切换直播人成功！');
+    console.log('Switch participant succeed!');
   })
   .catch(function (error) {
-    console.log('切换直播人失败，原因：'，error.meesage);
+    console.log('Switch participant failed! Error is '，error.meesage);
   })
 ```
 
@@ -178,9 +179,9 @@ conference.meetingCast.start('99999')
 ```js
 conference.meetingCast.stop()
   .then(function () {
-    console.log('停止直播成功！');
+    console.log('Stop MeetingCast succeed!');
   })
   .catch(function (error) {
-    console.log('停止直播失败，原因：'，error.meesage);
+    console.log('Stop MeetingCast failed! Error is '，error.meesage);
   })
 ```

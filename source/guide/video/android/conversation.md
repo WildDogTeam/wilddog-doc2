@@ -1,7 +1,7 @@
 title: 视频通话
 ---
 
-本篇文档介绍在开发视频通话的主要环节，包括 [创建视频通话](/guide/video/android/conversation.html#创建视频通话)、[管理其他参与者](/guide/video/android/conversation.html#管理其他参与者)、[加入视频通话相关](/guide/video/android/conversation.html#加入视频通话相关) 和 [数据安全性](/guide/video/android/conversation.html#数据安全性)。
+本篇文档介绍开发视频通话的主要环节，包括 [创建视频通话](/guide/video/android/conversation.html#创建视频通话)、[管理其他参与者](/guide/video/android/conversation.html#管理其他参与者)、[加入视频通话相关](/guide/video/android/conversation.html#加入视频通话相关) 和 [数据安全性](/guide/video/android/conversation.html#数据安全性)。
 
 ## 创建视频通话
 
@@ -11,8 +11,7 @@ title: 视频通话
 
 ### 配置和预览本地媒体流
 
-本地媒体流( [LocalStream](/api/video/android/local-stream.html) )包括音频和视频，发起视频通话前需要配置其属性，视频通话创建成功后该媒体流会发给其他参与者。
-
+本地媒体流( [Local Stream](/guide/video/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
 
 例如，创建一个同时有音频和视频的本地媒体流并展示出来：
 
@@ -33,7 +32,7 @@ title: 视频通话
 
 ### 发起视频通话
 
-只有另一个 [WilddogVideoClient](/api/video/android/wilddog-video-client.html) 接受了一方的邀请，通话才能建立成功。
+只有另一个 [Client](/guide/video/core.html#Client) 接受了一方的邀请，通话才能建立成功。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -54,7 +53,7 @@ title: 视频通话
         @Override
         public void onConversation(Conversation conversation, VideoException exception) {
             if (conversation != null) {
-                //对方接受邀请并成功建立会话，conversation不为空，exception为空
+                //对方接受邀请并成功建立视频通话，conversation不为空，exception为空
                 mConversation = conversation;
             
             } else {
@@ -73,29 +72,13 @@ title: 视频通话
 
 通过监听其他参与者加入或离开的事件，来获得其状态通知。
 
-例如，打印加入、离开及加入失败的日志：
+例如，打印加入、离开的日志：
 
 ```java
-
     mConversation.setConversationListener(new Conversation.Listener() {
         @Override
-        public void onConnected(Conversation conversation) {
-        //监听会话连接事件
-        }
-
-        @Override
-        public void onConnectFailed(Conversation conversation, VideoException e) {
-        //监听会话连接失败事件
-        }
-
-        @Override
-        public void onDisconnected(Conversation conversation, VideoException e) {
-        //监听会话断开连接事件
-        }
-
-        @Override
         public void onParticipantConnected(Conversation conversation, Participant participant) {
-        //监听参与者接受邀请并加入会话的事件
+        //监听参与者接受邀请并加入视频通话的事件
             Log.d(TAG, "onParticipantConnected :" + participant.getParticipantId());
         }
 
@@ -111,14 +94,14 @@ title: 视频通话
 
 通过展示其他参与者的视频流来观看其视频画面。
 
-例如，当监听到参与者加入会话时展示参与者的媒体流：
+例如，当监听到参与者加入视频通话时展示参与者的媒体流：
 
 ```java
     //在参与者加入时获得到加入的参与者，并设置监听
     participant.setListener(new Participant.Listener() {
         @Override
         public void onStreamAdded(RemoteStream remoteStream) {
-            //远端参与者流可用,播放远端流
+            //其他客户端的媒体流可用,播放其他客户端的媒体流
             remoteStream.attach(remoteView);
         }
 
@@ -136,11 +119,11 @@ title: 视频通话
 
 ## 加入视频通话相关
 
-加入会话相关包括接受或拒绝邀请、离开视频通话。
+视频通话相关操作包括接受或拒绝邀请、离开视频通话。
 
 ### 接受或拒绝邀请
 
-初始化 Client 之后，监听邀请事件接收另一个 Client 发起的会话邀请，收到邀请后可以选择接受或拒绝邀请。
+初始化 Client 之后，监听邀请事件接收另一个 Client 发起的邀请，收到邀请后可以选择接受或拒绝邀请。
 
 例如，收到邀请后，接受邀请：
 
@@ -148,7 +131,7 @@ title: 视频通话
     this.client.setInviteListener(new WilddogVideoClient.Listener() {
         @Override
         public void onIncomingInvite(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
-            //收到邀请，接受会话发起者的邀请
+            //收到邀请，接受视频通话发起者的邀请
             ConnectOptions connectOptions = new ConnectOptions(localStream, "");
             incomingInvite.accept(connectOptions, new ConversationCallback() {
                 @Override
@@ -160,22 +143,22 @@ title: 视频通话
 
         @Override
         public void onIncomingInviteCanceled(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
-            //会话发起者取消了邀请
+            //视频通话发起者取消了邀请
         }
     });
 ```
 
 ### 离开视频通话
 
-离开一个正在进行的会话并释放媒体资源。可以直接释放媒体资源或通过监听离开会话事件在成功离开会话后释放媒体资源。
+离开一个正在进行的视频通话并释放媒体资源。可以直接释放媒体资源或通过监听离开通话事件在成功离开通话后释放媒体资源。
 
-例如，断开会话并释放不使用的资源：
+例如，断开视频通话并释放不使用的资源：
 
 ```java
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //需要离开会话时调用此方法，并做资源释放和其他自定义操作
+        //需要离开视频通话时调用此方法，并做资源释放和其他自定义操作
         if (mConversation != null) {
             mConversation.disconnect();
         }
@@ -195,11 +178,13 @@ title: 视频通话
 
 <img src="/images/video_guide_rule.png" alt="video_guide_rule">
 
-例如，对 `wilddogVideo` 节点配置规则表达式，保证信令只被交互双方读写：
+例如，配置规则表达式，`wilddogVideo` 节点只允许信令交互双方读写，其他节点允许所有人读写：
 
-	{
-	  "rules": {
-	    "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
-	  }
-	}
-	
+```
+{
+  "rules": {
+    "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
+    "$others":{ ".read": true，".write": true}
+  }
+}
+```

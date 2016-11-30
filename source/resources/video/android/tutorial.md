@@ -211,12 +211,12 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
 ```
 
-### 6. 发起会话
+### 6. 发起视频通话
 
-选择用户列表中的用户，发起会话。
+选择用户列表中的用户，发起视频通话。
 
 ```java
-    //在使用 inviteToConversation 方法前需要先设置会话邀请监听，否则使用邀请功能会抛出IllegalStateException异常
+    //在使用 inviteToConversation 方法前需要先设置视频通话邀请监听，否则使用邀请功能会抛出IllegalStateException异常
     client.setInviteListener(new InviteListener(){ 
         //...
     });
@@ -233,7 +233,7 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
         @Override
         public void onConversation(Conversation conversation, VideoException exception) {
             if (conversation != null) {
-                //对方接受邀请并成功建立会话，conversation不为空，exception为空
+                //对方接受邀请并成功建立视频通话，conversation不为空，exception为空
                 mConversation = conversation;
             
             } else {
@@ -246,13 +246,13 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
 ### 7. 接受或拒绝邀请
 
-发起会话后，被邀请人会收到邀请事件，被邀请人可以选择接受或拒绝该邀请，接受邀请则会话建立。
+发起视频通话后，被邀请人会收到邀请事件，被邀请人可以选择接受或拒绝该邀请，接受邀请则视频通话建立。
 
 ```java
     this.client.setInviteListener(new WilddogVideoClient.Listener() {
         @Override
         public void onIncomingInvite(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
-            //收到邀请，接受会话发起者的邀请
+            //收到邀请，接受视频通话发起者的邀请
             ConnectOptions connectOptions = new ConnectOptions(localStream, "");
             incomingInvite.accept(connectOptions, new ConversationCallback() {
                 @Override
@@ -264,14 +264,14 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
         @Override
         public void onIncomingInviteCanceled(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
-            //会话发起者取消了邀请
+            //视频通话发起者取消了邀请
         }
     });
 ```
 
 ### 8. 展示对方视频
 
-会话建立成功后，在会话中能够获取到对方视频流，在视频展示控件中展示。
+视频通话建立成功后，在视频通话中能够获取到对方视频流，在视频展示控件中展示。
 
 ```java
     //设置视频展示控件
@@ -290,22 +290,22 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
     mConversation.setConversationListener(new Conversation.Listener() {
         @Override
         public void onConnected(Conversation conversation) {
-        //监听会话连接事件
+        //监听视频通话连接事件
         }
 
         @Override
         public void onConnectFailed(Conversation conversation, VideoException e) {
-        //监听会话连接失败事件
+        //监听视频通话连接失败事件
         }
 
         @Override
         public void onDisconnected(Conversation conversation, VideoException e) {
-        //监听会话断开连接事件
+        //监听视频通话断开连接事件
         }
 
         @Override
         public void onParticipantConnected(Conversation conversation, Participant participant) {
-        //监听参与者接受邀请并加入会话的事件
+        //监听参与者接受邀请并加入视频通话的事件
         //在参与者加入时获得到加入的参与者，并设置监听
             participant.setListener(new Participant.Listener() {
                 @Override
@@ -336,15 +336,15 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
 
 
-### 9. 离开会话
+### 9. 离开视频通话
 
-会话过程中，调用下面方法离开会话。
+视频通话过程中，调用下面方法离开视频通话。
 
 ```java
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //需要离开会话时调用此方法，并做资源释放和其他自定义操作
+        //需要离开视频通话时调用此方法，并做资源释放和其他自定义操作
         if (mConversation != null) {
             mConversation.disconnect();
         }

@@ -34,7 +34,7 @@ title: 快速入门
 
 Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 "Android Studio File --> New --> Import Project" 导入快速入门。
 
-## 5. 建立会话
+## 5. 建立视频通话
 
 ### 5.1 运行快速入门
 
@@ -54,15 +54,15 @@ Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 "
 
 <img src='/images/video_quickstart_android_mainUI.jpg' alt="video_quickstart_createApp" width="300" >
 
-### 5.3 邀请他人加入会话
+### 5.3 邀请他人加入视频通话
 
-在其他安卓手机上使用同一个应用 ID 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入会话。
+在其他安卓手机上使用同一个应用 ID 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入视频通话。
 
 <img src='/images/video_quickstart_android_userList.jpg' alt="video_quickstart_android_userList" width="300" >
 
 ### 5.4 接受邀请
 
-被邀请人会受到邀请提示，点击确认加入，会话建立。
+被邀请人会受到邀请提示，点击确认加入，视频通话建立。
 
 <img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation" width="300" >
 

@@ -1,7 +1,7 @@
 title: Conversation.Listener
 ---
 
-会话状态回调,当会话连接状态改变和参与者状态改变时会触发回调方法通知使用者会话的状态。
+视频通话状态回调,当视频通话连接状态改变和参与者状态改变时会触发回调方法通知使用者视频通话的状态。
 
 ## 方法
 
@@ -21,7 +21,7 @@ void onConnected(Conversation conversation)
 
 | 参数名 | 描述 |
 |---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),连接建立成功后创建的会话对象|
+|conversation|[Conversation](/api/video/android/conversation.html),连接建立成功后创建的视频通话对象|
 
 </br>
 
@@ -43,8 +43,8 @@ void onConnectFailed(Conversation conversation, VideoException exception)
 
 | 参数名 | 描述 |
 |---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的会话对象|
-|exception|[VideoException](/api/video/android/video-exception.html),会话建立连接失败信息|
+|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的视频通话对象|
+|exception|[VideoException](/api/video/android/video-exception.html),视频通话建立连接失败信息|
 
 </br>
 
@@ -67,8 +67,8 @@ void onDisconnected(Conversation conversation, VideoException exception)
 
 | 参数名 | 描述 |
 |---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的会话对象|
-|exception|[VideoException](/api/video/android/video-exception.html),会话建立连接失败信息|
+|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的视频通话对象|
+|exception|[VideoException](/api/video/android/video-exception.html),视频通话建立连接失败信息|
 
 </br>
 
@@ -90,8 +90,8 @@ void onParticipantConnected(Conversation conversation, Participant participant)
 
 | 参数名 | 描述 |
 |---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的会话对象|
-|participant|[Participant](/api/video/android/participant.html),会话的远端参与者|
+|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的视频通话对象|
+|participant|[Participant](/api/video/android/participant.html),视频通话的远端参与者|
 
 </br>
 
@@ -113,8 +113,8 @@ void onParticipantDisconnected(Conversation conversation, Participant participan
 
 | 参数名 | 描述 |
 |---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的会话对象|
-|participant|[Participant](/api/video/android/participant.html),会话的远端参与者|
+|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的视频通话对象|
+|participant|[Participant](/api/video/android/participant.html),视频通话的远端参与者|
 
 </br>
 

@@ -1,7 +1,7 @@
 title: IncomingInvite
 ---
 
-当有人邀请其他人加入会话时,被邀请者会接受到邀请信息并返回一个 `IncomingInvite` 对象,通过 `InconmingInvite` 对象可以接受（ `accept` ）或拒绝（ `reject` ）邀请。在接受邀请的ConversationCallback中可以获取会话相关信息。
+当有人邀请其他人加入视频通话时,被邀请者会接受到邀请信息并返回一个 `IncomingInvite` 对象,通过 `InconmingInvite` 对象可以接受（ `accept` ）或拒绝（ `reject` ）邀请。在接受邀请的ConversationCallback中可以获取视频通话相关信息。
 
 ## 方法
 
@@ -15,14 +15,14 @@ void accpet(LocalStream localStream,ConversationCallback callback)
 
 **说明**
 
-参与者收到加入会话邀请,接受会话邀请。
+参与者收到加入视频通话邀请并接受视频通话邀请。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
 |localStream|[LocalStream](/api/video/android/local-stream.html),被邀请者通过 `Video.createLocalStream` 获取的本地视频流|
-|callback|[ConversationCallback](/api/video/android/conversation-callback.html),会话回调函数,接受时可在 `callBack.onConversation()` 方法中获取到 `conversation` 对象|
+|callback|[ConversationCallback](/api/video/android/conversation-callback.html),视频通话回调函数,接受时可在 `callBack.onConversation()` 方法中获取到 `conversation` 对象|
 
 
 **示例**
@@ -33,7 +33,7 @@ void accpet(LocalStream localStream,ConversationCallback callback)
 	incomingInvite.accept(localStream, new ConversationCallback() {
         @Override
         public void onConversation(Conversation conversation, VideoException exception) {
-            //对方接受邀请并成功建立会话,conversation不为空,exception为空
+            //对方接受邀请并成功建立视频通话,conversation不为空,exception为空
             if (conversation != null) {
                 mConversation = conversation;
                 //获取到conversation后,设置ConversationListener
@@ -42,7 +42,7 @@ void accpet(LocalStream localStream,ConversationCallback callback)
                 });
 
             } else {
-                //处理会话建立失败逻辑
+                //处理视频通话建立失败逻辑
             }
         }
     });
@@ -63,7 +63,7 @@ void reject()
 
 **说明**
 
-收到加入会话邀请的参与者,拒绝会话邀请。
+收到加入视频通话邀请的参与者,拒绝视频通话邀请。
 
 **示例**
 

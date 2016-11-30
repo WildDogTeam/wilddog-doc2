@@ -1,7 +1,7 @@
 title: WilddogVideoClient
 ---
 
-每个 WilddogVideo SDK 客户端全局只存在唯一单例 `WilddogVideoClient` 对象。根据不同的场景，用户可以使用`inviteToConversation()` 方法邀请其他用户进行一对一会话，或者使用 `connectToConference()` 方法进行多对多会议。
+每个 WilddogVideo SDK 客户端全局只存在唯一单例 `WilddogVideoClient` 对象。根据不同的场景，用户可以使用`inviteToConversation()` 方法邀请其他用户进行一对一视频通话，或者使用 `connectToConference()` 方法进行多对多视频会议。
 
 ## 方法
 
@@ -16,13 +16,13 @@ void setInviteListener(WilddogVideoClient.Listener listener)
 
 **说明**
 
-设置邀请会话监听。在使用 `inviteToConversation` 方法前需要先设置会话邀请监听,否则使用邀请功能会抛出 `IllegalStateException` 异常。
+设置视频通话邀请监听。在使用 `inviteToConversation` 方法前需要先设置邀请监听,否则使用邀请功能会抛出 `IllegalStateException` 异常。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|listener|[WilddogVideoClient.Listener](/api/video/android/wilddog-video-client.html),会话邀请监听,监听当前会话邀请状态|
+|listener|[WilddogVideoClient.Listener](/api/video/android/wilddog-video-client.html),视频通话邀请监听,监听当前邀请状态|
 
 **示例**
 
@@ -57,15 +57,15 @@ OutgiongInvite inviteToConversation(String participantId, ConnectOptions options
 
 **说明**
 
-邀请其他人加入会话,对方接受邀请将创建一个新会话并在 `ConversationCallback` 回调中返回创建的会议。
+邀请其他人加入视频通话,对方接受邀请将创建一个新视频通话并在 `ConversationCallback` 回调中返回创建的视频通话。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
 |participantId|被邀请者的 Wilddog ID ,唯一标识被邀请者的身份|
-|options|[ConnectOptions](/api/video/android/connect-options.html) 对象,提供邀请加入会话相关参数|
-|callback|[ConversationCallback](/api/video/android/conversation-callback.html) 会话回调，会话建立成功后在 `onConversation` 方法中返回会话对象|
+|options|[ConnectOptions](/api/video/android/connect-options.html) 对象,提供邀请加入视频通话相关参数|
+|callback|[ConversationCallback](/api/video/android/conversation-callback.html) 视频通话回调，视频通话建立成功后在 `onConversation` 方法中返回视频通话对象|
 
 **返回值**
 
@@ -80,7 +80,7 @@ OutgiongInvite inviteToConversation(String participantId, ConnectOptions options
         @Override
         public void onConversation(Conversation conversation, ConversationException exception) {
 			if (conversation != null) {
-				//对方接受邀请并成功建立会话,conversation不为空,exception为空
+				//对方接受邀请并成功建立视频通话，conversation不为空，exception为空
 				//...
 			} else {
 				//对方拒绝时,exception不为空
@@ -113,7 +113,7 @@ public Conference connectToConference(String conferenceId, ConnectOptions option
 |---|---|
 |conferenceId|要加入的 Conference ID ,唯一标识加入的会议|
 |options|[ConnectOptions](/api/video/android/connect-options.html) 对象,提供邀请加入会议相关参数|
-|listener|[Conference.Listener](/api/video/android/conference-listener.html) 会话回调，返回会议相关状态，在回调方法中处理会议连接/连接失败/断连/用户加入/用户离开等事件|
+|listener|[Conference.Listener](/api/video/android/conference-listener.html) 视频会议回调，返回会议相关状态，在回调方法中处理会议连接/连接失败/断连/用户加入/用户离开等事件|
 
 **返回值**
 

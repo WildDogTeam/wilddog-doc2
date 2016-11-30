@@ -9,8 +9,7 @@ title: 多人视频会议
 
 ### 配置和预览本地媒体流
 
-本地媒体流([LocalStream](/api/video/android/local-Stream.html))包括音频和视频，发起或加入会议前需要配置其属性，成功加入一个会议后，该媒体流会发给其他参与者。
-
+本地媒体流( [Local Stream](/guide/video/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
 
 例如，创建一个只有视频且分辨率为 320X240 的流，并展示到 `WilddogVideoView` 上：
 
@@ -56,26 +55,11 @@ title: 多人视频会议
 
 通过监听其他参与者加入或离开的事件，来获得其状态通知。
 
-例如，打印加入、离开及加入失败的日志：
+例如，打印加入、离开的日志：
 
 ```java
 
 Conference.Listener listener = new Conference.Listener() {
-        @Override
-        public void onConnected(Conference conference) {
-        //监听会议连接事件
-        }
-
-        @Override
-        public void onConnectFailed(Conference conference, VideoException e) {
-        //监听会议连接失败事件
-        }
-
-        @Override
-        public void onDisconnected(Conference conference, VideoException e) {
-        //监听会议断开连接事件
-        }
-
         @Override
         public void onParticipantConnected(Conference conference, Participant participant) {
         //监听参与者加入事件
@@ -101,7 +85,7 @@ Conference.Listener listener = new Conference.Listener() {
     participant.setListener(new Participant.Listener() {
         @Override
         public void onStreamAdded(RemoteStream remoteStream) {
-            //远端参与者流可用
+            //其他客户端的媒体流可用,播放其他客户端的媒体流
             remoteStream.attach(remoteView);
         }
 
@@ -117,10 +101,10 @@ Conference.Listener listener = new Conference.Listener() {
     });
 ```
 
-## 加入会议相关
+## 加入视频会议相关
 ---
 
-介绍如何离开视频会议。
+视频会议相关操作包括离开视频会议和直播视频会议。
 
 ### 离开视频会议
 
@@ -132,7 +116,7 @@ Conference.Listener listener = new Conference.Listener() {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //需要离开会话时调用此方法，并做资源释放和其他自定义操作
+        //需要离开会议时调用此方法，并做资源释放和其他自定义操作
         if (mConference != null) {
             mConference.disconnect();
         }

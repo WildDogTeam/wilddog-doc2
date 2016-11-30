@@ -1,7 +1,8 @@
+
 title: 快速入门
 ---
 
-你可以通过快速入门教程快速了解 Wilddog IM 的用法。
+你可以通过快速入门教程快速了解 IM 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -23,7 +24,7 @@ SDK 的安装方式有两种，你可以任选其一：
 
 - **使用 CocoaPods** 
 
-要将 WilddogIM SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问  [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
+要将 Wilddog IM SDK 导入到你的工程中，推荐使用 [CocoaPods](https://cocoapods.org/)，如果没用过 CocoaPods，请先访问  [CocoaPods getting started](https://guides.cocoapods.org/using/getting-started.html)。 
 
 打开工程目录，新建一个 Podfile 文件:
 
@@ -70,16 +71,23 @@ SDK 的安装方式有两种，你可以任选其一：
 
 ## 4. 集成用户
 
-Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。
+IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。
 具体流程如下：
 1. 客户端向开发者服务器请求 customToken。
 2. 开发者服务器使用野狗 Server SDK 生成 customToken 返回给客户端。
 3. 客户端使用 customToken 登录 Wilddog IM 服务。
 
+```objc
+// 用 Wilddog Auth Token 登录
+[[WDGIMClient defaultClient] signInWithCustomToken:wilddogToken completion:^(WDGIMUser * _Nullable currentUser, NSError * _Nullable error) {
+        
+}];
+```
+
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-  你可以在 `IM 控制面板`-`接口测试` 中手动生成 Token 用于测试。
-</blockquote>
+   你可以在 控制面板 - 即时通讯 - 接口测试 中手动生成 Token 用于测试。
+</blockquote> 
 
 ## 5. 发起聊天
 发起聊天需要三个步骤：

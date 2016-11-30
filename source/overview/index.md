@@ -7,7 +7,7 @@ title:  简介
 
 
 ## 野狗的产品
-目前野狗的产品有 [实时数据同步（ Sync）](/overview/sync.html) ， [实时视频通话(Video）](/overview/video.html) 和 [身份认证（Auth）](/overview/auth.html)。
+目前野狗的产品有 [实时数据同步（ Sync）](/overview/sync.html) ， [实时视频通话( Video ）](/overview/video.html) ，[即时通信( IM )](/overview/im.html) 和 [身份认证（Auth）](/overview/auth.html)。
 
 
 实时数据同步（Sync）是野狗的核心实时通信引擎。它帮助企业和开发者快速实现三大功能：基础实时通信、实时数据分发和实时数据持久化。
@@ -18,17 +18,16 @@ title:  简介
 
 ![](/images/videointro.jpg)
 
+即时通讯(IM) 是基于野狗实时通信架构的即时通讯服务，能够为你的应用轻松接入安全可靠的实时通信功能。
+
+![](/images/wilddogim.jpg)
+
 身份认证 (Auth) 用于帮助企业和开发者将野狗快速接入应用的身份认证系统，一次身份认证打通野狗所有产品。还可以用于增强已有帐户体系和简化新应用中账号系统的开发。
 
 ![](/images/wilddogauth.jpg)
 
-即时通讯(Wilddog IM) 是基于野狗实时通信架构的即时通讯服务，能够为你的应用轻松接入安全可靠的实时通信功能。
-
-![](http://ocpo37x5v.bkt.clouddn.com/2016-11-30-im%E6%96%87%E6%A1%A3%E4%BB%8B%E7%BB%8D%E9%A1%B5.jpg)
 
 
-
-我们即将推出实时推送、IM 的 SDK 和场景化 API。
-
+我们即将推出实时推送的 SDK 和场景化 API。
 
 

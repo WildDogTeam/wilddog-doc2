@@ -9,7 +9,7 @@ title: 多人视频会议
 
 ### 配置和预览本地媒体流
 
-本地媒体流 ([LocalStream](/api/video/ios/Classes/WDGVideoLocalStream.html)) 包括音频和视频，发起或加入会议前需要配置其属性，成功加入一个会议后，该媒体流会发给其他参与者。
+本地媒体流( [Local Stream](/guide/video/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
 
 例如，创建一个只有视频且分辨率为 640X480 的流，并展示出来：
 
@@ -67,7 +67,7 @@ self.conference = [self.wilddogVideoClient connectToConferenceWithID:@"123456" o
 ```objectivec
 - (void)participant:(WDGVideoParticipant *)participant didAddStream:(WDGVideoRemoteStream *)stream
 {
-    // 参与者成功加入会话，将参与者的视频流展示出来
+    // 参与者成功加入会议，将参与者的视频流展示出来
     NSLog(@"receive stream %@ from participant %@", stream, participant);
     self.remoteStream = stream;
     [self.remoteStream attach:self.remoteVideoView];
@@ -77,7 +77,7 @@ self.conference = [self.wilddogVideoClient connectToConferenceWithID:@"123456" o
 ## 加入视频会议相关
 ---
 
-视频会议相关操作包括视频会议直播和离开视频会议。
+视频会议相关操作包括离开视频会议和直播视频会议。
 
 ### 离开视频会议
 
