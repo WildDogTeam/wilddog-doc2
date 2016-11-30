@@ -2,7 +2,7 @@
 title: MeetingCastStateListener
 ---
 
-会话直播状态监听。
+视频会议直播状态监听。
 
 ## 方法
 

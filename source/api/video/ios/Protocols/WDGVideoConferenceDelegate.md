@@ -83,7 +83,7 @@ error|错误信息，描述连接断开的原因。本地主动断开连接时�
 
 **说明**
 
-[WDGVideoConference](../Classes/WDGVideoConference.html) 通过调用该方法通知代理当前视频会话有新的参与者加入。
+[WDGVideoConference](../Classes/WDGVideoConference.html) 通过调用该方法通知代理当前视频会议有新的参与者加入。
 
 **参数**
 
@@ -106,7 +106,7 @@ participant|代表新的参与者的 [WDGVideoParticipant](../Classes/WDGVideoPa
 
 **说明**
 
-[WDGVideoConference](../Classes/WDGVideoConference.html) 通过调用该方法通知代理当前视频会话某个参与者断开了连接。
+[WDGVideoConference](../Classes/WDGVideoConference.html) 通过调用该方法通知代理当前视频会议某个参与者断开了连接。
 
 **参数**
 

@@ -7,7 +7,7 @@ title: 实战教程
 
 ## 示例说明
 
-本教程以一对一视频通话为例，讲解如何通过 Wilddog Video SDK 实现实时视频通话功能。
+本教程以一对一视频通话为例，讲解如何通过 Video SDK 实现实时视频通话功能。
 
 在此之前需要开启控制面板中的“实时视频通话”功能。
 
@@ -107,9 +107,9 @@ WDGSyncReference *userWilddog = [[self.syncReference child:@"users"] child:self.
 }
 ```
 
-### 6. 发起会话
+### 6. 发起视频通话
 
-选择用户列表中的用户，发起会话。
+选择用户列表中的用户，发起视频通话。
 
 ```objectivec
 WDGVideoConnectOptions *connectOptions = [[WDGVideoConnectOptions alloc] initWithLocalStream:self.localStream];
@@ -135,7 +135,7 @@ WDGVideoOutgoingInvite *outgoingInvitation = [self.wilddogVideoClient inviteToCo
 
 ### 7. 接受或拒绝邀请
 
-发起会话后，被邀请人会收到邀请事件，被邀请人可以选择接受或拒绝该邀请，接受邀请则会话建立。
+发起视频通话后，被邀请人会收到邀请事件，被邀请人可以选择接受或拒绝该邀请，接受邀请则视频通话建立。
 
 ```objectivec
 // 展示弹窗让用户选择是否接受邀请
@@ -169,7 +169,7 @@ UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"接受" style:UIA
 
 ### 8. 展示对方视频
 
-会话建立成功后，在会话中能够获取到对方视频流，在视频展示控件中展示。
+视频通话建立成功后，在视频通话中能够获取到对方视频流，在视频展示控件中展示。
 
 ```objectivec
 - (void)conversation:(WDGVideoConversation *)conversation didConnectParticipant:(WDGVideoParticipant *)participant
@@ -187,12 +187,12 @@ UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"接受" style:UIA
 }
 ```
 
-### 9. 离开会话
+### 9. 离开视频通话
 
-会话过程中，调用下面方法离开会话。
+视频通话过程中，调用下面方法离开视频通话。
 
 ```objectivec
-// 断开会话
+// 断开视频通话
 [self.videoConversation disconnect];
 
 // 清理资源

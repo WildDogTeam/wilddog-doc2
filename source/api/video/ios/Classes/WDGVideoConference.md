@@ -63,7 +63,7 @@ title: WDGVideoConference
 
 **说明**
 
-表示除自己外，已加入视频会话参与者。
+表示除自己外，已加入视频会议参与者。
 
 </br>
 
@@ -79,7 +79,7 @@ title: WDGVideoConference
 
 **说明**
 
-[WDGVideoMeetingCast](../Classes/WDGVideoMeetingCast.html) 类型，用于查看并控制当前视频会话的直播状态。当野狗控制台中未开启直播推流功能时该属性为 nil 。
+[WDGVideoMeetingCast](../Classes/WDGVideoMeetingCast.html) 类型，用于查看并控制当前视频会议的直播状态。当野狗控制台中未开启直播推流功能时该属性为 nil 。
 
 </br>
 
@@ -113,7 +113,7 @@ title: WDGVideoConference
 
 **说明**
 
-命令当前会话断开连接。
+命令同当前会议断开连接。
 
 </br>
 
@@ -129,13 +129,13 @@ title: WDGVideoConference
 
 **说明**
 
-依据会话参与者的 Wilddog ID 获取对应的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 模型。
+依据会议参与者的 Wilddog ID 获取对应的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 模型。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participantID|会话参与者的 Wilddog ID 。
+participantID|会议参与者的 Wilddog ID 。
 
 **返回值**
 
@@ -151,8 +151,8 @@ participantID|会话参与者的 Wilddog ID 。
 
 **说明**
 
-表示会话或会议的连接状态。
+表示视频通话或会议的连接状态。
 
-- WDGVideoConnectionStatusConnecting: 表示会话或会议正在连接中。
-- WDGVideoConnectionStatusConnected: 表示会话或会议已连接。
-- WDGVideoConnectionStatusDisconnected: 表示会话或会议已断开连接。
+- WDGVideoConnectionStatusConnecting: 表示视频通话或会议正在连接中。
+- WDGVideoConnectionStatusConnected: 表示视频通话或会议已连接。
+- WDGVideoConnectionStatusDisconnected: 表示视频通话或会议已断开连接。

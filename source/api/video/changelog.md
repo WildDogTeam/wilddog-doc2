@@ -4,6 +4,19 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.0 - 2016.11.30
+
+<span class="changelog add">新增</span>
+
+- conversation 呼叫模型可以在发出邀请时携带自定义额外信息给对方。
+- 新增 conference 多人视频会议呼叫模型，使用服务器中转方式通信。
+- 新增自定义视频会议 ID 功能。
+
+<span class="changelog optimize">优化</span>
+
+- 使用两种呼叫模型：conversation 和 conference 代替 P2P 和 Server-based 模式。
+- 修改 conversation 为一对一视频通话呼叫模型，使用点对点方式通信。并使用固定交互路径 `/wilddogVideo` ，降低使用难度。
+
 ### v0.4.5 - 2016.11.02
 
 <span class="changelog add">新增</span>
@@ -38,7 +51,7 @@ title: 更新日志
 <span class="changelog optimize">优化</span>
 
 - 压缩 SDK 大小，从 300+K 压缩为 100+K。
-- 被邀请方接受邀请后，邀请方的 OutgoingInvite 会触发 promise，得到 Conversation 对象。 
+- 被邀请方接受邀请后，邀请方的 OutgoingInvite 会触发 promise，得到 Conversation 对象。
 
 ### V0.4.0 - 2016.10.08
 
@@ -63,6 +76,32 @@ title: 更新日志
 
 ---
 ## Android SDK
+
+### v0.5.0 - 2016.11.30
+
+<span class="changelog add">新增</span>
+
+- conversation 呼叫模型可以在发出邀请时携带自定义额外信息给对方。
+- 新增 conference 多人视频会议呼叫模型，使用服务器中转方式通信。
+- 新增自定义视频会议 ID 功能。
+- 新增 WilddogVideoViewLayout 容器控件，可包裹 WilddogVideoView 实现多窗口播放视频流。
+- 新增 LocaoParticipant 类，作为本地视频流容器。
+
+<span class="changelog optimize">优化</span>
+
+- 使用两种呼叫模型：conversation 和 conference 代替 P2P 和 Server-based 模式。
+- 修改 conversation 为一对一视频通话呼叫模型，使用点对点方式通信。并使用固定交互路径 `/wilddogVideo` ，降低使用难度。
+- 开放 WilddogVideo dispose()接口，释放连接资源。
+- 原有 ConversationClient 变更为 WilddogVideoClient。
+- 取消 WilddogVideoClient 初始化步骤，只需初始化 WilddogVideo即可使用。
+- 简化 CompleteListener 回调方法。
+- 优化媒体流返回时机，在 Participant 的回调中返回其他客户端的媒体流。
+- 为MeetingCast 直播操作增加操作错误原因回调。
+- 简化 MeetingCastStateListener 回调方法。
+
+<span class="changelog fix">修复</span>
+
+- 修复安卓相机释放问题。
 
 ### V0.4.1 - 2016.10.27
 
@@ -122,6 +161,21 @@ title: 更新日志
 
 ---
 ## iOS SDK
+
+### v0.5.0 - 2016.11.30
+
+<span class="changelog add">新增</span>
+
+- conversation 呼叫模型可以在发出邀请时携带自定义额外信息给对方。
+- 新增 conference 多人视频会议呼叫模型，使用服务器中转方式通信。可以自定义视频会议 ID。
+- 新增 WDGVideoLocalParticipant 对象代表本地会议参与者。
+- WDGVideoParticipant 在未拿到音视频流时候就能返回，额外增加 WDGVideoParticipant 用于处理获取音视频流的事件。
+- 可通过 WDGVideoClientOptions 指定回调及代理执行的队列。
+
+<span class="changelog optimize">优化</span>
+
+- 使用两种呼叫模型：conversation 和 conference 代替 P2P 和 Server-based 模式。
+- 修改 conversation 为一对一视频通话呼叫模型，使用点对点方式通信。并使用固定交互路径 `/wilddogVideo` ，降低使用难度。
 
 ### V0.4.2 - 2016.11.04
 
@@ -193,6 +247,3 @@ title: 更新日志
 - WDGVideoView 适用 contentMode 选项，支持 AspectFit 、 AspectFill 和 Fill 三种显示模式。
 - WDGVideoConversation 中的邀请API返回值改为 BOOL。
 - 修复 WDGVideoConversation 中 participants 只增不减的问题。
-
-
-
