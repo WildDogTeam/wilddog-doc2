@@ -34,12 +34,10 @@ __weak __typeof__(self) weakSelf = self;
     if (strongSelf == nil) {
         return;
     }
-
     if (error) {
         NSLog(@"请在控制台为您的AppID开启匿名登录功能，错误信息: %@", error);
         return;
     }
-
     strongSelf.wilddogVideoClient = [[WDGVideoClient alloc] initWithApp:[WDGApp defaultApp]];
     strongSelf.wilddogVideoClient.delegate = self;
 }];

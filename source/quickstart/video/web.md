@@ -42,7 +42,7 @@ title: 快速入门
 node https_channel_server.js
 ```
 
-## 5. 建立会话
+## 5. 建立视频通话
 
 ### 5.1 运行快速入门
 
@@ -56,18 +56,18 @@ node https_channel_server.js
 
 <img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp">
 
-### 5.3 邀请他人加入会话
+### 5.3 邀请他人加入视频通话
 
 在其它 PC 端（或在同一 PC 中打开当前浏览器的隐身窗口，注意：同一 PC 端的不同浏览器不能共用摄像头和麦克资源）再次访问[https://127.0.0.1:8080](https://127.0.0.1:8080)，输入同一应用 ID 并登录，然后邀请列表中的用户。
 <img src='/images/video_quickstart_web_userList.png' alt="video_quickstart_createApp">
 
 ### 5.4 接受邀请
 
-被邀请人会受到邀请提示，点击确认加入，会话建立。
+被邀请人会受到邀请提示，点击确认加入，视频通话建立。
 
 <img src='/images/video_quickstart_web_invite.png' alt="video_quickstart_createApp">
 
-接受邀请后，等待会话建立成功。
+接受邀请后，等待视频通话建立成功。
 
 <img src='/images/video_quickstart_wen_conversation.png' alt="video_quickstart_createApp">
 

@@ -3,7 +3,6 @@ title : 安装和初始化 SDK
 
 本篇文档介绍如何安装和初始化 SDK。
 
-
 ### 安装 SDK
 Wilddog Video SDK 的实现依赖于 Wilddog Sync SDK 和 Wilddog Auth SDK，所以在使用 Widdog Video SDK 前需要引入 Sync 和 Auth SDK。
 
@@ -44,6 +43,3 @@ wilddog.auth().signInAnonymously()
         console.log(error);
     });
 ```
-
-
-

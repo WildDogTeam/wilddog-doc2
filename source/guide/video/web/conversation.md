@@ -1,7 +1,7 @@
 title: 视频通话
 ---
 
-本篇文档介绍在开发视频通话的主要环节，包括 [创建视频通话](/guide/video/web/conversation.html#创建视频通话)、[管理其他参与者](/guide/video/web/conversation.html#管理其他参与者)、[加入视频通话相关](/guide/video/web/conversation.html#加入视频通话相关) 和 [数据安全性](/guide/video/web/conversation.html#数据安全性)。
+本篇文档介绍开发视频通话的主要环节，包括 [创建视频通话](/guide/video/web/conversation.html#创建视频通话)、[管理其他参与者](/guide/video/web/conversation.html#管理其他参与者)、[加入视频通话相关](/guide/video/web/conversation.html#加入视频通话相关) 和 [数据安全性](/guide/video/web/conversation.html#数据安全性)。
 
 ## 创建视频通话
 
@@ -9,7 +9,7 @@ title: 视频通话
 
 ### 配置和预览本地媒体流
 
-本地媒体流( [LocalStream](/api/video/web/localStream.html) )包括音频和视频，发起视频通话前需要配置其属性，视频通话创建成功后该媒体流会发给其他参与者。
+本地媒体流( [Local Stream](/guide/video/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -31,7 +31,7 @@ wilddog.video().createStream({audio:true,video:true})
 
 ### 发起视频通话
 
-只有另一个 [Client](/api/video/web/wilddogVideoClient.html) 接受了一方的邀请，通话才能建立成功。
+只有另一个 [Client](/guide/video/core.html#Client) 接受了一方的邀请，通话才能建立成功。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -49,7 +49,7 @@ var remoteVideoElement = document.getElementById('remote');
 // 并传入本地媒体流（localStream ，之前创建的本地流）;
 client.inviteToConversation('wilddogId',{
         'stream':localStream,
-        'userDate':'somethings'
+        'userData':'somethings'
     })
     // 对方接受邀请后，成功拿到 Conversation 对象
     .then(function(conversation){
@@ -74,10 +74,9 @@ client.inviteToConversation('wilddogId',{
 
 通过监听其他参与者加入或离开的事件，来获得其状态通知。
 
-例如，打印加入、离开及加入失败的日志：
+例如，打印加入、离开的日志：
 
 ```javascript
-
 //监听参与者加入事件
 conversation.on('participant_connected', function(participant){
     console.log('New participant connected: ', participant.Id);
@@ -92,7 +91,7 @@ conversation.on('participant_disconnected', function(participant){
 
 通过展示其他参与者的视频流来观看其视频画面。
 
-例如，当监听到参与者加入会话时展示参与者的媒体流：
+例如，当监听到参与者加入视频通话时展示参与者的媒体流：
 
 ```javascript
 var remoteEl = document.getElementById('remote');
@@ -119,7 +118,7 @@ client.on('invite', function(incomingInvite){
     //收到邀请，接受邀请
     incomingInvite.accept(localStream)
         .then(function(conversation){
-            //接受邀请成功，加入会话
+            //接受邀请成功，加入视频通话
         });
 });
 ```

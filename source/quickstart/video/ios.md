@@ -48,7 +48,7 @@ title: 快速入门
 
 在 Xcode 中编译运行快速入门，把快速入门安装到 iPhone 中。
 
-## 5. 建立会话
+## 5. 建立视频通话
 
 ### 5.1 运行快速入门
 
@@ -68,15 +68,15 @@ title: 快速入门
 
 <img src='/images/video_quickstart_ios_mainUI.png' alt="video_quickstart_ios_mainUI" width="300">
 
-### 5.3 邀请他人加入会话
+### 5.3 邀请他人加入视频通话
 
-在其他 iPhone 上使用同一应用 ID 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入会话。
+在其他 iPhone 上使用同一应用 ID 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入视频通话。
 
 <img src='/images/video_quickstart_ios_userList.png' alt="video_quickstart_ios_userList" width="300">
 
 ### 5.4 接受邀请
 
-被邀请人收到邀请提示后，点击确认加入，会话建立。
+被邀请人收到邀请提示后，点击确认加入，视频通话建立。
 
 <img src='/images/video_quickstart_ios_conversation.jpg' alt="video_quickstart_ios_conversation" width="300">
 

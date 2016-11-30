@@ -9,7 +9,7 @@ title: 多人视频会议
 
 ### 配置和预览本地媒体流
 
-本地媒体流([LocalStream](/api/video/web/localStream.html))包括音频和视频，发起或加入会议前需要配置其属性，成功加入一个会议后，该媒体流会发给其他参与者。
+本地媒体流( [Local Stream](/guide/video/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -160,6 +160,7 @@ conference.meetingCast.start('12345')
 直播进行时无缝切换直播源。
 
 例如，切换直播源为参与者 '99999'：
+
 ```js
 conference.meetingCast.start('99999')
   .then(function () {

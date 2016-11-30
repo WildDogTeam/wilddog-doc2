@@ -49,16 +49,13 @@ android {
 例如，以匿名方式登录后初始化 `WilddogVideoClient` ：
 
 ```java
-
 @Override
-
 public void onCreate() { 
 
     super.onCreate(); 
 
     //初始化WilddogApp实例,初始化WilddogApp后，即可在项目任意位置获取数据库地址引用
     //mAppId即野狗应用ID
-
     WilddogOptions.Builder builder = new WilddogOptions.Builder().setSyncUrl("http://"+ mAppId +".wilddogio.com");
 
     WilddogOptions options = builder.build();
@@ -66,21 +63,15 @@ public void onCreate() {
     WilddogApp.initializeApp(getApplicationContext(), options);
 
     //获取数据库地址引用
-
     SyncReference mRef = WilddogSync.getInstance().getReference();
 
     //获取Auth对象
-
     WilddogAuth auth = WilddogAuth.getInstance();
 
     //匿名登录系统
-
     auth.signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-
         @Override
-
         public void onComplete(Task<AuthResult> task) {
-
             if (task.isSuccessful()) {
                 //...
                 //完成身份认证 
