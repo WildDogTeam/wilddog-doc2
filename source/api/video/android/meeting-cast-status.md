@@ -9,8 +9,8 @@ title: MeetingCastStatus
 
 **定义**
 
-```Android
-
+```java
+enum MeetingCastStatus {CASTING, WAIT }
 ```
 
 **说明**
