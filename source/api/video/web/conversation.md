@@ -2,43 +2,43 @@
 title: wilddog.video.Conversation
 ---
 
-正在进行的会话。
+正在进行的视频通话。
 
 ## 属性
 
-### localStream
+### localParticipant
 
 **类型**
 
 ```js
-wilddog.video.LocalStream
+wilddog.video.LocalParticipant
 ```
 
 **说明**
 
-Conversation 中的本地媒体流。
+Conversation 中的本地参与者。
 
 </br>
 
 ---
 
-### participants
+### participant
 
 **类型**
 
 ```js
-Map.<Participant.participantId, Participant>
+Map.<Participant.Id, Participant>
 ```
 
 **说明**
 
-当前 Conversation 中除自身外的所有参与者。
+当前 Conversation 中远端的参与者。
 
 </br>
 
 ---
 
-### conversationId
+### Id
 
 **类型**
 
@@ -48,13 +48,13 @@ String
 
 **说明**
 
-当前 Conversation 的 ID。
+当前 Conversation 的唯一标识 ID。
 
 </br>
 
 ---
 
-### mode
+### status
 
 **类型**
 
@@ -64,46 +64,21 @@ String
 
 **说明**
 
-当前 Conversation 的模式。
+当前 Conversation 的状态。
+
+**状态类型**
+
+| 状态 | 说明 |
+|---|---|
+| connecting | String 类型，连接野狗实时视频服务器中。|
+| connected | String 类型，连接野狗实时视频服务器成功。|
+| disconnected | String 类型，与野狗实时视频服务器断开连接。|
 
 </br>
 
 ---
 
 ## 方法
-
-### invite
-
-**定义**
-
-```js
-invite(participantId)
-```
-
-**说明**
-
-邀请其他用户加入当前的 Conversation。
-
-**参数**
-
-| 参数名 | 说明 |
-|---|---|
-| participantId | `Array.<String>` 或 `String` 类型。被邀请者的 Wilddog ID。 |
-
-**返回值**
-
-`Promise`
-
-**示例**
-
-```js
-//邀请wilddog ID为'123456789' 和 '987654321'的用户加入 Conversation
-conversation.invite(['123456789', '987654321']);
-```
-
-</br>
-
----
 
 ### disconnect
 
@@ -134,14 +109,49 @@ conversation.disconnect();
 
 | 事件类型 | 说明                            |
 | -------- | ------------------------------- |
-| disconnected | Client 与 Conversation 断开触发。 |
+| connected | Client 与 Conversation 连接成功触发。 |
+| connect_failed | Client 与 Conversation 连接失败触发。|
+| disconnected | Client 与 Conversation 断开连接触发。 |
 | participant_connected | 有新的参与者加入触发。 |
 | participant_disconnected | 有参与者离开触发。 |
-| participant_failed | 有参与者加入失败触发。|
 
 </br>
 
 ---
+
+#### connected
+
+**参数**
+
+| 参数名 | 说明 |
+|---|---|
+| conversationId | String 类型。Conversation 的唯一标识 ID。|
+
+**示例**
+
+```js
+//监听参与者加入失败事件
+conversation.on('connected', function(conversationId){
+    console.log('Conversation connect success, conversationId is :', conversationId);
+});
+```
+
+#### connect_failed
+
+**参数**
+
+| 参数名 | 说明 |
+|---|---|
+| conversationId | String 类型。Conversation 的唯一标识 ID。|
+
+**示例**
+
+```js
+//监听参与者加入失败事件
+conversation.on('connect_failed', function(conversationId){
+    console.log('Conversation connect failed, conversationId is :', conversationId);
+});
+```
 
 #### disconnected
 
@@ -177,7 +187,7 @@ conversation.on('disconnected', function(conversationId){
 ```js
 //监听参与者加入事件
 conversation.on('participant_connected', function(participant){
-    console.log('Conversation ' + participant.participantId + ' connected.');
+    console.log('Participant ' + participant.Id + ' connected.');
 });
 ```
 
@@ -198,29 +208,10 @@ conversation.on('participant_connected', function(participant){
 ```js
 //监听参与者的断开事件
 conversation.on('participant_disconnected', function(conversationId){
-    console.log('Conversation ' + participant.participantId + ' connected.');
+    console.log('Participant ' + participant.Id + ' connected.');
 });
 ```
 
 </br>
 
 ---
-
-#### participant_failed
-
-**参数**
-
-| 参数名 | 说明 |
-|---|---|
-| participant | [wilddog.video.Participant](/api/video/web/participant.html) 类型。尝试加入房间的 Participant 对象。|
-
-**示例**
-
-```js
-//监听参与者加入失败事件
-conversation.on('participant_failed', function(conversationId){
-    console.log('Conversation ' + participant.participantId + ' connected.');
-});
-```
-
-

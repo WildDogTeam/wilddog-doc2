@@ -1,5 +1,5 @@
 title: RemoteStream
 ---
 
-`Stream` 子类,代表远端视频流对象。
+`Stream` 子类,代表其他客户端的媒体流。
 

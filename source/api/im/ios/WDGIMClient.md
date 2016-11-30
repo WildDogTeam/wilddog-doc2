@@ -228,33 +228,6 @@ error | 错误信息
 
 ------
 
-### - synchronizeWithRemoteNotification:completion:
-
-**定义**
-
-```objective-c
-- (BOOL)synchronizeWithRemoteNotification:(NSDictionary *)userInfo completion:(void (^) (WDGIMConversation * _Nullable conversation, WDGIMMessage * _Nullable message, NSError * _Nullable error))completion
-```
-  
-**说明**
-
-接收远程推送来的消息。
-
-**参数**
-
-参数名 | 描述
------|------
-userInfo | 推送消息体
-completion | 结果回调
-	
-**返回值**
-
-接收推送消息的状态， YES 为接收成功。
-
-</br>
-
-------
-
 ### - newConversationWithMembers:completion:
 
 **定义**

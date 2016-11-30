@@ -1,9 +1,78 @@
 title: Conversation.Listener
 ---
 
-会话状态回调,当会议处于不同状态时触发不同回调方法。
+会话状态回调,当会话连接状态改变和参与者状态改变时会触发回调方法通知使用者会话的状态。
 
 ## 方法
+
+### onConnected(Conversation)
+
+**定义**   
+
+```java
+void onConnected(Conversation conversation)
+```
+
+**说明**
+
+本地参与者与远端参与者成功建立连接后触发。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+|conversation|[Conversation](/api/video/android/conversation.html),连接建立成功后创建的会话对象|
+
+</br>
+
+---
+
+### onConnectFailed(Conversation, VideoException)
+
+**定义**   
+
+```java
+void onConnectFailed(Conversation conversation, VideoException exception)
+```
+
+**说明**
+
+本地参与者与远端参与者建立连接失败后触发。本方法仅会在无法与远端参与者建立连接时调用一次，如果成功建立连接后断开连接，则不会调用此方法。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的会话对象|
+|exception|[VideoException](/api/video/android/video-exception.html),会话建立连接失败信息|
+
+</br>
+
+---
+
+### onDisconnected(Conversation, VideoException)
+
+**定义**   
+
+```java
+void onDisconnected(Conversation conversation, VideoException exception)
+```
+
+**说明**
+
+连接建立成功后断开连接会触发此方法。此方法仅会在连接建立成功后调用，如果连接建立失败则直接调用 `onConnectFailed` 方法，不会触发此方法。
+本地参与者主动断开连接或者其他原因引起的连接中断都会触发此方法。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的会话对象|
+|exception|[VideoException](/api/video/android/video-exception.html),会话建立连接失败信息|
+
+</br>
+
+---
 
 ### onParticipantConnected(Conversation, Participant)
 
@@ -15,38 +84,14 @@ void onParticipantConnected(Conversation conversation, Participant participant)
 
 **说明**
 
-被邀请加入会话的参与者接受邀请后,创建会话并成功连接后触发。
+收到远端参与者加入的信息后触发此方法，此时并未与远端参与者连接成功。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),被邀请加入会话的参与者接受邀请后,建立的会话对象|
-|participant|[Participant](/api/video/android/participant.html),接受邀请的会话参与者|
-
-</br>
-
----
-
-### onFailedToConnectParticipant(Conversation, Participant, VideoException)
-
-**定义**   
-
-```java
-void onFailedToConnectParticipant(Conversation conversation, Participant participant, VideoException exception)
-```
-
-**说明**
-
-接受邀请后,客户端建立视频通话连接失败时调用。
-
-**参数**
-
-| 参数名 | 描述 |
-|---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),被邀请者接受邀请后建立的会话对象|
-|participant|[Participant](/api/video/android/participant.html),接收邀请的被邀请者|
-|exception|[VideoException](/api/video/android/video-exception.html),会话建立连接失败信息|
+|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的会话对象|
+|participant|[Participant](/api/video/android/participant.html),会话的远端参与者|
 
 </br>
 
@@ -62,34 +107,14 @@ void onParticipantDisconnected(Conversation conversation, Participant participan
 
 **说明**
 
-被邀请人断开会话连接后调用。
+收到远端参与者离开的消息后会触发此方法。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),被邀请者接受邀请后建立的会话对象|
-|participant|[Participant](/api/video/android/participant.html),接收邀请的被邀请者|
+|conversation|[Conversation](/api/video/android/conversation.html),调用 `WilddogVideoClient.inviteToConversation()` 方法时创建的会话对象|
+|participant|[Participant](/api/video/android/participant.html),会话的远端参与者|
 
 </br>
 
----
-
-### onConversationEnded(Conversation, VideoException)
-
-**定义**   
-
-```java
-void onConversationEnded(Conversation conversation, VideoException exception)
-```
-
-**说明**
-
-会话结束后调用。
-
-**参数**
-
-| 参数名 | 描述 |
-|---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),已经结束的会话对象|
-|exception|[VideoException](/api/video/android/video-exception.html),会话结束异常信息|

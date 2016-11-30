@@ -1,19 +1,25 @@
 title: 用户集成
 ---
 
-Wilddog IM SDK 不开发独立的用户系统，需要用户集成自己的用户系统。
-
+本篇文档介绍如何集成开发者的已有用户系统。
 
 
 ## 获取 Token
 
-Wilddog IM SDK 不开发独立的用户系统，为了集成 APP 已有的用户，我们通过自定义 Token 的方式。
-开发者需要将 APP 已有的用户 ID、用户名称、用户头像等信息结合 Wilddog 的超级密钥生成 [JWT Token](https://jwt.io/) 登录需要的 Wilddog Token。
-Wilddog Token 需要通过 APP Server 来获取。关于更多使用 APP Server 生成 Custom Token 以及认证 Wilddog ID Token 等信息请参考 [生成 Custom Token](https://docs.wilddog.com/guide/auth/server/server.html#创建Custom-Token)。
+Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。
+具体流程如下：
+1. 客户端向开发者服务器请求 customToken。
+2. 开发者服务器使用野狗 Server SDK 生成 customToken 返回给客户端。
+3. 客户端使用 customToken 登录 Wilddog IM 服务。
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  你可以在 `IM 控制面板`-`接口测试` 中手动生成 Token 用于测试。
+</blockquote>
 
 ## 登录
 
-获取 Token 后，调用登录接口就可以正常收发消息了。登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。
+`signIn()` 方法用于将用户登录 Wilddog IM 服务：
 
 ```java
 // 用 Wilddog Auth Token 登录
@@ -33,8 +39,7 @@ client.signIn(token, new WildValueCallBack<WilddogUser>() {
 ```
 
 ## 退出登录
-
-当用户需要主动登出或进行用户切换的时候，需要调用登出操作：
+`signOut()` 方法用于用户退出登录 Wilddog IM 服务：
 
 ```java
 client.signOut();
@@ -42,7 +47,7 @@ client.signOut();
 	
 ## 获取当前用户
 
-通过 WilddogIMClient 成员方法 `getCurrentUser()` 能获取当前登录用户：
+`WilddogIMClient` 成员方法 `getCurrentUser()` 用于获取当前登录用户：
 
 ```java
 client.getCurrentUser();
@@ -51,9 +56,22 @@ client.getCurrentUser();
 
 ## 设置登录监听
 
-通过 WDGIMClient 的监听方法 `addMessageListener（）` 和 `addGroupChangeListener（）` 可以对登录状态进行监听。
+`WilddogIMClient` 的代理方法 `addAuthStateListener()` 用于监听登录状态;
 
- 
+```java
+client.addAuthStateListener(
+    new WilddogIMClient.WilddogIMAuthStateListener() {
+         @Override
+         public void onAuthStateChanged(WilddogUser user) {
+              if(user==null){
+              // 为空
+              }else {
+              //登录成功
+              Log.d("result",user.getUid());
+              }
+         }
+});
+```
  
  
  

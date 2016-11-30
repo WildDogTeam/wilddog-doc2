@@ -2,6 +2,125 @@
 title: 更新日志
 ---
 
+## Javascript SDK
+
+### v0.4.5 - 2016.11.02
+
+<span class="changelog add">新增</span>
+
+- 新增对Safari浏览器的支持。
+
+### V0.4.4 - 2016.10.27
+
+<span class="changelog optimize">优化</span>
+
+- 优化代码结构。
+
+### v0.4.3 - 2016.10.22
+
+<span class="changelog add">新增</span>
+
+- 新增错误码以及相应的错误事件。
+
+<span class="changelog optimize">优化</span>
+
+- 优化meetingCast 类的接口名称。
+
+### V0.4.2 - 2016.10.13
+
+<span class="changelog fix">修复</span>
+
+- video.createStream 传入 video 参数为 true 时，不能获取视频流
+- 修复后传入 video 参数为 true 时，视频流规格自动设为 standard 标准
+
+### V0.4.1 - 2016.10.10
+
+<span class="changelog optimize">优化</span>
+
+- 压缩 SDK 大小，从 300+K 压缩为 100+K。
+- 被邀请方接受邀请后，邀请方的 OutgoingInvite 会触发 promise，得到 Conversation 对象。 
+
+### V0.4.0 - 2016.10.08
+
+<span class="changelog optimize">优化</span>
+
+- 将回调修改为 promise。
+
+### V0.3.3 - 2016.09.30
+
+<span class="changelog fix">修复</span>
+
+- 修复同一用户退出会话后重新加入会话会读取过期信令的 bug。
+
+### V0.3.2 - 2016.09.29
+
+<span class="changelog fix">修复</span>
+
+- 修复 server_based 模式下，每当新用户加入 conversation，已有用户都会重复发布视频流的 bug。
+- 修复离开 conversation 后还会监听 conversation 中消息的 bug。
+
+</br>
+
+---
+## Android SDK
+
+### V0.4.1 - 2016.10.27
+
+<span class="changelog add">新增</span>
+
+- 新增视频展示控件 WilddogView。
+
+<span class="changelog optimize">优化</span>
+
+- 升级 WebRTC 库，目前使用 M55 版本。
+- 修改 WilddongVideo 类 createLocalStream 方法。
+- 增加对视频 H.264 编码的支持。
+
+### V0.4.0 - 2016.10.19
+
+<span class="changelog add">新增</span>
+
+- 新增安卓端错误码,增加错误边界判定以及错误返回。
+- 新增 VideoException 类。
+
+<span class="changelog optimize">优化</span>
+
+- Video 类改为 WilddogVideo 类。
+- MeetingCastAddon 类中方法重命名为 start、switchParticipant、stop。
+- MeetingCastListener 中方法重命名 onStarted、onSwitchParticipant、onStopped。
+- 删除 ConversationException 类。
+
+### V0.3.1 - 2016.09.29
+
+<span class="changelog add">新增</span>
+
+- 增加 Conversation.Listener 回调方法触发。
+
+<span class="changelog optimize">优化</span>
+
+
+- 完善 Video ，完善 flipCamera方法。
+- 完善 Stream，修复 enableAudio/enableVideo 方法。
+
+<span class="changelog fix">修复</span>
+
+- 修复 Conversation,修复邀请第三方加入会话连接建立失败 bug。
+
+### V0.3.0 - 2016.09.22
+
+<span class="changelog add">新增</span>
+
+- 新增 SERVER_BASED 模式会话。
+- 新增直播接口，实现直播/切流/断开直播功能。
+
+<span class="changelog fix">修复</span>
+
+- 修改原有 BASIC 模式为P2P模式，修改 ADVANCED 模式为 SERVER_BASED。
+- 修改 getConfig 功能，增加推流/收流地址。
+
+</br>
+
+---
 ## iOS SDK
 
 ### V0.4.2 - 2016.11.04
@@ -75,124 +194,5 @@ title: 更新日志
 - WDGVideoConversation 中的邀请API返回值改为 BOOL。
 - 修复 WDGVideoConversation 中 participants 只增不减的问题。
 
-</br>
 
----
-
-## Android SDK
-
-### V0.4.1 - 2016.10.27
-
-<span class="changelog add">新增</span>
-
-- 新增视频展示控件 WilddogView。
-
-<span class="changelog optimize">优化</span>
-
-- 升级 WebRTC 库，目前使用 M55 版本。
-- 修改 WilddongVideo 类 createLocalStream 方法。
-- 增加对视频 H.264 编码的支持。
-
-### V0.4.0 - 2016.10.19
-
-<span class="changelog add">新增</span>
-
-- 新增安卓端错误码,增加错误边界判定以及错误返回。
-- 新增 VideoException 类。
-
-<span class="changelog optimize">优化</span>
-
-- Video 类改为 WilddogVideo 类。
-- MeetingCastAddon 类中方法重命名为 start、switchParticipant、stop。
-- MeetingCastListener 中方法重命名 onStarted、onSwitchParticipant、onStopped。
-- 删除 ConversationException 类。
-
-### V0.3.1 - 2016.09.29
-
-<span class="changelog add">新增</span>
-
-- 增加 Conversation.Listener 回调方法触发。
-
-<span class="changelog optimize">优化</span>
-
-
-- 完善 Video ，完善 flipCamera方法。
-- 完善 Stream，修复 enableAudio/enableVideo 方法。
-
-<span class="changelog fix">修复</span>
-
-- 修复 Conversation,修复邀请第三方加入会话连接建立失败 bug。
-
-### V0.3.0 - 2016.09.22
-
-<span class="changelog add">新增</span>
-
-- 新增 SERVER_BASED 模式会话。
-- 新增直播接口，实现直播/切流/断开直播功能。
-
-<span class="changelog fix">修复</span>
-
-- 修改原有 BASIC 模式为P2P模式，修改 ADVANCED 模式为 SERVER_BASED。
-- 修改 getConfig 功能，增加推流/收流地址。
-
-</br>
-
----
-
-## Javascript SDK
-
-### v0.4.5 - 2016.11.02
-
-<span class="changelog add">新增</span>
-
-- 新增对Safari浏览器的支持。
-
-### V0.4.4 - 2016.10.27
-
-<span class="changelog optimize">优化</span>
-
-- 优化代码结构。
-
-### v0.4.3 - 2016.10.22
-
-<span class="changelog add">新增</span>
-
-- 新增错误码以及相应的错误事件。
-
-<span class="changelog optimize">优化</span>
-
-- 优化meetingCast 类的接口名称。
-
-### V0.4.2 - 2016.10.13
-
-<span class="changelog fix">修复</span>
-
-- video.createStream 传入 video 参数为 true 时，不能获取视频流
-- 修复后传入 video 参数为 true 时，视频流规格自动设为 standard 标准
-
-### V0.4.1 - 2016.10.10
-
-<span class="changelog optimize">优化</span>
-
-- 压缩 SDK 大小，从 300+K 压缩为 100+K。
-- 被邀请方接受邀请后，邀请方的 OutgoingInvite 会触发 promise，得到 Conversation 对象。 
-
-### V0.4.0 - 2016.10.08
-
-<span class="changelog optimize">优化</span>
-
-- 将回调修改为 promise。
-
-### V0.3.3 - 2016.09.30
-
-<span class="changelog fix">修复</span>
-
-- 修复同一用户退出会话后重新加入会话会读取过期信令的 bug。
-
-### V0.3.2 - 2016.09.29
-
-<span class="changelog fix">修复</span>
-
-- 修复 server_based 模式下，每当新用户加入 conversation，已有用户都会重复发布视频流的 bug。
-- 修复离开 conversation 后还会监听 conversation 中消息的 bug。
 

@@ -154,6 +154,32 @@ path | 图片本地路径
 
 ------
 
+### + messageWithImage:
+
+**定义**
+
+```objective-c
++ (WDGIMMessageImage *)messageWithImage:(UIImage *)image;
+```
+ 
+**说明**
+
+构造图片消息。
+ 
+**参数**
+
+参数名 | 描述
+-----|------
+image | 要发送的图片
+
+**返回值**
+
+图片消息对象
+
+</br>
+
+------
+
 ### - messageWithVoiceData:duration:
 
 **定义**

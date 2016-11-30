@@ -41,27 +41,23 @@ title: 实战教程
 视频通话的前提条件是要有可识别的用户身份，使用 Auth SDK 进行用户身份认证。在这里使用匿名登录实现身份认证。认证后会为每个用户分配唯一的 Wilddog ID。
 
 ```objectivec
-- (IBAction)clickBtn:(id)sender {
+[WDGApp configureWithOptions:[[WDGOptions alloc] initWithSyncURL:@"https://<#appId#>.wilddogio.com"]];
 
-    [WDGApp configureWithOptions:[[WDGOptions alloc] initWithSyncURL:[NSString stringWithFormat:@"https://%@.wilddogio.com", self.textField.text]]];
+// 使用VideoSDK前必须经过WilddogAuth身份认证
+__weak __typeof__(self) weakSelf = self;
+[[WDGAuth auth] signInAnonymouslyWithCompletion:^(WDGUser *user, NSError *error) {
+    __strong __typeof__(self) strongSelf = weakSelf;
+    if (strongSelf == nil) {
+        return;
+    }
 
-    // 使用VideoSDK前必须经过WilddogAuth身份认证
-    __weak __typeof__(self) weakSelf = self;
-    [[WDGAuth auth] signInAnonymouslyWithCompletion:^(WDGUser *user, NSError *error) {
-        __strong __typeof__(self) strongSelf = weakSelf;
-        if (strongSelf == nil) {
-            return;
-        }
+    if (error) {
+        NSLog(@"请在控制台为您的AppID开启匿名登录功能，错误信息: %@", error);
+        return;
+    }
 
-        if (error) {
-            NSLog(@"请在控制台为您的AppID开启匿名登录功能，错误信息: %@", error);
-            return;
-        }
-
-        // 匿名登录成功，进行后续操作
-    }];
-}
-
+    // 匿名登录成功，进行后续操作
+}];
 ```
 
 ### 3. 初始化 Video SDK
@@ -69,8 +65,8 @@ title: 实战教程
 用户身份认证成功后，可以初始化 Video SDK 。
 
 ```objectivec
-self.wilddogVideoClient = [[WDGVideoClient alloc] initWithSyncReference:self.syncReference user:self.user];
-self.wilddogVideoClient.delegate = self;
+strongSelf.wilddogVideoClient = [[WDGVideoClient alloc] initWithApp:[WDGApp defaultApp]];
+strongSelf.wilddogVideoClient.delegate = self;
 ```
 
 ### 4. 实现用户列表
@@ -93,19 +89,22 @@ WDGSyncReference *userWilddog = [[self.syncReference child:@"users"] child:self.
 通过 Video SDK 获取本地视频流，并在视频展示控件中预览。
 
 ```objectivec
-- (void)createLocalStream {
+- (void)createLocalStream
+{
     // 创建本地流
-    WDGVideoLocalStreamConfiguration *configuration = [[WDGVideoLocalStreamConfiguration alloc] initWithVideoOption:WDGVideoConstraintsStandard audioOn:YES];
-    self.localStream = [self.wilddogVideoClient localStreamWithConfiguration:configuration];
+    WDGVideoLocalStreamOptions *localStreamOptions = [[WDGVideoLocalStreamOptions alloc] init];
+    localStreamOptions.audioOn = YES;
+    localStreamOptions.videoOption = WDGVideoConstraintsHigh;
+    self.localStream = [[WDGVideoLocalStream alloc] initWithOptions:localStreamOptions];
 }
 
-- (void)previewLocalStream {
+- (void)previewLocalStream
+{
     // 将本地流展示到 `localVideoView` 中
     if (self.localStream != nil) {
         [self.localStream attach:self.localVideoView];
     }
 }
-
 ```
 
 ### 6. 发起会话
@@ -113,7 +112,8 @@ WDGSyncReference *userWilddog = [[self.syncReference child:@"users"] child:self.
 选择用户列表中的用户，发起会话。
 
 ```objectivec
-WDGVideoOutgoingInvite *outgoingInvitation = [self.wilddogVideoClient inviteWithParticipantID:participantID localStream:self.localStream conversationMode:WDGVideoConversationModeP2P completion:^(WDGVideoConversation *conversation, NSError *error) {
+WDGVideoConnectOptions *connectOptions = [[WDGVideoConnectOptions alloc] initWithLocalStream:self.localStream];
+WDGVideoOutgoingInvite *outgoingInvitation = [self.wilddogVideoClient inviteToConversationWithID:userID options:connectOptions completion:^(WDGVideoConversation *conversation, NSError *error) {
     __strong __typeof__(self) strongSelf = weakSelf;
     if (strongSelf == nil) {
         return;
@@ -146,7 +146,7 @@ UIAlertAction *rejectAction = [UIAlertAction actionWithTitle:@"拒绝" style:UIA
 
 __weak __typeof__(self) weakSelf = self;
 UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"接受" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-    [invite acceptWithCompletion:^(WDGVideoConversation *conversation, NSError *error) {
+    [invite acceptWithLocalStream:self.localStream completion:^(WDGVideoConversation *conversation, NSError *error) {
         __strong __typeof__(self) strongSelf = weakSelf;
         if (strongSelf == nil) {
             return;
@@ -172,9 +172,17 @@ UIAlertAction *acceptAction = [UIAlertAction actionWithTitle:@"接受" style:UIA
 会话建立成功后，在会话中能够获取到对方视频流，在视频展示控件中展示。
 
 ```objectivec
-- (void)conversation:(WDGVideoConversation *)conversation didConnectParticipant:(WDGVideoParticipant *)participant {
-    // 参与者成功加入会话，将参与者的视频流展示出来
-    self.remoteStream = participant.stream;
+- (void)conversation:(WDGVideoConversation *)conversation didConnectParticipant:(WDGVideoParticipant *)participant
+{
+    // 将participant 的代理设置为自己，以便在获得音视频流时得到通知
+    participant.delegate = self;
+}
+
+- (void)participant:(WDGVideoParticipant *)participant didAddStream:(WDGVideoRemoteStream *)stream
+{
+    // 获得参与者音视频流，将其展示出来
+    NSLog(@"receive stream %@ from participant %@", stream, participant);
+    self.remoteStream = stream;
     [self.remoteStream attach:self.remoteVideoView];
 }
 ```

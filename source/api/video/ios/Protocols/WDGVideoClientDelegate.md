@@ -10,7 +10,7 @@ title: WDGVideoClientDelegate
 **定义**
 
 ```objectivec
-- (void)wilddogVideoClient:(nonnull WDGVideoClient *)videoClientdidReceiveInvite:(nonnull WDGVideoIncomingInvite *)invite;
+- (void)wilddogVideoClient:(nonnull WDGVideoClient *)videoClient didReceiveInvite:(nonnull WDGVideoIncomingInvite *)invite;
 ```
 
 **说明**
@@ -33,7 +33,7 @@ invite|代表收到的邀请的 [WDGVideoIncomingInvite](../Classes/WDGVideoInco
 **定义**
 
 ```objectivec
-- (void)wilddogVideoClient:(nonnull WDGVideoClient *)videoClientinviteDidCancel:(nonnull WDGVideoIncomingInvite *)invite;
+- (void)wilddogVideoClient:(nonnull WDGVideoClient *)videoClient inviteDidCancel:(nonnull WDGVideoIncomingInvite *)invite;
 ```
 
 **说明**

@@ -3,7 +3,7 @@ title : OutgoingInvite
 
 <span id="OutgoingInvite" />
 
-使用 `Conversation.inviteToConversation` 方法发起邀请时会生成 `OutgoingInvite` 对象,通过 `cancel` 方法可以取消邀请。
+使用 `WilddogVideoClient.inviteToConversation()` 方法发起邀请时会生成 `OutgoingInvite` 对象,通过 `cancel` 方法可以取消邀请。
 ## 方法
 ### cancel()
 

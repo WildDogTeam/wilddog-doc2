@@ -2,7 +2,7 @@
 title: wilddog.video.Client
 ---
 
-Client 实例可以发起和加入会话。
+Client 实例是野狗实时视频的客户端，可以发起和加入会话。
 
 ## 构造方法
 
@@ -34,12 +34,30 @@ var client = wilddog.video.client();
 **类型**
 
 ```js
-Map.<Conversation.conversationId, Conversation>
+Map.<Conversation.Id, Conversation>
 ```
 
 **说明**
 
-Client 创建的 `Conversation` 集合。
+Client 正在进行的 `Conversation` 集合。
+
+</br>
+
+---
+
+## 属性
+
+### conferences
+
+**类型**
+
+```js
+Map.<Conferences.Id, Conference>
+```
+
+**说明**
+
+Client 加入的 `Conference` 集合。
 
 </br>
 
@@ -61,69 +79,14 @@ Client 的 Wilddog ID。
 
 ---
 
-### addons
-
-**类型**
-
-[wilddog.video.Addons](/api/video/web/addons.html)
-
-**说明**
-
-插件对象的集合。
-
-</br>
-
----
-
 ## 方法
-
-### init
-
-**定义**
-
-```js
-init(options)
-```
-
-**说明**
-
-Client 对象实例的初始化方法。
-
-**参数**
-
-| 参数名 | 说明 |
-|---|---|
-| options | [ClientInitConstraints](/api/video/web/wilddogVideoClient.html#ClientInitConstraints) 类型。Client 初始化需要的参数。|
-
-**返回值**
-
-`Promise`
-
-**示例**
-
-```js
-//获取 Client 对象
-var client = wilddog.video.client();
-//初始化 Client
-client.init({ref:ref, user:user})
-    .then(function(){
-        console.log("Init success !");
-    })
-    .catch(function(err){
-        console.log("Catch error! Error code is " + err);
-    });
-```
-
-</br>
-
----
 
 ### inviteToConversation
 
 **定义**
 
 ```js
-inviteToConversation(options)
+inviteToConversation(remoteUid, options)
 ```
 
 **说明**
@@ -134,6 +97,7 @@ inviteToConversation(options)
 
 | 参数名 | 说明 |
 |---|---|
+| remoteUid | `string` 类型。Conversation 接受方的 Wilddog ID。<br>[如何获取自身的 Wilddog ID](/resources/video/web/tutorial.html#2-用户身份认证) |
 | options | [ClientInviteConstraints](/api/video/web/wilddogVideoClient.html#ClientInviteConstraints) 类型。Client 发起 Conversation 需要的参数。|
 
 **返回值**
@@ -146,17 +110,51 @@ inviteToConversation(options)
 //获取 Client 对象
 var client = wilddog.video.client();
 //初始化 Client
-Client.init({ref:ref, user:user})
-    .then(function(){
-        return client.inviteToConversation({
-            mode:'p2p', 
-            participantId:'12345678', 
-            localStream: lStream
-        })
-    })
-    .then(function(conversation){
-        // Conversation发起成功，得到 conversation 对象实例
-    })
+client.inviteToConversation('123456789',{
+    stream: lStream,
+    userData: 'somethings'
+}).then(function(conversation){
+    // Conversation发起成功，得到 conversation 对象实例
+})
+```
+
+</br>
+
+---
+
+### connectToConference
+
+**定义**
+
+```js
+connectToConference(conferenceId, options)
+```
+
+**说明**
+
+向指定的 Wilddog ID 发起 Conversation。
+
+**参数**
+
+| 参数名 | 说明 |
+|---|---|
+| conferenceId | `string` 类型。Conference 的唯一标识 ID , 由用户自由填写。 |
+| options | [ClientConstraints](/api/video/web/wilddogVideoClient.html#ClientInviteConstraints) 类型。Client 发起 Conversation 需要的参数。|
+
+**返回值**
+
+[Conference](/api/video/web/conference.html)
+
+**示例**
+
+```js
+//获取 Client 对象
+var client = wilddog.video.client();
+//进入 Conference
+var conference = client.connectToConference('wilddogVideoRoom',{
+    stream: lStream,
+    userData: 'somethings'
+})
 ```
 
 </br>
@@ -165,35 +163,9 @@ Client.init({ref:ref, user:user})
 
 ## 常量
 
-### ClientInitConstraints
+### ClientConstraints
 
-Client 初始化需要的参数。
-
-**类型**
-
-```js
-Object
-```
-
-**参数**
-
-| 参数名 | 说明 |
-|---|---|
-| ref | [wilddog.sync.Reference](/api/sync/web/api.html#wilddog-sync-Reference) 类型。`wilddog.sync.Reference` 对象实例。|
-| user | [wilddog.User](/api/auth/web/User.html) 类型。auth 状态变为登录状态时传回的 user 对象。|
-
-<blockquote class="notice">
-  <p><strong>提示：</strong></p>
-  只有 `wilddog.sync.Reference` 对象实例对应的路径相同的 Client 间才能发起和建立 Conversation。Server\-based 模式下，该路径需要和控制面板中设置的交互路径相同。
-</blockquote>
-
-</br>
-
----
-
-### ClientInviteConstraints
-
-Client 发起 Conversation 需要的参数。
+Client 发起 Conversation 和进入 Conference 需要的参数。
 
 **类型**
 
@@ -205,9 +177,8 @@ Object
 
 | 参数名 | 说明 |
 |---|---|
-| mode | `string` 类型。表示 Conversation 的模式，可选择 `p2p` 或 `server_based`。<br>[两种模式的区别](/guide/video/core.html#Conversation) |
-| participantId | `string` 类型。Conversation 接受方的 Wilddog ID。<br>[如何获取自身的 Wilddog ID](/resources/video/web/tutorial.html#2-用户身份认证) |
-| localStream | [wilddog.video.LocalStream](/api/video/web/localStream.html)类型。本地视频流对象。 |
+| userData | `string` 类型。可添加的自定义消息，对方在收到的邀请中可以获取。 |
+| stream | [wilddog.video.LocalStream](/api/video/web/localStream.html)类型。本地视频流对象。 |
 
 </br>
 

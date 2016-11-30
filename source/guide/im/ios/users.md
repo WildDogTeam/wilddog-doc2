@@ -1,36 +1,36 @@
 title: 用户集成
 ---
 
-Wilddog IM SDK 不开发独立的用户系统，需要用户集成自己的用户系统。
+本篇文档介绍如何集成开发者的已有用户系统。
 
-* 1.获取 Token
-* 2.登录
-* 3.退出登录
-* 4.获取当前用户
-* 5.设置登录监听
+## 获取 Token
+
+Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。
+具体流程如下：
+1. 客户端向开发者服务器请求 customToken。
+2. 开发者服务器使用野狗 Server SDK 生成 customToken 返回给客户端。
+3. 客户端使用 customToken 登录 Wilddog IM 服务。
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  你可以在 `IM 控制面板`-`接口测试` 中手动生成 Token 用于测试。
+</blockquote>
 
 
-### 获取 Token
+## 登录
 
-Wilddog IM SDK 不开发独立的用户系统，为了集成 APP 已有的用户，我们通过自定义 Token 的方式。
-开发者需要将 APP 已有的用户 ID、用户名称、用户头像等信息结合 Wilddog 的超级密钥生成 [JWT Token](https://jwt.io/) 登录需要的 Wilddog Token。
-Wilddog Token 需要通过 APP Server 来获取。关于更多使用 APP Server 生成 Custom Token 以及认证 Wilddog ID Token 等信息请参考 [生成 Custom Token](https://docs.wilddog.com/guide/auth/server/server.html#创建Custom-Token)。
-
-### 登录
-
-获取 Token 后，调用登录接口就可以正常收发消息了。登录为异步过程，通过回调函数返回是否成功，成功后方能进行后续操作。
+`- signInWithCustomToken:completion:` 方法用于将用户登录 Wilddog IM 服务：
 
 ```objc
-// 用 Wilddog Auth Token 登录
+// 用 customToken 登录
 [[WDGIMClient defaultClient] signInWithCustomToken:wilddogToken completion:^(WIMUser * _Nullable currentUser, NSError * _Nullable error) {
-        
 }];
 
 ```
 
-### 退出登录
+## 退出登录
 
-当用户需要主动登出或进行用户切换的时候，需要调用登出操作：
+`- signOut:` 方法用于用户退出登录 Wilddog IM 服务：
 
 ```objc
 NSError *error;
@@ -41,20 +41,29 @@ if (!error) {
 
 ```
 	
-### 获取当前用户
+## 获取当前用户
 
-通过 WDGIMClient 成员方法 currentUser 能获取当前登录用户：
+`WDGIMClient` 成员方法 `currentUser` 用于获取当前登录用户：
 
 ```objc
 WDGIMUser *currentUser = [WDGIMClient defaultClient].currentUser;
 
 ```
 
-### 设置登录监听
+## 设置登录监听
 
-通过 WDGIMClient 的代理方法 `- wilddogClient:didSignInAsUserID:` 和 `- wilddogClientDidSignOut:` 可以对登录状态进行监听。
+`WDGIMClient` 的代理方法 `- wilddogIMClient:didSignInAsUserID:` 和 `- wilddogIMClientDidSignOut:` 用于监听登录状态“
 
- 
+ ```objc
+- (void)wilddogIMClient:(nonnull WDGIMClient *)client didSignInAsUserID:(nonnull NSString *)userID {
+	// 有用户登录
+}
+
+- (void)wilddogIMClientDidSignOut:(nonnull WDClient *)client {
+   // 用户退出登录
+}
+
+```
  
  
  
