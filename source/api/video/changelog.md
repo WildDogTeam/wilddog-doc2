@@ -164,11 +164,6 @@ title: 更新日志
 
 ### v0.5.0 - 2016.11.30
 
-<span class="changelog optimize">优化</span>
-
-- 使用两种呼叫模型：conversation 和 conference 代替 P2P 和 Server-based 模式。
-- 修改 conversation 为一对一视频通话呼叫模型，使用点对点方式通信。并使用固定交互路径 `/wilddogVideo` ，降低使用难度。
-
 <span class="changelog add">新增</span>
 
 - conversation 呼叫模型可以在发出邀请时携带自定义额外信息给对方。
@@ -176,6 +171,11 @@ title: 更新日志
 - 新增 WDGVideoLocalParticipant 对象代表本地会议参与者。
 - WDGVideoParticipant 在未拿到音视频流时候就能返回，额外增加 WDGVideoParticipant 用于处理获取音视频流的事件。
 - 可通过 WDGVideoClientOptions 指定回调及代理执行的队列。
+
+<span class="changelog optimize">优化</span>
+
+- 使用两种呼叫模型：conversation 和 conference 代替 P2P 和 Server-based 模式。
+- 修改 conversation 为一对一视频通话呼叫模型，使用点对点方式通信。并使用固定交互路径 `/wilddogVideo` ，降低使用难度。
 
 ### V0.4.2 - 2016.11.04
 
