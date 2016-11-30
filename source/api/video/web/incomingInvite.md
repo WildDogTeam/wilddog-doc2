@@ -6,6 +6,30 @@ Client 的 `invite` 事件回调函数的参数。
 
 ## 属性
 
+### status
+
+**类型**
+
+```js
+String
+```
+
+**说明**
+
+邀请的状态，包括 "accepted", "rejected", "canceled", "failed", 和 "pending"。
+
+| 状态 | 说明 |
+|---|---|
+| accepted | 邀请被接受。 |
+| rejected | 邀请被拒绝。 |
+| canceled | 邀请被取消。 |
+| failed | 邀请失败。 |
+| pending | 邀请中。 |
+
+</br>
+
+---
+
 ### from
 
 **类型**
@@ -17,6 +41,22 @@ String
 **说明**
 
 邀请发起方的 Wilddog ID。
+
+</br>
+
+---
+
+### conversationId
+
+**类型**
+
+```js
+String
+```
+
+**说明**
+
+Conversation 的唯一标识 Id。
 
 </br>
 

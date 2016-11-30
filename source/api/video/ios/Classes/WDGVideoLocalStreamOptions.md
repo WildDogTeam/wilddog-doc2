@@ -1,4 +1,4 @@
-title: WDGVideoLocalStreamConfiguration
+title: WDGVideoLocalStreamOptions
 ---
 
 本地视频流配置。
@@ -15,7 +15,7 @@ title: WDGVideoLocalStreamConfiguration
 
 **说明**
 
-本地视频流的音频开关。
+本地视频流的音频开关。默认为开。
 
 </br>
 
@@ -31,7 +31,7 @@ title: WDGVideoLocalStreamConfiguration
 
 **说明**
 
-视频质量选项。
+视频质量选项。默认为 `WDGVideoConstraintsStandard` 。
 
 </br>
 
@@ -53,34 +53,7 @@ title: WDGVideoLocalStreamConfiguration
 
 **返回值**
 
-`WDGVideoLocalStreamConfiguration` 实例。
-
-</br>
-
----
-
-### -initWithVideoOption:audioOn:
-
-**定义**
-
-```objectivec
-- (nonnull instancetype)initWithVideoOption:(WDGVideoConstraints)videoOptionaudioOn:(BOOL)audioOn;
-```
-
-**说明**
-
-使用指定配置初始化。
-
-**参数**
-
- 参数名 | 说明 
----|---
-videoOption|表明视频的质量。
-audioOn|表明是否开启音频。
-
-**返回值**
-
-`WDGVideoLocalStreamConfiguration` 实例。
+`WDGVideoLocalStreamOptions`实例。
 
 </br>
 

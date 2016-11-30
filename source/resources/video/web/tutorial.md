@@ -8,7 +8,7 @@ title: 实战教程
 
 本教程以一对一视频通话为例，讲解如何通过 Wilddog Video SDK 实现实时视频通话功能。
 
-在此之前需要开启控制面板中的“实时视频通话”功能。
+在此之前需要开启控制面板中的 “实时视频通话” 功能。
 
 示例的最终的展示效果如下图：
 
@@ -26,6 +26,7 @@ title: 实战教程
 
 ```js
 // 创建数据库引用。最好自己创建一个应用，把 `appId` 换成你自己的应用 ID
+// wilddog video 依赖 auth 和 sync，authDomain 和 syncURL 都需要配置。
 var config = {
     authDomain: "appId.wilddog.com",
     syncURL: "https://appId.wilddogio.com"
@@ -44,21 +45,8 @@ wilddog.auth().signInAnonymously().then((user) => {
 ```js
 //获取Video对象
 var videoInstance = wilddog.video();
-//获取Client对象
+//获取 Client 对象，注意：client 只有在身份认证成功后才可获取。
 var clientInstance = videoInstance.client();
-//指定交互路径，可以自定义，如果是服务器中转方式，
-//需要保证该路径和控制面板中的交互路径一致
-wilddogref = wilddog.sync().ref().child('你的自定义路径');
-//初始化 Client，
-// wilddogref 即上面交互路径的 Sync 引用，
-// user 为身份认证成功后回调中的参数
-clientInstance.init({
-    ref: wilddogref,
-    user: user
-})
-    .then(() => {
-        //初始化成功
-    });
 ```
 
 ### 4. 实现用户列表
@@ -116,33 +104,32 @@ videoInstance.createStream({
     })
 ```
 
-### 6. 发起会话
+### 6. 发起视频通话
 
-选择用户列表中的用户，发起会话。
+选择用户列表中的用户，发起视频通话。
 
 ```js
-//选择p2p模式，uid 即选中的用户的 Wilddog ID，localStream 为之前获取的本地视频流
-var outInvite = clientInstance.inviteToConversation({
-    'mode': 'p2p',
-    'participantId': uid,
-    'localStream': localStream,
+// uid 即选中的用户的 Wilddog ID，localStream 为之前获取的本地视频流，userData 是传递给对方的自定义字符串。
+var outInvite = clientInstance.inviteToConversation(uid， {
+    'stream': localStream,
+    'userData': 'somethings'
 })
-//如果会话建立，在outInvite的.then中能获取到 conversation
+//如果视频通话建立，在outInvite的.then中能获取到 conversation
 outInvite.then((conversation) => {
-    //会话建立成功
+    //视频通话建立成功
 });
 ```
 
 ### 7. 接受或拒绝邀请
 
-发起会话后，被邀请人会收到邀请事件，被邀请人可以选择接受或拒绝该邀请，接受邀请则会话建立。
+发起视频通话后，被邀请人会收到邀请事件，被邀请人可以选择接受或拒绝该邀请，接受邀请则视频通话建立。
 
 ```js
 //初始化 Client 成功后，监听邀请事件，显示在网页上
 clientInstance.on('invite', (incomingInvite) => {
     currentInvite = incomingInvite;
     inviteEl.hidden = false;
-    invitInfo.textContent = incomingInvite.from + '向你发出会话邀请';
+    invitInfo.textContent = incomingInvite.from + '向你发出视频通话邀请';
 );
 
 //用户点击接受后的触发，localStream为之前获取的本地视频流
@@ -150,7 +137,7 @@ var accept = function() {
     //接受邀请
     currentInvite.accept(localStream)
         .then((conversation) => {
-            //会话建立成功
+            //视频通话建立成功
         });
 }
 //用户点击拒绝后的触发
@@ -162,23 +149,24 @@ var reject = function() {
 
 ### 8. 展示对方视频
 
-会话建立成功后，在会话中能够获取到对方视频流，在视频展示控件中展示。
+视频通话建立成功后，能够获取到对方视频流，可以在视频展示控件中展示。
 
 ```js
 //监听 conversation 的 participant_connected 事件，回调的参数中携带对方的视频流。
 conversation.on('participant_connected', (participant) => {
-    //展示到 remote 元素中
-    participant.stream.attach(remoteEl);
+    // 监听参与者的 streamAdded 事件，将参与者携带的媒体流绑定到页面的remote元素中
+    participant.on('streamAdded', function(stream){
+        stream.attach(remoteEl);
 });
 ```
-### 9. 离开会话
+### 9. 离开视频通话
 
-会话过程中，调用下面方法离开会话。
+视频通话过程中，调用下面方法离开视频通话。
 
 ```js
 //取消对方视频流的展示
 remoteStream.detach(remoteEl);
-//离开会话
+//离开视频通话
 currentConversation.disconnect();
 ```
 

@@ -37,6 +37,22 @@ title: WDGVideoIncomingInvite
 
 ---
 
+### userData
+
+**定义**
+
+```objectivec
+@property (readonly, strong, nonatomic) NSString *_Nonnull userData;
+```
+
+**说明**
+
+邀请者发送邀请时携带的自定义数据。
+
+</br>
+
+---
+
 ### status
 
 **定义**
@@ -55,39 +71,17 @@ title: WDGVideoIncomingInvite
 
 ## 方法
 
-### -acceptWithCompletion:
-
-**定义**
-
-```objectivec
-- (void)acceptWithCompletion:(nonnull WDGVideoInviteAcceptanceBlock)completionHandler;
-```
-
-**说明**
-
-接受邀请，使用当前本地视频流接受邀请，并在 `completionHandler` 中返回结果。若当前未创建本地视频流，将自动以默认配置创建本地视频流。
-
-**参数**
-
- 参数名 | 说明 
----|---
-completionHandler|当邀请得到确认后，SDK通过该闭包通知邀请结果，若邀请成功，将在闭包中返回`WDGVideoConversation`实例，否则将在闭包中返回`NSError`说明邀请失败的原因。
-
-</br>
-
----
-
 ### -acceptWithLocalStream:completion:
 
 **定义**
 
 ```objectivec
-- (void)acceptWithLocalStream:(nonnull WDGVideoLocalStream *)localStreamcompletion:(nonnull WDGVideoInviteAcceptanceBlock)completionHandler;
+- (void)acceptWithLocalStream:(nonnull WDGVideoLocalStream *)localStream completion:(nonnull WDGVideoInviteAcceptanceBlock)completionHandler;
 ```
 
 **说明**
 
-接受邀请，使用指定视频流接受邀请，并在 `completionHandler` 中返回结果。
+接受邀请，使用指定视频流接受邀请，并在`completionHandler`中返回结果。
 
 **参数**
 

@@ -62,6 +62,22 @@ Conversation 的 ID。
 
 ---
 
+### conversation
+
+**类型**
+
+```js
+Object
+```
+
+**说明**
+
+对方接受邀请后创建的 [wilddog.video.Conversation](/api/video/web/conversation.html)
+
+</br>
+
+---
+
 ## 方法
 
 ### cancel

@@ -2,12 +2,12 @@
 title: 快速入门
 ---
 
-我们通过一个简单的一对一视频聊天示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-javascript/archive/master.zip)
+我们通过一个简单的一对一视频通话示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-javascript/archive/master.zip)
 
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li> Chrome、Firefox、Opera 浏览器 </li>
+        <li> Chrome、Firefox、Safari 浏览器 </li>
     </ul>
 </div>
 
@@ -23,11 +23,18 @@ title: 快速入门
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，打开实时视频功能。
+进入 管理应用-实时视频通话，开启视频通话功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
+
+<img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
 
 ## 4. 启动本地 Web 服务
 
 启动本地 Web 服务，建立 HTTPS 环境。快速入门中采用 Node.js 搭建本地服务，用户**也可以使用其他方式**启动本地 Web 服务。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  只有通过 HTTPS 服务加载的页面才可以成功获取本地摄像头和麦克风等资源，正常运行快速入门。
+</blockquote>
 
 使用 Node.js 开启本地 Web 服务：
 
@@ -43,7 +50,7 @@ node https_channel_server.js
 
 <img src='/images/video_quickstart_js_login.png' alt="video_quickstart_js_login">
 
-### 5.2 登录快速入门
+### 5.2 登录
 
 输入应用 ID（下图 `wilddogio` 之前的字段），然后点击匿名登录。
 
