@@ -33,7 +33,7 @@ title: 视频通话
 
 ### 发起视频通话
 
-只有另一个 [WilddogVideoClient](/api/video/android/wilddog-video-client.html) 接受了一方的邀请，通话才能建立成功。
+只有另一个 [Client](/api/video/android/wilddog-video-client.html) 接受了一方的邀请，通话才能建立成功。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -118,7 +118,7 @@ title: 视频通话
     participant.setListener(new Participant.Listener() {
         @Override
         public void onStreamAdded(RemoteStream remoteStream) {
-            //远端参与者流可用,播放远端流
+            //其他客户端的媒体流可用,播放其他客户端的媒体流
             remoteStream.attach(remoteView);
         }
 

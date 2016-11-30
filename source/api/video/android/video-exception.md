@@ -3,44 +3,46 @@ title: VideoException
 
 会话异常信息,有两个属性 `errorCode` 与 `message` ,分别代表错误码与错误详细信息。
 
-## 构造方法
 
-### VideoException(int,String) 
+## 属性
+
+
+
+### getMessage()
 
 **定义**   
 
 ```java
-VideoException(int errorCode , String message) 
+String getMessage()
 ```
 
-**参数**
+**说明**
 
-| 参数名 | 描述 |
-|---|---|
-|errorCode|String,错误代码|
-|message|String,错误详细信息|
+获取错误详细信息。
 
+**返回值**
+
+`String` 错误详细信息。
 
 </br>
 
 ---
 
-## 属性
 
-所有属性均有get/set方法。
+### getErrorCode()
 
-### message
+**定义**   
+
+```java
+int getErrorCode()
+```
 
 **说明**
 
-错误详细信息。
+获取错误码。
+
+**返回值**
+
+`int` 整型错误码。
 
 </br>
-
----
-
-### errorCode
-
-**说明**
-
-错误码。

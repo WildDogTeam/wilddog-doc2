@@ -101,7 +101,7 @@ Conference.Listener listener = new Conference.Listener() {
     participant.setListener(new Participant.Listener() {
         @Override
         public void onStreamAdded(RemoteStream remoteStream) {
-            //远端参与者流可用
+            //其他客户端的媒体流可用,播放其他客户端的媒体流
             remoteStream.attach(remoteView);
         }
 
@@ -118,9 +118,9 @@ Conference.Listener listener = new Conference.Listener() {
 ```
 
 ## 加入会议相关
----
 
-介绍如何离开视频会议。
+
+介绍如何离开视频会议和直播视频会议。
 
 ### 离开视频会议
 
