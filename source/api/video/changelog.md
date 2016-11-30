@@ -99,7 +99,7 @@ title: 更新日志
 - 为MeetingCast 直播操作增加操作错误原因回调。
 - 简化 MeetingCastStateListener 回调方法。
 
-<span class="changelog add">修复</span>
+<span class="changelog fix">修复</span>
 
 - 修复安卓相机释放问题。
 
