@@ -33,9 +33,9 @@ title: 实时视频通话 Wilddog Video
 
 Wilddog Video 提供了 Web、Android、iOS 三端的 SDK，不仅支持三端同时开发，还实现了移动 APP 和 Web 应用之间的无障碍通话。
 
-### 简单灵活，无需安装浏览器插件
+### 简单灵活
 
-基于 WebRTC 技术，野狗 Video SDK 使用开放标准，支持 Opus 和 VP8 、H.264 编解码。同时，Web 应用无需安装浏览器插件即可实现视频通话，极大降低了终端用户的使用成本。
+基于 WebRTC 技术，野狗 Video SDK 使用开放标准，支持 Opus、 VP8 和 H.264 编解码。同时，Web 应用无需安装浏览器插件即可实现视频通话，极大降低了终端用户的使用成本。
 
 ### 自定义情境通话
 
