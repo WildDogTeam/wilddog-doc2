@@ -3,19 +3,11 @@ title : 安装 SDK
 
 本篇文档介绍如何安装和初始化 SDK。
 
-Wilddog Video SDK 的实现依赖于 Wilddog Sync SDK 和 Wilddog Auth SDK，所以在使用 Widdog Video SDK 前需要引入 Sync 和 Auth SDK。
-
 ### 安装 SDK
-#### 1. 安装 SDK
 
-[下载]() Wilddog Video SDK 的 zip 压缩包。
-解压缩后将 libs 文件夹下的 .jar 文件拷贝到工程的 /libs 目录下，添加为工程的依赖库。
-将 jniLibs 文件夹下的 armeabi-v7a 文件夹拷贝到 /src/main/jniLibs 目录下，完成 Video SDK 的引用。
+#### 安装 Sync 和 Auth SDK
 
-
-#### 2. 添加 Sync / Auth 依赖
-
-Wilddog Video SDK 依赖于 Wilddog Sync 与 Wilddog Auth SDK，可以使用 Maven 或 Gradle 获得 Wilddog Sync/Auth SDK。
+Video SDK 依赖于 Sync 和 Auth SDK，可以使用 Maven 或 Gradle 获得 Sync/Auth SDK。
 
 - **使用 Maven 安装 Wilddog Sync/Auth SDK**
 
@@ -39,6 +31,12 @@ android {
 }
 
 ```
+
+#### 安装 Video SDK
+
+[下载]() Video SDK 的 zip 压缩包。
+解压后将 libs 文件夹下的 .jar 文件拷贝到工程的 /libs 目录下，添加为工程的依赖库。
+将 jniLibs 文件夹下的 armeabi-v7a 文件夹拷贝到 /src/main/jniLibs 目录下，完成 Video SDK 的引用。
 
 
 ### 初始化 Video SDK
