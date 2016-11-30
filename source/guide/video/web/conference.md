@@ -1,7 +1,7 @@
 title: 多人视频会议
 ---
 
-本篇文档介绍开发多人视频会议时会时的主要环节，包括 [创建视频会议](/guide/video/web/conference.html#创建视频会议)、[管理其他参与者](/guide/video/web/conference.html#管理其他参与者) 和 [视频会议相关操作](/guide/video/web/conference.html#视频会议相关操作)。
+本篇文档介绍开发多人视频会议的主要环节，包括 [创建视频会议](/guide/video/web/conference.html#创建视频会议)、[管理其他参与者](/guide/video/web/conference.html#管理其他参与者) 和 [视频会议相关操作](/guide/video/web/conference.html#视频会议相关操作)。
 
 ## 创建视频会议
 
