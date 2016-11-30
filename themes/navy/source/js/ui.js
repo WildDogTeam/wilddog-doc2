@@ -44,6 +44,11 @@ window.onload = function () {
       })
     })
   });
+  
+  /*右侧用户反馈功能*/
+  getClass('close-feed')[0].addEventListener('click', function () {
+    this.parentNode.style.display = 'none';
+  });
 
 //滚屏时右侧边栏根据当前标题高亮对应目录项
   var headings = getClass('article-heading');
@@ -107,7 +112,9 @@ window.onload = function () {
     })
   };
 
+  var feedBack = getClass('feed-back')[0];
   var backTop = document.getElementsByClassName('back-top')[0];
+  var scrollStart = 0;
   currentLinkSelect(headings[0]);
   function windowScrollHandle () {
     var scrollTop = window.scrollY;
@@ -116,6 +123,12 @@ window.onload = function () {
     } else {
       removeClass(backTop, 'back-top-show')
     };
+    if(scrollTop < scrollStart) {
+      addClass(feedBack, 'scrollHide')
+    } else {
+      removeClass(feedBack, 'scrollHide')
+    }
+    scrollStart = scrollTop;
 
     if (scrollTop > currentRangeEnd || scrollTop < currentRangeStart) {
       var currentHeading = getCurrentHeading(scrollTop) || (scrollTop > headingTops[headingTops.length - 1] ? headings[headings.length - 1] : headings[0]);
