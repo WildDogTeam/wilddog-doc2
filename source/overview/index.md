@@ -24,11 +24,9 @@ title:  简介
 
 即时通讯(Wilddog IM) 是基于野狗实时通信架构的即时通讯服务，能够为你的应用轻松接入安全可靠的实时通信功能。
 
-![](http://ocpo37x5v.bkt.clouddn.com/2016-11-30-im%E6%96%87%E6%A1%A3%E4%BB%8B%E7%BB%8D%E9%A1%B5.jpg)
+![](/images/wilddogim.jpg)
 
 
-
-我们即将推出实时推送、IM 的 SDK 和场景化 API。
 
 
 
