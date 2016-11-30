@@ -20,11 +20,13 @@ title: 快速入门
 
 应用创建成功后，进入 管理应用-身份认证-登录方式，开启匿名登录。
 
-![](/images/openanonymous.png)
+<img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，打开实时视频功能。
+进入 管理应用-实时视频通话，开启视频通话功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
+
+<img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
 
 ## 4. 安装快速入门
 
