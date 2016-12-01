@@ -26,7 +26,7 @@ title: 快速入门
 2.工程配置
 
 Wilddog IM 解决方案在 Android 上需要 android.permission.INTERNET 权限。你需要在 AndroidMainfest.xml 文件添加以下内容：
-[xml 添加内容](https://cdn.wilddog.com/docs/android/android-xml.html)；
+[xml 添加内容](https://cdn.wilddog.com/docs/android/android-xml.html)。
 
 
 ## 3. 初始化
