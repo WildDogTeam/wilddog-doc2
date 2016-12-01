@@ -45,10 +45,7 @@ window.onload = function () {
     })
   });
   
-  /*右侧用户反馈功能*/
-  getClass('close-feed')[0].addEventListener('click', function () {
-    this.parentNode.style.display = 'none';
-  });
+
 
 //滚屏时右侧边栏根据当前标题高亮对应目录项
   var headings = getClass('article-heading');
@@ -123,7 +120,7 @@ window.onload = function () {
     } else {
       removeClass(backTop, 'back-top-show')
     };
-    if(scrollTop < scrollStart) {
+    if(scrollTop > scrollStart) {
       addClass(feedBack, 'scrollHide')
     } else {
       removeClass(feedBack, 'scrollHide')
