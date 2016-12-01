@@ -122,7 +122,11 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 
 **orderByChild**
 
-`orderByChild()`方法用于按子节点的指定值（value）对结果排序。
+`orderByChild()`方法用于按子节点的指定值（value）对结果排序，排序规则如下：
+
+```js
+Boolean(false) < Boolean(true) < Number < String
+``` 
 
 例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中按照每个学生的身高（"height" 节点的值）进行排序：
 
@@ -142,7 +146,7 @@ ref.orderByChild("height").on("child_added", function(snapshot) {
 
 **orderByKey()**
 
-`orderByKey()`方法用于按节点的键（key）对结果排序。 
+`orderByKey()`方法用于按节点的键（key）对结果排序，排序规则为字典顺序。
 
 例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中按照学生的名称进行排序：
 
@@ -155,7 +159,11 @@ ref.orderByKey().on("child_added", function(snapshot) {
 
 **orderByValue()**
 
-`orderByValue()`方法用于按节点的值（value）对结果排序。   
+`orderByValue()`方法用于按节点的值（value）对结果排序，排序规则如下：
+
+```js
+Boolean(false) < Boolean(true) < Number < String
+```   
 
 例如，在 [得分示例应用](https://class-demo.wilddogio.com/scores) 中按照得分数据进行排序：
 
@@ -172,7 +180,11 @@ ref.orderByValue().on("value", function(snapshot) {
 
 **orderByPriority()**
 
-`orderByPriority()`方法用于按节点的优先级（priority）对结果排序。
+`orderByPriority()`方法用于按节点的优先级（priority）对结果排序，排序规则如下：
+
+```
+null < Number < String
+``` 
 
 
 <blockquote class="warning">
@@ -239,7 +251,8 @@ ref.orderByValue().startAt(60).on("child_added", function(snapshot) {
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
+  <li>范围筛选中，当节点的 value 相同时，会按照 key 进行排序。</li>
+   <li>startAt、endAt 配合使用时，只能查找相同类型的值，例如 startAt(2).endAt(4) 或 startAt('b').endAt('d')。</li>
 </blockquote>
 
 
