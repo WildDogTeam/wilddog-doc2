@@ -152,6 +152,8 @@ window.onload = function () {
   var videoIosVersionContent = getClass('video-ios-version');
   var videoAndroidDownloadSrc = getClass('video-android-download');
   var videoIosDownloadSrc = getClass('video-ios-download');
+  var imAndroidDownloadSrc = getClass('im-android-download');
+  var imIosDownloadSrc = getClass('im-ios-download');
 
     var config = {
       authDomain: "wd-download.wilddog.com",
@@ -169,8 +171,8 @@ window.onload = function () {
       var videoWebVersion = snap.val().WilddogVideoWeb.version;
       var videoAndroidVersion = snap.val().WilddogVideoAndroid.version;
       var videoIosVersion = snap.val().WilddogVideoiOS.version;
-      var videoAndroidDownload = snap.val().WilddogVideoAndroid.downUrl;
-      var videoIosDownload = snap.val().WilddogVideoiOS.downUrl;
+      var imAndroidDownload = snap.val().WilddogIMAndroid.cdn;
+      var imIosDownload = snap.val().WilddogIMiOS.cdn;
       jsVersionContent.forEach(function (ele) {
         ele.textContent = jsVersion;
       });
@@ -203,6 +205,12 @@ window.onload = function () {
       });
       videoIosDownloadSrc.forEach(function (ele) {
         ele.setAttribute('href', videoIosDownload);
+      });
+      imAndroidDownloadSrc.forEach(function (ele) {
+        ele.setAttribute('href', imAndroidDownload);
+      });
+      imIosDownloadSrc.forEach(function (ele) {
+        ele.setAttribute('href', imIosDownload);
       });
     });
 

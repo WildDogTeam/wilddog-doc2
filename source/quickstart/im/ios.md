@@ -47,7 +47,7 @@ SDK 的安装方式有两种，你可以任选其一：
 1. 下载 Sync SDK <a href="#" class="ios-download-sync" target='_blank'>点此下载</a>。 
 2. 下载 Core SDK <a href="#" class="ios-download-core" target='_blank'>点此下载</a>。  
 3. 下载 Auth SDK <a href="#" class="ios-download-auth" target='_blank'>点此下载</a>。
-4. 下载 IM SDK <a href="https://cdn.wilddog.com/sdk/ios/0.1.0/WilddogIM.framework-0.1.0.zip">点此下载</a>。        
+4. 下载 IM SDK <a href="href" class="im-ios-download" target='_blank'>点此下载</a>。        
 5. 把 WilddogSync.framework、WilddogCore.framework、WilddogAuth 和 WilddogIM 拖到工程目录中。  
 6. 选中 Copy items if needed 、Create Groups，点击 Finish。  
 7. 点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。

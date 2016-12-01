@@ -21,7 +21,7 @@ title: 快速入门
 
 1.安装 Wilddog IM SDK
 
-你可以直接下载 [Android SDK](https://cdn.wilddog.com/sdk/android/0.1.0/wilddog-im-0.1.0.zip) 进行安装。
+你可以直接下载 <a href='#' class='im-android-download' target="_blank">Android SDK</a> 进行安装。
 
 2.工程配置
 
