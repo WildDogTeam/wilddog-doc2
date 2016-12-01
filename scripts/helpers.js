@@ -36,12 +36,12 @@ hexo.extend.helper.register('page_nav', function(){
 
   if (index > 0){
     result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(list[keys[index - 1]]) + '">' +
-      '<span class=\'page-title\'><img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'>' + this.__(list[keys[index - 1]]) + ' </span></a>';
+      '<img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'><div class=\'page-title\'><div>上一节：</div>' + this.__(list[keys[index - 1]]) + ' </div></a>';
   }
 
   if (index < keys.length - 1){
     result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(list[keys[index + 1]]) + '">' +
-      '<span class=\'page-title\'>' + this.__(list[keys[index + 1]]) + '<img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></span></a>';
+      '<div class=\'page-title\'><div class=\'text-right\'>下一节：</div>' + this.__(list[keys[index + 1]]) + '</div><img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></a>';
   }
 
   return result;
