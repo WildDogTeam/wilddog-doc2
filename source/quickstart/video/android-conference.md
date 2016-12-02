@@ -1,7 +1,7 @@
 
 title: 视频会议
 ---
-我们通过一个简单的视频会议示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-android-conference/archive/master.zip)
+我们通过一个简单的 4 人视频会议示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-android-conference/archive/master.zip)
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -26,15 +26,15 @@ title: 视频会议
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，开启视频通话功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
+进入 管理应用-实时视频通话，开启多人视频会议功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
 
-<img src='/images/video_quickstart_open_conference.png' alt="video_quickstart_open_conference">
+<img src='/images/video_quickstart_open_conference.jpg' alt="video_quickstart_open_conference">
 
 ## 4. 导入快速入门
 
 Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 "Android Studio File --> New --> Import Project" 导入快速入门。
 
-## 5. 建立视频通话
+## 5. 建立和加入视频会议
 
 ### 5.1 运行快速入门
 
@@ -60,7 +60,8 @@ Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 "
 
 ### 5.3 其他人加入会议
 
-在其他安卓手机上使用同一个会议 ID 加入会议，本地收到其他端的加入信息后会在本地播放其他端的视频。
+
+重复上述步骤，在其他手机端登录后，输入同一会议 ID， 加入会议。
 
 <img src='/images/video_quickstart_android_conference_multi.png' alt="video_quickstart_android_conference_multi" width="300" >
 
