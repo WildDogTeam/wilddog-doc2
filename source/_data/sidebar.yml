@@ -23,8 +23,10 @@ quickstart:
     Android:
       视频通话: /quickstart/video/android-conversation.html
       视频会议: /quickstart/video/android-conference.html
-    iOS: /quickstart/video/ios.html
-  即时通讯:
+    iOS:
+      视频通话: /quickstart/video/ios-conversation.html
+      视频会议: /quickstart/video/ios-conference.html
+  即时通讯: 
     Android: /quickstart/im/android.html
     iOS: /quickstart/im/ios.html
   身份认证:
