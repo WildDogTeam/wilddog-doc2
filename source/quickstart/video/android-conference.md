@@ -1,7 +1,7 @@
 
-title: 快速入门
+title: 视频会议
 ---
-我们通过一个简单的视频会议示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-android-manyToMany/archive/master.zip)
+我们通过一个简单的视频会议示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-android-conference/archive/master.zip)
 
 <div class="env">
     <p class="env-title">环境准备</p>
