@@ -19,7 +19,7 @@ title: 实战教程
 
 ### 1. 安装 SDK
 
-[下载](https://cdn.wilddog.com/sdk/android/0.5.0/wilddog-video-android-0.5.0.zip) Wilddog Video SDK 的 zip 压缩包。
+[下载](https://cdn.wilddog.com/sdk/android/0.5.1/wilddog-video-android-0.5.1.zip) Wilddog Video SDK 的 zip 压缩包。
 解压缩后将 libs 文件夹下的 .jar 文件拷贝到工程的 /libs 目录下，添加为工程的依赖库。
 将 jniLibs 文件夹下的 armeabi-v7a 文件夹拷贝到 /src/main/jniLibs 目录下，完成 Video SDK 的引用。
 
@@ -29,21 +29,21 @@ Video SDK 依赖于 Sync 和 Auth SDK，可以使用 Maven 或 Gradle 获得 Syn
 
 - **使用 Maven 安装 Sync/Auth SDK**
 
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-auth-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-auth-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 
 - **使用 Gradle 安装 Sync/Auth SDK**
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:2.0.1&apos;</span></div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:2.0.1&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:2.0.1&apos;</span></div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:2.0.3&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 如果出现由于文件重复导致的编译错误，可以在 build.gradle 中添加 packingOptions:
 
 ```
-android { 
-    ... 
-    packagingOptions { 
-        exclude 'META-INF/LICENSE' 
-        exclude 'META-INF/NOTICE' 
+android {
+    ...
+    packagingOptions {
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
     }
 }
 
@@ -215,7 +215,7 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
 ```java
     //在使用 inviteToConversation 方法前需要先设置视频通话邀请监听，否则使用邀请功能会抛出IllegalStateException异常
-    client.setInviteListener(new InviteListener(){ 
+    client.setInviteListener(new InviteListener(){
         //...
     });
 
@@ -233,7 +233,7 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
             if (conversation != null) {
                 //对方接受邀请并成功建立视频通话，conversation不为空，exception为空
                 mConversation = conversation;
-            
+
             } else {
                 //对方拒绝时，exception不为空
             }
@@ -329,7 +329,7 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
         //监听参与者离开事件
         }
     });
-    
+
 ```
 
 
@@ -355,6 +355,3 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
 ## 获取示例源码
 点此获取完整的 [示例源码](https://github.com/WildDogTeam/video-demo-android-conversation)。
-
-
-
