@@ -27,4 +27,4 @@ title:  错误码
 | -22	  |		PROVIDER_ERROR						|	第三方OAuth平台错误。 |
 | -23	  |		LIMITS_EXCEEDED						|	超过限制，如果遇到此错误码，请联系support@wilddog.com。 |
 | -24	  |		NETWORK_ERROR						|	因为网络原因导致操作不能执行。 |
-| -102  |		QPS_SPEEDING						|	请求太过频繁。有5秒内最多120次的限制（读操作不限）。 |
+| -102  |		QPS_SPEEDING						|	操作数据超过 5 秒 120 次的限制（ 读操作不受此限制） |
