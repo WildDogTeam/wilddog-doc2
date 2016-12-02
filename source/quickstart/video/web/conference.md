@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-我们通过一个简单的多人视频会议示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-web-conference/archive/master.zip)
+我们通过一个简单的 4 人视频会议示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-web-conference/archive/master.zip)
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -21,11 +21,11 @@ title: 快速入门
 
 <img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
 
-## 3. 开启实时视频会议服务
+## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频会议，开启视频会议功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
+进入 管理应用-实时视频通话，开启多人视频会议功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
 
-<img src='/images/video_quickstart_open_conference.png' alt="video_quickstart_open_conference">
+<img src='/images/video_quickstart_open_conference.jpg' alt="video_quickstart_open_conference">
 
 ## 4. 启动本地 Web 服务
 
@@ -42,7 +42,7 @@ title: 快速入门
 node https_channel_server.js
 ```
 
-## 5. 建立视频会议
+## 5. 建立和加入视频会议
 
 ### 5.1 运行快速入门
 
