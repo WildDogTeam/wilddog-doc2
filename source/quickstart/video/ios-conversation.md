@@ -1,5 +1,5 @@
 
-title: 快速入门
+title: 视频通话
 ---
 我们通过一个简单的一对一视频通话示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-ios-conversation/archive/master.zip)
 
