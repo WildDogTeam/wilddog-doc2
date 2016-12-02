@@ -203,5 +203,5 @@ self.videoConversation = nil;
 
 ## 获取示例源码
 
-点此获取完整的 [示例源码](https://github.com/WildDogTeam/video-quickstart-ios)
+点此获取完整的 [示例源码](https://github.com/WildDogTeam/video-demo-ios-conversation)
 

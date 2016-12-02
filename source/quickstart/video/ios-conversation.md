@@ -1,7 +1,7 @@
 
 title: 快速入门
 ---
-我们通过一个简单的一对一视频聊天示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-ios/archive/master.zip)
+我们通过一个简单的一对一视频通话示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-ios-conversation/archive/master.zip)
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -26,7 +26,7 @@ title: 快速入门
 
 进入 管理应用-实时视频通话，开启视频通话功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
 
-<img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
+<img src='/images/video_quickstart_openConversation.jpg' alt="video_quickstart_openConversation">
 
 ## 4. 安装快速入门
 
