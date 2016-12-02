@@ -17,12 +17,14 @@ quickstart:
     微信小程序: /quickstart/sync/wechat.html
     规则表达式: /quickstart/sync/rule.html
   实时视频通话:
-    Web: /quickstart/video/web.html
-    Android: 
+    Web:
+      视频通话: /quickstart/video/web/conversation.html
+      视频会议: /quickstart/video/web/conference.html
+    Android:
       视频通话: /quickstart/video/android-conversation.html
       视频会议: /quickstart/video/android-conference.html
     iOS: /quickstart/video/ios.html
-  即时通讯: 
+  即时通讯:
     Android: /quickstart/im/android.html
     iOS: /quickstart/im/ios.html
   身份认证:
@@ -91,7 +93,7 @@ guide:
       安装和初始化 SDK: /guide/video/ios/install-sdk.html
       视频通话: /guide/video/ios/conversation.html
       多人视频会议: /guide/video/ios/conference.html
-  
+
   即时通讯:
     #基础概念:
     Android:
@@ -293,15 +295,15 @@ api:
       WilddogIMClient.WilddogIMAuthStateListener: /api/im/android/WilddogIMClient.WilddogIMAuthStateListener.html
       WilddogIMClient.WilddogIMConnectionListener: /api/im/android/WilddogIMClient.WilddogIMConnectionListener.html
       WilddogIMClient.WilddogIMGroupChangeListener: /api/im/android/WilddogIMClient.WilddogIMGroupChangeListener.html
-      WilddogIMClient.WilddogIMMessageListener: /api/im/android/WilddogIMClient.WilddogIMMessageListener.html    
+      WilddogIMClient.WilddogIMMessageListener: /api/im/android/WilddogIMClient.WilddogIMMessageListener.html
       Conversation: /api/im/android/Conversation.html
-      Message: /api/im/android/Message.html    
+      Message: /api/im/android/Message.html
       GroupTipMessage: /api/im/android/GroupTipMessage.html
-      ImageMessage: /api/im/android/ImageMessage.html    
+      ImageMessage: /api/im/android/ImageMessage.html
       TextMessage: /api/im/android/TextMessage.html
-      VoiceMessage: /api/im/android/VoiceMessage.html    
-      
-  
+      VoiceMessage: /api/im/android/VoiceMessage.html
+
+
   身份认证:
     Web:
       App: /api/auth/web/App.html

@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-我们通过一个简单的一对一视频通话示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-quickstart-javascript/archive/master.zip)
+我们通过一个简单的多人视频会议示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-web-conference/archive/master.zip)
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -21,11 +21,11 @@ title: 快速入门
 
 <img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
 
-## 3. 开启实时视频通话服务
+## 3. 开启实时视频会议服务
 
-进入 管理应用-实时视频通话，开启视频通话功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
+进入 管理应用-实时视频会议，开启视频会议功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
 
-<img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
+<img src='/images/video_quickstart_open_conference.png' alt="video_quickstart_open_conference">
 
 ## 4. 启动本地 Web 服务
 
@@ -42,13 +42,13 @@ title: 快速入门
 node https_channel_server.js
 ```
 
-## 5. 建立视频通话
+## 5. 建立视频会议
 
 ### 5.1 运行快速入门
 
 本地 Web 服务启动后，访问 [https://127.0.0.1:8080](https://127.0.0.1:8080) 就会看到快速入门页面。
 
-<img src='/images/video_quickstart_js_login.png' alt="video_quickstart_js_login">
+<img src='/images/video_quickstart_js_conference_login.png' alt="video_quickstart_js_conference_login">
 
 ### 5.2 登录
 
@@ -56,19 +56,16 @@ node https_channel_server.js
 
 <img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp">
 
-### 5.3 邀请他人加入视频通话
+### 5.3 输入房间号并加入
 
-在其它 PC 端（或在同一 PC 中打开当前浏览器的隐身窗口，注意：同一 PC 端的不同浏览器不能共用摄像头和麦克资源）再次访问[https://127.0.0.1:8080](https://127.0.0.1:8080)，输入同一应用 ID 并登录，然后邀请列表中的用户。
-<img src='/images/video_quickstart_web_userList.png' alt="video_quickstart_createApp">
+匿名登录成功后，输入房间号，点击加入。
 
-### 5.4 接受邀请
+<img src='/images/video_quickstart_web_join_conference.png' alt="video_quickstart_web_join_conference">
 
-被邀请人会受到邀请提示，点击确认加入，视频通话建立。
+### 5.4 加入视频会议
 
-<img src='/images/video_quickstart_web_invite.png' alt="video_quickstart_createApp">
+进入房间后，等待视频会议建立成功。
 
-接受邀请后，等待视频通话建立成功。
-
-<img src='/images/video_quickstart_wen_conversation.png' alt="video_quickstart_createApp">
+<img src='/images/video_quickstart_wen_conference.png' alt="video_quickstart_createApp">
 
 更多详细信息请见 [完整指南](/guide/video/core.html) 和  [API 文档](/api/video/web/wilddogVideo.html)。
