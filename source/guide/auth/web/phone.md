@@ -24,7 +24,7 @@ title:  手机登录
 var config = {
     authDomain: "<appId>.wilddog.com"
 };
-wilddog.initializeApp(config, "DEFAULT");
+wilddog.initializeApp(config);
 ```
 
 3.使用 `createUserWithPhoneAndPassword(phone,password) ` 方法创建新用户：
