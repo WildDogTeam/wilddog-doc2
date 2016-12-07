@@ -91,12 +91,12 @@ WilddogVideoClient getClient()
 
 ---
 
-### createLocalStream(LocalStreamOptions,EglBase.Context,CompleteListener)
+### createLocalStream(LocalStreamOptions,CompleteListener)
 
 **定义**   
 
 ```java
-public LocalStream createLocalStream(LocalStreamOptions options, EglBase.Context context, CompleteListener listener)
+public LocalStream createLocalStream(LocalStreamOptions options, CompleteListener listener)
 ```
 
 **说明**
@@ -106,7 +106,6 @@ public LocalStream createLocalStream(LocalStreamOptions options, EglBase.Context
 | 参数名 | 描述 |
 |---|---|
 |options|LocalStreamOptions 对象，视频流参数|
-|context|WebRTC EglBase.Context 对象|
 |listener|CompleteListener 对象|
 
 **返回值**
@@ -116,7 +115,7 @@ public LocalStream createLocalStream(LocalStreamOptions options, EglBase.Context
 **示例**
 
 ```java
-localStream = video.createLocalStream(LocalStreamOptions.DEFAULT_OPTIONS, eglBase.getEglBaseContext(), new CompleteListener() {
+localStream = video.createLocalStream(LocalStreamOptions.DEFAULT_OPTIONS, new CompleteListener() {
     @Override
     public void onCompleted(VideoException s) {
 
