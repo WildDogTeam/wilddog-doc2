@@ -19,7 +19,7 @@ title: 实战教程
 
 ### 1. 安装 SDK
 
-[下载](https://cdn.wilddog.com/sdk/android/0.5.1/wilddog-video-android-0.5.1.zip) Wilddog Video SDK 的 zip 压缩包。
+[下载](https://cdn.wilddog.com/sdk/android/0.5.2/wilddog-video-android-0.5.2.zip) Wilddog Video SDK 的 zip 压缩包。
 解压缩后将 libs 文件夹下的 .jar 文件拷贝到工程的 /libs 目录下，添加为工程的依赖库。
 将 jniLibs 文件夹下的 armeabi-v7a 文件夹拷贝到 /src/main/jniLibs 目录下，完成 Video SDK 的引用。
 
@@ -191,13 +191,14 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 ```java
 
     //视频展示控件
-    //private EglBase eglBase = EglBase.create();
     WilddogVideoView localView = (WilddogVideoView) findViewById(R.id.local_video_view);
-    localView.init(eglBase.getEglBaseContext(), null);
+    localView.setZOrderMediaOverlay(true);
+    //本地媒体流设置镜像
+    localView.setMirror(true);
     //配置本地音视频流
     LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
     LocalStreamOptions options = builder.height(240).width(320).build();
-    localStream = video.createLocalStream(options, eglBase.getEglBaseContext(), new
+    localStream = video.createLocalStream(options, new
         CompleteListener() {
             @Override
             public void onCompleted(VideoException e) {
@@ -273,13 +274,9 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
 ```java
     //设置视频展示控件
-    WilddogVideoView remoteCallbacks = (WilddogVideoView) findViewById(R.id.remote_video_view);
+    WilddogVideoView remoteView = (WilddogVideoView) findViewById(R.id.remote_video_view);
     WilddogVideoViewLayout remoteViewLayout = (WilddogVideoViewLayout) findViewById(R.id.remote_video_view_layout);
     remoteViewLayout.setPosition(REMOTE_X, REMOTE_Y, REMOTE_WIDTH, REMOTE_HEIGHT);
-    remoteView.init(eglBase.getEglBaseContext(), null);
-    remoteView.setScalingType(RendererCommon.ScalingType.SCALE_ASPECT_FIT);
-    remoteView.setMirror(false);
-    remoteView.requestLayout();
 
 ```
 在成功建立连接后，为已建立的 `conversation` 建立监听参与者加入信息，并获取视频流。
