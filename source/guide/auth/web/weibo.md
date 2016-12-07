@@ -26,7 +26,7 @@ title:  微博登录
 var config = {
      authDomain: "<appId>.wilddog.com"
 };
-wilddog.initializeApp(config, "DEFAULT");
+wilddog.initializeApp(config);
 ```
 3.Wilddog Auth 提供两种方式进行微博认证，你可以任选其一：
 
@@ -78,6 +78,3 @@ wilddog.auth().signInWithRedirect(provider).then(function (user) {
 
 
 - Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用微博登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
-
-
-

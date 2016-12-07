@@ -21,7 +21,7 @@ title:  匿名身份认证
   var config = {
     authDomain: "<appId>.wilddog.com",
   };
-  wilddog.initializeApp(config, "DEFAULT");
+  wilddog.initializeApp(config);
 ```
 
 3.调用 `signInAnonymously()`方法：
@@ -38,8 +38,8 @@ title:  匿名身份认证
 4.`signInAnonymously()`方法调用成功后，可以在当前用户对象中获取用户数据：
 
 ```javascript
-var user = wilddog.auth().currentUser; 
-var isAnonymous = user.anonymous; 
+var user = wilddog.auth().currentUser;
+var isAnonymous = user.anonymous;
 var uid = user.uid;
 ```
   ​
@@ -80,7 +80,7 @@ user.link(credentialEmail).then(function (user) {
 
 ```javascript
 // QQ 认证
-var provider = new wilddog.auth.QQAuthProvider(); 
+var provider = new wilddog.auth.QQAuthProvider();
 
 // 微博认证
 var provider = new wilddog.auth.WeiboProvider();
