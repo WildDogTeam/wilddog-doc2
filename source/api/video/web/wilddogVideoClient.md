@@ -45,8 +45,6 @@ Client 正在进行的 `Conversation` 集合。
 
 ---
 
-## 属性
-
 ### conferences
 
 **类型**

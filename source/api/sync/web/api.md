@@ -15,14 +15,14 @@ var config = {
   syncURL: "https://<appId>.wilddogio.com"
 };
 wilddog.initializeApp(config);
-    
+
 ```
 
 初始化多个 App 实例：
 
 ```js
 //上面的代码相当于如下初始化动作
-var wilddog = wilddog.initializeApp(config,DEFAULT);
+var wilddog = wilddog.initializeApp(config);
 //我们还可以使用不同配置声明多个不同的 App 实例
 var configA = {
   synURL: "https://<appId-a>.wilddogio.com"
@@ -89,11 +89,11 @@ TIMESTAMP 是一个用于在我们的数据中插入服务器当前时间的占�
 ```js
 var sessionsRef = wilddog.sync().ref("sessions");
 var mySessionRef = sessionsRef.push();
-mySessionRef.onDisconnect().update({ 
+mySessionRef.onDisconnect().update({
     endedAt: wilddog.sync().ServerValue.TIMESTAMP
 });
-mySessionRef.update({ 
-    startedAt: wilddog.sync().ServerValue.TIMESTAMP 
+mySessionRef.update({
+    startedAt: wilddog.sync().ServerValue.TIMESTAMP
 });
 ```
 ---
@@ -106,7 +106,7 @@ mySessionRef.update({
 
 ref(path)
 
-**参数** 
+**参数**
 
 | 参数名  | 类型     | 属性       | 说明                                  |
 | ---- | ------ | -------- | ----------------------------------- |
@@ -167,9 +167,9 @@ _无_
 
 ```js
 // 当前 app 实例下的所有 Sync 实例都将离线
-wilddog.sync().goOffline(); 
+wilddog.sync().goOffline();
 // 当前 app 实例下的所有 Sync 实例都将重连
-wilddog.sync().goOnline(); 
+wilddog.sync().goOnline();
 ```
 ---
 
@@ -382,7 +382,7 @@ wilddog.sync().ref('city').update({"temp":20,"pm25":5000})
     .catch(function(err){
         console.info('update data failed', err.code, err);
     });
-    
+
 //多路径更新
 wilddog.sync().ref('/yourPath').update({
          "users/john": {"name": "john", "group": "a"},
@@ -450,7 +450,7 @@ push(value)
 ```js
 wilddog.sync().ref("city").push('chengdu')
     .then(function(newRef){
-       // newRef 的地址类似下面： 
+       // newRef 的地址类似下面：
        // https://<appId>.wilddogio.com/city/-JmRhjbYk73IFRZ7
        console.info(newRef.toString());
     })
@@ -569,7 +569,7 @@ transaction(updateFunction)
 
 **返回**
 
-[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[TransactionResult](/api/sync/web/api.html#TransactionResult) | [TransactionResult](/api/sync/web/api.html#TransactionResult)[]> 
+[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise).<[TransactionResult](/api/sync/web/api.html#TransactionResult) | [TransactionResult](/api/sync/web/api.html#TransactionResult)[]>
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -587,7 +587,7 @@ wilddog.sync().ref("/users/john/rank").transaction(function(currentRank) {
          return 0;
     } else if (currentRank >  1000) {
         return; // 大于1000, 退出事务 transaction, 直接return;
-    } 
+    }
     return currentRank+1;
 });
 //
@@ -615,7 +615,7 @@ wilmaRef.transaction(function(currentData) {
 
 ---
 
-#### updateFunction 
+#### updateFunction
 
 用于 [transaction](/api/sync/web/api.html#transaction) 的更新函数。
 
@@ -777,8 +777,8 @@ off([type], [callback], [context])
 **示例**
 
 ```js
-var onValueChange = wilddog.sync().ref('city').on('value', 
-    function(dataSnapshot) { /* handle... */ 
+var onValueChange = wilddog.sync().ref('city').on('value',
+    function(dataSnapshot) { /* handle... */
 });
 // Sometime later...
 wilddogRef.off('value', onValueChange);
@@ -875,7 +875,7 @@ ref.orderByKey().on("child_added",function(snapshot){
 
 ---
 
-### orderByValue 
+### orderByValue
 
 产生一个新 [wilddog.sync.Query](/api/sync/web/api.html#wilddog-sync-Query) 对象，按照当前节点的值进行排序。排序的详情请参考[数据排序](/guide/sync/web/retrieve-data.html#数据排序)。
 
@@ -1254,7 +1254,7 @@ _无_
 
 **返回**
 
-boolean 
+boolean
 
 **示例**
 
@@ -1266,7 +1266,7 @@ boolean
   "name" : {
     "first" : "Jim",
     "last" : "Gordon"
-  } 
+  }
 }
 ```
 用 exists 检测是否包含特定子节点：
@@ -1331,7 +1331,7 @@ child(path)
 | path | string | non-null | path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。 |
 
 
-**返回** 
+**返回**
 
 [wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot)
 
@@ -1419,7 +1419,7 @@ hasChild(key)
 | ---- | ------ | -------- | -------- |
 | key  | string | non-null | 要检查的key。 |
 
-**返回** 
+**返回**
 
 boolean
 
@@ -1434,7 +1434,7 @@ ref.on('child_changed',function(snapshot){
 		if(snapshot.hasChild('pm25')){
 			var pm25=snapshot.child('pm25');
 			console.log("The pm25 of Bejing is",pm25.val());
-		}	
+		}
 	}
 })
 ref.update({"pm25":432});
@@ -1501,7 +1501,7 @@ key()
 
 _无_
 
-**返回** 
+**返回**
 
 string
 
@@ -1518,7 +1518,7 @@ wilddog.sync().ref("/city/Beijing").on('child_changed',
                 var key=snapshot.key();
                 console.log("The ",pm25.key() ,
                     " of Bejing is",pm25.val());
-            }	
+            }
         }
 })
 ```
@@ -1538,7 +1538,7 @@ _无_
 
 **返回**
 
-number 
+number
 
 **示例**
 
@@ -1597,8 +1597,8 @@ ref.on('child_changed',function(snapshot){
 			var _ref=pm25.ref();
 			if(pm25.val()>500){
 				_ref.set(500);
-			}	
-		}	
+			}
+		}
 	}
 })
 ```
@@ -1672,7 +1672,7 @@ ref.setWithPriority("hello", 500).then(function(){
 
 *static*
 
-一个 Promise 对象表示一个事件（异步的）的值。Promsie 事件应当被完成（resovle）或者拒绝（reject），这个时候它会回调我们通过 then() 和 catch() 指派给它的回调函数。更多关于 Promise 编程规范的信息请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) 
+一个 Promise 对象表示一个事件（异步的）的值。Promsie 事件应当被完成（resovle）或者拒绝（reject），这个时候它会回调我们通过 then() 和 catch() 指派给它的回调函数。更多关于 Promise 编程规范的信息请 [参考这里](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
 ---
 
@@ -1719,6 +1719,3 @@ catch(onReject)
 ## Void
 
 Promise 或 callback 指向 Void 时表示无参数回传。
-
-
-

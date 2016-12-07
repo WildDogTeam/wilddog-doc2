@@ -77,6 +77,12 @@ title: 更新日志
 ---
 ## Android SDK
 
+### v0.5.1 - 2016.12.02
+
+<span class="changelog fix">修复</span>
+
+- 修复调用WilddogVideoClient.connectToConference 时线程死锁bug。
+
 ### v0.5.0 - 2016.11.30
 
 <span class="changelog add">新增</span>
@@ -161,6 +167,23 @@ title: 更新日志
 
 ---
 ## iOS SDK
+
+### v0.5.2 - 2016.12.07
+
+<span class="changelog optimize">优化</span>
+
+- 部分接口增加了输入参数检查。
+
+<span class="changelog fix">修复</span>
+
+- 修复一个会导致与 Web 端 Conversation 建连失败的问题。
+- 修复了一个导致统计接口请求失败的参数名错误。
+
+### v0.5.1 - 2016.12.02
+
+<span class="changelog fix">修复</span>
+
+- 修复邀请者离线时，即使邀请已经被接收，被邀请者仍然会收到邀请取消的代理回调问题。
 
 ### v0.5.0 - 2016.11.30
 
