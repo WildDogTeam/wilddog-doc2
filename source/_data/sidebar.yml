@@ -291,6 +291,7 @@ api:
       WDGIMMessageText: /api/im/ios/WDGIMMessageText.html
       WDGIMMessageVoice: /api/im/ios/WDGIMMessageVoice.html
       WDGIMUser: /api/im/ios/WDGIMUser.html
+      错误码: /api/im/ios/error-code.html
     Android:
       WilddogIMClient: /api/im/android/WilddogIMClient.html
       WilddogIMClient.CompletionListener: /api/im/android/WilddogIMClient.CompletionListener.html
@@ -304,6 +305,8 @@ api:
       ImageMessage: /api/im/android/ImageMessage.html
       TextMessage: /api/im/android/TextMessage.html
       VoiceMessage: /api/im/android/VoiceMessage.html
+      错误码: /api/im/android/error-code.html
+    更新日志: /api/im/changelog.html
 
 
   身份认证:
