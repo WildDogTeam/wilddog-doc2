@@ -114,6 +114,10 @@ guide:
       讨论组管理: /guide/im/ios/group.html
       离线推送: /guide/im/ios/push.html
 
+  短信:
+    通知类短信: /guide/sms/notify.html
+    验证码短信: /guide/sms/vertification.html
+
   身份认证:
     基础概念: /guide/auth/core/concept.html
     Web:
