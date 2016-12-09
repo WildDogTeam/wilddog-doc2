@@ -74,7 +74,7 @@ title: 通知类短信
 
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
-|params           |string         |否         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"];对于不包含变量的模板，表示模板即短信全文内容|
+|params           |string         |否         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"];对于不包含变量的模板，表示模板即短信全文内容。|
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
@@ -84,5 +84,5 @@ title: 通知类短信
 </blockquote>
 
 ## 调用接口
-
-需生成 [数字签名] (/console/creat.html) 及调用接口，调用接口请参考 [接口文档](/console/creat.html)。
+- 需生成 [数字签名] (/guide/sms/signature.html#生成数字签名的方法) 及调用接口，请参考 [接口文档](/api/sms/sendcode.html)。
+- 如需校验验证码和查询短信发送状态，请参考 [校验验证码](/api/sms/checkcode.html) 、[查询模板短信发送状态](/api/sms/sendcode.html)。

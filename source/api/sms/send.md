@@ -2,7 +2,7 @@
 title: 发送通知类短信
 ---
 
-用于发送通知类短信。
+用于发送通知类短信，需配合 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 使用。
 
 **URL**
 
@@ -25,10 +25,10 @@ POST
     
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
-|templateId     |long            |是         |模板ID|
+|templateId     |long            |是         |模板 ID|
 |mobiles          |string         |是         |收信人手机号,JSONArray格式,如["186xxxxxxxx","186xxxxxxxx"]，限制接收者号码个数最多为100个|
 |params           |string         |否         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"];对于不包含变量的模板，表示模板即短信全文内容|
-|signature      |string         |是         |签名, 合法性验证|
+|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法)，合法性验证|
 |timestamp      |string         |否         |UNIX时间戳|
     
 <blockquote class="warning">

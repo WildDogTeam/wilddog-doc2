@@ -2,7 +2,8 @@
 title: 校验验证码
 ---
 
-用于校验验证码。
+用于校验验证码，需配合 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 使用。
+
 
 **URL**
 
@@ -28,7 +29,7 @@ POST
 |--------------|--------------|----------|---|
 |code     |string            |是         |验证码|
 |mobile          |string         |是         |收信人手机号,如1xxxxxxxxxx 格式必须为11位|
-|signature      |string         |是         |签名, 合法性验证 其中参与签名加密的参数包括 `code`, `mobile`, `timestamp`|
+|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证 其中参与签名加密的参数包括 `code`， `mobile`，`timestamp`|
 |timestamp      |string         |否         |UNIX时间戳|
     
 <blockquote class="warning">
