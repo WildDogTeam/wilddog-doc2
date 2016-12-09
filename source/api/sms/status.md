@@ -50,7 +50,6 @@ data中返回JSONArray,格式如下(其中status取值:0-未发送,1-发送中,2
 
 
 ```
-curl -X POST https://api.wilddog.com/sms/v1/myoffice1/send
-	-d "signature=$signature&sendId=$sendId"
+curl -X POST https://api.wilddog.com/sms/v1/myoffice1/send -d "signature=$signature&sendId=$sendId"
 ```
 

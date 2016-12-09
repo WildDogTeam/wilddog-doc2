@@ -4,7 +4,7 @@ overview:
     实时数据同步: /overview/sync.html
     实时视频通话: /overview/video.html
     即时通讯: /overview/im.html
-    短信: /overview/sms.html
+    # 短信: /overview/sms.html
     身份认证: /overview/auth.html
 
 quickstart:
@@ -114,10 +114,10 @@ guide:
       讨论组管理: /guide/im/ios/group.html
       离线推送: /guide/im/ios/push.html
 
-  短信:
-    验证码短信: /guide/sms/vertification.html
-    通知类短信: /guide/sms/notify.html
-    接口验证机制: /guide/sms/signature.html
+  # 短信:
+  #   验证码短信: /guide/sms/vertification.html
+  #   通知类短信: /guide/sms/notify.html
+  #   接口验证机制: /guide/sms/signature.html
 
   身份认证:
     基础概念: /guide/auth/core/concept.html
@@ -312,13 +312,13 @@ api:
       VoiceMessage: /api/im/android/VoiceMessage.html
       错误码: /api/im/android/error-code.html
     更新日志: /api/im/changelog.html
-  短信:
-    发送验证码短信: /api/sms/sendcode.html
-    发送通知类短信: /api/sms/send.html
-    校验验证码: /api/sms/checkcode.html
-    查询发送状态: /api/sms/sendcode.html
-    错误码: /api/sms/error-code.html
-    更新日志: /api/sms/changelog.html
+  # 短信:
+  #   发送验证码短信: /api/sms/sendcode.html
+  #   发送通知类短信: /api/sms/send.html
+  #   校验验证码: /api/sms/checkcode.html
+  #   查询发送状态: /api/sms/sendcode.html
+  #   错误码: /api/sms/error-code.html
+  #   更新日志: /api/sms/changelog.html
   身份认证:
     Web:
       App: /api/auth/web/App.html
@@ -403,8 +403,8 @@ resources:
       示例库: /resources/im/android/resources.html
     iOS:
       示例库: /resources/im/ios/resources.html
-  短信:
-    代码片段: /resources/sms/resources.html
+  # 短信:
+  #   代码片段: /resources/sms/resources.html
   身份认证:
   # Web: /resources/auth/web.html
     Android:
