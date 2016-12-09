@@ -115,8 +115,8 @@ guide:
       离线推送: /guide/im/ios/push.html
 
   短信:
-    通知类短信: /guide/sms/notify.html
     验证码短信: /guide/sms/vertification.html
+    通知类短信: /guide/sms/notify.html
 
   身份认证:
     基础概念: /guide/auth/core/concept.html
@@ -312,8 +312,8 @@ api:
       错误码: /api/im/android/error-code.html
     更新日志: /api/im/changelog.html
   短信:
-    发送通知类短信: /api/sms/send.html
     发送验证码短信: /api/sms/sendcode.html
+    发送通知类短信: /api/sms/send.html
     校验验证码: /api/sms/checkcode.html
     查询发送状态: /api/sms/sendcode.html
     错误码: /api/sms/error-code.html

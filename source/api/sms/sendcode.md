@@ -1,6 +1,7 @@
 
 title: 发送验证码短信
 ---
+用于查询发送验证码短信。
 
 **URL**
 
@@ -54,3 +55,5 @@ POST
 ```
 curl -X POST https://api.wilddog.com/sms/v1/{appId}/sendCode 
 	-d "signature=$signature&mobile=$mobile&timestamp=$timestamp&templateId=$templateId"
+	
+```	

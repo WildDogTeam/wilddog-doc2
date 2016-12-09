@@ -2,6 +2,8 @@
 title: 查询发送状态
 ---
 
+用于查询短信发送状态。
+
 **URL**
 
 ```
@@ -45,6 +47,7 @@ data中返回JSONArray,格式如下(其中status取值:0-未发送,1-发送中,2
 ```
 
 **示例代码**
+
 
 ```
 curl -X POST https://api.wilddog.com/sms/v1/myoffice1/send
