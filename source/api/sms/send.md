@@ -1,0 +1,58 @@
+
+title: 发送通知类短信
+---
+
+**URL**
+
+```
+https://api.wilddog.com/sms/v1/{:appId}/send
+```
+**返回数据格式**
+
+```
+json
+```
+
+**HTTP请求方式**    
+
+```
+POST    
+```
+    
+**参数说明**
+    
+|参数           |类型           |必选       |说明|
+|--------------|--------------|----------|---|
+|templateId     |long            |是         |模板ID|
+|mobiles          |string         |是         |收信人手机号,JSONArray格式,如["186xxxxxxxx","186xxxxxxxx"]，限制接收者号码个数最多为100个|
+|params           |string         |否         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"];对于不包含变量的模板，表示模板即短信全文内容|
+|signature      |string         |是         |签名, 合法性验证|
+|timestamp      |string         |否         |UNIX时间戳|
+    
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <li>参数 params 可能含有特殊字符, 记得 `urlencode`</li>
+  <li>params 所传递的变量的值, 长度不能超过 32 个字符, 变量中不能含有 HTTP 链接。</li>
+   <li>生成签名时, 参数不要使用 `urlencode`. 在调用 api 时, 才需要对参数做 `urlencode`
+</li>
+</blockquote>
+ 
+**返回说明**
+
+```
+"Content-Type": "application/json; charset=utf-8"
+{
+  "status":"ok",
+  "data":"{
+        "sendId" : "1233445555"
+   }
+}
+```
+
+**示例代码**
+
+```
+curl -X POST https://api.wilddog.com/sms/v1/{appId}/send
+	-d "signature=$signature&templateId=$templateId&mobiles=$mobiles&timestamp=$timestamp&params=$params"
+```
+
