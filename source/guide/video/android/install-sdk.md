@@ -6,26 +6,16 @@ title : 安装 SDK
 ### 安装 SDK
 
 
-#### 安装 Video SDK
+Video SDK 包含了 Sync 和 Auth SDK 的依赖，不需要重复导入 Sync / Auth SDK 。
 
-[下载](https://cdn.wilddog.com/sdk/android/0.5.2/wilddog-video-android-0.5.2.zip) Video SDK 的 zip 压缩包。
-解压后将 libs 文件夹下的 .jar 文件拷贝到工程的 /libs 目录下，添加为工程的依赖库。
-将 jniLibs 文件夹下的 armeabi-v7a 文件夹拷贝到 /src/main/jniLibs 目录下，完成 Video SDK 的引用。
+- **使用 Maven 安装 Wilddog Video SDK**
 
-
-#### 添加 Sync / Auth 依赖
-
-Video SDK 依赖于 Sync 和 Auth SDK，可以使用 Maven 或 Gradle 获得 Sync/Auth SDK。
-
-- **使用 Maven 安装 Sync/Auth SDK**
-
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure><figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-auth-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>pom<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-video-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>aar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 
+- **使用 Gradle 安装 Wilddog Video SDK**
 
-- **使用 Gradle 安装 Sync/Auth SDK**
-
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-sync-android:2.0.1&apos;</span></div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:2.0.3&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-android:0.5.2&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 如果出现由于文件重复导致的编译错误，可以在 build.gradle 中添加 packingOptions:
 
@@ -37,10 +27,7 @@ android {
         exclude 'META-INF/NOTICE'
     }
 }
-
 ```
-
-
 
 ### 初始化 Video SDK
 
