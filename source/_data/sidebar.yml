@@ -117,6 +117,7 @@ guide:
   短信:
     验证码短信: /guide/sms/vertification.html
     通知类短信: /guide/sms/notify.html
+    接口验证机制: /guide/sms/signature.html
 
   身份认证:
     基础概念: /guide/auth/core/concept.html

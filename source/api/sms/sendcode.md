@@ -27,7 +27,7 @@ POST
 |--------------|--------------|----------|---|
 |templateId     |long            |是         |模板ID|
 |mobile          |string         |是         |收信人手机号,如1xxxxxxxxxx 格式必须为11位|
-|signature      |string         |是         |签名, 合法性验证 其中参与签名加密的参数包括 `templateId`, `mobile`, `timestamp`,|
+|signature      |string         |是         |数字签名, 合法性验证 其中参与签名加密的参数包括 `templateId`, `mobile`, `timestamp`,|
 |timestamp      |string         |否         |UNIX时间戳|
     
 
