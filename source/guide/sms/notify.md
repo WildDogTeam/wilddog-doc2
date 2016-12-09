@@ -40,7 +40,7 @@ title: 通知类短信
 </blockquote>
 
 
-### 配置模版
+### 创建模版
 
 通知类模版需创建后提交审核。过程如下：
 
@@ -48,14 +48,17 @@ title: 通知类短信
 
 每个用户可以使用 [变量](/guide/sms/notify.html#配置变量) 来替换内容野狗通知类模板，模板内容中不能连续出现 5 个变量， 每个应用最多创建 50 条通知类模版。
 
-- 验证码模版需要调用短信模板 id。
-- 验证码有效时间默认为10分钟。
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  <li>验证码模版需要调用短信模板 id。</li>
+  <li>验证码有效时间默认为10分钟。</li>
+</blockquote>
 
-通过 “控制面板-短信-模板”页面添加通知类短信内容模板：
+通过 控制面板-短信-模板 创建通知类短信内容模板：
 
 ![](/images/mode.png)
 
-#### 通知类模版使用场景：
+#### 通知类模版使用场景
 
 |场景        |  场景说明|
 |--------------|----  |
@@ -84,5 +87,5 @@ title: 通知类短信
 </blockquote>
 
 ## 调用接口
-- 需生成 [数字签名] (/guide/sms/signature.html#生成数字签名的方法) 及调用接口，请参考 [接口文档](/api/sms/sendcode.html)。
+- 需生成 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 及调用接口，请参考 [接口文档](/api/sms/sendcode.html)。
 - 如需校验验证码和查询短信发送状态，请参考 [校验验证码](/api/sms/checkcode.html) 、[查询模板短信发送状态](/api/sms/sendcode.html)。

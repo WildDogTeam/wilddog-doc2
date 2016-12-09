@@ -1,12 +1,12 @@
 title:  代码片段
 ---
 
-通知类短信发送 Demo 及查询短信发送状态 Demo 
+通知类短信发送 Demo 及查询短信发送状态 Demo ：
 
 ```
 private static String secret = "<YOUR_SECRET>";
-    private static String sendUrl = "http://api.wilddog.com/sms/v1/{appId}/send";
-    private static String queryUrl = "http://api.wilddog.com/sms/v1/{appId}/status";
+private static String sendUrl = "http://api.wilddog.com/sms/v1/{appId}/send";
+private static String queryUrl = "http://api.wilddog.com/sms/v1/{appId}/status";
     
     // 发送短信方法
     public static void send() {

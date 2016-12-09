@@ -11,7 +11,7 @@ title: 接口验证机制
 
 ## 生成数字签名的方法
 
-1.将实际调用 API (除去`smsKey` 和 `signature`字段)的参数以字母升序q(A-Z)排列，此处可参考 [示例代码]()。
+1.将实际调用 API (除去`smsKey` 和 `signature`字段)的参数以字母升序q(A-Z)排列，此处可参考 [示例代码](/resources/sms/resources.html)。
 
 2.以 `key=value’ + ‘&’ + ‘key=value`的方式连接所有参数,得到字符串 `param_str`。
 
