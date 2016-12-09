@@ -404,7 +404,7 @@ resources:
     iOS:
       示例库: /resources/im/ios/resources.html
   短信:
-    代码片段: ／resources/sms/resources.html
+    代码片段: /resources/sms/resources.html
   身份认证:
   # Web: /resources/auth/web.html
     Android:
