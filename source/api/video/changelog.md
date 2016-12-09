@@ -185,6 +185,12 @@ title: 更新日志
 
 ---
 ## iOS SDK
+### v0.5.3 - 2016.12.08
+
+<span class="changelog fix">修复</span>
+
+- 修复当 `WDGVideoLocalStream` 创建失败后，再次创建不会返回的问题。
+- 修复 MeetingCast 的执行回调不会被调用的bug。
 
 ### v0.5.2 - 2016.12.07
 
