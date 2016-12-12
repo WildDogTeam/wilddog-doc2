@@ -29,7 +29,7 @@ POST
 |templateId     |long            |是         |模板 ID|
 |mobile          |string         |是         |收信人手机号，如1xxxxxxxxxx 格式必须为11位|
 |signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法)，合法性验证 其中参与签名加密的参数包括 `templateId`， `mobile`，`timestamp`|
-|timestamp      |string         |否         |UNIX时间戳|
+|timestamp      |string         |是         |UNIX时间戳|
     
 
 <blockquote class="warning">
