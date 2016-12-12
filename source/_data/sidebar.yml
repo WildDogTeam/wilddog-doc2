@@ -29,6 +29,7 @@ quickstart:
   即时通讯: 
     Android: /quickstart/im/android.html
     iOS: /quickstart/im/ios.html
+  短信: /quickstart/sms.html
   身份认证:
     Web: /quickstart/auth/web.html
     Android: /quickstart/auth/android.html
