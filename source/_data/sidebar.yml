@@ -4,7 +4,7 @@ overview:
     实时数据同步: /overview/sync.html
     实时视频通话: /overview/video.html
     即时通讯: /overview/im.html
-    # 短信: /overview/sms.html
+    短信: /overview/sms.html
     身份认证: /overview/auth.html
 
 quickstart:
@@ -68,7 +68,7 @@ guide:
       其他平台: /guide/sync/rest/library.html
     规则表达式:
       简介: /guide/sync/rules/introduce.html
-      #指南: /guide/sync/rules/guide.html
+      指南: /guide/sync/rules/guide.html
       读写权限控制: /guide/sync/rules/access.html
       用户访问控制: /guide/sync/rules/auth.html
       数据校验: /guide/sync/rules/validate.html
@@ -97,7 +97,7 @@ guide:
       多人视频会议: /guide/video/ios/conference.html
 
   即时通讯:
-    #基础概念:
+    基础概念:
     Android:
       初始化: /guide/im/android/intialize.html
       用户集成: /guide/im/android/users.html
@@ -114,10 +114,10 @@ guide:
       讨论组管理: /guide/im/ios/group.html
       离线推送: /guide/im/ios/push.html
 
-  # 短信:
-  #   验证码短信: /guide/sms/vertification.html
-  #   通知类短信: /guide/sms/notify.html
-  #   接口验证机制: /guide/sms/signature.html
+  短信:
+    验证码短信: /guide/sms/vertification.html
+    通知类短信: /guide/sms/notify.html
+    接口验证机制: /guide/sms/signature.html
 
   身份认证:
     基础概念: /guide/auth/core/concept.html
@@ -312,13 +312,13 @@ api:
       VoiceMessage: /api/im/android/VoiceMessage.html
       错误码: /api/im/android/error-code.html
     更新日志: /api/im/changelog.html
-  # 短信:
-  #   发送验证码短信: /api/sms/sendcode.html
-  #   发送通知类短信: /api/sms/send.html
-  #   校验验证码: /api/sms/checkcode.html
-  #   查询发送状态: /api/sms/sendcode.html
-  #   错误码: /api/sms/error-code.html
-  #   更新日志: /api/sms/changelog.html
+  短信:
+    发送验证码短信: /api/sms/sendcode.html
+    发送通知类短信: /api/sms/send.html
+    校验验证码: /api/sms/checkcode.html
+    查询发送状态: /api/sms/sendcode.html
+    错误码: /api/sms/error-code.html
+    更新日志: /api/sms/changelog.html
   身份认证:
     Web:
       App: /api/auth/web/App.html
@@ -403,8 +403,8 @@ resources:
       示例库: /resources/im/android/resources.html
     iOS:
       示例库: /resources/im/ios/resources.html
-  # 短信:
-  #   代码片段: /resources/sms/resources.html
+  短信:
+    代码片段: /resources/sms/resources.html
   身份认证:
   # Web: /resources/auth/web.html
     Android:
