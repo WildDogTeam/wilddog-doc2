@@ -2,7 +2,7 @@
 title: 更新日志
 ---
 
-## SMS API  beta 
+## SMS API Preview 
 
 ### v0.1.1 - 2016.12.10
 
