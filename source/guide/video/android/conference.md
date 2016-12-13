@@ -17,12 +17,11 @@ title: 多人视频会议
     LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
 
     LocalStreamOptions options = builder.height(240).width(320).build();
-    localStream = video.createLocalStream(options, eglBase.getEglBaseContext(), new
-        CompleteListener() {
-            @Override
-            public void onCompleted(VideoException e) {
+    localStream = video.createLocalStream(options,new CompleteListener() {
+        @Override
+        public void onCompleted(VideoException e) {
 
-            }
+        }
     });
     
 ```
@@ -44,7 +43,6 @@ title: 多人视频会议
 
 ```java
     mConference=client.connectToConference("123456", options, new Conference.Listener() {//会议事件监听});
-
 ```
 
 ## 管理其他参与者
@@ -156,7 +154,6 @@ Conference.Listener listener = new Conference.Listener() {
             //操作成功会调用onMeetingCastStateChanged() 方法
         }
     });
-
 ```
 
 **切换直播者**
@@ -191,5 +188,4 @@ Conference.Listener listener = new Conference.Listener() {
             //操作成功会调用onMeetingCastStateChanged() 方法
         }
     });
-
 ```

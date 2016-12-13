@@ -22,7 +22,7 @@ title: 微信公众号登录
  var config = {
      authDomain: "<appId>.wilddog.com"
  };
- wilddog.initializeApp(config, "DEFAULT");
+ wilddog.initializeApp(config);
 
 ```
 
@@ -74,7 +74,3 @@ wilddog.auth().signInWithRedirect(provider).then(function (user) {
 
 
 - Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用微信公众号登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
-
-
-
-

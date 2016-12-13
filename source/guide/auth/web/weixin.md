@@ -22,7 +22,7 @@ title:  微信登录
 var config = {
     authDomain: "<appId>.wilddog.com"
 };
-wilddog.initializeApp(config, "DEFAULT");
+wilddog.initializeApp(config);
 ```
 
 3.Wilddog Auth 提供多种方式进行微信认证，你可以任选其一：

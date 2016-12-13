@@ -70,7 +70,7 @@ WilddogApp.initializeApp(this, options);
 mAuth = WilddogAuth.getInstance();
 ```
 
-3.将该用户的电子邮件地址和密码传递到 `signInWithPhoneAndPassword(phone,password)`，即可在你应用中登录此用户：
+3.将该用户的手机号码和密码传递到 `signInWithPhoneAndPassword(phone,password)`，即可在你应用中登录此用户：
 
 ```java
 String phone = "18888888888";

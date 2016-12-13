@@ -25,7 +25,7 @@ title:  自定义身份认证
  var config = {
     authDomain: "<appId>.wilddog.com"
  };
- wilddog.initializeApp(config, "DEFAULT");
+ wilddog.initializeApp(config);
 ```
 
 3.当用户成功登录你的用户系统时，服务器通过 [Server SDK 生成 Custom Token](/guide/auth/server/server.html)，并返回给客户端。

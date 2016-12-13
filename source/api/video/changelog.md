@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.1 - 2016.12.07
+
+<span class="changelog add">新增</span>
+
+- 增加对 IE 11 浏览器的支持。
+
 ### v0.5.0 - 2016.11.30
 
 <span class="changelog add">新增</span>
@@ -76,6 +82,24 @@ title: 更新日志
 
 ---
 ## Android SDK
+
+### v0.5.2 - 2016.12.07
+
+<span class="changelog optimize">优化</span>
+
+- WilddogVideoView 简化初始化操作。
+- WilddogVideo createLocalStream 去除参数 EglBase.Context。
+
+<span class="changelog fix">修复</span>
+
+- websocket 长连接复用问题。
+- PeerConnection dispose 方法关闭本地视频流导致的 crash 问题。
+
+### v0.5.1 - 2016.12.02
+
+<span class="changelog fix">修复</span>
+
+- 修复调用 WilddogVideoClient.connectToConference 时线程死锁 bug。
 
 ### v0.5.0 - 2016.11.30
 
@@ -161,6 +185,29 @@ title: 更新日志
 
 ---
 ## iOS SDK
+### v0.5.3 - 2016.12.08
+
+<span class="changelog fix">修复</span>
+
+- 修复当 `WDGVideoLocalStream` 创建失败后，再次创建不会返回的问题。
+- 修复 MeetingCast 的执行回调不会被调用的bug。
+
+### v0.5.2 - 2016.12.07
+
+<span class="changelog optimize">优化</span>
+
+- 部分接口增加了输入参数检查。
+
+<span class="changelog fix">修复</span>
+
+- 修复一个会导致与 Web 端 Conversation 建连失败的问题。
+- 修复了一个导致统计接口请求失败的参数名错误。
+
+### v0.5.1 - 2016.12.02
+
+<span class="changelog fix">修复</span>
+
+- 修复邀请者离线时，即使邀请已经被接收，被邀请者仍然会收到邀请取消的代理回调问题。
 
 ### v0.5.0 - 2016.11.30
 

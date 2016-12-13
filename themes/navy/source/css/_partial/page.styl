@@ -401,19 +401,30 @@ $article-footer-link
 .back-top-show
   opacity: 1
 
-.article-footer-next .page-ctrl-next
+.article-footer-next
+  margin-top: 10px
+  .page-title
+    padding-right: 20px
+    display: block
+    line-height: 1.2
+    text-align: right
   .arr-icon
-    position: relative
-    top: -1px
-    margin-left: 4px
+    position: absolute
+    top: 14px
+    right: 0
     border: 0
     box-shadow: none
 
-.article-footer-prev .page-ctrl-pre
+.article-footer-prev
+  margin-top: 10px
+  .page-title
+    padding-left: 20px
+    display: block
+    line-height: 1.2
   .arr-icon
-    position: relative
-    top: -1px
-    margin-right: 4px
+    position: absolute
+    top: 14px
+    left: 0
     border: 0
     box-shadow: none
 
@@ -425,10 +436,6 @@ $article-footer-link
 
 p:nth-child(1)
   margin-top: 0
-
-.page-title
-  margin-top: 10px
-  display: block
   
 .feed-back
   position: fixed

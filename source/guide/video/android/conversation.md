@@ -17,14 +17,12 @@ title: 视频通话
 
 ```java
     LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
-
     LocalStreamOptions options = builder.height(240).width(320).build();
-    localStream = video.createLocalStream(options, eglBase.getEglBaseContext(), new
-        CompleteListener() {
-            @Override
-            public void onCompleted(VideoException e) {
+    localStream = video.createLocalStream(options, new CompleteListener() {
+        @Override
+        public void onCompleted(VideoException e) {
 
-            }
+        }
     });
     //为视频流绑定播放控件
     localStream.attach(localView);

@@ -48,10 +48,7 @@ window.onload = function () {
     })
   });
   
-  /*右侧用户反馈功能*/
-  getClass('close-feed')[0].addEventListener('click', function () {
-    this.parentNode.style.display = 'none';
-  });
+
 
 //滚屏时右侧边栏根据当前标题高亮对应目录项
   var headings = getClass('article-heading');
@@ -126,7 +123,7 @@ window.onload = function () {
     } else {
       removeClass(backTop, 'back-top-show')
     };
-    if(scrollTop < scrollStart) {
+    if(scrollTop > scrollStart) {
       addClass(feedBack, 'scrollHide')
     } else {
       removeClass(feedBack, 'scrollHide')
@@ -158,6 +155,8 @@ window.onload = function () {
   var videoIosVersionContent = getClass('video-ios-version');
   var videoAndroidDownloadSrc = getClass('video-android-download');
   var videoIosDownloadSrc = getClass('video-ios-download');
+  var imAndroidDownloadSrc = getClass('im-android-download');
+  var imIosDownloadSrc = getClass('im-ios-download');
     var config = {
       authDomain: "wd-download.wilddog.com",
       syncURL: "https://wd-download.wilddogio.com"
@@ -174,8 +173,8 @@ window.onload = function () {
       var videoWebVersion = snap.val().WilddogVideoWeb.version;
       var videoAndroidVersion = snap.val().WilddogVideoAndroid.version;
       var videoIosVersion = snap.val().WilddogVideoiOS.version;
-      var videoAndroidDownload = snap.val().WilddogVideoAndroid.downUrl;
-      var videoIosDownload = snap.val().WilddogVideoiOS.downUrl;
+      var imAndroidDownload = snap.val().WilddogIMAndroid.cdn;
+      var imIosDownload = snap.val().WilddogIMiOS.cdn;
       jsVersionContent.forEach(function (ele) {
         ele.textContent = jsVersion;
       });
@@ -212,6 +211,12 @@ window.onload = function () {
       getClass('line').forEach(function (ele) {
         ele.style.opacity = '1';
       })
+      imAndroidDownloadSrc.forEach(function (ele) {
+        ele.setAttribute('href', imAndroidDownload);
+      });
+      imIosDownloadSrc.forEach(function (ele) {
+        ele.setAttribute('href', imIosDownload);
+      });
     });
 
     var slides = getClass('slide');

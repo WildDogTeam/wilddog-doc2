@@ -29,8 +29,6 @@ var config = {
 };
 // 初始化Wilddog Sync
 wilddog.initializeApp(config);
-// 创建交互路径的 Wilddog Sync 引用，该路径可以自定义
-var ref = wilddog.sync().ref("你的自定义路径");
 var videoInstance = wilddog.video();
 var client;
 // 初始化 Video Client 之前，要先经过身份认证。这里采用匿名登录的方式。

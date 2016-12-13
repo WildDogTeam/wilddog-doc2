@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过以下教程快速了解  IM 的用法。
+你可以通过以下教程快速了解 IM 的用法。同时，你可以通过 [IM Demo](https://github.com/WildDogTeam/demo-android-wilddogim) 进行体验。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -21,14 +21,12 @@ title: 快速入门
 
 1.安装 Wilddog IM SDK
 
-Android Studio 使用 Gradle 添加 Wilddog IM 的依赖。在你的 build.gradle 添加：
-
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-IM-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
+你可以直接下载 <a href='#' class='im-android-download' target="_blank">Android SDK</a> 进行安装。
 
 2.工程配置
 
 Wilddog IM 解决方案在 Android 上需要 android.permission.INTERNET 权限。你需要在 AndroidMainfest.xml 文件添加以下内容：
-[xml 添加内容](http://ocpo37x5v.bkt.clouddn.com/im-android.html)
+[xml 添加内容](https://cdn.wilddog.com/docs/android/android-xml.html)。
 
 
 ## 3. 初始化
