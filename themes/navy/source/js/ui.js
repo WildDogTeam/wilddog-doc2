@@ -1,3 +1,6 @@
+getClass('line').forEach(function (ele) {
+  ele.style.opacity = '0';
+})
 window.onload = function () {
 
 //右侧目录判断是否显示
@@ -155,7 +158,6 @@ window.onload = function () {
   var videoIosVersionContent = getClass('video-ios-version');
   var videoAndroidDownloadSrc = getClass('video-android-download');
   var videoIosDownloadSrc = getClass('video-ios-download');
-
     var config = {
       authDomain: "wd-download.wilddog.com",
       syncURL: "https://wd-download.wilddogio.com"
@@ -207,6 +209,9 @@ window.onload = function () {
       videoIosDownloadSrc.forEach(function (ele) {
         ele.setAttribute('href', videoIosDownload);
       });
+      getClass('line').forEach(function (ele) {
+        ele.style.opacity = '1';
+      })
     });
 
     var slides = getClass('slide');
