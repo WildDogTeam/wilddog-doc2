@@ -79,6 +79,62 @@ private static String queryUrl = "http://api.wilddog.com/sms/v1/{appId}/status";
             e.printStackTrace();
         }
     }
+    
+// 示例代码用到的 OkHttpUtils 工具类
+public class OkHttpUtils {
+
+    private static OkHttpClient client = null;
+
+    public static OkHttpClient getOkHttpClient() {
+        if (client == null) {
+            synchronized (OkHttpUtils.class) {
+                if (client == null) {
+                    initClient();
+                }
+            }
+        }
+        return client;
+    }
+
+    private static void initClient() {
+        Dispatcher dispatcher = new Dispatcher();
+        dispatcher.setMaxRequests(100);
+        dispatcher.setMaxRequestsPerHost(100);
+
+        SSLContext sslContext;
+        try {
+            sslContext = SSLContext.getInstance("SSL");
+            
+            X509TrustManager x509TrustManager = new X509TrustManager() {
+                @Override
+                public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType)
+                                throws CertificateException {}
+
+                @Override
+                public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType)
+                                throws CertificateException {}
+
+                @Override
+                public java.security.cert.X509Certificate[] getAcceptedIssuers() {
+                    return new java.security.cert.X509Certificate[] {};
+                }
+            };
+            final TrustManager[] trustAllCerts = new TrustManager[] {x509TrustManager};
+            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
+            // Create an ssl socket factory with our all-trusting manager
+            final SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+
+            builder.sslSocketFactory(sslSocketFactory, x509TrustManager);
+            client = builder.dispatcher(dispatcher).build();
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+    }
+}
+      
 ```
 
 
