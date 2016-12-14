@@ -45,7 +45,7 @@ POST
 "Content-Type": "application/json; charset=utf-8"
 {
   "status":"ok",
-  "data":"{
+  "data":{
         "sendId" : "1233445555"
    }
 }
