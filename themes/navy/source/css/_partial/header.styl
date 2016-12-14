@@ -1,6 +1,6 @@
 header-padding-normal = 10px
 header-padding-max = 30px
-logo-size = 40px
+logo-size = 48px
 
 .pull-left
   float: left
@@ -47,6 +47,7 @@ logo-size = 40px
 #logo
   hide-text()
   background: url("/images/logo.svg")
+  background-size: contain
   width: logo-size
   height: logo-size
   background-size: @width @height
@@ -58,6 +59,7 @@ logo-size = 40px
   position: relative
   top: 10px
   padding-left: 114px
+  padding-top: 8px
   @media mq-normal
     display: block
 
