@@ -54,7 +54,5 @@ POST
 **示例代码**
 
 ```
-curl -X POST https://api.wilddog.com/sms/v1/{appId}/sendCode -
-d"signature=$signature&mobile=$mobile&timestamp=$timestamp&templateId=$templateId"	
-
-```	
+curl -X POST https://api.wilddog.com/sms/v1/{appId}/sendCode -d"signature=$signature&mobile=$mobile&timestamp=$timestamp&templateId=$templateId"	
+```
