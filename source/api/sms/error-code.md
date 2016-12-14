@@ -30,7 +30,7 @@ title:  错误码
 |70218|sms check code not exist|手机没有发送验证码，请重新发送验证码|
 |70219|sms send check code error|手机发送验证码出现错误，请重试|
 |70220|sms parameter format error,only jsonarray accepted|发送参数格式错误，不是JSONArray类型|
-|70301|sms server must have 5¥ to use in the first time|帐户余额不足5元，不能开启短信服务|
-|70302|sms server must have balance to use"|帐户余额不足0元，不能使用短信服务|
-|70303|sms server not have enough money to pay this appLy|帐户余额不足支付本次短信服务|
+|70301|sms server must have ¥5 to use in the first time|帐户余额不足5元，不能开启短信服务|
+|70302|sms server must have balance to use|帐户余额不足0元，不能使用短信服务|
+|70303|sms server not have enough money to pay this apply|帐户余额不足支付本次短信服务|
 |70304|exceeded max api call frequency|发送接口调用频繁,请稍后重试|
