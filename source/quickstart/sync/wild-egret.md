@@ -12,24 +12,22 @@ title: 快速入门
     </ul>
 </div>
 
-## 1. 下载地址
+## 1. 下载项目
 
-[下载该项目](https://github.com/WildDogTeam/lib-js-wildegret.git) 到本地某个路径下,下文用 <path-to-wildegret> 代替这个路径
-
-首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
+[下载该项目](https://github.com/WildDogTeam/lib-js-wildegret.git) 到本地某个路径下,下文用 `path-to-wildegret` 代替这个路径
 
 
 ## 2. 创建应用
 
-首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
+你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
 
 
 ## 3. 执行 Egret build
 在此项目中执行 Egret build，可以看到会在 bin 下生成几个文件。
 
-## 4. 修改引入野狗的 Egret 项目
 
-在需要引入野狗的 egret项目（下文用目标项目代替）中修改`egretProperties.json`,在 modules 下增加一项,如下：
+## 4. 修改目标项目
+在需要引入野狗的 Egret 项目（即目标项目）中修改`egretProperties.json`，在 modules 下增加一项，示例如下：
 
 ```
 {
@@ -40,7 +38,7 @@ title: 快速入门
 ```
 
 
-然后把 `wilddog.d.ts` 复制到目标项目的 `src`目录下，并稍做修改: 如果最后一行是 export = wilddog; 把这行注释或删除。
+然后把 `wilddog.d.ts` 复制到目标项目的 `src`目录下，并稍做修改: 如果最后一行是 `export = wilddog; `把这行注释或删除。
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
