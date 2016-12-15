@@ -33,4 +33,4 @@ title:  错误码
 |70301|your account must have at least ¥5 to use sms service|帐户余额不足5元，不能开启短信服务|
 |70302|your account rate insufficient balance|帐户余额不足0元，不能使用短信服务|
 |70303|your account dose not have enough balance for this api call|帐户余额不足支付本次短信服务|
-|70304|exceeded max api call frequency|发送接口调用频繁,请稍后重试|
+|70304|exceeded max api call frequency|发送接口调用频繁,超过每秒10次，请稍后重试|
