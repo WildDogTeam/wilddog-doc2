@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-本篇文档介绍 Sync 引入 Egret 的方法。
+本篇文档介绍 Auth 引入 Egret 的方法。
 
 <div class="env">
 
@@ -14,7 +14,7 @@ title: 快速入门
 
 ## 1. 下载项目
 
-[下载该项目](https://github.com/WildDogTeam/lib-js-wildegret.git) 到本地某个路径下,下文用 `path-to-wildegret` 代替这个路径
+[下载该项目](https://github.com/WildDogTeam/wilddog-egret/archive/master.zip) 到本地某个路径下,下文用 `path-to-wildegret` 代替这个路径。
 
 
 ## 2. 创建应用
@@ -67,7 +67,7 @@ wilddoog.sync().ref().on('child_added',function(snapshot){
 
 ## 5.更多使用
 
-- 了解更多使用方式，请参考 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。
+- 了解更多使用方式，请参考 [完整指南](/guide/auth/web/manageuser.html) 和 [API 文档](/api/auth/web/App.html)。
 
 
 
