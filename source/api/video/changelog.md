@@ -4,6 +4,23 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.3 - 2016.12.13
+
+<span class="changelog optimize">优化</span>
+
+- 增加错误码。
+- 修复 meetingCast.onStateChanged() 无效的问题。
+
+### v0.5.2 - 2016.12.13
+
+<span class="changelog add">新增</span>
+
+- 增加对 npm 下载的方式。
+
+<span class="changelog optimize">优化</span>
+
+- 修复 conference.disconnect() 无效的问题。
+
 ### v0.5.1 - 2016.12.07
 
 <span class="changelog add">新增</span>
