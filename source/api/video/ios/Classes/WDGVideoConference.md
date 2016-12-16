@@ -63,7 +63,7 @@ title: WDGVideoConference
 
 **说明**
 
-表示除自己外，已加入视频会议参与者。
+表示除自己外，已加入视频会议的参与者。
 
 </br>
 
@@ -79,7 +79,7 @@ title: WDGVideoConference
 
 **说明**
 
-[WDGVideoMeetingCast](../Classes/WDGVideoMeetingCast.html) 类型，用于查看并控制当前视频会议的直播状态。当野狗控制台中未开启直播推流功能时该属性为 nil 。
+[WDGVideoMeetingCast](../Classes/WDGVideoMeetingCast.html) 类型，用于查看并控制当前视频会议的直播状态。当野狗控制台中未开启直播推流功能时该属性为 nil。
 
 </br>
 
@@ -90,7 +90,7 @@ title: WDGVideoConference
 **定义**
 
 ```objectivec
-@property (readwrite, nonatomic, nullable) id<WDGVideoConferenceDelegate>delegate;
+@property (readwrite, nonatomic, nullable) id<WDGVideoConferenceDelegate> delegate;
 ```
 
 **说明**
@@ -135,11 +135,11 @@ title: WDGVideoConference
 
  参数名 | 说明 
 ---|---
-participantID|会议参与者的 Wilddog ID 。
+participantID|会议参与者的 Wilddog ID。
 
 **返回值**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例，若未找到相应参与者，返回 nil 。
+[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例，若未找到相应参与者，返回 nil。
 
 </br>
 

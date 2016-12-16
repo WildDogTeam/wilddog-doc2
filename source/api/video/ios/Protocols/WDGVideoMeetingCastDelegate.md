@@ -15,7 +15,7 @@ MeetingCast 代理方法。
 
 **说明**
 
-当前会议的直播状态发生变化时，通过该代理方法返回当前直播参与者的 Wilddog ID 与直播流的 URL 地址。
+当前视频会议的直播状态发生变化时，通过该代理方法返回当前直播参与者的 Wilddog ID 与直播流的 URL 地址。
 
 **参数**
 
@@ -23,7 +23,7 @@ MeetingCast 代理方法。
 ---|---
 meetingCast|当前 [WDGVideoMeetingCast](../Classes/WDGVideoMeetingCast.html) 实例。
 status|最新的直播状态。
-participantID|当前直播中的参与者的 Wilddog ID 。
+participantID|当前直播中的参与者的 Wilddog ID。
 castURLs|包含直播流的 URL 地址，字典的 Key 为直播流的种类，目前包含 `rtmp` 和 `hls` 两类，字典的 Value 为该直播流种类对应的地址。
 
 </br>
