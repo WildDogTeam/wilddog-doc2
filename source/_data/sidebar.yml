@@ -15,6 +15,7 @@ quickstart:
     C/嵌入式: /quickstart/sync/c.html
     REST: /quickstart/sync/rest.html
     微信小程序: /quickstart/sync/wechat.html
+    Egret: /quickstart/sync/wild-egret-sync.html
     规则表达式: /quickstart/sync/rule.html
   实时视频通话:
     Web:
@@ -35,6 +36,7 @@ quickstart:
     Android: /quickstart/auth/android.html
     iOS: /quickstart/auth/ios.html
     微信小程序: /quickstart/auth/wechat.html
+    Egret: /quickstart/auth/wild-egret-auth.html
 
 guide:
   实时数据同步:

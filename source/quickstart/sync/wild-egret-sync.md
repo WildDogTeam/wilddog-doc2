@@ -12,18 +12,17 @@ title: 快速入门
     </ul>
 </div>
 
-## 1. 下载项目
+## 1. 创建应用
+
+首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
+
+## 2. 下载 Wilddog-Egret 项目
 
 [下载该项目](https://github.com/WildDogTeam/wilddog-egret/archive/master.zip) 到本地某个路径下,下文用 `path-to-wildegret` 代替这个路径。
 
 
-## 2. 创建应用
-
-你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
-
-
-## 3. 执行 Egret build
-在此项目中执行 Egret build，可以看到会在 bin 下生成几个文件。
+## 3. 执行 egret build
+在此项目中执行 egret build，可以看到会在 bin 下生成几个文件。
 
 
 ## 4. 修改目标项目
