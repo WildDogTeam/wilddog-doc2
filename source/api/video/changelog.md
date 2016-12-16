@@ -19,7 +19,7 @@ title: 更新日志
 
 <span class="changelog add">新增</span>
 
-- 发布 node 版本。
+- 增加对 npm 下载的方式。
 
 <span class="changelog fix">修复</span>
 
