@@ -31,7 +31,7 @@ title: WDGVideoMeetingCast
 
 **说明**
 
-表明当前正在直播的参与者的 Wilddog ID 。若当前没在直播，该属性为 nil 。
+表明当前正在直播的参与者的 Wilddog ID。若当前没在直播，该属性为 nil。
 
 </br>
 
@@ -42,7 +42,7 @@ title: WDGVideoMeetingCast
 **定义**
 
 ```objectivec
-@property (readwrite, nonatomic, nullable) id<WDGVideoMeetingCastDelegate>delegate;
+@property (readwrite, nonatomic, nullable) id<WDGVideoMeetingCastDelegate> delegate;
 ```
 
 **说明**
@@ -65,13 +65,13 @@ title: WDGVideoMeetingCast
 
 **说明**
 
-开启直播。
+开启直播。通过 [WDGVideoMeetingCastDelegate](../Protocols/WDGVideoMeetingCastDelegate.html) 获得直播信息。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participantID|开启直播，并直播 Wilddog ID 为 participantID 的参与者的音视频流。
+participantID|开启直播，并直播 Wilddog ID 为 participantID 的参与者的媒体流。
 
 </br>
 
@@ -87,13 +87,13 @@ participantID|开启直播，并直播 Wilddog ID 为 participantID 的参与者
 
 **说明**
 
-开启直播。
+开启直播。通过 [WDGVideoMeetingCastDelegate](../Protocols/WDGVideoMeetingCastDelegate.html) 获得直播信息。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participantID|开启直播，并直播 Wilddog ID 为 participantID 的参与者的音视频流。
+participantID|开启直播，并直播 Wilddog ID 为 participantID 的参与者的媒体流。
 completionHandler|操作完成时通过回调返回操作状态，若失败则通过 NSError 对象说明原因。
 
 </br>
@@ -110,13 +110,13 @@ completionHandler|操作完成时通过回调返回操作状态，若失败则�
 
 **说明**
 
-在直播开启后，切换直播视频流。
+在直播开启后，切换直播视频流。通过 [WDGVideoMeetingCastDelegate](../Protocols/WDGVideoMeetingCastDelegate.html) 获得直播信息。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participantID|直播 Wilddog ID 为 participantID 的参与者的音视频流。
+participantID|直播 Wilddog ID 为 participantID 的参与者的媒体流。
 
 </br>
 
@@ -132,13 +132,13 @@ participantID|直播 Wilddog ID 为 participantID 的参与者的音视频流。
 
 **说明**
 
-在直播开启后，切换直播视频流。
+在直播开启后，切换直播视频流。通过 [WDGVideoMeetingCastDelegate](../Protocols/WDGVideoMeetingCastDelegate.html) 获得直播信息。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participantID|直播 Wilddog ID 为 participantID 的参与者的音视频流。
+participantID|直播 Wilddog ID 为 participantID 的参与者的媒体流。
 completionHandler|操作完成时通过回调返回操作状态，若失败则通过 NSError 对象说明原因。
 
 </br>

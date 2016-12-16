@@ -74,7 +74,7 @@ title: WDGVideoConversation
 **定义**
 
 ```objectivec
-@property (readwrite, nonatomic, nullable) id<WDGVideoConversationDelegate>delegate;
+@property (readwrite, nonatomic, nullable) id<WDGVideoConversationDelegate> delegate;
 ```
 
 **说明**
