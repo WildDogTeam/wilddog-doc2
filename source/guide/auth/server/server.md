@@ -29,7 +29,7 @@ title: 使用 Server SDK
  developerClaims.put("claims3", developerClaims2);
  TokenOptions options = new TokenOptions();
  options.setExpires(new Date(System.currentTimeMillis() + 2 * 24 * 3600 * 1000L));
- String token = CustomTokenGenerator.createCustomToken("some-uid:", developerClaims, secret, options);
+ String token = CustomTokenGenerator.createCustomToken("some-uid", developerClaims, secret, options);
 ```
 
 生成 Admin Token：
@@ -43,7 +43,7 @@ title: 使用 Server SDK
  String token = CustomTokenGenerator.createAdminToken(secret, options);
 ```
 
-Custom Token 按照 [JWT]() 格式生成，格式如下：
+Custom Token 按照 [JWT](https://jwt.io/) 格式生成，格式如下：
 
 Custom Token payload：
 

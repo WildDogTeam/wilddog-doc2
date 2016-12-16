@@ -2,7 +2,7 @@
 title: User
 ---
 
-wilddog.User 对象包含所有维护帐户个人信息的接口，我们不能直接创建此对象，只能通过 `wilddog.auth().currrentUser` 或者部分登录接口来获取 User 的实例。
+wilddog.User 对象包含所有维护帐户个人信息的接口，我们不能直接创建此对象，只能通过 `wilddog.auth().currentUser` 或者部分登录接口来获取 User 的实例。
 
 ## 属性
 
