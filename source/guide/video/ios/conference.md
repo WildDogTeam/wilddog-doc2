@@ -70,6 +70,7 @@ self.conference = [self.wilddogVideoClient connectToConferenceWithID:@"123456" o
     // 参与者成功加入会议，将参与者的视频流展示出来
     NSLog(@"receive stream %@ from participant %@", stream, participant);
     self.remoteStream = stream;
+    // 每个 WDGVideoView 只能展示一个 WDGVideoStream，这里假设会议只有一个参与者
     [self.remoteStream attach:self.remoteVideoView];
 }
 ```
