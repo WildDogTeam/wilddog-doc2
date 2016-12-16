@@ -108,7 +108,14 @@ self.conference = nil;
 例如，选择参与者 '12345' 作为直播源开启直播：
 
 ```objectivec
-[self.conference.meetingCast startWithParticipantID:@"12345"];
+- (void)startMeetingCast {
+    [self.conference.meetingCast startWithParticipantID:@"12345"];
+}
+
+// 随后于 WDGVideoMeetingCastDelegate 方法中获得直播地址
+- (void)meetingCast:(WDGVideoMeetingCast *)meetingCast didUpdatedWithStatus:(WDGVideoMeetingCastStatus)status castingParticipantID:(NSString * _Nullable)participantID castURLs:(NSDictionary<NSString *, NSString *> * _Nullable)castURLs {
+    NSLog(@"participantID: %@ castURLs: %@", participantID, castURLs);
+}
 ```
 
 **切换直播者**
@@ -119,7 +126,14 @@ self.conference = nil;
 
 
 ```objectivec
-[self.conference.meetingCast switchToParticipantID:@"99999"];
+- (void)switchMeetingCast {
+    [self.conference.meetingCast switchToParticipantID:@"99999"];
+}
+
+// 随后于 WDGVideoMeetingCastDelegate 方法中获得直播地址
+- (void)meetingCast:(WDGVideoMeetingCast *)meetingCast didUpdatedWithStatus:(WDGVideoMeetingCastStatus)status castingParticipantID:(NSString * _Nullable)participantID castURLs:(NSDictionary<NSString *, NSString *> * _Nullable)castURLs {
+    NSLog(@"participantID: %@ castURLs: %@", participantID, castURLs);
+}
 ```
 
 **停止直播**
@@ -130,5 +144,7 @@ self.conference = nil;
 
 
 ```objectivec
-[self.conference.meetingCast stop];
+- (void)stopMeetingCast {
+    [self.conference.meetingCast stop];
+}
 ```
