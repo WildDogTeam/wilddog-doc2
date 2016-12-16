@@ -1,7 +1,7 @@
 title: WDGVideoOutgoingInvite
 ---
 
-表示自己发出的会话邀请。
+表示自己发出的视频通话邀请。
 
 ## 属性
 
@@ -15,7 +15,7 @@ title: WDGVideoOutgoingInvite
 
 **说明**
 
-被邀请者的 Wilddog ID 。
+被邀请者的 Wilddog ID。
 
 </br>
 

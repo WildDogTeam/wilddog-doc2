@@ -10,7 +10,7 @@ title: WDGVideoConnectOptions
 **定义**
 
 ```objectivec
-@property (readwrite, strong, nonatomic)WDGVideoLocalStream *_Nonnull localStream;
+@property (readwrite, strong, nonatomic) WDGVideoLocalStream *_Nonnull localStream;
 ```
 
 **说明**

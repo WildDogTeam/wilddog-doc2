@@ -70,6 +70,7 @@ self.conference = [self.wilddogVideoClient connectToConferenceWithID:@"123456" o
     // 参与者成功加入会议，将参与者的视频流展示出来
     NSLog(@"receive stream %@ from participant %@", stream, participant);
     self.remoteStream = stream;
+    // 每个 WDGVideoView 只能展示一个 WDGVideoStream，这里假设会议只有一个参与者
     [self.remoteStream attach:self.remoteVideoView];
 }
 ```
@@ -108,7 +109,14 @@ self.conference = nil;
 例如，选择参与者 '12345' 作为直播源开启直播：
 
 ```objectivec
-[self.conference.meetingCast startWithParticipantID:@"12345"];
+- (void)startMeetingCast {
+    [self.conference.meetingCast startWithParticipantID:@"12345"];
+}
+
+// 随后于 WDGVideoMeetingCastDelegate 方法中获得直播地址
+- (void)meetingCast:(WDGVideoMeetingCast *)meetingCast didUpdatedWithStatus:(WDGVideoMeetingCastStatus)status castingParticipantID:(NSString * _Nullable)participantID castURLs:(NSDictionary<NSString *, NSString *> * _Nullable)castURLs {
+    NSLog(@"participantID: %@ castURLs: %@", participantID, castURLs);
+}
 ```
 
 **切换直播者**
@@ -119,7 +127,14 @@ self.conference = nil;
 
 
 ```objectivec
-[self.conference.meetingCast switchToParticipantID:@"99999"];
+- (void)switchMeetingCast {
+    [self.conference.meetingCast switchToParticipantID:@"99999"];
+}
+
+// 随后于 WDGVideoMeetingCastDelegate 方法中获得直播地址
+- (void)meetingCast:(WDGVideoMeetingCast *)meetingCast didUpdatedWithStatus:(WDGVideoMeetingCastStatus)status castingParticipantID:(NSString * _Nullable)participantID castURLs:(NSDictionary<NSString *, NSString *> * _Nullable)castURLs {
+    NSLog(@"participantID: %@ castURLs: %@", participantID, castURLs);
+}
 ```
 
 **停止直播**
@@ -130,5 +145,7 @@ self.conference = nil;
 
 
 ```objectivec
-[self.conference.meetingCast stop];
+- (void)stopMeetingCast {
+    [self.conference.meetingCast stop];
+}
 ```

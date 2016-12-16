@@ -15,7 +15,7 @@ title: WDGVideoLocalParticipant
 
 **说明**
 
-本地参与者的 Wilddog ID 。
+本地参与者的 Wilddog ID。
 
 </br>
 
@@ -31,4 +31,4 @@ title: WDGVideoLocalParticipant
 
 **说明**
 
-本地参与者发布的音视频流。
+本地参与者发布的媒体流。
