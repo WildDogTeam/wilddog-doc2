@@ -100,15 +100,26 @@ conference.on('participant_disconnected', function(participant){
 
 ### 播放其他参与者的媒体流
 
-通过展示他参与者的视频流来观看其视频画面。
+每个其他参与者都由一个 participant 对象表示，通过绑定 participant 的视频流来观看其视频画面。
 
 例如，当监听到参与者加入视频会议时展示参与者的媒体流：
 
 ```javascript
+//div 标签，所有 video 标签都从属于该标签
+var videosEl = document.getElementById('videos');
+//一个 video 标签
 var remoteEl = document.getElementById('remote');
-participant.on('streamAdded', function(stream){
-    console.log('Receive stream!');
-    stream.attach(remoteEl);
+//监听参与者加入事件
+conference.on('participant_connected', function(participant){
+    console.log('New participant connected: ', participant.Id);
+      //复制一个 video 标签，用来展示新参与者的视频画面
+	  var newRemote = remoteEl.cloneNode(true);
+	  videosEl.appendChild(newRemote);
+      //监听 streamAdded事件，将收到的stream展示到页面
+    participant.on('streamAdded', function(stream){
+            console.log('Receive stream!');
+        stream.attach(newRemote);
+    });
 });
 ```
 
