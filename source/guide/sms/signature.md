@@ -11,7 +11,7 @@ title: 接口验证机制
 
 ## 生成数字签名的方法
 
-1.将实际调用 API (除去`smsKey` 和 `signature`字段)的参数以字母升序q(A-Z)排列，此处可参考 [示例代码](/resources/sms/resources.html)。
+1.将实际调用 API (除去`smsKey` 和 `signature`字段)的参数以字母升序(A-Z)排列，此处可参考 [示例代码](/resources/sms/resources.html)。
 
 2.以 `key=value’ + ‘&’ + ‘key=value`的方式连接所有参数,得到字符串 `param_str`。
 
@@ -19,7 +19,7 @@ title: 接口验证机制
 
 4.计算 `sign_str`的 SHA256值 (64位, 不区分大小写), 得到 `signature`
 
-5.改签名用于各个接口的访问
+5.该签名用于各个接口的访问。
 
 其中短信 API 密钥( SMS_KEY )在 控制面板-短信-模板 中获取，操作如下：
 
