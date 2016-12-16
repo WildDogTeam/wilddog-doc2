@@ -11,6 +11,10 @@ title: 更新日志
 - 更新错误码。
 - participant 中 去掉'error'事件，增加 'disconnected' 和 'connectFailed' 事件。
 
+<span class="changelog fix">修复</span>
+
+- 修复meetingCast.onStateChanged 失败的问题。
+
 ### 0.5.2 - 2016.12.15
 
 <span class="changelog add">新增</span>
