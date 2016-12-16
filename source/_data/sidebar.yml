@@ -257,6 +257,7 @@ api:
       LocalStream: /api/video/android/local-stream.html
       RemoteStream: /api/video/android/remote-stream.html
       Participant: /api/video/android/participant.html
+      Participant.Listener: /api/video/android/participant-listener.html
       LocalParticipant: /api/video/android/local-participant.html
       VideoException: /api/video/android/video-exception.html
       MeetingCast: /api/video/android/meeting-cast.html

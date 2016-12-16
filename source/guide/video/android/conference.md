@@ -189,3 +189,20 @@ Conference.Listener listener = new Conference.Listener() {
         }
     });
 ```
+**直播状态**
+
+获取直播状态，通过直播状态监听获取直播地址。
+
+```
+    meetingCast = mConference.getMeetingCast(new MeetingCastStateListener() {
+        @Override
+        public void onMeetingCastStateChanged(String state, String participantId, Map<String, String> urlMap) {
+            //state：直播状态
+            //participantId:当前正在直播的参与者 ID
+            //urlMap:直播地址
+        }
+    });
+```
+
+
+
