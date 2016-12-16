@@ -67,7 +67,7 @@ error|错误信息，描述未能建立连接的原因。
  参数名 | 说明 
 ---|---
 conversation|调用该方法的 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例。
-error|错误信息，描述连接断开的原因。本地主动断开连接时为 nil 。
+error|错误信息，描述连接断开的原因。本地主动断开连接时为 nil。
 
 </br>
 

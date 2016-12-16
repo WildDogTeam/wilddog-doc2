@@ -31,7 +31,7 @@ title: WDGVideoClient
 
 **说明**
 
-Client 对应的 Wilddog ID 。
+Client 对应的 Wilddog ID。
 
 </br>
 
@@ -108,7 +108,7 @@ options|配置选项。
 
  参数名 | 说明 
 ---|---
-participantID|被邀请者的 Wilddog ID 。 
+participantID|被邀请者的 Wilddog ID。 
 options|邀请成功时使用该配置项创建通话。 
 completionHandler|当邀请得到回应后，SDK 通过该闭包通知邀请结果，若对方接受邀请，在闭包中返回 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例，否则将在闭包中返回 `NSError` 说明邀请失败的原因。
 
@@ -136,7 +136,7 @@ completionHandler|当邀请得到回应后，SDK 通过该闭包通知邀请结�
 
  参数名 | 说明 
 ---|---
-conferenceID|连接的会议 ID 。
+conferenceID|连接的会议 ID。
 options|[WDGVideoConnectOptions](../Classes/WDGVideoConnectOptions.html) 实例，用于配置连接会议所用的选项。
 delegate|满足 [WDGVideoConferenceDelegate](../Protocols/WDGVideoConferenceDelegate.html) 协议的代理。
 

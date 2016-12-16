@@ -15,7 +15,7 @@ title: WDGVideoParticipant
 
 **说明**
 
-该参与者的 Wilddog ID 。
+该参与者的 Wilddog ID。
 
 </br>
 
@@ -31,7 +31,7 @@ title: WDGVideoParticipant
 
 **说明**
 
-该参与者发布的音视频流。
+该参与者发布的媒体流。
 
 </br>
 
@@ -42,7 +42,7 @@ title: WDGVideoParticipant
 **定义**
 
 ```objectivec
-@property (readwrite, nonatomic, nullable) id<WDGVideoParticipantDelegate>delegate;
+@property (readwrite, nonatomic, nullable) id<WDGVideoParticipantDelegate> delegate;
 ```
 
 **说明**
