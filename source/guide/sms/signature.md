@@ -11,7 +11,28 @@ title: 接口验证机制
 
 ## 生成数字签名的方法
 
-1.将实际调用 API (除去`smsKey` 和 `signature`字段)的参数以字母升序(A-Z)排列，此处可参考 [示例代码](/resources/sms/resources.html)。
+1.将实际调用 API (除去`smsKey` 和 `signature`字段)的参数以字母升序(A-Z)排列，Java 示例如下（其他语言规则一致）：
+
+```   
+// 发送短信验证码
+    public static void sendCode(String templateId, String mobile) {
+        long timestamp = System.currentTimeMillis();
+        Map<String, String> params = new HashMap<String, String>();
+        // 设置请求参数
+        params.put("templateId", templateId);
+        params.put("mobile", mobile);
+        params.put("timestamp", String.valueOf(timestamp));
+        // 对以上三个请求参数进行升序排列
+        Map<String, Object> sortedMap = new TreeMap<String, Object>(new Comparator<String>() {
+            public int compare(String arg0, String arg1) {
+                // 忽略大小写
+                return arg0.compareToIgnoreCase(arg1);
+            }
+        });
+
+```
+
+此处可参考完整 [示例代码](/resources/sms/resources.html)。
 
 2.以 `key=value’ + ‘&’ + ‘key=value`的方式连接所有参数,得到字符串 `param_str`。
 

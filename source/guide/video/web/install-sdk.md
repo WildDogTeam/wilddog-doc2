@@ -12,7 +12,36 @@ Video SDK 的实现依赖于 Sync 和 Auth SDK，所以在使用 Video SDK 前�
 
 #### 安装 Video SDK
 
+Video SDK 提供标签引用和 npm 下载两种方式安装。
+
+**通过标签引用**
+
 <figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="video-web-version"></span>/wilddog-video.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+
+**通过 npm 下载**
+
+1.安装依赖
+
+    npm install wilddog wilddog-video
+
+2.在代码中注册 video 服务
+
+```js
+var wilddog = require('wilddog');
+var Video = require('wilddog-video');
+
+wilddog.regService('video', function(app) {
+  if (app == null) {
+    throw new Error('application not initialized!Please call wilddog.initializeApp first');
+    return;
+  };
+  return new Video(app);
+});
+```
+
+3.在 html 中引用 video 适配器
+
+<figure class="highlight html"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/0.5.2/wilddog-video-adapter.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 ### 初始化 Video SDK
 

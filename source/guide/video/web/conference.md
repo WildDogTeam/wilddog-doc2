@@ -117,7 +117,7 @@ conference.on('participant_connected', function(participant){
 	  videosEl.appendChild(newRemote);
       //监听 streamAdded事件，将收到的stream展示到页面
     participant.on('streamAdded', function(stream){
-            console.log('Receive stream!');
+        console.log('Receive stream!');
         stream.attach(newRemote);
     });
 });
@@ -195,4 +195,20 @@ conference.meetingCast.stop()
   .catch(function (error) {
     console.log('Stop MeetingCast failed! Error is '，error.meesage);
   })
+```
+
+**直播状态**
+
+监听当前直播状态。
+
+例如，建立监听
+
+```js
+conference.meetingCast.onStateChanged(function(meetingCast){
+  //获取当前直播状态，直播者及直播地址
+  var status = meetingCast.isStarted;
+  var palyer = meetingCast.anchor;
+  var rtmpAddress = meetingCast.play.rtmp;
+  var hlsAddress = meetingCast.play.hls;
+})
 ```

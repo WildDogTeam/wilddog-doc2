@@ -4,6 +4,27 @@ title: 更新日志
 
 ## Javascript SDK
 
+### 0.5.3 - 2016.12.16
+
+<span class="changelog optimize">优化</span>
+
+- 更新错误码。
+- participant 中 去掉'error'事件，增加 'disconnected' 和 'connectFailed' 事件。
+
+<span class="changelog fix">修复</span>
+
+- 修复meetingCast.onStateChanged 失败的问题。
+
+### 0.5.2 - 2016.12.15
+
+<span class="changelog add">新增</span>
+
+- 增加对 npm 下载的方式。
+
+<span class="changelog fix">修复</span>
+
+- 修复conference.disconnect()失败的问题。
+
 ### v0.5.1 - 2016.12.07
 
 <span class="changelog add">新增</span>
@@ -185,6 +206,14 @@ title: 更新日志
 
 ---
 ## iOS SDK
+### v0.5.4 - 2016.12.16
+
+<span class="changelog optimize">优化</span>
+
+- 当 `videoOption` 为 `WDGVideoConstraintsOff` 时，不再创建视频流。
+- 为 `WDGVideoConnectOptions` 增加输入参数检查。
+- 更新错误码。
+
 ### v0.5.3 - 2016.12.08
 
 <span class="changelog fix">修复</span>

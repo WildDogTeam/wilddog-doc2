@@ -15,7 +15,7 @@ title: WDGVideoClientDelegate
 
 **说明**
 
-[WDGVideoClient](../Classes/WDGVideoClient.html) 通过调用该方法通知当前用户收到新的视频会话邀请。
+[WDGVideoClient](../Classes/WDGVideoClient.html) 通过调用该方法通知当前用户收到新的视频通话邀请。
 
 **参数**
 

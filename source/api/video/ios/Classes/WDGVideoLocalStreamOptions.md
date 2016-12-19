@@ -31,7 +31,7 @@ title: WDGVideoLocalStreamOptions
 
 **说明**
 
-视频质量选项。默认为 `WDGVideoConstraintsStandard` 。
+视频质量选项。默认为 `WDGVideoConstraintsStandard`。
 
 </br>
 
