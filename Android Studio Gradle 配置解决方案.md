@@ -7,7 +7,7 @@ title: Android Studio Gradle 配置解决方案
 - Android Studio:2.2.3，其他系统的操作类似。
 
 
-## Android Studio 假死现象
+## Android Studio 卡顿现象
 使用 `Android Studio`（以下简称 AS）导入安卓项目时，经常会在 Gradle build 时卡死在 Building gradle project info 界面上。
 
 原因是被导入项目的 Gradle 构建工具版本与当前使用的版本不一致。因为网络原因使得 Android Studio 在后台下载 Gradle 速度较慢，导致 AS 出现假死的现象。
