@@ -149,12 +149,12 @@ Wilddog Auth 身份认证错误。
 --- | ---
 WDGAuthErrorCodeFailure | 服务异常，操作失败。
 WDGAuthErrorCodeExpiredToken | 该 token 已过期。
-WDGAuthErrorCodeExpiredFetchToken | oauth token 已过期，获取失败，请联系 Wilddog。
+WDGAuthErrorCodeExpiredFetchToken | oauth token 已过期，获取失败，请联系 support@wilddog.com。
 WDGAuthErrorCodeInvalidToken | 用户提供的 token 无效。
 WDGAuthErrorCodeMaxRetries | 用户创建失败，请重试。
 WDGAuthErrorCodeAuthenticationDisabled | 未开启身份认证功能，请在控制台开启后重试。
 WDGAuthErrorCodeInvalidConfiguration | token 认证需要超级密钥。
-WDGAuthErrorCodeInvalidProvider | 身份认证提供商调用错误，请联系 Wilddog。
+WDGAuthErrorCodeInvalidProvider | 身份认证提供商调用错误，请联系 support@wilddog.com。
 WDGAuthErrorCodeInvalidEmail | 该邮箱地址无效。
 WDGAuthErrorCodeInvalidPassword | 该密码不正确。
 WDGAuthErrorCodeInvalidUser | 该用户不存在。
