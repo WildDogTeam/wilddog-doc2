@@ -377,6 +377,7 @@ api:
       "&ltWDGUserInfo&gt": /api/auth/ios/WDGUserInfo.html
       WDGUserProfileChangeRequest: /api/auth/ios/WDGUserProfileChangeRequest.html
       WDGAuthErrors: /api/auth/ios/WDGAuthErrors.html
+      错误码: /api/auth/ios/error-code.html
     更新日志: /api/auth/changelog.html
 
 resources:
