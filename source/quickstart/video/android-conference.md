@@ -32,7 +32,12 @@ title: 视频会议
 
 ## 4. 导入快速入门
 
-Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 "Android Studio File --> New --> Import Project" 导入快速入门。
+Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 `Android Studio File --> New --> Import Project` 导入快速入门。
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+  使用 Android Studio 导入安卓项目时，可能会在 Gradle build 时卡死在 Building gradle project info 界面上，原因及解决方案请<a href='https://github.com/WildDogTeam/wilddog-doc2/blob/master/Android%20Studio%20Gradle%20%E9%85%8D%E7%BD%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md'> 参考该文档 </a>。
+</blockquote>
 
 ## 5. 建立和加入视频会议
 
