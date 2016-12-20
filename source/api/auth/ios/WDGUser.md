@@ -116,9 +116,9 @@ completion | 可以为空；如果邮箱更新成功，这个 block 将会被调
 如果这个邮箱已经创建过用户，则会更新失败。
 可能发生的错误：
  
- - WDGAuthErrorCodeEmailAlreadyInUse 邮箱已被另一个用户使用。
- - WDGAuthErrorCodeInvalidEmail 邮箱格式错误。
- - WDGAuthErrorCodeRequiresRecentLogin 发生这个错误表明用户在短期内没有登录过，而修改邮箱为敏感操作，必须重新登录才能继续操作。可以调用 WDGUser.reauthenticateWithCredential:completion: 方法。
+ - WDGAuthErrorCodeEmailAlreadyInUse 邮箱地址已经被其他账户使用。
+ - WDGAuthErrorCodeInvalidEmail 该邮箱地址无效。
+ - WDGAuthErrorCodeCredentialTooOldLoginAgain 发生这个错误表明用户在短期内没有登录过，而修改邮箱为敏感操作，必须重新登录才能继续操作。可以调用 WDGUser.reauthenticateWithCredential:completion: 方法。
  - 参见 WDGAuthErrors API 调用可能发生的所有错误。
  
  </br>
@@ -148,9 +148,9 @@ completion | 可以为空；如果密码修改成功会调用这个 block。bloc
 
 可能发生的错误：
  
- - WDGAuthErrorCodeOperationNotAllowed 表明管理员关闭了这种登录方式。
- - WDGAuthErrorCodeRequiresRecentLogin 发生这个错误表明用户在短期内没有登录过，而修改密码为敏感操作，必须重新登录才能继续操作。可以调用 WDGUser.reauthenticateWithCredential:completion: 方法。
- - WDGAuthErrorCodeWeakPassword 密码设置不符合规定。
+ - WDGAuthErrorCodeAuthenticationDisabled 未开启身份认证功能，请在控制台开启后重试。
+ - WDGAuthErrorCodeCredentialTooOldLoginAgain 发生这个错误表明用户在短期内没有登录过，而修改密码为敏感操作，必须重新登录才能继续操作。可以调用 WDGUser.reauthenticateWithCredential:completion: 方法。
+ - WDGAuthErrorCodePasswordLengthError 密码的长度必须在 6 到 32 位。
  - 参见 WDGAuthErrors API 调用可能发生的所有错误。
  
 </br>
@@ -227,13 +227,10 @@ completion | 可以为空；获取信息成功会调用这个 block。block 为�
 
 **参考**
 
-可能返回 WDGAuthErrorCodeCredentialTooOld 错误。这种情况下，需要调用 WDGUser.reauthenticateWithCredential:completion: 重新登录。
+可能返回 WDGAuthErrorCodeInvalidCredential 错误。这种情况下，需要调用 WDGUser.reauthenticateWithCredential:completion: 重新登录。
 
 可能发生的错误：
 
-- WDGAuthErrorCodeOperationNotAllowed 表示密码登录的方式没有打开，可以在野狗控制面板中打开这个选项。
-- WDGAuthErrorCodeUserDisabled 表示这个用户被禁止登录。
-- WDGAuthErrorCodeWrongPassword 表示邮箱或者密码错误。
 - 参见 WDGAuthErrors API 调用可能发生的所有错误。
 </br>
 
@@ -264,13 +261,12 @@ completion | 可以为空；重新登录成功时会被调用这个 block，bloc
 
 可能发生的错误：
 
- - WDGAuthErrorCodeInvalidCredential 无效的凭证。
- - WDGAuthErrorCodeOperationNotAllowed 这种登录方式被禁止，可以在野狗应用控制面板打开这个选项。
- - WDGAuthErrorCodeEmailAlreadyInUse 提供的 Email 地址已经被使用。
- - WDGAuthErrorCodeUserDisabled 用户帐号被禁用。
- - WDGAuthErrorCodeWrongPassword 邮箱或者密码错误。
- - WDGAuthErrorCodeUserMismatch 重现登录提供的凭证与当前用户不一致。
- - 参见 WDGAuthErrors API 调用可能发生的所有错误。
+ - WDGAuthErrorCodeInvalidCredentials 该身份认证凭证无效。
+ - WDGAuthErrorCodeAuthenticationDisabled 这种登录方式被禁止，可以在野狗应用控制面板打开这个选项。
+ - WDGAuthErrorCodeEmailAlreadyInUse 邮箱地址已经被其他账户使用。
+ - WDGAuthErrorCodeInvalidUser 该用户不存在。
+ - WDGAuthErrorCodeInvalidPassword 该密码不正确。
+ - 参见更多错误请参考 WDGAuthErrors。
  
 </br>
 
@@ -326,9 +322,8 @@ completion | 可以为空；当帐号绑定成功或失败会调用这个 block�
 
 可能发生的错误：
 
- - WDGAuthErrorCodeProviderAlreadyLinked 提供的登录方式已经绑定在这个帐号中。
- - WDGAuthErrorCodeCredentialAlreadyInUse 提供的登录方式凭证已经是一个用户。
- - WDGAuthErrorCodeOperationNotAllowed 提供的登录方式被禁用。可以在野狗控制面板中打开。
+ - WDGAuthErrorCodeProviderAlreadyLinked 每个用户只能绑定一次野狗登录方式。
+ - WDGAuthErrorCodeAuthenticationDisabled 未开启身份认证功能，请在控制台开启后重试。
  - 这个方法也有可能返回 updateEmail:completion: 和 updatePassword:completion: 的错误。
  - 参见更多错误请参考 WDGAuthErrors。
  
@@ -359,8 +354,7 @@ completion | 可以为空；请求成功后会被调用的 block，异步等待�
 
 可能发生的错误：
 
- - WDGAuthErrorCodeNoSuchProvider 此帐号没有绑定需要解绑的登录方式。
- - WDGAuthErrorCodeRequiresRecentLogin 敏感操作，需要重新登录帐号来保证安全性。
+ - WDGAuthErrorCodeCredentialTooOldLoginAgain 该用户尝试安全敏感操作，但登录时间过长，需重新登录。
  - 参见更多错误请参考 WDGAuthErrors。
  
 </br>
@@ -388,7 +382,7 @@ completion | 可以为空；当请求成功或失败时会调用这个 block，�
 
 可能发生的错误：
 
- - WDGAuthErrorCodeUserNotFound 没有这个帐号。
+ - WDGAuthErrorCodeUserNotFound 没有对应用户记录，该用户可能已经被删除。
  - 参见更多错误请参考 WDGAuthErrors。
 </br>
 
@@ -415,7 +409,7 @@ completion | 可以为空；当请求成功或失败时会调用这个 block，�
 
 可能发生的错误：
 
- - WDGAuthErrorCodeUserNotFound 没有这个帐号。
+ - WDGAuthErrorCodeUserNotFound 没有对应用户记录，该用户可能已经被删除。
  - 参见更多错误请参考 WDGAuthErrors。
 </br>
 
@@ -469,7 +463,7 @@ completion | 可以为空；删除帐号成功或失败时调用这个 block，�
 
 可能发生的错误：
 
- - WDGAuthErrorCodeRequiresRecentLogin 敏感操作，需要重新登录来确保安全性。可以调用 WDGUser.reauthenticateWithCredential:completion:
+ - WDGAuthErrorCodeCredentialTooOldLoginAgain 敏感操作，需要重新登录来确保安全性。可以调用 WDGUser.reauthenticateWithCredential:completion:
  - 参见更多错误请参考 WDGAuthErrors。
 </br>
 

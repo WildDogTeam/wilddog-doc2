@@ -89,7 +89,7 @@ completion | 可以为空；返回用户的登录方式列表或者错误信息�
 
 可能发生的错误：
 
-- WDGAuthErrorCodeInvalidEmail - 表示邮箱格式错误。
+- WDGAuthErrorCodeInvalidEmail - 该邮箱地址无效。
 - 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
@@ -121,9 +121,9 @@ completion | 可以为空；当用户登录成功或者发生错误时触发。�
 
 可能发生的错误：
 
-- WDGAuthErrorCodeOperationNotAllowed 表示密码登录的方式没有打开，可以在野狗控制面板中打开这个选项。
-- WDGAuthErrorCodeUserDisabled 表示这个用户被禁止登录。
-- WDGAuthErrorCodeWrongPassword 表示邮箱或者密码错误。
+- WDGAuthErrorCodeAuthenticationDisabled 表示密码登录的方式没有打开，可以在野狗控制面板中打开这个选项。
+- WDGAuthErrorCodeInvalidUser 该用户不存在。
+- WDGAuthErrorCodeInvalidPassword 该密码不正确。
 - 参见 WDGAuthErrors API 调用可能发生的所有错误。
 </br>
 
@@ -154,8 +154,8 @@ completion | 可以为空；当用户登录成功或者发生错误时触发。�
 
 可能发生的错误：
 
- - WDGAuthErrorCodeUserDisabled 表示这个用户被禁止登录。
- - WDGAuthErrorCodeWrongPassword 表示手机号码或者密码错误。
+ - WDGAuthErrorCodeInvalidUser 该用户不存在。
+ - WDGAuthErrorCodeInvalidPassword 该密码不正确。
  - See WDGAuthErrors API 调用可能发生的所有错误。
 </br>
 
@@ -184,10 +184,10 @@ completion | 可以为空；当用户登录成功或者发生错误时触发。�
 
 可能发生的错误：
 
-- WDGAuthErrorCodeInvalidCredential 表示无效的登录方式。
-- WDGAuthErrorCodeOperationNotAllowed 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
-- WDGAuthErrorCodeUserDisabled 表示帐号被禁用。
-- WDGAuthErrorCodeWrongPassword 表示邮箱或着密码错误。
+- WDGAuthErrorCodeInvalidCredentials 该身份认证凭证无效。
+- WDGAuthErrorCodeAuthenticationDisabled 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
+- WDGAuthErrorCodeInvalidUser 该用户不存在。
+- WDGAuthErrorCodeInvalidPassword 该密码不正确。
 - 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 <br/>
@@ -216,7 +216,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 如果已经有一个匿名用户登录，那么会替换这个用户。如果已经有其他用户登录，那么会先把他退出登录。  
 可能发生的错误：
 
--  WDGAuthErrorCodeOperationNotAllowed 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+-  WDGAuthErrorCodeAuthenticationDisabled 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 -  参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
@@ -246,9 +246,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 
 可能发生的错误：
 
-- WDGAuthErrorCodeInvalidCustomToken 无效的 custom token。
-- WDGAuthErrorCodeCustomTokenMismatch Indicates the service account and the API key
-    belong to different projects.
+- WDGAuthErrorCodeInvalidCustomToken 用户提供的 token 无效。
 - 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
@@ -279,10 +277,10 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 
 可能发生的错误：
 
-- WDGAuthErrorCodeInvalidEmail 表示邮箱格式错误。
-- WDGAuthErrorCodeEmailAlreadyInUse 表示邮箱已经被注册。
-- WDGAuthErrorCodeOperationNotAllowed 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
-- WDGAuthErrorCodeWeakPassword 密码不符合规定。
+- WDGAuthErrorCodeInvalidEmail 该邮箱地址无效。
+- WDGAuthErrorCodeEmailAlreadyInUse 邮箱地址已经被其他账户使用。
+- WDGAuthErrorCodeAuthenticationDisabled 表示匿名登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+- WDGAuthErrorCodePasswordLengthError 密码的长度必须在 6 到 32 位。
 - 参见 WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
@@ -313,7 +311,7 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 
 可能发生的错误：
 
- - WDGAuthErrorCodeWeakPassword 密码不符合规定。
+ - WDGAuthErrorCodePasswordLengthError 密码的长度必须在 6 到 32 位。
  - See WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
@@ -343,7 +341,6 @@ completion | 可以为空；请求成功会触发的 block。异步等待，会�
 
 可能发生的错误：
 
- - WDGAuthErrorCodeWeakPassword 密码不符合规定。
  - See WDGAuthErrors API 调用可能发生的所有错误。
 
 </br>
