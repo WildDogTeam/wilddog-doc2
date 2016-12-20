@@ -361,7 +361,7 @@ api:
       ProviderQueryResult: /api/auth/android/ProviderQueryResult.html
       UserProfileChangeRequest.Builder: /api/auth/android/UserProfileChangeRequest.Builder.html
       UserProfileChangeRequest: /api/auth/android/UserProfileChangeRequest.html
-	  错误码: /api/auth/android/error-code.html
+      错误码: /api/auth/android/error-code.html
     #iOS:
       #API 文档: /api/auth/ios/api.html
       #错误码: /api/auth/ios/error-code.html
