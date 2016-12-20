@@ -6,7 +6,7 @@ title: 快速入门
 
 
 ## 1.下载地址
-https://github.com/WildDogTeam/wilddog-weapp
+https://github.com/WildDogTeam/wilddog-weapp/blob/master/wilddog-weapp-all.js
 
 
 ## 2.前期准备
