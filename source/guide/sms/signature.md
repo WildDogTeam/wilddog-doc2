@@ -11,7 +11,47 @@ title: 接口验证机制
 
 ## 生成数字签名的方法
 
-1.将实际调用 API (除去`smsKey` 和 `signature`字段)的参数以字母升序(A-Z)排列，Java 示例如下（其他语言规则一致）：
+1.将实际调用 API([发送验证码短信](/api/sms/sendcode.html)、[发送通知类短信](/api/sms/send.html)、[校验验证码](/api/sms/checkcode.html)、[查询发送状态](/api/sms/status.html)) 的参数以字母升序(A-Z)排列，除去其中的 `signature`字段。
+
+特别注意以下规则：
+
+- 参数名以字母升序(A-Z)排列；
+- 传送的参数`signature`不参与签名。
+
+例如，传送的参数如下：
+
+```   
+templateId: 100001
+mobile: 130xxxxxxxx
+timestamp: 1482301296
+
+```
+
+2.将参数以字母升序(A-Z)排列，再以 `key=value’ + ‘&’ + ‘key=value`的方式连接所有参数,得到字符串 `param_str`。
+
+
+```   
+param_str="mobile=130xxxxxxxx&templateId=100001&timestamp=1482301296"
+
+```
+
+3.以 `param_str + ‘&’ + SMS_KEY` 的方式得到字符串 `sign_str`。
+
+```   
+sign_str="mobile=130xxxxxxxx&templateId=100001&timestamp=1482301296&$SMS_KEY"
+
+```
+
+SMS_KEY (短信 API 密钥)SMS_KEY 在 控制面板-短信-模板 中获取，操作如下：
+
+![](/images/smssecretkey.png)
+
+
+4.计算 `sign_str`的 SHA256值 (64位, 不区分大小写), 得到 `signature`
+
+5.该签名用于各个接口的访问。
+
+Java 示例如下（其他语言规则一致）：
 
 ```   
 // 发送短信验证码
@@ -33,18 +73,6 @@ title: 接口验证机制
 ```
 
 此处可参考完整 [示例代码](/resources/sms/resources.html)。
-
-2.以 `key=value’ + ‘&’ + ‘key=value`的方式连接所有参数,得到字符串 `param_str`。
-
-3.以 `param_str + ‘&’ + SMS_KEY` 的方式得到字符串 `sign_str`。
-
-4.计算 `sign_str`的 SHA256值 (64位, 不区分大小写), 得到 `signature`
-
-5.该签名用于各个接口的访问。
-
-其中短信 API 密钥( SMS_KEY )在 控制面板-短信-模板 中获取，操作如下：
-
-![](/images/smssecretkey.png)
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
