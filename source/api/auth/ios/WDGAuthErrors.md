@@ -10,8 +10,8 @@ Wilddog Auth 身份认证错误。
 **定义**
 
 ```
-typedef NS_ENUM(NSInteger, WDGAuthErrorCode) {
-
+typedef NS_ENUM(NSInteger, WDGAuthErrorCode) {  
+  
     WDGAuthErrorCodeFailure = 22001,
     
     WDGAuthErrorCodeExpiredToken = 22002,
@@ -69,63 +69,63 @@ typedef NS_ENUM(NSInteger, WDGAuthErrorCode) {
     WDGAuthErrorCodeProviderAlreadyLinked = 22208,
     
     WDGAuthErrorCodeCredentialTooOldLoginAgain = 22209,
-    
+      
     WDGAuthErrorCodeNoPasswordProvider = 22210,
-
+  
     WDGAuthErrorCodePasswordLengthError = 22211,
-
+  
     WDGAuthErrorCodeDisplayNameLengthError = 22212,
-
+  
     WDGAuthErrorCodePhotoUrlLengthError = 22213,
-
+  
     WDGAuthErrorCodeTokenNotForThisApp = 22214,
-
+  
     WDGAuthErrorCodeTokenTypeError = 22215,
-
+  
     WDGAuthErrorCodeIDTokenClaimsError = 22216,
-
+  
     WDGAuthErrorCodeTokenUserIDNotValid = 22217,
-
+  
     WDGAuthErrorCodeTokenWilddogError = 22218,
-
+  
     WDGAuthErrorCodeInvalidPhone = 22219,
-
+  
     WDGAuthErrorCodeEmailNotExist = 22220,
-
+  
     WDGAuthErrorCodePhoneNotExist = 22221,
-
+  
     WDGAuthErrorCodeSmsCodeNotExist = 22222,
-
+  
     WDGAuthErrorCodeSmsSendError = 22223,
-
+  
     WDGAuthErrorCodePhoneAlreadyInUse = 22224,
-
+  
     WDGAuthErrorCodePhotoUrlOrDisplayNameError = 22225,
-
+  
     WDGAuthErrorCodeSmsCodeError = 22226,
-
+  
     WDGAuthErrorCodeSmsServerError = 22227,
-
+  
     WDGAuthErrorCodeSmsForbiddenError = 22230,
-
+  
     WDGAuthErrorCodeSmsSignDenyError = 22231,
-
+  
     WDGAuthErrorCodeInvalidSmsTypeError = 22232,
-
+  
     WDGAuthErrorCodeWeappError = 22233,
-
+  
     WDGAuthErrorCodeWeappUserInfoSignCheckFailed = 22234,
-
+  
     WDGAuthErrorCodeSmsFrequencyError = 22235,
-
+  
     WDGAuthErrorCodeSmsPayLimitError = 22236,
-
+  
     WDGAuthErrorCodeSmsPayNoMoneyError = 22237,
-
+  
     WDGAuthErrorCodeSmsPayNoMoneyToPayError = 22238,
-
+  
     WDGAuthErrorCodeSmsAPICheckError = 22239,
-
+  
     WDGAuthErrorCodeUnknownError = 29999
     
 };
