@@ -96,6 +96,24 @@ curl -X PATCH -d '{"last":"Jones"}' \
 
 ```
 
+**重要**
+
+`PATCH` 支持多路径更新，需要同时向多个节点写入数据时，你应该优先考虑使用 PATCH 请求。
+
+
+**示例**
+
+```
+// 同时更新 jack 的 name 字段和 tom 的 age 字段
+curl -X PATCH -d '{"jack/name":"Jones", "tom/age":27}' \
+'https://samplechat.wilddogio.com/users/.json'
+```
+
+**返回值**
+
+```
+{"jack/name":"Jones", "tom/age":27}
+```
 ---
 
 ### DELETE
