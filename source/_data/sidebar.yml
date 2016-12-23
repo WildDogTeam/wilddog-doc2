@@ -305,7 +305,6 @@ api:
     Android:
       WilddogIM: /api/im/android/WilddogIM.html
       WilddogIM.CompletionListener: /api/im/android/WilddogIM.CompletionListener.html
-      WilddogIM.WilddogIMAuthStateListener: /api/im/android/WilddogIM.WilddogIMAuthStateListener.html
       WilddogIM.WilddogIMConnectionListener: /api/im/android/WilddogIM.WilddogIMConnectionListener.html
       WilddogIM.WilddogIMGroupChangeListener: /api/im/android/WilddogIM.WilddogIMGroupChangeListener.html
       WilddogIM.WilddogIMMessageListener: /api/im/android/WilddogIM.WilddogIMMessageListener.html

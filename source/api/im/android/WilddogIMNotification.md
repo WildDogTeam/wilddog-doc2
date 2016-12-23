@@ -23,7 +23,7 @@ public static void bindUser(Context context, WilddogNotification.CompletionListe
 参数名 | 描述
 --- | ---
 context | 安卓中的context对象。
-completionListener | 绑定成功回调。
+completionListener | 绑定成功或失败的回调。
 
 ---
 </br>
@@ -45,7 +45,7 @@ public static void unbindUser(Context context, WilddogNotification.CompletionLis
 参数名 | 描述
 --- | ---
 context | 安卓中的context对象。
-completionListener | 绑定成功回调。
+completionListener | 解绑成功或失败的回调。
 
 
 **返回值**
