@@ -4,7 +4,13 @@ title: 更新日志
 
 ## Javascript SDK
 
-### 0.5.3 - 2016.12.16
+### v0.5.4 - 2016.12.22
+
+<span class="changelog fix">修复</span>
+
+- 修复 `outGoingInvite.on('rejected')` 失败的问题。
+
+### v0.5.3 - 2016.12.16
 
 <span class="changelog optimize">优化</span>
 
@@ -15,7 +21,7 @@ title: 更新日志
 
 - 修复meetingCast.onStateChanged 失败的问题。
 
-### 0.5.2 - 2016.12.15
+### v0.5.2 - 2016.12.15
 
 <span class="changelog add">新增</span>
 
