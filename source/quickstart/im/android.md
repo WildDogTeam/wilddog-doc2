@@ -33,7 +33,7 @@ Wilddog IM 解决方案在 Android 上需要 android.permission.INTERNET 权限�
 
 引入SDK
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">'com.wilddog.client:wilddog-auth-android:0.2.0'</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">'com.wilddog.wilddogim:wilddog-im:0.2.0'</span></div></pre></td></tr></tbody></table></figure>
 
 
 ## 4. 集成用户
