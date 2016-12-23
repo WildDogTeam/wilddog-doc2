@@ -1,9 +1,11 @@
 title: 用户集成
 ---
 
-本篇文档介绍如何集成开发者的已有用户系统。
+本篇文档介绍如何集成用户系统，集成用户系统同 Auth 一样，有两种方式：第一种是集成开发者的已有用户系统，第二种是直接集成 Auth 的用户系统。
 
-## 获取 Token
+## 集成开发者的已有用户系统
+
+### 获取 Token
 
 Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。
 具体流程如下：
@@ -17,53 +19,52 @@ Wilddog IM 使用 customToken 的方式来集成开发者的已有用户系统�
 </blockquote>
 
 
-## 登录
+### 登录
 
-`- signInWithCustomToken:completion:` 方法用于将用户登录 Wilddog IM 服务：
+使用`- signInWithCustomToken:completion:` 方法用于将用户登录 Wilddog IM 服务：
 
 ```objc
 // 用 customToken 登录
-[[WDGIMClient defaultClient] signInWithCustomToken:wilddogToken completion:^(WIMUser * _Nullable currentUser, NSError * _Nullable error) {
+[[WDGAuth auth] signInWithCustomToken:wilddogToken completion:^(WIMUser * _Nullable currentUser, NSError * _Nullable error) {
+
 }];
 
 ```
 
-## 退出登录
+## 集成 Auth 的用户系统
 
-`- signOut:` 方法用于用户退出登录 Wilddog IM 服务：
+### 登录
+
+使用 `-signInWithEmail:password:completion:` 或者`-signInWithPhone:password:completion:` 或者 `-signInAnonymouslyWithCompletion:`等登录 Auth 方法去登录。例如，用邮箱登录方式：
 
 ```objc
-NSError *error;
-[[WDGIMClient defaultClient] signOut:&error];
-if (!error) {
-    // 退出登录成功
-}
+// 用邮箱登录
+[[WDGAuth auth] signInWithEmail:@"yourEmail@wilddog.com" password:@"password" completion:^(WIMUser * _Nullable currentUser, NSError * _Nullable error) {
+
+}];
+
+
+## 退出登录
+
+使用 `unbindDeviceTokenWithCompletion`解绑用户，然后使用 WDGAuth 的`- signOut:` 方法退出登录：
+
+```objc
+[WDGIMNotify unbindDeviceTokenWithCompletion:^(NSError * _Nullable error) {
+    if (!error) {
+       [[WDGAuth auth] signOut:nil];
+    }
+}];
 
 ```
 	
 ## 获取当前用户
 
-`WDGIMClient` 成员方法 `currentUser` 用于获取当前登录用户：
+`WDGIM` 成员方法 `currentUser` 用于获取当前登录用户：
 
 ```objc
-WDGIMUser *currentUser = [WDGIMClient defaultClient].currentUser;
+WDGIMUser *currentUser = [WDGIM im].currentUser;
 
 ```
 
-## 设置登录监听
 
-`WDGIMClient` 的代理方法 `- wilddogIMClient:didSignInAsUserID:` 和 `- wilddogIMClientDidSignOut:` 用于监听登录状态“
-
- ```objc
-- (void)wilddogIMClient:(nonnull WDGIMClient *)client didSignInAsUserID:(nonnull NSString *)userID {
-	// 有用户登录
-}
-
-- (void)wilddogIMClientDidSignOut:(nonnull WDClient *)client {
-   // 用户退出登录
-}
-
-```
- 
- 
  
