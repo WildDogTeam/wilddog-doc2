@@ -4,6 +4,39 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.3.10 - 2016.12.20
+
+<span class="changelog feature">改进</span>
+
+- 规范 Auth （服务端） 错误码，支持 error.code 和 error.message ，并提供相应的错误码问文档。
+
+
+### V2.3.9 - 2016.12.15
+
+<span class="changelog add">新增</span>
+
+- 新增对 typescript 的支持。
+
+<span class="changelog fix">修复</span>
+
+- 修复 sync().remove().then() 报错的问题。
+- 修复 sync.ref('.info') 函数对 '.info' 节点不支持的问题。
+
+
+### V2.3.8 - 2016.11.28
+
+<span class="changelog fix">修复</span>
+
+- 修复手机号的 credential 登录失败的问题。
+
+
+### V2.3.5 - 2016.11.17
+
+<span class="changelog fix">修复</span>
+
+- 修复手机号认证后，信息不能及时更新的bug。
+
+
 ### V2.3.0 - 2016.11.10
 
 <span class="changelog add">新增</span>
@@ -256,4 +289,4 @@ title: 更新日志
 - Auth2.0 版本的 customToken 生成器功能。
 - Wilddog ID Token 的校验功能。
 
-### 
+###

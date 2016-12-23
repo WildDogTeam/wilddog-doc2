@@ -4,6 +4,24 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.3.9 - 2016.12.15
+
+<span class="changelog add">新增</span>
+
+- 新增对 typescript 的支持。
+
+<span class="changelog fix">修复</span>
+
+- 修复 sync().remove().then() 报错的问题。
+- 修复 sync.ref('.info') 函数对 '.info' 节点不支持的问题。
+
+
+### V2.3.6 - 2016.11.23
+
+<span class="changelog add">新增</span>
+
+- wilddog.initialize(config) 方法新增对 config.syncURL 是否合法的检查。
+
 
 ### V2.3.0 - 2016.11.10
 
@@ -240,16 +258,3 @@ title: 更新日志
 <span class="changelog fix">修复</span>
 
 - 修复 tinydtls 以及 mbedtls 握手有概率失败的bug。
-
-
-
-
-
-
-
-
-
-
-
-
-

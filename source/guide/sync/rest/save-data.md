@@ -36,6 +36,7 @@ curl -X PUT -d '{
 `POST` 请求用于向指定节点添加子节点。新增子节点的 key 由 Wilddog Sync 自动生成并保证唯一。 新增子节点的 key 基于时间戳和随机算法生成，并可以按照添加时间进行排序。
 
 例如，追加子节点到 `posts` 节点：
+
 ```
 curl -X POST -d '{
   "author": "alanisawesome",
@@ -57,6 +58,8 @@ curl -X POST -d '{
 }
 
 ```
+
+
 成功的请求将返回 HTTP 200 OK 状态码，并且响应中会包含新数据的key：
 
 ```
@@ -64,7 +67,9 @@ curl -X POST -d '{
 
 ```
 
+
 ## 更新数据
+
 
 `PATCH` 请求用于更新指定子节点。
 
@@ -80,16 +85,90 @@ curl -X POST -d '{
         "full_name ": "Grace Lee"
     }
 }
-```
 
 ```
-// 只更新 gracehop 的 nickname
+只更新 gracehop 的 nickname:
+
+```
 curl -X PATCH -d '{
   "nickname": "Amazing grace"
 }' 'https://docs-examples.wilddogio.com/rest/saving-data/users/gracehop.json'
 ```
 
 成功的请求将返回 HTTP 200 OK 状态码。
+
+`PATCH` 请求支持多路径更新，可以只调用一次方法更新多个路径的数据。
+
+
+例如，同时更新 b 节点下的 d 和 x 节点下的 z：
+
+```js
+//原数据如下
+{
+    "a": {
+        "b": {
+            "c": "cc",
+            "d": "dd"
+        },
+        "x": {
+            "y": "yy",
+            "z": "zz"
+        }
+    }
+}
+
+```
+
+正确示例：
+
+```
+curl -X PATCH -d '{"b/d":"updateD", "x/z":"updateZ"}' \
+ 'https://samplechat.wilddogio.com/a/.json'
+```
+ 
+更新后数据如下：
+
+```
+{
+    "a": {
+        "b": {
+            "c": "cc",
+            "d": "updateD"
+        },
+        "x": {
+            "y": "yy",
+            "z": "updateZ"
+        }
+    }
+}
+
+```
+
+错误示例：
+
+```
+// 错误的多路径更新写法，会覆盖原有数据
+curl -X PATCH -d '{"b":{"d":"updateD"}, "x":{"z":"updateZ"}}' \
+ 'https://samplechat.wilddogio.com/a/.json'
+ 
+```
+
+更新后数据如下
+
+```
+{
+    "a": {
+        "b": {
+            "d": "updateD"
+        },
+        "x": {
+            "z": "updateZ"
+        }
+    }
+}
+
+```
+
 
 ## 删除数据
 
