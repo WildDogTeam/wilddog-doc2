@@ -185,12 +185,12 @@ public int getTotalUnreadMessageCount()
 </br>
 
 --- 
-### public void sendMessage(message,callBack)
+### public void sendMessage(message,callback)
 
 **定义**
 
 ```java
- public void sendMessage(Message message, final WildValueCallBack callBack)
+ public void sendMessage(Message message, final WildValueCallback callback)
 ```
 
 **说明**
@@ -202,7 +202,7 @@ public int getTotalUnreadMessageCount()
 参数名 | 描述
 --- | ---
 message | 发送的消息对象，类别有文本，图片，语音等
-callBack | 发送消息成功的回调
+callback | 发送消息成功的回调
 
 
 </br>

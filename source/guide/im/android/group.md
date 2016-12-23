@@ -16,7 +16,7 @@ List<String> ids = new ArrayList<>();
 ids.add("uid1");
 ids.add("uid2");
 ids.add("uid3");
-WilddogIMClient.newConversation(ids, new WilddogIMClient.CompletionListener() {
+WilddogIM.newConversation(ids, new WilddogIMClient.CompletionListener() {
      @Override
      public void onComplete(WilddogIMError error, Conversation wilddogConversation) {
           if(error==null){
@@ -68,11 +68,11 @@ List<String> members=getMembers();
 
 ### 获取讨论组变更消息
 
-当讨论组内有成员变更时，通过 `WilddogIMClient` 的协议方法可以监听获取讨论组变更消息：
+当讨论组内有成员变更时，通过 `WilddogIM` 的协议方法可以监听获取讨论组变更消息：
 
 ```java
 client.addGroupChangeListener(
-      new WilddogIMClient.WilddogIMGroupChangeListener() {
+      new WilddogIM.WilddogIMGroupChangeListener() {
                @Override
                public void memberJoined(String groupId, String owner, List<String> joinedUsers) {
                Log.d("groupMemberChange","memberJoined");

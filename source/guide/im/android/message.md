@@ -16,7 +16,7 @@ title: 消息收发
 ```java
 List<String> ids = new ArrayList<>();
 ids.add("uid1");
-WilddogIMClient.newConversation(ids, new WilddogIMClient.CompletionListener() {
+WilddogIM.newConversation(ids, new WilddogIMClient.CompletionListener() {
      @Override
      public void onComplete(WilddogIMError error, Conversation wilddogConversation) {
           if(error==null){
@@ -60,12 +60,12 @@ VoiceMessage voiceMessage = Message.newMessage(duration,fileData);
 
 ### 发送消息
 
-`sendMessage(Message message, final WildValueCallBack callBack)` 方法用于发送一条消息：
+`sendMessage(Message message, final WilddogValueCallback callback)` 方法用于发送一条消息：
 
 ```java
 // 回调中可以获取消息的发送状态
 TextMessage textMessage = Message.newMessage("Hi,Wilddog!");
- conversation.sendMessage(textMessage, new WildValueCallBack<String>() {
+ conversation.sendMessage(textMessage, new WilddogValueCallback<String>() {
             @Override
             public void onSuccess(String s) {
                 Log.d(TAG,"发送成功");
@@ -95,11 +95,11 @@ client.addMessageListener(listener);
 	
 #### 消息解析
 
-`WilddogIMClient.WilddogIMMessageListener` 的 `onNewMessage（）` 方法用于获取 messages 中所有新的聊天消息：
+`WilddogIM.WilddogIMMessageListener` 的 `onNewMessage（）` 方法用于获取 messages 中所有新的聊天消息：
 
 
 ```java
-private WilddogIMClient.WilddogIMMessageListener listener=new WilddogIMClient.WilddogIMMessageListener() {
+private WilddogIM.WilddogIMMessageListener listener=new WilddogIMClient.WilddogIMMessageListener() {
     @Override
     public void onNewMessage(List<com.wilddog.wildim.message.Message> messages) {
         for(com.wilddog.wildim.message.Message wildMessage:messages){

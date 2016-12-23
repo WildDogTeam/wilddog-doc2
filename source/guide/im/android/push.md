@@ -27,6 +27,30 @@ Wilddog IM 同时集成小米和华为推送，使用离线推送至少需要配
 
 
 
+## 绑定用户
+` bindUser（）:` 方法用于绑定用户：
+
+```java
+  WilddogIMNotification.bindUser(LoginActivity.this, new WilddogNotification.CompletionListener() {
+         @Override
+         public void onComplete(NotificationError error) {
+
+         }
+  });
+```
+
+## 解绑用户
+`unbindUser（）:` 方法用于解绑用户：
+
+```java
+  WilddogIMNotification.unbindUser(MainActivity.this, new WilddogNotification.CompletionListener() {
+         @Override
+         public void onComplete(NotificationError error) {
+
+         }
+  });
+```
+
 
 
 
