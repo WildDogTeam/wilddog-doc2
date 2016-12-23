@@ -27,45 +27,48 @@ void onStreamAdded(RemoteStream remoteStream)
 
 ---
 
-### onStreamRemoved(RemoteStream)
+### onConnectFailed(Participant, VideoException)
 
 **定义**   
 
 ```java
-void onStreamRemoved(RemoteStream remoteStream)
+void onConnectFailed(Participant participant,VideoException exception)
 ```
 
 **说明**
 
-远端参与者发送的媒体流。
+本地参与者与远端参与者建立连接失败后触发。本方法仅会在无法与远端参与者建立连接时调用一次，如果成功建立连接后断开连接，则不会调用此方法。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|remoteStream|[RemoteStream](/api/video/android/remote-stream.html),远端参与者发送的媒体流。|
+|participant|[Participant](/api/video/android/participant.html)连接失败的远端参与者对象|
+|exception|[VideoException](/api/video/android/video-exception.html),连接失败错误信息|
 
 </br>
 
 ---
 
-### onError(VideoException)
+### onDisconnected(Participant, VideoException)
 
 **定义**   
 
 ```java
-void onError(VideoException exception)
+void onDisconnected(Participant participant,VideoException exception)
 ```
 
 **说明**
 
-断开连接或者连接失败错误回调。
+连接建立成功后断开连接会触发此方法。此方法仅会在连接建立成功后调用，如果连接建立失败则直接调用 `onConnectFailed` 方法，不会触发此方法。
+远端参与者连接中断会触发此方法。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|exception|[VideoException](/api/video/android/video-exception.html),连接失败错误信息|
+|participant|[Participant](/api/video/android/participant.html)断开连接的远端参与者对象|
+|exception|[VideoException](/api/video/android/video-exception.html),连接断开错误信息|
 
 </br>
 
