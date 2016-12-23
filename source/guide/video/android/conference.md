@@ -115,12 +115,19 @@ Conference.Listener listener = new Conference.Listener() {
     protected void onDestroy() {
         super.onDestroy();
         //需要离开会议时调用此方法，并做资源释放和其他自定义操作
+        localStream.detach();
+        localStream.close();
+
+        if (local_video_view != null) {
+            local_video_view.release();
+            local_video_view = null;
+        }
         if (mConference != null) {
             mConference.disconnect();
         }
-        localStream.detach();
-        localStream.close();
+        client.dispose();
         video.dispose();
+        videoViewManager.dispose();
     }
 ```
 

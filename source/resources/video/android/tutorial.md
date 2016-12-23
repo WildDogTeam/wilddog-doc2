@@ -317,7 +317,8 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
 
         @Override
         public void onParticipantDisconnected(Conversation conversation, Participant participant) {
-        //监听参与者离开事件
+            //监听参与者离开事件
+            mConversation.disconnect();
         }
     });
 
@@ -333,12 +334,22 @@ mRef.child("users").addChildEventListener(new ChildEventListener() {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //需要离开视频通话时调用此方法，并做资源释放和其他自定义操作
+        //需要离开会话时调用此方法，并做资源释放和其他自定义操作
+        localStream.detach();
+        localStream.close();
+        if (localView != null) {
+            localView.release();
+            localView = null;
+        }
+        if (remoteView != null) {
+            remoteView.release();
+            remoteView = null;
+        }
         if (mConversation != null) {
             mConversation.disconnect();
         }
-        localStream.detach();
-        localStream.close();
+
+        client.dispose();
         video.dispose();
     }
 ```
