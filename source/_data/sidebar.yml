@@ -292,13 +292,14 @@ api:
 
   即时通讯:
     iOS:
-      WDGIMClient: /api/im/ios/WDGIMClient.html
+      WDGIM: /api/im/ios/WDGIM.html
       WDGIMConversation: /api/im/ios/WDGIMConversation.html
       WDGIMMessage: /api/im/ios/WDGIMMessage.html
       WDGIMMessageGroupTip: /api/im/ios/WDGIMMessageGroupTip.html
       WDGIMMessageImage: /api/im/ios/WDGIMMessageImage.html
       WDGIMMessageText: /api/im/ios/WDGIMMessageText.html
       WDGIMMessageVoice: /api/im/ios/WDGIMMessageVoice.html
+      WDGIMNotify: /api/im/ios/WDGIMNotify.html
       WDGIMUser: /api/im/ios/WDGIMUser.html
       错误码: /api/im/ios/error-code.html
     Android:

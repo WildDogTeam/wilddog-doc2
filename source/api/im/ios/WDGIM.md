@@ -1,6 +1,6 @@
-title: WDGIMClient 
+title: WDGIM 
 ---
-WDGIMClient 是 Wilddog IM SDK 各个功能模块的入口。一个 appID 对应一个 Wilddog 应用。
+WDGIM 是 Wilddog IM SDK 各个功能模块的入口。
 
 ## 属性
 
@@ -9,12 +9,12 @@ WDGIMClient 是 Wilddog IM SDK 各个功能模块的入口。一个 appID 对应
 **定义**
 
 ```objectivec
-@property (nonatomic, weak) id <WDGIMClientDelegate> delegate
+@property (nonatomic, copy) id <WDGIMDelegate> delegate
 ```
 
 **说明**
 
-Client 的代理。
+WDGIM 的代理。
 
 </br>
 
@@ -71,48 +71,21 @@ Client 的代理。
 
 ## 方法
 
-### + defaultClient
+### + im
 
 **定义**
 
 ```objective-c
-+ (instancetype)defaultClient
++ (instancetype)im
 ```
 
 **说明**
 
-获取 Client 单例。
+获取 WDGIM 单例。
 
 **返回值**
 
-WDGIMClient 单例对象
-
-</br>
-
-------
-
-### + clientWithAppID:delegate:
-
-**定义**
-
-```objective-c
-+ (instancetype)clientWithAppID:(NSString *)appID delegate:(id<WDGIMClientDelegate>)delegate
-```
- 
-**说明**
-
-用于配置初始化时的必要参数，如：appID。
- 
-**参数**
-
-参数名 | 描述
------|------
-appID | Wilddog appID
-delegate | 代理 
-
-**返回值**
-
-WDGIMClient 单例对象
+WDGIM 单例对象
 
 </br>
 

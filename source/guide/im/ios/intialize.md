@@ -9,22 +9,22 @@ title: 初始化
 
 ## 初始化 SDK
 
-`- clientWithAppID: ` 方法用于初始化 SDK：
+初始化 SDK 只需要在 Auth 登录完成之后，设置 WDGIM 的代理即可。
 
 ```objectivec
-[WDGIMClient clientWithAppID:@"your appID" delegate:self];
+[[WDGIM im] setDelegate:self];
 
 ```
 
 ## 监听连接状态
 
-`- wilddogIMClientDidConnect:` 和 `- wilddogIMClientDidDisconnect:` 代理方法用于监听 SDK 与服务器连接状况：
+`- wilddogIMDidConnect:` 和 `- wilddogIMDidDisconnect:` 代理方法用于监听 SDK 与服务器连接状况：
 ```objectivec
-- (void)wilddogIMClientDidConnect:(nonnull WDGIMClient *)client {
+- (void)wilddogIMDidConnect:(nonnull WDGIM *)im {
 	// 与服务器建立连接。
 }
 
-- (void)wilddogIMClientDidDisconnect:(nonnull WDGIMClient *)client {
+- (void)wilddogIMDidDisconnect:(nonnull WDGIM *)im {
 	// 与服务器断开连接。
 }
   

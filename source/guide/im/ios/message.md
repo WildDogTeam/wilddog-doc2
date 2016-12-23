@@ -13,7 +13,7 @@ title: 消息收发
 使用 `-newConversationWithMembers:completion` 方法获取会话，比如创建一个单聊会话：
 
 ```objc
-[[WDGIMClient defaultClient] newConversationWithMembers:@[@"User Id"] completion:^(WDGIMConversation * _Nullable conversation, NSError *__autoreleasing  _Nullable * _Nullable error) {
+[[WDGIM im] newConversationWithMembers:@[@"User Id"] completion:^(WDGIMConversation * _Nullable conversation, NSError *__autoreleasing  _Nullable * _Nullable error) {
    //...
 }];
 
@@ -59,7 +59,7 @@ WDGIMMessageText *textMessage = [WDGIMMessage messageWithText:@"Hi, Wilddog!"];
 
 ## 接收消息
 
-新消息通知会在 `-wilddogIMClient:didRecieveMessages:` 方法中回调给用户。
+新消息通知会在 `-wilddogIM:didRecieveMessages:` 方法中回调给用户。
 
 ### 注册监听
 
@@ -67,15 +67,15 @@ WDGIMMessageText *textMessage = [WDGIMMessage messageWithText:@"Hi, Wilddog!"];
 
 ```objc 
 // 设置代理
-[WDGIMClient clientWithAppID:@"your appID" delegate:self];
+[[WDGIM im] setDelegate:self];
 
 ```
 	
 ### 消息解析
 
-WDGIMClientDelegate 的 `-wilddogIMClient:didRecieveMessages:` 方法用于获取 messages 中所有新的聊天消息：
+WDGIMDelegate 的 `-wilddogIM:didRecieveMessages:` 方法用于获取 messages 中所有新的聊天消息：
 ```objc
-- (void)wilddogIMClient:(WDGIMClient *)client didRecieveMessages:(NSArray<WDGIMMessage *> *)messages
+- (void)wilddogIM:(WDGIM *)im didRecieveMessages:(NSArray<WDGIMMessage *> *)messages
 {
     for (WDGIMMessage *msg in messages) {
         switch (msg.messageType) {
@@ -173,7 +173,7 @@ typedef NS_ENUM(NSInteger, WDGIMMessageStatus) {
 
 `-getConversations` 方法用于获取本地所有会话列表:
 ```objc
-	NSArray *conversations = [[WDGIMClient defaultClient] getConversations];
+	NSArray *conversations = [[WDGIM im] getConversations];
 ```
 	
 ### 获取会话本地消息
