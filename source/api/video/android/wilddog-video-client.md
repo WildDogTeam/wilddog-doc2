@@ -153,5 +153,25 @@ public Conference connectToConference(String conferenceId, ConnectOptions option
 ```
 
 </br>
+---
 
+### dispose()
+
+**定义**   
+
+```java
+public void dispose()
+```
+
+**说明**
+
+释放WilddogVideoClient 持有的资源。
+
+
+**示例**
+
+```java
+        client.dispose();
+
+```
 
