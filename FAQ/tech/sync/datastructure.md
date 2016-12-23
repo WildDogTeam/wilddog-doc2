@@ -7,6 +7,6 @@ Sync 的数据采用 JSON 格式存储。它是一种轻量级的数据交换格
 
 例如，以下聊天室示例的数据结构中，name 是 key，username 1 是 name 对应的 value ，它们共同组成一个节点。
 
-图图
+![](/images/group.png)
 
 你可以通过 [本篇文档](https://docs.wilddog.com/guide/sync/bestpractice/structure-data.html) 学习如何组织你的数据结构。
