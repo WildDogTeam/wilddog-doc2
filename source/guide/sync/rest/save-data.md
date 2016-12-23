@@ -126,8 +126,9 @@ curl -X PATCH -d '{"b/d":"updateD", "x/z":"updateZ"}' \
  'https://samplechat.wilddogio.com/a/.json'
 ```
  
+更新后数据如下：
+
 ```
-//更新后数据如下
 {
     "a": {
         "b": {
@@ -152,9 +153,9 @@ curl -X PATCH -d '{"b":{"d":"updateD"}, "x":{"z":"updateZ"}}' \
  
 ```
 
+更新后数据如下
 
 ```
-//更新后数据如下
 {
     "a": {
         "b": {
