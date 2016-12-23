@@ -100,7 +100,7 @@ guide:
       多人视频会议: /guide/video/ios/conference.html
 
   即时通讯:
-    基础概念:
+#    基础概念:
     Android:
       初始化: /guide/im/android/intialize.html
       用户集成: /guide/im/android/users.html
