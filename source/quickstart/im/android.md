@@ -31,8 +31,6 @@ Wilddog IM 解决方案在 Android 上需要 android.permission.INTERNET 权限�
 
 ## 3. 引入SDK
 
-引入SDK
-
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">'com.wilddog.wilddogim:wilddog-im:0.2.0'</span></div></pre></td></tr></tbody></table></figure>
 
 
