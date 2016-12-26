@@ -8,7 +8,7 @@ title: 快速入门
 
     <p class="env-title">环境准备</p>
     <ul>
-        <li> 支持 Chrome、IE、Firefox、Safari 等主流浏览器环境 </li>
+        <li> 支持 Chrome、IE 10 +、Firefox、Safari 等主流浏览器环境 </li>
     </ul>
 </div>
 
