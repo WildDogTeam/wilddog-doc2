@@ -34,7 +34,7 @@ POST
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <li>参数 params 可能含有特殊字符, 记得 `urlencode`</li>
-  <li>params 所传递的变量的值, 长度不能超过 32 个字符, 变量中不能含有 HTTP 链接。</li>
+  <li>params 所传递的变量的值, 长度不能超过 30 个字符, 变量中不能含有 HTTP 链接。</li>
    <li>生成签名时, 参数不要使用 `urlencode`. 在调用 api 时, 才需要对参数做 `urlencode`
 </li>
 </blockquote>
