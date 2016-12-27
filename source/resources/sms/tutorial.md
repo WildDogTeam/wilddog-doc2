@@ -26,15 +26,14 @@ title: 实战教程
 
 ### 2. 账户充值
 
-为防止滥用，短信服务需帐户余额大于 5 元才能使用。如余额不足，请进入 [控制面板-财务-充值]进行充值
+为防止滥用，短信服务需帐户余额大于 5 元才能使用。如余额不足，请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge)进行充值。
 
 ### 3. 配置短信
 #### （1）配置签名
-该签名会出现在下发短信的开头，建议写上你的品牌或产品名称。此处我们以【野狗实时】为例。在 控制面板-短信-签名配置如下：
+该签名会出现在下发短信的开头，建议写上你的品牌或产品名称。此处我们以【野狗实时】为例。在 控制面板-短信-签名配置如下，签名提交后，需管理员审核。
 
 ![](/images/tutorialsmssign.jpg)
 
-签名提交后，需管理员审核。
 
 #### （2）创建模版
 模板短信由固定内容与多个变量构成，，以`套餐到期通知`为例，模版配置如下：
@@ -66,7 +65,10 @@ param_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templ
 ```
 sign_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templateId=100001&timestamp=1482301296&kYVAi9tXAbPOURnkWiiWADRuNi6DJy7JmSg02myB"
 ```
-其中 SMS_KEY 获取的方式如下：
+其中 SMS_KEY 在控制面板获取：
+
+![](/images/smssecretkey.png)
+
 
 （4）计算 sign_str的 SHA256值, 得到 `signature`
 
@@ -81,7 +83,6 @@ sign_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templa
 ```
 curl -X POST https://api.wilddog.com/sms/v1/yourtestapp/notify/send -d "4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E=$4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E&100001=100001&13452366225=13452366225&1482301296=1482301296&["王小豆","个人版套版套餐"]=["王小豆","个人版套版套餐"]"
 ```
-
 
 
 ## 获取示例源码
