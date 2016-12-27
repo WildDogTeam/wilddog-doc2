@@ -1,5 +1,7 @@
 发送通知类短信 Demo
 
+以下为 Java 端示例代码
+
 ```
 import java.io.IOException;
 import java.util.Comparator;

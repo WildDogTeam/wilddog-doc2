@@ -4,8 +4,6 @@ title: 实战教程
 
 本文档将给出尽量详尽的示例教程。
 
-如需了解发送短信的基础操作，请参考文档 [完整指南](/guide/sms/vertification.html)。
-
 
 ## 示例说明
 
@@ -36,7 +34,7 @@ title: 实战教程
 
 
 #### （2）创建模版
-模板短信由固定内容与多个变量构成，，以`套餐到期通知`为例，模版配置如下：
+模板短信由固定内容与多个变量构成，以`套餐到期通知`为例，模版配置如下：
 
 ![](/images/tutorialsmsmode.jpg)
 
@@ -83,8 +81,7 @@ sign_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templa
 ```
 curl -X POST https://api.wilddog.com/sms/v1/yourtestapp/notify/send -d "4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E=$4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E&100001=100001&13452366225=13452366225&1482301296=1482301296&["王小豆","个人版套版套餐"]=["王小豆","个人版套版套餐"]"
 ```
-
-
+此处规则详情请参考 [完整指南](/guide/sms/signature.html#生成数字签名的方法)
 ## 获取示例源码
 
-点此获取完整的 [示例源码](https://github.com/WildDogTeam/demo-ios-danmu)。
+点此获取完整的 [示例源码](https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/resources/sms/nitifydemo.md)。
