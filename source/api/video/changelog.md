@@ -4,7 +4,13 @@ title: 更新日志
 
 ## Javascript SDK
 
-### 0.5.3 - 2016.12.16
+### v0.5.4 - 2016.12.22
+
+<span class="changelog fix">修复</span>
+
+- 修复 `outGoingInvite.on('rejected')` 失败的问题。
+
+### v0.5.3 - 2016.12.16
 
 <span class="changelog optimize">优化</span>
 
@@ -15,7 +21,7 @@ title: 更新日志
 
 - 修复meetingCast.onStateChanged 失败的问题。
 
-### 0.5.2 - 2016.12.15
+### v0.5.2 - 2016.12.15
 
 <span class="changelog add">新增</span>
 
@@ -103,6 +109,23 @@ title: 更新日志
 
 ---
 ## Android SDK
+
+### v0.5.4 - 2016.12.23
+<span class="changelog add">新增</span>
+
+- conversation 增加 NAT 穿越服务器选择算法。
+
+<span class="changelog fix">修复</span>
+
+- conversation 退出会话 crash bug。
+- conference 资源释放 bug。
+
+### v0.5.3 - 2016.12.16
+
+<span class="changelog optimize">优化</span>
+
+- 更新错误码。
+- 优化 participantListener 接口的方法。
 
 ### v0.5.2 - 2016.12.07
 

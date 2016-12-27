@@ -15,12 +15,20 @@ title: 离线推送
 
 
 ## 绑定 deviceToken
-`-updateRemoteNotificationDeviceToken:error:` 方法用于绑定 deviceToken：
+`+ updateRemoteNotificationDeviceToken:` 方法用于绑定 deviceToken：
 
 ```objc
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
 {
-    [[WDGIMClient defaultClient] updateRemoteNotificationDeviceToken:deviceToken error:nil];
+    [WDGIMNotify updateRemoteNotificationDeviceToken:deviceToken];
 }
 ```
 
+## 解绑 deviceToken
+`+ unbindDeviceTokenWithCompletion:` 方法用于解绑 deviceToken：
+
+```objc
+[WDGIMNotify unbindDeviceTokenWithCompletion:^(NSError * _Nullable error) {
+
+}];
+```

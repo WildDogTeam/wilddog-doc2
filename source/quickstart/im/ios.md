@@ -44,34 +44,24 @@ SDK 的安装方式有两种，你可以任选其一：
 </br>
 - **手动集成** 
   </br>
-1. 下载 Sync SDK <a href="#" class="ios-download-sync">点此下载</a>。 
-2. 下载 Core SDK <a href="#" class="ios-download-core">点此下载</a>。  
-3. 下载 Auth SDK <a href="#" class="ios-download-auth">点此下载</a>。
+1. 下载 Sync SDK <a href="#" class="ios-download-sync">点此下载</a>。   
+2. 下载 Core SDK <a href="#" class="ios-download-core">点此下载</a>。    
+3. 下载 Auth SDK <a href="#" class="ios-download-auth">点此下载</a>。  
 4. 下载 IM SDK <a href="#" class="im-ios-download">点此下载</a>。        
 5. 把 WilddogSync.framework、WilddogCore.framework、WilddogAuth 和 WilddogIM 拖到工程目录中。  
 6. 选中 Copy items if needed 、Create Groups，点击 Finish。  
 7. 点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
 
-## 3. 初始化
-
-1.引入头文件
+## 3. 引入头文件
 
 ```objc
 ＃import <WilddogIM/WilddogIM.h>
 ```
 
-2.初始化
+## 4. 集成用户和初始化
 
-调用 `+clientWithAppID:delegate:` 方法初始化 SDK。
-
-```objc
-[WDGIMClient clientWithAppID:appID delegate:self];
-
-```
-
-## 4. 集成用户
-
-IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗提供 [Server SDK](/guide/auth/server/server.html) 生成 customToken，开发者需要提供用户的 ID、昵称、头像。
+IM 的用户系统完全兼容 Wilddog Auth 产品的用户系统。你可以使用 Auth 的邮箱、电话、匿名等登录方式与 IM 结合使用，也可以使用 Auth 产品的 customToken 的方式来集成开发者的已有用户系统。
+用 customToken 的方式，首先需要提供野狗 [Server SDK](/guide/auth/server/server.html) 生成的 customToken，开发者需要提供用户的 ID、昵称、头像。
 具体流程如下：
 1. 客户端向开发者服务器请求 customToken。
 2. 开发者服务器使用野狗 Server SDK 生成 customToken 返回给客户端。
@@ -79,8 +69,11 @@ IM 使用 customToken 的方式来集成开发者的已有用户系统。野狗�
 
 ```objc
 // 用 Wilddog Auth Token 登录
-[[WDGIMClient defaultClient] signInWithCustomToken:wilddogToken completion:^(WDGIMUser * _Nullable currentUser, NSError * _Nullable error) {
-        
+[[WDGAuth auth] signInWithCustomToken:wilddogToken completion:^(WDGIMUser * _Nullable currentUser, NSError * _Nullable error) {
+     if(!error){
+         // 初始化 SDK。
+         [[WDGIM im] setDelegate:self];
+     }   
 }];
 ```
 

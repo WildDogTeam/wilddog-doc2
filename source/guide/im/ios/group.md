@@ -10,7 +10,7 @@ Wilddog IM SDK 不严格区分单聊和讨论组，创建会话时，当会话�
 
 ```
 // 创建会话，传入的数组中默认包含登录用户 ID
-[[WDGIMClient defaultClient] newConversationWithMembers:@[@"UserID1",@"UserID2",@"UserID3"]
+[[WDGIM im] newConversationWithMembers:@[@"UserID1",@"UserID2",@"UserID3"]
                                              completion:^(WDGIMConversation * _Nullable conversation, NSError *__autoreleasing  _Nullable * _Nullable error) {
                                                  //conversation 是创建成功的会话对象
 }];
@@ -56,10 +56,10 @@ NSArray *members = conversation.members;
 
 ## 获取讨论组变更消息
 
-当讨论组内有成员变更时，通过 `WDGIMClient` 的协议方法可以监听获取讨论组变更消息：
+当讨论组内有成员变更时，通过 `WDGIM` 的协议方法可以监听获取讨论组变更消息：
 
 ```objc
-- (void)wilddogIMClient:(WDGIMClient *)client didGroupInfoChange:(NSArray<WDGIMMessageGroupTips *> *)groupTips
+- (void)wilddogIM:(WDGIM *)im didGroupInfoChange:(NSArray<WDGIMMessageGroupTips *> *)groupTips
 {
     for (WDGIMMessageGroupTips *tip in groupTips) {
         switch (tip.groupTipType) {

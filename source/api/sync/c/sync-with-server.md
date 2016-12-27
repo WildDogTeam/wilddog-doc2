@@ -397,6 +397,13 @@ int main(void){
 
 ### wilddog_auth
 
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>wilddog_auth 函数需在调用 wilddog_initWithUrl 初始化该 appId 并获取实例后调用，否则将不生效。</li>
+  </ul>
+</blockquote>
+
 **定义**
 
 ```c
@@ -443,6 +450,13 @@ wilddog_auth("aaa.wilddogio.com", newToken, strlen(newToken), myOnAuthFunc, NULL
 ---
 
 ### wilddog_unauth
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  <ul>
+    <li>wilddog_unauth 函数需在调用 wilddog_initWithUrl 初始化该 appId 并获取实例后调用，否则将不生效。</li>
+  </ul>
+</blockquote>
 
 **定义**
 

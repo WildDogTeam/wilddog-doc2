@@ -100,7 +100,7 @@ guide:
       多人视频会议: /guide/video/ios/conference.html
 
   即时通讯:
-    基础概念:
+#    基础概念:
     Android:
       初始化: /guide/im/android/intialize.html
       用户集成: /guide/im/android/users.html
@@ -292,22 +292,23 @@ api:
 
   即时通讯:
     iOS:
-      WDGIMClient: /api/im/ios/WDGIMClient.html
+      WDGIM: /api/im/ios/WDGIM.html
       WDGIMConversation: /api/im/ios/WDGIMConversation.html
       WDGIMMessage: /api/im/ios/WDGIMMessage.html
       WDGIMMessageGroupTip: /api/im/ios/WDGIMMessageGroupTip.html
       WDGIMMessageImage: /api/im/ios/WDGIMMessageImage.html
       WDGIMMessageText: /api/im/ios/WDGIMMessageText.html
       WDGIMMessageVoice: /api/im/ios/WDGIMMessageVoice.html
+      WDGIMNotify: /api/im/ios/WDGIMNotify.html
       WDGIMUser: /api/im/ios/WDGIMUser.html
       错误码: /api/im/ios/error-code.html
     Android:
-      WilddogIMClient: /api/im/android/WilddogIMClient.html
-      WilddogIMClient.CompletionListener: /api/im/android/WilddogIMClient.CompletionListener.html
-      WilddogIMClient.WilddogIMAuthStateListener: /api/im/android/WilddogIMClient.WilddogIMAuthStateListener.html
-      WilddogIMClient.WilddogIMConnectionListener: /api/im/android/WilddogIMClient.WilddogIMConnectionListener.html
-      WilddogIMClient.WilddogIMGroupChangeListener: /api/im/android/WilddogIMClient.WilddogIMGroupChangeListener.html
-      WilddogIMClient.WilddogIMMessageListener: /api/im/android/WilddogIMClient.WilddogIMMessageListener.html
+      WilddogIM: /api/im/android/WilddogIM.html
+      WilddogIM.CompletionListener: /api/im/android/WilddogIM.CompletionListener.html
+      WilddogIM.WilddogIMConnectionListener: /api/im/android/WilddogIM.WilddogIMConnectionListener.html
+      WilddogIM.WilddogIMGroupChangeListener: /api/im/android/WilddogIM.WilddogIMGroupChangeListener.html
+      WilddogIM.WilddogIMMessageListener: /api/im/android/WilddogIM.WilddogIMMessageListener.html
+      WilddogIMNotification: /api/im/android/WilddogIMNotification.html
       Conversation: /api/im/android/Conversation.html
       Message: /api/im/android/Message.html
       GroupTipMessage: /api/im/android/GroupTipMessage.html
