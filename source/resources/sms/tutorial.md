@@ -77,7 +77,6 @@ sign_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templa
 ```
 
 ### 5. 发送本条通知短信
-`WDataSnapshot` 是 Sync 的一个快照，包含着正在监听的节点下，从云端取下来的数据。
 
 ```
 curl -X POST https://api.wilddog.com/sms/v1/yourtestapp/notify/send -d "4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E=$4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E&100001=100001&13452366225=13452366225&1482301296=1482301296&["王小豆","个人版套版套餐"]=["王小豆","个人版套版套餐"]"
