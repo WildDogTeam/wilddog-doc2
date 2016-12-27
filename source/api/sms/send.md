@@ -7,7 +7,7 @@ title: 发送通知类短信
 **URL**
 
 ```
-https://api.wilddog.com/sms/v1/{:appId}/send
+https://api.wilddog.com/sms/v1/{:appId}/notify/send
 ```
 **返回数据格式**
 
@@ -54,6 +54,6 @@ POST
 **示例代码**
 
 ```
-curl -X POST https://api.wilddog.com/sms/v1/{appId}/send -d "signature=$signature&templateId=$templateId&mobiles=$mobiles&timestamp=$timestamp&params=$params"
+curl -X POST https://api.wilddog.com/sms/v1/{appId}/notify/send -d "signature=$signature&templateId=$templateId&mobiles=$mobiles&timestamp=$timestamp&params=$params"
 ```
 

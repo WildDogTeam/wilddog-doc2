@@ -27,9 +27,9 @@ public class Example {
     private static final String SECRET = "<YOUR_SECRET>";
     
     private static final String BASE_URL = "https://api.wilddog.com/sms/v1/" + APPID;
-    private static final String SENDCODE_URL = BASE_URL + "/sendCode";
-    private static final String SEND_URL = BASE_URL + "/send";
-    private static final String CHECKCODE_URL = BASE_URL + "/checkCode";
+    private static final String SENDCODE_URL = BASE_URL + "/code/send";
+    private static final String SEND_URL = BASE_URL + "/notify/send";
+    private static final String CHECKCODE_URL = BASE_URL + "/code/check";
     private static final String QUERY_URL = BASE_URL + "/status";
 
     private static OkHttpClient client = null;

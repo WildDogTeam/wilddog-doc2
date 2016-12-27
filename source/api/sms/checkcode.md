@@ -8,7 +8,7 @@ title: 校验验证码
 **URL**
 
 ```
-https://api.wilddog.com/sms/v1/{:appId}/checkCode
+https://api.wilddog.com/sms/v1/{:appId}/code/check
 ```
 
 **返回数据格式**
@@ -50,7 +50,7 @@ POST
 **示例代码**
 
 ```
-curl -X POST https://api.wilddog.com/sms/v1/{appId}/checkCode -d "signature=$signature&mobile=$mobile&timestamp=$timestamp&code=$code"
+curl -X POST https://api.wilddog.com/sms/v1/{appId}/code/check -d "signature=$signature&mobile=$mobile&timestamp=$timestamp&code=$code"
 ```
 
 
