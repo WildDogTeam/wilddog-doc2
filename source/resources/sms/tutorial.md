@@ -38,12 +38,13 @@ title: 实战教程
 
 ![](/images/tutorialsmsmode.jpg)
 
-其中 `%s`即为需要接口替换的变量。提交模版后得会自动生成 `templateId `。
+其中 `%s`即为需要接口替换的变量：本例中为用户名和套餐种类。提交该模版会自动生成模版 ID（ `templateId `）。
+
 
 ### 4.生成数字签名（signature ）
-（1）罗列实际调用的 API ，除去其中的 signature 字段。
+（1）罗列实际调用的 API 参数，除去其中的 signature 字段。
 
-因本次示例为通知类短信，除 `signature`后，传送的参数如下：
+因本次示例为 [通知类短信](/api/sms/send.html)，除去 `signature`后，传送的参数如下：
 
 ```
 templateId：100001
