@@ -28,7 +28,7 @@ Wilddog_Return_T wilddog_getValue(Wilddog_T wilddog, onQueryFunc callback, void*
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -97,7 +97,7 @@ Wilddog_Return_T wilddog_setValue(Wilddog_T wilddog, Wilddog_Node_T *p_node, onS
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -160,7 +160,7 @@ Wilddog_Return_T wilddog_push( Wilddog_T wilddog, Wilddog_Node_T *p_node, onPush
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -232,7 +232,7 @@ Wilddog_Return_T wilddog_removeValue(Wilddog_T wilddog, onRemoveFunc callback, v
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -288,7 +288,7 @@ Wilddog_Return_T wilddog_addObserver(Wilddog_T wilddog, Wilddog_EventType_T even
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
