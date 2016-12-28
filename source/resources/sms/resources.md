@@ -162,10 +162,10 @@ public class Example {
     }
     
     // 短信发送状态查询
-    public static void query(String sendId) {
+    public static void query(String rrid) {
         // 短信发送后批次号
         Map<String, String> params = new HashMap<String, String>();
-        params.put("sendId", sendId);
+        params.put("rrid", rrid);
         Map<String, Object> sortedMap = new TreeMap<String, Object>(new Comparator<String>() {
             public int compare(String arg0, String arg1) {
                 // 忽略大小写
@@ -180,7 +180,7 @@ public class Example {
         }
         sb.append(SECRET);
         String sig = DigestUtils.sha256Hex(sb.toString());
-        Request request = new Request.Builder().url(QUERY_URL + "?sendId=" + sendId + "&signature=" + sig).get().build();
+        Request request = new Request.Builder().url(QUERY_URL + "?rrid=" + rrid + "&signature=" + sig).get().build();
         try {
             Response response = client.newCall(request).execute();
             System.out.println(response);
@@ -210,8 +210,8 @@ public class Example {
         Example.checkCode(code, mobile2);
         
         //查询发送状态
-        String sendId = "XXXXXXXX";
-        Example.query(sendId);
+        String rrid = "XXXXXXXX";
+        Example.query(rrid);
     }
 }
       

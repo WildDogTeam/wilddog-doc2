@@ -26,7 +26,7 @@ GET
     
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
-|sendId          |string         |是         |发送短信的编号sendId|
+|rrid          |string         |是         |rrid|
 |signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证|
  
  
@@ -51,7 +51,7 @@ data中返回JSONArray,格式如下(其中status取值:0-未发送,1-发送中,2
 
 ```
 curl -X POST https://api.wilddog.com/sms/v1/myoffice1/send 
--d "signature=$signature&sendId=$sendId"
+-d "signature=$signature&rrid=$rrid"
 ```
 
 **状态码**
