@@ -33,23 +33,23 @@ STATIC void on_callback
     }
 
     if(p_snapshot){
-		if(p_snapshot->d_wn_type == WILDDOG_NODE_TYPE_TRUE){
-			wilddog_debug("online!");
-		}else if(p_snapshot->d_wn_type == WILDDOG_NODE_TYPE_FALSE){
-			wilddog_debug("offline!");
-		}
-	}
+        if(p_snapshot->d_wn_type == WILDDOG_NODE_TYPE_TRUE){
+            wilddog_debug("online!");
+        }else if(p_snapshot->d_wn_type == WILDDOG_NODE_TYPE_FALSE){
+            wilddog_debug("offline!");
+        }
+    }
     return;
 }
 
 int main(){
-	Wilddog_T wilddog = wilddog_initWithUrl("coap://<appId>.wilddogio.com/.info/connected");
+    Wilddog_T wilddog = wilddog_initWithUrl("coap://<appId>.wilddogio.com/.info/connected");
 
-	wilddog_addObserver(wilddog,WD_ET_VALUECHANGE, on_callback, NULL);
-	while(1){
-		wilddog_trySync();
-	}
-	return 0;
+    wilddog_addObserver(wilddog,WD_ET_VALUECHANGE, on_callback, NULL);
+    while(1){
+        wilddog_trySync();
+    }
+    return 0;
 }
 ```
 
