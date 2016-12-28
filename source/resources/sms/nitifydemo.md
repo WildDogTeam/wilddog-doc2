@@ -16,8 +16,9 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import org.apache.commons.codec.digest.DigestUtils;
 public class Example {
-    
+    // 用户的appId
     private static final String APPID = "XXXXX";
+    // 用户的secret
     private static final String SECRET = "<YOUR_SECRET>";
     
     private static final String BASE_URL = "https://api.wilddog.com/sms/v1/" + APPID;
@@ -56,6 +57,7 @@ public class Example {
             formBody.add(s, sortedMap.get(s) + "");
             sb.append(String.format("%s=%s&", s, sortedMap.get(s)));
         }
+        // 拼接短信秘钥
         sb.append(SECRET);
         String sig = DigestUtils.sha256Hex(sb.toString());
         // 追加签名参数
