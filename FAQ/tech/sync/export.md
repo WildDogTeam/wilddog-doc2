@@ -12,5 +12,8 @@ tag:实时数据同步
 ```
 https://yourtestapp.wilddogio.com/Bill.json"
 ```
+
+另外，你也可以通过 REST API 中的`download`查询功能来导出数据。
+
 如有大于 16MB 的数据需要导出，请 [提交工单](https://wilddog.kf5.com/hc/request/new/)。
 
