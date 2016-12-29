@@ -50,7 +50,7 @@ title: 实战教程
 templateId：100001
 mobiles：["13452366225"]
 params：["王小豆","个人版套版套餐"]
-timestamp：1482995211
+timestamp：1482995211000
 ```
 
 （2）将参数以字母升序(A-Z)排列，以 key=value’ + ‘&’ + ‘key=value的方式连接所有参数,得到字符串 param_str。

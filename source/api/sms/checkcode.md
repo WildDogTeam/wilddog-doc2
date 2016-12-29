@@ -30,7 +30,7 @@ POST
 |code     |string            |是         |验证码|
 |mobile          |string         |是         |收信人手机号,如1xxxxxxxxxx 格式必须为11位|
 |signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证 其中参与签名加密的参数包括 `code`， `mobile`，`timestamp`|
-|timestamp      |string         |是         |UNIX时间戳|
+|timestamp      |string         |是         |UNIX时间戳 单位是毫秒|
     
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
