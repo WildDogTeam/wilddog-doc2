@@ -1,7 +1,7 @@
 title:  代码片段
 ---
 
-通知类短信发送 Demo 及查询短信发送状态 Demo ：
+### 通知类短信发送及查询短信发送状态 Demo（Java） ：
 
 ```
 
@@ -217,5 +217,51 @@ public class Example {
       
 ```
 
+
+### 验证码短信发送 Demo （Python）：
+
+```
+import urllib
+import urllib2
+import time
+import hashlib
+# appId
+appId = 'xxxxx';
+# init PATH
+baseURL = "https://api.wilddog.com/sms/v1/" + appId;
+sendURL = baseURL + "/code/send";
+
+# 短信秘钥
+SECRET = "xxxxxxxxxxxxxxxxx";
+
+#准备数据 发送短信验证码类包括下面这些信息:templateId mobile timestamp
+requestBody={"templateId":"100000", "mobile":"13031199447", "timestamp":"%d" %(time.time()*1000)}
+
+# 排序
+signParam = sorted(requestBody.items(), key=lambda d: d[0]);
+
+# 拼接排序后信息
+str = "";
+for i in signParam:
+        str = str + i[0] + "=" + i[1] + "&";
+
+# 拼接短信秘钥
+str = str + SECRET;
+# 计算签名
+sign = hashlib.sha256(str).hexdigest();
+
+# 设置签名
+requestBody['signature'] = sign;
+
+# 发送请求
+test_data_urlencode = urllib.urlencode(requestBody)
+req = urllib2.Request(url = sendURL,data =test_data_urlencode)
+print req
+#
+res_data = urllib2.urlopen(req)
+res = res_data.read()
+print res
+
+```
 
 
