@@ -80,7 +80,7 @@ sign_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templa
 ### 5. 发送本条通知短信
 
 ```
-curl -X POST https://api.wilddog.com/sms/v1/yourtestapp/notify/send -d "4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E=$4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E&100001=100001&13452366225=13452366225&1482301296=1482301296&["王小豆","个人版套版套餐"]=["王小豆","个人版套版套餐"]"
+curl -X POST https://api.wilddog.com/sms/v1/yourtestapp/notify/send -d "signature =4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E&templateId =100001& timestamp =13452366225&mobiles=1482301296&params=["王小豆","个人版套版套餐"]"
 ```
 此处规则详情请参考 [完整指南](/guide/sms/signature.html#生成数字签名的方法)。
 ## 获取示例源码
