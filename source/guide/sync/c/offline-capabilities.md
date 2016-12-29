@@ -1,11 +1,58 @@
 title:  离线功能
 ---
 
-本篇文档介绍离线功能的实现。
+本篇文档介绍 Wilddog Sync 的高级特性，用于实现更丰富的场景需求。
 
 C/嵌入式 SDK 为每个引用建立长连接，所有该引用的通讯都是基于这个连接。
 
-SDK 内部的实现机制使你的设备在弱网环境下仍能继续工作。此外，还能设置离线事件。
+SDK 内部的实现机制使你的设备在弱网环境下仍能继续工作。它包括离线事件、监控连接状态等特性。
+
+## 监听连接状态
+
+`/.info/connected` 是 Wilddog Sync 提供的一个保留路径，用于存储客户端与云端的连接状态。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+
+SDK 初始化时，处于离线状态。此外，`/.info/connected` 的值是 boolean 类型。
+
+</blockquote>
+
+例如，监测客户端是否连接到云端：
+
+``` c
+STATIC void on_callback
+    (
+    const Wilddog_Node_T* p_snapshot, 
+    void* arg, 
+    Wilddog_Return_T err
+    ){
+    if(err < WILDDOG_HTTP_OK || err >= WILDDOG_HTTP_NOT_MODIFIED){
+        wilddog_debug("getValue fail!");
+        return;
+    }
+
+    if(p_snapshot){
+        if(p_snapshot->d_wn_type == WILDDOG_NODE_TYPE_TRUE){
+            wilddog_debug("online!");
+        }else if(p_snapshot->d_wn_type == WILDDOG_NODE_TYPE_FALSE){
+            wilddog_debug("offline!");
+        }
+    }
+    return;
+}
+
+int main(){
+    Wilddog_T wilddog = wilddog_initWithUrl("coap://<appId>.wilddogio.com/.info/connected");
+
+    wilddog_addObserver(wilddog,WD_ET_VALUECHANGE, on_callback, NULL);
+    while(1){
+        wilddog_trySync();
+    }
+    return 0;
+}
+```
+
 
 ## 离线事件
 

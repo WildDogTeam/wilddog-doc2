@@ -178,6 +178,32 @@ title: 更新日志
 
 ## C/嵌入式 SDK
 
+### V1.1.0 - 2016.12.28
+<span class="changelog add">新增</span>
+
+- 增加在线状态查询和订阅功能。
+
+<span class="changelog optimize">优化</span>
+
+- 优化逻辑，当调用getValue/setValue/push/remove/addObserver等和服务端同步的 API 错误时，除了返回中携带错误信息之外，还会触发回调函数。
+
+<span class="changelog fix">修复</span>
+
+- 修复超时时间不准的 bug。
+- 修复连接成功之前调用 goOffline 无效的 bug。
+
+### V1.0.9 - 2016.12.20
+
+<span class="changelog fix">修复</span>
+
+- 修复初始化时内存分配失败可能导致内存未释放的bug。
+
+### V1.0.8 - 2016.10.21
+
+<span class="changelog fix">修复</span>
+
+- 修复observer接收到错误后不能完全释放资源，需要用户手动removeObserver的bug。
+
 ### V1.0.7 - 2016.09.23
 
 <span class="changelog fix">修复</span>
