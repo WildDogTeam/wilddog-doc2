@@ -30,6 +30,9 @@ title:  错误码
 |70218|sms check code not exist|手机没有发送验证码，请重新发送验证码|
 |70219|sms send check code error|手机发送验证码出现错误，请重试|
 |70220|sms parameter format error,only jsonarray accepted|发送参数格式错误，不是JSONArray类型|
+|70230|sms mobiles parse error, please check it|发送推送类短信, 手机号列表解析出错, 请检查格式|
+|70231|sms params parse error, please check it|发送推送类短信, 参数解析出错, 请检查格式|
+|70232|sms params size error, please check it|发送推送类短信, 参数个数错误, 请检查格式|
 |70301|your account must have at least ¥5 to use sms service|帐户余额不足5元，不能开启短信服务|
 |70302|your account rate insufficient balance|帐户余额不足0元，不能使用短信服务|
 |70303|your account dose not have enough balance for this api call|帐户余额不足支付本次短信服务|
