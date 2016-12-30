@@ -9,7 +9,7 @@ title:  错误码
 |22004| The supplied auth token was invalid| 用户提供的 token 无效|
 |22005| The transaction had too many retries| 用户创建失败，请重试|
 |22006| The specified authentication type is not enabled for this Wilddog.| 未开启身份认证功能，请在控制台开启后重试|
-|22007| The specified authentication sign is the auth secret .z| token 认证需要超级密钥|
+|22007| The specified authentication sign is the auth secret .| token 认证需要超级密钥|
 |22008| Invalid provider specified, please check application code.| 身份认证提供商调用错误，请联系野狗 support@wilddog.com|
 |22009| The specified email address is incorrect.|该邮箱地址无效|
 |22010| The specified password is incorrect.| 该密码不正确|
