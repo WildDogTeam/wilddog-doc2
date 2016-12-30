@@ -4,6 +4,14 @@ title: 更新日志
 
 ## Javascript SDK
 
+
+### V2.4.0 - 2016.12.30
+
+<span class="changelog add">新增</span>
+
+- 新增 App 唯一标识，用于统计 Wilddog App 日活用户。
+
+
 ### V2.3.9 - 2016.12.15
 
 <span class="changelog add">新增</span>
