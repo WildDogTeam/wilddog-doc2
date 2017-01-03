@@ -3,28 +3,29 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 开发文档
-subtitle:
-description:
-language: zh-cn
-timezone:
+title: 帮助中心 
+subtitle: 
+description: 
+language: zh-cn 
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
-root: /
-permalink: :year/:month/:day/:title/
-permalink_defaults:
+url: http://yoursite.com 
+root: / 
+permalink: :title/ 
+permalink_defaults: 
+  lang: zh-cn 
 
 # Directory
-source_dir: source
-public_dir: public
-tag_dir: tags
-archive_dir: archives
-category_dir: categories
-code_dir: downloads/code
-i18n_dir: :lang
-skip_render:
+source_dir: source 
+public_dir: public 
+tag_dir: tags 
+archive_dir: archives 
+category_dir: categories 
+code_dir: downloads/code 
+i18n_dir: :lang 
+skip_render: 
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -72,3 +73,39 @@ deploy:
 search:
   path: search.xml
   field: post
+
+## jsonContent  
+jsonContent:
+  meta: true
+  keywords: false # language name option
+  dateFormat: undefined # format string
+  pages:
+    title: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    link: true
+    permalink: true
+    excerpt: true
+    keywords: true # but only if root keywords option language was set
+    text: true
+    raw: false
+    content: false
+  posts:
+    title: true
+    slug: true
+    date: true
+    updated: true
+    comments: true
+    path: true
+    link: true
+    permalink: true
+    excerpt: true
+    keywords: true # but only if root keywords option language was set
+    text: true
+    raw: false
+    content: false
+    categories: true
+    tags: true

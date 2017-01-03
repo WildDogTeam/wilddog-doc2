@@ -1,3 +1,4 @@
+{{ partial('partial/docs_header') }}
 <div id="content-wrap">
   <div id="content" class="wrapper">
     <div id="content-inner">

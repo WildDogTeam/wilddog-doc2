@@ -2,15 +2,15 @@
   clearfix()
   position: absolute
   bottom: 0
-  left: 50%
-  z-index: 999
-  transform: translateX(-50%)
-  width: max-width
+  left: 0
+  z-index: 9999
+  width: 100%
+  max-width: none
   color: #666
-  
   text-align: center
   display: none
   border-top: 1px solid #e5e5e5
+  background-color: #f5f5f5
   @media mq-normal
     text-align: left
     display: block
@@ -19,26 +19,43 @@
   a
     text-decoration: none
     transition: all 0.2s
+  .inner
+    margin-left: auto
+    margin-right: auto
+    max-width: 1120px
+    
+#footer-left
+  float: left
+  padding-top: 18px
+  padding-bottom: 12px
 
-#footer-copyright
-  line-height: 1.4
-  @media mq-normal
-    float: left
-  a
-    font-weight: bold
+.footer-logo
+  float: left
+  box-shadow: none
+  border: 0
+  
+.copyright-text
+  float: left
+  margin-top: 12px
+  margin-left: 12px
+  font-size: 22px
+  font-weight: 300
+  vertical-align: middle
 
 #footer-links
-  margin-top: 18px
-  margin-bottom: 20px
+  float: right
+  margin-top: 36px
+  font-size: 0
   text-align: center
 
 .footer-link
-    padding: 0 5px
     font-size: 13px
     color: #666
     letter-spacing: 1px
-    margin-left: 26px
-    margin-right: 26px
+    margin-left: 60px
     &:hover
       color: #e6501e;
       border-bottom: 1px solid #e6501e
+    &.footer-service-tel
+      color: #666;
+      border-bottom: 0

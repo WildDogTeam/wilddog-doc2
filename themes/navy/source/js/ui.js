@@ -7,13 +7,13 @@ window.onload = function () {
   var airticleContent = document.querySelector('.article .inner');
   var toc = getClass('toc-content')[0];
 
-  if(getClass('toc-item').length < 1 && airticleContent) {
+  if(getClass('toc-item').length < 1 && airticleContent && toc) {
     airticleContent.removeChild(toc)
   }
 
 //  切换头部选中状态
   var type = window.location.pathname.split('/')[1];
-  var headerNavs = getClass('main-nav-link');
+  var headerNavs = getClass('docs-main-nav-link');
   if (type === 'overview') {
     addClass(headerNavs[0], 'current')
   } else if (type === 'quickstart') {
@@ -118,15 +118,19 @@ window.onload = function () {
   currentLinkSelect(headings[0]);
   function windowScrollHandle () {
     var scrollTop = window.scrollY;
-    if (scrollTop >= window.innerHeight) {
-      addClass(backTop, 'back-top-show')
-    } else {
-      removeClass(backTop, 'back-top-show')
-    };
-    if(scrollTop > scrollStart) {
-      addClass(feedBack, 'scrollHide')
-    } else {
-      removeClass(feedBack, 'scrollHide')
+    if (backTop) {
+      if (scrollTop >= window.innerHeight) {
+        addClass(backTop, 'back-top-show')
+      } else {
+        removeClass(backTop, 'back-top-show')
+      };
+    }
+    if (feedBack) {
+      if(scrollTop > scrollStart) {
+        addClass(feedBack, 'scrollHide')
+      } else {
+        removeClass(feedBack, 'scrollHide')
+      }
     }
     scrollStart = scrollTop;
 
@@ -140,7 +144,7 @@ window.onload = function () {
   windowScrollHandle();
   window.addEventListener('scroll', windowScrollHandle);
 
-  backTop.addEventListener('click', function () {
+  backTop&&backTop.addEventListener('click', function () {
     window.scrollTo(0, 0);
   });
 

@@ -102,6 +102,28 @@ hexo.extend.helper.register('doc_sidebar', function(className){
   return result;
 });
 
+hexo.extend.helper.register('help_tags', function(tagName){
+  var posts = this.site.posts;
+  var a = '<ul class=\'help-tags-list\'>';
+  _.each(posts.data, function (val, key) {
+    // val.tags
+    _.each(val.tags.data, function (tag) {
+      if (tag.name === tagName) {
+        var $ = cheerio.load(val.content, {decodeEntities: false});
+        var content = $('p').eq(0);
+        content.addClass('help-tags-content');
+        var text = content.text();
+        text = text.length > 200 ? (text.substr(0, 200) + '...') : text;
+        content.text(text);
+        a += '<li class=\'help-tags-item\'><a class=\'help-tags-link\' href=\'/' + val.canonical_path + '\'>' + val.title + '</a>' + content + '</li>';
+      }
+    })
+  })
+  a += "</ul>";
+
+  return a
+});
+
 hexo.extend.helper.register('canonical_url', function(lang){
   var path = this.page.canonical_path;
   if (lang && lang !== 'en') path = lang + '/' + path;

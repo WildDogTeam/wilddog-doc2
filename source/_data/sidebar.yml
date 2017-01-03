@@ -424,3 +424,14 @@ console:
   控制面板:
     创建应用: /console/creat.html
     管理应用: /console/administer.html
+
+faq:
+  实时数据同步:
+    创建应用: /console/creat.html
+    管理应用: /console/administer.html
+  实时视频通话:
+    创建应用: /console/creat.html
+    管理应用: /console/administer.html
+  身份认证:
+    创建应用: /console/creat.html
+    管理应用: /console/administer.html

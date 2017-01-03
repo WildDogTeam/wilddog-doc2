@@ -4,6 +4,7 @@ var creatIframe = function(cb) {
     iframe.style.opacity = 0;
     iframe.width = 1;
     iframe.height = 1;
+    iframe.style.position = 'absolute';
     document.body.appendChild(iframe);
     cb();
 };
@@ -66,44 +67,49 @@ function ajax(options){
   xmlreq.send(options.data)
 }
 
-var user;
-var currentPath = window.location.href;
-getClass('register')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
-getClass('register-link')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
-getClass('login')[0].setAttribute('href', 'https://www.wilddog.com/my-account/login?next=' + currentPath);
-getClass('logout-btn')[0].setAttribute('href', 'https://www.wilddog.com/account/logout?next=' + currentPath);
-
-//是否显示底部注册入口
 var novice = getClass('novice');
-var showNovice = sessionStorage.getItem('ssn');
+if (novice.length) {
+  var currentPath = window.location.href;
+  getClass('register')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
+  getClass('register-link')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
+  getClass('login')[0].setAttribute('href', 'https://www.wilddog.com/my-account/login?next=' + currentPath);
+  getClass('logout-btn')[0].setAttribute('href', 'https://www.wilddog.com/account/logout?next=' + currentPath);
 
-novice.forEach(function (ele, index) {
-  var close = ele.getElementsByClassName('close-novice')[0];
-  close.addEventListener('click', function () {
-    ele.style.display = 'none';
-    sessionStorage.setItem('ssn', false);
+  //是否显示底部注册入口
+  var novice = getClass('novice');
+  var showNovice = sessionStorage.getItem('ssn');
+
+  novice.forEach(function (ele, index) {
+    var close = ele.getElementsByClassName('close-novice')[0];
+    close.addEventListener('click', function () {
+      ele.style.display = 'none';
+      sessionStorage.setItem('ssn', false);
+    });
   });
-});
-//是否显示底部意见反馈
-var feedBack = getClass('feed-back')[0];
-var showFeedBack = sessionStorage.getItem('sfb');
-if (showFeedBack == undefined || showFeedBack == true) {
-  feedBack.style.display = 'block';
-} else {
-  feedBack.style.display = 'none';
+  //是否显示底部意见反馈
+  var feedBack = getClass('feed-back')[0];
+  var showFeedBack = sessionStorage.getItem('sfb');
+  if (showFeedBack) {
+    if (showFeedBack == undefined || showFeedBack == true) {
+      feedBack.style.display = 'block';
+    } else {
+      feedBack.style.display = 'none';
+    }
+    /*用户反馈点击关闭*/
+    getClass('close-feed')[0].addEventListener('click', function () {
+      feedBack.style.display = 'none';
+      sessionStorage.setItem('sfb', false);
+    });
+  }
 }
-/*用户反馈点击关闭*/
-getClass('close-feed')[0].addEventListener('click', function () {
-  feedBack.style.display = 'none';
-  sessionStorage.setItem('sfb', false);
-});
+var user;
 
 //登录信息
 var userProfile = getClass('header-user')[0];
 var loginTab = getClass('header-info')[0];
 creatIframe(function () {
   window.addEventListener('message', function(event) {
-    if (event.origin === "https://www.wilddog.com") {
+    if (event.origin === "https://www.wilddog.com" && novice.length) {
       user = event.data;
       if (showNovice == undefined || showNovice == true) {
         if (user.email && user.avatar) {

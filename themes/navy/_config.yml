@@ -1,2 +1,4 @@
-layout:
-  search: 'search.swig'
+menu:
+  home: /
+  archives: /archives
+  tags: /tags

@@ -21,9 +21,9 @@ logo-size = 48px
 
 #header
   position: fixed
-  left: 0
   top: 0
-  z-index: 10000
+  left: 0
+  z-index: 10001
   padding-top: 20px
   width: 100%
   max-width: 100%
@@ -31,8 +31,38 @@ logo-size = 48px
   box-shadow: 0 2px 10px #eee
   @media print
     display: none
+    
+#docs-header
+  position: fixed
+  top: 80px
+  left: 0
+  z-index: 10000
+  width: 100%
+  height: 72px
+  max-width: 100%
+  border-bottom: 1px solid #e5e5e5
+  background: url('/images/docs-header-bg.png') center center #fffcfb
+  background-size: contain
+  @media print
+    display: none
+  #docs-header-inner
+    padding-top: 35px
+  #docs-main-nav
+    top: 0
+    padding-left: 0
+    line-height: 1
+    font-size: 0
+    .main-nav-link
+      margin-left: 0
+      width: 145px
+      text-align: center
+      &:hover
+        padding-bottom: 9px
+      &.current
+        padding-bottom: 9px
 
-#header-inner
+#header-inner,
+#docs-header-inner
   position: relative
   margin: 0 auto
   padding: 0
@@ -53,18 +83,19 @@ logo-size = 48px
   background-size: @width @height
   display: block
 
-#main-nav
+#main-nav,
+#docs-main-nav
   display: none
   float: left
   position: relative
   top: 10px
-  padding-left: 114px
+  padding-left: 156px
   @media mq-normal
     display: block
 
 .main-nav-link
   display: inline-block
-  color: #333
+  color: #666
   text-decoration: none
   line-height: 26px
   padding-bottom: 0
@@ -72,7 +103,7 @@ logo-size = 48px
   border-bottom: 2px solid #fff
   font-size: 15px
   display: inline-block
-  margin-left: 40px
+  margin-left: 70px
   transition: 0.3s
   &:hover
     color: #e6501e
@@ -112,13 +143,12 @@ logo-size = 48px
 .searchbar
   position: relative
   float: left
-  margin-left: 126px
-  margin-top: 15px
-  padding-right: 20px
-  width: 35px
+  margin-left: 46px
+  margin-top: 6px
+  padding-left: 58px
   line-height: 1
   font-size: 0
-  border-right: 1px solid #ccc
+  border-left: 1px solid #ccc
   cursor: pointer
   .search-icon
     box-shadow: none
@@ -126,19 +156,19 @@ logo-size = 48px
   .serach-placeholder
     position: absolute
     top: 0
-    left: 20px
+    left: 78px
     white-space: nowrap
     font-size: 15px
 
 .searchbar-inputting
   position: absolute
+  top: 22px
+  left: 0
   z-index: 9
-  left: 180px
   padding-left: 20px
-  width: 920px
+  width: 100%
   height: 50px
-  background-color: #fff
-  transform-origin: 85% 50%
+  transform-origin: 50% 50%
   transform: scale(0, 0)
   transition: 0.3s
   &.searchShow
@@ -152,6 +182,7 @@ logo-size = 48px
     width: 100%
     height: 100%
     font-size: 16px
+    background-color: transparent
     &:focus
       outline: none
   .search-icon
@@ -163,7 +194,7 @@ logo-size = 48px
     display: none
   .close-search
     position: absolute
-    right: 0
+    right: 20px
     top: 50%
     margin-top: -7px
     width: 14px
@@ -259,6 +290,7 @@ logo-size = 48px
 .profile-avatar
   border-radius: 100%
   box-shadow: none  
+  border: 0
 
 .header-info:hover
   .drop-menu

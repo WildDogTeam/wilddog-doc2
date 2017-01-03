@@ -87,7 +87,7 @@ currentUrls = JSON.parse(sessionStorage.getItem('navsrc')) || currentUrls;
 var navlinks = ['overview', 'quickstart', 'guide', 'api', 'resources', 'console'];
 
 var links = [].slice.call(document.getElementsByClassName('sidebar-link'));
-var navs = [].slice.call(document.getElementsByClassName('main-nav-link'));
+var navs = [].slice.call(document.getElementsByClassName('docs-main-nav-link'));
 
 links.forEach(function(element, index){
   element.addEventListener('click', function (e) {

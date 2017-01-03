@@ -1,9 +1,6 @@
 window.addEventListener('load', function () {
   var keyword = getQueryStringByName('keyword');
   var currentPage = 1, pageCount, searchHistory = {}, totalResult;
-  getClass('search-input')[0].value = keyword;
-  var searchbar = getClass('searchbar')[0];
-  searchbar.click();
   addClass(getClass('mask')[0], 'fadeHide');
   var searchContents = getClass('search-edge');
   var flag = 0;
