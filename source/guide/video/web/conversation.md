@@ -23,7 +23,7 @@ title: 视频通话
 var localElement = document.getElementById('local');
 //创建一个同时有音频和视频的媒体流
 wilddog.video().createStream({audio:true,video:true})
-    .then(function(localstream){
+    .then(function(localStream){
         // 获取到localStream,将媒体流绑定到页面的video类型的标签上
         localStream.attach(localElement);
     });
@@ -156,4 +156,3 @@ conversation.on('disconnected', function(){
   }
 }
 ```
-
