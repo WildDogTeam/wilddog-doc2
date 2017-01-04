@@ -5,6 +5,8 @@
   var closeSearch = getClass('close-search')[0];
   var searchInput = getClass('searchbar-inputting')[0];
   var mask = getClass('mask')[0];
+  var userProfile = getClass('header-info')[0];
+  var loginTab = getClass('header-user')[0];
   searchbar.addEventListener('click', function () {
     addClass(searchInput, 'searchShow')
     addClass(mainNav, 'fadeHide')
