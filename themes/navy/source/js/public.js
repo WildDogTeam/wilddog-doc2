@@ -87,10 +87,12 @@ novice.forEach(function (ele, index) {
 //是否显示底部意见反馈
 var feedBack = getClass('feed-back')[0];
 var showFeedBack = sessionStorage.getItem('sfb');
-if (showFeedBack == undefined || showFeedBack == true) {
-  feedBack.style.display = 'block';
-} else {
-  feedBack.style.display = 'none';
+if (feedBack) {
+    if (showFeedBack == undefined || showFeedBack == true) {
+      feedBack.style.display = 'block';
+    } else {
+      feedBack.style.display = 'none';
+    }
 }
 /*用户反馈点击关闭*/
 getClass('close-feed')[0].addEventListener('click', function () {
