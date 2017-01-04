@@ -93,13 +93,12 @@ if (feedBack) {
     } else {
       feedBack.style.display = 'none';
     }
+    /*用户反馈点击关闭*/
+    getClass('close-feed')[0].addEventListener('click', function () {
+      feedBack.style.display = 'none';
+      sessionStorage.setItem('sfb', false);
+    });
 }
-/*用户反馈点击关闭*/
-getClass('close-feed')[0].addEventListener('click', function () {
-  feedBack.style.display = 'none';
-  sessionStorage.setItem('sfb', false);
-});
-
 //登录信息
 var userProfile = getClass('header-user')[0];
 var loginTab = getClass('header-info')[0];
