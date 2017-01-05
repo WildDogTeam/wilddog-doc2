@@ -12,7 +12,7 @@ title:  错误码
 |70108|template duplicate name|模板名称重复|
 |70201|sms phones empty|发送手机为空|
 |70202|sms phones exceed max phone size 100|单批发送手机号超过最大值|
-|70203|sms send invalid timestamp|时间戳无效,与服务器时间间隔大于6秒|
+|70203|sms send invalid timestamp|时间戳无效,与服务器时间间隔大于60秒|
 |70204|sms build content failure|SMS变量内容组装失败|
 |70205|sms build content failure|短信消息发送失败|
 |70206|sms params signature empty|SMS参数签名为空|
