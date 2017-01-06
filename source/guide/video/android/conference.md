@@ -167,7 +167,7 @@ Conference.Listener listener = new Conference.Listener() {
 
 直播进行时无缝切换直播源。
 
-例如，切换直播源为参与者 '99999'：
+例如，切换直播源为 participant ID '99999' 的参与者：
 
 
 ```java

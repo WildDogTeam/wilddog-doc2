@@ -162,7 +162,7 @@ conference.meetingCast.start('12345')
     console.log('Open MeetingCast succeed!');
   })
   .catch(function (error) {
-    console.log('Open MeetingCast failed! Error is '，error.meesage);
+    console.log('Open MeetingCast failed! Error is '，error.message);
   })
 ```
 
@@ -170,7 +170,7 @@ conference.meetingCast.start('12345')
 
 直播进行时无缝切换直播源。
 
-例如，切换直播源为参与者 '99999'：
+例如，切换直播源为 participant ID '99999' 的参与者：
 
 ```js
 conference.meetingCast.start('99999')
@@ -178,7 +178,7 @@ conference.meetingCast.start('99999')
     console.log('Switch participant succeed!');
   })
   .catch(function (error) {
-    console.log('Switch participant failed! Error is '，error.meesage);
+    console.log('Switch participant failed! Error is '，error.message);
   })
 ```
 
@@ -193,7 +193,7 @@ conference.meetingCast.stop()
     console.log('Stop MeetingCast succeed!');
   })
   .catch(function (error) {
-    console.log('Stop MeetingCast failed! Error is '，error.meesage);
+    console.log('Stop MeetingCast failed! Error is '，error.message);
   })
 ```
 
@@ -207,7 +207,7 @@ conference.meetingCast.stop()
 conference.meetingCast.onStateChanged(function(meetingCast){
   //获取当前直播状态，直播者及直播地址
   var status = meetingCast.isStarted;
-  var palyer = meetingCast.anchor;
+  var player = meetingCast.anchor;
   var rtmpAddress = meetingCast.play.rtmp;
   var hlsAddress = meetingCast.play.hls;
 })
