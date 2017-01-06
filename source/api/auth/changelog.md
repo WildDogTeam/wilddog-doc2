@@ -126,6 +126,18 @@ title: 更新日志
 
 ## iOS SDK
 
+### V2.0.5 - 2016.12.20
+
+<span class="changelog feature">改进</span>
+
+- 优化 Auth SDK 错误码信息，完善 WDGAuthErrors 类。
+
+### V2.0.4 - 2016.12.07
+
+<span class="changelog fix">修复</span>
+
+- 修复 Auth 认证后， Sync 操作数据无权限的错误。
+
 ### V2.0.3 - 2016.11.04
 
 <span class="changelog describe">描述</span>
@@ -180,6 +192,18 @@ title: 更新日志
 ---
 
 ## Android SDK
+
+### V2.0.5 - 2016.12.22
+
+<span class="changelog feature">改进</span>
+
+- 重新定义错误码。
+
+### V2.0.3 - 2016.11.08
+
+<span class="changelog fix">修复</span>
+
+- 热更新情况下，解析缓存数据会发生空指针。
 
 ### V2.0.2 - 2016.11.04
 

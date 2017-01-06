@@ -95,6 +95,54 @@ title: 更新日志
 
 ## iOS SDK
 
+### V2.1.1 - 2016.01.06
+
+<span class="changelog feature">改进</span>
+
+- 提升首次启动建立连接的速度。
+
+### V2.1.0 - 2016.12.30
+
+<span class="changelog add">新增</span>
+
+-  新增 App 唯一标识，用于统计 Wilddog App 日活用户。
+
+<span class="changelog feature">改进</span>
+
+- 提升数据监听性能。
+
+<span class="changelog fix">修复</span>
+
+- 修复 - [WDGSync setCallbackQueue:] 接口调用导致的 crash。
+
+### V2.0.7 - 2016.12.09
+
+<span class="changelog feature">改进</span>
+
+- 降低在弱网环境下 SDK 的流量损耗。
+
+<span class="changelog add">新增</span>
+
+- 修复在 iPhone 5 之前的机型上监听事件偶尔失效的问题。
+- 修复因为 op_repeat 错误导致的本地监听事件多次回调的问题。
+
+### V2.0.6 - 2016.12.06
+
+<span class="changelog fix">修复</span>
+
+- 修复在事务方法中，节点出现汉字或者布尔值而导致写入失败的问题。
+
+### V2.0.5 - 2016.12.02
+
+<span class="changelog feature">改进</span>
+
+- 加入避免 crash 机制，降低 SDK 可能发生的 crash。
+
+### V2.0.4 - 2016.11.23
+<span class="changelog fix">修复</span>
+
+- 修复取消离线事件无效的问题。
+
 ### V2.0.3 - 2016.11.04
 
 <span class="changelog describe">描述</span>
@@ -145,6 +193,24 @@ title: 更新日志
 
 
 ## Android SDK
+
+### V2.1.1 - 2016.12.30
+
+<span class="changelog add">新增</span>
+
+新增 App 唯一标识，用于统计 Wilddog App 日活用户。
+
+### V2.0.3 - 2016.11.08
+
+<span class="changelog fix">修复</span>
+
+- 特殊情况下，repo 类有一定几率会出现空指针。
+
+### V2.0.2 - 2016.10.21
+
+<span class="changelog fix">修复</span>
+
+-  修复在特殊使用场景下，频繁调用 goOnline 和 goOffline 情况下导致空指针。
 
 ### V2.0.1 - 2016.09.20
 
