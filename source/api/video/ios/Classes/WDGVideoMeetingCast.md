@@ -191,5 +191,5 @@ completionHandler|操作完成时通过回调返回操作状态，若失败则�
 
 代表当前直播状态
 
-- WDGVideoMeetingCastStatusClosed: 表示直播未开启或已关闭
-- WDGVideoMeetingCastStatusOpen: 表示直播正在进行中
+- WDGVideoMeetingCastStatusOff: 表示直播未开启或已关闭
+- WDGVideoMeetingCastStatusOn: 表示直播正在进行中
