@@ -7,8 +7,6 @@ title : OutgoingInvite
 ## 方法
 ### cancel()
 
-
-
 **定义**   
 
 void cancel()
@@ -25,5 +23,32 @@ void cancel()
 	outgoingInvite.cancel();
 ```
 
-****
+</br>
 
+---
+
+### getStatus()
+
+**定义**
+
+String getStatus()
+
+**说明**
+
+表示当前邀请的状态。
+
+**返回值**
+
+当前邀请的状态。
+
+**示例**
+
+```java
+	//outgoingInvite = client.inviteToConversation(options, new ConversationCallback() {//...});
+	//取消发起会话邀请
+	String status = outgoingInvite.getStatus();
+```
+
+</br>
+
+---
