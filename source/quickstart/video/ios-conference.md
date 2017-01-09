@@ -30,11 +30,13 @@ title: 视频会议
 
 ## 4. 安装快速入门
 
-使用 Cocoapods 管理快速入门包。进入工程目录，执行以下命令，自动下载依赖。
+使用 Cocoapods 管理快速入门包。进入工程目录，执行以下命令，自动下载依赖并更新到最新版。
 
 ```shell
 
  $ pod install
+ $ pod setup
+ $ pod update
 
 ```
 

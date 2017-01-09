@@ -19,8 +19,8 @@ quickstart:
     规则表达式: /quickstart/sync/rule.html
   实时视频通话:
     Web:
-      视频通话: /quickstart/video/web/conversation.html
-      视频会议: /quickstart/video/web/conference.html
+      视频通话: /quickstart/video/web-conversation.html
+      视频会议: /quickstart/video/web-conference.html
     Android:
       视频通话: /quickstart/video/android-conversation.html
       视频会议: /quickstart/video/android-conference.html
