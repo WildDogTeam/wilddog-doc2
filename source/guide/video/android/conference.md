@@ -150,7 +150,7 @@ Conference.Listener listener = new Conference.Listener() {
     //获取直播插件
     meetingCast = mConference.getMeetingCast(new MeetingCastStateListener() {
         @Override
-        public void onMeetingCastStateChanged(String state, String participantId, Map<String, String> urlMap) {
+        public void onMeetingCastStateChanged(Conference.MeetingCastStatus status, String participantId, Map<String, String> urlMap) {
             //直播状态改变时会触发此方法
         }
     });
@@ -203,8 +203,8 @@ Conference.Listener listener = new Conference.Listener() {
 ```
     meetingCast = mConference.getMeetingCast(new MeetingCastStateListener() {
         @Override
-        public void onMeetingCastStateChanged(String state, String participantId, Map<String, String> urlMap) {
-            //state：直播状态
+        public void onMeetingCastStateChanged(Conference.MeetingCastStatus status, String participantId, Map<String, String> urlMap) {
+            //status：直播状态
             //participantId:当前正在直播的参与者 ID
             //urlMap:直播地址
         }

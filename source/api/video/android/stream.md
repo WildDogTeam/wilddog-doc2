@@ -46,7 +46,7 @@ void attach(WilddogVideoView videoView)
 
 ### detach()
 
-**定义**   
+**定义**
 
 ```java
 void detach()
@@ -62,3 +62,69 @@ void detach()
 	//解绑视频控件
 	stream.detach();
 ```
+</br>
+
+---
+### enableAudio(boolean)
+
+**定义**
+
+```java
+void enableAudio(boolean isEnable)
+```
+
+**说明**
+
+代表流中的音频是否开启。
+
+**示例**
+
+```java
+	//关闭流中的音频
+	stream.enableAudio(false);
+```
+</br>
+
+---
+### enableVideo(boolean)
+
+**定义**
+
+```java
+void enableVideo(boolean isEnable)
+```
+
+**说明**
+
+代表流中的视频是否开启。
+
+**示例**
+
+```java
+	//关闭流中的视频
+	stream.enableVideo(false);
+```
+</br>
+
+---
+### close()
+
+**定义**
+
+```java
+void close()
+```
+
+**说明**
+
+关闭当前流，当前流被关闭后不能继续使用。
+
+**示例**
+
+```java
+	//关闭当前流
+	stream.close();
+```
+</br>
+
+---
