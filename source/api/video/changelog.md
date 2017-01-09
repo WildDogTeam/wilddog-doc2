@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.5 - 2017.01.09
+
+<span class="changelog add">新增</span>
+
+- conversation 增加 NAT 穿越服务器选择算法。
+
 ### v0.5.4 - 2016.12.22
 
 <span class="changelog fix">修复</span>
