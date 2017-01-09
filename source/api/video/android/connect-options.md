@@ -6,7 +6,7 @@ title: ConnectOptions
 **定义**   
 
 ```java
-InviteOptions（LocalStream localStream,String userData）
+ConnectOptions（LocalStream localStream,String userData）
 ```
 
 **说明**

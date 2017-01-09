@@ -43,22 +43,22 @@ public LocalParticipant getLocalParticipant()
 
 ---
 
-### getParticipant()
+### getParticipants()
 
 **定义**   
 
 ```java
-public Participant getParticipant()
+public Set<Participant> getParticipants()
 ```
 
 **说明**
 
-获取当前视频会议中的 '[Participant](/api/video/android/participant.html)' 对象,代表远端参与者。
+获取当前视频会议中的 '[Participant](/api/video/android/participant.html)' 对象,代表所有远端参与者。
 
 
 **返回值**
 
-当前视频会议中的 'Participant'。
+当前视频会议中远端的'Participant'集合。
 
 ---
 
