@@ -1,7 +1,7 @@
   <script>
     var path = window.location.pathname;
     if(path === '/') {
-      window.location.href = '/overview/index.html'
+      window.location.href = '/help/index.html'
     }
   </script>
 <div id="content" class="wrapper">

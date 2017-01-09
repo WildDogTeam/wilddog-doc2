@@ -86,21 +86,21 @@ if (novice.length) {
       sessionStorage.setItem('ssn', false);
     });
   });
-  //是否显示底部意见反馈
-  var feedBack = getClass('feed-back')[0];
-  var showFeedBack = sessionStorage.getItem('sfb');
-  if (showFeedBack) {
-    if (showFeedBack == undefined || showFeedBack == true) {
-      feedBack.style.display = 'block';
-    } else {
-      feedBack.style.display = 'none';
-    }
-    /*用户反馈点击关闭*/
-    getClass('close-feed')[0].addEventListener('click', function () {
-      feedBack.style.display = 'none';
-      sessionStorage.setItem('sfb', false);
-    });
+}
+//是否显示底部意见反馈
+var feedBack = getClass('feed-back')[0];
+var showFeedBack = sessionStorage.getItem('sfb');
+if (feedBack) {
+  if (showFeedBack == undefined || showFeedBack == true) {
+    feedBack.style.display = 'block';
+  } else {
+    feedBack.style.display = 'none';
   }
+  /*用户反馈点击关闭*/
+  getClass('close-feed')[0].addEventListener('click', function () {
+    feedBack.style.display = 'none';
+    sessionStorage.setItem('sfb', false);
+  });
 }
 var user;
 

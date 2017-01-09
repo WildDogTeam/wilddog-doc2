@@ -6,9 +6,20 @@
     <nav id="main-nav">
       <a href="/help/index.html" class="main-nav-link">帮助中心首页</a>
       <a href="/overview/index.html" class="main-nav-link">开发文档</a>
-      <a href="/faq/novice.html" class="main-nav-link">常见问题</a>
+      <a href="/faq/novice/javascript.html" class="main-nav-link">常见问题</a>
       <a href="/service/index.html" class="main-nav-link">客服工单</a>
     </nav>
+      <script>
+        var path = window.location.pathname.split('/')[1];
+        var mainLink = [].slice.call(document.getElementsByClassName('main-nav-link'), 0);
+        if (path === 'help') {
+            mainLink[0].className += ' current'
+        } else if (path === 'faq') {
+            mainLink[2].className += ' current'
+        } else {
+            mainLink[1].className += ' current'
+        }
+      </script>
     <div class="header-info pull-right">
         <span class="pull-left"><img src="" alt="" class="img-circle profile-avatar" width="24" height="24"></span>
         <span class="user-email"></span>

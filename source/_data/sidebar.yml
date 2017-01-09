@@ -427,7 +427,7 @@ console:
 
 faq:
   实时数据同步:
-    创建应用: /console/creat.html
+    创建应用: /faq/novice/javascript.html
     管理应用: /console/administer.html
   实时视频通话:
     创建应用: /console/creat.html
