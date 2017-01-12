@@ -24,7 +24,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 public class Example {
     
     private static final String APPID = "XXXXX";
-    private static final String SECRET = "<YOUR_SECRET>";
+    private static final String APP_KEY = "<YOUR_SECRET>";
     
     private static final String BASE_URL = "https://api.wilddog.com/sms/v1/" + APPID;
     private static final String SENDCODE_URL = BASE_URL + "/code/send";
@@ -65,7 +65,7 @@ public class Example {
             formBody.add(s, sortedMap.get(s) + "");
             sb.append(String.format("%s=%s&", s, sortedMap.get(s)));
         }
-        sb.append(SECRET);
+        sb.append(APP_KEY);
         String sig = DigestUtils.sha256Hex(sb.toString());
         // 追加签名参数
         RequestBody body = formBody.add("signature", sig).build();
@@ -106,7 +106,7 @@ public class Example {
             formBody.add(s, sortedMap.get(s) + "");
             sb.append(String.format("%s=%s&", s, sortedMap.get(s)));
         }
-        sb.append(SECRET);
+        sb.append(APP_KEY);
         String sig = DigestUtils.sha256Hex(sb.toString());
         // 追加签名参数
         RequestBody body = formBody.add("signature", sig).build();
@@ -146,7 +146,7 @@ public class Example {
             formBody.add(s, sortedMap.get(s) + "");
             sb.append(String.format("%s=%s&", s, sortedMap.get(s)));
         }
-        sb.append(SECRET);
+        sb.append(APP_KEY);
         String sig = DigestUtils.sha256Hex(sb.toString());
         // 追加签名参数
         RequestBody body = formBody.add("signature", sig).build();
@@ -178,7 +178,7 @@ public class Example {
         for (String s : sortedMap.keySet()) {
             sb.append(String.format("%s=%s&", s, sortedMap.get(s)));
         }
-        sb.append(SECRET);
+        sb.append(APP_KEY);
         String sig = DigestUtils.sha256Hex(sb.toString());
         Request request = new Request.Builder().url(QUERY_URL + "?rrid=" + rrid + "&signature=" + sig).get().build();
         try {
@@ -232,7 +232,7 @@ baseURL = "https://api.wilddog.com/sms/v1/" + appId;
 sendURL = baseURL + "/code/send";
 
 # 短信秘钥
-SECRET = "xxxxxxxxxxxxxxxxx";
+APP_KEY = "xxxxxxxxxxxxxxxxx";
 
 #准备数据 发送短信验证码类包括下面这些信息:templateId mobile timestamp
 requestBody={"templateId":"100000", "mobile":"13031199447", "timestamp":"%d" %(time.time()*1000)}
@@ -246,7 +246,7 @@ for i in signParam:
         str = str + i[0] + "=" + i[1] + "&";
 
 # 拼接短信秘钥
-str = str + SECRET;
+str = str + APP_KEY;
 # 计算签名
 sign = hashlib.sha256(str).hexdigest();
 
