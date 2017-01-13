@@ -4,8 +4,26 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.4.3 - 2016.01.13
 
-### V2.4.0 - 2016.12.30
+<span class="changelog add">新增</span>
+
+- 小程序数据绑定增加回调函数，通过回调函数确定绑定是否成功。
+
+<span class="changelog fix">修复</span>
+
+- 修复 sync.once() 失败情况下不触发cancelCallback(失败回调函数)的问题。
+- 修复 wilddog.initializeApp 相关逻辑bug，包括：异常处理逻辑错误 和 调用多个App逻辑错误 的问题。
+
+
+### V2.4.2 - 2016.01.06
+
+<span class="changelog feature">改进</span>
+
+- 优化与服务端的第一次建连时间。
+
+
+### V2.4.1 - 2016.12.30
 
 <span class="changelog add">新增</span>
 

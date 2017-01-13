@@ -5,7 +5,19 @@ title: 更新日志
 ## Javascript SDK
 
 
-### V2.4.0 - 2016.12.30
+### V2.4.3 - 2016.01.13
+
+<span class="changelog add">新增</span>
+
+- 小程序数据绑定增加回调函数，通过回调函数确定绑定是否成功。
+
+<span class="changelog fix">修复</span>
+
+- 修复 sync.once() 失败情况下不触发cancelCallback(失败回调函数)的问题。
+- 修复 wilddog.initializeApp 相关逻辑bug，包括：异常处理逻辑错误 和 调用多个App逻辑错误 的问题。
+
+
+### V2.4.1 - 2016.12.30
 
 <span class="changelog add">新增</span>
 
@@ -320,4 +332,3 @@ title: 更新日志
 
 - Auth2.0 版本的 customToken 生成器功能。
 - Wilddog ID Token 的校验功能。
-
