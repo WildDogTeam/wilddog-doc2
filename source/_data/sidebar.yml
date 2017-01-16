@@ -322,6 +322,7 @@ api:
     发送通知类短信: /api/sms/send.html
     校验验证码: /api/sms/checkcode.html
     查询发送状态: /api/sms/status.html
+    查询账户余额: /api/sms/belance.html
     错误码: /api/sms/error-code.html
     更新日志: /api/sms/changelog.html
   身份认证:
