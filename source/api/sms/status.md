@@ -27,7 +27,7 @@ GET
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
 |rrid          |string         |是         |rrid|
-|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证|
+|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证 ，其中参与签名加密的参数包括 `rrid` |
  
  
 **返回说明**

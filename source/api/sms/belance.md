@@ -26,7 +26,7 @@ GET
     
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
-|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证|
+|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证，其中参与签名加密的参数包括`timestamp`|
 |timestamp      |string         |是         | UNIX 时间戳|
  
 <blockquote class="warning">
@@ -39,14 +39,19 @@ GET
 
 ```
 "Content-Type": "application/json; charset=utf-8" 
-{	"status":"ok", 
-	"data":"{			"balance" : 10000000 // 现金余额   			"voucherBalance" : 10000000// 代金券余额     
-	}}
+{
+	"status":"ok", 
+	"data":"{
+			"balance" : 10000000 // 现金余额   
+			"voucherBalance" : 10000000// 代金券余额     
+	}
+}
 ```
 
 **示例代码**
 
 
-```curl -X GET https://api.wilddog.com/sms/v1/{appId}/getBalance -d "signature=$signature&timestamp=$timestamp"
+```
+curl -X GET https://api.wilddog.com/sms/v1/{appId}/getBalance -d "signature=$signature&timestamp=$timestamp"
 ```
 
