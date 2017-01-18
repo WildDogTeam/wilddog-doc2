@@ -22,8 +22,8 @@ title: 接口验证机制
 
 ```   
 templateId: 100001
-mobile: 130xxxxxxxx
-timestamp: 1482301296
+mobile: "['13500000000']"
+timestamp:'1482301296'
 
 ```
 
