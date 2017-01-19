@@ -26,7 +26,7 @@ https://github.com/WildDogTeam/wilddog-weapp/blob/master/wilddog-weapp-all.js
 
 
 3.在 [微信公众开放平台管理中心](http://mp.weixin.qq.com/)，获取应用的 **AppID** 和 **AppSecret**。
- 
+
 4.在控制面板 身份认证—登录方式 中打开微信小程序登录授权开关，配置微信小程序 **AppID** 和 **AppSecret**。
 
 
@@ -82,7 +82,7 @@ wilddog.auth().signInWeapp().then(function(user){
 
 ```
 
-#### ref.bindAsArray(page,varName)
+#### ref.bindAsArray(page,varName,opt_callback)
 
 将一个reference或query 与page.data中某个Array绑定，绑定后这个reference指向的数据发生任何变化都将实时同步到绑定到的变量上，从而实时同步到页面。使用bindAsArray 相当于已经监听了 所有 child_* 事件。
 
@@ -90,6 +90,8 @@ bindAsArray 可以很方便列表展示
 
 * page 小程序的page对象
 * varName 与页面绑定的变量名
+* opt_callback: function(err) 可选回调函数，绑定结束后被调用，如果绑定过程一切正常`err`为`null`
+* return <Promise>
 
 例子
 
@@ -116,7 +118,13 @@ var app = getApp()
 Page({
     ...
     onLoad: function () {
-        app.todoRef.bindAsArray(this,'todo')
+        app.todoRef.bindAsArray(this,'todo',function(err){
+            if(err != null){
+                // 数据绑定失败，失败原因：err.message;
+            } else {
+                // 数据绑定成功
+            }
+        })
     }
     ...
 })
@@ -156,7 +164,7 @@ index.wxml
 ]
 ```
 
-#### ref.bindAsObject(page,varName)
+#### ref.bindAsObject(page,varName,opt_callback)
 
 与bindAsArray 类似，不过是绑定到一个Object，而不是Array。
 bindAsObject 可以很方便的展示结构化数据，比如某种配置信息。
@@ -167,7 +175,14 @@ var app = getApp()
 Page({
     ...
     onLoad: function () {
-        app.userInfoRef.bindAsObject(this,'userInfo')//userInfoRef 在app中提供，在这个例子中不再重复出现
+        //userInfoRef 在app中提供，在这个例子中不再重复出现
+        app.userInfoRef.bindAsObject(this,'userInfo',function(err){
+            if(err != null){
+                // 数据绑定失败，失败原因：err.message;
+            } else {
+                // 数据绑定成功
+            }
+        })
     }
     ...
 })
