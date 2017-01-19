@@ -91,7 +91,7 @@ bindAsArray 可以很方便列表展示
 * page 小程序的page对象
 * varName 与页面绑定的变量名
 * opt_callback: function(err) 可选回调函数，绑定结束后被调用，如果绑定过程一切正常`err`为`null`
-* return <Promise>
+* return Promise 对象
 
 例子
 
