@@ -123,6 +123,26 @@ title: 更新日志
 
 ## iOS SDK
 
+### V2.2.0 - 2016.02.06
+
+<span class="changelog add">新增</span>
+
+- 更详细的错误码。
+
+<span class="changelog feature">改进</span>
+
+- 当路径中含有非法字符时抛出异常。
+
+<span class="changelog fix">修复</span>
+
+- 断线重连后未重发未完成的 setValue 请求。
+
+### V2.1.2 - 2016.01.16
+
+<span class="changelog fix">修复</span>
+
+- 事务操作在处理数组时失败的问题。
+
 ### V2.1.1 - 2016.01.06
 
 <span class="changelog feature">改进</span>
