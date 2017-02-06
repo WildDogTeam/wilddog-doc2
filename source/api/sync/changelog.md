@@ -4,7 +4,17 @@ title: 更新日志
 
 ## Javascript SDK
 
-### V2.4.3 - 2016.01.13
+### V2.5.0 - 2017.02.06
+
+<span class="changelog add">新增</span>
+
+- 新增 sync 错误码。
+
+<span class="changelog feature">改进</span>
+
+- 优化与服务端的第一次建连时间，去除多余的 request 检测。
+
+### V2.4.4 - 2016.01.13
 
 <span class="changelog add">新增</span>
 
