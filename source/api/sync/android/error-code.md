@@ -1,30 +1,21 @@
 title:  错误码
 ---
 
-| 错误码		|	错误信息	|	描述 |
-| ----     |      -----	|	---- |
-| -1	  |		DATA_STALE							|	内部使用。 |
-| -2	  |		OPERATION_FAILED					|	服务器标示操作失败。 |
-| -3	  |		PERMISSION_DENIED					|	客户端不被许可执行此操作。 |
-| -4	  |		DISCONNECTED						|	因为网络连接失败导致操作不能执行。 |
-| -5	  |		PREEMPTED							|	活动的或者即将发生的auth登录认证被另一个auth登录取代。 |
-| -6	  |		EXPIRED_TOKEN						|	提供的auth Token已经过期。 |
-| -7	  |		INVALID_TOKEN						|	指定的登录认证Token不可用。如果token变形，过期或者用于生成token的secret已经被撤销，会引发此错误。 |
-| -8	  |		MAX_RETRIES							|	事务有太多的重试。 |
-| -9	  |		OVERRIDDEN_BY_SET					|	事务被随后的集合覆盖。 |
-| -10	  |		UNAVAILABLE							|	服务不可用。 |
-| -11	  |		USER_CODE_EXCEPTION					|	用户代码中发生的异常。 |
-| -12	  |		AUTHENTICATION_PROVIDER_DISABLED	|	要求的第三方OAuth平台认证方式不被当前app支持。 |
-| -13	  |		INVALID_CONFIGURATION				|	被申请的登录认证提供方式没有配置，请求无法完成。请完成应用配置。 |
-| -14	  |		INVALID_PROVIDER					|	申请的第三方OAuth平台认证方式不存在。请参阅Wilddog认证的相关文档获得支持的方式列表。 |
-| -15	  |		INVALID_EMAIL						|	指定的邮箱不可用。 |
-| -16	  |		INVALID_PASSWORD					|	指定的用户帐号密码不正确。 |
-| -17	  |		USER_DOES_NOT_EXIST					|	指定的用户帐户不存在。 |
-| -18	  |		EMAIL_TAKEN							|	由于指定的邮箱地址已经被使用而不能建立新用户。 |
-| -19	  |		DENIED_BY_USER						|	用户不能登录认证应用。当用户取消OAuth认证请求时会造成这个错误。 |
-| -20	  |		INVALID_CREDENTIALS					|	指定的登录认证凭证不可用。当凭证不符合标准或者过期时会引发这个错误。 |
-| -21	  |		INVALID_AUTH_ARGUMENTS				|	指定的凭证不符合标准或者不完整。请参考错误信息，错误详情和Wilddog文档获得支持方auth登录认证的正确参数。 |
-| -22	  |		PROVIDER_ERROR						|	第三方OAuth平台错误。 |
-| -23	  |		LIMITS_EXCEEDED						|	超过限制，如果遇到此错误码，请联系support@wilddog.com。 |
-| -24	  |		NETWORK_ERROR						|	因为网络原因导致操作不能执行。 |
-| -102  |		QPS_SPEEDING						|	操作数据超过 5 秒 120 次的限制（ 读操作不受此限制） |
+| 错误码	| 错误信息 |描述   |
+| --- | ----- | ------ |
+| 26001 | The server indicated that this operation failed | 服务端原因导致操作失败。 |
+| 26002 | Wilddog server is busy now, please try again later | 服务器繁忙。 |
+| 26003 | Server unavailable    | 服务不可用。 |
+| 26101 | This client does not have permission to perform this operation | 客户端没有权限执行此操作 |
+| 26102 | Quota limit exceeded. Please contact support@wilddog.com  | 超出套餐限制，请续费或者联系 support@wilddog.com。 |
+| 26103 | QPS speeding, please reduce qps  | 操作数据超过 5 秒 120 次的限制（ 读操作不受此限制）。 |
+| 26104 | Data requested exceeds the maximum size that can be accessed with a single request | 单次请求数据量过大。请参考 [数据限制](/guide/sync/data-limit.html) |
+| 26105 |Size of the leaf node exceeds the limitation (1M bytes)  | 单个叶子节点的数据大小不能大于 1M。 |
+| 26106 | 1. Path specified exceeds the maximum length that can be written (768 bytes) 2. Path specified exceeds the maximum depth that can be written (32) | 路径长度不能大于 768 个字节，路径深度不能大于 32 |
+| 26201 | Transaction hash does not match | 事务操作时数据已被其他客户端修改。 |
+| 26202 |	User code called from the SyncReference runloop threw an exception:\n | 客户端异常。 |
+| 26203 | The transaction had too many retries | 事务操作重试次数超过限制。 |
+| 26204 | The transaction was overridden by a subsequent set | 事务操作被随后的写操作覆盖。 |
+| 26801 | The supplied auth token has expired   | token 过期。 |
+| 26802 | The supplied auth token was invalid  | token 无效。 |
+| 29999 |Unknown error 	 | 未知错误。 |
