@@ -38,8 +38,28 @@ SDK 的安装方式有两种，你可以任选其一：
 android {
     ...
     packagingOptions {
-        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/services/com.fasterxml.jackson.core.ObjectCodec'
+        exclude 'META-INF/services/com.fasterxml.jackson.core.JsonFactory'
+        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.xml'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-databind/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-core/pom.properties'
+        exclude 'META-INF/maven/com.squareup.okio/okio/pom.xml'
+        exclude 'META-INF/maven/com.squareup.okhttp/okhttp/pom.xml'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.properties'
+        exclude 'META-INF/maven/com.fasterxml.jackson.core/jackson-annotations/pom.xml'
+        exclude 'META-INF/maven/com.wilddog.client/wilddog-core-android/pom.xml'
+        exclude 'META-INF/maven/com.wilddog.client/wilddog-core-android/pom.properties'
+        exclude 'META-INF/maven/com.wilddog.client/wilddog-auth-android/pom.xml'
+        exclude 'META-INF/maven/com.wilddog.client/wilddog-auth-android/pom.properties'
         exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/notice'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license'
+        exclude 'META-INF/license.txt'
     }
 }
 ```
