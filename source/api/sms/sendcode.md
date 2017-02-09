@@ -28,8 +28,9 @@ POST
 |--------------|--------------|----------|---|
 |templateId     |long            |是         |模板 ID|
 |mobile          |string         |是         |收信人手机号，如1xxxxxxxxxx 格式必须为11位|
-|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法)，合法性验证 其中参与签名加密的参数包括 `templateId`， `mobile`，`timestamp`|
+|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法)，合法性验证 其中参与签名加密的参数包括 `templateId`， `mobile`，`timestamp`， 若使用的是自定义验证码模板，还需要`params`参数 |
 |timestamp      |string         |是         |UNIX时间戳 单位是毫秒|
+|params           |string         |否         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"];对于不包含变量的模板，表示模板即短信全文内容， 若使用自定义验证码模板，则参数必选|
     
 
 <blockquote class="warning">
