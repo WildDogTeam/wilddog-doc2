@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.1 - 2017.02.08
+
+<span class="changelog fix">修复</span>
+
+- 修复 token 过期自动退出登录时不触发 onAuthStateChanged 回调的问题。
+
 
 ### V2.4.3 - 2016.01.13
 
