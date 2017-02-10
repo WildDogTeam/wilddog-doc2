@@ -4,6 +4,13 @@ title: 更新日志
 
 ## SMS API Beta
 
+### v0.2.1 - 2017.2.10
+
+<span class="changelog add">新增</span>
+
+- 新增验证码短信自定义配置
+
+
 ### v0.1.1 - 2016.12.22
 
 <span class="changelog deprecated">废弃</span>

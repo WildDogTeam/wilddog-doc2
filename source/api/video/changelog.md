@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.6 - 2017.02.06
+
+<span class="changelog optimize">优化</span>
+
+- 第一次建立 websocket 连接时增加失败尝试重连机制。
+
 ### v0.5.5 - 2017.01.09
 
 <span class="changelog add">新增</span>
