@@ -98,13 +98,11 @@ links.forEach(function(element, index){
 });
 
 navs.forEach(function (ele, index) {
-  ele.addEventListener('click', function (e) {
     var href;
     if (currentUrls[navlinks[index]] === '') {
       href = srcs[0][navlinks[index]];
     } else {
       href = currentUrls[navlinks[index]];
     }
-    window.location.href = href;
-  })
+    ele.setAttribute('href', href);
 });
