@@ -19,9 +19,9 @@ title: 快速入门
 ![](/images/smsprocess.png)
 
 
-- 接入野狗验证码短信一共需要 3 个步骤:
+- 接入野狗验证码短信一共需要 4 个步骤:
 
-![](/images/verprocess.jpg)
+![](/images/veritify_process.jpg)
 
 
 - 接入野狗通知类短信一共需要 4 个步骤:

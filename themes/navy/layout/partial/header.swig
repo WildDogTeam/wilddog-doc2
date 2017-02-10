@@ -14,7 +14,7 @@
     <div class="searchbar">
       <div class="search-tips">
         <img src="/images/search-icon.svg" alt="" width="15" height="15" class="search-icon">
-        <!-- <span class="serach-placeholder">搜索</span> -->
+        <span class="serach-placeholder">搜索</span>
       </div>
     </div>
     <div class="searchbar-inputting">
