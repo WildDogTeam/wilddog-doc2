@@ -198,11 +198,11 @@ Wilddog 认证
 
 定义
 
-包含一个在Wilddog服务器的Unix时间秒数。
+包含一个在 Wilddog 服务器的 Unix 时间毫秒数。
 
 说明
 
-包含一个在Wilddog服务器的Unix时间秒数。例如:
+包含一个在 Wilddog 服务器的 Unix 时间毫秒数。例如:
 
 ```
 {

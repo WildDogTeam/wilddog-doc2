@@ -80,7 +80,7 @@ guide:
 
     最佳实践:
       组织数据: /guide/sync/bestpractice/structure-data.html
-      数组处理: /guide/sync/bestpractice/array.html
+      #数组处理: /guide/sync/bestpractice/array.html#
       离线事件: /guide/sync/bestpractice/offline.html
     数据限制: /guide/sync/data-limit.html
 
