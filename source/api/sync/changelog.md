@@ -4,6 +4,13 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.2 - 2017.02.06
+
+<span class="changelog feature">修复</span>
+
+- 修复了当 sync 受安全域名限制时不报错的问题。
+
+
 ### V2.5.0 - 2017.02.06
 
 <span class="changelog add">新增</span>
@@ -13,6 +20,7 @@ title: 更新日志
 <span class="changelog feature">改进</span>
 
 - 优化与服务端的第一次建连时间，去除多余的 request 检测。
+
 
 ### V2.4.4 - 2016.01.13
 
