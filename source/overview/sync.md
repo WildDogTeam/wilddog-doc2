@@ -2,7 +2,7 @@ title: 实时通信引擎 Sync
 ---
 <h2 id='简介' class="article-heading top-heading">简介</h2>
 
-**Sync 是野狗的核心实时通信引擎。** 它可以满足在各种实时通信场景下的可靠消息传递。
+**Sync** 帮助企业解决了应用的实时通信问题。开发者通过API，即可为应用建立客户端之间的长连接，并实时地双向同步数据。
 
 ![](/images/syncdevices.jpg)
 
