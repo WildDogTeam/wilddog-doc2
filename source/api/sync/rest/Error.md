@@ -26,7 +26,7 @@ Wilddog的 REST API 将在以下情况返回错误码：
 
 Wilddog的 REST API 将在业务错误时返回值中返回错误信息：
 
-注：errcode为标准的错误码，message为标准的描述信息；code和error为旧版的错误码和描述信息
+注：errcode为标准的错误码，message为标准的描述信息；code和error为旧版的错误码和描述信息，未来会被废弃
 
 For example :
 
