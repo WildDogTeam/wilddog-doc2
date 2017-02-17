@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过 cURL 工具的例子来了解实时通信引擎的用法。
+你可以通过 cURL 工具的例子来了解实时数据同步的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>

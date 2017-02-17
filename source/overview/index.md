@@ -7,10 +7,10 @@ title:  简介
 
 
 ## 野狗的产品
-目前野狗的产品有 [实时通信引擎（Sync）](/overview/sync.html) ， [实时视频通话（Video）](/overview/video.html) ，[即时通信（IM）](/overview/im.html)，[短信（SMS）](/overview/sms.html) 和 [身份认证（Auth）](/overview/auth.html)。
+目前野狗的产品有 [实时数据同步（Sync）](/overview/sync.html) ， [实时视频通话（Video）](/overview/video.html) ，[即时通信（IM）](/overview/im.html)，[短信（SMS）](/overview/sms.html) 和 [身份认证（Auth）](/overview/auth.html)。
 
 
-实时通信引擎（Sync）是野狗的核心实时通信引擎。它帮助企业和开发者快速实现三大功能：基础实时通信、实时数据分发和实时数据持久化。
+实时数据同步（Sync）是野狗的核心实时数据同步。它帮助企业和开发者快速实现三大功能：基础实时通信、实时数据分发和实时数据持久化。
 
 ![](/images/introduction.jpg)
 

@@ -1,4 +1,4 @@
-title: 实时通信引擎 Sync
+title: 实时数据同步 Sync
 ---
 <h2 id='简介' class="article-heading top-heading">简介</h2>
 

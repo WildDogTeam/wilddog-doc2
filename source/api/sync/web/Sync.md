@@ -1,7 +1,7 @@
 title: Sync
 ---
 
-Sync 对象的实例是我们访问野狗实时通信引擎 Web SDK 的入口。我们不能直接初始化 Sync 实例，而必须要通过 wilddog.App 实例的 [sync](/api/sync/web/App.html#sync) 方法来获取它。
+Sync 对象的实例是我们访问野狗实时数据同步 Web SDK 的入口。我们不能直接初始化 Sync 实例，而必须要通过 wilddog.App 实例的 [sync](/api/sync/web/App.html#sync) 方法来获取它。
 
 ## 属性
 

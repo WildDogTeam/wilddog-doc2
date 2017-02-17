@@ -1,14 +1,14 @@
 overview:
   野狗概览:
     简介: /overview/index.html
-    实时通信引擎: /overview/sync.html
+    实时数据同步: /overview/sync.html
     实时视频通话: /overview/video.html
     即时通讯: /overview/im.html
     短信: /overview/sms.html
     身份认证: /overview/auth.html
 
 quickstart:
-  实时通信引擎:
+  实时数据同步:
     Web: /quickstart/sync/web.html
     Android: /quickstart/sync/android.html
     iOS: /quickstart/sync/ios.html
@@ -39,7 +39,7 @@ quickstart:
     Egret: /quickstart/auth/wild-egret-auth.html
 
 guide:
-  实时通信引擎:
+  实时数据同步:
     基础概念: /guide/sync/concept.html
     Web:
       数据操作: /guide/sync/web/save-data.html
@@ -162,7 +162,7 @@ guide:
       使用 Server SDK 进行认证: /guide/auth/server/server.html
 
 api:
-  实时通信引擎:
+  实时数据同步:
     Web:
 #      API 文档: /api/sync/web/api.html
       App : /api/sync/web/App.html
@@ -383,7 +383,7 @@ api:
     更新日志: /api/auth/changelog.html
 
 resources:
-  实时通信引擎:
+  实时数据同步:
     Web:
       实战教程: /resources/sync/web/tutorial.html
       示例库: /resources/sync/web/resources.html

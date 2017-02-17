@@ -8,7 +8,7 @@ title:  Web API 文档
 ## wilddog.App
 
 App 对象是野狗 Web SDK 的核心，它维护着应用的全局上下文数据，不同模块之间需要通过它来进行交互。同时 App 实例也是我们访问野狗各个功能模块的入口，所以初始化 App 实例是我们使用其他任何 API 接口的前提。
-要使用野狗实时通信引擎服务，你的初始化参数中必须包含 `syncURL`， 代码如下：
+要使用野狗实时数据同步服务，你的初始化参数中必须包含 `syncURL`， 代码如下：
 
 ```js
 var config = {
@@ -72,7 +72,7 @@ _无_
 
 ## wilddog.Sync
 
-Sync 对象的实例是我们访问野狗实时通信引擎 Web SDK 的入口。我们不能直接初始化 Sync 实例，而必须要通过 wilddog.App 实例的 [sync](/api/sync/web/api.html#sync) 方法来获取它。
+Sync 对象的实例是我们访问野狗实时数据同步 Web SDK 的入口。我们不能直接初始化 Sync 实例，而必须要通过 wilddog.App 实例的 [sync](/api/sync/web/api.html#sync) 方法来获取它。
 
 ---
 
