@@ -6,16 +6,13 @@ title: 错误码
 
 说明
 
-Wilddog的 REST API 将在以下情况返回错误码：
+Wilddog 的 REST API 将在以下情况返回错误码：
 
 | HTTP状态码              | HTTP状态码描述                        |
 | :--------------------- | :---------------------- |
 | 404 Not Found          | 通过 HTTP 请求而不是 HTTPS 请求      |
-| 400 Bad Request        | 不能解析 PUT 或 POST 数据          |
-| 400 Bad Request        | 丢失 PUT 或 POST 数据            |
-| 400 Bad Request        | PUT 或 POST 数据过长            |
+| 400 Bad Request        | 不能解析 PUT 或 POST 数据；丢失 PUT 或 POST 数据；PUT 或 POST 数据过长；REST API 调用路径中包含非法的子节点名字          |
 | 417 Expectation Failed | REST API 调用没有指定 Wilddog 名字 |
-| 400 Bad Request        | REST API 调用路径中包含非法的子节点名字 |
 | 403 Forbidden          | 请求违反规则表达式               |
 
 ## 错误信息

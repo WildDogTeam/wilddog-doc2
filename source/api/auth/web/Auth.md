@@ -97,9 +97,9 @@ createUserWithEmailAndPassword(email, password)
 
 可能发生的错误：
 
-- invalid_email 表示手机格式错误。
-- email_already_in_use 表示手机已经被注册。
-- authentication_disabled 表示手机登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+- invalid_email 表示邮箱格式错误。
+- email_already_in_use 表示邮箱已经被注册。
+- authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
@@ -221,9 +221,9 @@ wilddog.auth().signInWithPhoneAndPassword(phone, password)
 
 可能发生的错误：
 
-- invalid_phone 表示邮箱格式错误。
-- phone_already_in_use 表示邮箱已经被注册。
-- authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+- invalid_phone 表示手机号格式错误。
+- phone_already_in_use 表示手机已经被注册。
+- authentication_disabled 表示手机登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
