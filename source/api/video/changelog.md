@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.7 - 2017.02.17
+
+<span class="changelog fix">修复</span>
+
+- 修复 conference 中媒体流断开后不通知服务器的bug；
+
 ### v0.5.6 - 2017.02.06
 
 <span class="changelog optimize">优化</span>
@@ -121,6 +127,12 @@ title: 更新日志
 
 ---
 ## Android SDK
+
+### v0.5.6 - 2017.02.17
+
+<span class="changelog fix">修复</span>
+
+- 修复 conference 中媒体流断开后不通知服务器的bug；
 
 ### v0.5.5 - 2017.01.06
 <span class="changelog optimize">优化</span>
@@ -251,6 +263,12 @@ title: 更新日志
 
 ---
 ## iOS SDK
+
+### v0.5.7 - 2017.02.17
+
+<span class="changelog fix">修复</span>
+
+- 修复 conference 中媒体流断开后不通知服务器的bug；
 
 ### v0.5.6 - 2017.01.06
 

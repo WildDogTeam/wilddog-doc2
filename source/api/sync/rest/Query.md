@@ -129,7 +129,7 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 
 **示例**
 
-例如，[班级示例应用](https://class-demo.wilddogio.com) 中按照每个学生的身高（”height” 节点的值）进行排序：
+例如，[班级示例应用](https://class-demo.wilddogio.com) 中按照每个学生的身高（"height" 节点的值）进行排序：
 
 ```
 curl 'https://class-demo.wilddogio.com/students.json?orderBy="height"'
