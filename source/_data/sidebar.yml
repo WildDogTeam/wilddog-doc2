@@ -261,7 +261,7 @@ api:
       LocalParticipant: /api/video/android/local-participant.html
       VideoException: /api/video/android/video-exception.html
       MeetingCast: /api/video/android/meeting-cast.html
-      CompeleteListener: /api/video/android/complete-listener.html
+      CompleteListener: /api/video/android/complete-listener.html
       MeetingCastStateListener: /api/video/android/meeting-cast-listener.html
       MeetingCastStatus: /api/video/android/meeting-cast-status.html
       WilddogVideoView: /api/video/android/wilddog-video-view.html
