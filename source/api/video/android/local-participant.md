@@ -1,6 +1,8 @@
 title: LocalParticipant
 ---
 
+代表视频通话和会议的本地参与者。
+
 <span id="Participant" />
 
 ## 属性
