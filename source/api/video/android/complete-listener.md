@@ -6,7 +6,7 @@ title: CompleteListener
 
 ## 方法
 
-### void onCompleted(VideoException)
+### onCompleted(VideoException)
 
 **定义**   
 
