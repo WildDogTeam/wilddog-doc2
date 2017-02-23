@@ -152,7 +152,7 @@ conversation.on('disconnected', function(){
 {
   "rules": {
     "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
-    "$others":{ ".read": true，".write": true}
+    "$others":{ ".read": true,".write": true}
   }
 }
 ```
