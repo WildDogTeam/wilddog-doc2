@@ -112,11 +112,13 @@ title: 更新日志
 
 ### v0.5.5 - 2017.01.06
 <span class="changelog optimize">优化</span>
-- NAT 穿越服务器选择算法策略。
-<span class="changelog fix">修复</span>
-- Conference中获取Participants为空的bug。
-- Conversation中获取LocalParticipant为空的bug。
 
+- NAT 穿越服务器选择算法策略。
+
+<span class="changelog fix">修复</span>
+
+- Conference 中获取 Participants 为空的 bug。
+- Conversation 中获取 LocalParticipant 为空的 bug。
 
 ### v0.5.4 - 2016.12.23
 <span class="changelog add">新增</span>
