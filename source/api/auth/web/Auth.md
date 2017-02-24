@@ -439,7 +439,7 @@ sendPasswordResetSms(phone)
 
  **说明**
 
-通过邮箱找回密码。
+通过手机找回密码。
 
 **参数**
 
