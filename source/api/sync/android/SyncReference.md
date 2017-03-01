@@ -165,6 +165,26 @@ SyncReference ref4 = ref.child("a").child("b");
 
 向指定节点写入数据。此方法会先清空指定节点，再写入数据。
 
+支持的数据类型：
+ - String、 Number、 Boolean 等基本数据类型;
+ - 数组 ArrayList;
+Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
+例如：
+```java
+        String[] strList = new String[6];
+        strList[0] = "a";
+        strList[2] = "b";
+        strList[3] = "c";
+        strList[5] = "d";
+        //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
+        ref.child("list").setValue(strList);
+```
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
+ - 自定义数据类型，满足 JavaBean 规范的实体;
+ - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+
+
 **参数**
 
  参数名 | 描述
@@ -209,14 +229,34 @@ SyncReference ref4 = ref.child("a").child("b");
 
 **说明**
 
-向指定节点写入数据。此方法会先清空指定节点，再写入数据。`setValue` 操作执行完成后将触发 `listener` 的 `onComplete` 方法。
+向指定节点写入数据并设置操作完成监听。此方法会先清空指定节点，再写入数据。
+`setValue` 操作执行完成后将触发操作完成监听 `listener` 的 `onComplete` 方法。
+
+支持写入的数据类型：
+ - String、 Number、 Boolean 等基本数据类型;
+ - 数组 ArrayList;
+Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
+例如：
+```java
+        String[] strList = new String[6];
+        strList[0] = "a";
+        strList[2] = "b";
+        strList[3] = "c";
+        strList[5] = "d";
+        //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
+        ref.child("list").setValue(strList);
+```
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
+ - 自定义数据类型，满足 JavaBean 规范的实体;
+ - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 **参数**
 
  参数名 | 描述
  --- | ---
  value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
- listener | [CompletionListener]() 类型。`setValue` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
+ listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
 
 
 **示例**
@@ -281,8 +321,28 @@ SyncReference ref4 = ref.child("a").child("b");
 **说明**
 
 
-向指定节点写入数据。此方法会先清空指定节点，再写入数据。写入数据同时为节点设置优先级。
+向指定节点写入数据和[数据优先级](/api/sync/android/SyncReference.html#setPriority)，并设置数据完成监听。此方法会先清空指定节点，再写入数据。
 `setValue` 操作执行完成后将触发 `listener` 的 `onComplete` 方法。
+
+支持写入的数据类型：
+ - String、 Number、 Boolean 等基本数据类型;
+ - 数组 ArrayList;
+Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
+例如：
+```java
+        String[] strList = new String[6];
+        strList[0] = "a";
+        strList[2] = "b";
+        strList[3] = "c";
+        strList[5] = "d";
+        //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
+        ref.child("list").setValue(strList);
+```
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
+ - 自定义数据类型，满足 JavaBean 规范的实体;
+ - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+
 
 **参数**
 
@@ -290,7 +350,7 @@ SyncReference ref4 = ref.child("a").child("b");
  --- | ---
  value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 priority |`Object` 指定节点的优先级。
-listener | [CompletionListener]() 类型。`setValue` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
+listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
 
 
 
@@ -436,7 +496,7 @@ void updateChildren(Map<String, Object> value, SyncReference.CompletionListener 
  参数名 | 描述
  --- | ---
   value |`Map<String, Object>` 当 value 为 null 时，等价于 `removeValue()` 操作。
-listener | [CompletionListener]() 类型。`setValue` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
+listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
 
 
 **示例**
@@ -462,6 +522,8 @@ ref.child("a/b").updateChildren(children, handler);
 </br>
 
 ---
+
+<div id="setPriority"></div>
 ### setPriority(priority)
 
 **定义**
@@ -475,7 +537,7 @@ void setPriority(Object priority)
    设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。
    不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority`。
 
-   节点优先级排序规则如下：null < Number < String。
+   节点按照如下优先级规则升序排列：null < Number < String。
  
    - priority 为 null 的排最先；
    - priority 为数值的次之，按照数值从小到大排序；
@@ -506,7 +568,7 @@ void setPriority(Object object, SyncReference.CompletionListener listener)
 设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。
    不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority`。
 
-   节点优先级排序规则如下：null < Number < String。
+   节点按照如下优先级规则升序排列：null < Number < String。
  
    - priority 为 null 的排最先；
    - priority 为数值的次之，按照数值从小到大排序；
@@ -520,7 +582,7 @@ void setPriority(Object object, SyncReference.CompletionListener listener)
 参数名 | 描述
 --- | ---
 priority |`Object` 指定节点的优先级。
- listener |`CompletionListener`
+ listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。
 
 </br>
 
@@ -566,7 +628,7 @@ void removeValue(SyncReference.CompletionListener listener)
 
 参数名 | 描述
 --- | ---
-listener | [CompletionListener]() 类型。`removeValue` 操作完成回调。
+listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`removeValue` 操作完成回调。
 
 
 
