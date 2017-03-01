@@ -16,7 +16,7 @@ title: WDGSyncQuery
 
 **说明**
 
-获取这个查询对象的 WDGSyncReference 实例。
+获取这个 WDGSyncQuery 所在路径下的 WDGSyncReference 实例。
 
 </br>
 
@@ -33,28 +33,22 @@ title: WDGSyncQuery
 
 **说明**
 
-用于监听一个指定节点的数据变化。
+用于监听指定节点的数据变化。
 
-这是从 Wilddog Sync 服务器读取数据的主要方式，当监听到初始数据和初始数据有改变时，指定事件相对应的 block 会被触发。
+这是从 Wilddog Sync 云端读取数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，指定事件对应的回调 block 会被触发。
 
-typedef NS_ENUM(NSInteger, WDGDataEventType) {
-&nbsp;&nbsp;&nbsp; WDGDataEventTypeChildAdded,&nbsp;&nbsp;// 0, 当有新增子节点时触发
-&nbsp;&nbsp;&nbsp; WDGDataEventTypeChildRemoved,&nbsp;&nbsp;// 1, 当有子节点被删除时触发
-&nbsp;&nbsp;&nbsp; WDGDataEventTypSeChildChanged,&nbsp;&nbsp;// 2, 当某个子节点发生变化时触发
-&nbsp;&nbsp;&nbsp; WDGDataEventTypeChildMoved,&nbsp;&nbsp;// 3, 当有子节排序发生变化时触发
-&nbsp;&nbsp;&nbsp; WDGDataEventTypeValue&nbsp;&nbsp;// 4, 当有数据请求或有任何数据发生变化时触发
-};
+可使用 `removeObserverWithHandle:` 方法去停止接受数据变化。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 从这个节点到要设定的子节点的相对路径  
-block | 当监听到某事件时，回调该 block
+eventType | 监听的事件类型。
+block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。
 
 **返回值**
 
-一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block
+一个 `WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 去注销这个监听。
 </br>
 
 --- 
@@ -68,22 +62,24 @@ block | 当监听到某事件时，回调该 block
 
 **说明**
 
-用于监听在特定节点处的数据的变化。
+用于监听指定节点的数据变化。
 
-这是从 Wilddog Sync 服务器读取数据的主要方式，当监听到初始数据和初始数据有改变时，指定事件相对应的 block 会被触发。
-此外， 对于 WDGDataEventTypeChildAdded, WDGDataEventTypeChildMoved 和 WDGDataEventTypeChildChanged 事件， block 通过 priority 排序将传输前一节点的 key 值。
-用 removeObserverWithHandle: 方法去停止接受数据更新的监听。
+这是从 Wilddog Sync 云端读取数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，指定事件对应的回调 block 会被触发。
+
+此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
+
+可使用 `removeObserverWithHandle:` 方法去停止接受数据变化。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型 
-block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block 将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key 
+eventType | 监听的事件类型。
+block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
 
 **返回值**
 
-一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个block
+一个 `WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 去注销这个监听。
 
 </br>
 
@@ -98,23 +94,26 @@ block | 当监听到初始数据和初始数据发生变化时，这个 block �
 
 **说明**
 
-用于监听一个指定节点的数据变化。
+用于监听指定节点的数据变化。
 
-这是从 Wilddog Sync 服务器读取数据的主要方式，当监听到初始数据和初始数
-发。
-由于你没有读取权限，就接受不到新的事件，这时 cancelBlock 就会被调用
+这是从 Wilddog Sync 云端读取数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，指定事件对应的回调 block 会被触发。
+
+当客户端不再拥有对该节点的访问权限时 `cancelBlock` 会被调用。
+
+可使用 `removeObserverWithHandle:` 方法去停止接受数据变化。
+
 
 **返回值**
 
-一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block。
+一个 `WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 去注销这个监听。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型 
-block | 当监听到某事件时，回调 block
-cancelBlock | 如果客户端没有权限去接受这些事件，这个 block 将会被调用
+eventType | 监听的事件类型。
+block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。
+cancelBlock | 当客户端不再拥有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 </br>
 
@@ -129,24 +128,28 @@ cancelBlock | 如果客户端没有权限去接受这些事件，这个 block �
 
 **说明**
 
-用于监听在特定节点处的数据的变化。
-   
-这是从 Wilddog Sync 服务器读取数据的主要方式，当监听到初始数据和初始数据有改变时，指定事件相对应的 block 会被触发。 
-此外，对于 WDGDataEventTypeChildAdded, WDGDataEventTypeChildMoved 和 WDGDataEventTypeChildChanged 事件, block通过priority排序将传输前一节点的key值。
-由于你没有读取权限，就接受不到新的事件，这时cancelBlock就会被调用
-用 removeObserverWithHandle: 方法去停止接受数据更新的监听。
+用于监听指定节点的数据变化。
+
+这是从 Wilddog Sync 云端读取数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，指定事件对应的回调 block 会被触发。
+
+此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
+
+当客户端不再拥有对该节点的访问权限时 `cancelBlock` 会被调用。
+
+可使用 `removeObserverWithHandle:` 方法去停止接受数据变化。
+
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型 
-block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block 将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key
-cancelBlock | 如果客户端没有权限去接受这些事件，这个 block 将会被调用
+eventType | 监听的事件类型。
+block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+cancelBlock | 当客户端不再拥有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 **返回值**
 
-一个 WDGSyncHandle，用于调用函数 removeObserverWithHandle: 去注销这个 block。
+一个 `WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 去注销这个监听。
 
 </br>
 
@@ -161,14 +164,14 @@ cancelBlock | 如果客户端没有权限去接受这些事件，这个 block �
 
 **说明**
 
-同 observeEventType:withBlock: 类似，不同之处在于 observeSingleEventOfType:withBlock: 中的回调函数只被执行一次。
+同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型
-block | 当监听到某事件时，回调 block
+eventType | 监听的事件类型。
+block | 当从云端获取到结果时，这个 block 将被回调。
 
 </br>
 
@@ -183,14 +186,16 @@ block | 当监听到某事件时，回调 block
 
 **说明**
 
-这个方法和 observeEventType:withBlock: 方法类似。不同之处是在初始数据返回后，这个 block 回调一次就被取消监听。此外，对于 WDGDataEventTypeChildAdded, WDGDataEventTypeChildMoved 和 WDGDataEventTypeChildChanged 事件, block 通过 priority 排序将传输前一节点的 key 值。
+同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
+
+此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型
-block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block 将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key
+eventType | 监听的事件类型。
+block | 当从云端获取到结果时，这个 block 将被回调。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
 
 </br>
 
@@ -205,15 +210,17 @@ block | 当监听到初始数据和初始数据发生变化时，这个 block �
 
 **说明**
 
-同 observeSingleEventOfType:withBlock: 类似，如果你没有在这个节点读取数据的权限，cancelBlock 将会被回调。
+同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
+
+当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型
-block | 当监听到某事件时，回调 block
-cancelBlock | 如果您没有权限访问此数据，将调用该 cancelBlock
+eventType | 监听的事件类型。
+block | 当从云端获取到结果时，这个 block 将被回调。
+cancelBlock | 当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 </br>
 
@@ -229,15 +236,19 @@ cancelBlock | 如果您没有权限访问此数据，将调用该 cancelBlock
 
 **说明**
 
-这个方法和 observeEventType:withBlock: 方法类似。不同之处是：在初始数据返回后，这个 block 回调一次就被取消监听。此外，对于 WDGDataEventTypeChildAdded, WDGDataEventTypeChildMoved 和 WDGDataEventTypeChildChanged 事件, block 通过 priority 排序将传输前一节点的 key 值。
+同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
+
+此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
+
+当客户端不再拥有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型
-block | 将传输一个 WDGDataSnapshot 类型的数据和前一个子节点的 key
-cancelBlock | 如果您没有权限访问此数据，将调用该 cancelBlock
+eventType | 监听的事件类型。
+block | 当从云端获取到结果时，这个 block 将被回调。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+cancelBlock | 当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 </br>
 
@@ -252,13 +263,13 @@ cancelBlock | 如果您没有权限访问此数据，将调用该 cancelBlock
 
 **说明**
 
-取消监听事件。取消之前用 observeEventType:withBlock: 注册的回调函数。
+取消监听事件。取消之前用 `observeEventType:withBlock:` 注册的回调 block。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-handle | 由 observeEventType:withBlock: 返回的 WDGSyncHandle
+handle | 由 `observeEventType:withBlock:` 返回的 WDGSyncHandle。
 
 </br>
 
@@ -273,7 +284,7 @@ handle | 由 observeEventType:withBlock: 返回的 WDGSyncHandle
 
 **说明**
 
-取消之前由 observeEventType:withBlock: 注册的所有的监听事件。 
+取消当前节点下之前由 `observeEventType:withBlock:` 注册的所有的监听事件。 
 
 </br>
 
@@ -288,13 +299,13 @@ handle | 由 observeEventType:withBlock: 返回的 WDGSyncHandle
 
 **说明**
 
-在某一节点处通过调用 keepSynced:YES 方法，即使该节点处没有设置监听者，此节点处的数据也将自动下载存储并保持同步。
+在某一节点处通过调用 `keepSynced:YES` 方法，即使该节点处没有进行过监听，此节点处的数据也将自动下载存储并与云端保持同步。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-keepSynced | 参数设置为 YES，则在此节点处同步数据，设置为 NO，停止同步。
+keepSynced | 参数设置为 YES，则在此节点处同步数据；设置为 NO，停止同步。
 
 </br>
 
@@ -311,7 +322,7 @@ keepSynced | 参数设置为 YES，则在此节点处同步数据，设置为 NO
 
 用于创建一个新 WDGSyncQuery 实例，获取从第一条开始的指定数量的数据。
 
-返回的 WDGSyncQuery 查询器类将响应从第一个开始，到最多指定(limit)节点个数的数据。
+返回的 WDGSyncQuery 实例将响应从第一个开始，到最多 (limit) 个节点的数据。
 
 **参数**
 
@@ -321,7 +332,7 @@ limit | 这次查询能够获取的子节点的最大数量
 
 **返回值**
 
-返回一个 WDGSyncQuery 查询器类，最多指定(limit)个数的数据
+返回一个 WDGSyncQuery 实例，查询最多前 (limit) 个数据。
 
 </br>
 
