@@ -2,7 +2,7 @@
 title: WDGSyncQuery
 ---
 
-用于查询指定路径和指定条件下的数据。
+查询指定路径和指定条件下的数据。
 
 ## 属性
 
@@ -33,7 +33,7 @@ title: WDGSyncQuery
 
 **说明**
 
-用于监听指定节点的数据。
+监听指定节点的数据。
 
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
 
@@ -62,24 +62,24 @@ block | 当监听到当前节点的初始数据或当前节点的数据改变时
 
 **说明**
 
-监听指定节点的数据变化。
+监听指定节点的数据。
 
-这是从 Wilddog Sync 云端读取数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，指定事件对应的回调 block 会被触发。
+这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
 
 此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有当前排序下前一节点的 key 值。
 
-可使用 `removeObserverWithHandle:` 方法去停止接受数据变化。
+可使用 `removeObserverWithHandle:` 方法移除监听。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型。
-block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个节点的 key 值。
+eventType | `WDGDataEventType` 类型，表示监听的事件类型。
+block | 当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个节点的 key 值。
 
 **返回值**
 
-一个 `WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 去注销这个监听。
+`WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 移除这个监听。
 
 </br>
 
@@ -94,25 +94,26 @@ block | 当监听到初始数据和初始数据发生变化时，这个 block �
 
 **说明**
 
-用于监听指定节点的数据变化。
+监听指定节点的数据。
 
-这是从 Wilddog Sync 云端读取数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，指定事件对应的回调 block 会被触发。
+这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
 
-当客户端失去对该节点的读取权限时会调用 `cancelBlock`。导致失去读取权限的原因包括：规则表达式限制，超出数据限制，套餐超出等。
-可使用 `removeObserverWithHandle:` 方法去停止接受数据变化。
+当客户端失去对该节点的读取权限时会调用 `cancelBlock`。导致失去读取权限的原因包括：规则表达式限制，数据限制，套餐限制超出等。
+
+可使用 `removeObserverWithHandle:` 方法移除监听。
 
 
 **返回值**
 
-一个 `WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 去注销这个监听。
+`WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 移除这个监听。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型。
-block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。
-cancelBlock | 当客户端不再拥有对该节点的访问权限时 `cancelBlock` 会被调用。
+eventType | `WDGDataEventType` 类型，表示监听的事件类型。
+block | 当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
+cancelBlock | 当客户端失去对该节点的读取权限时会调用 `cancelBlock`。
 
 </br>
 
@@ -127,28 +128,28 @@ cancelBlock | 当客户端不再拥有对该节点的访问权限时 `cancelBloc
 
 **说明**
 
-用于监听指定节点的数据变化。
+监听指定节点的数据。
 
-这是从 Wilddog Sync 云端读取数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，指定事件对应的回调 block 会被触发。
+这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
 
-此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
+此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有当前排序下前一节点的 key 值。
 
-当客户端不再拥有对该节点的访问权限时 `cancelBlock` 会被调用。
+当客户端失去对该节点的读取权限时会调用 `cancelBlock`。导致失去读取权限的原因包括：规则表达式限制，数据限制，套餐限制超出等。
 
-可使用 `removeObserverWithHandle:` 方法去停止接受数据变化。
+可使用 `removeObserverWithHandle:` 方法移除监听。
 
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型。
-block | 当监听到初始数据和初始数据发生变化时，这个 block 将被回调。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
-cancelBlock | 当客户端不再拥有对该节点的访问权限时 `cancelBlock` 会被调用。
+eventType | `WDGDataEventType` 类型，表示监听的事件类型。
+block | 当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+cancelBlock | 当客户端失去对该节点的读取权限时会调用 `cancelBlock`。
 
 **返回值**
 
-一个 `WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 去注销这个监听。
+`WDGSyncHandle` 值，用于调用函数 `removeObserverWithHandle:` 移除这个监听。
 
 </br>
 
@@ -169,7 +170,7 @@ cancelBlock | 当客户端不再拥有对该节点的访问权限时 `cancelBloc
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型。
+eventType | `WDGDataEventType` 类型，表示监听的事件类型。
 block | 当从云端获取到结果时，将回调这个 block。
 
 </br>
@@ -193,8 +194,8 @@ block | 当从云端获取到结果时，将回调这个 block。
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型。
-block | 当从云端获取到结果时，这个 block 将被回调。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+eventType | `WDGDataEventType` 类型，表示监听的事件类型。
+block | 当从云端获取到结果时，将回调这个 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
 
 </br>
 
@@ -217,8 +218,8 @@ block | 当从云端获取到结果时，这个 block 将被回调。block 将�
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型。
-block | 当从云端获取到结果时，这个 block 将被回调。
+eventType | `WDGDataEventType` 类型，表示监听的事件类型。
+block | 当从云端获取到结果时，将回调这个 block。
 cancelBlock | 当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 </br>
@@ -239,14 +240,14 @@ cancelBlock | 当客户端没有对该节点的访问权限时 `cancelBlock` 会
 
 此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
 
-当客户端不再拥有对该节点的访问权限时 `cancelBlock` 会被调用。
+当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-eventType | 监听的事件类型。
-block | 当从云端获取到结果时，这个 block 将被回调。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+eventType | `WDGDataEventType` 类型，表示监听的事件类型。
+block | 当从云端获取到结果时，将回调这个 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
 cancelBlock | 当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 </br>
@@ -319,7 +320,7 @@ keepSynced | 参数设置为 YES，则在此节点处同步数据；设置为 NO
 
 **说明**
 
-用于创建一个新 WDGSyncQuery 实例，获取当前排序下从第一个节点开始的最多 (limit) 条数据。
+创建一个新的 `WDGSyncQuery` 实例，获取当前排序下从第一个节点开始的最多 (limit) 条数据。
 
 **参数**
 
@@ -344,7 +345,7 @@ WDGSyncQuery 实例。
 
 **说明**
 
-用于创建一个新 WDGSyncQuery 实例，获取当前排序下，从最后一个节点开始向前的最多 (limit) 条数据。
+创建一个新的 `WDGSyncQuery` 实例，获取当前排序下，从最后一个节点开始向前的最多 (limit) 条数据。
 
 **参数**
 
@@ -369,7 +370,7 @@ limit | 能够获取的子节点的最大数量。
 
 **说明**
 
-产生一个新的 `WDGSyncQuery` 实例，按子节点下指定的 key 对应的 value 对结果进行排序。
+创建一个新的 `WDGSyncQuery` 实例，按子节点下指定的 key 对应的 value 对结果进行排序。
 
 此方法可以与 `queryStartingAtValue:`、`queryEndingAtValue:` 或 `queryEqualToValue:` 方法联合使用。
 
@@ -395,7 +396,7 @@ key | 指定用来排序的子节点的 key。
 
 **说明**
 
-产生一个新的 `WDGSyncQuery` 实例，按子节点的 key 对结果以字典序进行排序。
+创建一个新的 `WDGSyncQuery` 实例，按子节点的 key 对结果以字典序进行排序。
 
 此方法可以与 `queryStartingAtValue:`、`queryEndingAtValue:` 或 `queryEqualToValue:` 方法联合使用。
 
@@ -416,7 +417,7 @@ key | 指定用来排序的子节点的 key。
 
 **说明**
 
-产生一个新的 `WDGSyncQuery` 实例，按节点的 value 对结果排序。
+创建一个新的 `WDGSyncQuery` 实例，按节点的 value 对结果排序。
 此方法可以与 `queryStartingAtValue:`、`queryEndingAtValue:` 或 `queryEqualToValue:` 方法联合使用。
 
 **返回值**
@@ -436,7 +437,7 @@ key | 指定用来排序的子节点的 key。
 
 **说明**
 
-产生一个新的 `WDGSyncQuery` 实例，按节点的 priority 对结果排序。 
+创建一个新的 `WDGSyncQuery` 实例，按节点的 priority 对结果排序。 
 节点按照如下优先级规则升序排列：nil < NSNumber < NSString。
 
   - priority 为 nil 的排最先；
@@ -465,7 +466,7 @@ key | 指定用来排序的子节点的 key。
 
 **说明**
 
-返回一个 `WDGSyncQuery` 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
+创建一个新的 `WDGSyncQuery` 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
 此方法应与 `queryOrderedByPriority:`、`queryOrderedByKey:`、`queryOrderedByValue:` 或 `queryOrderedByChildKey:` 方法联合使用。
 
 **参数**
@@ -490,7 +491,7 @@ startValue | query 查询返回值的下界，所有返回值均大于等于 sta
 
 **说明**
 
-返回一个 `WDGSyncQuery` 实例，可以查询所有大于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。
+创建一个新的 `WDGSyncQuery` 实例，可以查询所有大于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。
 当查询到的 value 与 startValue 相等时，则只保留 key 大于等于 childKey 的节点。
 此方法应与 `queryOrderedByPriority:`、`queryOrderedByValue:` 或 `queryOrderedByChildKey:` 方法联合使用。
 该方法可用于分页。
@@ -519,7 +520,7 @@ childKey | 当 query 查询到的值和 startValue 相等时，返回其中 key 
 
 **说明**
 
-返回一个 `WDGSyncQuery` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
+创建一个新的 `WDGSyncQuery` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
 此方法应与 `queryOrderedByPriority:`、`queryOrderedByKey:`、`queryOrderedByValue:` 或 `queryOrderedByChildKey:` 方法联合使用。
 
 **参数**
@@ -545,7 +546,7 @@ endValue | query 查询返回值的上界，所有返回值均小于等于 endVa
 
 **说明**
 
-返回一个 `WDGSyncQuery` 实例，可以查询所有小于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。
+创建一个新的 `WDGSyncQuery` 实例，可以查询所有小于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。
 当查询到的 value 与 endValue 相等时，则只保留 key 小于等于 childKey 的节点。
 此方法应与 `queryOrderedByPriority:`、`queryOrderedByValue:` 或 `queryOrderedByChildKey:` 方法联合使用。
 该方法可用于分页。
@@ -574,7 +575,7 @@ childKey | 当 query 查询到的值和 endValue 相等时，返回其中 key �
 
 **说明**
 
-返回一个 `WDGSyncQuery` 实例，可以查询等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。
+创建一个新的 `WDGSyncQuery` 实例，可以查询等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。
 此方法应与 `queryOrderedByPriority:`、`queryOrderedByKey:`、`queryOrderedByValue:` 或 `queryOrderedByChildKey:` 方法联合使用。
 
 **参数**
@@ -600,7 +601,7 @@ value | query 查询到的值都等于 value。
 
 **说明**
 
-返回一个 `WDGSyncQuery` 实例，可以查询等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。
+创建一个新的 `WDGSyncQuery` 实例，可以查询等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。
 并且 query 查询到的 key 都等于 childKey。由于 key 是唯一的，查询最多返回一个节点。
 此方法应与 `queryOrderedByPriority:`、`queryOrderedByValue:` 或 `queryOrderedByChildKey:` 方法联合使用。
 
