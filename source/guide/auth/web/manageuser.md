@@ -184,10 +184,10 @@ wilddog.auth().currentUser.updatePassword("password123").then(function() {
 
 ### 发送重设密码短信
 
-`sendPasswordResetSms()` 方法用于向用户发送重设密码邮件。
+`sendPasswordResetSms()` 方法用于向用户发送重设密码短信。
 
 ```javascript
-wilddog.auth().sendPasswordResetSms("12345678@wilddog.com").then(function() {
+wilddog.auth().sendPasswordResetSms("13888888888").then(function() {
     // 发送成功
 }).catch(function(error) {
     // 发生错误
