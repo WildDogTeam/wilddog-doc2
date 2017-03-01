@@ -8,5 +8,7 @@ title:  示例库
 | [Star Wars](https://github.com/WildDogTeam/demo-js-starwars) | 野狗官方 | Star Wars 是一个基于Wilddog JavaScript SDK实现的多人实时对战游戏。可以匿名对战，也可以使用微信帐号登陆，以便于在积分排行榜上留名。 |
 | [Danmu](https://github.com/WildDogTeam/demo-js-danmu) | 野狗官方 | Danmu 是一个基于Wilddog JavaScript SDK实现的弹幕。  |
 | [Wildchat](http://wildchat.wilddogapp.com/) | 野狗官方 | Wildchat 是使用 Sync 开发的一个开源的、实时的聊天应用。它提供完全多用户，多房间，用户搜索，站内短信，聊天邀请等等。  |
+| [野狗太空大战](https://tunan.coding.me/MoojiStarWars/#!/) | 开发者 Tunan | 野狗太空大战是 Star Wars 的升级版，由开发者制作。游戏拥有更丰富的计分规则与技术分析系统，并且能够创建多个房间进行对战。  |
+
 
 [更多示例](https://github.com/WildDogTeam/awesome-wilddog)
