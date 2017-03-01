@@ -2,7 +2,7 @@
 title: 发送验证码短信
 ---
 
-用于查询发送验证码短信，需配合 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 使用。该接口限制每秒最多可调用 10 次。
+用于查询发送验证码短信，需配合 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 使用。该接口限制每秒最多可调用 60 次。
 
 **URL**
 
@@ -17,13 +17,13 @@ json
 ```
 
 **HTTP 请求方式**  
-  
+
 ```
 POST    
 ```
-    
+
 **参数说明**
-    
+
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
 |templateId     |long            |是         |模板 ID|
@@ -31,7 +31,7 @@ POST
 |signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法)，合法性验证 其中参与签名加密的参数包括 `templateId`， `mobile`，`timestamp`， 若使用的是自定义验证码模板，还需要`params`参数 |
 |timestamp      |string         |是         |UNIX时间戳 单位是毫秒|
 |params           |string         |否         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"];对于不包含变量的模板，表示模板即短信全文内容， 若使用自定义验证码模板，则参数必选|
-    
+
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>

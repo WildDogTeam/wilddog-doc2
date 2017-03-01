@@ -2,7 +2,7 @@
 title: 发送通知类短信
 ---
 
-用于发送通知类短信，需配合 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 使用。该接口限制每秒最多可调用 10 次。
+用于发送通知类短信，需配合 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 使用。该接口限制每秒最多可调用 60 次。
 
 **URL**
 
@@ -20,9 +20,9 @@ json
 ```
 POST    
 ```
-    
+
 **参数说明**
-    
+
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
 |templateId     |long            |是         |模板 ID|
@@ -30,7 +30,7 @@ POST
 |params           |string         |是         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"];对于不包含变量的模板，表示模板即短信全文内容|
 |signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法)，合法性验证，其中参与签名加密的参数包括 `templateId`， `mobiles`，`timestamp`, `params`|
 |timestamp      |string         |是         |UNIX时间戳|
-    
+
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <li>参数 params 可能含有特殊字符, 记得 `urlencode`</li>
@@ -38,7 +38,7 @@ POST
    <li>生成签名时, 参数不要使用 `urlencode`. 在调用 api 时, 才需要对参数做 `urlencode`
 </li>
 </blockquote>
- 
+
 **返回说明**
 
 ```
@@ -56,4 +56,3 @@ POST
 ```
 curl -X POST https://api.wilddog.com/sms/v1/{appId}/notify/send -d "signature=$signature&templateId=$templateId&mobiles=$mobiles&timestamp=$timestamp&params=$params"
 ```
-
