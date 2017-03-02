@@ -7,9 +7,13 @@ Sync 对象的实例是我们访问野狗实时通信引擎 Web SDK 的入口。
 
 ### ServerValue
 
+**定义**
+
 {TIMESTAMP: non-null Object}
 
-TIMESTAMP 是一个用于在我们的数据中插入服务器当前时间的占位符，时间格式为自 [Unix epoch](https://en.wikipedia.org/wiki/Unix_time) 开始的的毫秒数。
+**说明**
+
+TIMESTAMP 是一个用于在我们的数据中插入服务器当前时间的占位符，在本地无法查看具体时间。时间格式为自 [Unix epoch](https://en.wikipedia.org/wiki/Unix_time) 开始的的毫秒数。
 
 **示例**
 
@@ -17,10 +21,10 @@ TIMESTAMP 是一个用于在我们的数据中插入服务器当前时间的占�
 var sessionsRef = wilddog.sync().ref("sessions");
 var mySessionRef = sessionsRef.push();
 mySessionRef.onDisconnect().update({
-    endedAt: wilddog.sync().ServerValue.TIMESTAMP
+    'endedAt': wilddog.sync().ServerValue.TIMESTAMP
 });
 mySessionRef.update({
-    startedAt: wilddog.sync().ServerValue.TIMESTAMP
+    'startedAt': wilddog.sync().ServerValue.TIMESTAMP
 });
 ```
 
@@ -32,7 +36,7 @@ mySessionRef.update({
 
 ### ref
 
-获取指向 `path` 的 [wilddog.sync.Reference](/api/sync/web/Reference.html) 对象实例。
+获取指向 `path` 的 [wilddog.sync.Reference](/api/sync/web/Reference.html) 实例。
 
 **定义**
 
@@ -73,6 +77,12 @@ goOffline()
 
 [Void](/api/sync/web/Void.html)
 
+**示例**
+```js
+// 当前 app 实例下的所有 Sync 实例都将离线
+wilddog.sync().goOffline();
+```
+
 ---
 
 ### goOnline
@@ -89,8 +99,6 @@ goOnline()
 
 **示例**
 ```js
-// 当前 app 实例下的所有 Sync 实例都将离线
-wilddog.sync().goOffline();
 // 当前 app 实例下的所有 Sync 实例都将重连
 wilddog.sync().goOnline();
 ```
