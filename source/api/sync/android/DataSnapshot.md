@@ -1,6 +1,7 @@
 title:  DataSnapshot
 ---
-
+`DataSnapshot` 是当前指定节点下的数据快照，`DataSnapshot` 不会随当前节点数据的变化而发生改变。
+不应直接创建这个数据快照对象，而应当数据监听的回调函数中来获取它。
 ## 方法
 
 ### child(path)
@@ -12,18 +13,19 @@ DataSnapshot child (String path)
 
 **说明**
 
-根据相对路径，来获取当前节点下子节点的快照。
+根据相对路径，来获取当前节点下子节点的数据快照。相对路径可以是一个字节点的 key 值（如："Beijing"），也可以是更深层次的路径（如："Beijing/pm25"）。
+如果相对路径下并没有数据，则返回 null 。
 
 **参数**
 
 
 参数名 | 描述
 --- | ---
-path | `String`  子节点名称。
+path | `String` 类型,path为相对路径，多层级间需要使用 "/" 分隔，例如 "a/b"。
 
 **返回值**
 
-`DataSnapshot` 对象
+`DataSnapshot` 实例。
 </br>
 
 ---
@@ -38,11 +40,12 @@ boolean exists()
 
 **说明**
 
-在快照中，判断当前节点是否包含数据。相当于`snapshot.getValue()!=null` 。
+判断当前 `DataSnapshot` 实例中是否包含数据，相当于 `snapshot.getValue()!=null`。
+但使用 `exists()` 方法进行非空判断比 `snapshot.getValue() != null` 更高效。
 
 **返回值**
 
-`boolean`
+`boolean`，当前实例中包含数据返回 true，否则返回 false。
 </br>
 
 ---
@@ -55,11 +58,11 @@ Iterable<DataSnapshot> getChildren()
 
 **说明**
 
-获取当前快照中，所有子节点的迭代器。
+获取当前数据快照中所有子节点的迭代器。
 
 **返回值**
 
-`Iterable<DataSnapshot>` 子节点的迭代器。
+`Iterable<DataSnapshot>` 数据快照子节点迭代器。
 </br>
 
 ---
@@ -72,11 +75,11 @@ long getChildrenCount()
 
 **说明**
 
-获得子节点的总数。
+获取子节点的数量。
 
 **返回值**
 
-`long` 子节点总数 。
+`long` 子节点数量 。
 </br>
 
 ---
@@ -89,11 +92,11 @@ String getKey()
 
 **说明**
 
-从快照中，获取当前节点的名称。
+获取当前数据快照所属节点的 key。
 
 **返回值**
 
-`String` 节点名称 。
+`String` 数据快照节点的 key 值。
 </br>
 
 ---
@@ -106,11 +109,11 @@ Object getPriority()
 
 **说明**
 
-获取当前节点的优先级。
+获取当前数据快照所属节点的 priority 值。如果优先级不存在时返回 null。
 
 **返回值**
 
-`Object`   `Stirng` , `Double` , `Null`。
+`Object` 返回值类型根据节点优先级值的不同，可能为：`String`、`Double`或`Null`。
 </br>
 
 ---
@@ -140,11 +143,12 @@ Object getValue()
 
 **说明**
 
-从快照中获得当前节点的数据。
+返回当前数据快照包含的数据。
+返回的数据类型取决于节点下的数据内容。
 
 **返回值**
 
-`Object` 如果是叶子节点，返回String、Boolean、Number类型；如果是非叶子节点，将返回 `Map<String, Object>`。
+`Object` 当前数据快照包含的数据。可能返回的数据类型包括：null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体，null 表示该节点的数据快照为空。
 </br>
 
 ---
@@ -157,7 +161,7 @@ boolean hasChild(String key)
 
 **说明**
 
-判断在当前快照中，是否包含指定子节点。
+判断是否存在某个指定的子节点的数据快照。如果指定节点快照的数据不为空返回 true。
 
 **参数**
 
@@ -168,7 +172,7 @@ key | `String` 子节点名称。
 
 **返回值**
 
-`boolean` true为包含，false为不包含。
+`boolean` 当前数据快照包含指定的子节点的数据快照返回 true，否则返回 false。
 </br>
 
 ---
@@ -180,12 +184,12 @@ boolean hasChildren()
 ```
 
 **说明**
-
-判断在当前快照中，是否存在子节点。
+判断当前 `Datasnapshot` 实例中是否存在子节点。
+可以使用 `hasChildren()` 方法来确定当前的数据快照是否含有子节点，进而决定是否调用 `getChildren()` 方法获取迭代器遍历数据。
 
 **返回值**
 
-`boolean` true为存在子节点，false为不存在。
+`boolean` 当前数据快照存在子节点返回true，否则返回 false。
 </br>
 
 ---
