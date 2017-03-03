@@ -3,7 +3,7 @@ title: DataSnapshot
 
 ---
 
-wilddog.sync.DataSnapshot 是当前指定节点下数据的快照，DataSnapshot 不会随当前节点数据的变化而发生改变。我们无法直接创建这个对象，而应当在 [on](/api/sync/web/Query.html#on) 或 [once](/api/sync/web/Query.html#once) 的回调函数中来获取它。
+wilddog.sync.DataSnapshot 是当前指定节点下的数据快照，DataSnapshot 不会随当前节点数据的变化而发生改变。我们无法直接创建这个对象，而应当在 [on](/api/sync/web/Query.html#on) 或 [once](/api/sync/web/Query.html#once) 的回调函数中来获取它。
 
 ---
 
@@ -60,11 +60,11 @@ val()
 
 **说明**
 
-返回当前快照包含的数据。val() 可能返回的数据类型包括：string、number、boolean、null（该节点下数据为空时）或者是数组、对象。返回的数据类型取决于节点下的数据内容。
+返回当前数据快照包含的数据。val() 可能返回的数据类型包括：string、number、boolean、null（该节点下数据为空时）或者是数组、对象。返回的数据类型取决于节点下的数据内容。
 
 **返回值**
 
-`object|string|null|number|boolean` 当前快照包含的数据, null 表示该节点的数据快照为空。
+`object|string|null|number|boolean` 当前数据快照包含的数据, null 表示该节点的数据快照为空。
 
 **示例**
 
@@ -376,7 +376,7 @@ ref()
 
 **说明**
 
-返回当前数据节点所关联的 [wilddog.sync.Reference](/api/sync/web/Reference.html) 实例。
+返回当前数据快照所关联的 [wilddog.sync.Reference](/api/sync/web/Reference.html) 实例。
 
 **返回值**
 
@@ -446,7 +446,7 @@ exportVal()
 
 **返回值**
 
-数据节点的值和优先级。
+数据快照的值和优先级。
 
 **示例**
 
