@@ -48,7 +48,7 @@ ref(path)
 
 | 参数名| 说明                                  |
 | ---- | ----------------------------------- |
-| path | string(nullable path), 相对 App 初始化参数 `syncURL` 而言的相对路径 |
+| path | string(nullable path)<br>相对 App 初始化参数 `syncURL` 而言的相对路径 |
 
 **返回值**
 

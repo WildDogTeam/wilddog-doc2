@@ -23,7 +23,7 @@ set(value)
 
 | 参数名   | 说明                |
 | ----- | ----------------- |
-| value | object<br>array<br>string<br>number<br>boolean<br>null<br>，连接中断后写入当前位置的值。 |
+| value | object<br>array<br>string<br>number<br>boolean<br>null<br>连接中断后写入当前位置的值。 |
 
 **返回值**
 

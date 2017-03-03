@@ -101,7 +101,7 @@ child(path)
 
 | 参数名  | 说明                               |
 | ---- |-------------------------------- |
-| path | string(non-null)path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。 |
+| path | string(non-null)类型<br>path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。 |
 
 
 **返回值**
@@ -142,7 +142,7 @@ forEach(callback)
 
 | 参数名      | 说明             |
 | -------- | -------------- |
-| callback | function(non-null)类型，遍历每一个子节时的回调函数。如果在 callback 中主动 return true 则会停止之后的遍历。 |
+| callback | function(non-null)类型<br>遍历每一个子节时的回调函数。如果在 callback 中主动 return true 则会停止之后的遍历。 |
 
 **返回值**
 
@@ -212,7 +212,7 @@ hasChild(key)
 
 | 参数名  | 说明       |
 | ---- | -------- |
-| key  | string(non-null)类型，要检查的 key。 |
+| key  | string(non-null)类型<br>要检查的 key。 |
 
 **返回值**
 
