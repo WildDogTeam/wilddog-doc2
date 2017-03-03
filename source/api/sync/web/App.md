@@ -8,7 +8,7 @@ App 是 Wilddog SDK 的核心，它维护着应用的全局上下文数据，不
 ```js
 var config = {
   syncURL: "https://<appId>.wilddogio.com",
-  // 若同时使用 Auth SDK ，应设置 authDomain 
+  // 若同时使用 Auth SDK ，应设置 authDomain
   authDomain: "<appId>.wilddog.com"
 };
 wilddog.initializeApp(config);

@@ -21,7 +21,7 @@ child ( path )
 | ---- | ---------------------------------------- |
 | path | string(non-null)类型<br> path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。如果path为空或null则返回当前引用。如果直接选取下一级节点，可以使用无分隔符(/)的节点名称表示，例如“a”。如果定位的path不存在，依然可以定位，后续数据操作的时候，将延迟动态创建不存在的路径节点。 |
 
-**返回**
+**返回值**
 
 [wilddog.sync.Reference](/api/sync/web/Reference.html)
 
@@ -46,7 +46,7 @@ var childRef = wilddog.sync().ref("city").child("Beijing");
 
 parent()
 
-**返回**
+**返回值**
 
 [wilddog.sync.Reference](/api/sync/web/Reference.html)
 
@@ -76,7 +76,7 @@ var parentRef = childRef.parent();
 
 root()
 
-**返回**
+**返回值**
 
 [wilddog.sync.Reference](/api/sync/web/Reference.html)
 
@@ -90,7 +90,7 @@ root()
 
 key()
 
-**返回**
+**返回值**
 
 string 节点名称
 
@@ -112,7 +112,7 @@ var key = child_ref.key();
 
 toString()
 
-**返回**
+**返回值**
 
 string 当前节点的完整URL。
 
@@ -143,7 +143,7 @@ set(value)
 | ----- | ---------------------------------------- |
 | value |object<br>string<br>number<br>boolean<br>null<br> 如果`value != null` ,当前节点上的数据会被value覆盖，如果中间路径不存在,Wilddog 会自动将中间路径补全。如果`value == null`,效果等同于remove操作。 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/Promise.html).<[Void](/api/sync/web/Void.html)>
 
@@ -179,7 +179,7 @@ update(value)
 | ----- | ----------- |
 | value | object类型<br>包含要合并子节点的对象 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/Promise.html).<[Void](/api/sync/web/Void.html)>
 
@@ -222,7 +222,7 @@ remove()
 
 _无_
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/Promise.html).<[Void](/api/sync/web/Void.html)>
 
@@ -253,7 +253,7 @@ push(value)
 | ----- | ------------------------------------- | -------- | ---------------- |
 | value | object<br>string<br>number<br>boolean | non-null | 用户希望在当前节点下新增的数据。 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/Promise.html).<[wilddog.sync.Reference](/api/sync/web/Reference.html)>
 
@@ -300,7 +300,7 @@ setWithPriority (value, priority)
 | value    | object<br>string<br>number<br>boolean<br>null<br>将被写入的值。               |
 | priority | 优先级数据，节点的优先级是默认排序的依据。 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/Promise.html).<[Void](/api/sync/web/Void.html)>
 
@@ -345,7 +345,7 @@ setPriority(priority)
 | -------- | --------------------- |
 | priority | string<br>number<br> 优先级数据，节点的优先级是默认排序的依据。 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/Promise.html).<[Void](/api/sync/web/Void.html)>
 
@@ -391,7 +391,7 @@ transaction(updateFunction)
 | -------------- |  ----- |
 | updateFunction |  [updateFunction](/api/sync/web/Reference.html#updateFunction)(non-null)类型<br>更新函数。 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/Promise.html).<[TransactionResult](/api/sync/web/Reference.html#TransactionResult) | [TransactionResult](/api/sync/web/Reference.html#TransactionResult)[]>
 
@@ -453,7 +453,7 @@ wilmaRef.transaction(function(currentData) {
 | ------------ | ---------------------------------------- |
 | currentValue | function类型<br>object<br>string<br>number<br>boolean<br>null<br>第一次调用时 currentValue 为null，你应当返回一个默认值。当回调函数第二次调用时， currentValue 是云端的最新值。 |
 
-**返回**
+**返回值**
 
 newValue {object|string|number|boolean|null} 要写入当前节点的的新值。
 
@@ -483,7 +483,7 @@ newValue {object|string|number|boolean|null} 要写入当前节点的的新值�
 
 onDisconnect
 
-**返回**
+**返回值**
 
 [wilddog.sync.OnDisconnect](/api/sync/web/OnDisconnect.html)
 

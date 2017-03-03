@@ -50,7 +50,7 @@ ref(path)
 | ---- | ----------------------------------- |
 | path | string(nullable path), 相对 App 初始化参数 `syncURL` 而言的相对路径 |
 
-**返回**
+**返回值**
 
 [wilddog.sync.Reference](/api/sync/web/Reference.html)
 
@@ -77,7 +77,7 @@ goOffline()
 
 手动断开连接，关闭自动重连。
 
-**返回**
+**返回值**
 
 [Void](/api/sync/web/Void.html)
 
@@ -99,7 +99,7 @@ goOnline()
 
 手动恢复连接，开启自动重连。
 
-**返回**
+**返回值**
 
 [Void](/api/sync/web/Void.html)
 

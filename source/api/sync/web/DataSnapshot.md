@@ -19,7 +19,7 @@ exists()
 
 判断当前 DataSnapshot 实例中是否包含数据。使用 exists() 方法进行非空判断比 snapshot.val() !== null 更高效。
 
-**返回**
+**返回值**
 
 boolean
 
@@ -62,7 +62,7 @@ val()
 
 返回当前快照包含的数据。val() 可能返回的数据类型包括：string、number、boolean、null（该节点下数据为空时）或者是数组、对象。返回的数据类型取决于节点下的数据内容。
 
-**返回**
+**返回值**
 
 `object|string|null|number|boolean` 当前快照包含的数据, null 表示该节点的数据快照为空。
 
@@ -104,7 +104,7 @@ child(path)
 | path | string(non-null)path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。 |
 
 
-**返回**
+**返回值**
 
 [wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot)
 
@@ -123,7 +123,7 @@ var ref = wilddog.sync().ref("/city/Beijing");
 ref.on('value',function(snapshot){
     var pm25 = snapshot.child('pm25');
     // 打印内容为：Then pm25 of Beijing is 42
-    console.log("The pm25 of Bejing is",pm25.val())
+    console.log("The pm25 of Bejing is", pm25.val())
 })
 ```
 ---
@@ -144,7 +144,7 @@ forEach(callback)
 | -------- | -------------- |
 | callback | function(non-null)类型，遍历每一个子节时的回调函数。如果在 callback 中主动 return true 则会停止之后的遍历。 |
 
-**返回**
+**返回值**
 
 [Void](/api/sync/web/Void.html)
 
@@ -254,7 +254,7 @@ hasChildren()
 
 如果 `Datasnapshot` 存在子节点返回 true，否则返回 false。你可以通过使用 hasChildren() 方法来确定当前的数据快照是否含有子节点，进而决定是否调用 [forEach()](api/sync/web/forEach.html#forEach) 方法来遍历数据。
 
-**返回**
+**返回值**
 
 boolean
 
@@ -296,7 +296,7 @@ key()
 
 返回当前数据快照所属节点的 key。
 
-**返回**
+**返回值**
 
 string
 
@@ -333,7 +333,7 @@ numChildren()
 
 返回子节点的个数。
 
-**返回**
+**返回值**
 
 number
 
@@ -378,7 +378,7 @@ ref()
 
 返回当前数据节点所关联的 [wilddog.sync.Reference](/api/sync/web/Reference.html) 实例。
 
-**返回**
+**返回值**
 
 [wilddog.sync.Reference](/api/sync/web/Reference.html)
 
@@ -416,7 +416,7 @@ getPriority()
 
 获取当前节点的 priority 值。如果优先级不存在时返回 null。
 
-**返回**
+**返回值**
 
 `stirng|number|null` 不存在优先级时返回 null。
 
@@ -444,7 +444,7 @@ exportVal()
 
 将 `DataSnapshot` 中的全部内容导出到 JavaScript 对象。exportVal() 方法和 val() 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，exportVal() 会导出包含 priority 的数据，适合用于备份。
 
-**返回**
+**返回值**
 
 数据节点的值和优先级。
 

@@ -25,7 +25,7 @@ set(value)
 | ----- | ----------------- |
 | value | object<br>array<br>string<br>number<br>boolean<br>null<br>，连接中断后写入当前位置的值。 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/Void.html)>
 
@@ -65,7 +65,7 @@ update(value)
 | ----- | ---------------- |
 | value | object 类型<br>包含要写入当前位置子节点的集合。 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/Void.html)>
 
@@ -103,7 +103,7 @@ remove()
 
 _无_
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/Void.html)>
 
@@ -146,7 +146,7 @@ setWithPriority(value, priority)
 | value    |  object<br>string<br>number<br>boolean<br>null<br>将被写入的值。               |
 | priority |  string<br>number(non-null)<br>优先级数据，节点的优先级是默认排序的依据。 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/Promise.html)<[Void](/api/sync/web/Void.html)>
 
@@ -179,7 +179,7 @@ cancel()
 
 取消所有未生效的离线事件。
 
-**返回**
+**返回值**
 
 [Void](/api/sync/web/Void.html)
 

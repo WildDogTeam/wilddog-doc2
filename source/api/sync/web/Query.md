@@ -22,7 +22,7 @@ on(type, onEvent, [cancelCallback], [context])
 | cancelCallback | [cancelCallback](/api/sync/web/Query.html#cancelCallback)(optional)类型<br>如果操作失败，这个函数会被调用。                         |
 | context        | object(optional)类型<br> 如果指定，你的回调函数中的this将代表这个对象。                |
 
-**返回**
+**返回值**
 
 [Void](/api/sync/web/Void.html)
 
@@ -65,7 +65,7 @@ function(snapshot, [prev])
 | snapshot | [wilddog.sync.DataSnapshot](/api/sync/web/DataSnapshot.html)(non-null)类型<br>事件发生后当前节点的数据快照                           |
 | prev     | string 在 child_* 事件中会有 prev 参数。表示当前节点的上一个节点的 key |
 
-**返回**
+**返回值**
 
 [Void](/api/sync/web/Void.html)
 
@@ -85,7 +85,7 @@ function(err)
 | ---- | --------------------------- |
 | err  | object(non-null)类型 <br> 一个 `Error` 对象，包含了 `code` 属性 |
 
-**返回**
+**返回值**
 
 [Void](/api/sync/web/Void.html)
 
@@ -132,7 +132,7 @@ once(type)
 | ---- | ---------------------------------------- |
 | type | string(non-null)<br>事件类型参见 [EventType](/api/sync/web/Query.html#EventType)。 |
 
-**返回**
+**返回值**
 
 [wilddog.Promise](/api/sync/web/Promise.html).<[wilddog.sync.DataSnapshot](/api/sync/web/DataSnapshot.html)>
 
@@ -164,7 +164,7 @@ orderByChild(key)
 | type | string(non-null)<br> 指定用来排序的子节点的key。 |
 
 
-**返回**
+**返回值**
 
 [wilddog.sync.Query](/api/sync/web/Query.html)
 
@@ -188,7 +188,7 @@ ref.orderByChild("height").on("child_added",function(snapshot){
 
 orderByKey()
 
-**返回**
+**返回值**
 
 [wilddog.sync.Query](/api/sync/web/Query.html)
 
@@ -212,7 +212,7 @@ ref.orderByKey().on("child_added",function(snapshot){
 
 orderByValue()
 
-**返回**
+**返回值**
 
 [wilddog.sync.Query](/api/sync/web/Query.html)
 
@@ -237,7 +237,7 @@ scoresRef.orderByValue().limitToLast(3).on("value", function(snapshot) {
 
 orderByPriority()
 
-**返回**
+**返回值**
 
 [wilddog.sync.Query](/api/sync/web/Query.html)
 
@@ -266,7 +266,7 @@ startAt(value, [key])
 | value |  string<br>number<br>boolean<br>null 查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
 | key   | string(optional)<br>起始子节点的key，只有在 `orderByPriority()`时有效。    |
 
-**返回**
+**返回值**
 
 [wilddog.sync.Query](/api/sync/web/Query.html)
 
@@ -296,7 +296,7 @@ endAt(value, [key])
 | key   | string(optional)类型<br>起始子节点的key，只有在 `orderByPriority()`时有效。    |
 
 
-**返回**
+**返回值**
 
 [wilddog.sync.Query](/api/sync/web/Query.html)
 
@@ -325,7 +325,7 @@ equalTo(value, [key])
 | value | string<br>number<br>boolean<br>null<br>查询的起始值，类型取决于这个查询用到的 `orderBy*()`函数。如果与`orderByKey()` 组合的话，`value` 一定是一个`String`。 |
 | key   | string(optional)类型<br> 起始子节点的key，只有在 `orderByPriority()`时有效。    |
 
-**返回**
+**返回值**
 
 [wilddog.sync.Query](/api/sync/web/Query.html)
 
@@ -353,7 +353,7 @@ limitToFirst (limit)
 | ----- | ------------------ |
 | limit | number(non-null)类型<br>这次查询能够获取的子节点的最大数量。 |
 
-**返回**
+**返回值**
 
 [wilddog.sync.Query](/api/sync/web/Query.html)
 
@@ -380,7 +380,7 @@ limitToLast(limit)
 | ----- |------------------ |
 | limit |number(non-null)类型<br>这次查询能够获取的子节点的最大数量。 |
 
-**返回**
+**返回值**
 
 [wilddog.sync.Query](/api/sync/web/Query.html)
 
