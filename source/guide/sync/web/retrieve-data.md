@@ -43,12 +43,11 @@ var config = {
 wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/web/saving-data/wildblog/users/Jobs");
 
-ref.on('value', function(snapshot, error) {
-  if (error == null) {
+ref.on('value', function(snapshot) {
     var newPost = snapshot.val();
     console.log("full_name: " + newPost.full_name);
     console.log("gender: " + newPost.gender);
-  } else {
+  }, function (error) {
     console.log(error);
   }
 });
@@ -160,7 +159,7 @@ ref.orderByKey().on("child_added", function(snapshot) {
 **orderByValue()**
 
 `orderByValue()`方法用于按节点的值（value）对结果排序，规则如下：Boolean(false) < Boolean(true) < Number < String
-   
+
 例如，在 [得分示例应用](https://class-demo.wilddogio.com/scores) 中按照得分数据进行排序：
 
 ```js
@@ -203,9 +202,9 @@ ref.orderByValue().on("value", function(snapshot) {
 
 **数量筛选**
 
-`limitToFirst()`方法用于获取从第一条（或 startAt() 方法指定的位置）开始向后指定数量的子节点。 
+`limitToFirst()`方法用于获取从第一条（或 startAt() 方法指定的位置）开始向后指定数量的子节点。
 
- `limitToLast()`方法用于获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。 
+ `limitToLast()`方法用于获取从最后一条（或 endAt() 方法指定的位置）开始向前指定数量的子节点。
 
 例如，在 [班级示例应用](https://class-demo.wilddogio.com) 中，如果你只想知道最高的是哪三位同学：
 
@@ -219,7 +218,7 @@ wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("students");
 ref.orderByChild("height").limitToLast(3).on("child_added", function(snapshot) {
   console.log(snapshot.key() + " was " + snapshot.val().height + " centimeters tall ");
-  
+
 });
 ```
 
