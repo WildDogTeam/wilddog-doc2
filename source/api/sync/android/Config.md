@@ -1,6 +1,6 @@
 title:  Config
 ---
-
+配置信息类。可以为 `SyncReference` 提供配置信息。默认使用 `WilddogSync` 提供的默认配置对象。
 ## 方法
 
 ### setLogger(logger)
@@ -12,14 +12,14 @@ void setLogger(Logger logger)
 
 **说明**
 
-如果你想提供一个定制的日志，传递一个继承了Logger接口的对象。
+设置自定义 `Logger`。传递一个继承 `Logger` 接口的对象可以使用自定义 `Logger`，默认使用 `WilddogSync` 提供的 `DefaultLogger`。
 
 **参数**
 
 
 参数名 | 描述
 --- | ---
-logger | `Logger` 定制的日志。
+logger | `Logger` 自定义 `Logger`。
 </br>
 
 ---
@@ -33,7 +33,8 @@ void setEventTarget(EventTarget eventTarget)
 
 **说明**
 
-在默认设置中，Sync 库会创建一个线程来处理所有的回调。在安卓中，将试图采用main Looper。如果你想对如何触发回调有更多控制权，你可以提供一个对象，让他继承EventTarget，它将为每一个回调传递一个Runnable。
+`WilddogSync` 会默认使用主线程 Looper 来处理所有的回调。
+如果你想对如何触发回调有更多控制权，可以设置一个继承 `EventTarget` 类的对象，它将在回调中传递一个 `Runnable` 对象。
 
 **参数**
 
@@ -53,13 +54,13 @@ void setLogLevel(Logger.Level logLevel)
 
 **说明**
 
-默认的，这会被设置为INFO。log等级包括内部错误（ERROR）和任何客户端接收到的安全性debug信息（INFO），设置为DEBUG将会打开诊断日志，设置为NONE禁止所有日志。
+设置最低日志级别，默认设置为 INFO 级别，设置为 DEBUG 将会打开诊断日志，设置为 NONE 禁止所有日志。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-logLevel | `Logger.Level` 所需最低的日志等级。
+logLevel | `Logger.Level` 所需最低的日志等级。共有 NONE/INFO/WARN/DEBUG/ERROR 五个日志级别。
 </br>
 
 ---
@@ -72,13 +73,14 @@ void setDebugLogComponents(List<String> debugComponents)
 
 **说明**
 
-主要用于debug调试.限制debug输出到指定组件。默认为null，允许所有组建的日志;  显式设置也会把等级设置为DEBUG。
+主要用于 debug 调试，限制 debug 输出到指定组件，默认为null，允许所有组建的日志。
+显式设置会把最低日志级别设置为 DEBUG。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-debugComponents | `List<String> ` 一系列日志需要的组件，或者设置为null使所有组件可行。
+debugComponents | `List<String> ` 一系列日志需要的组件，或者设置为 null 使所有组件可用。
 </br>
 
 ---
@@ -92,7 +94,7 @@ void setAuthenticationServer(String host)
 
 **说明**
 
-设置主机可以被用户登录认证。如果你不确定，不要使用此设置。
+设置主机可以被用户登录认证。在不确定是否可以认证的情况下，请不要使用此设置。
 
 **参数**
 
@@ -112,7 +114,7 @@ void setSessionPersistenceKey(String sessionKey)
 
 **说明**
 
-为Ｗilddog连接设置session的标识符，使用session标识符可以使多个认证会话在一个设备上共存。如果一个设备上只有一个用户没有必要使用此方法。
+为 `WilddogSync` 连接设置 session 的标识符，使用 session 标识符可以使多个认证会话在一个设备上共存。如果当前设备上只有一个用户则不需使用此方法。
 
 **参数**
 

@@ -49,109 +49,6 @@ boolean exists()
 </br>
 
 ---
-### getChildren()
-**定义**
-
-```java
-Iterable<DataSnapshot> getChildren()
-```
-
-**说明**
-
-获取当前数据快照中所有子节点的迭代器。
-
-**返回值**
-
-`Iterable<DataSnapshot>` 数据快照子节点迭代器。
-</br>
-
----
-### getChildrenCount()
-**定义**
-
-```java
-long getChildrenCount()
-```
-
-**说明**
-
-获取子节点的数量。
-
-**返回值**
-
-`long` 子节点数量 。
-</br>
-
----
-### getKey()
-**定义**
-
-```java
-String getKey()
-```
-
-**说明**
-
-获取当前数据快照所属节点的 key。
-
-**返回值**
-
-`String` 数据快照节点的 key 值。
-</br>
-
----
-### getPriority()
-**定义**
-
-```java
-Object getPriority()
-```
-
-**说明**
-
-获取当前数据快照所属节点的 priority 值。如果优先级不存在时返回 null。
-
-**返回值**
-
-`Object` 返回值类型根据节点优先级值的不同，可能为：`String`、`Double`或`Null`。
-</br>
-
----
-### getRef()
-**定义**
-
-```java
-SyncReference getRef()。
-```
-
-**说明**
-
-从快照中，获得当前节点的引用。
-
-**返回值**
-
-`SyncReference` 节点引用。
-</br>
-
----
-### getValue()
-**定义**
-
-```java
-Object getValue()
-```
-
-**说明**
-
-返回当前数据快照包含的数据。
-返回的数据类型取决于节点下的数据内容。
-
-**返回值**
-
-`Object` 当前数据快照包含的数据。可能返回的数据类型包括：null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体，null 表示该节点的数据快照为空。
-</br>
-
----
 ### hasChild(key)
 **定义**
 
@@ -193,3 +90,112 @@ boolean hasChildren()
 </br>
 
 ---
+
+### getChildren()
+**定义**
+
+```java
+Iterable<DataSnapshot> getChildren()
+```
+
+**说明**
+
+获取当前数据快照中所有子节点的迭代器。
+
+**返回值**
+
+`Iterable<DataSnapshot>` 数据快照子节点迭代器。
+</br>
+
+---
+### getChildrenCount()
+**定义**
+
+```java
+long getChildrenCount()
+```
+
+**说明**
+
+获取子节点的数量。
+
+**返回值**
+
+`long` 子节点数量 。
+</br>
+
+---
+
+### getRef()
+**定义**
+
+```java
+SyncReference getRef()。
+```
+
+**说明**
+
+从快照中，获得当前节点的引用。
+
+**返回值**
+
+`SyncReference` 节点引用。
+</br>
+
+---
+### getKey()
+**定义**
+
+```java
+String getKey()
+```
+
+**说明**
+
+获取当前数据快照所属节点的 key。
+
+**返回值**
+
+`String` 数据快照节点的 key 值。
+</br>
+
+---
+
+### getValue()
+**定义**
+
+```java
+Object getValue()
+```
+
+**说明**
+
+返回当前数据快照包含的数据。
+返回的数据类型取决于节点下的数据内容。
+
+**返回值**
+
+`Object` 当前数据快照包含的数据。可能返回的数据类型包括：null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体，null 表示该节点的数据快照为空。
+</br>
+
+---
+
+### getPriority()
+**定义**
+
+```java
+Object getPriority()
+```
+
+**说明**
+
+获取当前数据快照所属节点的 priority 值。如果优先级不存在时返回 null。
+
+**返回值**
+
+`Object` 返回值类型根据节点优先级值的不同，可能为：`String`、`Double`或`Null`。
+</br>
+
+---
+
+

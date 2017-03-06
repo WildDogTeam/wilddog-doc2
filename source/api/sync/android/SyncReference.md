@@ -349,7 +349,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
  参数名 | 描述
  --- | ---
  value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
-priority |`Object` 指定节点的优先级。
+priority |`Object` 指定节点的优先级，类型可以为 Boolean、Number 或 String。
 listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
 
 

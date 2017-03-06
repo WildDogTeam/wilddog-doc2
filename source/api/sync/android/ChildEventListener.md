@@ -1,27 +1,11 @@
 title:  ChildEventListener
 ---
 
+`WilddogSync` 数据监听器，主要用于监听当前节点下子节点的变化，当子节点数据发生变化时将触发相应的回调方法。
+注意， 此监听器只关注当前节点的子节点，适用与关注子节点变化的场景。
+
 ## 方法
 
-### onCancelled(error)
-**定义**
-
-```java
-void onCancelled(SyncError error)
-```
-
-**说明**
-
-当listener在服务端失败，或者被删除的时候调用该方法。
-
-**参数**
-
-参数名 | 描述
---- | ---
-error |`SyncError` 发生错误的描述。
-
-
-</br>
 
 ---
 ### onChildAdded(snapshot,previousChildName)
@@ -34,14 +18,15 @@ void onChildAdded(DataSnapshot snapshot,
 
 **说明**
 
-一个添加了listener的节点，当有子节点被添加时触发此方法。
+当有新增子节点时触发此方法。
+如果当前节点存在历史数据，设置数据监听时，会按当前排序一条一条的返回当前节点下所有子节点的数据快照。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-snapshot |`DataSnapshot` 新添加的子节点数据快照。
-previousChildName |`String` 排在被添加的新子节点前面的兄弟节点的key值。如果被添加的是当前节点的第一个子节点，该值为null。
+snapshot |`DataSnapshot` 子节点数据快照。
+previousChildName |`String` 按照当前排序前一节点的 key 值。如果当前节点为第一个子节点，该值为 null。
 
 </br>
 
@@ -57,13 +42,14 @@ void onChildChanged(DataSnapshot snapshot,
 **说明**
 
 当前节点的子节点发生改变的时候触发此方法。
+在子节点下增加数据将会触发 `onChildChanged` 事件，而不会触发 `onChildAdded` 事件。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-snapshot |`DataSnapshot` 新子节点数据的快照。
-previousChildName |`String` 排在被修改的新子节点前面的兄弟节点的key值。如果改变的是当前节点的第一个子节点，该值为null。
+snapshot |`DataSnapshot` 变化后的子节点数据快照。
+previousChildName |`String` 按照当前排序前一节点的 key 值。如果当前节点为第一个子节点，该值为 null。
 
 </br>
 
@@ -78,14 +64,31 @@ void onChildMoved(DataSnapshot snapshot,
 
 **说明**
 
-当一个子节点的优先级发生变化时，该方法将被调用。参考 SyncReference.setPriority(Object) 和数据排序了解更多关于优先级和数据排序的信息。
+当前排序下，当有子节点排序发生变化时触发此方法。
+
+例如当按照优先级排序时，某个子节点的优先级发生改变时将返回此节点数据快照，以及按照新优先级值排序后的前一节点 key 值。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-snapshot |`DataSnapshot` 节点排序发生变化时的数据快照。
+snapshot |`DataSnapshot` 排序发生变化的子节点数据快照。
 previousChildName |`String` 排在被修改的新子节点前面的兄弟节点的key值。如果改变的是当前节点的第一个子节点，该值为null。
+
+**示例**
+```java
+        //当前数据
+        //DataSnapshot { key = orderByPriorityTest, 
+        //value = {aaa={.priority=0.0, .value=aaa}, bbb={.priority=1.0, .value=bbb},
+        //ccc={.priority=2.0, .value=ccc}, ddd={.priority=3.0, .value=ddd},eee={.priority=4.0, .value=eee} }
+        //当前排序为 aaa -> bbb -> ccc -> ddd -> eee
+
+        ref.child("orderByPriorityTest").child("ccc").setPriority(4.1);
+        
+        //更新优先级后排序为 aaa -> bbb -> ddd -> eee -> ccc 
+        //在 'onChildMoved' 方法中返回数据
+        //DataSnapshot { key = ccc, value = {.priority=4.1, .value=ccc} }，prevNode:eee
+```
 
 </br>
 
@@ -99,13 +102,34 @@ void onChildRemoved(DataSnapshot snapshot)
 
 **说明**
 
-当一个添加了listener的节点有子节点被删除的时候触发这个方法。
+移除子节点时触发这个方法。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-snapshot |`DataSnapshot` 被删除子节点的数据快照。
+snapshot |`DataSnapshot` 被移除子节点的数据快照。
 </br>
 
 ---
+
+### onCancelled(error)
+**定义**
+
+```java
+void onCancelled(SyncError error)
+```
+
+**说明**
+
+当客户端失去对该节点的读取权限时会触发此方法。导致失去读取权限的原因包括：规则表达式限制，数据限制，套餐超出限制等。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+error |`SyncError` 错误实例。
+
+
+</br>
+
