@@ -589,7 +589,7 @@ func queryOrderedByPriority() -> WDGSyncQuery
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
 <ul>
-<li>数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，Key 以 NSString 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。</li>
+<li>数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序。Key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。</li>
 
 </ul>
 </blockquote>

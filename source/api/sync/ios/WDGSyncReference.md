@@ -211,10 +211,10 @@ func setValue(_ value: Any?)
 往 WDGSyncReference 当前路径写入一个值。
 这将会覆盖当前路径和子路径的所有数据。
 支持的数据类型:
-- NSString -- "Hello World"
-- NSNumber (包括BOOL类型) -- YES, 43, 4.333
-- NSDictionary -- {"key": "value", "nested": {"another": "value"}}
-- NSArray -- ["a", "b", "c"]
+ - NSString -- @"Hello World"
+ - NSNumber (包括BOOL类型) -- @YES, @43, @4.333
+ - NSDictionary -- @{@"key": @"value", @"nested": {@"another": @"value"}}
+ - NSArray -- @[@"a", @"b", @"c"]
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ）之间，n+1 个元素中超过一半以上有值，数据将被转换为 NSArray 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 NSDictionary 类型。
@@ -259,7 +259,7 @@ func setValue(_ value: Any?, withCompletionBlock block: @escaping (Error?, WDGSy
  参数名 | 说明 
 ---|---
 value|将被写入的数据。
-block|当写操作被提交到服务器，将被触发的 block。
+block|当写操作被提交到云端，将触发这个 block。
 
 
 
@@ -327,7 +327,7 @@ func setValue(_ value: Any?, andPriority priority: Any?, withCompletionBlock blo
 ---|---
 value|将被写入的数据。
 priority|要设置的优先级。
-block|当写操作被提交到服务器，将被触发的 block。
+block|当写操作被提交到云端，将触发这个 block。
 
 
 
@@ -379,7 +379,7 @@ func removeValue(completionBlock block: @escaping (Error?, WDGSyncReference) -> 
 
  参数名 | 说明 
 ---|---
-block|当删除操作被提交到服务器，将被触发的 block。
+block|当删除操作被提交到云端，将触发这个 block。
 
 
 
@@ -415,7 +415,7 @@ func setPriority(_ priority: Any?)
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
 <ul>
-<li>数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，key 以 NSString 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。</li>
+<li>数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序。Key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。</li>
 
 </ul>
 </blockquote>
@@ -446,7 +446,7 @@ func setPriority(_ priority: Any?, withCompletionBlock block: @escaping (Error?,
 
 **说明**
 
-同 `setPriority:` 方法类似，增加了一个 block，当设置优先级操作被提交到服务器，将触发这个 block。
+同 `setPriority:` 方法类似，增加了一个 block，当设置优先级操作被提交到云端，将触发这个 block。
  
 
 
@@ -455,7 +455,7 @@ func setPriority(_ priority: Any?, withCompletionBlock block: @escaping (Error?,
  参数名 | 说明 
 ---|---
 priority|指定节点的优先级。
-block|当设置优先级操作被提交到服务器，将触发这个 block。
+block|当设置优先级操作被提交到云端，将触发这个 block。
 
 
 
@@ -477,18 +477,17 @@ func updateChildValues(_ values: [AnyHashable : Any])
 
 **说明**
 
-将输入对象的子节点合并到当前数据中。
-不存在的子节点将会被新增，存在子节点将会被替换。
-与set操作不同，update 不会直接覆盖原来的节点，而是将value 中的所有子节点插入到已有的节点中，如果已有的节点中已经有同名子节点，则覆盖原有的子节点。
- 例如： update之前 {"l1":"on","l3":"off"} ,value={"l1":"off","l2":"on"} update 后的数据是 {"l1":"off","l2":"on","l3":"off"}。
-  
+对当前节点进行数据合并操作，更新当前节点下的数据。 
+与 `setValue:` 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildren:` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
+使用此方法可以对同一节点的子节点同时进行更新和删除操作。
+ 
 
 
 **参数**
 
  参数名 | 说明 
 ---|---
-values|包含要合并子节点的对象
+values|包含要合并的子节点的字典。
 
 
 
@@ -510,16 +509,16 @@ func updateChildValues(_ values: [AnyHashable : Any], withCompletionBlock block:
 
 **说明**
 
-同updateChildValues方法类似：增加了一个block，当更新操作完成之后，会回调这个block。
-  
+同 `updateChildValues:` 方法类似，增加了一个 block，当更新操作完成之后，会回调这个 block。
+ 
 
 
 **参数**
 
  参数名 | 说明 
 ---|---
-values|包含要合并子节点的对象 
-block|updateChildValues 操作提交到 Wilddog Sync 服务器后，返回的block
+values|包含要合并的子节点的字典。
+block|当数据合并操作提交到 Wilddog Sync 云端，将触发这个 block。
 
 
 
@@ -910,9 +909,8 @@ func onDisconnectSetValue(_ value: Any?)
 
 **说明**
 
-离线操作的含义是客户端的推送的数据并非立刻生效,而是当客户端离线的时候才生效。
-当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被设置成我们未离线前设定的值。
-onDisconnectSetValue: 方法对实现在线系统是很有用的，这个在线系统可理解为：当用户失去连接时，一个数值被改变或者被清除，在别人的角度看，他的状态会显示“离线”。
+在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
+当客户端断开连接后，向当前的数据节点设置一个指定的值。
  
 
 
@@ -920,7 +918,7 @@ onDisconnectSetValue: 方法对实现在线系统是很有用的，这个在线�
 
  参数名 | 说明 
 ---|---
-value|断开连接后要设置的值
+value|在连接中断时需要写入当前位置的值。
 
 
 
@@ -942,8 +940,8 @@ func onDisconnectSetValue(_ value: Any?, withCompletionBlock block: @escaping (E
 
 **说明**
 
-离线操作的含义是客户端的推送的数据并非立刻生效,而是当客户端离线的时候才生效。
-当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被设置成我们未离线前设定的值。
+在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
+当客户端断开连接后，向当前的数据节点设置一个指定的值。
  
 
 
@@ -951,8 +949,8 @@ func onDisconnectSetValue(_ value: Any?, withCompletionBlock block: @escaping (E
 
  参数名 | 说明 
 ---|---
-value|断开连接后要设置的值
-block|当设置值的操作成功排队到Wilddog服务器上，这个block就会被触发
+value|在连接中断时需要写入当前位置的值。
+block|当设置离线事件的操作被提交到云端，将触发这个 block。
 
 
 
@@ -974,8 +972,8 @@ func onDisconnectSetValue(_ value: Any?, andPriority priority: Any)
 
 **说明**
 
-离线操作的含义是客户端的推送的数据并非立刻生效,而是当客户端离线的时候才生效。
-当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被设置成我们未离线前设定的值和优先级。
+在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
+当客户端断开连接后，指定的数据和优先级会被写入当前位置。
  
 
 
@@ -983,8 +981,8 @@ func onDisconnectSetValue(_ value: Any?, andPriority priority: Any)
 
  参数名 | 说明 
 ---|---
-value|断开连接后要设置的值
-priority|断开连接后要设置的优先级
+value|在连接中断时需要写入当前位置的值。
+priority|在连接中断时需要写入当前位置的优先级。
 
 
 
@@ -1006,8 +1004,8 @@ func onDisconnectSetValue(_ value: Any?, andPriority priority: Any?, withComplet
 
 **说明**
 
-离线操作的含义是客户端的推送的数据并非立刻生效,而是当客户端离线的时候才生效。
-当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被设置成我们未离线前设定的值和优先级。
+在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
+当客户端断开连接后，指定的数据和优先级会被写入当前位置。
  
 
 
@@ -1015,9 +1013,9 @@ func onDisconnectSetValue(_ value: Any?, andPriority priority: Any?, withComplet
 
  参数名 | 说明 
 ---|---
-value|连接断开后要设置的值
-priority|连接断开后要设置的优先级
-block|当设置值的操作成功排队到Wilddog服务器上，这个block就会被触发
+value|在连接中断时需要写入当前位置的值。
+priority|在连接中断时需要写入当前位置的优先级。
+block|当设置离线事件的操作被提交到云端，将触发这个 block。
 
 
 
@@ -1039,9 +1037,8 @@ func onDisconnectRemoveValue()
 
 **说明**
 
-离线操作的含义是客户端的推送的数据并非立刻生效,而是当客户端离线的时候才生效。
-当客户端失去连接（因为关闭app，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被删除。
-onDisconnectRemoveValue 对实施在线系统很有用
+在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
+当客户端断开连接后，删除当前位置上的数据。
 
 
 
@@ -1062,9 +1059,8 @@ func onDisconnectRemoveValue(completionBlock block: @escaping (Error?, WDGSyncRe
 
 **说明**
 
-离线操作的含义是客户端的推送的数据并非立刻生效,而是当客户端离线的时候才生效。
-当客户端失去连接（因为关闭app，导航一个新的页面，或者网络出现问题）时，确保在该节点的数据被删除。
-onDisconnectRemoveValueWithCompletionBlock: 对实施在线系统很有用
+在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
+当客户端断开连接后，删除当前位置上的数据。
  
 
 
@@ -1072,7 +1068,7 @@ onDisconnectRemoveValueWithCompletionBlock: 对实施在线系统很有用
 
  参数名 | 说明 
 ---|---
-block|当删除值的操作成功排队到Wilddog服务器上，这个block就会被触发
+block|当设置离线事件的操作被提交到云端，将触发这个 block。
 
 
 
@@ -1094,8 +1090,8 @@ func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any])
 
 **说明**
 
-离线操作的含义是客户端的推送的数据并非立刻生效,而是当客户端离线的时候才生效。
-当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保拥有子节点的数据被更新。
+在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
+当客户端断开连接后，指定的子节点将被写入到当前位置的子节点集合中。
  
 
 
@@ -1103,7 +1099,7 @@ func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any])
 
  参数名 | 说明 
 ---|---
-values|在连接断开之后，一个包含子节点键和值的字典
+values|在连接断开之后，用来更新当前位置的包含子节点键和值的字典。
 
 
 
@@ -1125,8 +1121,8 @@ func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any], withCompletion
 
 **说明**
 
-离线操作的含义是客户端的推送的数据并非立刻生效,而是当客户端离线的时候才生效。
-当客户端失去连接（因为关闭浏览器，导航一个新的页面，或者网络出现问题）时，确保拥有子节点的数据被更新。
+在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
+当客户端断开连接后，指定的子节点将被写入到当前位置的子节点集合中。
  
 
 
@@ -1134,8 +1130,8 @@ func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any], withCompletion
 
  参数名 | 说明 
 ---|---
-values|在连接断开之后，一个包含子节点键和值的字典
-block|当更新值的操作成功排队到Wilddog服务器上，这个block就会被触发
+values|在连接断开之后，用来更新当前位置的包含子节点键和值的字典。
+block|当设置离线事件的操作被提交到云端，将触发这个 block。
 
 
 
@@ -1157,9 +1153,7 @@ func cancelDisconnectOperations()
 
 **说明**
 
-取消运行在离线状态设置的所有操作。
-如果你之前调用了 onDisconnectSetValue:,onDisconnectRemoveValue:, 或者 onDisconnectUpdateChildValues: 方法, 并且当连接断开时，不想再更新数值，这时候就调用cancelDisconnectOperations:方法。
- 
+取消之前在当前节点下注册的所有离线操作。
 
 
 
@@ -1180,8 +1174,7 @@ func cancelDisconnectOperations(completionBlock block: ((Error?, WDGSyncReferenc
 
 **说明**
 
-取消运行在离线状态设置的所有操作。
-如果之前调用了 onDisconnectSetValue: ,onDisconnectRemoveValue: , or onDisconnectUpdateChildValues: 方法, 并且在连接断开后，不再想要更新数据，请调用cancelDisconnectOperations:方法。
+取消之前在当前节点下注册的所有离线操作。
  
 
 
@@ -1189,7 +1182,7 @@ func cancelDisconnectOperations(completionBlock block: ((Error?, WDGSyncReferenc
 
  参数名 | 说明 
 ---|---
-block|当Wilddog服务器接受到cancel请求，触发的block
+block|当取消离线事件的操作被提交到云端，将触发这个 block。
 
 
 
@@ -1211,7 +1204,7 @@ class func goOffline()
 
 **说明**
 
-手动断开连接，关闭自动重连。
+手动断开与 Wilddog Sync 云端的连接，关闭自动重连，可以用 `goOnline` 恢复连接。
 
 
 
@@ -1232,7 +1225,7 @@ class func goOnline()
 
 **说明**
 
-手动建立连接，开启自动重连。
+手动恢复与 Wilddog Sync 云端的连接，开启自动重连。
 
 
 
@@ -1253,19 +1246,18 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 
 **说明**
 
-更新当前路径下的数据。服务器数据将会在 block 中返回，我们所要做的就是在 block 中
-把数据改成你要想要的，然后返回到 WDGTransactionResult 中。
-如果这个节点数据发送到服务器上时已经被其他人修改过，那么这个 block 将会获取服务器
-最新数据再次执行。
-调用 [WDGTransactionResult abort] 可以取消这次操作。
-
+用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。 
+与 `setValue:` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
+客户端提交事务至云端，如果数据已被其他客户端修改，那么云端会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。 
+在 `runTransactionBlock:` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 `[WDGTransactionResult abort]` 手动中止事务。
+ 
 
 
 **参数**
 
  参数名 | 说明 
 ---|---
-block|块(block)接收的当前数据(currentData)，然后返回一个WDGTransactionResult对象。
+block|接收当前数据，返回一个 `WDGTransactionResult` 实例。
 
 
 
@@ -1287,12 +1279,10 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 
 **说明**
 
-更新当前路径下的数据。服务器数据将会在 block 中返回，我们所要做的就是在 block 中
-把数据改成你要想要的，然后返回到 WDGTransactionResult 中。
-如果这个节点数据发送到服务器上时已经被其他人修改过，那么这个 block 将会获取服务器
-最新数据再次执行。
-调用 [WDGTransactionResult abort] 可以取消这次操作。
- 
+用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。
+与 `setValue:` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
+客户端提交事务至云端，如果数据已被其他客户端修改，那么云端会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。
+在 `runTransactionBlock:` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 `[WDGTransactionResult abort]` 手动中止事务。
  
 
 
@@ -1300,8 +1290,8 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 
  参数名 | 说明 
 ---|---
-block|块(block)接收的当前数据(currentData)，然后返回一个WDGTransactionResult对象。
-completionBlock|当事务完成时这个块将被触发，无论成功与否。
+block|接收当前数据，返回一个 `WDGTransactionResult` 实例。
+completionBlock|无论本次事务处理结果如何，当事务完成时这个 block 将被回调。
 
 
 
@@ -1323,11 +1313,10 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 
 **说明**
 
-更新当前路径下的数据。服务器数据将会在 block 中返回，我们所要做的就是在 block 中
-把数据改成你要想要的，然后返回到 WDGTransactionResult 中。
-如果这个节点数据发送到服务器上时已经被其他人修改过，那么这个 block 将会获取服务器
-最新数据再次执行。
-调用 [WDGTransactionResult abort] 可以取消这次操作。
+用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。
+与 `setValue:` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
+客户端提交事务至云端，如果数据已被其他客户端修改，那么云端会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。
+在 `runTransactionBlock:` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 `[WDGTransactionResult abort]` 手动中止事务。
  
 
 
@@ -1335,9 +1324,9 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 
  参数名 | 说明 
 ---|---
-block|块(block)接收的当前数据(currentData)，然后返回一个WDGTransactionResult对象。 
-completionBlock|当事务完成时这个块将被触发，无论成功与否。
-localEvents|将其设置为 NO 来阻止触发中间状态的事件，只触发最终状态事件。
+block|接收当前数据，返回一个 `WDGTransactionResult` 实例。
+completionBlock|无论本次事务处理结果如何，当事务完成时这个 block 将被回调。
+localEvents|若当前节点已经建立了监听，每次执行 block 都会触发一次监听事件。将其设置为 NO 来阻止本地建立的监听触发中间状态的事件，只有事务操作成功时才触发监听事件。
 
 
 
@@ -1360,7 +1349,7 @@ func description() -> String
 **说明**
 
 获取当前 Wilddog Sync 节点的绝对 URL。
-  
+ 
 
 
 
