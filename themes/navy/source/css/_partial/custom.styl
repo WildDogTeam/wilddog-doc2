@@ -1,9 +1,12 @@
 .article-content table
-	width: 100%
+	width: calc(100% - 10px)
+	width: -webkit-calc(100% - 10px)
 	border: 1px solid #d9d9d9
 	border-bottom: 0
 	border-collapse: collapse
 	word-break: break-all
+	background: #f6f6f6
+	margin-left: 10px !important
 	th
 		padding-top: 11px
 		padding-bottom: 11px
@@ -16,7 +19,7 @@
 	td
 		padding-top:10px
 		padding-bottom: 10px
-		padding-left: 20px
+		padding-left: 30px
 		border-right: 1px solid #f5f5f5
 		word-break: break-word
 		&:last-child
@@ -183,3 +186,27 @@
 		border-color: #8c9ba5
 		color: #8c9ba5
 		background-color: #f9fafa
+		
+.swift-lan + .swift
+	border-left:4px solid #c1e7cd
+	padding-bottom:20px
+		
+.objectivec-lan + .objectivec 
+	border-left:4px solid #c4dff7
+	padding-bottom:20px
+		
+.swift-lan
+	color:#32af52
+	border-left:4px solid #c1e7cd
+	font-weight:600
+	padding-left:10px
+	padding-bottom:20px
+	padding-top:10px
+
+.objectivec-lan
+	color:#3c96e6
+	border-left:4px solid #c4dff7
+	font-weight:600
+	padding-left:10px
+	padding-bottom:20px
+	padding-top:10px

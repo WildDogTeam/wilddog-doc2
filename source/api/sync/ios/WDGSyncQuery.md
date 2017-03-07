@@ -10,12 +10,10 @@ title: WDGSyncQuery
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var ref: WDGSyncReference { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic) WDGSyncReference *ref;
 ```
 
@@ -37,12 +35,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void) -> WDGSyncHandle
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block;
 ```
 
