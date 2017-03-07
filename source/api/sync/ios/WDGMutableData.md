@@ -30,13 +30,20 @@ var value: Any? { get set }
 **说明**
 
 `WDGMutableData` 实例中的数据，value 可将其设置为 Wilddog Sync 支持的任一原生数据类型：
-- NSNumber (包括 BOOL)
+- NSNumber (包括 BOOL 类型)
 - NSDictionary
 - NSArray
 - NSString
 - nil / NSNull (设置 nil / NSNull 删除该数据)
-注意修改这个 value，会覆盖这个节点的优先级。
  
+
+<blockquote class="warning">
+<p><strong>注意：</strong></p>
+<ul>
+<li>修改这个 value，会覆盖这个节点的优先级。</li>
+
+</ul>
+</blockquote>
 
 </br>
 
