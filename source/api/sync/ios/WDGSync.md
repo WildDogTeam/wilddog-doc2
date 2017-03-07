@@ -42,7 +42,15 @@ var persistenceEnabled: Bool { get set }
 
 默认情况下，在你的应用程序正在运行时，Wilddog SDK 会将数据保存在内存中，当应用被重新启动时数据就没有了。
 把这个值设置为 YES 时，数据将被保存到设备，并且当应用程序重新启动时（即使在重新启动程序时没有网络连接），这些存储的数据也是可以用的。
-请注意，此属性必须在创建第一个 Sync 引用之前设置，并且每次启用应用程序只需要调用一次即可。
+ 
+
+<blockquote class="warning">
+<p><strong>注意：</strong></p>
+<ul>
+<li>此属性必须在创建第一个 Sync 引用之前设置，并且每次启用应用程序只需要调用一次即可。</li>
+
+</ul>
+</blockquote>
 
 </br>
 
@@ -62,7 +70,15 @@ var callbackQueue: DispatchQueue { get set }
 **说明**
 
 所有被触发事件将被派发到这个队列执行回调。默认队列为主队列。
-请注意，这个属性必须在创建第一个 Sync 引用之前设置。
+ 
+
+<blockquote class="warning">
+<p><strong>注意：</strong></p>
+<ul>
+<li>这个属性必须在创建第一个 Sync 引用之前设置。</li>
+
+</ul>
+</blockquote>
 
 </br>
 
@@ -87,14 +103,14 @@ class func sync() -> WDGSync
 
 **说明**
 
-用默认的 `WDGApp` 获取这个 `WDGSync` 实例。
+用默认的 `WDGApp` 获取对应的 `WDGSync` 实例。
  
 
 
 
 **返回值**
 
-一个 `WDGSync` 实例
+`WDGSync` 实例。
 
 
 </br>
@@ -114,7 +130,7 @@ class func sync(app: WDGApp) -> WDGSync
 
 **说明**
 
-用特定的 `WDGApp` 获取这个 `WDGSync` 实例。
+用特定的 `WDGApp` 获取对应的 `WDGSync` 实例。
  
 
 
@@ -122,14 +138,14 @@ class func sync(app: WDGApp) -> WDGSync
 
  参数名 | 说明 
 ---|---
-app|用于得到 `WDGSync` 实例的 `WDGApp` 对象。
+app|用于得到 `WDGSync` 实例的 `WDGApp` 实例。
 
 
 
 
 **返回值**
 
-一个 `WDGSync` 实例。
+`WDGSync` 实例。
 
 
 </br>

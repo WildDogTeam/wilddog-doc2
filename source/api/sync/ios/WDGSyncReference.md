@@ -20,7 +20,16 @@ var parent: WDGSyncReference? { get }
 
 **说明**
 
-当前节点的父节点引用。注意：根节点的 parent 为 nil。
+当前节点的父节点引用。
+ 
+
+<blockquote class="warning">
+<p><strong>注意：</strong></p>
+<ul>
+<li>根节点的 parent 为 nil。</li>
+
+</ul>
+</blockquote>
 
 </br>
 
@@ -212,7 +221,7 @@ func setValue(_ value: Any?)
 这将会覆盖当前路径和子路径的所有数据。
 支持的数据类型:
  - NSString -- @"Hello World"
- - NSNumber (包括BOOL类型) -- @YES, @43, @4.333
+ - NSNumber (包括 BOOL 类型) -- @YES, @43, @4.333
  - NSDictionary -- @{@"key": @"value", @"nested": {@"another": @"value"}}
  - NSArray -- @[@"a", @"b", @"c"]
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
