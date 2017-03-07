@@ -191,7 +191,7 @@ class func allApps() -> [AnyHashable : Any]?
 
 **返回值**
 
-包含所有 `WDGApp` 实例的字典，key 为 WDGApp 实例对应的别名。
+包含所有 `WDGApp` 实例的字典，key 为 `WDGApp` 实例对应的别名。
 
 
 </br>
