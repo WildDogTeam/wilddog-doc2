@@ -41,9 +41,8 @@ var persistenceEnabled: Bool { get set }
 **说明**
 
 默认情况下，在你的应用程序正在运行时，Wilddog SDK 会将数据保存在内存中，当应用被重新启动时数据就没有了。
-把这个值设置为 YES 时，数据将被保存到设备，并且当应用程序重新启动时（即使在重新启动程序时没有网络连接），
-这些存储的数据也是可以用的。请注意，此属性必须在创建第一个 Sync 引用之前设置，
-并且每次启用应用程序只需要调用一次即可。
+把这个值设置为 YES 时，数据将被保存到设备，并且当应用程序重新启动时（即使在重新启动程序时没有网络连接），这些存储的数据也是可以用的。
+请注意，此属性必须在创建第一个 Sync 引用之前设置，并且每次启用应用程序只需要调用一次即可。
 
 </br>
 
@@ -63,7 +62,6 @@ var callbackQueue: DispatchQueue { get set }
 **说明**
 
 所有被触发事件将被派发到这个队列执行回调。默认队列为主队列。
-
 请注意，这个属性必须在创建第一个 Sync 引用之前设置。
 
 </br>
@@ -214,8 +212,8 @@ func reference(fromURL syncUrl: String) -> WDGSyncReference
 **说明**
 
 用这个有效的 URL 获得一个 `WDGSyncReference` 引用。
-这个 URL 必须是指向默认 Wilddog Sync 数据库完整路径（如'https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts'）。
-若要创建一个指向不同 Sync 数据库的 WDGSyncReference, 可以先用配置好 URL 的 WDGOptions 对象去创建一个 WDGApp。
+这个 URL 必须是指向默认 Wilddog Sync 数据库完整路径（如 'https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts' ）。
+若要创建一个指向不同 Sync 数据库的 `WDGSyncReference`, 可以先用配置好 URL 的 `WDGOptions` 对象去创建一个 `WDGApp`。
  
 
 
