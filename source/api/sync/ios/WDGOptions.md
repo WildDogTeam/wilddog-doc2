@@ -19,7 +19,7 @@ var syncURL: String { get }
 
 **说明**
 
- Sync 的根路径 URL, e.g. @"https://your-appid.wilddogio.com" 。
+ Sync 的根路径 URL，例如: @"https://your-appid.wilddogio.com" 。
 
 </br>
 
@@ -53,7 +53,7 @@ init(syncURL: String)
 
  参数名 | 说明 
 ---|---
-syncURL| Sync 的根路径 URL, e.g. @"https://your-appid.wilddogio.com" 。
+syncURL| Sync 的根路径 URL，例如: @"https://your-appid.wilddogio.com" 。
 
 
 
