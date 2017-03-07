@@ -21,9 +21,7 @@ var value: Any? { get }
 **说明**
 
 当前数据快照包含的数据。数据类型取决于节点下的数据内容。
-
 可能返回的数据类型包括:
-
 - NSDictionary
 - NSArray
 - NSNumber (包含Bool类型)

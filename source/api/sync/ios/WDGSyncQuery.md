@@ -576,19 +576,23 @@ func queryOrderedByPriority() -> WDGSyncQuery
 **说明**
 
  创建一个新的 `WDGSyncQuery` 实例，按节点的 priority 对结果排序。
- 节点按照如下优先级规则升序排列：nil 
-<
- NSNumber 
-<
- NSString。
+ 节点按照如下优先级规则升序排列：nil < NSNumber < NSString。
 - priority 为 nil 的排最先；
 - priority 为数值的次之，按照数值从小到大排序；
 - priority 为字符串的排最后，按照字典序排列；
 - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
-注意：数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，Key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
 此方法可以与 `queryStartingAtValue:`、`queryEndingAtValue:` 或 `queryEqualToValue:` 方法联合使用。
  
+ 
 
+
+<blockquote class="warning">
+<p><strong>注意：</strong></p>
+<ul>
+<li>数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，Key 以 NSString 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。</li>
+
+</ul>
+</blockquote>
 
 
 **返回值**

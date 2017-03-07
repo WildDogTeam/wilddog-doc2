@@ -403,11 +403,7 @@ func setPriority(_ priority: Any?)
 
 设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 nil。
 不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue:withPriority:`；为已存在的数据设置优先级的时，使用 `setPriority:`。
- 节点按照如下优先级规则升序排列：nil 
-<
- NSNumber 
-<
- NSString。
+ 节点按照如下优先级规则升序排列：nil < NSNumber < NSString。
 - priority 为 null 的排最先；
 - priority 为数值的次之，按照数值从小到大排序；
 - priority 为字符串的排最后，按照字典序排列。

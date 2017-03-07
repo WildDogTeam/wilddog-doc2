@@ -30,14 +30,13 @@ var value: Any? { get set }
 **说明**
 
 `WDGMutableData` 实例中的数据，value 可将其设置为 Wilddog Sync 支持的任一原生数据类型：
-
-* NSNumber (includes BOOL)
-* NSDictionary
-* NSArray
-* NSString
-* nil / NSNull (设置 nil / NSNull 删除该数据)
-
+- NSNumber (includes BOOL)
+- NSDictionary
+- NSArray
+- NSString
+- nil / NSNull (设置 nil / NSNull 删除该数据)
 注意修改这个 value，会覆盖这个节点的优先级。
+ 
 
 </br>
 
@@ -57,10 +56,10 @@ var priority: Any? { get set }
 **说明**
 
 该节点下面的数据优先级，可以设置的值类型有：
-
-* NSNumber
-* NSString
-* nil / NSNull (设置 nil / NSNull 删除该数据)
+- NSNumber
+- NSString
+- nil / NSNull (设置 nil / NSNull 删除该数据)
+ 
 
 </br>
 
@@ -99,10 +98,11 @@ var children: NSEnumerator { get }
 **说明**
 
 当前节点下所有子节点的 Mutabledata 实例的迭代器，用于迭代该节点的子节点。可以用下面的这个方法：
-
-    for (WDGMutableData* child in data.children) {
-        ...
-    }
+```
+for (WDGMutableData* child in data.children) {
+    ...
+}
+```
 
 </br>
 

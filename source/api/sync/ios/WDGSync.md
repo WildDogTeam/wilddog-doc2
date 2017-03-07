@@ -62,7 +62,6 @@ var callbackQueue: DispatchQueue { get set }
 **说明**
 
 所有被触发事件将被派发到这个队列执行回调。默认队列为主队列。
-
 请注意，这个属性必须在创建第一个 Sync 引用之前设置。
 
 </br>
