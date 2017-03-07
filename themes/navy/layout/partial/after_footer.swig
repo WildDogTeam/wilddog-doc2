@@ -1,5 +1,6 @@
 <!-- Scripts -->
 <!-- build:js build/js/main.js -->
+{{ js('js/jquery.min') }}
 {{ js('js/public') }}
 {{ js('js/localstorage') }}
 {{ js('js/toc') }}
