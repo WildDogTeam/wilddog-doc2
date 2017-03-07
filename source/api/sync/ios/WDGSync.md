@@ -12,12 +12,10 @@ title: WDGSync
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 weak var app: WDGApp? { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, nonatomic) WDGApp *_Nullable app;
 ```
 
@@ -33,12 +31,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var persistenceEnabled: Bool { get set }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (assign, nonatomic) BOOL persistenceEnabled;
 ```
 
@@ -57,12 +53,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var callbackQueue: DispatchQueue { get set }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (strong, nonatomic) dispatch_queue_t callbackQueue;
 ```
 
@@ -86,12 +80,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 class func sync() -> WDGSync
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 + (WDGSync *)sync;
 ```
 
@@ -115,12 +107,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 class func sync(app: WDGApp) -> WDGSync
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 + (WDGSync *)syncForApp:(WDGApp *)app;
 ```
 
@@ -152,12 +142,10 @@ app|用于得到 `WDGSync` 实例的 `WDGApp` 对象。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func reference() -> WDGSyncReference
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncReference *)reference;
 ```
 
@@ -181,12 +169,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func reference(withPath path: String) -> WDGSyncReference
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncReference *)referenceWithPath:(NSString *)path;
 ```
 
@@ -218,12 +204,10 @@ path|指向 Wilddog 数据库节点的一个路径。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func reference(fromURL syncUrl: String) -> WDGSyncReference
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncReference *)referenceFromURL:(NSString *)syncUrl;
 ```
 
@@ -257,12 +241,10 @@ syncUrl|指向 sync 数据库某一数据节点的一个 URL。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func goOffline()
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)goOffline;
 ```
 
@@ -280,12 +262,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func goOnline()
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)goOnline;
 ```
 
@@ -303,12 +283,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 class func setLoggingEnabled(_ enabled: Bool)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 + (void)setLoggingEnabled:(BOOL)enabled;
 ```
 
@@ -335,12 +313,10 @@ enabled|设为 YES 为打印。默认为 NO，不打印。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 class func sdkVersion() -> String
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 + (NSString *)sdkVersion;
 ```
 

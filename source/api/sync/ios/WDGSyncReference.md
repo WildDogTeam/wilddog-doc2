@@ -11,12 +11,10 @@ title: WDGSyncReference
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var parent: WDGSyncReference? { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic, nullable) WDGSyncReference *parent;
 ```
 
@@ -32,12 +30,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var root: WDGSyncReference { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic) WDGSyncReference *root;
 ```
 
@@ -53,12 +49,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var key: String { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic) NSString *key;
 ```
 
@@ -74,12 +68,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var url: String { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic) NSString *URL;
 ```
 
@@ -95,12 +87,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var sync: WDGSync { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic) WDGSync *sync;
 ```
 
@@ -122,12 +112,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func child(_ pathString: String) -> WDGSyncReference
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncReference *)child:(NSString *)pathString;
 ```
 
@@ -162,12 +150,10 @@ pathString|从这个节点到要设定的子节点的相对路径，深层路径
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func child(byAppendingPath pathString: String) -> WDGSyncReference
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncReference *)childByAppendingPath:(NSString *)pathString;
 ```
 
@@ -185,12 +171,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func childByAutoId() -> WDGSyncReference
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncReference *)childByAutoId;
 ```
 
@@ -215,12 +199,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func setValue(_ value: Any?)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)setValue:(nullable id)value;
 ```
 
@@ -229,10 +211,10 @@ Objective-C
 往 WDGSyncReference 当前路径写入一个值。
 这将会覆盖当前路径和子路径的所有数据。
 支持的数据类型:
-- NSString -- "Hello World"
-- NSNumber (包括BOOL类型) -- YES, 43, 4.333
-- NSDictionary -- {"key": "value", "nested": {"another": "value"}}
-- NSArray -- ["a", "b", "c"]
+NSString -- "Hello World"
+NSNumber (包括BOOL类型) -- YES, 43, 4.333
+NSDictionary -- {"key": "value", "nested": {"another": "value"}}
+NSArray -- ["a", "b", "c"]
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ）之间，n+1 个元素中超过一半以上有值，数据将被转换为 NSArray 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 NSDictionary 类型。
@@ -258,18 +240,17 @@ value|将被写入的数据。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func setValue(_ value: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)setValue:(nullable id)value withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
 **说明**
 
 同 `setValue:` 方法类似，增加了一个 block，当写操作完成之后，会回调这个 block。
+ 
  
 
 
@@ -291,12 +272,10 @@ block|当写操作被提交到服务器，将被触发的 block。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func setValue(_ value: Any?, andPriority priority: Any?)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)setValue:(nullable id)value andPriority:(nullable id)priority;
 ```
 
@@ -326,12 +305,10 @@ priority|要设置的优先级。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func setValue(_ value: Any?, andPriority priority: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)setValue:(nullable id)value andPriority:(nullable id)priority withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
@@ -340,6 +317,7 @@ Objective-C
 同 `setValue:` 方法类似，写入数值的同时为当前节点设置优先级，优先级被用来排序。
 优先级只能是 NSNumber 或 NSString 类型，且 NSNumber 中不能存储 BOOL 类型的数据。优先级默认为 nil。
 同时增加了一个 block，当写操作完成之后，会回调这个 block。
+ 
  
 
 
@@ -362,12 +340,10 @@ block|当写操作被提交到服务器，将被触发的 block。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func removeValue()
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)removeValue;
 ```
 
@@ -386,19 +362,17 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func removeValue(completionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)removeValueWithCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
 **说明**
 
 同 `remove` 方法类似，增加了一个 block，当删除操作完成之后，会回调这个 block。
-  
+ 
 
 
 **参数**
@@ -418,12 +392,10 @@ block|当删除操作被提交到服务器，将被触发的 block。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func setPriority(_ priority: Any?)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)setPriority:(nullable id)priority;
 ```
 
@@ -461,12 +433,10 @@ priority|指定节点的优先级。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func setPriority(_ priority: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)setPriority:(nullable id)priority withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
@@ -494,12 +464,10 @@ block|当设置优先级操作被提交到服务器，将触发这个 block。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func updateChildValues(_ values: [AnyHashable : Any])
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)updateChildValues:(NSDictionary *)values;
 ```
 
@@ -529,12 +497,10 @@ values|包含要合并子节点的对象
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func updateChildValues(_ values: [AnyHashable : Any], withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)updateChildValues:(NSDictionary *)values withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
@@ -562,12 +528,10 @@ block|updateChildValues 操作提交到 Wilddog Sync 服务器后，返回的blo
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void) -> WDGSyncHandle
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block;
 ```
 
@@ -602,12 +566,10 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void) -> WDGSyncHandle
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block;
 ```
 
@@ -643,12 +605,10 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil) -> WDGSyncHandle
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
@@ -685,12 +645,10 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil) -> WDGSyncHandle
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
@@ -728,12 +686,10 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block;
 ```
 
@@ -761,12 +717,10 @@ block|当从云端获取到结果时，将回调这个 block。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block;
 ```
 
@@ -795,12 +749,10 @@ block|当从云端获取到结果时，将回调这个 block。block 将传输�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
@@ -830,12 +782,10 @@ cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
@@ -866,12 +816,10 @@ cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func removeObserver(withHandle handle: WDGSyncHandle)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)removeObserverWithHandle:(WDGSyncHandle)handle;
 ```
 
@@ -898,12 +846,10 @@ handle|由 `observeEventType:withBlock:` 返回的 `WDGSyncHandle`。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func removeAllObservers()
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)removeAllObservers;
 ```
 
@@ -921,12 +867,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func keepSynced(_ keepSynced: Bool)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)keepSynced:(BOOL)keepSynced;
 ```
 
@@ -953,12 +897,10 @@ keepSynced|参数设置为 YES，则在此节点处同步数据；设置为 NO�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func onDisconnectSetValue(_ value: Any?)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)onDisconnectSetValue:(nullable id)value;
 ```
 
@@ -987,12 +929,10 @@ value|断开连接后要设置的值
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func onDisconnectSetValue(_ value: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)onDisconnectSetValue:(nullable id)value withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
@@ -1021,12 +961,10 @@ block|当设置值的操作成功排队到Wilddog服务器上，这个block就�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func onDisconnectSetValue(_ value: Any?, andPriority priority: Any)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)onDisconnectSetValue:(nullable id)value andPriority:(id)priority;
 ```
 
@@ -1055,12 +993,10 @@ priority|断开连接后要设置的优先级
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func onDisconnectSetValue(_ value: Any?, andPriority priority: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)onDisconnectSetValue:(nullable id)value andPriority:(nullable id)priority withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
@@ -1090,12 +1026,10 @@ block|当设置值的操作成功排队到Wilddog服务器上，这个block就�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func onDisconnectRemoveValue()
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)onDisconnectRemoveValue;
 ```
 
@@ -1115,12 +1049,10 @@ onDisconnectRemoveValue 对实施在线系统很有用
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func onDisconnectRemoveValue(completionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)onDisconnectRemoveValueWithCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
@@ -1149,12 +1081,10 @@ block|当删除值的操作成功排队到Wilddog服务器上，这个block就�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any])
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)onDisconnectUpdateChildValues:(NSDictionary *)values;
 ```
 
@@ -1182,12 +1112,10 @@ values|在连接断开之后，一个包含子节点键和值的字典
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any], withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)onDisconnectUpdateChildValues:(NSDictionary *)values withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
@@ -1216,12 +1144,10 @@ block|当更新值的操作成功排队到Wilddog服务器上，这个block就�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func cancelDisconnectOperations()
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)cancelDisconnectOperations;
 ```
 
@@ -1241,12 +1167,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func cancelDisconnectOperations(completionBlock block: ((Error?, WDGSyncReference) -> Void)? = nil)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)cancelDisconnectOperationsWithCompletionBlock:(nullable void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
@@ -1274,12 +1198,10 @@ block|当Wilddog服务器接受到cancel请求，触发的block
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 class func goOffline()
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 + (void)goOffline;
 ```
 
@@ -1297,12 +1219,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 class func goOnline()
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 + (void)goOnline;
 ```
 
@@ -1320,12 +1240,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionResult)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)runTransactionBlock:(WDGTransactionResult *(^)(WDGMutableData *))block;
 ```
 
@@ -1356,12 +1274,10 @@ block|块(block)接收的当前数据(currentData)，然后返回一个WDGTransa
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionResult, andCompletionBlock completionBlock: @escaping (Error?, Bool, WDGDataSnapshot?) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)runTransactionBlock:(WDGTransactionResult *(^)(WDGMutableData *))block andCompletionBlock:(void (^)(NSError *_Nullable, BOOL, WDGDataSnapshot *_Nullable))completionBlock;
 ```
 
@@ -1394,12 +1310,10 @@ completionBlock|当事务完成时这个块将被触发，无论成功与否。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionResult, andCompletionBlock completionBlock: ((Error?, Bool, WDGDataSnapshot?) -> Void)?, withLocalEvents localEvents: Bool)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)runTransactionBlock:(WDGTransactionResult *(^)(WDGMutableData *))block andCompletionBlock:(nullable void (^)(NSError *_Nullable, BOOL, WDGDataSnapshot *_Nullable))completionBlock withLocalEvents:(BOOL)localEvents;
 ```
 
@@ -1432,12 +1346,10 @@ localEvents|将其设置为 NO 来阻止触发中间状态的事件，只触发�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func description() -> String
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (NSString *)description;
 ```
 
