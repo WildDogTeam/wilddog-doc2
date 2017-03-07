@@ -204,7 +204,6 @@ api:
       WDGMutableData: /api/sync/ios/WDGMutableData.html
       WDGTransactionResult: /api/sync/ios/WDGTransactionResult.html
       WDGServerValue: /api/sync/ios/WDGServerValue.html
-      WDGSyncConfig: /api/sync/ios/WDGSyncConfig.html
       WDGDataEventType: /api/sync/ios/WDGDataEventType.html
       错误码: /api/sync/ios/error-code.html
     C/嵌入式:
