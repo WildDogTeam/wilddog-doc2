@@ -211,10 +211,10 @@ func setValue(_ value: Any?)
 往 WDGSyncReference 当前路径写入一个值。
 这将会覆盖当前路径和子路径的所有数据。
 支持的数据类型:
-NSString -- "Hello World"
-NSNumber (包括BOOL类型) -- YES, 43, 4.333
-NSDictionary -- {"key": "value", "nested": {"another": "value"}}
-NSArray -- ["a", "b", "c"]
+- NSString -- "Hello World"
+- NSNumber (包括BOOL类型) -- YES, 43, 4.333
+- NSDictionary -- {"key": "value", "nested": {"another": "value"}}
+- NSArray -- ["a", "b", "c"]
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ）之间，n+1 个元素中超过一半以上有值，数据将被转换为 NSArray 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 NSDictionary 类型。
@@ -412,9 +412,17 @@ func setPriority(_ priority: Any?)
 - priority 为数值的次之，按照数值从小到大排序；
 - priority 为字符串的排最后，按照字典序排列。
 - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
-注意：数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
+ 
  
 
+
+<blockquote class="warning">
+<p><strong>注意：</strong></p>
+<ul>
+<li>数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，key 以 NSString 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。</li>
+
+</ul>
+</blockquote>
 
 **参数**
 
