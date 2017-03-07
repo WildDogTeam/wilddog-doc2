@@ -1,7 +1,7 @@
 title: WDGServerValue
 ---
 
-用于写入 Wilddog Sync 时间戳
+用于写入 Wilddog Sync 时间戳。
 
 
 
