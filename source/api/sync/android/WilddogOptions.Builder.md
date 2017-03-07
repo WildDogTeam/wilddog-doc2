@@ -1,6 +1,6 @@
 title: WilddogOptions.Builder
 ----
-用于创建 `WilddogOptions` 对象的构造器对象。
+用于创建 [WilddogOptions](/api/sync/android/WilddogOptions.html) 对象的构造器对象。
 
 ## 方法
 
@@ -14,13 +14,13 @@ WilddogOptions.Builder setSyncUrl (String syncUrl)
 
 **说明**
 
-设置 SyncUrl 属性。
+设置 SyncUrl 属性。此项为必须参数。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-syncUrl | `WilddogSync` 的路径。
+syncUrl | `String` 类型，`WilddogSync` 的路径。
 
 
 **返回值**
@@ -43,7 +43,7 @@ WilddogOptions build ()
 
 **返回值**
 
-`WilddogOptions`实例。
+[WilddogOptions](/api/sync/android/WilddogOptions.html) 实例。
 </br>
 
 --- 

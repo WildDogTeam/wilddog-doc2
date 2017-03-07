@@ -1,111 +1,9 @@
 title:  SyncReference
 ---
-`SyncReference` 实例表示要操作的特定数据节点，可以通过 `SyncReference` 实例操作和读取数据。`SyncReference` 是 `wilddog.sync.Query` 的子类。
-
-## 属性
-### getSync()
-
-**定义**
-
-```java
-public  WilddogSync getSync()
-```
-
-**说明**
-
-通过当前 `SyncReference` 实例获取相关的 `WilddogSync` 实例。
-
-
-**返回值**
-
-`WilddogSync` 实例。
-</br>
-
----
-### getKey()
-
-**定义**
-
-```java
-public  String getKey()
-```
-
-**说明**
-
-获取当前节点的 key 值。
-
-
-**返回值**
-
-`String` 节点 key 值。
-
-**示例**
-
-```java
-
-SyncReference ref = WilddogSync.getInstance().getReference("test");
-//当前节点为 '/test/a/b'
-SyncReference refChild = ref.child("a").child("b");
-//获取当前节点的 key 值，key="b";
-String key = refChild.getKey();
-
-```
-</br>
-
----
-### getParent()
-
-**定义**
-
-```java
-public  SyncReference getParent()
-```
-
-**说明**
-
-获取当前节点的父节点引用。注意，如果当前节点是根节点，返回的依然是根节点的引用。
-
-
-**返回值**
-
-`SyncReference` 父节点的引用。
-
-**示例**
-
-```java
-SyncReference ref = WilddogSync.getInstance().getReference("test/a");
-
-// 获得 '/test' 路径的引用
-SyncReference ref2 = ref.getParent();
-
-// 到达 root
-SyncReference ref3 = ref.getParent().getParent();
-
-```
-
-</br>
-
----
-### getRoot()
-
-**定义**
-
-```java
-public  SyncReference getRoot()
-```
-
-**说明**
-
-获取根节点的引用。使用此方法可以直接获取到当前子节点的根节点引用，等价于多次调用 `getParent()` 方法获取根节点。
-
-**返回值**
-
-`SyncReference` 根节点的引用。
-</br>
-
----
+`SyncReference` 实例表示要操作的特定数据节点，可以通过 `SyncReference` 实例操作和读取数据。`SyncReference` 是 [Query](/api/sync/android/Query.html) 的子类。
 
 ## 方法
+
 
 ### child()
 
@@ -179,8 +77,8 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
         ref.child("list").setValue(strList);
 ```
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
-如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
+如果不满足条件，`Wilddog Sync` 处理数据时会将其转换为 `Map` 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
  - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
@@ -235,7 +133,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 支持写入的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
  - 数组 ArrayList;
-Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
+`Wliddog Sync` 没有对数组的原生支持，但是支持以数组下标作为 `key` ，数组元素作为 `value` 的方式进行存储。
 例如：
 ```java
         String[] strList = new String[6];
@@ -246,10 +144,10 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
         ref.child("list").setValue(strList);
 ```
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 `key`（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
- - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+ - null，当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 **参数**
 
@@ -327,7 +225,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 支持写入的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
  - 数组 ArrayList;
-Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
+`Wliddog Sync` 没有对数组的原生支持，但是支持以数组下标作为 `key` ，数组元素作为 `value` 的方式进行存储。
 例如：
 ```java
         String[] strList = new String[6];
@@ -338,10 +236,10 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
         ref.child("list").setValue(strList);
 ```
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 `key`（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
- - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+ - null，当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 
 **参数**
@@ -415,8 +313,8 @@ SyncReference push()
 ```
 
 **说明**
-向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：-KdzI7I-AsBST9NlasJM）。 
-新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
+向当前节点添加子节点。新增子节点的 `key` 自动生成并保证唯一（例如：“-KdzI7I-AsBST9NlasJM”）。 
+ `key` 值基于时间戳和随机算法生成，并可以按照时间先后进行排序。
 
 **返回值**
 
@@ -462,7 +360,7 @@ ref.child("heros").push().setValue(hero);
 
  参数名 | 描述
  --- | ---
-  value |`Map<String, Object>` 当 `value` 为 null 时，等价于 `removeValue()` 操作。
+  value |`Map<String, Object>` 当 `value` 为 null 时，等价于 `removeValue` 操作。
 
 
 **示例**
@@ -495,7 +393,7 @@ void updateChildren(Map<String, Object> value, SyncReference.CompletionListener 
 
  参数名 | 描述
  --- | ---
-  value |`Map<String, Object>` 当 value 为 null 时，等价于 `removeValue()` 操作。
+  value |`Map<String, Object>` 当 value 为 null 时，等价于 `removeValue` 操作。
 listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
 
 
@@ -730,6 +628,109 @@ ref.onDisconnect().setValue("onDisconnected.");
 
 ```
 
+</br>
+
+---
+
+### getSync()
+
+**定义**
+
+```java
+public  WilddogSync getSync()
+```
+
+**说明**
+
+通过当前 `SyncReference` 实例获取相关的 `WilddogSync` 实例。
+
+
+**返回值**
+
+[WilddogSync](/api/sync/android/WilddogSync.html) 实例。
+</br>
+
+---
+### getKey()
+
+**定义**
+
+```java
+public  String getKey()
+```
+
+**说明**
+
+获取当前节点的 key 值。
+
+
+**返回值**
+
+`String` 节点 key 值。
+
+**示例**
+
+```java
+
+SyncReference ref = WilddogSync.getInstance().getReference("test");
+//当前节点为 '/test/a/b'
+SyncReference refChild = ref.child("a").child("b");
+//获取当前节点的 key 值，key="b";
+String key = refChild.getKey();
+
+```
+</br>
+
+---
+### getParent()
+
+**定义**
+
+```java
+public  SyncReference getParent()
+```
+
+**说明**
+
+获取当前节点的父节点引用。
+注意，如果当前节点是根节点，返回的依然是根节点的引用。
+
+
+**返回值**
+
+`SyncReference` 父节点的引用。
+
+**示例**
+
+```java
+SyncReference ref = WilddogSync.getInstance().getReference("test/a");
+
+// 获得 '/test' 路径的引用
+SyncReference ref2 = ref.getParent();
+
+// 到达 root
+SyncReference ref3 = ref.getParent().getParent();
+
+```
+
+</br>
+
+---
+### getRoot()
+
+**定义**
+
+```java
+public  SyncReference getRoot()
+```
+
+**说明**
+
+获取根节点的引用。使用此方法可以直接获取到当前子节点的根节点引用，等价于多次调用 `getParent()` 方法获取根节点。
+
+**返回值**
+
+`SyncReference` 根节点的引用。
 </br>
 
 ---

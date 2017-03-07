@@ -1,6 +1,6 @@
 title: WilddogOptions
 ----
-用于初始化WilddogSync设置。
+`WilddogSync` 初始化设置选项，可以使用 `WilddogOptions.Builder` 创建，必填参数为 `SyncUrl`，即当前野狗应用根路径 URL，例如：“https://example.wilddogio.com”。
 
 ## 方法
 
@@ -13,7 +13,7 @@ public String getSyncUrl ()
 
 **说明**
 
-Sync 的根路径 URL, e.g. `http://your-appid.wilddogio.com`.
+`WilddogSync` 的根路径 URL, e.g. `http://your-appid.wilddogio.com`.
 
 **返回值**
 

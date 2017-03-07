@@ -1,6 +1,6 @@
 title:  WilddogSync
 ---
-WilddogSync SDK的核心类，是访问 Wilddog Sync SDK 的入口。必须通过 `getInstance()` 方法来获取一个`WilddogSync` 实例。
+WilddogSync SDK 的核心类，是访问 Wilddog Sync SDK 的入口。必须通过 `getInstance()` 方法来获取一个`WilddogSync` 实例。
 
 ## 方法
 
@@ -14,7 +14,7 @@ public static synchronized WilddogSync getInstance ()
 
 **说明**
 
-获取默认的 `WilddogSync` 实例，隐含使用默认 `WilddogApp`。
+获取默认的 `WilddogSync` 实例。
 
 **返回值**
 
@@ -58,11 +58,11 @@ public SyncReference getReference ()
 
 **说明**
 
-返回根节点的 `SyncReference` 实例。
+返回当前野狗应用根节点的 `SyncReference` 实例。
 
 **返回值**
 
-`SyncReference`实例。
+[SyncReference](/api/sync/android/SyncReference.html) 实例。
 </br>
 
 ---
@@ -86,7 +86,7 @@ path | 从根节点起要获取的节点路径。
 
 **返回值**
 
-`SyncReference` 实例。
+[SyncReference](/api/sync/android/SyncReference.html) 实例。
 </br>
 
 ---
@@ -100,14 +100,14 @@ SyncReference getReferenceFromUrl (String url)
 
 **说明**
 
-用这个有效的 URL 获得一个 SyncReference 实例。
-这个 URL 必须是指向默认 Wilddog Sync 完整路径（如`https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts`）。
+用一个有效的 URL 获取 `SyncReference` 实例。
+这个 URL 必须是指向默认 Wilddog Sync 完整路径（如`https://examples.wilddogio.com/web/saving-data/wildblog/posts`）。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-url | 到指定节点的url。
+url | 指定节点的url。
 
 **返回值**
 
