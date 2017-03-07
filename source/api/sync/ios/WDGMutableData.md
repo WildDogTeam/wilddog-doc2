@@ -20,12 +20,10 @@ title: WDGMutableData
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var value: Any? { get set }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (strong, nonatomic, nullable) id value;
 ```
 
@@ -49,12 +47,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var priority: Any? { get set }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (strong, nonatomic, nullable) id priority;
 ```
 
@@ -74,12 +70,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var childrenCount: UInt { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, nonatomic) NSUInteger childrenCount;
 ```
 
@@ -95,12 +89,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var children: NSEnumerator { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic) NSEnumerator *children;
 ```
 
@@ -120,12 +112,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var key: String? { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic, nullable) NSString *key;
 ```
 
@@ -147,12 +137,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func hasChildren() -> Bool
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (BOOL)hasChildren;
 ```
 
@@ -176,12 +164,10 @@ YES 为存在子节点，NO 为不存在。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func hasChild(atPath path: String) -> Bool
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (BOOL)hasChildAtPath:(NSString *)path;
 ```
 
@@ -213,12 +199,10 @@ path|可以是类似 "child" 的单层级路径，也可以是类似 "a/deeper/c
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func childData(byAppendingPath path: String) -> WDGMutableData
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGMutableData *)childDataByAppendingPath:(NSString *)path;
 ```
 

@@ -12,12 +12,10 @@ title: WDGTransactionResult
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 class func success(withValue value: WDGMutableData) -> WDGTransactionResult
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 + (WDGTransactionResult *)successWithValue:(WDGMutableData *)value;
 ```
 
@@ -49,12 +47,10 @@ value|一个包含新 value 属性的 `WDGMutableData` 实例。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 class func abort() -> WDGTransactionResult
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 + (WDGTransactionResult *)abort;
 ```
 

@@ -73,12 +73,10 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void) -> WDGSyncHandle
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block;
 ```
 
@@ -114,12 +112,10 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil) -> WDGSyncHandle
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
@@ -156,12 +152,10 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil) -> WDGSyncHandle
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
@@ -199,12 +193,10 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block;
 ```
 
@@ -232,12 +224,10 @@ block|当从云端获取到结果时，将回调这个 block。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block;
 ```
 
@@ -266,12 +256,10 @@ block|当从云端获取到结果时，将回调这个 block。block 将传输�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
@@ -301,12 +289,10 @@ cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
@@ -337,12 +323,10 @@ cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func removeObserver(withHandle handle: WDGSyncHandle)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)removeObserverWithHandle:(WDGSyncHandle)handle;
 ```
 
@@ -369,12 +353,10 @@ handle|由 `observeEventType:withBlock:` 返回的 `WDGSyncHandle`。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func removeAllObservers()
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)removeAllObservers;
 ```
 
@@ -392,12 +374,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func keepSynced(_ keepSynced: Bool)
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (void)keepSynced:(BOOL)keepSynced;
 ```
 
@@ -424,12 +404,10 @@ keepSynced|参数设置为 YES，则在此节点处同步数据；设置为 NO�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryLimited(toFirst limit: UInt) -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryLimitedToFirst:(NSUInteger)limit;
 ```
 
@@ -461,12 +439,10 @@ limit|能够获取的子节点的最大数量。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryLimited(toLast limit: UInt) -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryLimitedToLast:(NSUInteger)limit;
 ```
 
@@ -498,12 +474,10 @@ limit|能够获取的子节点的最大数量。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryOrdered(byChild key: String) -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryOrderedByChild:(NSString *)key;
 ```
 
@@ -536,12 +510,10 @@ key|指定用来排序的子节点的 key。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryOrderedByKey() -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryOrderedByKey;
 ```
 
@@ -566,12 +538,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryOrderedByValue() -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryOrderedByValue;
 ```
 
@@ -596,12 +566,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryOrderedByPriority() -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryOrderedByPriority;
 ```
 
@@ -636,12 +604,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryStarting(atValue startValue: Any?) -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryStartingAtValue:(nullable id)startValue;
 ```
 
@@ -674,12 +640,10 @@ startValue|query 查询返回值的下界，所有返回值均大于等于 start
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryStarting(atValue startValue: Any?, childKey: String?) -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryStartingAtValue:(nullable id)startValue childKey:(nullable NSString *)childKey;
 ```
 
@@ -715,12 +679,10 @@ childKey|当 query 查询到的值和 startValue 相等时，返回其中 key �
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryEnding(atValue endValue: Any?) -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryEndingAtValue:(nullable id)endValue;
 ```
 
@@ -753,12 +715,10 @@ endValue|query 查询返回值的上界，所有返回值均小于等于 endValu
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryEnding(atValue endValue: Any?, childKey: String?) -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryEndingAtValue:(nullable id)endValue childKey:(nullable NSString *)childKey;
 ```
 
@@ -794,12 +754,10 @@ childKey|当 query 查询到的值和 endValue 相等时，返回其中 key 小�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryEqual(toValue value: Any?) -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryEqualToValue:(nullable id)value;
 ```
 
@@ -832,12 +790,10 @@ value|query 查询到的值都等于 value。
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func queryEqual(toValue value: Any?, childKey: String?) -> WDGSyncQuery
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGSyncQuery *)queryEqualToValue:(nullable id)value childKey:(nullable NSString *)childKey;
 ```
 

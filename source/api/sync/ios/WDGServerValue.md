@@ -12,12 +12,10 @@ title: WDGServerValue
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 class func timestamp() -> Any!
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 + (NSDictionary *)timestamp;
 ```
 

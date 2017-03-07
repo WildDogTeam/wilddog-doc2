@@ -11,12 +11,10 @@ title: WDGDataSnapshot
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var value: Any? { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic, nullable) id value;
 ```
 
@@ -39,12 +37,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var childrenCount: UInt { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, nonatomic) NSUInteger childrenCount;
 ```
 
@@ -60,12 +56,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var ref: WDGSyncReference { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic) WDGSyncReference *ref;
 ```
 
@@ -81,12 +75,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var key: String { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic) NSString *key;
 ```
 
@@ -102,12 +94,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var children: NSEnumerator { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic) NSEnumerator<WDGDataSnapshot *> *children;
 ```
 
@@ -129,12 +119,10 @@ for (WDGDataSnapshot* child in snapshot.children) {
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 var priority: Any? { get }
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 @property (readonly, strong, nonatomic, nullable) id priority;
 ```
 
@@ -156,12 +144,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func childSnapshot(forPath childPathString: String) -> WDGDataSnapshot
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (WDGDataSnapshot *)childSnapshotForPath:(NSString *)childPathString;
 ```
 
@@ -197,12 +183,10 @@ childPathString|节点数据的相对路径，多层级间需要使用 "/" 分�
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func hasChild(_ childPathString: String) -> Bool
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (BOOL)hasChild:(NSString *)childPathString;
 ```
 
@@ -235,12 +219,10 @@ childPathString|相对路径
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func hasChildren() -> Bool
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (BOOL)hasChildren;
 ```
 
@@ -265,12 +247,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func exists() -> Bool
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (BOOL)exists;
 ```
 
@@ -294,12 +274,10 @@ Objective-C
 
 **定义**
 
-```swift
-Swift
+<div class="swift-lan">Swift</div>```swift
 func valueInExportFormat() -> Any?
 ```
-```objectivec
-Objective-C
+<div class="objectivec-lan">Objective-C</div>```objectivec
 - (id _Nullable)valueInExportFormat;
 ```
 
