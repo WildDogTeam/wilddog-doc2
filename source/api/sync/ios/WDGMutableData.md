@@ -7,11 +7,11 @@ title: WDGMutableData
 
 修改 `WDGMutableData` 实例中的数据，value 可将其设置为 Wilddog 支持的任一原生数据类型：
 
- * NSNumber (includes BOOL)
- * NSDictionary
- * NSArray
- * NSString
- * nil / NSNull (设置 nil / NSNull 删除该数据)
+- NSNumber (includes BOOL)
+- NSDictionary
+- NSArray
+- NSString
+- nil / NSNull (设置 nil / NSNull 删除该数据)
 
 
 ## 属性
@@ -30,7 +30,7 @@ var value: Any? { get set }
 **说明**
 
 `WDGMutableData` 实例中的数据，value 可将其设置为 Wilddog Sync 支持的任一原生数据类型：
-- NSNumber (includes BOOL)
+- NSNumber (包括 BOOL)
 - NSDictionary
 - NSArray
 - NSString
