@@ -64,7 +64,7 @@ class func configure(with options: WDGOptions)
 
 **说明**
 
-初始化默认的 Wilddog app。默认的 app 名字是 '__WDGAPP_DEFAULT'。如果配置失败，会抛出异常。
+初始化默认的 Wilddog app。默认的 app 名字是 `__WDGAPP_DEFAULT`。如果配置失败，会抛出异常。
 这个方法是线程安全的。
  
 
