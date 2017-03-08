@@ -26,7 +26,7 @@ void onDataChange(DataSnapshot snapshot)
 
 参数名 | 说明
 --- | ---
-snapshot |`DataSnapshot` 当前节点的数据快照。
+snapshot | [DataSnapshot](/api/sync/android/DataSnapshot.html) 当前节点的数据快照。
 </br>
 
 ---
@@ -45,7 +45,7 @@ void onCancelled(SyncError error)
 
 参数名 | 说明
 --- | ---
-error |`SyncError` 错误详细描述。
+error | [SyncError](/api/sync/android/SyncError.html) 错误详细描述。
 
 
 </br>

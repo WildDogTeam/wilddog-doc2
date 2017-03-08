@@ -139,7 +139,7 @@ SyncReference getRef()。
 
 ##### 返回值
 
-`SyncReference` 节点引用。
+[SyncReference](/api/sync/android/SyncReference.html) 节点引用。
 </br>
 
 ---

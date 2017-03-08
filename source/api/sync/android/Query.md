@@ -18,7 +18,7 @@ SyncReference getRef()
 
 ##### 返回值
 
-`SyncReference` 节点引用。
+[SyncReference](/api/sync/android/SyncReference.html) 节点引用。
 </br>
 
 ---
@@ -29,7 +29,7 @@ SyncReference getRef()
 ##### 定义
 
 ```java
-void addChildEventListener(ChildEventListener listener)
+ChildEventListener addChildEventListener(ChildEventListener listener)
 ```
 
 ##### 说明
@@ -47,7 +47,7 @@ listener | [ChildEventListener](/api/sync/android/ChildEventListener.html)类型
 
 ##### 返回值
 
-`ChildEventListener` 监听事件的引用，可使用 `removeEventListener(ChildEventListener)` 方法移除监听。
+[ChildEventListener](/api/sync/android/ChildEventListener.html) 监听事件的引用，可使用 `removeEventListener(ChildEventListener)` 方法移除监听。
 
 ##### 示例
 
@@ -130,6 +130,9 @@ void addValueEventListener(ValueEventListener listener)
 --- | ---
 listener | [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型，为当前节点绑定的监听事件。
 
+##### 返回值
+
+[ValueEventListener](/api/sync/android/ValueEventListener.html) 监听事件的引用，可使用 `removeEventListener(ValueEventListener)` 方法移除监听。
 
 ##### 示例
 

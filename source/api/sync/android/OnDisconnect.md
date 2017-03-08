@@ -34,14 +34,14 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `Map` 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
- - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+ - null 当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 
 ##### 参数
 
  参数名 | 说明
  --- | ---
-  value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+  value | value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 </br>
 
 ---
@@ -77,15 +77,15 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `Map` 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
- - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+ - null 当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 
 ##### 参数
 
  参数名 | 说明
  --- | ---
-  value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
-listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue` 事件设置完成回调。
+  value | value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue()` 事件设置完成回调。
 </br>
 
 ---
@@ -119,14 +119,14 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `Map` 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
- - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+ - null 当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 
 ##### 参数
 
  参数名 | 说明
  --- | ---
-  value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+  value |value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 priority |`Object` 指定节点的优先级，类型可以为 Boolean、Number 或 String。
 </br>
 
@@ -143,7 +143,7 @@ void setValue(Object value,Object priority，SyncReference.CompletionListener li
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后写入数据和[数据优先级](/api/sync/android/SyncReference.html#setPriority)，并设置事件设置完成监听。
 此操作会先清空指定节点再写入新的数据。
-离线事件设置完成后将触发 `listener` 的 `onComplete` 方法。
+离线事件设置完成后将触发 `listener` 的 `onComplete()` 方法。
 
 value 支持的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
@@ -169,9 +169,9 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 
  参数名 | 说明
  --- | ---
-  value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+  value |value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 priority |`Object` 指定节点的优先级，类型可以为 Boolean、Number 或 String。
-listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue` 事件设置完成回调。
+listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue()` 事件设置完成回调。
 </br>
 
 ---
@@ -193,7 +193,7 @@ void updateChildren(Map children)
 
  参数名 | 说明
  --- | ---
-  value |`Map<String, Object>` 当 `children` 为 null 时，等价于 `removeValue()` 操作。
+  value |`Map<String, Object>` 当 children 为 null 时，等价于 `removeValue()` 操作。
 
 
 </br>
@@ -216,7 +216,7 @@ void updateChildren(Map children,SyncReference.CompletionListener listener)
  参数名 | 说明
  --- | ---
   value |`Map<String, Object>` 当 value 为 null 时，等价于 `removeValue()` 操作。
-listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`updateChildren` 设置完成回调。
+listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`updateChildren()` 设置完成回调。
 
 
 </br>
@@ -260,7 +260,7 @@ void removeValue(SyncReference.CompletionListener listener)
 ##### 参数
  参数名 | 说明
  --- | ---
-listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`removeValue` 设置完成回调。
+listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`removeValue()` 设置完成回调。
 </br>
 
 ---
@@ -299,6 +299,6 @@ void cancel(SyncReference.CompletionListener listener)
 
  参数名 | 说明
  --- | ---
-listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`cancel` 事件设置完成回调。
+listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`cancel()` 事件设置完成回调。
 </br>
 
