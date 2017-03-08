@@ -4,24 +4,23 @@ title:  SyncReference.CompletionListener
 ## 方法
 
 ### onComplete(error,ref)
-**定义**
+##### 定义
 
 ```java
 void onComplete(SyncError error, SyncReference ref)
 ```
 
-**说明**
+##### 说明
 
 当操作执行完成后触发此方法。
 操作失败，将返回一个 `SyncError` 实例; 操作成功时 `SyncError` 为 null。
 
-**参数**
+##### 参数
 
-参数名 | 描述
+参数名 | 说明
 --- | ---
 error |`SyncError` 错误详细描述。
 ref | `SyncReference` 当前操作的节点引用。
 </br>
 
----
 

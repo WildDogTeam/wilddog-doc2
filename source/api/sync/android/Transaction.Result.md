@@ -7,20 +7,20 @@ title:  Transaction.Result
 
 ### isSuccess()
 
-**定义**
+##### 定义
 
 ```java
  boolean isSuccess ()
 ```
 
-**说明**
+##### 说明
 
 当前操作是否成功。
 
 
-**返回值**
+##### 返回值
 
 boolean 类型，成功返回 true，否则返回 false。
 </br>
 
----
+

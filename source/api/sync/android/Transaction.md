@@ -8,17 +8,17 @@ title:  Transaction
 
 ### abort()
 
-**定义**
+##### 定义
 
 ```java
 static Transaction.Result abort()
 ```
 
-**说明**
+##### 说明
 
 手动取消事务。
 
-**返回值**
+##### 返回值
 
 `Transaction.Result` 实例，当前操作结果。
 </br>
@@ -26,20 +26,20 @@ static Transaction.Result abort()
 ---
 ### success(resultData)
 
-**定义**
+##### 定义
 
 ```java
 static Transaction.Result success(MutableData resultData)
 ```
 
-**说明**
+##### 说明
 
 向云端提交事务请求。
 如果数据已被其他客户端修改，那么云端会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。
 
-**返回值**
+##### 返回值
 
 `Transaction.Result` 实例，当前操作结果。
 </br>
 
----
+

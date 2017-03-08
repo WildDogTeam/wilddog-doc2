@@ -7,13 +7,13 @@ title:  OnDisconnect
 
 ### setValue(value)
 
-**定义**
+##### 定义
 
 ```java
 void setValue(Object value)
 ```
 
-**说明**
+##### 说明
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后写入数据，此操作会先清空指定节点再写入新的数据。
 
@@ -37,9 +37,9 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
  - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 
-**参数**
+##### 参数
 
- 参数名 | 描述
+ 参数名 | 说明
  --- | ---
   value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 </br>
@@ -48,13 +48,13 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 
 ### setValue(value,listener)
 
-**定义**
+##### 定义
 
 ```java
 void setValue(Object value,SyncReference.CompletionListener listener)
 ```
 
-**说明**
+##### 说明
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后写入数据，并设置事件设置完成监听。
 此操作会先清空指定节点再写入新的数据。
@@ -80,9 +80,9 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
  - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 
-**参数**
+##### 参数
 
- 参数名 | 描述
+ 参数名 | 说明
  --- | ---
   value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue` 事件设置完成回调。
@@ -92,13 +92,13 @@ listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListene
 
 ### setValue(value,priority)
 
-**定义**
+##### 定义
 
 ```java
 void setValue(Object value,Object priority)
 ```
 
-**说明**
+##### 说明
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后写入数据和[数据优先级](/api/sync/android/SyncReference.html#setPriority)，此操作会先清空指定节点再写入新的数据。
 
@@ -122,9 +122,9 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
  - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 
-**参数**
+##### 参数
 
- 参数名 | 描述
+ 参数名 | 说明
  --- | ---
   value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 priority |`Object` 指定节点的优先级，类型可以为 Boolean、Number 或 String。
@@ -133,13 +133,13 @@ priority |`Object` 指定节点的优先级，类型可以为 Boolean、Number �
 ---
 ### setValue(value,priority，listener)
 
-**定义**
+##### 定义
 
 ```java
 void setValue(Object value,Object priority，SyncReference.CompletionListener listener)
 ```
 
-**说明**
+##### 说明
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后写入数据和[数据优先级](/api/sync/android/SyncReference.html#setPriority)，并设置事件设置完成监听。
 此操作会先清空指定节点再写入新的数据。
@@ -165,9 +165,9 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
  - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 
-**参数**
+##### 参数
 
- 参数名 | 描述
+ 参数名 | 说明
  --- | ---
   value |`value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 priority |`Object` 指定节点的优先级，类型可以为 Boolean、Number 或 String。
@@ -178,20 +178,20 @@ listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListene
 
 ### updateChildren(children)
 
-**定义**
+##### 定义
 
 ```java
 void updateChildren(Map children)
 ```
 
-**说明**
+##### 说明
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后更新指定子节点。
 
 
-**参数**
+##### 参数
 
- 参数名 | 描述
+ 参数名 | 说明
  --- | ---
   value |`Map<String, Object>` 当 `children` 为 null 时，等价于 `removeValue()` 操作。
 
@@ -202,18 +202,18 @@ void updateChildren(Map children)
 
 ### updateChildren(children，listener)
 
-**定义**
+##### 定义
 
 ```java
 void updateChildren(Map children,SyncReference.CompletionListener listener)
 ```
 
-**说明**
+##### 说明
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后更新指定子节点。
 
-**参数**
- 参数名 | 描述
+##### 参数
+ 参数名 | 说明
  --- | ---
   value |`Map<String, Object>` 当 value 为 null 时，等价于 `removeValue()` 操作。
 listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`updateChildren` 设置完成回调。
@@ -226,13 +226,13 @@ listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListen
 
 ### removeValue()
 
-**定义**
+##### 定义
 
 ```java
 void removeValue()
 ```
 
-**说明**
+##### 说明
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后移除当前节点的数据。
 `onDisconnect` 实例设置的离线操作只会触发一次。
@@ -245,20 +245,20 @@ void removeValue()
 
 ### removeValue(listener)
 
-**定义**
+##### 定义
 
 ```java
 void removeValue(SyncReference.CompletionListener listener)
 ```
 
-**说明**
+##### 说明
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后移除当前节点的数据。
 `onDisconnect` 实例设置的离线操作只会触发一次。
 如需每次离线时都执行 `removeValue()` 方法，则需要 监听连接状态，在连接建立成功后都通过 `removeValue()` 设置想要执行的删除操作。
 
-**参数**
- 参数名 | 描述
+##### 参数
+ 参数名 | 说明
  --- | ---
 listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`removeValue` 设置完成回调。
 </br>
@@ -268,13 +268,13 @@ listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListen
 
 ### cancel()
 
-**定义**
+##### 定义
 
 ```java
 void cancel()
 ```
 
-**说明**
+##### 说明
 
 取消所有未生效的离线事件。
 
@@ -285,21 +285,20 @@ void cancel()
 
 ### cancel(listener)
 
-**定义**
+##### 定义
 
 ```java
 void cancel(SyncReference.CompletionListener listener)
 ```
 
-**说明**
+##### 说明
 
 取消所有未生效的离线事件。
 
-**参数**
+##### 参数
 
- 参数名 | 描述
+ 参数名 | 说明
  --- | ---
 listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`cancel` 事件设置完成回调。
 </br>
 
----

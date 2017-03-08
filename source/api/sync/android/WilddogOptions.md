@@ -5,19 +5,19 @@ title: WilddogOptions
 ## 方法
 
 ### getSyncUrl()
-**定义**
+##### 定义
 
 ```java
 public String getSyncUrl ()
 ```
 
-**说明**
+##### 说明
 
-`WilddogSync` 的根路径 URL, e.g. `http://your-appid.wilddogio.com`.
+`WilddogSync` 的根路径 URL, 例如： `http://your-appid.wilddogio.com`.
 
-**返回值**
+##### 返回值
 
 `String`WilddogSync的根节点路径。
 </br>
 
---- 
+
