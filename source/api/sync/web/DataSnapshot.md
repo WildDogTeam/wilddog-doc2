@@ -3,27 +3,25 @@ title: DataSnapshot
 
 ---
 
-wilddog.sync.DataSnapshot 是当前指定节点下的数据快照，DataSnapshot 不会随当前节点数据的变化而发生改变。我们无法直接创建这个对象，而应当在 [on](/api/sync/web/Query.html#on) 或 [once](/api/sync/web/Query.html#once) 的回调函数中来获取它。
-
----
+`wilddog.sync.DataSnapshot` 是当前指定节点下的数据快照，`DataSnapshot` 不会随当前节点数据的变化而发生改变。我们无法直接创建这个对象，而应当在 [on](/api/sync/web/Query.html#on) 或 [once](/api/sync/web/Query.html#once) 的回调函数中来获取它。
 
 ## 方法
 
 ### exists
 
-**定义**
+##### 定义
 
-exists()
+`exists()`
 
-**说明**
+##### 说明
 
-判断当前 DataSnapshot 实例中是否包含数据。使用 exists() 方法进行非空判断比 snapshot.val() !== null 更高效。
+判断当前 `DataSnapshot` 实例中是否包含数据。使用 `exists()` 方法进行非空判断比 `snapshot.val() !== null` 更高效。
 
-**返回值**
+##### 返回值
 
-boolean
+`boolean`
 
-**示例**
+##### 示例
 
 假设我们有以下数据：
 ``` json
@@ -34,7 +32,7 @@ boolean
   }
 }
 ```
-用 exists 检测是否包含特定子节点：
+用 `exists` 检测是否包含特定子节点：
 ```js
 wilddog.sync().ref("/samplechat/users/jim").once("value")
     .then(function(snapshot) {
@@ -54,19 +52,19 @@ wilddog.sync().ref("/samplechat/users/jim").once("value")
 
 ### val
 
-**定义**
+##### 定义
 
-val()
+`val()`
 
-**说明**
+##### 说明
 
-返回当前数据快照包含的数据。val() 可能返回的数据类型包括：string、number、boolean、null（该节点下数据为空时）或者是数组、对象。返回的数据类型取决于节点下的数据内容。
+返回当前数据快照包含的数据。`val()` 可能返回的数据类型包括：`string`、`number`、`boolean`、`null`（该节点下数据为空时）或者是数组、对象。返回的数据类型取决于节点下的数据内容。
 
-**返回值**
+##### 返回值
 
-`object|string|null|number|boolean` 当前数据快照包含的数据, null 表示该节点的数据快照为空。
+`object|string|null|number|boolean` 当前数据快照包含的数据, `null` 表示该节点的数据快照为空。
 
-**示例**
+##### 示例
 
 假设我们已经有如下的数据：
 
@@ -89,26 +87,26 @@ ref.on('value', function(snapshot){
 
 ### child
 
-**定义**
+##### 定义
 
-child(path)
+`child(path)`
 
-**说明**
+##### 说明
 
-根据相对路径，来获取当前节点下子节点的数据快照。相对路径可以是一个字节点的 key 值（如：'Beijing'），也可以是更深层次的路径（如：'Beijing/pm25'）。如果相对路径下并没有数据，则返回 null 。
+根据相对路径，来获取当前节点下子节点的数据快照。相对路径可以是一个字节点的 `key` 值（如：`"Beijing"`），也可以是更深层次的路径（如：`'Beijing/pm25'`）。如果相对路径下并没有数据，则返回 `null` 。
 
-**参数**
+##### 参数
 
 | 参数名  | 说明                               |
 | ---- |-------------------------------- |
-| path | string(non-null)类型<br>path为相对路径，多层级间需要使用"/"分隔，例如“a/b”。 |
+| path | string(non-null)类型<br>path为相对路径，多层级间需要使用"/"分隔，例如"a/b"。 |
 
 
-**返回值**
+##### 返回值
 
-[wilddog.sync.DataSnapshot](/api/sync/web/api.html#wilddog-sync-DataSnapshot)
+`wilddog.sync.DataSnapshot` 实例
 
-**示例**
+##### 示例
 
 假设我们已经有如下的数据：
 
@@ -130,25 +128,25 @@ ref.on('value',function(snapshot){
 
 ### forEach
 
-**定义**
+##### 定义
 
-forEach(callback)
+`forEach(callback)`
 
-**说明**
+##### 说明
 
-遍历数据快照中的每一个子节点。受 JavaScript Object 对象的影响，snapshot 直接通过 val() 方法返回的数据不能保证显示的顺序完全符合 [orderBy\*()](../../) 的要求，因此我们提供了 forEach() 方法来解决这个问题。如果没有使用 orderBy\*() 方法，依次遍历出来的结果默认选择 key 排序（除非数据快照设置过 priority ,则会根据 priority 排序）。
+遍历数据快照中的每一个子节点。受 JavaScript Object 对象的影响，`snapshot` 直接通过 `val()` 方法返回的数据不能保证显示的顺序完全符合 [orderBy\*()](/guide/sync/web/retrieve-data.html#根据数据排序监听) 的要求，因此我们提供了 `forEach()` 方法来解决这个问题。如果没有使用 [orderBy\*()](/guide/sync/web/retrieve-data.html#根据数据排序监听) 方法，依次遍历出来的结果默认选择 `key` 排序（除非数据快照设置过 `priority` ,则会根据 `priority` 排序）。
 
-**参数**
+##### 参数
 
 | 参数名      | 说明             |
 | -------- | -------------- |
 | callback | function(non-null)类型<br>遍历每一个子节时的回调函数。如果在 callback 中主动 return true 则会停止之后的遍历。 |
 
-**返回值**
+##### 返回值
 
 [Void](/api/sync/web/Void.html)
 
-**示例**
+##### 示例
 
 假设我们已经有如下的数据：
 
@@ -200,25 +198,25 @@ query.once("value")
 
 ### hasChild
 
-**定义**
+##### 定义
 
-hasChild(key)
+`hasChild(key)`
 
-**说明**
+##### 说明
 
-判断是否存在某个指定的子节点。如果指定节点下的数据不为空，则返回 true。
+判断是否存在某个指定的子节点。如果指定节点下的数据不为空，则返回 `true。`
 
-**参数**
+##### 参数
 
 | 参数名  | 说明       |
 | ---- | -------- |
 | key  | string(non-null)类型<br>要检查的 key。 |
 
-**返回值**
+##### 返回值
 
-boolean
+`boolean`
 
-**示例**
+##### 示例
 
 假设我们已经有如下的数据：
 
@@ -246,19 +244,19 @@ ref.once("value")
 
 ### hasChildren
 
-**定义**
+##### 定义
 
-hasChildren()
+`hasChildren()`
 
-**说明**
+##### 说明
 
-如果 `Datasnapshot` 存在子节点返回 true，否则返回 false。你可以通过使用 hasChildren() 方法来确定当前的数据快照是否含有子节点，进而决定是否调用 [forEach()](api/sync/web/forEach.html#forEach) 方法来遍历数据。
+如果 `Datasnapshot` 存在子节点返回 `true`，否则返回 `false`。你可以通过使用 `hasChildren()` 方法来确定当前的数据快照是否含有子节点，进而决定是否调用 `forEach()` 方法来遍历数据。
 
-**返回值**
+##### 返回值
 
-boolean
+`boolean`
 
-**示例**
+##### 示例
 
 假设我们已经有如下的数据：
 
@@ -288,19 +286,19 @@ ref.once("value").then(function(snapshot) {
 
 ### key
 
-**定义**
+##### 定义
 
-key()
+`key()`
 
-**说明**
+##### 说明
 
-返回当前数据快照所属节点的 key。
+返回当前数据快照所属节点的 `key`。
 
-**返回值**
+##### 返回值
 
-string
+`string`
 
-**示例**
+##### 示例
 
 假设我们已经有如下的数据：
 
@@ -325,19 +323,19 @@ ref.on('child_changed', function(snapshot){
 
 ### numChildren
 
-**定义**
+##### 定义
 
-numChildren()
+`numChildren()`
 
-**说明**
+##### 说明
 
 返回子节点的个数。
 
-**返回值**
+##### 返回值
 
-number
+`number`
 
-**示例**
+##### 示例
 
 假设我们已经有如下的数据：
 
@@ -370,19 +368,19 @@ ref.once('value', function (snapshot) {
 
 ### ref
 
-**定义**
+##### 定义
 
-ref()
+`ref()`
 
-**说明**
+##### 说明
 
 返回当前数据快照所关联的 [wilddog.sync.Reference](/api/sync/web/Reference.html) 实例。
 
-**返回值**
+##### 返回值
 
 [wilddog.sync.Reference](/api/sync/web/Reference.html)
 
-**示例**
+##### 示例
 
 假设我们已经有如下的数据：
 
@@ -408,19 +406,19 @@ ref.once('value', function(snapshot){
 
 ### getPriority
 
-**定义**
+##### 定义
 
-getPriority()
+`getPriority()`
 
-**说明**
+##### 说明
 
-获取当前节点的 priority 值。如果优先级不存在时返回 null。
+获取当前节点的 `priority` 值。如果优先级不存在时返回 `null`。
 
-**返回值**
+##### 返回值
 
-`stirng|number|null` 不存在优先级时返回 null。
+`stirng|number|null` 不存在优先级时返回 `null`。
 
-**示例**
+##### 示例
 
 ```js
 var ref = wilddog.sync().ref("/samplechat/users");
@@ -436,19 +434,19 @@ ref.setWithPriority("fred", 500, function(error) {
 
 ### exportVal
 
-**定义**
+##### 定义
 
-exportVal()
+`exportVal()`
 
-**说明**
+##### 说明
 
-将 `DataSnapshot` 中的全部内容导出到 JavaScript 对象。exportVal() 方法和 val() 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，exportVal() 会导出包含 priority 的数据，适合用于备份。
+将 `DataSnapshot` 中的全部内容导出到 JavaScript 对象。`exportVal()` 方法和 `val()` 方法类似，都可以导出数据。但是当节点的 `priority` 值不为空时，`exportVal()` 会导出包含 `priority` 的数据，适合用于备份。
 
-**返回值**
+##### 返回值
 
 数据快照的值和优先级。
 
-**示例**
+##### 示例
 
 ``` js
 ref.setWithPriority("hello", 500).then(function(){
