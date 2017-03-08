@@ -9,7 +9,7 @@ title: WDGDataSnapshot
 
 ### value
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var value: Any? { get }
@@ -18,7 +18,7 @@ var value: Any? { get }
 @property (readonly, strong, nonatomic, nullable) id value;
 ```
 
-**说明**
+##### 说明
 
 当前数据快照包含的数据。数据类型取决于节点下的数据内容。
 可能返回的数据类型包括:
@@ -33,7 +33,7 @@ var value: Any? { get }
 
 ### childrenCount
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var childrenCount: UInt { get }
@@ -42,7 +42,7 @@ var childrenCount: UInt { get }
 @property (readonly, nonatomic) NSUInteger childrenCount;
 ```
 
-**说明**
+##### 说明
 
 `WDGDataSnapshot` 的子节点的总数。
 
@@ -52,7 +52,7 @@ var childrenCount: UInt { get }
 
 ### ref
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var ref: WDGSyncReference { get }
@@ -61,7 +61,7 @@ var ref: WDGSyncReference { get }
 @property (readonly, strong, nonatomic) WDGSyncReference *ref;
 ```
 
-**说明**
+##### 说明
 
 当前数据快照所关联的 `WDGSyncReference` 实例。
 
@@ -71,7 +71,7 @@ var ref: WDGSyncReference { get }
 
 ### key
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var key: String { get }
@@ -80,7 +80,7 @@ var key: String { get }
 @property (readonly, strong, nonatomic) NSString *key;
 ```
 
-**说明**
+##### 说明
 
 当前 `WDGDataSnapshot` 所属节点的 key。
 
@@ -90,7 +90,7 @@ var key: String { get }
 
 ### children
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var children: NSEnumerator { get }
@@ -99,7 +99,7 @@ var children: NSEnumerator { get }
 @property (readonly, strong, nonatomic) NSEnumerator<WDGDataSnapshot *> *children;
 ```
 
-**说明**
+##### 说明
 
 当前 `WDGDataSnapshot` 中，所有子节点的迭代器。
 例如:
@@ -115,7 +115,7 @@ for (WDGDataSnapshot* child in snapshot.children) {
 
 ### priority
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var priority: Any? { get }
@@ -124,7 +124,7 @@ var priority: Any? { get }
 @property (readonly, strong, nonatomic, nullable) id priority;
 ```
 
-**说明**
+##### 说明
 
 当前节点的 priority 值。优先级不存在时为 nil。
 
@@ -140,7 +140,7 @@ var priority: Any? { get }
 
 ### - childSnapshotForPath:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func childSnapshot(forPath childPathString: String) -> WDGDataSnapshot
@@ -149,7 +149,7 @@ func childSnapshot(forPath childPathString: String) -> WDGDataSnapshot
 - (WDGDataSnapshot *)childSnapshotForPath:(NSString *)childPathString;
 ```
 
-**说明**
+##### 说明
 
 根据相对路径，来获取当前节点下子节点的数据快照。
 相对路径可以是一个字节点的 key 值（例如："Beijing"），也可以是更深层次的路径（例如："Beijing/pm25"）。
@@ -159,7 +159,7 @@ func childSnapshot(forPath childPathString: String) -> WDGDataSnapshot
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -168,10 +168,9 @@ childPathString|节点数据的相对路径，多层级间需要使用 "/" 分�
 
 
 
-**返回值**
+##### 返回值
 
 `WDGDataSnapshot` 实例。
-
 
 </br>
 
@@ -179,7 +178,7 @@ childPathString|节点数据的相对路径，多层级间需要使用 "/" 分�
 
 ### - hasChild:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func hasChild(_ childPathString: String) -> Bool
@@ -188,14 +187,14 @@ func hasChild(_ childPathString: String) -> Bool
 - (BOOL)hasChild:(NSString *)childPathString;
 ```
 
-**说明**
+##### 说明
 
 判断是否存在某个指定的子节点。如果指定节点下的数据不为空，则返回 YES。
  
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -204,10 +203,9 @@ childPathString|相对路径
 
 
 
-**返回值**
+##### 返回值
 
 如果指定路径下存在子节点，返回YES，否则返回NO
-
 
 </br>
 
@@ -215,7 +213,7 @@ childPathString|相对路径
 
 ### - hasChildren
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func hasChildren() -> Bool
@@ -224,7 +222,7 @@ func hasChildren() -> Bool
 - (BOOL)hasChildren;
 ```
 
-**说明**
+##### 说明
 
 如果 `WDGDataSnapshot` 存在子节点返回 YES，否则返回 NO。
 你可以通过使用 `hasChildren` 方法来确定当前的数据快照是否含有子节点，进而决定是否利用 `children` 属性遍历数据。
@@ -232,10 +230,9 @@ func hasChildren() -> Bool
 
 
 
-**返回值**
+##### 返回值
 
 如果 `WDGDataSnapshot` 存在子节点返回 YES，否则返回 NO。
-
 
 </br>
 
@@ -243,7 +240,7 @@ func hasChildren() -> Bool
 
 ### - exists
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func exists() -> Bool
@@ -252,17 +249,16 @@ func exists() -> Bool
 - (BOOL)exists;
 ```
 
-**说明**
+##### 说明
 
 判断当前 `WDGDataSnapshot` 实例中是否包含数据。使用 exists 方法进行非空判断比 `snapshot.value != nil` 更高效。
  
 
 
 
-**返回值**
+##### 返回值
 
 如果 `WDGDataSnapshot` 包含非空数据，返回 YES。
-
 
 </br>
 
@@ -270,7 +266,7 @@ func exists() -> Bool
 
 ### - valueInExportFormat
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func valueInExportFormat() -> Any?
@@ -279,16 +275,13 @@ func valueInExportFormat() -> Any?
 - (id _Nullable)valueInExportFormat;
 ```
 
-**说明**
+##### 说明
 
 将 `WDGDataSnapshot` 中的全部内容导出。
 valueInExportFormat 方法和 `value` 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，valueInExportFormat 会导出包含 priority 的数据，适合用于备份。
 
 
 
-</br>
-
----
 
 
 
