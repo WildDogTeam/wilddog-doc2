@@ -2,7 +2,7 @@ title: WDGApp
 ---
 
 `WDGApp` 是野狗各个功能模块的入口。用于初始化时的必要参数配置。
-一个 `WDGApp` 实例对应一个野狗应用，在 SDK 内以应用别名区分。
+一个 `WDGApp` 实例对应一个野狗应用，在 SDK 内以应用名字区分。
 
 
 ## 属性
@@ -20,7 +20,7 @@ var name: String { get }
 
 ##### 说明
 
-获取这个 `WDGApp` 实例的别名。
+获取这个 `WDGApp` 实例的名字。
 
 </br>
 
@@ -105,7 +105,7 @@ class func configure(withName name: String, options: WDGOptions)
 
  参数名 | 说明 
 ---|---
-name|开发者自己起名的应用别名。这个名字只能包含字母、数字和下划线。
+name|开发者自己起名的应用名字。这个名字只能包含字母、数字和下划线。
 options|配置 Wilddog 应用所需的 `WDGOptions` 实例。
 
 
@@ -191,7 +191,7 @@ class func allApps() -> [AnyHashable : Any]?
 
 ##### 返回值
 
-包含所有 `WDGApp` 实例的字典，key 为 `WDGApp` 实例对应的别名。
+包含所有 `WDGApp` 实例的字典，key 为 `WDGApp` 实例对应的名字。
 
 </br>
 
@@ -210,7 +210,7 @@ func delete(_ completion: @escaping WDGAppVoidBoolCallback)
 
 ##### 说明
 
-清除当前的 `WDGApp`, 释放相关的数据，并回收它的别名以便将来使用。
+清除当前的 `WDGApp`, 释放相关的数据，并回收它的名字以便将来使用。
 这个方法是线程安全的。
  
 
