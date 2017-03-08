@@ -69,7 +69,7 @@ node | `String`  子节点名称。
 
 ##### 返回值
 
-`MutableData` 对象。
+`MutableData` 实例。
 </br>
 
 ---
@@ -117,11 +117,11 @@ MutableData getParent()
 ##### 说明
 
 获取一个节点的父节点数据，如果本身就是最顶端的节点，返回 null。
-已过时，不建议使用此方法。
+**已过时**，不建议使用此方法。
 
 ##### 返回值
 
-`MutableData` 。
+`MutableData` 实例 。
 </br>
 
 ---
@@ -178,7 +178,7 @@ void setValue(Object value)
 
 参数名 | 说明
 --- | ---
-value | `value` 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 `value` 为 null 时，会删除当前节点。
+value | value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 value 为 null 时，会删除当前节点。
 
 </br>
 
