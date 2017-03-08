@@ -222,7 +222,7 @@ func reference(fromURL syncUrl: String) -> WDGSyncReference
 ##### 说明
 
 用这个有效的 URL 获得一个 `WDGSyncReference` 引用。
-这个 URL 必须是指向默认 Wilddog Sync 数据库完整路径（如 'https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts' ）。
+这个 URL 必须是指向默认 Wilddog Sync 数据库完整路径（如 `https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts` ）。
 若要创建一个指向不同 Sync 数据库的 `WDGSyncReference`, 可以先用配置好 URL 的 `WDGOptions` 对象去创建一个 `WDGApp`。
  
 

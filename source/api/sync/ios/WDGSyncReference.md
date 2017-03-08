@@ -131,7 +131,7 @@ func child(_ pathString: String) -> WDGSyncReference
 
 获得一个在当前节点下指定路径节点处的 `WDGSyncReference` 实例。
 根据相对路径 `path`，来获取当前节点下 `path` 子节点的引用。
-相对路径可以是一个简单的节点路径（例如: "fred"），或者是一个更深的路径（例如: "fred/name/first"）。
+相对路径可以是一个简单的节点路径（例如: "fred"），或者是一个更深的路径（例如: `fred/name/first`）。
  
  
 
@@ -188,7 +188,7 @@ func childByAutoId() -> WDGSyncReference
 
 ##### 说明
 
-向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：-KdzI7I-AsBST9NlasJM）。
+向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：`-KdzI7I-AsBST9NlasJM`）。
 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
  
 
@@ -218,13 +218,13 @@ func setValue(_ value: Any?)
 往 WDGSyncReference 当前路径写入一个值。
 这将会覆盖当前路径和子路径的所有数据。
 支持的数据类型:
- - NSString -- @"Hello World"
- - NSNumber (包括 BOOL 类型) -- @YES, @43, @4.333
- - NSDictionary -- @{@"key": @"value", @"nested": {@"another": @"value"}}
- - NSArray -- @[@"a", @"b", @"c"]
+ - NSString -- `@"Hello World"`
+ - NSNumber (包括 BOOL 类型) -- `@YES`, `@43`, `@4.333`
+ - NSDictionary -- `@{@"key": @"value", @"nested": {@"another": @"value"}}`
+ - NSArray -- `@[@"a", @"b", @"c"]`
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ）之间，n+1 个元素中超过一半以上有值，数据将被转换为 NSArray 类型;
-如果不满足条件，Wilddog Sync 处理数据时会将其转换为 NSDictionary 类型。
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ）之间，n+1 个元素中超过一半以上有值，数据将被转换为 `NSArray` 类型;
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `NSDictionary` 类型。
 当 value 为 nil 或者 NSNull 实例时相当于调用 `removeValue:`，这个路径的所有数据和子路径的数据都将被删除。
 `setValue:` 将会删除先前保存的 priority，所以如果要保留先前 priority，必须调用 `setValue:andPriority:`。
  
