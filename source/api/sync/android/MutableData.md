@@ -200,7 +200,7 @@ void setPriority(Object priority)
 
 参数名 | 描述
 --- | ---
-priority | `Object` 类型，指定节点的优先级，优先级类型可以为 Number、String 或 null。
+priority | `Object` 类型，指定节点的优先级，类型可以为 Number、String 或 null。
 
 </br>
 

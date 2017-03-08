@@ -21,7 +21,7 @@ DataSnapshot child (String path)
 
 参数名 | 描述
 --- | ---
-path | `String` 类型,path为相对路径，多层级间需要使用 "/" 分隔，例如 "a/b"。
+path | `String` 类型,path 为相对路径，多层级间需要使用 "/" 分隔，例如 "a/b"。
 
 **返回值**
 
@@ -40,7 +40,7 @@ boolean exists()
 
 **说明**
 
-判断当前 `DataSnapshot` 实例中是否包含数据，相当于 `snapshot.getValue()!=null`。
+判断当前 `DataSnapshot` 实例中是否包含数据，相当于 `snapshot.getValue() != null`。
 但使用 `exists()` 方法进行非空判断比 `snapshot.getValue() != null` 更高效。
 
 **返回值**
@@ -193,7 +193,7 @@ Object getPriority()
 
 **返回值**
 
-`Object` 返回值类型根据节点优先级值的不同，可能为：`String`、`Double`或`Null`。
+`Object` 返回值类型根据节点优先级值的不同，可能为：String、Double 或 null。
 </br>
 
 ---

@@ -19,7 +19,7 @@ void setValue(Object value)
 
 支持的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
- - 数组 ArrayList;
+ - 数组 `ArrayList`;
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 例如：
 ```java
@@ -31,8 +31,8 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
         ref.child("list").setValue(strList);
 ```
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
-如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `Map` 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
  - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
@@ -62,7 +62,7 @@ void setValue(Object value,SyncReference.CompletionListener listener)
 
 value 支持的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
- - 数组 ArrayList;
+ - 数组 `ArrayList`;
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 例如：
 ```java
@@ -74,8 +74,8 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
         ref.child("list").setValue(strList);
 ```
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
-如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `Map` 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
  - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
@@ -104,7 +104,7 @@ void setValue(Object value,Object priority)
 
 value 支持的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
- - 数组 ArrayList;
+ - 数组 `ArrayList`;
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 例如：
 ```java
@@ -116,8 +116,8 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
         ref.child("list").setValue(strList);
 ```
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
-如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `Map` 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
  - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
@@ -147,7 +147,7 @@ void setValue(Object value,Object priority，SyncReference.CompletionListener li
 
 value 支持的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
- - 数组 ArrayList;
+ - 数组 `ArrayList`;
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 例如：
 ```java
@@ -160,7 +160,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         ref.child("list").setValue(strList);
 ```
 在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
-如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `Map` 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
  - null 当 `value` 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 

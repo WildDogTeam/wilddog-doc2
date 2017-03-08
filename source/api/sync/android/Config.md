@@ -60,7 +60,7 @@ void setLogLevel(Logger.Level logLevel)
 
 参数名 | 描述
 --- | ---
-logLevel | `Logger.Level` 所需最低的日志等级。共有 NONE/INFO/WARN/DEBUG/ERROR 五个日志级别。
+logLevel | `Logger.Level` 所需最低的日志等级。</br>共有 NONE/INFO/WARN/DEBUG/ERROR 五个日志级别。
 </br>
 
 ---
@@ -94,7 +94,8 @@ void setAuthenticationServer(String host)
 
 **说明**
 
-设置主机可以被用户登录认证。在不确定是否可以认证的情况下，请不要使用此设置。
+设置主机可以被用户登录认证。
+在不确定是否可以认证的情况下，请不要使用此设置。
 
 **参数**
 

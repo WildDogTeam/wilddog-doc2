@@ -1,6 +1,6 @@
 title:  ValueEventListener
 ---
-`WilddogSync` 数据监听器，主要用于监听当前节点所有数据的变化，当节点数据发生变化时将触发相应的回调方法。
+`WilddogSync` 数据监听器，主要用于监听当前节点所有数据的变化，当节点数据发生变化时将触发 `onDataChange` 回调方法。
 注意， 此监听器只关注当前节点的所有数据，适用与关注节点数据整体变化的场景。
 
 
@@ -40,7 +40,7 @@ void onCancelled(SyncError error)
 
 参数名 | 描述
 --- | ---
-error |`SyncError` 错误实例。
+error |`SyncError` 错误详细描述。
 
 
 </br>

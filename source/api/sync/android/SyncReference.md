@@ -393,7 +393,7 @@ void updateChildren(Map<String, Object> value, SyncReference.CompletionListener 
 
  参数名 | 描述
  --- | ---
-  value |`Map<String, Object>` 当 value 为 null 时，等价于 `removeValue` 操作。
+  value |`Map<String, Object>` 当 `value` 为 null 时，等价于 `removeValue` 操作。
 listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
 
 
@@ -433,16 +433,16 @@ void setPriority(Object priority)
 **说明**
 
    设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。
-   不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority`。
+   不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority(priority)`。
 
    节点按照如下优先级规则升序排列：null < Number < String。
  
    - priority 为 null 的排最先；
    - priority 为数值的次之，按照数值从小到大排序；
    - priority 为字符串的排最后，按照字典序排列。
-   - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
+   - 当两个子节点有相同的 priority（包括没有 priority），它们按照 `key` 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
 
-   注意：数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，Key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
+   注意：数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，`Key` 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
 
 **参数**
 
@@ -464,16 +464,16 @@ void setPriority(Object object, SyncReference.CompletionListener listener)
 **说明**
 
 设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。
-   不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority`。
+   不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority(priority)`。
 
    节点按照如下优先级规则升序排列：null < Number < String。
  
    - priority 为 null 的排最先；
    - priority 为数值的次之，按照数值从小到大排序；
    - priority 为字符串的排最后，按照字典序排列。
-   - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
+   - 当两个子节点有相同的 priority（包括没有 priority），它们按照 `key` 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
 
-   注意：数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，Key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
+   注意：数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，`Key` 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
 
 **参数**
 
@@ -567,7 +567,7 @@ void runTransaction(Transaction.Handler handler)
 
 参数名 | 描述
 --- | ---
-handler |Transaction.Handler
+handler |[Transaction.Handler](/api/sync/android/Transaction.Handler.html) 类型。
 
 
 
@@ -584,7 +584,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
             currentData.setValue((Long) currentData.getValue() + 1);
         }
 
-        return Transaction.success(currentData); // 我们可以调用 Transaction.abort() 中止事务
+        return Transaction.success(currentData); // 向云端提交数据。也可以调用 Transaction.abort() 中止事务
     }
 
     public void onComplete(SyncError wilddogError, boolean committed, DataSnapshot currentData) {
@@ -675,7 +675,7 @@ public  String getKey()
 SyncReference ref = WilddogSync.getInstance().getReference("test");
 //当前节点为 '/test/a/b'
 SyncReference refChild = ref.child("a").child("b");
-//获取当前节点的 key 值，key="b";
+//获取当前节点的 key 值，key = "b";
 String key = refChild.getKey();
 
 ```
@@ -746,7 +746,7 @@ public  static void goOffline()
 
 手动断开与云端的连接。执行 `goOffline()` 操作后，会关闭自动重连机制，所有数据操作都在本地执行，不会影响到网络数据。
 同时不会接收任何网络数据变化，直到恢复连接。
-注意：调用此方法会影响到所有 App 的 WilddogSync 连接。
+注意：调用此方法会影响到所有 `WilddogApp` 的 `WilddogSync` 连接。
 
 </br>
 
@@ -762,7 +762,7 @@ public  static void goOnline()
 **说明**
 
 手动建立与云端的连接，开启自动重连机制。在关闭连接期间发生的所有本地数据变化，都将在网络连接恢复后与网络数据比对，进行数据合并。
-注意：调用此方法会影响到所有 App 的 WilddogSync 连接。
+注意：调用此方法会影响到所有 `WilddogApp` 的 `WilddogSync` 连接。
 
 </br>
 

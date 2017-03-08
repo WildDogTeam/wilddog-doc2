@@ -43,10 +43,8 @@ void addChildEventListener(ChildEventListener listener)
 
 参数名 | 描述
 --- | ---
-listener | `ChildEventListener`类型，实现了此接口的类可以接收当前节点下的事件。
-           `onChildAdded()` 监听子节点的添加事件。
-           `onChildRemoved()` 监听子节点的删除事件。
-           `onChildChanged()` 监听子节点的变化事件。
+listener | [ChildEventListener](/api/sync/android/ChildEventListener.html)类型，实现了此接口的类可以接收当前节点下的事件。
+          
 
 **返回值**
 
@@ -110,7 +108,7 @@ void addListenerForSingleValueEvent(ValueEventListener listener)
 
 参数名 | 描述
 --- | ---
-listener | `ValueEventListener` 类型，为当前节点绑定的监听事件。
+listener | [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型，为当前节点绑定的监听事件。
 
 </br>
 
@@ -132,11 +130,8 @@ void addValueEventListener(ValueEventListener listener)
 
 参数名 | 描述
 --- | ---
-listener | `ValueEventListener` listener将监听Change事件。
+listener | [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型，为当前节点绑定的监听事件。
 
-**返回值**
-
-`ValueEventListener` 返回监听事件的引用，可用于删除此事件。
 
 **示例**
 
@@ -183,7 +178,7 @@ void removeEventListener(ValueEventListener valueListener)
 
 参数名 | 描述
 --- | ---
-listener | `ValueEventListener` 要移除的监听事件。
+listener |  [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型,要移除的监听事件。
 </br>
 
 ---
@@ -203,7 +198,7 @@ void removeEventListener(ChildEventListener childEventListener)
 
 参数名 | 描述
 --- | ---
-listener | `ChildEventListener` 要移除的监听事件。
+listener | [ChildEventListener](/api/sync/android/ChildEventListener.html) 类型,要移除的监听事件。
 </br>
 
 ---
@@ -286,7 +281,7 @@ Query orderByPriority()
  - priority 为数值的次之，按照数值从小到大排序；
  - priority 为字符串的排最后，按照字典序排列；
  - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
-注意：数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，Key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
+注意：数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
 
 此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
 

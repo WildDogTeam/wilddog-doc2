@@ -65,7 +65,6 @@ void onChildMoved(DataSnapshot snapshot,
 **说明**
 
 当前排序下，当有子节点排序发生变化时触发此方法。
-
 例如当按照优先级排序时，某个子节点的优先级发生改变时将返回此节点数据快照，以及按照新优先级值排序后的前一节点 key 值。
 
 **参数**
@@ -128,7 +127,7 @@ void onCancelled(SyncError error)
 
 参数名 | 描述
 --- | ---
-error |`SyncError` 错误实例。
+error |`SyncError` 错误详细描述。
 
 
 </br>
