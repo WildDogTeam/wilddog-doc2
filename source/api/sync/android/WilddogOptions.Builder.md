@@ -25,7 +25,7 @@ syncUrl | `String` 类型，`WilddogSync` 的路径。
 
 ##### 返回值
 
-`WilddogOptions.Builder` 用于创建 `WilddogOptions` 对象的构造器对象。
+`WilddogOptions.Builder` 用于创建 [WilddogOptions](/api/sync/android/WilddogOptions.html) 对象的构造器对象。
 </br>
 
 --- 
@@ -39,7 +39,7 @@ WilddogOptions build ()
 
 ##### 说明
 
-使用设置的 syncUrl 参数，创建 `WilddogOptions` 实例。
+使用设置的 syncUrl 参数，创建 [WilddogOptions](/api/sync/android/WilddogOptions.html) 实例。
 
 ##### 返回值
 
