@@ -1,6 +1,6 @@
 title:  SyncReference.CompletionListener
 ---
-
+`SyncReference` 操作完成监听，每个操作执行完成后会回调此监听的 `onComplete` 方法。
 ## 方法
 
 ### onComplete(error,ref)
@@ -12,14 +12,15 @@ void onComplete(SyncError error, SyncReference ref)
 
 **说明**
 
-当操作成功或者失败的时候触发这个方法。如果操作失败，会给出一个error,如果操作成功，error为null。
+当操作执行完成后触发此方法。
+操作失败，将返回一个 `SyncError` 实例; 操作成功时 `SyncError` 为 null。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-error |`SyncError` 错误描述。
-ref | `SyncReference` 到指定 Sync 节点的引用。
+error |`SyncError` 错误详细描述。
+ref | `SyncReference` 当前操作的节点引用。
 </br>
 
 ---

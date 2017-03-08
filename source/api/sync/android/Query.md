@@ -1,6 +1,28 @@
 title:  Query
 ---
 
+查询指定路径和指定条件下的数据。
+
+## 属性
+
+### getRef()
+**定义**
+
+```java
+SyncReference getRef()
+```
+
+**说明**
+
+获取当前 `Query` 实例所在路径下的 `SyncReference` 实例。
+
+**返回值**
+
+`SyncReference` 节点引用。
+</br>
+
+---
+
 ## 方法
 
 ### addChildEventListener(listener)
@@ -12,21 +34,21 @@ void addChildEventListener(ChildEventListener listener)
 
 **说明**
 
-为子节点绑定监听事件，监听该子节点数据的变化。用户需要实现ValueEventListener接口。
+
+监听 Wilddog Sync 云端数据的主要方式之一，用于监听当前节点下子节点的数据。
+当监听到当前节点的初始数据或当前节点的数据改变时，将会触发相应事件，每次返回一个子节点的数据。
 
 **参数**
 
 
 参数名 | 描述
 --- | ---
-listener | `ChildEventListener`
-           `onChildAdded()` 监听子节点的添加事件。
-           `onChildRemoved()` 监听子节点的删除事件。
-           `onChildChanged()` 监听子节点的变化事件。
+listener | [ChildEventListener](/api/sync/android/ChildEventListener.html)类型，实现了此接口的类可以接收当前节点下的事件。
+          
 
 **返回值**
 
-`ChildEventListener` 返回监听事件的引用，可用于删除此事件。
+`ChildEventListener` 监听事件的引用，可使用 `removeEventListener(ChildEventListener)` 方法移除监听。
 
 **示例**
 
@@ -77,15 +99,16 @@ void addListenerForSingleValueEvent(ValueEventListener listener)
 ```
 
 **说明**
+监听 Wilddog Sync 云端数据的主要方式之一，用于获取当前节点下的所有数据。
 
-为当前节点单次数据获取绑定监听事件，此监听器只被触发一次，以获取当前节点下的所有数据。
+同 `addValueEventListener` 类似，不同之处在于 `addListenerForSingleValueEvent` 中的回调方法只被触发一次，之后会自动取消监听。
 
 **参数**
 
 
 参数名 | 描述
 --- | ---
-listener | `ValueEventListener` 节点绑定的监听事件。
+listener | [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型，为当前节点绑定的监听事件。
 
 </br>
 
@@ -99,18 +122,16 @@ void addValueEventListener(ValueEventListener listener)
 
 **说明**
 
-为当前节点绑定监听事件，监听该节点数据的变化。用户需要实现ValueEventListener接口。
+监听 Wilddog Sync 云端数据的主要方式之一，用于监听当前节点所有节点的数据。
+当监听到当前节点的初始数据或当前节点的数据改变时，将会触发 `onDataChange` 回调方法，返回当前节点下的所有数据。
 
 **参数**
 
 
 参数名 | 描述
 --- | ---
-listener | `ValueEventListener` listener将监听Change事件。
+listener | [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型，为当前节点绑定的监听事件。
 
-**返回值**
-
-`ValueEventListener` 返回监听事件的引用，可用于删除此事件。
 
 **示例**
 
@@ -150,14 +171,14 @@ void removeEventListener(ValueEventListener valueListener)
 
 **说明**
 
-删除已绑定的监听事件。
+移除监听事件。移除使用 `addValueEventListener` 方法设置的数据监听。
 
 **参数**
 
 
 参数名 | 描述
 --- | ---
-listener | `ValueEventListener` 要删除的监听事件
+listener |  [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型,要移除的监听事件。
 </br>
 
 ---
@@ -170,40 +191,18 @@ void removeEventListener(ChildEventListener childEventListener)
 
 **说明**
 
-删除已绑定的监听事件。
+移除监听事件。移除使用 `addChildEventListener` 方法设置的数据监听。
 
 **参数**
 
 
 参数名 | 描述
 --- | ---
-listener | `ChildEventListener` 要删除的监听事件
+listener | [ChildEventListener](/api/sync/android/ChildEventListener.html) 类型,要移除的监听事件。
 </br>
 
 ---
-### orderByChild(childKey)
-**定义**
 
-```java
-Query orderByChild(String childKey)
-```
-
-**说明**
-
-使用指定的子节点的值进行排序。
-
-**参数**
-
-参数名 | 描述
---- | ---
-childKey | `String` 子节点属性
-
-**返回值**
-
-`Query` 查询器类。
-</br>
-
----
 ### orderByKey()
 
 **定义**
@@ -214,11 +213,12 @@ Query orderByKey()
 
 **说明**
 
-使用子节点的key进行排序。
+创建一个新的 `Query` 实例，按子节点的 key 对结果以字典序进行排序。
+此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
 
 **返回值**
 
-Query 查询器类
+`Query` 查询器类实例。
 </br>
 
 ---
@@ -232,11 +232,36 @@ Query orderByValue()
 
 **说明**
 
-使用子节点的值进行排序。
+创建一个新的 `Query` 实例，按子节点的值 value 对结果排序。
+此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
 
 **返回值**
 
-`Query` 查询器类。
+`Query` 查询器类实例。
+</br>
+
+---
+### orderByChild(childKey)
+**定义**
+
+```java
+Query orderByChild(String childKey)
+```
+
+**说明**
+
+创建一个新的 `Query` 实例，按子节点下指定的 key 对应的 value 对结果进行排序。
+此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+childKey | `String` 用来排序的子节点的 key。
+
+**返回值**
+
+`Query` 查询器类实例。
 </br>
 
 ---
@@ -250,106 +275,202 @@ Query orderByPriority()
 
 **说明**
 
-根据子节点的优先级进行排序。
+创建一个新的 `Query` 实例，按节点的 priority 对结果排序。 节点按照如下优先级规则升序排列：null < Number < String。
+排序规则：
+ - priority 为 nil 的排最先；
+ - priority 为数值的次之，按照数值从小到大排序；
+ - priority 为字符串的排最后，按照字典序排列；
+ - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
+注意：数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
+
+此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
 
 **返回值**
 
-`Query` 查询器类。
+`Query` 查询器类实例。
 
 </br>
 
 ---
-### startAt()
+### startAt(value)
 
 **定义**
 
 ```java
-Object startAt(String value), Object startAt(double value), Object startAt(boolean value)
+Query startAt(startValue value)
 ```
 
 **说明**
-
-创建一个大于等于的范围查询，可配合orderBy方式使用。注意 : 对于使用Object startAt(String value)进行查询时,查询方式是通过将字符进行unicode编码后进行排序。
+创建一个新的 `Query` 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 
+此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+注意 : 对于使用 `startAt(String value)` 进行查询时,查询方式是通过将字符进行 unicode 编码后进行排序。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-value | `String` ,`double`, `boolean`。
+value | 查询返回值的下界，所有返回值均大于等于 startValue。value 的类型 可以为 `String`、`double` 或 `boolean`。
 
 **返回值**
 
-`Query` 查询器类。
+`Query` 查询器类实例。
 </br>
 
 ---
-### endAt()
+
+### startAt(startValue，key)
 
 **定义**
 
 ```java
-Object endAt(String value), Object endAt(double value), Object endAt(boolean value)
+Query startAt(Object startValue，String childKey)
 ```
 
 **说明**
+创建一个新的 `Query` 实例，可以查询所有大于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。 
+当查询到的 value 与 startValue 相等时，则只保留 key 大于等于 childKey 的节点。
+此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+该方法可用于分页。
 
-创建一个小于等于的范围查询，可配合orderBy方式使用。注意 : 对于使用Object endAt(String value)进行查询时,查询方式是通过将字符进行unicode编码后进行排序。
+注意 : 对于使用 `startAt(String value)` 进行查询时,查询方式是通过将字符进行 unicode 编码后进行排序。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-value | `String` ,`double`, `boolean`。
+value | 查询返回值的下界，所有返回值均大于等于 startValue。value 的类型可以为 `String`、`double` 或 `boolean`。
+childKey | 当查询到的值和 startValue 相等时，返回其中 key 大于等于 childKey 的节点。
 
 **返回值**
 
-`Query` 查询器类。
+`Query` 查询器类实例。
 </br>
 
 ---
-### equalTo()
+### endAt(endValue)
+
 **定义**
 
 ```java
-Object equalTo(String value)，Object equalTo(double value)，Object equalTo(boolean value)
+Query endAt(Object endValue)
 ```
 
 **说明**
 
-创建一个等于的精确查询。
+创建一个新的 `Query` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 
+此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-value | `String` ,`double`, `boolean`。
+value | 查询返回值的上界，所有返回值均小于等于 endValue。endValue 的类型可以为 `String`、`double` 或 `boolean`。
 
 **返回值**
 
-`Query` 查询器类。
+`Query` 查询器类实例。
 </br>
 
 ---
-### limitToFirst(count)
+
+### endAt(endValue，childKey)
+
 **定义**
 
 ```java
-Query limitToFirst(int count)
+Query endAt(Object endValue，String childKey)
 ```
 
 **说明**
 
-创建一个limit查询。从第一条开始获取指定数量的数据。
+创建一个新的 `Query` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 
+当查询到的 value 与 endValue 相等时，则只保留 key 小于等于 childKey 的节点
+此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-count | `int` 数量。
+value | 查询返回值的上界，所有返回值均小于等于 endValue。endValue 的类型可以为 `String`、`double` 或 `boolean`。
+childKey | 当查询到的值和 endValue 相等时，返回其中 key 小于等于 childKey 的节点。
 
 **返回值**
 
-`Query` 查询器类。
+`Query` 查询器类实例。
+</br>
+
+---
+### equalTo(value)
+**定义**
+
+```java
+Object equalTo(Object value)
+```
+
+**说明**
+
+创建一个新的 `Query` 实例，用于精确查询指定 key、value 或 priority 的节点，具体取决于所选的排序方法。
+此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+value | 查询节点的指定 value。
+
+**返回值**
+
+`Query` 查询器类实例。
+</br>
+
+---
+
+### equalTo(value，childKey)
+**定义**
+
+```java
+Object equalTo(Object value，String childKey)
+```
+
+**说明**
+
+创建一个新的 `Query` 实例，用于精确查询指定 key、value 或 priority 等于 value 并且节点 key 等于 childKey 的节点，具体取决于所选的排序方法。
+由于 childKey 是唯一的，查询最多返回一个节点。
+此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+value | 指定查询节点的 value。
+childKey | 指定查询节点的 childKey。
+
+**返回值**
+
+`Query` 查询器类实例。
+</br>
+
+---
+### limitToFirst(limit)
+**定义**
+
+```java
+Query limitToFirst(int limit)
+```
+
+**说明**
+
+创建一个新的 `Query` 实例，获取当前排序下从第一个节点开始的最多 (limit) 条数据。
+
+**参数**
+
+参数名 | 描述
+--- | ---
+count | 能够获取的子节点的最大数量。
+
+**返回值**
+
+`Query` 查询器类实例。
 </br>
 
 ---
@@ -357,39 +478,23 @@ count | `int` 数量。
 **定义**
 
 ```java
-Query limitToLast(int count)
+Query limitToLast(int limit)
 ```
 
 **说明**
 
-创建一个limit查询。从最后一条开始获取指定数量的数据。
+创建一个新的 WDGSyncQuery 实例，获取当前排序下，从最后一个节点开始向前的最多 (limit) 条数据。
 
 **参数**
 
 参数名 | 描述
 --- | ---
-count | `int` 数量。
+count | 能够获取的子节点的最大数量。。
 
 **返回值**
 
-`Query` 查询器类。
+`Query` 查询器类实例。
 </br>
 
 ---
-### getRef()
-**定义**
 
-```java
-SyncReference getRef()
-```
-
-**说明**
-
-获得当前的引用。
-
-**返回值**
-
-`SyncReference` 节点引用。
-</br>
-
----
