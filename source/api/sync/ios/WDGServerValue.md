@@ -10,7 +10,7 @@ title: WDGServerValue
 
 ### + timestamp
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 class func timestamp() -> Any!
@@ -19,21 +19,16 @@ class func timestamp() -> Any!
 + (NSDictionary *)timestamp;
 ```
 
-**说明**
+##### 说明
 
 可以作为 value 或者 priority 写入 Wilddog Sync 中，写入的字典数据会由 Wilddog Sync 自动转换为自 Unix epoch 开始的的毫秒数。
  
 
 
 
-**返回值**
+##### 返回值
 
 返回一个载有 [".sv":"timestamp"] 的字典。
-
-
-</br>
-
----
 
 
 

@@ -9,7 +9,7 @@ title: WDGSyncReference
 
 ### parent
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var parent: WDGSyncReference? { get }
@@ -18,11 +18,10 @@ var parent: WDGSyncReference? { get }
 @property (readonly, strong, nonatomic, nullable) WDGSyncReference *parent;
 ```
 
-**说明**
+##### 说明
 
 当前节点的父节点引用。
  
-
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
 <ul>
@@ -37,7 +36,7 @@ var parent: WDGSyncReference? { get }
 
 ### root
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var root: WDGSyncReference { get }
@@ -46,7 +45,7 @@ var root: WDGSyncReference { get }
 @property (readonly, strong, nonatomic) WDGSyncReference *root;
 ```
 
-**说明**
+##### 说明
 
 根结点的引用。
 
@@ -56,7 +55,7 @@ var root: WDGSyncReference { get }
 
 ### key
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var key: String { get }
@@ -65,7 +64,7 @@ var key: String { get }
 @property (readonly, strong, nonatomic) NSString *key;
 ```
 
-**说明**
+##### 说明
 
 当前节点的 key 值。
 
@@ -75,7 +74,7 @@ var key: String { get }
 
 ### URL
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var url: String { get }
@@ -84,7 +83,7 @@ var url: String { get }
 @property (readonly, strong, nonatomic) NSString *URL;
 ```
 
-**说明**
+##### 说明
 
 这个引用所属的指向 Wilddog 数据库节点的 URL。
 
@@ -94,7 +93,7 @@ var url: String { get }
 
 ### sync
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var sync: WDGSync { get }
@@ -103,7 +102,7 @@ var sync: WDGSync { get }
 @property (readonly, strong, nonatomic) WDGSync *sync;
 ```
 
-**说明**
+##### 说明
 
 当前 `SyncReference` 实例相关的 `WilddogSync` 实例。
 
@@ -119,7 +118,7 @@ var sync: WDGSync { get }
 
 ### - child:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func child(_ pathString: String) -> WDGSyncReference
@@ -128,7 +127,7 @@ func child(_ pathString: String) -> WDGSyncReference
 - (WDGSyncReference *)child:(NSString *)pathString;
 ```
 
-**说明**
+##### 说明
 
 获得一个在当前节点下指定路径节点处的 `WDGSyncReference` 实例。
 根据相对路径 `path`，来获取当前节点下 `path` 子节点的引用。
@@ -137,7 +136,7 @@ func child(_ pathString: String) -> WDGSyncReference
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -146,10 +145,9 @@ pathString|从这个节点到要设定的子节点的相对路径，深层路径
 
 
 
-**返回值**
+##### 返回值
 
 指定节点位置的 `WDGSyncReference` 实例。
-
 
 </br>
 
@@ -157,7 +155,7 @@ pathString|从这个节点到要设定的子节点的相对路径，深层路径
 
 ### - childByAppendingPath:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func child(byAppendingPath pathString: String) -> WDGSyncReference
@@ -166,9 +164,10 @@ func child(byAppendingPath pathString: String) -> WDGSyncReference
 - (WDGSyncReference *)childByAppendingPath:(NSString *)pathString;
 ```
 
-**说明**
+##### 说明
 
 `childByAppendingPath:` 已废弃, 使用 `child:` 代替。
+
 
 
 
@@ -178,7 +177,7 @@ func child(byAppendingPath pathString: String) -> WDGSyncReference
 
 ### - childByAutoId
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func childByAutoId() -> WDGSyncReference
@@ -187,7 +186,7 @@ func childByAutoId() -> WDGSyncReference
 - (WDGSyncReference *)childByAutoId;
 ```
 
-**说明**
+##### 说明
 
 向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：-KdzI7I-AsBST9NlasJM）。
 新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
@@ -195,10 +194,9 @@ func childByAutoId() -> WDGSyncReference
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncReference` 新增子节点的实例。
-
 
 </br>
 
@@ -206,7 +204,7 @@ func childByAutoId() -> WDGSyncReference
 
 ### - setValue:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func setValue(_ value: Any?)
@@ -215,7 +213,7 @@ func setValue(_ value: Any?)
 - (void)setValue:(nullable id)value;
 ```
 
-**说明**
+##### 说明
 
 往 WDGSyncReference 当前路径写入一个值。
 这将会覆盖当前路径和子路径的所有数据。
@@ -232,11 +230,12 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 value|将被写入的数据。
+
 
 
 
@@ -247,7 +246,7 @@ value|将被写入的数据。
 
 ### - setValue:withCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func setValue(_ value: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
@@ -256,19 +255,20 @@ func setValue(_ value: Any?, withCompletionBlock block: @escaping (Error?, WDGSy
 - (void)setValue:(nullable id)value withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 同 `setValue:` 方法类似，增加了一个 block，当写操作完成之后，会回调这个 block。
  
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 value|将被写入的数据。
 block|当写操作被提交到云端，将触发这个 block。
+
 
 
 
@@ -279,7 +279,7 @@ block|当写操作被提交到云端，将触发这个 block。
 
 ### - setValue:andPriority:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func setValue(_ value: Any?, andPriority priority: Any?)
@@ -288,7 +288,7 @@ func setValue(_ value: Any?, andPriority priority: Any?)
 - (void)setValue:(nullable id)value andPriority:(nullable id)priority;
 ```
 
-**说明**
+##### 说明
 
 同 `setValue:` 方法类似，写入数值的同时为当前节点设置优先级，优先级被用来排序。
 优先级只能是 NSNumber 或 NSString 类型，且 NSNumber 中不能存储 BOOL 类型的数据。优先级默认为 nil。
@@ -296,12 +296,13 @@ func setValue(_ value: Any?, andPriority priority: Any?)
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 value|将被写入的数据。
 priority|要设置的优先级。
+
 
 
 
@@ -312,7 +313,7 @@ priority|要设置的优先级。
 
 ### - setValue:andPriority:withCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func setValue(_ value: Any?, andPriority priority: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
@@ -321,7 +322,7 @@ func setValue(_ value: Any?, andPriority priority: Any?, withCompletionBlock blo
 - (void)setValue:(nullable id)value andPriority:(nullable id)priority withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 同 `setValue:` 方法类似，写入数值的同时为当前节点设置优先级，优先级被用来排序。
 优先级只能是 NSNumber 或 NSString 类型，且 NSNumber 中不能存储 BOOL 类型的数据。优先级默认为 nil。
@@ -330,7 +331,7 @@ func setValue(_ value: Any?, andPriority priority: Any?, withCompletionBlock blo
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -341,13 +342,14 @@ block|当写操作被提交到云端，将触发这个 block。
 
 
 
+
 </br>
 
 ---
 
 ### - removeValue
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func removeValue()
@@ -356,10 +358,11 @@ func removeValue()
 - (void)removeValue;
 ```
 
-**说明**
+##### 说明
 
 删除当前节点，效果等同于 `setValue:nil`。
 如果父级节点只有当前节点一个子节点，会递归删除父级节点。
+
 
 
 
@@ -369,7 +372,7 @@ func removeValue()
 
 ### - removeValueWithCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func removeValue(completionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
@@ -378,17 +381,18 @@ func removeValue(completionBlock block: @escaping (Error?, WDGSyncReference) -> 
 - (void)removeValueWithCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 同 `remove` 方法类似，增加了一个 block，当删除操作完成之后，会回调这个 block。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 block|当删除操作被提交到云端，将触发这个 block。
+
 
 
 
@@ -399,7 +403,7 @@ block|当删除操作被提交到云端，将触发这个 block。
 
 ### - setPriority:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func setPriority(_ priority: Any?)
@@ -408,7 +412,7 @@ func setPriority(_ priority: Any?)
 - (void)setPriority:(nullable id)priority;
 ```
 
-**说明**
+##### 说明
 
 设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 nil。
 不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue:withPriority:`；为已存在的数据设置优先级的时，使用 `setPriority:`。
@@ -420,7 +424,6 @@ func setPriority(_ priority: Any?)
  
  
 
-
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
 <ul>
@@ -429,11 +432,12 @@ func setPriority(_ priority: Any?)
 </ul>
 </blockquote>
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 priority|指定节点的优先级。
+
 
 
 
@@ -444,7 +448,7 @@ priority|指定节点的优先级。
 
 ### - setPriority:withCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func setPriority(_ priority: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
@@ -453,18 +457,19 @@ func setPriority(_ priority: Any?, withCompletionBlock block: @escaping (Error?,
 - (void)setPriority:(nullable id)priority withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 同 `setPriority:` 方法类似，增加了一个 block，当设置优先级操作被提交到云端，将触发这个 block。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 priority|指定节点的优先级。
 block|当设置优先级操作被提交到云端，将触发这个 block。
+
 
 
 
@@ -475,7 +480,7 @@ block|当设置优先级操作被提交到云端，将触发这个 block。
 
 ### - updateChildValues:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func updateChildValues(_ values: [AnyHashable : Any])
@@ -484,7 +489,7 @@ func updateChildValues(_ values: [AnyHashable : Any])
 - (void)updateChildValues:(NSDictionary *)values;
 ```
 
-**说明**
+##### 说明
 
 对当前节点进行数据合并操作，更新当前节点下的数据。 
 与 `setValue:` 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildren:` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
@@ -492,11 +497,12 @@ func updateChildValues(_ values: [AnyHashable : Any])
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 values|包含要合并的子节点的字典。
+
 
 
 
@@ -507,7 +513,7 @@ values|包含要合并的子节点的字典。
 
 ### - updateChildValues:withCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func updateChildValues(_ values: [AnyHashable : Any], withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
@@ -516,18 +522,19 @@ func updateChildValues(_ values: [AnyHashable : Any], withCompletionBlock block:
 - (void)updateChildValues:(NSDictionary *)values withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 同 `updateChildValues:` 方法类似，增加了一个 block，当更新操作完成之后，会回调这个 block。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 values|包含要合并的子节点的字典。
 block|当数据合并操作提交到 Wilddog Sync 云端，将触发这个 block。
+
 
 
 
@@ -538,7 +545,7 @@ block|当数据合并操作提交到 Wilddog Sync 云端，将触发这个 block
 
 ### - observeEventType:withBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void) -> WDGSyncHandle
@@ -547,7 +554,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block;
 ```
 
-**说明**
+##### 说明
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
@@ -555,7 +562,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -565,10 +572,9 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
-
 
 </br>
 
@@ -576,7 +582,7 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 ### - observeEventType:andPreviousSiblingKeyWithBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void) -> WDGSyncHandle
@@ -585,7 +591,7 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block;
 ```
 
-**说明**
+##### 说明
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
@@ -594,7 +600,7 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -604,10 +610,9 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
-
 
 </br>
 
@@ -615,7 +620,7 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 ### - observeEventType:withBlock:withCancelBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil) -> WDGSyncHandle
@@ -624,7 +629,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
-**说明**
+##### 说明
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
@@ -633,7 +638,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -644,10 +649,9 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
-
 
 </br>
 
@@ -655,7 +659,7 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 ### - observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil) -> WDGSyncHandle
@@ -664,7 +668,7 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
-**说明**
+##### 说明
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
@@ -674,7 +678,7 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -685,10 +689,9 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
-
 
 </br>
 
@@ -696,7 +699,7 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 ### - observeSingleEventOfType:withBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void)
@@ -705,18 +708,19 @@ func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (W
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block;
 ```
 
-**说明**
+##### 说明
 
 同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调方法只被触发一次，之后会自动取消监听。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 eventType|`WDGDataEventType` 类型，表示监听的事件类型。
 block|当从云端获取到结果时，将回调这个 block。
+
 
 
 
@@ -727,7 +731,7 @@ block|当从云端获取到结果时，将回调这个 block。
 
 ### - observeSingleEventOfType:andPreviousSiblingKeyWithBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void)
@@ -736,19 +740,20 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block;
 ```
 
-**说明**
+##### 说明
 
 同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
 此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 eventType|`WDGDataEventType` 类型，表示监听的事件类型。
 block|当从云端获取到结果时，将回调这个 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+
 
 
 
@@ -759,7 +764,7 @@ block|当从云端获取到结果时，将回调这个 block。block 将传输�
 
 ### - observeSingleEventOfType:withBlock:withCancelBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil)
@@ -768,14 +773,14 @@ func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (W
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
-**说明**
+##### 说明
 
 同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
 当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -786,13 +791,14 @@ cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会�
 
 
 
+
 </br>
 
 ---
 
 ### - observeSingleEventOfType:andPreviousSiblingKeyWithBlock:withCancelBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil)
@@ -801,7 +807,7 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
-**说明**
+##### 说明
 
 同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
 此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
@@ -809,7 +815,7 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -820,13 +826,14 @@ cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会�
 
 
 
+
 </br>
 
 ---
 
 ### - removeObserverWithHandle:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func removeObserver(withHandle handle: WDGSyncHandle)
@@ -835,17 +842,18 @@ func removeObserver(withHandle handle: WDGSyncHandle)
 - (void)removeObserverWithHandle:(WDGSyncHandle)handle;
 ```
 
-**说明**
+##### 说明
 
 移除监听事件。移除使用 `observeEventType:withBlock:` 方法设置的数据监听。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 handle|由 `observeEventType:withBlock:` 返回的 `WDGSyncHandle`。
+
 
 
 
@@ -856,7 +864,7 @@ handle|由 `observeEventType:withBlock:` 返回的 `WDGSyncHandle`。
 
 ### - removeAllObservers
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func removeAllObservers()
@@ -865,9 +873,10 @@ func removeAllObservers()
 - (void)removeAllObservers;
 ```
 
-**说明**
+##### 说明
 
 移除当前节点下使用 `observeEventType:withBlock:` 方法注册的所有的监听事件。
+
 
 
 
@@ -877,7 +886,7 @@ func removeAllObservers()
 
 ### - keepSynced:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func keepSynced(_ keepSynced: Bool)
@@ -886,17 +895,18 @@ func keepSynced(_ keepSynced: Bool)
 - (void)keepSynced:(BOOL)keepSynced;
 ```
 
-**说明**
+##### 说明
 
 在某一节点处通过调用 `keepSynced:YES` 方法，即使该节点处没有进行过监听，此节点处的数据也将自动下载存储并与云端保持同步。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 keepSynced|参数设置为 YES，则在此节点处同步数据；设置为 NO，停止同步。
+
 
 
 
@@ -907,7 +917,7 @@ keepSynced|参数设置为 YES，则在此节点处同步数据；设置为 NO�
 
 ### - onDisconnectSetValue:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func onDisconnectSetValue(_ value: Any?)
@@ -916,18 +926,19 @@ func onDisconnectSetValue(_ value: Any?)
 - (void)onDisconnectSetValue:(nullable id)value;
 ```
 
-**说明**
+##### 说明
 
 在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 当客户端断开连接后，向当前的数据节点设置一个指定的值。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 value|在连接中断时需要写入当前位置的值。
+
 
 
 
@@ -938,7 +949,7 @@ value|在连接中断时需要写入当前位置的值。
 
 ### - onDisconnectSetValue:withCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func onDisconnectSetValue(_ value: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
@@ -947,19 +958,20 @@ func onDisconnectSetValue(_ value: Any?, withCompletionBlock block: @escaping (E
 - (void)onDisconnectSetValue:(nullable id)value withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 当客户端断开连接后，向当前的数据节点设置一个指定的值。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 value|在连接中断时需要写入当前位置的值。
 block|当设置离线事件的操作被提交到云端，将触发这个 block。
+
 
 
 
@@ -970,7 +982,7 @@ block|当设置离线事件的操作被提交到云端，将触发这个 block�
 
 ### - onDisconnectSetValue:andPriority:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func onDisconnectSetValue(_ value: Any?, andPriority priority: Any)
@@ -979,19 +991,20 @@ func onDisconnectSetValue(_ value: Any?, andPriority priority: Any)
 - (void)onDisconnectSetValue:(nullable id)value andPriority:(id)priority;
 ```
 
-**说明**
+##### 说明
 
 在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 当客户端断开连接后，指定的数据和优先级会被写入当前位置。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 value|在连接中断时需要写入当前位置的值。
 priority|在连接中断时需要写入当前位置的优先级。
+
 
 
 
@@ -1002,7 +1015,7 @@ priority|在连接中断时需要写入当前位置的优先级。
 
 ### - onDisconnectSetValue:andPriority:withCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func onDisconnectSetValue(_ value: Any?, andPriority priority: Any?, withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
@@ -1011,14 +1024,14 @@ func onDisconnectSetValue(_ value: Any?, andPriority priority: Any?, withComplet
 - (void)onDisconnectSetValue:(nullable id)value andPriority:(nullable id)priority withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 当客户端断开连接后，指定的数据和优先级会被写入当前位置。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -1029,13 +1042,14 @@ block|当设置离线事件的操作被提交到云端，将触发这个 block�
 
 
 
+
 </br>
 
 ---
 
 ### - onDisconnectRemoveValue
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func onDisconnectRemoveValue()
@@ -1044,10 +1058,11 @@ func onDisconnectRemoveValue()
 - (void)onDisconnectRemoveValue;
 ```
 
-**说明**
+##### 说明
 
 在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 当客户端断开连接后，删除当前位置上的数据。
+
 
 
 
@@ -1057,7 +1072,7 @@ func onDisconnectRemoveValue()
 
 ### - onDisconnectRemoveValueWithCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func onDisconnectRemoveValue(completionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
@@ -1066,18 +1081,19 @@ func onDisconnectRemoveValue(completionBlock block: @escaping (Error?, WDGSyncRe
 - (void)onDisconnectRemoveValueWithCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 当客户端断开连接后，删除当前位置上的数据。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 block|当设置离线事件的操作被提交到云端，将触发这个 block。
+
 
 
 
@@ -1088,7 +1104,7 @@ block|当设置离线事件的操作被提交到云端，将触发这个 block�
 
 ### - onDisconnectUpdateChildValues:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any])
@@ -1097,18 +1113,19 @@ func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any])
 - (void)onDisconnectUpdateChildValues:(NSDictionary *)values;
 ```
 
-**说明**
+##### 说明
 
 在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 当客户端断开连接后，指定的子节点将被写入到当前位置的子节点集合中。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 values|在连接断开之后，用来更新当前位置的包含子节点键和值的字典。
+
 
 
 
@@ -1119,7 +1136,7 @@ values|在连接断开之后，用来更新当前位置的包含子节点键和�
 
 ### - onDisconnectUpdateChildValues:withCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any], withCompletionBlock block: @escaping (Error?, WDGSyncReference) -> Void)
@@ -1128,19 +1145,20 @@ func onDisconnectUpdateChildValues(_ values: [AnyHashable : Any], withCompletion
 - (void)onDisconnectUpdateChildValues:(NSDictionary *)values withCompletionBlock:(void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 当客户端断开连接后，指定的子节点将被写入到当前位置的子节点集合中。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 values|在连接断开之后，用来更新当前位置的包含子节点键和值的字典。
 block|当设置离线事件的操作被提交到云端，将触发这个 block。
+
 
 
 
@@ -1151,7 +1169,7 @@ block|当设置离线事件的操作被提交到云端，将触发这个 block�
 
 ### - cancelDisconnectOperations
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func cancelDisconnectOperations()
@@ -1160,9 +1178,10 @@ func cancelDisconnectOperations()
 - (void)cancelDisconnectOperations;
 ```
 
-**说明**
+##### 说明
 
 取消之前在当前节点下注册的所有离线操作。
+
 
 
 
@@ -1172,7 +1191,7 @@ func cancelDisconnectOperations()
 
 ### - cancelDisconnectOperationsWithCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func cancelDisconnectOperations(completionBlock block: ((Error?, WDGSyncReference) -> Void)? = nil)
@@ -1181,17 +1200,18 @@ func cancelDisconnectOperations(completionBlock block: ((Error?, WDGSyncReferenc
 - (void)cancelDisconnectOperationsWithCompletionBlock:(nullable void (^)(NSError *_Nullable, WDGSyncReference *))block;
 ```
 
-**说明**
+##### 说明
 
 取消之前在当前节点下注册的所有离线操作。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 block|当取消离线事件的操作被提交到云端，将触发这个 block。
+
 
 
 
@@ -1202,7 +1222,7 @@ block|当取消离线事件的操作被提交到云端，将触发这个 block�
 
 ### + goOffline
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 class func goOffline()
@@ -1211,9 +1231,10 @@ class func goOffline()
 + (void)goOffline;
 ```
 
-**说明**
+##### 说明
 
 手动断开与 Wilddog Sync 云端的连接，关闭自动重连，可以用 `goOnline` 恢复连接。
+
 
 
 
@@ -1223,7 +1244,7 @@ class func goOffline()
 
 ### + goOnline
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 class func goOnline()
@@ -1232,9 +1253,10 @@ class func goOnline()
 + (void)goOnline;
 ```
 
-**说明**
+##### 说明
 
 手动恢复与 Wilddog Sync 云端的连接，开启自动重连。
+
 
 
 
@@ -1244,7 +1266,7 @@ class func goOnline()
 
 ### - runTransactionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionResult)
@@ -1253,7 +1275,7 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 - (void)runTransactionBlock:(WDGTransactionResult *(^)(WDGMutableData *))block;
 ```
 
-**说明**
+##### 说明
 
 用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。 
 与 `setValue:` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
@@ -1262,11 +1284,12 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 block|接收当前数据，返回一个 `WDGTransactionResult` 实例。
+
 
 
 
@@ -1277,7 +1300,7 @@ block|接收当前数据，返回一个 `WDGTransactionResult` 实例。
 
 ### - runTransactionBlock:andCompletionBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionResult, andCompletionBlock completionBlock: @escaping (Error?, Bool, WDGDataSnapshot?) -> Void)
@@ -1286,7 +1309,7 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 - (void)runTransactionBlock:(WDGTransactionResult *(^)(WDGMutableData *))block andCompletionBlock:(void (^)(NSError *_Nullable, BOOL, WDGDataSnapshot *_Nullable))completionBlock;
 ```
 
-**说明**
+##### 说明
 
 用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。
 与 `setValue:` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
@@ -1295,12 +1318,13 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 block|接收当前数据，返回一个 `WDGTransactionResult` 实例。
 completionBlock|无论本次事务处理结果如何，当事务完成时这个 block 将被回调。
+
 
 
 
@@ -1311,7 +1335,7 @@ completionBlock|无论本次事务处理结果如何，当事务完成时这个 
 
 ### - runTransactionBlock:andCompletionBlock:withLocalEvents:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionResult, andCompletionBlock completionBlock: ((Error?, Bool, WDGDataSnapshot?) -> Void)?, withLocalEvents localEvents: Bool)
@@ -1320,7 +1344,7 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 - (void)runTransactionBlock:(WDGTransactionResult *(^)(WDGMutableData *))block andCompletionBlock:(nullable void (^)(NSError *_Nullable, BOOL, WDGDataSnapshot *_Nullable))completionBlock withLocalEvents:(BOOL)localEvents;
 ```
 
-**说明**
+##### 说明
 
 用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。
 与 `setValue:` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
@@ -1329,7 +1353,7 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -1340,13 +1364,14 @@ localEvents|若当前节点已经建立了监听，每次执行 block 都会触�
 
 
 
+
 </br>
 
 ---
 
 ### - description
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func description() -> String
@@ -1355,21 +1380,16 @@ func description() -> String
 - (NSString *)description;
 ```
 
-**说明**
+##### 说明
 
 获取当前 Wilddog Sync 节点的绝对 URL。
  
 
 
 
-**返回值**
+##### 返回值
 
 当前 Wilddog Sync 节点的绝对 URL。
-
-
-</br>
-
----
 
 
 

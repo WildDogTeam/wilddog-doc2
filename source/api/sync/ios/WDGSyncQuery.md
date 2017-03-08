@@ -8,7 +8,7 @@ title: WDGSyncQuery
 
 ### ref
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 var ref: WDGSyncReference { get }
@@ -17,7 +17,7 @@ var ref: WDGSyncReference { get }
 @property (readonly, strong, nonatomic) WDGSyncReference *ref;
 ```
 
-**说明**
+##### 说明
 
 这个 WDGSyncQuery 所在路径下的 WDGSyncReference 实例。
 
@@ -33,7 +33,7 @@ var ref: WDGSyncReference { get }
 
 ### - observeEventType:withBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void) -> WDGSyncHandle
@@ -42,7 +42,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block;
 ```
 
-**说明**
+##### 说明
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
@@ -50,7 +50,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -60,10 +60,9 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
-
 
 </br>
 
@@ -71,7 +70,7 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 ### - observeEventType:andPreviousSiblingKeyWithBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void) -> WDGSyncHandle
@@ -80,7 +79,7 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block;
 ```
 
-**说明**
+##### 说明
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
@@ -89,7 +88,7 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -99,10 +98,9 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
-
 
 </br>
 
@@ -110,7 +108,7 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 ### - observeEventType:withBlock:withCancelBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil) -> WDGSyncHandle
@@ -119,7 +117,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
-**说明**
+##### 说明
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
@@ -128,7 +126,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -139,10 +137,9 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
-
 
 </br>
 
@@ -150,7 +147,7 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 ### - observeEventType:andPreviousSiblingKeyWithBlock:withCancelBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil) -> WDGSyncHandle
@@ -159,7 +156,7 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
 - (WDGSyncHandle)observeEventType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
-**说明**
+##### 说明
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
@@ -169,7 +166,7 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -180,10 +177,9 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
-
 
 </br>
 
@@ -191,7 +187,7 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 ### - observeSingleEventOfType:withBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void)
@@ -200,18 +196,19 @@ func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (W
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block;
 ```
 
-**说明**
+##### 说明
 
 同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调方法只被触发一次，之后会自动取消监听。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 eventType|`WDGDataEventType` 类型，表示监听的事件类型。
 block|当从云端获取到结果时，将回调这个 block。
+
 
 
 
@@ -222,7 +219,7 @@ block|当从云端获取到结果时，将回调这个 block。
 
 ### - observeSingleEventOfType:andPreviousSiblingKeyWithBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void)
@@ -231,19 +228,20 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block;
 ```
 
-**说明**
+##### 说明
 
 同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
 此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 eventType|`WDGDataEventType` 类型，表示监听的事件类型。
 block|当从云端获取到结果时，将回调这个 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+
 
 
 
@@ -254,7 +252,7 @@ block|当从云端获取到结果时，将回调这个 block。block 将传输�
 
 ### - observeSingleEventOfType:withBlock:withCancelBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (WDGDataSnapshot) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil)
@@ -263,14 +261,14 @@ func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (W
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType withBlock:(void (^)(WDGDataSnapshot *))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
-**说明**
+##### 说明
 
 同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
 当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -281,13 +279,14 @@ cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会�
 
 
 
+
 </br>
 
 ---
 
 ### - observeSingleEventOfType:andPreviousSiblingKeyWithBlock:withCancelBlock:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @escaping (WDGDataSnapshot, String?) -> Void, withCancel cancelBlock: ((Error) -> Void)? = nil)
@@ -296,7 +295,7 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
 - (void)observeSingleEventOfType:(WDGDataEventType)eventType andPreviousSiblingKeyWithBlock:(void (^)(WDGDataSnapshot *, NSString *_Nullable))block withCancelBlock:(nullable void (^)(NSError *))cancelBlock;
 ```
 
-**说明**
+##### 说明
 
 同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
 此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
@@ -304,7 +303,7 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -315,13 +314,14 @@ cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会�
 
 
 
+
 </br>
 
 ---
 
 ### - removeObserverWithHandle:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func removeObserver(withHandle handle: WDGSyncHandle)
@@ -330,17 +330,18 @@ func removeObserver(withHandle handle: WDGSyncHandle)
 - (void)removeObserverWithHandle:(WDGSyncHandle)handle;
 ```
 
-**说明**
+##### 说明
 
 移除监听事件。移除使用 `observeEventType:withBlock:` 方法设置的数据监听。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 handle|由 `observeEventType:withBlock:` 返回的 `WDGSyncHandle`。
+
 
 
 
@@ -351,7 +352,7 @@ handle|由 `observeEventType:withBlock:` 返回的 `WDGSyncHandle`。
 
 ### - removeAllObservers
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func removeAllObservers()
@@ -360,9 +361,10 @@ func removeAllObservers()
 - (void)removeAllObservers;
 ```
 
-**说明**
+##### 说明
 
 移除当前节点下使用 `observeEventType:withBlock:` 方法注册的所有的监听事件。
+
 
 
 
@@ -372,7 +374,7 @@ func removeAllObservers()
 
 ### - keepSynced:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func keepSynced(_ keepSynced: Bool)
@@ -381,17 +383,18 @@ func keepSynced(_ keepSynced: Bool)
 - (void)keepSynced:(BOOL)keepSynced;
 ```
 
-**说明**
+##### 说明
 
 在某一节点处通过调用 `keepSynced:YES` 方法，即使该节点处没有进行过监听，此节点处的数据也将自动下载存储并与云端保持同步。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
 keepSynced|参数设置为 YES，则在此节点处同步数据；设置为 NO，停止同步。
+
 
 
 
@@ -402,7 +405,7 @@ keepSynced|参数设置为 YES，则在此节点处同步数据；设置为 NO�
 
 ### - queryLimitedToFirst:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryLimited(toFirst limit: UInt) -> WDGSyncQuery
@@ -411,13 +414,13 @@ func queryLimited(toFirst limit: UInt) -> WDGSyncQuery
 - (WDGSyncQuery *)queryLimitedToFirst:(NSUInteger)limit;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，获取当前排序下从第一个节点开始的最多 (limit) 条数据。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -426,10 +429,9 @@ limit|能够获取的子节点的最大数量。
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -437,7 +439,7 @@ limit|能够获取的子节点的最大数量。
 
 ### - queryLimitedToLast:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryLimited(toLast limit: UInt) -> WDGSyncQuery
@@ -446,13 +448,13 @@ func queryLimited(toLast limit: UInt) -> WDGSyncQuery
 - (WDGSyncQuery *)queryLimitedToLast:(NSUInteger)limit;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，获取当前排序下，从最后一个节点开始向前的最多 (limit) 条数据。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -461,10 +463,9 @@ limit|能够获取的子节点的最大数量。
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -472,7 +473,7 @@ limit|能够获取的子节点的最大数量。
 
 ### - queryOrderedByChild:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryOrdered(byChild key: String) -> WDGSyncQuery
@@ -481,14 +482,14 @@ func queryOrdered(byChild key: String) -> WDGSyncQuery
 - (WDGSyncQuery *)queryOrderedByChild:(NSString *)key;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，按子节点下指定的 key 对应的 value 对结果进行排序。
 此方法可以与 `queryStartingAtValue:`、`queryEndingAtValue:` 或 `queryEqualToValue:` 方法联合使用。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -497,10 +498,9 @@ key|指定用来排序的子节点的 key。
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -508,7 +508,7 @@ key|指定用来排序的子节点的 key。
 
 ### - queryOrderedByKey
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryOrderedByKey() -> WDGSyncQuery
@@ -517,7 +517,7 @@ func queryOrderedByKey() -> WDGSyncQuery
 - (WDGSyncQuery *)queryOrderedByKey;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，按子节点的 key 对结果以字典序进行排序。
 此方法可以与 `queryStartingAtValue:`、`queryEndingAtValue:` 或 `queryEqualToValue:` 方法联合使用。
@@ -525,10 +525,9 @@ func queryOrderedByKey() -> WDGSyncQuery
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -536,7 +535,7 @@ func queryOrderedByKey() -> WDGSyncQuery
 
 ### - queryOrderedByValue
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryOrderedByValue() -> WDGSyncQuery
@@ -545,7 +544,7 @@ func queryOrderedByValue() -> WDGSyncQuery
 - (WDGSyncQuery *)queryOrderedByValue;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，按节点的 value 对结果排序。
 此方法可以与 `queryStartingAtValue:`、`queryEndingAtValue:` 或 `queryEqualToValue:` 方法联合使用。
@@ -553,10 +552,9 @@ func queryOrderedByValue() -> WDGSyncQuery
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -564,7 +562,7 @@ func queryOrderedByValue() -> WDGSyncQuery
 
 ### - queryOrderedByPriority
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryOrderedByPriority() -> WDGSyncQuery
@@ -573,7 +571,7 @@ func queryOrderedByPriority() -> WDGSyncQuery
 - (WDGSyncQuery *)queryOrderedByPriority;
 ```
 
-**说明**
+##### 说明
 
  创建一个新的 `WDGSyncQuery` 实例，按节点的 priority 对结果排序。
  节点按照如下优先级规则升序排列：nil < NSNumber < NSString。
@@ -585,7 +583,6 @@ func queryOrderedByPriority() -> WDGSyncQuery
  
  
 
-
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
 <ul>
@@ -595,10 +592,9 @@ func queryOrderedByPriority() -> WDGSyncQuery
 </blockquote>
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -606,7 +602,7 @@ func queryOrderedByPriority() -> WDGSyncQuery
 
 ### - queryStartingAtValue:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryStarting(atValue startValue: Any?) -> WDGSyncQuery
@@ -615,14 +611,14 @@ func queryStarting(atValue startValue: Any?) -> WDGSyncQuery
 - (WDGSyncQuery *)queryStartingAtValue:(nullable id)startValue;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
 此方法应与 `queryOrderedByPriority:`、`queryOrderedByKey:`、`queryOrderedByValue:` 或 `queryOrderedByChildKey:` 方法联合使用。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -631,10 +627,9 @@ startValue|query 查询返回值的下界，所有返回值均大于等于 start
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -642,7 +637,7 @@ startValue|query 查询返回值的下界，所有返回值均大于等于 start
 
 ### - queryStartingAtValue:childKey:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryStarting(atValue startValue: Any?, childKey: String?) -> WDGSyncQuery
@@ -651,7 +646,7 @@ func queryStarting(atValue startValue: Any?, childKey: String?) -> WDGSyncQuery
 - (WDGSyncQuery *)queryStartingAtValue:(nullable id)startValue childKey:(nullable NSString *)childKey;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，可以查询所有大于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。
 当查询到的 value 与 startValue 相等时，则只保留 key 大于等于 childKey 的节点。
@@ -660,7 +655,7 @@ func queryStarting(atValue startValue: Any?, childKey: String?) -> WDGSyncQuery
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -670,10 +665,9 @@ childKey|当 query 查询到的值和 startValue 相等时，返回其中 key �
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -681,7 +675,7 @@ childKey|当 query 查询到的值和 startValue 相等时，返回其中 key �
 
 ### - queryEndingAtValue:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryEnding(atValue endValue: Any?) -> WDGSyncQuery
@@ -690,14 +684,14 @@ func queryEnding(atValue endValue: Any?) -> WDGSyncQuery
 - (WDGSyncQuery *)queryEndingAtValue:(nullable id)endValue;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
 此方法应与 `queryOrderedByPriority:`、`queryOrderedByKey:`、`queryOrderedByValue:` 或 `queryOrderedByChildKey:` 方法联合使用。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -706,10 +700,9 @@ endValue|query 查询返回值的上界，所有返回值均小于等于 endValu
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -717,7 +710,7 @@ endValue|query 查询返回值的上界，所有返回值均小于等于 endValu
 
 ### - queryEndingAtValue:childKey:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryEnding(atValue endValue: Any?, childKey: String?) -> WDGSyncQuery
@@ -726,7 +719,7 @@ func queryEnding(atValue endValue: Any?, childKey: String?) -> WDGSyncQuery
 - (WDGSyncQuery *)queryEndingAtValue:(nullable id)endValue childKey:(nullable NSString *)childKey;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，可以查询所有小于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。
 当查询到的 value 与 endValue 相等时，则只保留 key 小于等于 childKey 的节点。
@@ -735,7 +728,7 @@ func queryEnding(atValue endValue: Any?, childKey: String?) -> WDGSyncQuery
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -745,10 +738,9 @@ childKey|当 query 查询到的值和 endValue 相等时，返回其中 key 小�
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -756,7 +748,7 @@ childKey|当 query 查询到的值和 endValue 相等时，返回其中 key 小�
 
 ### - queryEqualToValue:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryEqual(toValue value: Any?) -> WDGSyncQuery
@@ -765,14 +757,14 @@ func queryEqual(toValue value: Any?) -> WDGSyncQuery
 - (WDGSyncQuery *)queryEqualToValue:(nullable id)value;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，可以查询等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。
 此方法应与 `queryOrderedByPriority:`、`queryOrderedByKey:`、`queryOrderedByValue:` 或 `queryOrderedByChildKey:` 方法联合使用。
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -781,10 +773,9 @@ value|query 查询到的值都等于 value。
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
 
 </br>
 
@@ -792,7 +783,7 @@ value|query 查询到的值都等于 value。
 
 ### - queryEqualToValue:childKey:
 
-**定义**
+##### 定义
 
 <div class="swift-lan">Swift</div>```swift
 func queryEqual(toValue value: Any?, childKey: String?) -> WDGSyncQuery
@@ -801,7 +792,7 @@ func queryEqual(toValue value: Any?, childKey: String?) -> WDGSyncQuery
 - (WDGSyncQuery *)queryEqualToValue:(nullable id)value childKey:(nullable NSString *)childKey;
 ```
 
-**说明**
+##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，可以查询等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。
 并且 query 查询到的 key 都等于 childKey。由于 key 是唯一的，查询最多返回一个节点。
@@ -809,7 +800,7 @@ func queryEqual(toValue value: Any?, childKey: String?) -> WDGSyncQuery
  
 
 
-**参数**
+##### 参数
 
  参数名 | 说明 
 ---|---
@@ -819,14 +810,9 @@ childKey|query 查询到的 key 都等于 childKey。
 
 
 
-**返回值**
+##### 返回值
 
 `WDGSyncQuery` 实例。
-
-
-</br>
-
----
 
 
 
