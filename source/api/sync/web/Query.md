@@ -288,7 +288,7 @@ orderByPriority()
 
 创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 实例，按节点的 priority 对结果排序。节点按照如下优先级规则升序排列：null < number < string。
 
-  - priority 为 nil 的排最先；
+  - priority 为 null 的排最先；
   - priority 为数值的次之，按照数值从小到大排序；   
   - priority 为字符串的排最后，按照字典序排列；   
   - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
@@ -465,4 +465,3 @@ ref.limitToLast(10).on("child_added",function(snapshot){
   console.log(snapshot.key());
 });
 ```
----

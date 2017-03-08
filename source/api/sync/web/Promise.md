@@ -44,5 +44,3 @@ catch(onReject)
 **返回**
 
 [Void](/api/sync/web/Void.html)
-
----

@@ -80,7 +80,7 @@ root()
 
 **说明**
 
-获取根节点的引用。使用此方法可以直接获取到当前子节点的根节点引用，等价于多次调用 getParent() 方法获取根节点。
+获取根节点的引用。使用此方法可以直接获取到当前子节点的根节点引用，等价于多次调用 parent() 方法获取根节点。
 
 **返回值**
 
@@ -150,8 +150,7 @@ set(value)
 向指定节点写入数据。此方法会先清空指定节点，再写入数据。
 
 支持的数据类型：
- - String、 Number、 Boolean 等基本数据类型;
- - 数组 ArrayList;
+ - Object、 Array、 String、 Number、 Boolean 等基本数据类型;
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 例如：
 ```js
@@ -182,7 +181,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 ```js
 wilddog.sync().ref('city').set({"temp":10,"pm25":500})
     .then(function(){
-        console.info('set data success.')
+        console.info('set data success.');
     })
     .catch(function(err){
         console.info('set data failed', err.code, err);
@@ -418,9 +417,9 @@ transaction(updateFunction)
 **说明**
 
 用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。
-与 `setValue()` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransaction()` 不会单纯覆盖节点数据。
+与 `set()` 直接覆盖以前的数据不同，在不同客户端并发修改时，`transaction()` 不会单纯覆盖节点数据。
 客户端提交事务至服务器，如果数据已被其他客户端修改，那么服务器会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。
-在 `runTransaction()` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中调用 `Transaction.abort()` 手动中止事务。
+在 `transaction()` 的执行过程中客户端可能会重复写入直到成功，也可以在 `updateFunction` 中直接 `return;` 手动终止事务。
 
 **注意**
 
@@ -508,10 +507,7 @@ newValue {object|string|number|boolean|null} 要写入当前节点的的新值�
 
 **定义**
 
-{
-    "committed": boolean,
-    "snapshot": [wilddog.sync.DataSnapshot](/api/sync/web/DataSnapshot.html)
-}
+{"committed": boolean, "snapshot": [wilddog.sync.DataSnapshot](/api/sync/web/DataSnapshot.html)}
 
 **说明**
 
@@ -534,5 +530,3 @@ onDisconnect
 **返回值**
 
 [wilddog.sync.OnDisconnect](/api/sync/web/OnDisconnect.html)
-
----

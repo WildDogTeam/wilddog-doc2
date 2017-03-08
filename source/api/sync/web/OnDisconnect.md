@@ -45,7 +45,7 @@ disconnectRef.onDisconnect().set('I disconnected!')
 **注意**
 
 onDisconnect() 设置的离线操作只会触发一次。<br>
-如需每次离线时都执行 set() 方法，则需要 [监听连接状态](../../../guide/sync/web/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 onDisconnect().set() 设置想要执行的写入操作。<br/>
+如需每次离线时都执行 set() 方法，则需要 [监听连接状态](/guide/sync/web/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 onDisconnect().set() 设置想要执行的写入操作。<br/>
 
 ----
 
@@ -85,7 +85,7 @@ disconnectRef.onDisconnect().update({"message":'I disconnected!'})
 **注意**
 
 onDisconnect() 设置的离线操作只会触发一次。<br>
-如需每次离线时都执行 update() 方法，则需要 [监听连接状态](../../../guide/sync/web/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 onDisconnect().update() 设置想要执行的更新操作。<br/>
+如需每次离线时都执行 update() 方法，则需要 [监听连接状态](/guide/sync/web/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 onDisconnect().update() 设置想要执行的更新操作。<br/>
 
 ----
 
@@ -123,7 +123,7 @@ disconnectRef.onDisconnect().remove()
 **注意**
 
 onDisconnect() 设置的离线操作只会触发一次。<br>
-如需每次离线时都执行 remove() 方法，则需要 [监听连接状态](../../../guide/sync/web/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 onDisconnect().remove() 设置想要执行的删除操作。<br/>
+如需每次离线时都执行 remove() 方法，则需要 [监听连接状态](/guide/sync/web/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 onDisconnect().remove() 设置想要执行的删除操作。<br/>
 
 ----
 
@@ -165,7 +165,7 @@ disconnectRef.onDisconnect().setWithPriority('I disconnected', 10)
 
 **注意**
 
-onDisconnect() 设置的离线操作只会触发一次。如果你想在每次断线时都执行 setWithPriority() 方法，需要在每次 [监听](../../../guide/sync/web/offline-capabilities.html#监听连接状态) 连接建立成功后都通过 onDisconnect().setWithPriority() 设置想要执行的写入操作。<br/>
+onDisconnect() 设置的离线操作只会触发一次。如果你想在每次断线时都执行 setWithPriority() 方法，需要在每次 [监听](/guide/sync/web/offline-capabilities.html#监听连接状态) 连接建立成功后都通过 onDisconnect().setWithPriority() 设置想要执行的写入操作。<br/>
 
 ----
 
@@ -190,5 +190,3 @@ var disconnectRef = wilddog.sync().ref("disconnectMessage");
 // 之前所有注册在该节点下的离线事件都将取消
 disconnectRef.onDisconnect().cancel();
 ```
-
----

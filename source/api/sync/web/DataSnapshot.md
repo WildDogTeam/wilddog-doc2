@@ -462,5 +462,3 @@ ref.setWithPriority("hello", 500).then(function(){
     console.error(err)
 });
 ```
-
----

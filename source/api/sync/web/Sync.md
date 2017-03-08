@@ -108,4 +108,3 @@ goOnline()
 // 当前 app 实例下的所有 Sync 实例都将重连
 wilddog.sync().goOnline();
 ```
----

@@ -17,8 +17,8 @@ wilddog.initializeApp(config);
 
 **注意**
 
-syncURL 的域名为：*.wilddogio.com
-authDomain 的域名为：*.wilddog.com
+syncURL 的域名为：\*.wilddogio.com
+authDomain 的域名为：\*.wilddog.com
 
 初始化多个 App ：
 
