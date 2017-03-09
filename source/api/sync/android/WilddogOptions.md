@@ -8,7 +8,7 @@ title: WilddogOptions
 ##### 定义
 
 ```java
-public String getSyncUrl ()
+String getSyncUrl()
 ```
 
 ##### 说明

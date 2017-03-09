@@ -9,12 +9,12 @@ title:  ServerValue
 ##### 定义
 
 ```java
-static final Map<String，String> TIMESTAMP = createServerValuePlaceholder("timestamp");
+static final Map<String, String> TIMESTAMP = createServerValuePlaceholder("timestamp");
 ```
 
 ##### 说明
 
-将当前 map 上传到服务器，然后生成数据以时间戳的形式存在。
+将当前 map 上传到服务器，然后生成以时间戳形式存在的数据。
 
 </br>
 

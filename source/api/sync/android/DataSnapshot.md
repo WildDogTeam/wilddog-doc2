@@ -8,7 +8,7 @@ title:  DataSnapshot
 ##### 定义
 
 ```java
-DataSnapshot child (String path)
+DataSnapshot child(String path)
 ```
 
 ##### 说明

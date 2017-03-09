@@ -55,12 +55,12 @@ listener | [ChildEventListener](/api/sync/android/ChildEventListener.html) 类�
 SyncReference ref = WilddogSync.getInstance().getReference("test");
 
 ChildEventListener listener = ref.addChildEventListener(new ChildEventListener() {
-  public void onChildAdded(DataSnapshot snapshot，String s) {
+  public void onChildAdded(DataSnapshot snapshot, String s) {
     System.out.println(snapshot.getValue());
         // DataSnapshot to json string
         try {
           JSONObject json = new JSONObject();
-          json.put(dataSnapshot.getKey()，new JSONObject(dataSnapshot.getValue()));
+          json.put(dataSnapshot.getKey(), new JSONObject(dataSnapshot.getValue()));
           System.out.println(json.toString());
     } catch (JSONException e) {
           e.printStackTrace();
@@ -68,7 +68,7 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
 
   }
 
-  public void onChildChanged(DataSnapshot snapshot，String s) {
+  public void onChildChanged(DataSnapshot snapshot, String s) {
     System.out.println(snapshot.getValue());
   }
 
@@ -76,7 +76,7 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
     System.out.println(snapshot.getValue());
   }
 
-  public void onChildMoved(DataSnapshot snapshot，String s) {
+  public void onChildMoved(DataSnapshot snapshot, String s) {
     System.out.println(snapshot.getValue());
   }
 
@@ -123,7 +123,7 @@ ValueEventListener listener = ref.addValueEventListener(new ValueEventListener()
           // DataSnapshot to json string
           try {
           JSONObject json = new JSONObject();
-          json.put(dataSnapshot.getKey()，new JSONObject(dataSnapshot.getValue()));
+          json.put(dataSnapshot.getKey(), new JSONObject(dataSnapshot.getValue()));
           System.out.println(json.toString());
       } catch (JSONException e) {
           e.printStackTrace();
@@ -325,12 +325,12 @@ value | 查询返回值的下界，所有返回值均大于等于 startValue。v
 
 ---
 
-### startAt(startValue，key)
+### startAt(startValue, key)
 
 ##### 定义
 
 ```java
-Query startAt(Object startValue，String childKey)
+Query startAt(Object startValue, String childKey)
 ```
 
 ##### 说明
@@ -340,7 +340,7 @@ Query startAt(Object startValue，String childKey)
 该方法可用于分页。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  对于使用 `startAt(String value，String childKey)` 进行查询时，查询方式是通过将字符进行 unicode 编码后进行排序。
+  对于使用 `startAt(String value, String childKey)` 进行查询时，查询方式是通过将字符进行 unicode 编码后进行排序。
 </blockquote>
 
 ##### 参数
@@ -382,12 +382,12 @@ value | 查询返回值的上界，所有返回值均小于等于 endValue。end
 
 ---
 
-### endAt(endValue，childKey)
+### endAt(endValue, childKey)
 
 ##### 定义
 
 ```java
-Query endAt(Object endValue，String childKey)
+Query endAt(Object endValue, String childKey)
 ```
 
 ##### 说明
@@ -434,11 +434,11 @@ value | 查询节点的指定 value。
 
 ---
 
-### equalTo(value，childKey)
+### equalTo(value, childKey)
 ##### 定义
 
 ```java
-Object equalTo(Object value，String childKey)
+Object equalTo(Object value, String childKey)
 ```
 
 ##### 说明

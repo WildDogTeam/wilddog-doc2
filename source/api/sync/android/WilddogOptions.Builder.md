@@ -9,7 +9,7 @@ title: WilddogOptions.Builder
 ##### 参数
 
 ```java
-WilddogOptions.Builder setSyncUrl (String syncUrl)
+WilddogOptions.Builder setSyncUrl(String syncUrl)
 ```
 
 ##### 说明
@@ -34,7 +34,7 @@ syncUrl | `String` 类型，Wilddog Sync 的根路径。
 ##### 参数
 
 ```java
-WilddogOptions build ()
+WilddogOptions build()
 ```
 
 ##### 说明

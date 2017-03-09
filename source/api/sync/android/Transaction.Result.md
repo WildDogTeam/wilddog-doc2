@@ -10,7 +10,7 @@ title:  Transaction.Result
 ##### 定义
 
 ```java
- boolean isSuccess ()
+boolean isSuccess ()
 ```
 
 ##### 说明

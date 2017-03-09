@@ -3,11 +3,11 @@ title:  SyncReference.CompletionListener
 `SyncReference` 操作完成监听，每个操作执行完成后会回调此监听的 `onComplete()` 方法。
 ## 方法
 
-### onComplete(error，ref)
+### onComplete(error, ref)
 ##### 定义
 
 ```java
-void onComplete(SyncError error，SyncReference ref)
+void onComplete(SyncError error, SyncReference ref)
 ```
 
 ##### 说明
