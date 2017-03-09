@@ -214,7 +214,7 @@ func setValue(_ value: Any?)
 
 ##### 说明
 
-往 WDGSyncReference 当前路径写入一个值，这将会覆盖当前路径和子路径的所有数据。
+往 `WDGSyncReference` 当前路径写入一个值，这将会覆盖当前路径和子路径的所有数据。
 支持的数据类型:
  - NSString -- `@"Hello World"`
  - NSNumber (包括 BOOL 类型) -- `@YES`, `@43`, `@4.333`
