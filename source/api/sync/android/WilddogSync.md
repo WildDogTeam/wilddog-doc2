@@ -10,7 +10,7 @@ WilddogSync SDK 的核心类，是访问 Wilddog Sync SDK 的入口。
 ##### 定义
 
 ```java
-static synchronized WilddogSync getInstance ()
+static synchronized WilddogSync getInstance()
 ```
 
 ##### 说明
@@ -29,7 +29,7 @@ static synchronized WilddogSync getInstance ()
 ##### 定义
 
 ```java
-static synchronized WilddogSync getInstance (WilddogApp wilddogApp)
+static synchronized WilddogSync getInstance(WilddogApp wilddogApp)
 ```
 
 ##### 说明
@@ -54,7 +54,7 @@ wilddogApp |[WilddogApp](/api/sync/android/WilddogApp.html) 对象。
 ##### 定义
 
 ```java
-SyncReference getReference ()
+SyncReference getReference()
 ```
 
 ##### 说明
@@ -72,7 +72,7 @@ SyncReference getReference ()
 ##### 定义
 
 ```java
-SyncReference getReference (String path)
+SyncReference getReference(String path)
 ```
 
 ##### 说明
@@ -96,7 +96,7 @@ path | 从根节点起指定的节点路径。
 ##### 定义
 
 ```java
-SyncReference getReferenceFromUrl (String url)
+SyncReference getReferenceFromUrl(String url)
 ```
 
 ##### 说明

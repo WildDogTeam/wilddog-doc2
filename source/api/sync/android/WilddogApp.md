@@ -9,7 +9,7 @@ title:  WilddogApp
 ##### 定义
 
 ```java
-Context getApplicationContext ()
+Context getApplicationContext()
 ```
 
 ##### 说明
@@ -28,12 +28,12 @@ Android 系统 `Context` 类型，获取当前 `WilddogApp` 实例的 `Context` 
 ##### 定义
 
 ```java
-String getName ()
+String getName()
 ```
 
 ##### 说明
 
-获取调用 `initializeApp(context，options，name)` 初始化 `WilddogApp` 时定义的 `WilddogApp` 实例名称，此属性为只读属性。
+获取调用 `initializeApp(context, options, name)` 初始化 `WilddogApp` 时定义的 `WilddogApp` 实例名称，此属性为只读属性。
 缺省的 `WilddogApp` 实例名称为 "[DEFAULT]"。
 在同一项目中可以初始化多个不同的 `WilddogApp` 实例，不同实例间以 name 属性作为区分。
 
@@ -64,11 +64,11 @@ WilddogOptions getOptions()
 
 ## 方法
 
-### initializeApp(context，options)
+### initializeApp(context, options)
 ##### 定义
 
 ```java
-static WilddogApp initializeApp (Context context，WilddogOptions options)
+static WilddogApp initializeApp(Context context, WilddogOptions options)
 ```
 
 ##### 说明
@@ -89,11 +89,11 @@ options | 配置当前应用的 [WilddogOptions](/api/sync/android/WilddogOption
 </br>
 
 --- 
-### initializeApp(context，options，name)
+### initializeApp(context, options, name)
 ##### 定义
 
 ```java
-static WilddogApp initializeApp (Context context，WilddogOptions options，String name)
+static WilddogApp initializeApp(Context context, WilddogOptions options, String name)
 ```
 
 ##### 说明
@@ -119,7 +119,7 @@ name | `WilddogApp` 实例名称，只能包含字母、数字和下划线（例
 ##### 定义
 
 ```java
-static WilddogApp getInstance ()
+static WilddogApp getInstance()
 ```
 
 ##### 说明
@@ -137,7 +137,7 @@ static WilddogApp getInstance ()
 ##### 定义
 
 ```java
-static WilddogApp getInstance (String name)
+static WilddogApp getInstance(String name)
 ```
 
 ##### 说明

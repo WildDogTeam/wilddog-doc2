@@ -9,14 +9,11 @@ Wilddog Sync 数据监听器，主要用于监听当前节点下子节点的变�
 
 ## 方法
 
-
----
-### onChildAdded(snapshot，previousChildName)
+### onChildAdded(snapshot, previousChildName)
 ##### 定义
 
 ```java
-void onChildAdded(DataSnapshot snapshot，
-                  String previousChildName)
+void onChildAdded(DataSnapshot snapshot, String previousChildName)
 ```
 
 ##### 说明
@@ -34,12 +31,11 @@ previousChildName | `String` 按照当前排序前一节点的 key 值。如果�
 </br>
 
 ---
-### onChildChanged(snapshot，previousChildName)
+### onChildChanged(snapshot, previousChildName)
 ##### 定义
 
 ```java
-void onChildChanged(DataSnapshot snapshot，
-                    String previousChildName)
+void onChildChanged(DataSnapshot snapshot, String previousChildName)
 ```
 
 ##### 说明
@@ -57,12 +53,11 @@ previousChildName | `String` 按照当前排序前一节点的 key 值。如果�
 </br>
 
 ---
-### onChildMoved(snapshot，previousChildName)
+### onChildMoved(snapshot, previousChildName)
 ##### 定义
 
 ```java
-void onChildMoved(DataSnapshot snapshot，
-                    String previousChildName)
+void onChildMoved(DataSnapshot snapshot, String previousChildName)
 ```
 
 ##### 说明
@@ -80,16 +75,16 @@ previousChildName | `String` 按照当前排序前一节点的 key 值。如果�
 ##### 示例
 ```java
         //当前数据
-        //DataSnapshot { key = orderByPriorityTest，
-        //value = {aaa={.priority=0.0，.value=aaa}，bbb={.priority=1.0，.value=bbb}，
-        //ccc={.priority=2.0，.value=ccc}，ddd={.priority=3.0，.value=ddd}，eee={.priority=4.0，.value=eee} }
+        //DataSnapshot { key = orderByPriorityTest, 
+        //value = {aaa={.priority=0.0, .value=aaa}, bbb={.priority=1.0, .value=bbb}, 
+        //ccc={.priority=2.0, .value=ccc}, ddd={.priority=3.0, .value=ddd}, eee={.priority=4.0, .value=eee} }
         //当前排序为 aaa -> bbb -> ccc -> ddd -> eee
 
         ref.child("orderByPriorityTest").child("ccc").setPriority(4.1);
         
         //更新优先级后排序为 aaa -> bbb -> ddd -> eee -> ccc 
         //在 'onChildMoved' 方法中返回数据
-        //DataSnapshot { key = ccc，value = {.priority=4.1，.value=ccc} }，prevNode:eee
+        //DataSnapshot { key = ccc, value = {.priority=4.1, .value=ccc} }, prevNode:eee
 ```
 
 </br>
