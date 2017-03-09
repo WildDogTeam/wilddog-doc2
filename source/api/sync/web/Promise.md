@@ -8,7 +8,7 @@ title: Promise
 
 ### then
 
-为当前 `Promise` 对象指定一个 resolved 之后的回调函数。
+为当前 `Promise` 对象指定一个 `resolved` 之后的回调函数。
 
 ##### 定义
 
@@ -18,8 +18,8 @@ title: Promise
 
 | 参数名       | 说明                                       |
 | ---------- | ---------------------------------------- |
-| onResolved | function(non-null)类型<br>Promise resolved 时的回调函数，回传参数是 Promise 事件的返回值 |
-| onReject   | function(optional)类型<br>Promise rejected 时的回调函数，回传参数是一个 error 对象 |
+| onResolved | function(non-null)类型<br>`Promise resolved` 时的回调函数，回传参数是 `Promise` 事件的返回值 |
+| onReject   | function(optional)类型<br>`Promise rejected` 时的回调函数，回传参数是一个 `error` 对象 |
 
 ##### 返回值
 
@@ -28,7 +28,7 @@ title: Promise
 ---
 
 ### catch
-为当前 `Promise` 对象指定一个 rejected 或异常后的回调函数。
+为当前 `Promise` 对象指定一个 `rejected` 或异常后的回调函数。
 
 ##### 定义
 
@@ -38,7 +38,7 @@ title: Promise
 
 | 参数名      | 说明                                       |
 | -------- | ---------------------------------------- |
-| onReject | function(non-null)类型<br>Promise rejected 时的回调函数，回传参数是一个 error 对象 |
+| onReject | function(non-null)类型<br>`Promise rejected` 时的回调函数，回传参数是一个 `error` 对象 |
 
 ##### 返回值
 

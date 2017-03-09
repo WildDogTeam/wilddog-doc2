@@ -4,7 +4,6 @@ title: OnDisconnect
 ---
 
 离线事件是云端与客户端断开连接时自动触发的事件。
-
 断开连接包括客户端主动断开连接，或者意外的网络中断。触发事件即执行特定的数据操作，它支持离线写入，更新和删除数据方法。
 
 ## 方法
@@ -21,7 +20,7 @@ title: OnDisconnect
 
 | 参数名   | 说明                |
 | ----- | ----------------- |
-| value | object<br>array<br>string<br>number<br>boolean<br>null<br>连接中断后写入当前位置的值。 |
+| value | Object<br>Array<br>String<br>Number<br>Boolean<br>null<br>连接中断后写入当前位置的值。 |
 
 ##### 返回值
 
@@ -62,7 +61,7 @@ disconnectRef.onDisconnect().set('I disconnected!')
 
 | 参数名   | 说明               |
 | ----- | ---------------- |
-| value | object 类型<br>包含要写入当前位置子节点的集合。 |
+| value | Object 类型<br>包含要写入当前位置子节点的集合。 |
 
 ##### 返回值
 
@@ -98,10 +97,6 @@ disconnectRef.onDisconnect().update({"message":'I disconnected!'})
 ##### 说明
 
 当客户端断开连接（例如：关闭浏览器、跳转到一个新的页面、本地的网络问题等）后移除当前节点的数据。
-
-##### 参数
-
-_无_
 
 ##### 返回值
 
@@ -144,8 +139,8 @@ disconnectRef.onDisconnect().remove()
 
 | 参数名      | 说明                    |
 | -------- | --------------------- |
-| value    |  object<br>string<br>number<br>boolean<br>null<br>将被写入的值。               |
-| priority |  string<br>number(non-null)<br>优先级数据，节点的优先级是默认排序的依据。 |
+| value    |  Object<br>String<br>Number<br>Boolean<br>null<br>将被写入的值。               |
+| priority |  String<br>Number(non-null)<br>优先级数据，节点的优先级是默认排序的依据。 |
 
 ##### 返回值
 
