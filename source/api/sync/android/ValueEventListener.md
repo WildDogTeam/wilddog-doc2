@@ -1,9 +1,9 @@
 title:  ValueEventListener
 ---
-`WilddogSync` 数据监听器，主要用于监听当前节点所有数据的变化，当节点数据发生变化时将触发 `onDataChange` 回调方法。
+Wilddog Sync 数据监听器，主要用于监听当前节点所有数据的变化，当节点数据发生变化时将触发 `onDataChange` 回调方法。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  此监听器只关注当前节点的所有数据，适用与关注节点数据整体变化的场景。
+  此监听器关注当前节点的所有数据，适用于关注某节点数据整体变化的场景。
 </blockquote>
 
 ## 方法
@@ -16,7 +16,7 @@ void onDataChange(DataSnapshot snapshot)
 
 ##### 说明
 
-当前节点的子节点发生改变的时候触发此方法。将返回此节点下所有数据。
+当前节点的子节点发生改变的时候触发此方法，将返回此节点下所有数据。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   当使用排序方法时，需要使用 `DataSnapshot` 的 `getChildren()` 方法对返回数据进行迭代才能按顺序获取数据。

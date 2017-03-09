@@ -41,7 +41,7 @@ static Transaction.Result success(MutableData resultData)
 
 参数名 | 说明
 --- | ---
-resultData |[MutableData](/api/sync/android/MutableData.html) 类型,需要提交的数据。
+resultData |[MutableData](/api/sync/android/MutableData.html) 类型，需要提交的数据。
 
 ##### 返回值
 

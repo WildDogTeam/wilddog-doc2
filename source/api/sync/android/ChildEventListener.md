@@ -1,7 +1,7 @@
 title:  ChildEventListener
 ---
 
-`WilddogSync` 数据监听器，主要用于监听当前节点下子节点的变化，当子节点数据发生变化时将触发相应的回调方法。 
+Wilddog Sync 数据监听器，主要用于监听当前节点下子节点的变化，当子节点数据发生变化时将触发相应的回调方法。 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   此监听器只关注当前节点的子节点，适用与关注子节点变化的场景。
@@ -11,11 +11,11 @@ title:  ChildEventListener
 
 
 ---
-### onChildAdded(snapshot,previousChildName)
+### onChildAdded(snapshot，previousChildName)
 ##### 定义
 
 ```java
-void onChildAdded(DataSnapshot snapshot,
+void onChildAdded(DataSnapshot snapshot，
                   String previousChildName)
 ```
 
@@ -38,7 +38,7 @@ previousChildName | `String` 按照当前排序前一节点的 key 值。如果�
 ##### 定义
 
 ```java
-void onChildChanged(DataSnapshot snapshot,
+void onChildChanged(DataSnapshot snapshot，
                     String previousChildName)
 ```
 
@@ -61,13 +61,13 @@ previousChildName | `String` 按照当前排序前一节点的 key 值。如果�
 ##### 定义
 
 ```java
-void onChildMoved(DataSnapshot snapshot,
+void onChildMoved(DataSnapshot snapshot，
                     String previousChildName)
 ```
 
 ##### 说明
 
-当前排序下，当有子节点排序发生变化时触发此方法。
+当前排序下，某子节点排序发生变化时触发此方法。
 例如当按照优先级排序时，某个子节点的优先级发生改变时将返回此节点数据快照，以及按照新优先级值排序后的前一节点 key 值。
 
 ##### 参数
@@ -75,21 +75,21 @@ void onChildMoved(DataSnapshot snapshot,
 参数名 | 说明
 --- | ---
 snapshot | [DataSnapshot](/api/sync/android/DataSnapshot.html) 排序发生变化的子节点数据快照。
-previousChildName | `String` 排在被修改的新子节点前面的兄弟节点的key值。如果改变的是当前节点的第一个子节点，该值为null。
+previousChildName | `String` 按照当前排序前一节点的 key 值。如果当前节点为第一个子节点，该值为 null。
 
 ##### 示例
 ```java
         //当前数据
-        //DataSnapshot { key = orderByPriorityTest, 
-        //value = {aaa={.priority=0.0, .value=aaa}, bbb={.priority=1.0, .value=bbb},
-        //ccc={.priority=2.0, .value=ccc}, ddd={.priority=3.0, .value=ddd},eee={.priority=4.0, .value=eee} }
+        //DataSnapshot { key = orderByPriorityTest，
+        //value = {aaa={.priority=0.0，.value=aaa}，bbb={.priority=1.0，.value=bbb}，
+        //ccc={.priority=2.0，.value=ccc}，ddd={.priority=3.0，.value=ddd}，eee={.priority=4.0，.value=eee} }
         //当前排序为 aaa -> bbb -> ccc -> ddd -> eee
 
         ref.child("orderByPriorityTest").child("ccc").setPriority(4.1);
         
         //更新优先级后排序为 aaa -> bbb -> ddd -> eee -> ccc 
         //在 'onChildMoved' 方法中返回数据
-        //DataSnapshot { key = ccc, value = {.priority=4.1, .value=ccc} }，prevNode:eee
+        //DataSnapshot { key = ccc，value = {.priority=4.1，.value=ccc} }，prevNode:eee
 ```
 
 </br>
@@ -110,7 +110,7 @@ void onChildRemoved(DataSnapshot snapshot)
 
 参数名 | 说明
 --- | ---
-snapshot | [DataSnapshot](/api/sync/android/DataSnapshot.html) 被移除子节点的数据快照。
+snapshot | [DataSnapshot](/api/sync/android/DataSnapshot.html) 被移除的子节点数据快照。
 </br>
 
 ---
