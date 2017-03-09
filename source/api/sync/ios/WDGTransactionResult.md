@@ -36,7 +36,7 @@ value|一个包含新 value 属性的 `WDGMutableData` 实例。
 
 ##### 返回值
 
-返回一个 `WDGTransactionResult` 实例，作为 `runTransactionBlock:` 方法中 block 的返回值。
+`WDGTransactionResult` 实例，作为 `[WDGSyncReference runTransactionBlock:]` 方法中 block 的返回值。
 
 </br>
 
@@ -62,7 +62,7 @@ class func abort() -> WDGTransactionResult
 
 ##### 返回值
 
-返回一个 `WDGTransactionResult` 实例，作为 `runTransactionBlock:` 方法中 block 的返回值。
+`WDGTransactionResult` 实例，作为 `[WDGSyncReference runTransactionBlock:]` 方法中 block 的返回值。
 
 
 

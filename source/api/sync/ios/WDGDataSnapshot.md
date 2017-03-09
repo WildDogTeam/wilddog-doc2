@@ -24,7 +24,7 @@ var value: Any? { get }
 可能返回的数据类型包括:
 - NSDictionary
 - NSArray
-- NSNumber (包含Bool类型)
+- NSNumber (包含 BOOL 类型)
 - NSString
 
 </br>
@@ -104,7 +104,7 @@ var children: NSEnumerator { get }
 当前 `WDGDataSnapshot` 中，所有子节点的迭代器。
 例如:
 ```objectivec
-for (WDGDataSnapshot* child in snapshot.children) {
+for (WDGDataSnapshot *child in snapshot.children) {
     ...
 }
 ```
@@ -152,7 +152,7 @@ func childSnapshot(forPath childPathString: String) -> WDGDataSnapshot
 ##### 说明
 
 根据相对路径，来获取当前节点下子节点的数据快照。
-相对路径可以是一个字节点的 key 值（例如："Beijing"），也可以是更深层次的路径（例如："Beijing/pm25"）。
+相对路径可以是一个字节点的 key 值（例如：`Beijing`），也可以是更深层次的路径（例如：`Beijing/pm25`）。
 如果相对路径下并没有数据，则返回 nil。
 根据指定的相对路径，来获取当前节点下的 `WDGDataSnapshot`。
  
@@ -163,7 +163,7 @@ func childSnapshot(forPath childPathString: String) -> WDGDataSnapshot
 
  参数名 | 说明 
 ---|---
-childPathString|节点数据的相对路径，多层级间需要使用 "/" 分隔。
+childPathString|节点数据的相对路径，多层级间需要使用 `/` 分隔。
 
 
 
@@ -205,7 +205,7 @@ childPathString|相对路径
 
 ##### 返回值
 
-如果指定路径下存在子节点，返回YES，否则返回NO
+如果指定路径下存在子节点，返回 YES，否则返回 NO。
 
 </br>
 
@@ -278,7 +278,7 @@ func valueInExportFormat() -> Any?
 ##### 说明
 
 将 `WDGDataSnapshot` 中的全部内容导出。
-valueInExportFormat 方法和 `value` 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，valueInExportFormat 会导出包含 priority 的数据，适合用于备份。
+`valueInExportFormat` 方法和 `value` 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，`valueInExportFormat` 会导出包含 priority 的数据，适合用于备份。
 
 
 

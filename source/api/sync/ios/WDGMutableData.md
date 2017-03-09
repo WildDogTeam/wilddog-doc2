@@ -1,17 +1,9 @@
 title: WDGMutableData
 ---
 
-`WDGMutableData` 实例是 Wilddog Sync 节点处的另一种数据载体，当使用 `runTransactionBlock:` 方法时，
+`WDGMutableData` 实例是 Wilddog Sync 节点处的另一种数据载体，当使用 `[WDGSyncReference runTransactionBlock:]` 方法时，
 你会接受到一个包含当前节点数据的 `WDGMutableData` 实例。如果你想要保存此节点的数据，将此节点的
 `WDGMutableData` 传参到 `[WDGTransactionResult successWithValue:]` 方法中。
-
-修改 `WDGMutableData` 实例中的数据，value 可将其设置为 Wilddog 支持的任一原生数据类型：
-
-- NSNumber (includes BOOL)
-- NSDictionary
-- NSArray
-- NSString
-- nil / NSNull (设置 nil / NSNull 删除该数据)
 
 
 ## 属性
@@ -38,10 +30,9 @@ var value: Any? { get set }
  
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
-<ul>
-<li>修改这个 value，会覆盖这个节点的优先级。</li>
 
-</ul>
+修改这个 value，会覆盖这个节点的优先级。
+
 </blockquote>
 
 </br>
@@ -104,8 +95,8 @@ var children: NSEnumerator { get }
 ##### 说明
 
 当前节点下所有子节点的 Mutabledata 实例的迭代器，用于迭代该节点的子节点。可以用下面的这个方法：
-```
-for (WDGMutableData* child in data.children) {
+```objectivec
+for (WDGMutableData *child in data.children) {
     ...
 }
 ```
@@ -186,7 +177,7 @@ func hasChild(atPath path: String) -> Bool
 
  参数名 | 说明 
 ---|---
-path|可以是类似 "child" 的单层级路径，也可以是类似 "a/deeper/child" 多层级路径。
+path|可以是类似 `child` 的单层级路径，也可以是类似 `a/deeper/child` 多层级路径。
 
 
 
@@ -220,7 +211,7 @@ func childData(byAppendingPath path: String) -> WDGMutableData
 
  参数名 | 说明 
 ---|---
-path|可以是类似 "child" 的单层级路径，也可以是类似 "a/deeper/child" 多层级路径。
+path|可以是类似 `child` 的单层级路径，也可以是类似 `a/deeper/child` 多层级路径。
 
 
 

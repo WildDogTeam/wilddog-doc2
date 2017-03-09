@@ -45,10 +45,9 @@ var persistenceEnabled: Bool { get set }
  
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
-<ul>
-<li>此属性必须在创建第一个 Sync 引用之前设置，并且每次启用应用程序只需要调用一次即可。</li>
 
-</ul>
+此属性必须在创建第一个 Sync 引用之前设置，并且每次启用应用程序只需要调用一次即可。
+
 </blockquote>
 
 </br>
@@ -72,10 +71,9 @@ var callbackQueue: DispatchQueue { get set }
  
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
-<ul>
-<li>这个属性必须在创建第一个 Sync 引用之前设置。</li>
 
-</ul>
+这个属性必须在创建第一个 Sync 引用之前设置。
+
 </blockquote>
 
 </br>
