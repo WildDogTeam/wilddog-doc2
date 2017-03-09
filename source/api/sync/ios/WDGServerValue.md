@@ -28,7 +28,13 @@ class func timestamp() -> Any!
 
 ##### 返回值
 
-返回一个载有 [".sv":"timestamp"] 的字典。
+ 返回一个载有 `
+@
+{ 
+@
+".sv": 
+@
+"timestamp" }` 的字典。
 
 
 

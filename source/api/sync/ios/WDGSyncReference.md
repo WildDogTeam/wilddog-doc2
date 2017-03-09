@@ -24,10 +24,9 @@ var parent: WDGSyncReference? { get }
  
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
-<ul>
-<li>根节点的 parent 为 nil。</li>
 
-</ul>
+根节点的 parent 为 nil。
+
 </blockquote>
 
 </br>
@@ -131,7 +130,7 @@ func child(_ pathString: String) -> WDGSyncReference
 
 获得一个在当前节点下指定路径节点处的 `WDGSyncReference` 实例。
 根据相对路径 `path`，来获取当前节点下 `path` 子节点的引用。
-相对路径可以是一个简单的节点路径（例如: "fred"），或者是一个更深的路径（例如: `fred/name/first`）。
+相对路径可以是一个简单的节点路径（例如: `fred`），或者是一个更深的路径（例如: `fred/name/first`）。
  
  
 
@@ -189,7 +188,7 @@ func childByAutoId() -> WDGSyncReference
 ##### 说明
 
 向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：`-KdzI7I-AsBST9NlasJM`）。
-新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
+新增子节点的 key 基于时间戳和随机算法生成，并按照时间先后进行排序。
  
 
 
@@ -215,8 +214,7 @@ func setValue(_ value: Any?)
 
 ##### 说明
 
-往 WDGSyncReference 当前路径写入一个值。
-这将会覆盖当前路径和子路径的所有数据。
+往 WDGSyncReference 当前路径写入一个值，这将会覆盖当前路径和子路径的所有数据。
 支持的数据类型:
  - NSString -- `@"Hello World"`
  - NSNumber (包括 BOOL 类型) -- `@YES`, `@43`, `@4.333`
@@ -426,10 +424,9 @@ func setPriority(_ priority: Any?)
 
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
-<ul>
-<li>数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序。Key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。</li>
 
-</ul>
+数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序。Key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
+
 </blockquote>
 
 ##### 参数
