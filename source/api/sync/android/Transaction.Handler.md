@@ -28,12 +28,12 @@ currentData |[MutableData](/api/sync/android/MutableData.html) 实例。
 </br>
 
 ---
-### onComplete(error,committed,currentData)
+### onComplete(error，committed，currentData)
 
 ##### 定义
 
 ```java
-void onComplete(SyncError error, boolean committed, DataSnapshot currentData);
+void onComplete(SyncError error，boolean committed，DataSnapshot currentData);
 ```
 
 ##### 说明

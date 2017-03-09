@@ -9,7 +9,7 @@ title:  ServerValue
 ##### 定义
 
 ```java
-public static final Map<String, String> TIMESTAMP = createServerValuePlaceholder("timestamp");
+static final Map<String，String> TIMESTAMP = createServerValuePlaceholder("timestamp");
 ```
 
 ##### 说明

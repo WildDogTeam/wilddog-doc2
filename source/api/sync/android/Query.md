@@ -42,12 +42,12 @@ ChildEventListener addChildEventListener(ChildEventListener listener)
 
 参数名 | 说明
 --- | ---
-listener | [ChildEventListener](/api/sync/android/ChildEventListener.html)类型，实现了此接口的类可以接收当前节点下的事件。
+listener | [ChildEventListener](/api/sync/android/ChildEventListener.html) 类型，实现了此接口的类可以接收当前节点下的事件。
           
 
 ##### 返回值
 
-[ChildEventListener](/api/sync/android/ChildEventListener.html) 监听事件的引用，可使用 `removeEventListener(ChildEventListener)` 方法移除监听。
+[ChildEventListener](/api/sync/android/ChildEventListener.html) 实例，可使用 `removeEventListener(ChildEventListener)` 方法移除监听。
 
 ##### 示例
 
@@ -55,12 +55,12 @@ listener | [ChildEventListener](/api/sync/android/ChildEventListener.html)类型
 SyncReference ref = WilddogSync.getInstance().getReference("test");
 
 ChildEventListener listener = ref.addChildEventListener(new ChildEventListener() {
-  public void onChildAdded(DataSnapshot snapshot, String s) {
+  public void onChildAdded(DataSnapshot snapshot，String s) {
     System.out.println(snapshot.getValue());
         // DataSnapshot to json string
         try {
           JSONObject json = new JSONObject();
-          json.put(dataSnapshot.getKey(), new JSONObject(dataSnapshot.getValue()));
+          json.put(dataSnapshot.getKey()，new JSONObject(dataSnapshot.getValue()));
           System.out.println(json.toString());
     } catch (JSONException e) {
           e.printStackTrace();
@@ -68,7 +68,7 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
 
   }
 
-  public void onChildChanged(DataSnapshot snapshot, String s) {
+  public void onChildChanged(DataSnapshot snapshot，String s) {
     System.out.println(snapshot.getValue());
   }
 
@@ -76,7 +76,7 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
     System.out.println(snapshot.getValue());
   }
 
-  public void onChildMoved(DataSnapshot snapshot, String s) {
+  public void onChildMoved(DataSnapshot snapshot，String s) {
     System.out.println(snapshot.getValue());
   }
 
@@ -90,27 +90,6 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
 </br>
 
 ---
-### addListenerForSingleValueEvent(listener)
-##### 定义
-
-```java
-void addListenerForSingleValueEvent(ValueEventListener listener)
-```
-
-##### 说明
-监听 Wilddog Sync 云端数据的主要方式之一，用于获取当前节点下的所有数据。
-同 `addValueEventListener` 类似，不同之处在于 `addListenerForSingleValueEvent` 中的回调方法只被触发一次，之后会自动取消监听。
-
-##### 参数
-
-
-参数名 | 说明
---- | ---
-listener | [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型，为当前节点绑定的监听事件。
-
-</br>
-
----
 ### addValueEventListener(listener)
 ##### 定义
 
@@ -121,7 +100,7 @@ void addValueEventListener(ValueEventListener listener)
 ##### 说明
 
 监听 Wilddog Sync 云端数据的主要方式之一，用于监听当前节点所有节点的数据。
-当监听到当前节点的初始数据或当前节点的数据改变时，将会触发 `onDataChange` 回调方法，返回当前节点下的所有数据。
+当监听到当前节点的初始数据或当前节点的数据改变时，将会触发 `onDataChange()` 回调方法，返回当前节点下的所有数据。
 
 ##### 参数
 
@@ -132,7 +111,7 @@ listener | [ValueEventListener](/api/sync/android/ValueEventListener.html) 类�
 
 ##### 返回值
 
-[ValueEventListener](/api/sync/android/ValueEventListener.html) 监听事件的引用，可使用 `removeEventListener(ValueEventListener)` 方法移除监听。
+[ValueEventListener](/api/sync/android/ValueEventListener.html) 实例，可使用 `removeEventListener(ValueEventListener)` 方法移除监听。
 
 ##### 示例
 
@@ -144,7 +123,7 @@ ValueEventListener listener = ref.addValueEventListener(new ValueEventListener()
           // DataSnapshot to json string
           try {
           JSONObject json = new JSONObject();
-          json.put(dataSnapshot.getKey(), new JSONObject(dataSnapshot.getValue()));
+          json.put(dataSnapshot.getKey()，new JSONObject(dataSnapshot.getValue()));
           System.out.println(json.toString());
       } catch (JSONException e) {
           e.printStackTrace();
@@ -163,23 +142,24 @@ ValueEventListener listener = ref.addValueEventListener(new ValueEventListener()
 </br>
 
 ---
-### removeEventListener(valueListener)
+### addListenerForSingleValueEvent(listener)
 ##### 定义
 
 ```java
-void removeEventListener(ValueEventListener valueListener)
+void addListenerForSingleValueEvent(ValueEventListener listener)
 ```
 
 ##### 说明
-
-移除监听事件。移除使用 `addValueEventListener` 方法设置的数据监听。
+监听 Wilddog Sync 云端数据的主要方式之一，用于获取当前节点下的所有数据。
+同 `addValueEventListener()` 类似，不同之处在于 `addListenerForSingleValueEvent()` 中的回调方法只被触发一次，之后会自动取消监听。
 
 ##### 参数
 
 
 参数名 | 说明
 --- | ---
-listener |  [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型,要移除的监听事件。
+listener | [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型，为当前节点绑定的监听事件。
+
 </br>
 
 ---
@@ -199,7 +179,28 @@ void removeEventListener(ChildEventListener childEventListener)
 
 参数名 | 说明
 --- | ---
-listener | [ChildEventListener](/api/sync/android/ChildEventListener.html) 类型,要移除的监听事件。
+listener | [ChildEventListener](/api/sync/android/ChildEventListener.html) 类型，要移除的监听事件。
+</br>
+
+---
+
+### removeEventListener(valueListener)
+##### 定义
+
+```java
+void removeEventListener(ValueEventListener valueListener)
+```
+
+##### 说明
+
+移除监听事件。移除使用 `addValueEventListener` 方法设置的数据监听。
+
+##### 参数
+
+
+参数名 | 说明
+--- | ---
+listener |  [ValueEventListener](/api/sync/android/ValueEventListener.html) 类型，要移除的监听事件。
 </br>
 
 ---
@@ -215,7 +216,7 @@ Query orderByKey()
 ##### 说明
 
 创建一个新的 `Query` 实例，按子节点的 key 对结果以字典序进行排序。
-此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
+此方法可以与 `startAt()`、`endAt()` 或 `equalTo()` 方法联合使用。
 
 ##### 返回值
 
@@ -233,8 +234,8 @@ Query orderByValue()
 
 ##### 说明
 
-创建一个新的 `Query` 实例，按子节点的值 value 对结果排序。
-此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
+创建一个新的 `Query` 实例，按子节点的 value 值对结果排序。
+此方法可以与 `startAt()`、`endAt()` 或 `equalTo()` 方法联合使用。
 
 ##### 返回值
 
@@ -251,14 +252,14 @@ Query orderByChild(String childKey)
 
 ##### 说明
 
-创建一个新的 `Query` 实例，按子节点下指定的 key 对应的 value 对结果进行排序。
-此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
+创建一个新的 `Query` 实例，按子节点下指定 key 对应的 value 对结果进行排序。
+此方法可以与 `startAt()`、`endAt()` 或 `equalTo()` 方法联合使用。
 
 ##### 参数
 
 参数名 | 说明
 --- | ---
-childKey | `String` 用来排序的子节点的 key。
+childKey | String 用来排序的子节点的 key。
 
 ##### 返回值
 
@@ -278,7 +279,7 @@ Query orderByPriority()
 
 创建一个新的 `Query` 实例，按节点的 priority 对结果排序。 节点按照如下优先级规则升序排列：null < Number < String。
 排序规则：
- - priority 为 nil 的排最先；
+ - priority 为 null 的排最先；
  - priority 为数值的次之，按照数值从小到大排序；
  - priority 为字符串的排最后，按照字典序排列；
  - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
@@ -286,7 +287,7 @@ Query orderByPriority()
   <p><strong>注意：</strong></p>
   数值优先级被作为 IEEE 754 双精度浮点型数字进行解析和排序，key 以 String 类型进行存储，只有当它能被解析成 32 位整型数字时被当作数字来处理。
 </blockquote>
-此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
+此方法可以与 `startAt()`、`endAt()` 或 `equalTo()` 方法联合使用。
 
 ##### 返回值
 
@@ -305,17 +306,17 @@ Query startAt(startValue value)
 
 ##### 说明
 创建一个新的 `Query` 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 
-此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  对于使用 `startAt(String value)` 进行查询时,查询方式是通过将字符进行 unicode 编码后进行排序。
+  对于使用 `startAt(String value)` 进行查询时，查询方式是通过将字符进行 unicode 编码后进行排序。
 </blockquote>
 
 ##### 参数
 
 参数名 | 说明
 --- | ---
-value | 查询返回值的下界，所有返回值均大于等于 startValue。value 的类型 可以为 `String`、`double` 或 `boolean`。
+value | 查询返回值的下界，所有返回值均大于等于 startValue。value 的类型 可以为 String、Double 或 boolean。
 
 ##### 返回值
 
@@ -335,18 +336,18 @@ Query startAt(Object startValue，String childKey)
 ##### 说明
 创建一个新的 `Query` 实例，可以查询所有大于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。 
 当查询到的 value 与 startValue 相等时，则只保留 key 大于等于 childKey 的节点。
-此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 该方法可用于分页。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  对于使用 `startAt(String value，String childKey)` 进行查询时,查询方式是通过将字符进行 unicode 编码后进行排序。
+  对于使用 `startAt(String value，String childKey)` 进行查询时，查询方式是通过将字符进行 unicode 编码后进行排序。
 </blockquote>
 
 ##### 参数
 
 参数名 | 说明
 --- | ---
-value | 查询返回值的下界，所有返回值均大于等于 startValue。value 的类型可以为 `String`、`double` 或 `boolean`。
+value | 查询返回值的下界，所有返回值均大于等于 startValue。value 的类型可以为 String、Double 或 Boolean。
 childKey | 当查询到的值和 startValue 相等时，返回其中 key 大于等于 childKey 的节点。
 
 ##### 返回值
@@ -366,13 +367,13 @@ Query endAt(Object endValue)
 ##### 说明
 
 创建一个新的 `Query` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 
-此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 
 ##### 参数
 
 参数名 | 说明
 --- | ---
-value | 查询返回值的上界，所有返回值均小于等于 endValue。endValue 的类型可以为 `String`、`double` 或 `boolean`。
+value | 查询返回值的上界，所有返回值均小于等于 endValue。endValue 的类型可以为 String、Double 或 Boolean。
 
 ##### 返回值
 
@@ -393,13 +394,13 @@ Query endAt(Object endValue，String childKey)
 
 创建一个新的 `Query` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 
 当查询到的 value 与 endValue 相等时，则只保留 key 小于等于 childKey 的节点
-此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 
 ##### 参数
 
 参数名 | 说明
 --- | ---
-value | 查询返回值的上界，所有返回值均小于等于 endValue。endValue 的类型可以为 `String`、`double` 或 `boolean`。
+value | 查询返回值的上界，所有返回值均小于等于 endValue。endValue 的类型可以为 String、Double 或 Boolean。
 childKey | 当查询到的值和 endValue 相等时，返回其中 key 小于等于 childKey 的节点。
 
 ##### 返回值
@@ -418,7 +419,7 @@ Object equalTo(Object value)
 ##### 说明
 
 创建一个新的 `Query` 实例，用于精确查询指定 key、value 或 priority 的节点，具体取决于所选的排序方法。
-此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 
 ##### 参数
 
@@ -444,7 +445,7 @@ Object equalTo(Object value，String childKey)
 
 创建一个新的 `Query` 实例，用于精确查询指定 key、value 或 priority 等于 value 并且节点 key 等于 childKey 的节点，具体取决于所选的排序方法。
 由于 childKey 是唯一的，查询最多返回一个节点。
-此方法应与 `orderByPriority`、`orderByKey`、`orderByValue` 或 `orderByChild` 方法联合使用。
+此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 
 ##### 参数
 

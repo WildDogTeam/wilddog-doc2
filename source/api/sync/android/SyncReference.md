@@ -17,14 +17,14 @@ SyncReference child(String path)
 ##### 说明
 获得一个在当前节点下指定路径节点处的 `SyncReference` 实例。
 根据相对路径 path，来获取当前节点下 path 子节点的引用。
-相对路径可以是一个简单的节点路径（例如: "fred"），或者是一个更深的路径（例如: "fred/name/first"）。
+相对路径可以是一个简单的节点路径（例如: `fred`），或者是一个更深的路径（例如: `fred/name/first`）。
 
 
 ##### 参数
 
 参数名 | 说明
 --- | ---
-path | `String` path 为相对路径，深层路径多层级间需要使用 "/" 分隔，例如 "a/b" 。如果 path 为空字符串或 null 则返回当前引用。如果定位的 path 不存在，依然可以定位，将在后续数据操作时创建不存在的路径节点引用。
+path | `String` path 为相对路径，深层路径多层级间需要使用 "/" 分隔，例如："a/b" 。如果 path 为空字符串或 null 则返回当前引用。如果定位的 path 不存在，依然可以定位，将在后续数据操作时创建不存在的路径节点引用。
 
 
 ##### 返回值
@@ -35,7 +35,7 @@ path | `String` path 为相对路径，深层路径多层级间需要使用 "/" 
 
 ```java
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<appId>.wilddogio.com").build();
-WilddogApp.initializeApp(this, options);
+WilddogApp.initializeApp(this，options);
 //ref 表示 `https://<appId>.wilddogio.com/test` 节点
 SyncReference ref = WilddogSync.getInstance().getReference("test");
 
@@ -75,20 +75,20 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         strList[2] = "b";
         strList[3] = "c";
         strList[5] = "d";
-        //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
+        //在数据库中存储为DataSnapshot { key = list，value = {0=a，2=b，3=c，5=d} }
         ref.child("list").setValue(strList);
 ```
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
-如果不满足条件，`Wilddog Sync` 处理数据时会将其转换为 `Map` 类型。
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
- - null 当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+ - null，当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
 
 
 ##### 参数
 
  参数名 | 说明
  --- | ---
-  value | value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+  value | value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。
   
 
 ##### 示例
@@ -103,8 +103,8 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         ref.child("a/b").setValue(null);
 
         // 设置子树
-        Map<String, String> children = new HashMap<String, String>();
-        children.put("c", "cval");
+        Map<String，String> children = new HashMap<String，String>();
+        children.put("c"，"cval");
         ref.child("a/b").setValue(children);
 
         // 自定义Entity
@@ -118,12 +118,12 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 </br>
 
 ---
-### setValue(value, listener)
+### setValue(value，listener)
 
 ##### 定义
 
 ```java
-   void setValue(Object value, SyncReference.CompletionListener listener)
+   void setValue(Object value，SyncReference.CompletionListener listener)
 ```
 
 ##### 说明
@@ -134,7 +134,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 支持写入的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
  - 数组 ArrayList;
-`Wliddog Sync` 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
+Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 例如：
 ```java
         String[] strList = new String[6];
@@ -142,10 +142,10 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         strList[2] = "b";
         strList[3] = "c";
         strList[5] = "d";
-        //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
+        //在数据库中存储为DataSnapshot { key = list，value = {0=a，2=b，3=c，5=d} }
         ref.child("list").setValue(strList);
 ```
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
  - null，当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
@@ -154,7 +154,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 
  参数名 | 说明
  --- | ---
- value |value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+ value |value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。
  listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue()` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
 
 
@@ -164,7 +164,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 
 ```java
        class MyHandler implements SyncReference.CompletionListener {
-             void onComplete(SyncError error, SyncReference ref) {
+             void onComplete(SyncError error，SyncReference ref) {
                  if(error != null){
                      System.out.println(error.getCode());
                  }
@@ -178,15 +178,15 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
        CompletionListener listener = new MyHandler();
 
        // 等价 update(100);
-       ref.child("a/b").setValue(100, listener);
+       ref.child("a/b").setValue(100，listener);
 
        // 等价 remove();
-       ref.child("a/b").setValue(null, listener);
+       ref.child("a/b").setValue(null，listener);
 
        // 设置子树
-       Map<String, String> children = new HashMap<String, String>();
-       children.put("c", "cval");
-       ref.child("a/b").setValue(children, listener);
+       Map<String，String> children = new HashMap<String，String>();
+       children.put("c"，"cval");
+       ref.child("a/b").setValue(children，listener);
 
        // 自定义Entity
        DOTAHero hero = new DOTAHero();
@@ -194,8 +194,8 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
        hero.setHp(435);
        hero.setMp(234);
 
-       ref.child("dota/heros/SF").setValue(hero, new SyncReference.CompletionListener() {
-         void onComplete(SyncError error, SyncReference ref) {
+       ref.child("dota/heros/SF").setValue(hero，new SyncReference.CompletionListener() {
+         void onComplete(SyncError error，SyncReference ref) {
            if(error != null) {
              System.out.println(error.getCode());
              return;
@@ -209,24 +209,24 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 </br>
 
 ---
-### setValue(value, priority,listener)
+### setValue(value，priority，listener)
 
 ##### 定义
 
 ```java
-   void setValue(Object value, Object priority, SyncReference.CompletionListener listener)
+   void setValue(Object value，Object priority，SyncReference.CompletionListener listener)
 ```
 
 ##### 说明
 
 
-向指定节点写入数据和[数据优先级](/api/sync/android/SyncReference.html#setPriority)，并设置数据完成监听。此方法会先清空指定节点，再写入数据。
+向指定节点写入数据和 [数据优先级](/api/sync/android/SyncReference.html#setPriority)，并设置操作完成监听。此方法会先清空指定节点，再写入数据。
 `setValue()` 操作执行完成后将触发 listener 的 `onComplete()` 方法。
 
 支持写入的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
  - 数组 ArrayList;
-`Wliddog Sync` 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
+Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
 例如：
 ```java
         String[] strList = new String[6];
@@ -234,10 +234,10 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
         strList[2] = "b";
         strList[3] = "c";
         strList[5] = "d";
-        //在数据库中存储为DataSnapshot { key = list, value = {0=a, 2=b, 3=c, 5=d} }
+        //在数据库中存储为DataSnapshot { key = list，value = {0=a，2=b，3=c，5=d} }
         ref.child("list").setValue(strList);
 ```
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 `ArrayList` 类型;
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为 ArrayList 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 Map 类型。
  - 自定义数据类型，满足 JavaBean 规范的实体;
  - null，当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
@@ -247,7 +247,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 
  参数名 | 说明
  --- | ---
- value |value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。当 value 为 null 时，等价于当前节点的 `removeValue()` 操作，会删除当前节点。
+ value |value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。
 priority |`Object` 指定节点的优先级，类型可以为 Boolean、Number 或 String。
 listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue()` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
 
@@ -260,7 +260,7 @@ listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListene
 
 ```java
        class MyHandler implements SyncReference.CompletionListener {
-             void onComplete(SyncError error, SyncReference ref) {
+             void onComplete(SyncError error，SyncReference ref) {
                  if(error != null){
                      System.out.println(error.getCode());
                  }
@@ -274,15 +274,15 @@ listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListene
        CompletionListener listener = new MyHandler();
 
        // 等价 update(100);
-       ref.child("a/b").setValue(100, listener);
+       ref.child("a/b").setValue(100，listener);
 
        // 等价 remove();
-       ref.child("a/b").setValue(null, listener);
+       ref.child("a/b").setValue(null，listener);
 
        // 设置子树
-       Map<String, String> children = new HashMap<String, String>();
-       children.put("c", "cval");
-       ref.child("a/b").setValue(children, listener);
+       Map<String，String> children = new HashMap<String，String>();
+       children.put("c"，"cval");
+       ref.child("a/b").setValue(children，listener);
 
        // 自定义Entity
        DOTAHero hero = new DOTAHero();
@@ -290,8 +290,8 @@ listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListene
        hero.setHp(435);
        hero.setMp(234);
 
-       ref.child("dota/heros/SF").setValue(hero, new SyncReference.CompletionListener() {
-         void onComplete(SyncError error, SyncReference ref) {
+       ref.child("dota/heros/SF").setValue(hero，new SyncReference.CompletionListener() {
+         void onComplete(SyncError error，SyncReference ref) {
            if(error != null) {
              System.out.println(error.getCode());
              return;
@@ -314,8 +314,8 @@ SyncReference push()
 ```
 
 ##### 说明
-向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：“-KdzI7I-AsBST9NlasJM”）。 
- key 值基于时间戳和随机算法生成，并可以按照时间先后进行排序。
+向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如："-KdzI7I-AsBST9NlasJM"）。 
+key 值基于时间戳和随机算法生成，并可以按照时间先后进行排序。
 
 ##### 返回值
 
@@ -326,7 +326,7 @@ SyncReference push()
 ```java
 SyncReference ref = WilddogSync.getInstance().getReference("push");
 
-// 添加一个数值，将生成一个新 ID， 返回的 path 为“/push/-KdzI7I-AsBST9NlasJM”
+// 添加一个数值，将生成一个新 ID，返回的 path 为“/push/-KdzI7I-AsBST9NlasJM”
 SyncReference newRef = ref.push();
 //操作结果为在 'push' 节点下写入 {"-KdzI7I-AsBST9NlasJM":100}
 newRef.setValue(100);
@@ -361,7 +361,7 @@ ref.child("heros").push().setValue(hero);
 
  参数名 | 说明
  --- | ---
-  value |`Map<String, Object>` 当 value 为 null 时，等价于 `removeValue()` 操作。
+  value |`Map<String，Object>` 当 value 为 null 时，等价于 `removeValue()` 操作。
 
 
 ##### 示例
@@ -369,24 +369,24 @@ ref.child("heros").push().setValue(hero);
 SyncReference ref = WilddogSync.getInstance().getReference("test");
 
 // 更新子树
-Map<String, String> children = new HashMap<String, String>();
-children.put("c", "cval");
+Map<String，String> children = new HashMap<String，String>();
+children.put("c"，"cval");
 ref.child("a/b").updateChildren(children);
 ```
 </br>
 
 ---
-### updateChildren(value, listener)
+### updateChildren(value，listener)
 
 ##### 定义
 
 ```java
-void updateChildren(Map<String, Object> value, SyncReference.CompletionListener listener)
+void updateChildren(Map<String，Object> value，SyncReference.CompletionListener listener)
 ```
 
 ##### 说明
 
-对当前节点进行数据合并操作，更新当前节点下的数据。
+对当前节点进行数据合并操作，更新当前节点下的数据，并设置数据完成监听。
 与 `setValue()` 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildren()` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
 使用此方法可以对同一节点的子节点同时进行更新和删除操作。
 
@@ -394,7 +394,7 @@ void updateChildren(Map<String, Object> value, SyncReference.CompletionListener 
 
  参数名 | 说明
  --- | ---
-  value | `Map<String, Object>` 当 value 为 null 时，等价于 `removeValue` 操作。
+  value | `Map<String，Object>` 当 value 为 null 时，等价于 `removeValue` 操作。
 listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`setValue()` 操作完成回调。`setValue(value，null)` 等价于 `setValue(value)`。
 
 
@@ -402,7 +402,7 @@ listener | [CompletionListener](/api/sync/android/SyncReference.CompletionListen
 自定义CompletionListener
 ```java
 class MyHandler implements SyncReference.CompletionListener {
-  void onComplete(SyncError error, SyncReference ref){
+  void onComplete(SyncError error，SyncReference ref){
     if(error != null){
       System.out.println(error.getCode());
     }
@@ -414,9 +414,9 @@ SyncReference ref = WilddogSync.getInstance().getReference("test");
 CompletionListener handler = new MyHandler();
 
 // 更新子树
-Map<String, Object> children = new HashMap<String, Object>();
-children.put("c", "cval");
-ref.child("a/b").updateChildren(children, handler);
+Map<String，Object> children = new HashMap<String，Object>();
+children.put("c"，"cval");
+ref.child("a/b").updateChildren(children，handler);
 ```
 </br>
 
@@ -433,8 +433,8 @@ void setPriority(Object priority)
 
 ##### 说明
 
-   设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。
-   不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority(priority)`。
+设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。
+不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data，priority)`；为已存在的数据设置优先级的时，使用 `setPriority(priority)`。
 
    节点按照如下优先级规则升序排列：null < Number < String。
  
@@ -456,18 +456,18 @@ priority |`Object` 指定节点的优先级。
 </br>
 
 ---
-### setPriority(object, listener)
+### setPriority(object，listener)
 
 ##### 定义
 
 ```java
-void setPriority(Object object, SyncReference.CompletionListener listener)
+void setPriority(Object object，SyncReference.CompletionListener listener)
 ```
 
 ##### 说明
 
-设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。
-   不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority(priority)`。
+设置当前节点的优先级并设置优先级操作完成监听。支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。
+不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data，priority)`；为已存在的数据设置优先级的时，使用 `setPriority(priority)`。
 
    节点按照如下优先级规则升序排列：null < Number < String。
  
@@ -525,13 +525,13 @@ void removeValue(SyncReference.CompletionListener listener)
 
 ##### 说明
 
-删除当前节点，等价于在当前节点下调用 `setValue(null)` 方法。
+删除当前节点，并设置数据移除完成监听。等价于在当前节点下调用 `setValue(null，listener)` 方法。
 
 ##### 参数
 
 参数名 | 说明
 --- | ---
-listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`removeValue` 操作完成回调。
+listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListener.html) 类型。`removeValue()` 操作完成回调。
 
 
 
@@ -541,7 +541,7 @@ listener |[CompletionListener](/api/sync/android/SyncReference.CompletionListene
         SyncReference ref = WilddogSync.getInstance().getReference("test");
         ref.child("a/b").removeValue(new SyncReference.CompletionListener() {
             @Override
-            void onComplete(SyncError syncError, SyncReference syncReference) {
+            void onComplete(SyncError syncError，SyncReference syncReference) {
                 if (syncError != null) {
                     // 移除数据失败
                 } else {
@@ -592,7 +592,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
         return Transaction.success(currentData); // 向云端提交数据。也可以调用 Transaction.abort() 中止事务
     }
 
-    void onComplete(SyncError wilddogError, boolean committed, DataSnapshot currentData) {
+    void onComplete(SyncError wilddogError，boolean committed，DataSnapshot currentData) {
         // 事务完成后调用一次，获取事务完成的结果
     }
 });
@@ -757,7 +757,7 @@ static void goOffline()
 同时不会接收任何网络数据变化，直到恢复连接。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  调用此方法会影响到所有 `WilddogApp` 的 `WilddogSync` 连接。
+  调用此方法会影响到所有 [WilddogApp](/api/sync/android/WilddogApp.html) 的 [WilddogSync](/api/sync/android/WilddogSync.html) 连接。
 </blockquote>
 
 </br>
@@ -776,7 +776,7 @@ static void goOnline()
 手动恢复与云端的连接，开启自动重连机制。在关闭连接期间发生的所有本地数据变化，都将在网络连接恢复后与网络数据比对，进行数据合并。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  调用此方法会影响到所有 `WilddogApp` 的 `WilddogSync` 连接。
+  调用此方法会影响到所有 [WilddogApp](/api/sync/android/WilddogApp.html) 的 [WilddogSync](/api/sync/android/WilddogSync.html) 连接。
 </blockquote>
 
 </br>

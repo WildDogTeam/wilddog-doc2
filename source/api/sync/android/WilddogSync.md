@@ -1,6 +1,7 @@
 title:  WilddogSync
 ---
-WilddogSync SDK 的核心类，是访问 Wilddog Sync SDK 的入口。必须通过 `getInstance()` 方法来获取一个`WilddogSync` 实例。
+WilddogSync SDK 的核心类，是访问 Wilddog Sync SDK 的入口。
+必须通过 `getInstance()` 方法来获取一个`WilddogSync` 实例。
 
 ## 方法
 
@@ -9,7 +10,7 @@ WilddogSync SDK 的核心类，是访问 Wilddog Sync SDK 的入口。必须通�
 ##### 定义
 
 ```java
-public static synchronized WilddogSync getInstance ()
+static synchronized WilddogSync getInstance ()
 ```
 
 ##### 说明
@@ -28,7 +29,7 @@ public static synchronized WilddogSync getInstance ()
 ##### 定义
 
 ```java
-public static synchronized WilddogSync getInstance (WilddogApp wilddogApp)
+static synchronized WilddogSync getInstance (WilddogApp wilddogApp)
 ```
 
 ##### 说明
@@ -37,13 +38,13 @@ public static synchronized WilddogSync getInstance (WilddogApp wilddogApp)
 
 ##### 参数
 
-   参数名 | 说明
-   --- | ---
-   wilddogApp |[WilddogApp](/api/sync/android/WilddogApp.html) 对象。
+参数名 | 说明
+--- | ---
+wilddogApp |[WilddogApp](/api/sync/android/WilddogApp.html) 对象。
 
 ##### 返回值
 
-[WilddogApp](/api/sync/android/WilddogApp.html) 实例。
+`WilddogSync` 实例。
 </br>
 
 ---
@@ -53,7 +54,7 @@ public static synchronized WilddogSync getInstance (WilddogApp wilddogApp)
 ##### 定义
 
 ```java
-public SyncReference getReference ()
+SyncReference getReference ()
 ```
 
 ##### 说明
@@ -82,7 +83,7 @@ SyncReference getReference (String path)
 
 参数名 | 说明
 --- | ---
-path | 从根节点起要获取的节点路径。
+path | 从根节点起指定的节点路径。
 
 ##### 返回值
 
@@ -107,7 +108,7 @@ SyncReference getReferenceFromUrl (String url)
 
 参数名 | 说明
 --- | ---
-url | 指定节点的url。
+url | 指定节点的 url。
 
 ##### 返回值
 
@@ -128,7 +129,7 @@ static void goOffline()
 手动关闭连接，关闭自动连接。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  调用此方法会影响到所有 Sync 连接。
+  调用此方法会影响到所有 Wilddog Sync 连接。
 </blockquote>
 </br>
 
@@ -146,7 +147,7 @@ static void goOnline()
 手动恢复连接，开启自动重连。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  调用此方法会影响到所有 Sync 连接。
+  调用此方法会影响到所有 Wilddog Sync 连接。
 </blockquote>
 </br>
 

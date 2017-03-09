@@ -33,7 +33,7 @@ String getName ()
 
 ##### 说明
 
-获取调用 `initializeApp(context,options,name)` 初始化 `WilddogApp` 时定义的 `WilddogApp` 实例名称，此属性为只读属性。
+获取调用 `initializeApp(context，options，name)` 初始化 `WilddogApp` 时定义的 `WilddogApp` 实例名称，此属性为只读属性。
 缺省的 `WilddogApp` 实例名称为 "[DEFAULT]"。
 在同一项目中可以初始化多个不同的 `WilddogApp` 实例，不同实例间以 name 属性作为区分。
 
@@ -54,7 +54,7 @@ WilddogOptions getOptions()
 
 ##### 说明
 
-获取初始化 `WilddogApp` 时传入的 `WilddogApp` 实例的配置信息。
+获取初始化 `WilddogApp` 时传入的 `WilddogOptions` 实例。
 
 ##### 返回值
 [WilddogOptions](/api/sync/android/WilddogOptions.html) 实例对象。
@@ -64,11 +64,11 @@ WilddogOptions getOptions()
 
 ## 方法
 
-### initializeApp(context, options)
+### initializeApp(context，options)
 ##### 定义
 
 ```java
-static WilddogApp initializeApp (Context context, WilddogOptions options)
+static WilddogApp initializeApp (Context context，WilddogOptions options)
 ```
 
 ##### 说明
@@ -81,7 +81,7 @@ static WilddogApp initializeApp (Context context, WilddogOptions options)
 
 参数名 | 说明
 --- | ---
-context | Android Context 实例对象。
+context | Android `Context` 实例对象。
 options | 配置当前应用的 [WilddogOptions](/api/sync/android/WilddogOptions.html) 实例对象，必须包含 [WilddogSync](/api/sync/android/WilddogSync.html) 路径信息（例如：`https://example.wilddogio.com`）。
 
 ##### 返回值
@@ -89,11 +89,11 @@ options | 配置当前应用的 [WilddogOptions](/api/sync/android/WilddogOption
 </br>
 
 --- 
-### initializeApp(context,options,name)
+### initializeApp(context，options，name)
 ##### 定义
 
 ```java
-static WilddogApp initializeApp (Context context, WilddogOptions options, String name)
+static WilddogApp initializeApp (Context context，WilddogOptions options，String name)
 ```
 
 ##### 说明
@@ -142,7 +142,7 @@ static WilddogApp getInstance (String name)
 
 ##### 说明
 
-获取名称为 name 的 `WilddogApp` 实例. 如果没有创建过该实例, 则返回 null。
+获取名称为 name 的 `WilddogApp` 实例。如果没有创建过该实例，则返回 null。
 
 ##### 参数
 

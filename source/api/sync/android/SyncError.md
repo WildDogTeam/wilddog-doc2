@@ -29,13 +29,12 @@ int getCode()
 ##### 定义
 
 ```java
-@Deprecated
 int getCode()
 ```
 
 ##### 说明
 
-**已过时**，一个明确的状态码，取决于错误。请不要继续使用此错误码进行业务逻辑判断。
+已过时，一个明确的状态码，取决于错误。请不要继续使用此错误码进行业务逻辑判断。
 
 ##### 返回值
 
@@ -57,7 +56,7 @@ String getMessage()
 
 ##### 返回值
 
-`String`错误原因。
+`String` 错误原因。
 </br>
 
 ---
@@ -75,7 +74,7 @@ String getDetails()
 
 ##### 返回值
 
-`String`错误的细节。
+`String` 错误的细节。
 </br>
 
 ---
@@ -93,6 +92,6 @@ WilddogExcepton toException()
 
 ##### 返回值
 
-`WilddogExcepton`一个封装了error的异常类，包含了适当的信息，没有栈信息。
+`WilddogExcepton` 一个封装了error的异常类，包含了适当的信息，没有栈信息。
 </br>
 
