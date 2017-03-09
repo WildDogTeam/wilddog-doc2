@@ -19,7 +19,7 @@ title: DataSnapshot
 
 ##### 返回值
 
-`boolean`
+Boolean
 
 ##### 示例
 
@@ -58,11 +58,11 @@ wilddog.sync().ref("/samplechat/users/jim").once("value")
 
 ##### 说明
 
-返回当前数据快照包含的数据。`val()` 可能返回的数据类型包括：`string`、`number`、`boolean`、`null`（该节点下数据为空时）或者是数组、对象。返回的数据类型取决于节点下的数据内容。
+返回当前数据快照包含的数据。`val()` 可能返回的数据类型包括：String、Number、Boolean、null（该节点下数据为空时）或者是数组、对象。返回的数据类型取决于节点下的数据内容。
 
 ##### 返回值
 
-`object|string|null|number|boolean` 当前数据快照包含的数据, `null` 表示该节点的数据快照为空。
+Object|String|Number|Boolean|null 当前数据快照包含的数据， null 表示该节点的数据快照为空。
 
 ##### 示例
 
@@ -93,13 +93,13 @@ ref.on('value', function(snapshot){
 
 ##### 说明
 
-根据相对路径，来获取当前节点下子节点的数据快照。相对路径可以是一个字节点的 `key` 值（如：`"Beijing"`），也可以是更深层次的路径（如：`'Beijing/pm25'`）。如果相对路径下并没有数据，则返回 `null` 。
+根据相对路径，来获取当前节点下子节点的数据快照。相对路径可以是一个字节点的 key 值（如：`"Beijing"`），也可以是更深层次的路径（如：`'Beijing/pm25'`）。如果相对路径下并没有数据，则返回 null 。
 
 ##### 参数
 
 | 参数名  | 说明                               |
 | ---- |-------------------------------- |
-| path | string(non-null)类型<br>path为相对路径，多层级间需要使用"/"分隔，例如"a/b"。 |
+| path | String(non-null)类型<br> path 为相对路径，多层级间需要使用`"/"`分隔，例如`"a/b"`。 |
 
 
 ##### 返回值
@@ -134,13 +134,13 @@ ref.on('value',function(snapshot){
 
 ##### 说明
 
-遍历数据快照中的每一个子节点。受 JavaScript Object 对象的影响，`snapshot` 直接通过 `val()` 方法返回的数据不能保证显示的顺序完全符合 [orderBy\*()](/guide/sync/web/retrieve-data.html#根据数据排序监听) 的要求，因此我们提供了 `forEach()` 方法来解决这个问题。如果没有使用 [orderBy\*()](/guide/sync/web/retrieve-data.html#根据数据排序监听) 方法，依次遍历出来的结果默认选择 `key` 排序（除非数据快照设置过 `priority` ,则会根据 `priority` 排序）。
+遍历数据快照中的每一个子节点。受 JavaScript Object 对象的影响，`snapshot` 直接通过 `val()` 方法返回的数据不能保证显示的顺序完全符合 [orderBy\*()](/guide/sync/web/retrieve-data.html#根据数据排序监听) 的要求，因此我们提供了 `forEach()` 方法来解决这个问题。如果没有使用 [orderBy\*()](/guide/sync/web/retrieve-data.html#根据数据排序监听) 方法，依次遍历出来的结果默认选择 key 排序（除非数据快照设置过 priority ，则会根据 priority 排序）。
 
 ##### 参数
 
 | 参数名      | 说明             |
 | -------- | -------------- |
-| callback | function(non-null)类型<br>遍历每一个子节时的回调函数。如果在 callback 中主动 return true 则会停止之后的遍历。 |
+| callback | function(non-null)类型<br>遍历每一个子节时的回调函数。如果在 `callback` 中主动 `return true` 则会停止之后的遍历。 |
 
 ##### 返回值
 
@@ -210,11 +210,11 @@ query.once("value")
 
 | 参数名  | 说明       |
 | ---- | -------- |
-| key  | string(non-null)类型<br>要检查的 key。 |
+| key  | String(non-null)类型<br>要检查的 key 。 |
 
 ##### 返回值
 
-`boolean`
+Boolean
 
 ##### 示例
 
@@ -254,7 +254,7 @@ ref.once("value")
 
 ##### 返回值
 
-`boolean`
+Boolean
 
 ##### 示例
 
@@ -292,11 +292,11 @@ ref.once("value").then(function(snapshot) {
 
 ##### 说明
 
-返回当前数据快照所属节点的 `key`。
+返回当前数据快照所属节点的 key。
 
 ##### 返回值
 
-`string`
+String
 
 ##### 示例
 
@@ -333,7 +333,7 @@ ref.on('child_changed', function(snapshot){
 
 ##### 返回值
 
-`number`
+Number
 
 ##### 示例
 
@@ -357,7 +357,7 @@ ref.once('value', function (snapshot) {
     var b = snapshot.child("name").numChildren();
     // b === 2 ("first", "last")
     var c = snapshot.child("name/first").numChildren();
-    // c === 0 (since "Jim" is a string)
+    // c === 0 (since "Jim" is a String)
 }).catch(function(err){
     console.error('operation is failed ', err);
 })
@@ -412,11 +412,11 @@ ref.once('value', function(snapshot){
 
 ##### 说明
 
-获取当前节点的 `priority` 值。如果优先级不存在时返回 `null`。
+获取当前节点的 priority 值。如果优先级不存在时返回 null。
 
 ##### 返回值
 
-`stirng|number|null` 不存在优先级时返回 `null`。
+`String|Number|null` 不存在优先级时返回 null。
 
 ##### 示例
 
@@ -440,7 +440,7 @@ ref.setWithPriority("fred", 500, function(error) {
 
 ##### 说明
 
-将 `DataSnapshot` 中的全部内容导出到 JavaScript 对象。`exportVal()` 方法和 `val()` 方法类似，都可以导出数据。但是当节点的 `priority` 值不为空时，`exportVal()` 会导出包含 `priority` 的数据，适合用于备份。
+将 `DataSnapshot` 中的全部内容导出到 JavaScript 对象。`exportVal()` 方法和 `val()` 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，`exportVal()` 会导出包含 priority 的数据，适合用于备份。
 
 ##### 返回值
 

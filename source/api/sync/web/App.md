@@ -47,7 +47,7 @@ var anotherApp = wilddog.initializeApp(anotherConfig, "ANOTHER_APP");
 
 ##### 类型
 
-`String`
+String
 
 ##### 说明
 
@@ -120,11 +120,11 @@ var auth = app.auth();
 
 `sync()`
 
- ##### 说明
+##### 说明
 
 获取 `wilddog.Sync` 实例，`wilddog.Sync` 实例只能通过此方法获取。
 
- ##### 返回值
+##### 返回值
 
 [wilddog.Sync](/api/sync/web/Sync.html)
 
