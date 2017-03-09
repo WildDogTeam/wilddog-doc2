@@ -161,7 +161,7 @@ public class DigestUtils {
 ## 说明
 
 ### 已知问题
-Beta 版中，数据路径中有通配符时，`PUT`造成的隐式删除，不会触发 Webhook。
+数据路径中有通配符时，`PUT`造成的隐式删除，不会触发 Webhook。
 
 例如，监听 `/a/$b`，`/a` 节点下原本的数据为：
 
