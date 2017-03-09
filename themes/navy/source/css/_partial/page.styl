@@ -96,8 +96,6 @@ hr
   border-left: 4px solid #e5e5e5
   @media mq-normal
     display: block
-  .toc-child
-     display:none
 
 .slide-dot
   position: absolute
@@ -499,3 +497,17 @@ p:nth-child(1)
 
 .scrollHide
   bottom: -80px
+  
+
+.toc-level-3
+    padding-left: 1em;
+    font-size: 0.9em;
+    .toc-child
+        display:none
+
+.toc-level-2
+  .toc-level-3
+     padding-left: 0;
+     
+.toc-level-5
+  display:none
