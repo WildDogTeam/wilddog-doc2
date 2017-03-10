@@ -296,11 +296,11 @@ function buildQuery($params)
 }
 
 $time=get_total_millisecond();
-$appId='14789';
-$mobile='18600648615';
+$appId='<YOUR_APPID>';
+$mobile='<PHONE_NUM>';
 $templateId=100000;
-$sign_key = 'R3sQpRIVd1CzLOM4Q8eMqWzZjOmu9ItnL1UopoQj';
-$code='123456';
+$sign_key = '<YOUR_SMS_KEY>';
+
 $sign_data = array('mobile' => $mobile, 'templateId' =>$templateId, 'timestamp' => $time);
 // 以字母升序(A-Z)排列
 ksort($sign_data);
