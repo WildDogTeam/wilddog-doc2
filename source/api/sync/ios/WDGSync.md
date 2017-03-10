@@ -21,7 +21,7 @@ weak var app: WDGApp? { get }
 
 ##### 说明
 
-[WDGSync](WDGSync.html) 对应的 [WDGApp](WDGApp.html) 实例。
+`WDGSync` 对应的 [WDGApp](WDGApp.html) 实例。
 
 </br>
 

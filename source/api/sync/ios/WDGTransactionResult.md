@@ -1,7 +1,7 @@
 title: WDGTransactionResult
 ---
 
-用于 [[WDGSyncReference runTransactionBlock:]](WDGSyncReference.html#runTransactionBlock) 方法中，[WDGTransactionResult](WDGTransactionResult.html) 实例是事务处理结果的载体。
+用于 [[WDGSyncReference runTransactionBlock:]](WDGSyncReference.html#runTransactionBlock) 方法中，`WDGTransactionResult` 实例是事务处理结果的载体。
 
 
 

@@ -1,8 +1,8 @@
 title: WDGDataSnapshot
 ---
 
-[WDGDataSnapshot](WDGDataSnapshot.html) 是当前指定节点下数据的快照，[WDGDataSnapshot](WDGDataSnapshot.html) 不会随当前节点数据的变化而发生改变。
-我们无法直接创建这个对象，而应当在 `observeEventType:withBlock:` 或 `observeSingleEventOfType:withBlock:` 的回调函数中获取它。
+`WDGDataSnapshot` 是当前指定节点下数据的快照，`WDGDataSnapshot` 不会随当前节点数据的变化而发生改变。
+我们无法直接创建这个对象，而应当在 [[WDGSyncReference observeEventType:withBlock:]](WDGSyncReference.html#observeEventType-withBlock) 或 [[WDGSyncReference observeSingleEventOfType:withBlock:]](WDGSyncReference.html#observeSingleEventOfType-withBlock) 的回调函数中获取它。
 
 
 ## 属性
@@ -44,7 +44,7 @@ var childrenCount: UInt { get }
 
 ##### 说明
 
-[WDGDataSnapshot](WDGDataSnapshot.html) 的子节点的总数。
+`WDGDataSnapshot` 的子节点的总数。
 
 </br>
 
@@ -82,7 +82,7 @@ var key: String { get }
 
 ##### 说明
 
-当前 [WDGDataSnapshot](WDGDataSnapshot.html) 所属节点的 key。
+当前 `WDGDataSnapshot` 所属节点的 key。
 
 </br>
 
@@ -101,7 +101,7 @@ var children: NSEnumerator { get }
 
 ##### 说明
 
-当前 [WDGDataSnapshot](WDGDataSnapshot.html) 中，所有子节点的迭代器。
+当前 `WDGDataSnapshot` 中，所有子节点的迭代器。
 例如:
 ```objectivec
 for (WDGDataSnapshot *child in snapshot.children) {
@@ -225,7 +225,7 @@ func hasChildren() -> Bool
 ##### 说明
 
 如果 `WDGDataSnapshot` 存在子节点返回 YES，否则返回 NO。
-你可以通过使用 `hasChildren` 方法来确定当前的数据快照是否含有子节点，进而决定是否利用 `children` 属性遍历数据。
+你可以通过使用 `hasChildren` 方法来确定当前的数据快照是否含有子节点，进而决定是否利用 [children](WDGDataSnapshot.html#children) 属性遍历数据。
  
 
 
@@ -278,7 +278,7 @@ func valueInExportFormat() -> Any?
 ##### 说明
 
 将 `WDGDataSnapshot` 中的全部内容导出。
-`valueInExportFormat` 方法和 `value` 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，`valueInExportFormat` 会导出包含 priority 的数据，适合用于备份。
+`valueInExportFormat` 方法和 [value](WDGDataSnapshot.html#value) 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，`valueInExportFormat` 会导出包含 priority 的数据，适合用于备份。
 
 
 

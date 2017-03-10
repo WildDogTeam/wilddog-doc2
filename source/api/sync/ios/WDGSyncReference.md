@@ -1,8 +1,8 @@
 title: WDGSyncReference
 ---
 
-[WDGSyncReference](WDGSyncReference.html) 实例表示要操作的特定数据节点，可以通过 [WDGSyncReference](WDGSyncReference.html) 实例操作和读取数据。
-[WDGSyncReference](WDGSyncReference.html) 是 [WDGSyncQuery](WDGSyncQuery.html) 的子类。
+`WDGSyncReference` 实例表示要操作的特定数据节点，可以通过 `WDGSyncReference` 实例操作和读取数据。
+`WDGSyncReference` 是 [WDGSyncQuery](WDGSyncQuery.html) 的子类。
 
 
 ## 属性
@@ -103,7 +103,7 @@ var sync: WDGSync { get }
 
 ##### 说明
 
-当前 [WDGSyncReference](WDGSyncReference.html) 实例相关的 [WDGSync](WDGSync.html) 实例。
+当前 `WDGSyncReference` 实例相关的 [WDGSync](WDGSync.html) 实例。
 
 </br>
 
@@ -221,8 +221,8 @@ func setValue(_ value: Any?)
  - NSDictionary -- `@{@"key": @"value", @"nested": {@"another": @"value"}}`
  - NSArray -- `@[@"a", @"b", @"c"]`
 Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
-在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ）之间，n+1 个元素中超过一半以上有值，数据将被转换为 `NSArray` 类型;
-如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `NSDictionary` 类型。
+在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ）之间，n+1 个元素中超过一半以上有值，数据将被转换为 NSArray 类型;
+如果不满足条件，Wilddog Sync 处理数据时会将其转换为 NSDictionary 类型。
 当 value 为 nil 或者 NSNull 实例时相当于调用 `removeValue:`，这个路径的所有数据和子路径的数据都将被删除。
 `setValue:` 将会删除先前保存的 priority，所以如果要保留先前 priority，必须调用 [setValue:andPriority:](WDGSyncReference.html#setValue-andPriority)。
  

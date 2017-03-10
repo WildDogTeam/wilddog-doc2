@@ -1,9 +1,9 @@
 title: WDGMutableData
 ---
 
-[WDGMutableData](WDGMutableData.html) 实例是 Wilddog Sync 节点处的另一种数据载体，当使用 [[WDGSyncReference runTransactionBlock:]](WDGSyncReference.html#runTransactionBlock) 方法时，
-你会接受到一个包含当前节点数据的 [WDGMutableData](WDGMutableData.html) 实例。如果你想要保存此节点的数据，将此节点的
-[WDGMutableData](WDGMutableData.html) 传参到 [[WDGTransactionResult successWithValue:]](WDGTransactionResult.html#successWithValue) 方法中。
+`WDGMutableData` 实例是 Wilddog Sync 节点处的另一种数据载体，当使用 [[WDGSyncReference runTransactionBlock:]](WDGSyncReference.html#runTransactionBlock) 方法时，
+你会接受到一个包含当前节点数据的 `WDGMutableData` 实例。如果你想要保存此节点的数据，将此节点的
+`WDGMutableData` 传参到 [[WDGTransactionResult successWithValue:]](WDGTransactionResult.html#successWithValue) 方法中。
 
 
 ## 属性
@@ -21,7 +21,7 @@ var value: Any? { get set }
 
 ##### 说明
 
-[WDGMutableData](WDGMutableData.html) 实例中的数据，value 可将其设置为 Wilddog Sync 支持的任一原生数据类型：
+`WDGMutableData` 实例中的数据，value 可将其设置为 Wilddog Sync 支持的任一原生数据类型：
 - NSNumber (包括 BOOL 类型)
 - NSDictionary
 - NSArray
