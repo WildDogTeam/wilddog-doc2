@@ -102,7 +102,7 @@ var children: NSEnumerator { get }
 ##### 说明
 
 当前 `WDGDataSnapshot` 中，所有子节点的迭代器。
-例如:
+例如：
 ```objectivec
 for (WDGDataSnapshot *child in snapshot.children) {
     ...
