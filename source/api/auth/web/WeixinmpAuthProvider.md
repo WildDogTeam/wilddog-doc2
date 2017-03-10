@@ -1,11 +1,11 @@
 
-title: WeixinmqAuthProvider
+title: WeixinmpAuthProvider
 ---
 
-WeixinmqAuthProvider 是 微信公众账号登录方式中 provider 类
+WeixinmpAuthProvider 是 微信公众账号登录方式中 provider 类
 
 ## 构造器
-### new WeixinmqAuthProvider()
+### new WeixinmpAuthProvider()
 
 **定义**
 
