@@ -21,7 +21,7 @@ weak var app: WDGApp? { get }
 
 ##### 说明
 
-`WDGSync` 对应的 `WDGApp` 实例。
+[WDGSync](WDGSync.html) 对应的 [WDGApp](WDGApp.html) 实例。
 
 </br>
 
@@ -99,7 +99,7 @@ class func sync() -> WDGSync
 
 ##### 说明
 
-用默认的 `WDGApp` 获取对应的 `WDGSync` 实例。
+用默认的 [WDGApp](WDGApp.html) 获取对应的 `WDGSync` 实例。
  
 
 
@@ -125,7 +125,7 @@ class func sync(app: WDGApp) -> WDGSync
 
 ##### 说明
 
-用特定的 `WDGApp` 获取对应的 `WDGSync` 实例。
+用特定的 [WDGApp](WDGApp.html) 获取对应的 `WDGSync` 实例。
  
 
 
@@ -133,7 +133,7 @@ class func sync(app: WDGApp) -> WDGSync
 
  参数名 | 说明 
 ---|---
-app|用于得到 `WDGSync` 实例的 `WDGApp` 实例。
+app|用于得到 `WDGSync` 实例的 [WDGApp](WDGApp.html) 实例。
 
 
 
@@ -159,14 +159,14 @@ func reference() -> WDGSyncReference
 
 ##### 说明
 
-返回根路径的 `WDGSyncReference` 实例。
+返回根路径的 [WDGSyncReference](WDGSyncReference.html) 实例。
  
 
 
 
 ##### 返回值
 
-根路径的 `WDGSyncReference` 实例。
+根路径的 [WDGSyncReference](WDGSyncReference.html) 实例。
 
 </br>
 
@@ -185,7 +185,7 @@ func reference(withPath path: String) -> WDGSyncReference
 
 ##### 说明
 
-返回以 `path` 为相对路径的 `WDGSyncReference` 实例。
+返回以 `path` 为相对路径的 [WDGSyncReference](WDGSyncReference.html) 实例。
  
 
 
@@ -200,7 +200,7 @@ path|指向 Wilddog 数据库节点的一个路径。
 
 ##### 返回值
 
-指定路径节点的 `WDGSyncReference` 引用。
+指定路径节点的 [WDGSyncReference](WDGSyncReference.html) 引用。
 
 </br>
 
@@ -219,9 +219,9 @@ func reference(fromURL syncUrl: String) -> WDGSyncReference
 
 ##### 说明
 
-用这个有效的 URL 获得一个 `WDGSyncReference` 引用。
+用这个有效的 URL 获得一个 [WDGSyncReference](WDGSyncReference.html) 引用。
 这个 URL 必须是指向默认 Wilddog Sync 数据库完整路径（如 `https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts` ）。
-若要创建一个指向不同 Sync 数据库的 `WDGSyncReference`, 可以先用配置好 URL 的 `WDGOptions` 对象去创建一个 `WDGApp`。
+若要创建一个指向不同 Sync 数据库的 [WDGSyncReference](WDGSyncReference.html), 可以先用配置好 URL 的 [WDGOptions](WDGOptions.html) 对象去创建一个 [WDGApp](WDGApp.html)。
  
 
 
@@ -236,7 +236,7 @@ syncUrl|指向 sync 数据库某一数据节点的一个 URL。
 
 ##### 返回值
 
-用一个有效的 URL 生成的 `WDGSyncReference` 引用。
+用一个有效的 URL 生成的 [WDGSyncReference](WDGSyncReference.html) 引用。
 
 </br>
 
@@ -255,7 +255,7 @@ func goOffline()
 
 ##### 说明
 
-手动断开与 Wilddog Sync 云端的连接，关闭自动重连，可以用 `goOnline` 恢复连接。
+手动断开与 Wilddog Sync 云端的连接，关闭自动重连，可以用 [goOnline](WDGSync.html#goOnline) 恢复连接。
 
 
 

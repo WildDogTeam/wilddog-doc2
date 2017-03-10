@@ -1,7 +1,7 @@
 title: WDGDataSnapshot
 ---
 
-`WDGDataSnapshot` 是当前指定节点下数据的快照，`WDGDataSnapshot` 不会随当前节点数据的变化而发生改变。
+[WDGDataSnapshot](WDGDataSnapshot.html) 是当前指定节点下数据的快照，[WDGDataSnapshot](WDGDataSnapshot.html) 不会随当前节点数据的变化而发生改变。
 我们无法直接创建这个对象，而应当在 `observeEventType:withBlock:` 或 `observeSingleEventOfType:withBlock:` 的回调函数中获取它。
 
 
@@ -44,7 +44,7 @@ var childrenCount: UInt { get }
 
 ##### 说明
 
-`WDGDataSnapshot` 的子节点的总数。
+[WDGDataSnapshot](WDGDataSnapshot.html) 的子节点的总数。
 
 </br>
 
@@ -63,7 +63,7 @@ var ref: WDGSyncReference { get }
 
 ##### 说明
 
-当前数据快照所关联的 `WDGSyncReference` 实例。
+当前数据快照所关联的 [WDGSyncReference](WDGSyncReference.html) 实例。
 
 </br>
 
@@ -82,7 +82,7 @@ var key: String { get }
 
 ##### 说明
 
-当前 `WDGDataSnapshot` 所属节点的 key。
+当前 [WDGDataSnapshot](WDGDataSnapshot.html) 所属节点的 key。
 
 </br>
 
@@ -101,7 +101,7 @@ var children: NSEnumerator { get }
 
 ##### 说明
 
-当前 `WDGDataSnapshot` 中，所有子节点的迭代器。
+当前 [WDGDataSnapshot](WDGDataSnapshot.html) 中，所有子节点的迭代器。
 例如:
 ```objectivec
 for (WDGDataSnapshot *child in snapshot.children) {
