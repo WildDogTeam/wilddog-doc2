@@ -127,7 +127,7 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 | orderByValue()    | 按节点的值（value）对结果排序。      |
 | orderByPriority() | 按节点的优先级（priority）对结果排序。 |
 
-**orderByChild**
+**orderByChild()**
 
 `orderByChild()`方法用于按子节点的指定值（value）对结果排序。
 

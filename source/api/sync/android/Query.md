@@ -34,7 +34,7 @@ ChildEventListener addChildEventListener(ChildEventListener listener)
 
 ##### 说明
 
-监听 Wilddog Sync 云端数据的主要方式之一，用于监听当前节点下子节点的数据。
+监听 Wilddog Sync 云端数据的主要方式之一，用于监听当前节点下子节点的数据。详细使用请参考：[addChildEventListener() 完整指南](../../../guide/sync/android/retrieve-data.html#设置监听)。
 当监听到当前节点的初始数据或当前节点的数据改变时，将会触发相应事件，每次返回一个子节点的数据。
 
 ##### 参数
@@ -99,7 +99,7 @@ void addValueEventListener(ValueEventListener listener)
 
 ##### 说明
 
-监听 Wilddog Sync 云端数据的主要方式之一，用于监听当前节点所有节点的数据。
+监听 Wilddog Sync 云端数据的主要方式之一，用于监听当前节点所有节点的数据。详细使用请参考：[addValueEventListener() 完整指南](../../../guide/sync/android/retrieve-data.html#设置监听)。
 当监听到当前节点的初始数据或当前节点的数据改变时，将会触发 `onDataChange()` 回调方法，返回当前节点下的所有数据。
 
 ##### 参数
@@ -150,7 +150,7 @@ void addListenerForSingleValueEvent(ValueEventListener listener)
 ```
 
 ##### 说明
-监听 Wilddog Sync 云端数据的主要方式之一，用于获取当前节点下的所有数据。
+监听 Wilddog Sync 云端数据的主要方式之一，用于获取当前节点下的所有数据。详细使用请参考：[addListenerForSingleValueEvent() 完整指南](../../../guide/sync/android/retrieve-data.html#设置监听)。
 同 `addValueEventListener()` 类似，不同之处在于 `addListenerForSingleValueEvent()` 中的回调方法只被触发一次，之后会自动取消监听。
 
 ##### 参数
@@ -172,7 +172,7 @@ void removeEventListener(ChildEventListener childEventListener)
 
 ##### 说明
 
-移除监听事件。移除使用 `addChildEventListener` 方法设置的数据监听。
+移除监听事件。移除使用 `addChildEventListener` 方法设置的数据监听。详细使用请参考：[removeEventListener() 完整指南](../../../guide/sync/android/retrieve-data.html#移除监听)。
 
 ##### 参数
 
@@ -193,7 +193,8 @@ void removeEventListener(ValueEventListener valueListener)
 
 ##### 说明
 
-移除监听事件。移除使用 `addValueEventListener` 方法设置的数据监听。
+移除监听事件。移除使用 `addValueEventListener` 方法设置的数据监听。详细使用请参考：[removeEventListener() 完整指南](../../../guide/sync/android/retrieve-data.html#移除监听)。
+
 
 ##### 参数
 
@@ -215,7 +216,7 @@ Query orderByKey()
 
 ##### 说明
 
-创建一个新的 `Query` 实例，按子节点的 key 对结果以字典序进行排序。
+创建一个新的 `Query` 实例，按子节点的 key 对结果以字典序进行排序。详细使用请参考：[orderByKey() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据排序监听)。
 此方法可以与 `startAt()`、`endAt()` 或 `equalTo()` 方法联合使用。
 
 ##### 返回值
@@ -234,7 +235,7 @@ Query orderByValue()
 
 ##### 说明
 
-创建一个新的 `Query` 实例，按子节点的 value 值对结果排序。
+创建一个新的 `Query` 实例，按子节点的 value 值对结果排序。详细使用请参考：[orderByValue() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据排序监听)。
 此方法可以与 `startAt()`、`endAt()` 或 `equalTo()` 方法联合使用。
 
 ##### 返回值
@@ -252,7 +253,7 @@ Query orderByChild(String childKey)
 
 ##### 说明
 
-创建一个新的 `Query` 实例，按子节点下指定 key 对应的 value 对结果进行排序。
+创建一个新的 `Query` 实例，按子节点下指定 key 对应的 value 对结果进行排序。详细使用请参考：[orderByChild() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据排序监听)。
 此方法可以与 `startAt()`、`endAt()` 或 `equalTo()` 方法联合使用。
 
 ##### 参数
@@ -277,7 +278,8 @@ Query orderByPriority()
 
 ##### 说明
 
-创建一个新的 `Query` 实例，按节点的 priority 对结果排序。 节点按照如下优先级规则升序排列：null < Number < String。
+创建一个新的 `Query` 实例，按节点的 priority 对结果排序。详细使用请参考：[orderByPriority() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据排序监听)。
+节点按照如下优先级规则升序排列：null < Number < String。
 排序规则：
  - priority 为 null 的排最先；
  - priority 为数值的次之，按照数值从小到大排序；
@@ -305,7 +307,7 @@ Query startAt(startValue value)
 ```
 
 ##### 说明
-创建一个新的 `Query` 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 
+创建一个新的 `Query` 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。详细使用请参考：[startAt() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据筛选结果监听)。
 此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -334,7 +336,7 @@ Query startAt(Object startValue, String childKey)
 ```
 
 ##### 说明
-创建一个新的 `Query` 实例，可以查询所有大于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。 
+创建一个新的 `Query` 实例，可以查询所有大于或等于指定的 value 或 priority 的节点，具体取决于所选的排序方法。详细使用请参考：[startAt() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据筛选结果监听)。 
 当查询到的 value 与 startValue 相等时，则只保留 key 大于等于 childKey 的节点。
 此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 该方法可用于分页。
@@ -366,7 +368,7 @@ Query endAt(Object endValue)
 
 ##### 说明
 
-创建一个新的 `Query` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 
+创建一个新的 `Query` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。详细使用请参考：[endAt() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据筛选结果监听)。  
 此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 
 ##### 参数
@@ -392,7 +394,7 @@ Query endAt(Object endValue, String childKey)
 
 ##### 说明
 
-创建一个新的 `Query` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。 
+创建一个新的 `Query` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。详细使用请参考：[endAt() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据筛选结果监听)。 
 当查询到的 value 与 endValue 相等时，则只保留 key 小于等于 childKey 的节点
 此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 
@@ -418,7 +420,7 @@ Object equalTo(Object value)
 
 ##### 说明
 
-创建一个新的 `Query` 实例，用于精确查询指定 key、value 或 priority 的节点，具体取决于所选的排序方法。
+创建一个新的 `Query` 实例，用于精确查询指定 key、value 或 priority 的节点，具体取决于所选的排序方法。详细使用请参考：[equalTo() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据筛选结果监听)。
 此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 
 ##### 参数
@@ -443,7 +445,7 @@ Object equalTo(Object value, String childKey)
 
 ##### 说明
 
-创建一个新的 `Query` 实例，用于精确查询指定 key、value 或 priority 等于 value 并且节点 key 等于 childKey 的节点，具体取决于所选的排序方法。
+创建一个新的 `Query` 实例，用于精确查询指定 key、value 或 priority 等于 value 并且节点 key 等于 childKey 的节点，具体取决于所选的排序方法。详细使用请参考：[equalTo() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据筛选结果监听)。
 由于 childKey 是唯一的，查询最多返回一个节点。
 此方法应与 `orderByPriority()`、`orderByKey()`、`orderByValue()` 或 `orderByChild()` 方法联合使用。
 
@@ -469,7 +471,7 @@ Query limitToFirst(int limit)
 
 ##### 说明
 
-创建一个新的 `Query` 实例，获取当前排序下从第一个节点开始的最多 (limit) 条数据。
+创建一个新的 `Query` 实例，获取当前排序下从第一个节点开始的最多 (limit) 条数据。详细使用请参考：[limitToFirst() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据筛选结果监听)。
 
 ##### 参数
 
@@ -492,7 +494,7 @@ Query limitToLast(int limit)
 
 ##### 说明
 
-创建一个新的 WDGSyncQuery 实例，获取当前排序下，从最后一个节点开始向前的最多 (limit) 条数据。
+创建一个新的 `Query` 实例，获取当前排序下，从最后一个节点开始向前的最多 (limit) 条数据。详细使用请参考：[limitToFirst() 完整指南](../../../guide/sync/android/retrieve-data.html#根据数据筛选结果监听)。
 
 ##### 参数
 

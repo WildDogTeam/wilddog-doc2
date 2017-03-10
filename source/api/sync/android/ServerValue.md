@@ -14,7 +14,7 @@ static final Map<String, String> TIMESTAMP = createServerValuePlaceholder("times
 
 ##### 说明
 
-将当前 map 上传到服务器，然后生成以时间戳形式存在的数据。
+将当前 map 上传到服务器，然后生成以时间戳形式存在的数据。详细使用请参考：[TIMESTAMP 完整指南](../../../guide/sync/android/advance-feature.html#云端时间戳)。
 
 </br>
 
