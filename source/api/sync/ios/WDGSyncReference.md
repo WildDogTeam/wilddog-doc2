@@ -129,8 +129,7 @@ func child(_ pathString: String) -> WDGSyncReference
 ##### 说明
 
 获得一个在当前节点下指定路径节点处的 `WDGSyncReference` 实例。
-根据相对路径 `path`，来获取当前节点下 `path` 子节点的引用。
-相对路径可以是一个简单的节点路径（例如: `fred`），或者是一个更深的路径（例如: `fred/name/first`）。
+相对路径可以是一个简单的节点路径（例如：`fred`），或者是一个更深的路径（例如：`fred/name/first`）。
  
  
 
@@ -413,7 +412,7 @@ func setPriority(_ priority: Any?)
 ##### 说明
 
 设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 nil。
-不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue:withPriority:`；为已存在的数据设置优先级的时，使用 `setPriority:`。
+不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 [setValue:andPriority:](WDGSyncReference.html#setValue-andPriority)；为已存在的数据设置优先级的时，使用 `setPriority:`。
  节点按照如下优先级规则升序排列：nil < NSNumber < NSString。
 - priority 为 null 的排最先；
 - priority 为数值的次之，按照数值从小到大排序；
@@ -489,7 +488,7 @@ func updateChildValues(_ values: [AnyHashable : Any])
 ##### 说明
 
 对当前节点进行数据合并操作，更新当前节点下的数据。 
-与 [setValue:](WDGSyncReference.html#setValue) 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildren:` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
+与 [setValue:](WDGSyncReference.html#setValue) 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildValues:` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
 使用此方法可以对同一节点的子节点同时进行更新和删除操作。
  
 
