@@ -47,6 +47,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
 可使用 [removeObserverWithHandle:](WDGSyncQuery.html#removeObserverWithHandle) 方法移除监听。
+详细使用可参考：[observeEventType:withBlock: 完整指南](../../../guide/sync/ios/retrieve-data.html#设置监听)
  
 
 
@@ -333,6 +334,7 @@ func removeObserver(withHandle handle: WDGSyncHandle)
 ##### 说明
 
 移除监听事件。移除使用 [observeEventType:withBlock:](WDGSyncQuery.html#observeEventType-withBlock) 方法设置的数据监听。
+详细使用可参考：[removeObserverWithHandle: 完整指南](../../../guide/sync/ios/retrieve-data.html#移除监听)
  
 
 
@@ -386,6 +388,7 @@ func keepSynced(_ keepSynced: Bool)
 ##### 说明
 
 在某一节点处通过调用 `keepSynced:YES` 方法，即使该节点处没有进行过监听，此节点处的数据也将自动下载存储并与云端保持同步。
+详细使用可参考：[keepSynced: 完整指南](../../../guide/sync/ios/offline-capabilities.html#提前同步)
  
 
 
@@ -417,6 +420,7 @@ func queryLimited(toFirst limit: UInt) -> WDGSyncQuery
 ##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，获取当前排序下从第一个节点开始的最多 (limit) 条数据。
+详细使用可参考：[queryLimitedToFirst: 完整指南](../../../guide/sync/ios/retrieve-data.html#根据数据筛选结果监听)
  
 
 
@@ -451,6 +455,7 @@ func queryLimited(toLast limit: UInt) -> WDGSyncQuery
 ##### 说明
 
 创建一个新的 `WDGSyncQuery` 实例，获取当前排序下，从最后一个节点开始向前的最多 (limit) 条数据。
+详细使用可参考：[queryLimitedToLast: 完整指南](../../../guide/sync/ios/retrieve-data.html#根据数据筛选结果监听)
  
 
 
@@ -486,6 +491,7 @@ func queryOrdered(byChild key: String) -> WDGSyncQuery
 
 创建一个新的 `WDGSyncQuery` 实例，按子节点下指定的 key 对应的 value 对结果进行排序。
 此方法可以与 [queryStartingAtValue:](WDGSyncQuery.html#queryStartingAtValue)、[queryEndingAtValue:](WDGSyncQuery.html#queryEndingAtValue) 或 [queryEqualToValue:](WDGSyncQuery.html#queryEqualToValue) 方法联合使用。
+详细使用可参考：[queryOrderedByChild: 完整指南](../../../guide/sync/ios/retrieve-data.html#根据数据排序监听)
  
 
 
@@ -521,6 +527,7 @@ func queryOrderedByKey() -> WDGSyncQuery
 
 创建一个新的 `WDGSyncQuery` 实例，按子节点的 key 对结果以字典序进行排序。
 此方法可以与 [queryStartingAtValue:](WDGSyncQuery.html#queryStartingAtValue)、[queryEndingAtValue:](WDGSyncQuery.html#queryEndingAtValue) 或 [queryEqualToValue:](WDGSyncQuery.html#queryEqualToValue) 方法联合使用。
+详细使用可参考：[queryOrderedByKey 完整指南](../../../guide/sync/ios/retrieve-data.html#根据数据排序监听)
  
 
 
@@ -548,6 +555,7 @@ func queryOrderedByValue() -> WDGSyncQuery
 
 创建一个新的 `WDGSyncQuery` 实例，按节点的 value 对结果排序。
 此方法可以与 [queryStartingAtValue:](WDGSyncQuery.html#queryStartingAtValue)、[queryEndingAtValue:](WDGSyncQuery.html#queryEndingAtValue) 或 [queryEqualToValue:](WDGSyncQuery.html#queryEqualToValue) 方法联合使用。
+详细使用可参考：[queryOrderedByValue 完整指南](../../../guide/sync/ios/retrieve-data.html#根据数据排序监听)
  
 
 
@@ -580,6 +588,7 @@ func queryOrderedByPriority() -> WDGSyncQuery
 - priority 为字符串的排最后，按照字典序排列；
 - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
 此方法可以与 [queryStartingAtValue:](WDGSyncQuery.html#queryStartingAtValue)、[queryEndingAtValue:](WDGSyncQuery.html#queryEndingAtValue) 或 [queryEqualToValue:](WDGSyncQuery.html#queryEqualToValue) 方法联合使用。
+详细使用可参考：[queryOrderedByPriority 完整指南](../../../guide/sync/ios/retrieve-data.html#根据数据排序监听)
  
  
 
@@ -614,6 +623,7 @@ func queryStarting(atValue startValue: Any?) -> WDGSyncQuery
 
 创建一个新的 `WDGSyncQuery` 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
 此方法应与 [queryOrderedByPriority](WDGSyncQuery.html#queryOrderedByPriority)、[queryOrderedByKey](WDGSyncQuery.html#queryOrderedByKey)、[queryOrderedByValue](WDGSyncQuery.html#queryOrderedByValue) 或 [queryOrderedByChild:](WDGSyncQuery.html#queryOrderedByChild) 方法联合使用。
+详细使用可参考：[queryStartingAtValue: 完整指南](../../../guide/sync/ios/retrieve-data.html#根据数据筛选结果监听)
  
 
 
@@ -687,6 +697,7 @@ func queryEnding(atValue endValue: Any?) -> WDGSyncQuery
 
 创建一个新的 `WDGSyncQuery` 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。
 此方法应与 [queryOrderedByPriority](WDGSyncQuery.html#queryOrderedByPriority)、[queryOrderedByKey](WDGSyncQuery.html#queryOrderedByKey)、[queryOrderedByValue](WDGSyncQuery.html#queryOrderedByValue) 或 [queryOrderedByChild:](WDGSyncQuery.html#queryOrderedByChild) 方法联合使用。
+详细使用可参考：[queryEndingAtValue: 完整指南](../../../guide/sync/ios/retrieve-data.html#根据数据筛选结果监听)
  
 
 
@@ -760,6 +771,7 @@ func queryEqual(toValue value: Any?) -> WDGSyncQuery
 
 创建一个新的 `WDGSyncQuery` 实例，可以查询等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。
 此方法应与 [queryOrderedByPriority](WDGSyncQuery.html#queryOrderedByPriority)、[queryOrderedByKey](WDGSyncQuery.html#queryOrderedByKey)、[queryOrderedByValue](WDGSyncQuery.html#queryOrderedByValue) 或 [queryOrderedByChild:](WDGSyncQuery.html#queryOrderedByChild) 方法联合使用。
+详细使用可参考：[queryEqualToValue: 完整指南](../../../guide/sync/ios/retrieve-data.html#根据数据筛选结果监听)
  
 
 
