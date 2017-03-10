@@ -315,6 +315,10 @@ wilddog.auth().signInWithRedirect(weiboProvider).then(function () {
 
 </br>
 
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  `signInWithRedirect` 登录成功后，页面会重新加载并执行 js 代码，因此需要配合 `onAuthStateChanged` 使用，避免 `signInWithRedirect` 的重复调用。[详情请参考完整指南](/guide/auth/web/weixin.html)
+</blockquote>
 ----
 
 

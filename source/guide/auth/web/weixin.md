@@ -44,13 +44,21 @@ wilddog.auth().signInWithPopup(provider).then(function (user) {
 
 ```js
 var provider = new wilddog.auth.WeixinAuthProvider();
-wilddog.auth().signInWithRedirect(provider).then(function (user) {
+var auth = wilddog.auth();
+// 直接使用 signInWithRedirect 会造成重复登录。
+auth.onAuthStateChanged(function (user) {
+  if (user == null) {
+    auth.signInWithRedirect(provider).then(function (user) {
+         console.log(user);
+    }).catch(function (error) {
+         // 错误处理
+         console.log(error);
+         // ...
+    });
+  } else {
     console.log(user);
-}).catch(function (error) {
-    // 错误处理
-    console.log(error);
-    // ...
-});
+  }
+})
 ```
 
 更多认证绑定方式，请参考 [API 文档](https://docs.wilddog.com/api/auth/web/User.html#link)。
