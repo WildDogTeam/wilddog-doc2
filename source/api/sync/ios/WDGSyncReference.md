@@ -129,7 +129,6 @@ func child(_ pathString: String) -> WDGSyncReference
 ##### 说明
 
 获得一个在当前节点下指定路径节点处的 `WDGSyncReference` 实例。
-根据相对路径 `path`，来获取当前节点下 `path` 子节点的引用。
 相对路径可以是一个简单的节点路径（例如：`fred`），或者是一个更深的路径（例如：`fred/name/first`）。
  
  
