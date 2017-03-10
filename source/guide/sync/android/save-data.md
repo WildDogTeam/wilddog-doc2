@@ -128,9 +128,9 @@ postsRef.push().setValue(anotherNews);
 
 ## 更新数据
 
-`updateChildValues()` 方法用于更新指定子节点。
+`updateChildren()` 方法用于更新指定子节点。
 
-`updateChildValues()` 方法支持多路径更新。可以只调用一次方法更新多个[路径](/guide/reference/term.html#路径-path)的数据。
+`updateChildren()` 方法支持多路径更新。可以只调用一次方法更新多个[路径](/guide/reference/term.html#路径-path)的数据。
 
 例如，更新 `Jobs` 的个人信息：
 

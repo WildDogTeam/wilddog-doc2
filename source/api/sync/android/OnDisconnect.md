@@ -15,7 +15,7 @@ void setValue(Object value)
 
 ##### 说明
 
-当客户端断开连接（例如：主动断开，本地的网络问题等）后写入数据，此操作会先清空指定节点再写入新的数据。
+当客户端断开连接（例如：主动断开，本地的网络问题等）后写入数据，此操作会先清空指定节点再写入新的数据。详细使用请参考：[setValue() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 
 支持的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
@@ -56,7 +56,7 @@ void setValue(Object value, SyncReference.CompletionListener listener)
 
 ##### 说明
 
-当客户端断开连接（例如：主动断开，本地的网络问题等）后写入数据，并设置操作完成监听。
+当客户端断开连接（例如：主动断开，本地的网络问题等）后写入数据，并设置操作完成监听。详细使用请参考：[setValue() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 此操作会先清空指定节点再写入新的数据。
 离线事件设置完成后将触发 listener 的 `onComplete()` 方法。
 
@@ -100,7 +100,7 @@ void setValue(Object value, Object priority)
 
 ##### 说明
 
-当客户端断开连接（例如：主动断开，本地的网络问题等）后写入数据和 [数据优先级](/api/sync/android/SyncReference.html#setPriority)，此操作会先清空指定节点再写入新的数据。
+当客户端断开连接（例如：主动断开，本地的网络问题等）后写入数据和 [数据优先级](/api/sync/android/SyncReference.html#setPriority)，此操作会先清空指定节点再写入新的数据。详细使用请参考：[setValue() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 
 value 支持的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
@@ -141,7 +141,7 @@ void setValue(Object value, Object priority, SyncReference.CompletionListener li
 
 ##### 说明
 
-当客户端断开连接（例如：主动断开，本地的网络问题等）后写入数据和 [数据优先级](/api/sync/android/SyncReference.html#setPriority)，并设置操作完成监听。
+当客户端断开连接（例如：主动断开，本地的网络问题等）后写入数据和 [数据优先级](/api/sync/android/SyncReference.html#setPriority)，并设置操作完成监听。详细使用请参考：[setValue() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 此操作会先清空指定节点再写入新的数据。
 离线事件设置完成后将触发 listener 的 `onComplete()` 方法。
 
@@ -186,7 +186,7 @@ void updateChildren(Map children)
 
 ##### 说明
 
-当客户端断开连接（例如：主动断开，本地的网络问题等）后更新指定子节点。
+当客户端断开连接（例如：主动断开，本地的网络问题等）后更新指定子节点。详细使用请参考：[updateChildren() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 
 
 ##### 参数
@@ -210,7 +210,7 @@ void updateChildren(Map children, SyncReference.CompletionListener listener)
 
 ##### 说明
 
-当客户端断开连接（例如：主动断开，本地的网络问题等）后更新指定子节点，并设置操作完成监听。
+当客户端断开连接（例如：主动断开，本地的网络问题等）后更新指定子节点，并设置操作完成监听。详细使用请参考：[updateChildren() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 
 ##### 参数
  参数名 | 说明
@@ -234,7 +234,7 @@ void removeValue()
 
 ##### 说明
 
-当客户端断开连接（例如：主动断开，本地的网络问题等）后移除当前节点的数据。
+当客户端断开连接（例如：主动断开，本地的网络问题等）后移除当前节点的数据。详细使用请参考：[removeValue() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 `onDisconnect` 实例设置的离线操作只会触发一次。
 如需每次离线时都执行 `removeValue()` 方法，则需要 监听连接状态，在连接建立成功后都通过 `removeValue()` 设置想要执行的删除操作。
 
@@ -253,7 +253,7 @@ void removeValue(SyncReference.CompletionListener listener)
 
 ##### 说明
 
-当客户端断开连接（例如：主动断开，本地的网络问题等）后移除当前节点的数据，并设置操作完成监听。
+当客户端断开连接（例如：主动断开，本地的网络问题等）后移除当前节点的数据，并设置操作完成监听。详细使用请参考：[removeValue() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 `onDisconnect` 实例设置的离线操作只会触发一次。
 如需每次离线时都执行 `removeValue()` 方法，则需要 监听连接状态，在连接建立成功后都通过 `removeValue()` 设置想要执行的删除操作。
 
@@ -276,7 +276,7 @@ void cancel()
 
 ##### 说明
 
-取消所有未生效的离线事件。
+取消所有未生效的离线事件。详细使用请参考：[cancel() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 
 </br>
 
@@ -293,7 +293,7 @@ void cancel(SyncReference.CompletionListener listener)
 
 ##### 说明
 
-取消所有未生效的离线事件。
+取消所有未生效的离线事件。详细使用请参考：[cancel() 完整指南](../../../guide/sync/android/offline-capabilities.html#离线事件)。
 
 ##### 参数
 
