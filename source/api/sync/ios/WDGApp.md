@@ -1,8 +1,8 @@
 title: WDGApp
 ---
 
-`WDGApp` 是野狗各个功能模块的入口。用于初始化时的必要参数配置。
-一个 `WDGApp` 实例对应一个野狗应用，在 SDK 内以应用名字区分。
+[WDGApp](WDGApp.html) 是野狗各个功能模块的入口。用于初始化时的必要参数配置。
+一个 [WDGApp](WDGApp.html) 实例对应一个野狗应用，在 SDK 内以应用名字区分。
 
 
 ## 属性
@@ -20,7 +20,7 @@ var name: String { get }
 
 ##### 说明
 
-获取这个 `WDGApp` 实例的名字。
+获取这个 [WDGApp](WDGApp.html) 实例的名字。
 
 </br>
 
@@ -73,7 +73,7 @@ class func configure(with options: WDGOptions)
 
  参数名 | 说明 
 ---|---
-options|配置 Wilddog 应用所需的 `WDGOptions` 实例。
+options|配置 Wilddog 应用所需的 [WDGOptions](WDGOptions.html) 实例。
 
 
 
@@ -106,7 +106,7 @@ class func configure(withName name: String, options: WDGOptions)
  参数名 | 说明 
 ---|---
 name|开发者自己起名的应用名字。这个名字只能包含字母、数字和下划线。
-options|配置 Wilddog 应用所需的 `WDGOptions` 实例。
+options|配置 Wilddog 应用所需的 [WDGOptions](WDGOptions.html) 实例。
 
 
 
@@ -129,7 +129,7 @@ class func defaultApp() -> WDGApp?
 
 ##### 说明
 
-返回默认的 `WDGApp` 实例，即通过 `configureWithOptions:` 配置的实例。如果默认 app 不存在，则返回 nil。
+返回默认的 `WDGApp` 实例，即通过 [configureWithOptions:](WDGApp.html#configureWithOptions) 配置的实例。如果默认 app 不存在，则返回 nil。
 这个方法是线程安全的。
  
 
@@ -156,7 +156,7 @@ class func defaultApp() -> WDGApp?
 
 ##### 说明
 
-返回一个之前通过 `configureWithName:options:` 配置的 WDGApp 实例。如果这个 app 不存在, 则返回 nil。
+返回一个之前通过 [configureWithName:options:](WDGApp.html#configureWithName-options) 配置的 WDGApp 实例。如果这个 app 不存在, 则返回 nil。
 这个方法是线程安全的。
  
 

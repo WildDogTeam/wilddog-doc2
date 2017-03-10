@@ -1,8 +1,8 @@
 title: WDGSyncReference
 ---
 
-`WDGSyncReference` 实例表示要操作的特定数据节点，可以通过 `WDGSyncReference` 实例操作和读取数据。
-`WDGSyncReference` 是 `WDGSyncQuery` 的子类。
+[WDGSyncReference](WDGSyncReference.html) 实例表示要操作的特定数据节点，可以通过 [WDGSyncReference](WDGSyncReference.html) 实例操作和读取数据。
+[WDGSyncReference](WDGSyncReference.html) 是 [WDGSyncQuery](WDGSyncQuery.html) 的子类。
 
 
 ## 属性
@@ -103,7 +103,7 @@ var sync: WDGSync { get }
 
 ##### 说明
 
-当前 `SyncReference` 实例相关的 `WilddogSync` 实例。
+当前 [WDGSyncReference](WDGSyncReference.html) 实例相关的 [WDGSync](WDGSync.html) 实例。
 
 </br>
 
@@ -165,7 +165,7 @@ func child(byAppendingPath pathString: String) -> WDGSyncReference
 
 ##### 说明
 
-`childByAppendingPath:` 已废弃, 使用 `child:` 代替。
+`childByAppendingPath:` 已废弃, 使用 [child:](WDGSyncReference.html#child) 代替。
 
 
 
@@ -224,7 +224,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ）之间，n+1 个元素中超过一半以上有值，数据将被转换为 `NSArray` 类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 `NSDictionary` 类型。
 当 value 为 nil 或者 NSNull 实例时相当于调用 `removeValue:`，这个路径的所有数据和子路径的数据都将被删除。
-`setValue:` 将会删除先前保存的 priority，所以如果要保留先前 priority，必须调用 `setValue:andPriority:`。
+`setValue:` 将会删除先前保存的 priority，所以如果要保留先前 priority，必须调用 [setValue:andPriority:](WDGSyncReference.html#setValue-andPriority)。
  
 
 
@@ -255,7 +255,7 @@ func setValue(_ value: Any?, withCompletionBlock block: @escaping (Error?, WDGSy
 
 ##### 说明
 
-同 `setValue:` 方法类似，增加了一个 block，当写操作完成之后，会回调这个 block。
+同 [setValue:](WDGSyncReference.html#setValue) 方法类似，增加了一个 block，当写操作完成之后，会回调这个 block。
  
  
 
@@ -288,7 +288,7 @@ func setValue(_ value: Any?, andPriority priority: Any?)
 
 ##### 说明
 
-同 `setValue:` 方法类似，写入数值的同时为当前节点设置优先级，优先级被用来排序。
+同 [setValue:](WDGSyncReference.html#setValue) 方法类似，写入数值的同时为当前节点设置优先级，优先级被用来排序。
 优先级只能是 NSNumber 或 NSString 类型，且 NSNumber 中不能存储 BOOL 类型的数据。优先级默认为 nil。
  
  
@@ -322,7 +322,7 @@ func setValue(_ value: Any?, andPriority priority: Any?, withCompletionBlock blo
 
 ##### 说明
 
-同 `setValue:` 方法类似，写入数值的同时为当前节点设置优先级，优先级被用来排序。
+同 [setValue:](WDGSyncReference.html#setValue) 方法类似，写入数值的同时为当前节点设置优先级，优先级被用来排序。
 优先级只能是 NSNumber 或 NSString 类型，且 NSNumber 中不能存储 BOOL 类型的数据。优先级默认为 nil。
 同时增加了一个 block，当写操作完成之后，会回调这个 block。
  
@@ -456,7 +456,7 @@ func setPriority(_ priority: Any?, withCompletionBlock block: @escaping (Error?,
 
 ##### 说明
 
-同 `setPriority:` 方法类似，增加了一个 block，当设置优先级操作被提交到云端，将触发这个 block。
+同 [setPriority:](WDGSyncReference.html#setPriority) 方法类似，增加了一个 block，当设置优先级操作被提交到云端，将触发这个 block。
  
 
 
@@ -489,7 +489,7 @@ func updateChildValues(_ values: [AnyHashable : Any])
 ##### 说明
 
 对当前节点进行数据合并操作，更新当前节点下的数据。 
-与 `setValue:` 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildren:` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
+与 [setValue:](WDGSyncReference.html#setValue) 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildren:` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
 使用此方法可以对同一节点的子节点同时进行更新和删除操作。
  
 
@@ -521,7 +521,7 @@ func updateChildValues(_ values: [AnyHashable : Any], withCompletionBlock block:
 
 ##### 说明
 
-同 `updateChildValues:` 方法类似，增加了一个 block，当更新操作完成之后，会回调这个 block。
+同 [updateChildValues:](WDGSyncReference.html#updateChildValues) 方法类似，增加了一个 block，当更新操作完成之后，会回调这个 block。
  
 
 
@@ -555,7 +555,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
-可使用 `removeObserverWithHandle:` 方法移除监听。
+可使用 [removeObserverWithHandle:](WDGSyncReference.html#removeObserverWithHandle) 方法移除监听。
  
 
 
@@ -563,7 +563,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 
  参数名 | 说明 
 ---|---
-eventType|`WDGDataEventType` 类型，表示监听的事件类型。
+eventType|[WDGDataEventType](WDGDataEventType.html) 类型，表示监听的事件类型。
 block|当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
 
 
@@ -571,7 +571,7 @@ block|当监听到当前节点的初始数据或当前节点的数据改变时�
 
 ##### 返回值
 
-`WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
+`WDGSyncHandle` 值，用于调用方法 [removeObserverWithHandle:](WDGSyncReference.html#removeObserverWithHandle) 移除这个监听。
 
 </br>
 
@@ -592,8 +592,8 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
-此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有当前排序下前一节点的 key 值。
-可使用 `removeObserverWithHandle:` 方法移除监听。
+此外，对于 [WDGDataEventTypeChildAdded](WDGDataEventType.html#WDGDataEventTypeChildAdded), [WDGDataEventTypeChildMoved](WDGDataEventType.html#WDGDataEventTypeChildMoved) 和 [WDGDataEventTypeChildChanged](WDGDataEventType.html#WDGDataEventTypeChildChanged) 事件，回调 block 将带有当前排序下前一节点的 key 值。
+可使用 [removeObserverWithHandle:](WDGSyncReference.html#removeObserverWithHandle) 方法移除监听。
  
 
 
@@ -601,15 +601,15 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
 
  参数名 | 说明 
 ---|---
-eventType|`WDGDataEventType` 类型，表示监听的事件类型。
-block|当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个节点的 key 值。
+eventType|[WDGDataEventType](WDGDataEventType.html) 类型，表示监听的事件类型。
+block|当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。block 将传输一个 [WDGDataSnapshot](WDGDataSnapshot.html) 类型的数据和前一个节点的 key 值。
 
 
 
 
 ##### 返回值
 
-`WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
+`WDGSyncHandle` 值，用于调用方法 [removeObserverWithHandle:](WDGSyncReference.html#removeObserverWithHandle) 移除这个监听。
 
 </br>
 
@@ -631,7 +631,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
 当客户端失去对该节点的读取权限时会调用 `cancelBlock`。导致失去读取权限的原因包括：规则表达式限制，数据限制，套餐限制超出等。
-可使用 `removeObserverWithHandle:` 方法移除监听。
+可使用 [removeObserverWithHandle:](WDGSyncReference.html#removeObserverWithHandle) 方法移除监听。
  
 
 
@@ -639,7 +639,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 
  参数名 | 说明 
 ---|---
-eventType|`WDGDataEventType` 类型，表示监听的事件类型。
+eventType|[WDGDataEventType](WDGDataEventType.html) 类型，表示监听的事件类型。
 block|当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
 cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlock`。
 
@@ -648,7 +648,7 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 ##### 返回值
 
-`WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
+`WDGSyncHandle` 值，用于调用方法 [removeObserverWithHandle:](WDGSyncReference.html#removeObserverWithHandle) 移除这个监听。
 
 </br>
 
@@ -669,9 +669,9 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
 
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
-此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有当前排序下前一节点的 key 值。
+此外，对于 [WDGDataEventTypeChildAdded](WDGDataEventType.html#WDGDataEventTypeChildAdded), [WDGDataEventTypeChildMoved](WDGDataEventType.html#WDGDataEventTypeChildMoved) 和 [WDGDataEventTypeChildChanged](WDGDataEventType.html#WDGDataEventTypeChildChanged) 事件，回调 block 将带有当前排序下前一节点的 key 值。
 当客户端失去对该节点的读取权限时会调用 `cancelBlock`。导致失去读取权限的原因包括：规则表达式限制，数据限制，套餐限制超出等。
-可使用 `removeObserverWithHandle:` 方法移除监听。
+可使用 [removeObserverWithHandle:](WDGSyncReference.html#removeObserverWithHandle) 方法移除监听。
  
 
 
@@ -679,8 +679,8 @@ func observe(_ eventType: WDGDataEventType, andPreviousSiblingKeyWith block: @es
 
  参数名 | 说明 
 ---|---
-eventType|`WDGDataEventType` 类型，表示监听的事件类型。
-block|当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+eventType|[WDGDataEventType](WDGDataEventType.html) 类型，表示监听的事件类型。
+block|当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。block 将传输一个 [WDGDataSnapshot](WDGDataSnapshot.html) 类型的数据和前一个子节点的 key 值。
 cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlock`。
 
 
@@ -688,7 +688,7 @@ cancelBlock|当客户端失去对该节点的读取权限时会调用 `cancelBlo
 
 ##### 返回值
 
-`WDGSyncHandle` 值，用于调用方法 `removeObserverWithHandle:` 移除这个监听。
+`WDGSyncHandle` 值，用于调用方法 [removeObserverWithHandle:](WDGSyncReference.html#removeObserverWithHandle) 移除这个监听。
 
 </br>
 
@@ -707,7 +707,7 @@ func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (W
 
 ##### 说明
 
-同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调方法只被触发一次，之后会自动取消监听。
+同 [observeEventType:withBlock:](WDGSyncReference.html#observeEventType-withBlock) 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调方法只被触发一次，之后会自动取消监听。
  
 
 
@@ -715,7 +715,7 @@ func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (W
 
  参数名 | 说明 
 ---|---
-eventType|`WDGDataEventType` 类型，表示监听的事件类型。
+eventType|[WDGDataEventType](WDGDataEventType.html) 类型，表示监听的事件类型。
 block|当从云端获取到结果时，将回调这个 block。
 
 
@@ -739,8 +739,8 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
 
 ##### 说明
 
-同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
-此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
+同 [observeEventType:withBlock:](WDGSyncReference.html#observeEventType-withBlock) 类似，不同之处在于 [observeSingleEventOfType:withBlock:](WDGSyncReference.html#observeSingleEventOfType-withBlock) 中的回调函数只被执行一次。
+此外，对于 [WDGDataEventTypeChildAdded](WDGDataEventType.html#WDGDataEventTypeChildAdded), [WDGDataEventTypeChildMoved](WDGDataEventType.html#WDGDataEventTypeChildMoved) 和 [WDGDataEventTypeChildChanged](WDGDataEventType.html#WDGDataEventTypeChildChanged) 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
  
 
 
@@ -748,8 +748,8 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
 
  参数名 | 说明 
 ---|---
-eventType|`WDGDataEventType` 类型，表示监听的事件类型。
-block|当从云端获取到结果时，将回调这个 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+eventType|[WDGDataEventType](WDGDataEventType.html) 类型，表示监听的事件类型。
+block|当从云端获取到结果时，将回调这个 block。block 将传输一个 [WDGDataSnapshot](WDGDataSnapshot.html) 类型的数据和前一个子节点的 key 值。
 
 
 
@@ -772,7 +772,7 @@ func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (W
 
 ##### 说明
 
-同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
+同 [observeEventType:withBlock:](WDGSyncReference.html#observeEventType-withBlock) 类似，不同之处在于 [observeSingleEventOfType:withBlock:](WDGSyncReference.html#observeSingleEventOfType-withBlock) 中的回调函数只被执行一次。
 当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
  
 
@@ -781,7 +781,7 @@ func observeSingleEvent(of eventType: WDGDataEventType, with block: @escaping (W
 
  参数名 | 说明 
 ---|---
-eventType|`WDGDataEventType` 类型，表示监听的事件类型。
+eventType|[WDGDataEventType](WDGDataEventType.html) 类型，表示监听的事件类型。
 block|当从云端获取到结果时，将回调这个 block。
 cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
 
@@ -806,8 +806,8 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
 
 ##### 说明
 
-同 `observeEventType:withBlock:` 类似，不同之处在于 `observeSingleEventOfType:withBlock:` 中的回调函数只被执行一次。
-此外，对于 `WDGDataEventTypeChildAdded`, `WDGDataEventTypeChildMoved` 和 `WDGDataEventTypeChildChanged` 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
+同 [observeEventType:withBlock:](WDGSyncReference.html#observeEventType-withBlock) 类似，不同之处在于 [observeSingleEventOfType:withBlock:](WDGSyncReference.html#observeSingleEventOfType-withBlock) 中的回调函数只被执行一次。
+此外，对于 [WDGDataEventTypeChildAdded](WDGDataEventType.html#WDGDataEventTypeChildAdded), [WDGDataEventTypeChildMoved](WDGDataEventType.html#WDGDataEventTypeChildMoved) 和 [WDGDataEventTypeChildChanged](WDGDataEventType.html#WDGDataEventTypeChildChanged) 事件，回调 block 将带有 priority 排序下前一节点的 key 值。
 当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
  
 
@@ -816,8 +816,8 @@ func observeSingleEvent(of eventType: WDGDataEventType, andPreviousSiblingKeyWit
 
  参数名 | 说明 
 ---|---
-eventType|`WDGDataEventType` 类型，表示监听的事件类型。
-block|当从云端获取到结果时，将回调这个 block。block 将传输一个 `WDGDataSnapshot` 类型的数据和前一个子节点的 key 值。
+eventType|[WDGDataEventType](WDGDataEventType.html) 类型，表示监听的事件类型。
+block|当从云端获取到结果时，将回调这个 block。block 将传输一个 [WDGDataSnapshot](WDGDataSnapshot.html) 类型的数据和前一个子节点的 key 值。
 cancelBlock|当客户端没有对该节点的访问权限时 `cancelBlock` 会被调用。
 
 
@@ -841,7 +841,7 @@ func removeObserver(withHandle handle: WDGSyncHandle)
 
 ##### 说明
 
-移除监听事件。移除使用 `observeEventType:withBlock:` 方法设置的数据监听。
+移除监听事件。移除使用 [observeEventType:withBlock:](WDGSyncReference.html#observeEventType-withBlock) 方法设置的数据监听。
  
 
 
@@ -849,7 +849,7 @@ func removeObserver(withHandle handle: WDGSyncHandle)
 
  参数名 | 说明 
 ---|---
-handle|由 `observeEventType:withBlock:` 返回的 `WDGSyncHandle`。
+handle|由 [observeEventType:withBlock:](WDGSyncReference.html#observeEventType-withBlock) 返回的 `WDGSyncHandle`。
 
 
 
@@ -872,7 +872,7 @@ func removeAllObservers()
 
 ##### 说明
 
-移除当前节点下使用 `observeEventType:withBlock:` 方法注册的所有的监听事件。
+移除当前节点下使用 [observeEventType:withBlock:](WDGSyncReference.html#observeEventType-withBlock) 方法注册的所有的监听事件。
 
 
 
@@ -1230,7 +1230,7 @@ class func goOffline()
 
 ##### 说明
 
-手动断开与 Wilddog Sync 云端的连接，关闭自动重连，可以用 `goOnline` 恢复连接。
+手动断开与 Wilddog Sync 云端的连接，关闭自动重连，可以用 [goOnline](WDGSyncReference.html#goOnline) 恢复连接。
 
 
 
@@ -1275,9 +1275,9 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 ##### 说明
 
 用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。 
-与 `setValue:` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
+与 [setValue:](WDGSyncReference.html#setValue) 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
 客户端提交事务至云端，如果数据已被其他客户端修改，那么云端会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。 
-在 `runTransactionBlock:` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 `[WDGTransactionResult abort]` 手动中止事务。
+在 `runTransactionBlock:` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 [[WDGTransactionResult abort]](WDGTransactionResult.html#abort) 手动中止事务。
  
 
 
@@ -1285,7 +1285,7 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 
  参数名 | 说明 
 ---|---
-block|接收当前数据，返回一个 `WDGTransactionResult` 实例。
+block|接收当前数据，返回一个 [WDGTransactionResult](WDGTransactionResult.html) 实例。
 
 
 
@@ -1309,9 +1309,9 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 ##### 说明
 
 用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。
-与 `setValue:` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
+与 [setValue:](WDGSyncReference.html#setValue) 直接覆盖以前的数据不同，在不同客户端并发修改时，[runTransactionBlock:](WDGSyncReference.html#runTransactionBlock) 不会单纯覆盖节点数据。
 客户端提交事务至云端，如果数据已被其他客户端修改，那么云端会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。
-在 `runTransactionBlock:` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 `[WDGTransactionResult abort]` 手动中止事务。
+在 [runTransactionBlock:](WDGSyncReference.html#runTransactionBlock) 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 [[WDGTransactionResult abort]](WDGTransactionResult.html#abort) 手动中止事务。
  
 
 
@@ -1319,7 +1319,7 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 
  参数名 | 说明 
 ---|---
-block|接收当前数据，返回一个 `WDGTransactionResult` 实例。
+block|接收当前数据，返回一个 [WDGTransactionResult](WDGTransactionResult.html) 实例。
 completionBlock|无论本次事务处理结果如何，当事务完成时这个 block 将被回调。
 
 
@@ -1344,9 +1344,9 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 ##### 说明
 
 用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。
-与 `setValue:` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
+与 [setValue:](WDGSyncReference.html#setValue) 直接覆盖以前的数据不同，在不同客户端并发修改时，[runTransactionBlock:](WDGSyncReference.html#runTransactionBlock) 不会单纯覆盖节点数据。
 客户端提交事务至云端，如果数据已被其他客户端修改，那么云端会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。
-在 `runTransactionBlock:` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 `[WDGTransactionResult abort]` 手动中止事务。
+在 [runTransactionBlock:](WDGSyncReference.html#runTransactionBlock) 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 [[WDGTransactionResult abort]](WDGTransactionResult.html#abort) 手动中止事务。
  
 
 
@@ -1354,7 +1354,7 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 
  参数名 | 说明 
 ---|---
-block|接收当前数据，返回一个 `WDGTransactionResult` 实例。
+block|接收当前数据，返回一个 [WDGTransactionResult](WDGTransactionResult.html) 实例。
 completionBlock|无论本次事务处理结果如何，当事务完成时这个 block 将被回调。
 localEvents|若当前节点已经建立了监听，每次执行 block 都会触发一次监听事件。将其设置为 NO 来阻止本地建立的监听触发中间状态的事件，只有事务操作成功时才触发监听事件。
 
