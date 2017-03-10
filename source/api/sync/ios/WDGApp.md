@@ -1,8 +1,8 @@
 title: WDGApp
 ---
 
-[WDGApp](WDGApp.html) 是野狗各个功能模块的入口。用于初始化时的必要参数配置。
-一个 [WDGApp](WDGApp.html) 实例对应一个野狗应用，在 SDK 内以应用名字区分。
+`WDGApp` 是野狗各个功能模块的入口。用于初始化时的必要参数配置。
+一个 `WDGApp` 实例对应一个野狗应用，在 SDK 内以应用名字区分。
 
 
 ## 属性
@@ -20,7 +20,7 @@ var name: String { get }
 
 ##### 说明
 
-获取这个 [WDGApp](WDGApp.html) 实例的名字。
+获取这个 `WDGApp` 实例的名字。
 
 </br>
 

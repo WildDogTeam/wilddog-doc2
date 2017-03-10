@@ -19,7 +19,7 @@ var ref: WDGSyncReference { get }
 
 ##### 说明
 
-这个 [WDGSyncQuery](WDGSyncQuery.html) 所在路径下的 [WDGSyncReference](WDGSyncReference.html) 实例。
+这个 `WDGSyncQuery` 所在路径下的 [WDGSyncReference](WDGSyncReference.html) 实例。
 
 </br>
 
