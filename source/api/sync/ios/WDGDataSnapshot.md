@@ -21,7 +21,9 @@ var value: Any? { get }
 ##### 说明
 
 当前数据快照包含的数据。数据类型取决于节点下的数据内容。
+
 可能返回的数据类型包括:
+
 - NSDictionary
 - NSArray
 - NSNumber (包含 BOOL 类型)
@@ -155,9 +157,6 @@ func childSnapshot(forPath childPathString: String) -> WDGDataSnapshot
 相对路径可以是一个字节点的 key 值（例如：`Beijing`），也可以是更深层次的路径（例如：`Beijing/pm25`）。
 如果相对路径下并没有数据，则返回 nil。
 根据指定的相对路径，来获取当前节点下的 `WDGDataSnapshot`。
- 
- 
-
 
 ##### 参数
 
@@ -190,9 +189,6 @@ func hasChild(_ childPathString: String) -> Bool
 ##### 说明
 
 判断是否存在某个指定的子节点。如果指定节点下的数据不为空，则返回 YES。
- 
- 
-
 
 ##### 参数
 
@@ -226,8 +222,6 @@ func hasChildren() -> Bool
 
 如果 `WDGDataSnapshot` 存在子节点返回 YES，否则返回 NO。
 你可以通过使用 `hasChildren` 方法来确定当前的数据快照是否含有子节点，进而决定是否利用 [children](WDGDataSnapshot.html#children) 属性遍历数据。
- 
-
 
 
 ##### 返回值
@@ -252,8 +246,6 @@ func exists() -> Bool
 ##### 说明
 
 判断当前 `WDGDataSnapshot` 实例中是否包含数据。使用 exists 方法进行非空判断比 `snapshot.value != nil` 更高效。
- 
-
 
 
 ##### 返回值
@@ -279,7 +271,6 @@ func valueInExportFormat() -> Any?
 
 将 `WDGDataSnapshot` 中的全部内容导出。
 `valueInExportFormat` 方法和 [value](WDGDataSnapshot.html#value) 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，`valueInExportFormat` 会导出包含 priority 的数据，适合用于备份。
-
 
 
 
