@@ -38,7 +38,7 @@ title: 管理应用
 
 目前支持最多配置 10 个 Webhook，新添加的配置默认是关闭状态，需要手动开启。
 
-<img src='/images/setwebhook.jpeg' alt="/images/group.png" >
+<img src='/images/setwebhook.png' alt="/images/group.png" >
 
 #### 配置数据路径
 
