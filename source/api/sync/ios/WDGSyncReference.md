@@ -188,6 +188,7 @@ func childByAutoId() -> WDGSyncReference
 
 向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：`-KdzI7I-AsBST9NlasJM`）。
 新增子节点的 key 基于时间戳和随机算法生成，并按照时间先后进行排序。
+详细使用可参考：[childByAutoId 完整指南](../../../guide/sync/ios/save-data.html#追加子节点)
  
 
 
@@ -224,6 +225,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 NSDictionary 类型。
 当 value 为 nil 或者 NSNull 实例时相当于调用 `removeValue:`，这个路径的所有数据和子路径的数据都将被删除。
 `setValue:` 将会删除先前保存的 priority，所以如果要保留先前 priority，必须调用 [setValue:andPriority:](WDGSyncReference.html#setValue-andPriority)。
+详细使用可参考：[setValue: 完整指南](../../../guide/sync/ios/save-data.html#写入数据)
  
 
 
@@ -289,6 +291,7 @@ func setValue(_ value: Any?, andPriority priority: Any?)
 
 同 [setValue:](WDGSyncReference.html#setValue) 方法类似，写入数值的同时为当前节点设置优先级，优先级被用来排序。
 优先级只能是 NSNumber 或 NSString 类型，且 NSNumber 中不能存储 BOOL 类型的数据。优先级默认为 nil。
+详细使用可参考：[setValue:andPriority: 完整指南](../../../guide/sync/ios/save-data.html#写入数据并设置节点优先级)
  
  
 
@@ -359,6 +362,7 @@ func removeValue()
 
 删除当前节点，效果等同于 `setValue:nil`。
 如果父级节点只有当前节点一个子节点，会递归删除父级节点。
+详细使用可参考：[removeValue 完整指南](../../../guide/sync/ios/save-data.html#删除数据)
 
 
 
@@ -418,6 +422,7 @@ func setPriority(_ priority: Any?)
 - priority 为数值的次之，按照数值从小到大排序；
 - priority 为字符串的排最后，按照字典序排列。
 - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
+详细使用可参考：[setPriority: 完整指南](../../../guide/sync/ios/save-data.html#设置节点优先级)
  
  
 
@@ -490,6 +495,7 @@ func updateChildValues(_ values: [AnyHashable : Any])
 对当前节点进行数据合并操作，更新当前节点下的数据。 
 与 [setValue:](WDGSyncReference.html#setValue) 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildValues:` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
 使用此方法可以对同一节点的子节点同时进行更新和删除操作。
+详细使用可参考：[updateChildValues: 完整指南](../../../guide/sync/ios/save-data.html#更新数据)
  
 
 
@@ -555,6 +561,7 @@ func observe(_ eventType: WDGDataEventType, with block: @escaping (WDGDataSnapsh
 监听指定节点的数据。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 block。
 可使用 [removeObserverWithHandle:](WDGSyncReference.html#removeObserverWithHandle) 方法移除监听。
+详细使用可参考：[observeEventType:withBlock: 完整指南](../../../guide/sync/ios/retrieve-data.html#设置监听)
  
 
 
@@ -841,6 +848,7 @@ func removeObserver(withHandle handle: WDGSyncHandle)
 ##### 说明
 
 移除监听事件。移除使用 [observeEventType:withBlock:](WDGSyncReference.html#observeEventType-withBlock) 方法设置的数据监听。
+详细使用可参考：[removeObserverWithHandle: 完整指南](../../../guide/sync/ios/retrieve-data.html#移除监听)
  
 
 
@@ -894,6 +902,7 @@ func keepSynced(_ keepSynced: Bool)
 ##### 说明
 
 在某一节点处通过调用 `keepSynced:YES` 方法，即使该节点处没有进行过监听，此节点处的数据也将自动下载存储并与云端保持同步。
+详细使用可参考：[keepSynced: 完整指南](../../../guide/sync/ios/offline-capabilities.html#提前同步)
  
 
 
@@ -926,6 +935,7 @@ func onDisconnectSetValue(_ value: Any?)
 
 在客户端离线时写入或清除数据，不论客户端是否是主动断开连接，已经设置的离线事件都必定会被执行。
 当客户端断开连接后，向当前的数据节点设置一个指定的值。
+详细使用可参考：[onDisconnectSetValue: 完整指南](../../../guide/sync/ios/offline-capabilities.html#离线事件)
  
 
 
@@ -1230,6 +1240,7 @@ class func goOffline()
 ##### 说明
 
 手动断开与 Wilddog Sync 云端的连接，关闭自动重连，可以用 [goOnline](WDGSyncReference.html#goOnline) 恢复连接。
+详细使用可参考：[goOffline 完整指南](../../../guide/sync/ios/offline-capabilities.html#手动建立或断开连接)
 
 
 
@@ -1252,6 +1263,7 @@ class func goOnline()
 ##### 说明
 
 手动恢复与 Wilddog Sync 云端的连接，开启自动重连。
+详细使用可参考：[goOnline 完整指南](../../../guide/sync/ios/offline-capabilities.html#手动建立或断开连接)
 
 
 
@@ -1277,6 +1289,7 @@ func runTransactionBlock(_ block: @escaping (WDGMutableData) -> WDGTransactionRe
 与 [setValue:](WDGSyncReference.html#setValue) 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransactionBlock:` 不会单纯覆盖节点数据。
 客户端提交事务至云端，如果数据已被其他客户端修改，那么云端会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。 
 在 `runTransactionBlock:` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中返回 [[WDGTransactionResult abort]](WDGTransactionResult.html#abort) 手动中止事务。
+详细使用可参考：[runTransactionBlock: 完整指南](../../../guide/sync/ios/save-data.html#事务处理)
  
 
 

@@ -256,6 +256,7 @@ func goOffline()
 ##### 说明
 
 手动断开与 Wilddog Sync 云端的连接，关闭自动重连，可以用 [goOnline](WDGSync.html#goOnline) 恢复连接。
+详细使用可参考：[goOffline 完整指南](../../../guide/sync/ios/offline-capabilities.html#手动建立或断开连接)
 
 
 
@@ -278,6 +279,7 @@ func goOnline()
 ##### 说明
 
 手动恢复与 Wilddog Sync 云端的连接，开启自动重连。
+详细使用可参考：[goOnline 完整指南](../../../guide/sync/ios/offline-capabilities.html#手动建立或断开连接)
 
 
 
