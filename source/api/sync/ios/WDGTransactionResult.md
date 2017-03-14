@@ -22,8 +22,6 @@ class func success(withValue value: WDGMutableData) -> WDGTransactionResult
 ##### 说明
 
 表明传入参数 value 应保存在这个节点处。
- 
-
 
 ##### 参数
 
@@ -56,8 +54,6 @@ class func abort() -> WDGTransactionResult
 ##### 说明
 
 使用该方法可以主动终止当前事务。
- 
-
 
 
 ##### 返回值

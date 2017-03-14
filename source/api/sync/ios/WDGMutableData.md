@@ -1,9 +1,8 @@
 title: WDGMutableData
 ---
 
-`WDGMutableData` 实例是 Wilddog Sync 节点处的另一种数据载体，当使用 [[WDGSyncReference runTransactionBlock:]](WDGSyncReference.html#runTransactionBlock) 方法时，
-你会接受到一个包含当前节点数据的 `WDGMutableData` 实例。如果你想要保存此节点的数据，将此节点的
-`WDGMutableData` 传参到 [[WDGTransactionResult successWithValue:]](WDGTransactionResult.html#successWithValue) 方法中。
+`WDGMutableData` 实例是 Wilddog Sync 节点处的另一种数据载体，当使用 [[WDGSyncReference runTransactionBlock:]](WDGSyncReference.html#runTransactionBlock) 方法时，你会接受到一个包含当前节点数据的 `WDGMutableData` 实例。
+如果你想要保存此节点的数据，将此节点的 `WDGMutableData` 传参到 [[WDGTransactionResult successWithValue:]](WDGTransactionResult.html#successWithValue) 方法中。
 
 
 ## 属性
@@ -22,12 +21,13 @@ var value: Any? { get set }
 ##### 说明
 
 `WDGMutableData` 实例中的数据，value 可将其设置为 Wilddog Sync 支持的任一原生数据类型：
+
 - NSNumber (包括 BOOL 类型)
 - NSDictionary
 - NSArray
 - NSString
 - nil / NSNull (设置 nil / NSNull 删除该数据)
- 
+
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
 
@@ -53,10 +53,10 @@ var priority: Any? { get set }
 ##### 说明
 
 该节点下面的数据优先级，可以设置的值类型有：
+
 - NSNumber
 - NSString
 - nil / NSNull (设置 nil / NSNull 删除该数据)
- 
 
 </br>
 
@@ -95,6 +95,7 @@ var children: NSEnumerator { get }
 ##### 说明
 
 当前节点下所有子节点的 Mutabledata 实例的迭代器，用于迭代该节点的子节点。可以用下面的这个方法：
+
 ```objectivec
 for (WDGMutableData *child in data.children) {
     ...
@@ -144,8 +145,6 @@ func hasChildren() -> Bool
 ##### 说明
 
 判断在当前 `WDGMutableData` 中，是否存在子节点。
- 
-
 
 
 ##### 返回值
@@ -170,8 +169,6 @@ func hasChild(atPath path: String) -> Bool
 ##### 说明
 
 检查指定路径下是否存在子节点。
- 
-
 
 ##### 参数
 
@@ -204,8 +201,6 @@ func childData(byAppendingPath path: String) -> WDGMutableData
 ##### 说明
 
 用于获得一个在给定的相对路径下的 `WDGMutableData` 数据实例。
- 
-
 
 ##### 参数
 

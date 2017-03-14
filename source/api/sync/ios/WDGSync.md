@@ -42,7 +42,7 @@ var persistenceEnabled: Bool { get set }
 
 默认情况下，在你的应用程序正在运行时，Wilddog SDK 会将数据保存在内存中，当应用被重新启动时数据就没有了。
 把这个值设置为 YES 时，数据将被保存到设备，并且当应用程序重新启动时（即使在重新启动程序时没有网络连接），这些存储的数据也是可以用的。
- 
+
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
 
@@ -68,7 +68,7 @@ var callbackQueue: DispatchQueue { get set }
 ##### 说明
 
 所有被触发事件将被派发到这个队列执行回调。默认队列为主队列。
- 
+
 <blockquote class="warning">
 <p><strong>注意：</strong></p>
 
@@ -100,8 +100,6 @@ class func sync() -> WDGSync
 ##### 说明
 
 用默认的 [WDGApp](WDGApp.html) 获取对应的 `WDGSync` 实例。
- 
-
 
 
 ##### 返回值
@@ -126,8 +124,6 @@ class func sync(app: WDGApp) -> WDGSync
 ##### 说明
 
 用特定的 [WDGApp](WDGApp.html) 获取对应的 `WDGSync` 实例。
- 
-
 
 ##### 参数
 
@@ -160,8 +156,6 @@ func reference() -> WDGSyncReference
 ##### 说明
 
 返回根路径的 [WDGSyncReference](WDGSyncReference.html) 实例。
- 
-
 
 
 ##### 返回值
@@ -186,8 +180,6 @@ func reference(withPath path: String) -> WDGSyncReference
 ##### 说明
 
 返回以 `path` 为相对路径的 [WDGSyncReference](WDGSyncReference.html) 实例。
- 
-
 
 ##### 参数
 
@@ -222,8 +214,6 @@ func reference(fromURL syncUrl: String) -> WDGSyncReference
 用这个有效的 URL 获得一个 [WDGSyncReference](WDGSyncReference.html) 引用。
 这个 URL 必须是指向默认 Wilddog Sync 数据库完整路径（如 `https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts` ）。
 若要创建一个指向不同 Sync 数据库的 [WDGSyncReference](WDGSyncReference.html), 可以先用配置好 URL 的 [WDGOptions](WDGOptions.html) 对象去创建一个 [WDGApp](WDGApp.html)。
- 
-
 
 ##### 参数
 
@@ -256,8 +246,8 @@ func goOffline()
 ##### 说明
 
 手动断开与 Wilddog Sync 云端的连接，关闭自动重连，可以用 [goOnline](WDGSync.html#goOnline) 恢复连接。
-详细使用可参考：[goOffline 完整指南](../../../guide/sync/ios/offline-capabilities.html#手动建立或断开连接)
 
+详细使用可参考：[goOffline 完整指南](../../../guide/sync/ios/offline-capabilities.html#手动建立或断开连接)
 
 
 
@@ -279,8 +269,8 @@ func goOnline()
 ##### 说明
 
 手动恢复与 Wilddog Sync 云端的连接，开启自动重连。
-详细使用可参考：[goOnline 完整指南](../../../guide/sync/ios/offline-capabilities.html#手动建立或断开连接)
 
+详细使用可参考：[goOnline 完整指南](../../../guide/sync/ios/offline-capabilities.html#手动建立或断开连接)
 
 
 
@@ -302,8 +292,6 @@ class func setLoggingEnabled(_ enabled: Bool)
 ##### 说明
 
 打印程序相关信息。
- 
-
 
 ##### 参数
 
@@ -333,8 +321,6 @@ class func sdkVersion() -> String
 ##### 说明
 
 获取 Wilddog Sync SDK 版本号。
- 
-
 
 
 ##### 返回值

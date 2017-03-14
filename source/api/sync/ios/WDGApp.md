@@ -66,8 +66,6 @@ class func configure(with options: WDGOptions)
 
 初始化默认的 Wilddog app。默认的 app 名字是 `__WDGAPP_DEFAULT`。如果配置失败，会抛出异常。
 这个方法是线程安全的。
- 
-
 
 ##### 参数
 
@@ -98,8 +96,6 @@ class func configure(withName name: String, options: WDGOptions)
 
 用 options 和 name 配置一个 Wilddog app。如果配置失败，会抛出异常。
 这个方法是线程安全的。
- 
-
 
 ##### 参数
 
@@ -131,8 +127,6 @@ class func defaultApp() -> WDGApp?
 
 返回默认的 `WDGApp` 实例，即通过 [configureWithOptions:](WDGApp.html#configureWithOptions) 配置的实例。如果默认 app 不存在，则返回 nil。
 这个方法是线程安全的。
- 
-
 
 
 ##### 返回值
@@ -158,8 +152,6 @@ class func defaultApp() -> WDGApp?
 
 返回一个之前通过 [configureWithName:options:](WDGApp.html#configureWithName-options) 配置的 WDGApp 实例。如果这个 app 不存在, 则返回 nil。
 这个方法是线程安全的。
- 
-
 
 
 ##### 返回值
@@ -185,8 +177,6 @@ class func allApps() -> [AnyHashable : Any]?
 
 返回所有现存的 `WDGApp` 实例。如果没有 `WDGApp` 实例，则返回 nil。
 这个方法是线程安全的。
- 
-
 
 
 ##### 返回值
@@ -210,10 +200,8 @@ func delete(_ completion: @escaping WDGAppVoidBoolCallback)
 
 ##### 说明
 
-清除当前的 `WDGApp`, 释放相关的数据，并回收它的名字以便将来使用。
+清除当前的 `WDGApp`，释放相关的数据，并回收它的名字以便将来使用。
 这个方法是线程安全的。
- 
-
 
 ##### 参数
 
