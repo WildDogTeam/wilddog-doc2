@@ -1,6 +1,8 @@
 title: Participant
 ---
 
+代表视频通话或视频会议的一个参与者。
+
 <span id="Participant" />
 ## 属性
 

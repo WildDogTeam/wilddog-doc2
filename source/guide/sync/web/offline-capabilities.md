@@ -73,7 +73,7 @@ presenceRef.onDisconnect().remove( function(err) {
 // 设置离线事件
 presenceRef.onDisconnect().set("I disconnected!");
 // 取消离线事件
-presenceRef.cancel();
+presenceRef.onDisconnect().cancel();
 ```
 
 <blockquote class="notice">
@@ -108,7 +108,7 @@ connectedRef.on("value", function(snap) {
 
 setTimeout(function(){
   // 断开连接
-  wilddog.sync().goOffline(); 
+  wilddog.sync().goOffline();
   setTimeout(function(){
     // 重新建连
     wilddog.sync().goOnline();
@@ -120,4 +120,3 @@ setTimeout(function(){
   <p><strong>注意：</strong></p>
   一个应用可以创建多个 Wilddog Sync 实例，但多个实例只会复用同一个长连接。 并且`goOffline()`方法 和 `goOnline()`方法会控制全局的在线和离线。
 </blockquote>
-

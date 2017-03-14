@@ -1,14 +1,14 @@
 overview:
   野狗概览:
     简介: /overview/index.html
-    实时数据同步: /overview/sync.html
+    实时通信引擎: /overview/sync.html
     实时视频通话: /overview/video.html
     即时通讯: /overview/im.html
     短信: /overview/sms.html
     身份认证: /overview/auth.html
 
 quickstart:
-  实时数据同步:
+  实时通信引擎:
     Web: /quickstart/sync/web.html
     Android: /quickstart/sync/android.html
     iOS: /quickstart/sync/ios.html
@@ -39,7 +39,7 @@ quickstart:
     Egret: /quickstart/auth/wild-egret-auth.html
 
 guide:
-  实时数据同步:
+  实时通信引擎:
     基础概念: /guide/sync/concept.html
     Web:
       数据操作: /guide/sync/web/save-data.html
@@ -80,7 +80,7 @@ guide:
 
     最佳实践:
       组织数据: /guide/sync/bestpractice/structure-data.html
-      数组处理: /guide/sync/bestpractice/array.html
+      #数组处理: /guide/sync/bestpractice/array.html#
       离线事件: /guide/sync/bestpractice/offline.html
     数据限制: /guide/sync/data-limit.html
 
@@ -162,7 +162,7 @@ guide:
       使用 Server SDK 进行认证: /guide/auth/server/server.html
 
 api:
-  实时数据同步:
+  实时通信引擎:
     Web:
 #      API 文档: /api/sync/web/api.html
       App : /api/sync/web/App.html
@@ -191,6 +191,9 @@ api:
        MutableData: /api/sync/android/MutableData.html
        OnDisconnect: /api/sync/android/OnDisconnect.html
        Query: /api/sync/android/Query.html
+       Transaction: /api/sync/android/Transaction.html
+       Transaction.Handler: /api/sync/android/Transaction.Handler.html
+       Transaction.Result: /api/sync/android/Transaction.Result.html
        ServerValue: /api/sync/android/ServerValue.html
        SyncError: /api/sync/android/SyncError.html
        错误码: /api/sync/android/error-code.html
@@ -204,7 +207,6 @@ api:
       WDGMutableData: /api/sync/ios/WDGMutableData.html
       WDGTransactionResult: /api/sync/ios/WDGTransactionResult.html
       WDGServerValue: /api/sync/ios/WDGServerValue.html
-      WDGSyncConfig: /api/sync/ios/WDGSyncConfig.html
       WDGDataEventType: /api/sync/ios/WDGDataEventType.html
       错误码: /api/sync/ios/error-code.html
     C/嵌入式:
@@ -261,6 +263,7 @@ api:
       LocalParticipant: /api/video/android/local-participant.html
       VideoException: /api/video/android/video-exception.html
       MeetingCast: /api/video/android/meeting-cast.html
+      CompleteListener: /api/video/android/complete-listener.html
       MeetingCastStateListener: /api/video/android/meeting-cast-listener.html
       MeetingCastStatus: /api/video/android/meeting-cast-status.html
       WilddogVideoView: /api/video/android/wilddog-video-view.html
@@ -383,7 +386,7 @@ api:
     更新日志: /api/auth/changelog.html
 
 resources:
-  实时数据同步:
+  实时通信引擎:
     Web:
       实战教程: /resources/sync/web/tutorial.html
       示例库: /resources/sync/web/resources.html

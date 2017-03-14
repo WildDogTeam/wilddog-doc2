@@ -3,7 +3,7 @@ title: 管理应用
 
 点击应用卡片上的管理应用，会进入控制面板，它就是对应用进行配置和管理的地方。下面我们来重点看看控制面板里各个版块的使用。
 
-## 实时数据同步
+## 实时通信引擎
 
 ### 数据预览
 
@@ -38,7 +38,7 @@ title: 管理应用
 
 目前支持最多配置 10 个 Webhook，新添加的配置默认是关闭状态，需要手动开启。
 
-<img src='/images/setwebhook.jpeg' alt="/images/group.png" >
+<img src='/images/setwebhook.png' alt="/images/group.png" >
 
 #### 配置数据路径
 

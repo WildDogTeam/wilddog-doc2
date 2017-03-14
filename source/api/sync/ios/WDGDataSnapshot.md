@@ -1,222 +1,278 @@
-
 title: WDGDataSnapshot
 ---
 
-Wilddog Sync 的数据快照，用于承载数据。
+`WDGDataSnapshot` 是当前指定节点下数据的快照，`WDGDataSnapshot` 不会随当前节点数据的变化而发生改变。
+我们无法直接创建这个对象，而应当在 [[WDGSyncReference observeEventType:withBlock:]](WDGSyncReference.html#observeEventType-withBlock) 或 [[WDGSyncReference observeSingleEventOfType:withBlock:]](WDGSyncReference.html#observeSingleEventOfType-withBlock) 的回调函数中获取它。
+
 
 ## 属性
 
 ### value
 
-**定义**
+##### 定义
 
-```objectivec
-@property (strong, readonly, nonatomic, nullable) id value
+<div class="swift-lan">Swift</div>```swift
+var value: Any? { get }
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+@property (readonly, strong, nonatomic, nullable) id value;
 ```
 
-**说明**
+##### 说明
 
-从 snapshot 中获得当前节点的数据。
+当前数据快照包含的数据。数据类型取决于节点下的数据内容。
 
-返回的数据类型有:  
- NSDictionary  
- NSArray  
- NSNumber (包含Bool类型)  
- NSString  
- 
+可能返回的数据类型包括:
+
+- NSDictionary
+- NSArray
+- NSNumber (包含 BOOL 类型)
+- NSString
+
 </br>
 
-------
+---
+
 ### childrenCount
 
-**定义**
+##### 定义
 
-```objectivec
-@property (readonly, nonatomic) NSUInteger childrenCount
+<div class="swift-lan">Swift</div>```swift
+var childrenCount: UInt { get }
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+@property (readonly, nonatomic) NSUInteger childrenCount;
 ```
 
-**说明**
+##### 说明
 
-获得 WDGDataSnapshot 的子节点的总数。
+`WDGDataSnapshot` 的子节点的总数。
 
 </br>
 
-------
+---
+
 ### ref
 
-**定义**
+##### 定义
 
-```objectivec
-@property (nonatomic, readonly, strong) WDGSyncReference *ref
+<div class="swift-lan">Swift</div>```swift
+var ref: WDGSyncReference { get }
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+@property (readonly, strong, nonatomic) WDGSyncReference *ref;
 ```
 
-**说明**
+##### 说明
 
-从 WDGDataSnapshot 中，获得当前节点的引用。
+当前数据快照所关联的 [WDGSyncReference](WDGSyncReference.html) 实例。
 
 </br>
 
-------
+---
+
 ### key
 
-**定义**
+##### 定义
 
-```objectivec
-@property (strong, readonly, nonatomic) NSString* key
+<div class="swift-lan">Swift</div>```swift
+var key: String { get }
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+@property (readonly, strong, nonatomic) NSString *key;
 ```
 
-**说明**
+##### 说明
 
-从 WDGDataSnapshot 中，获取当前节点的名称。
+当前 `WDGDataSnapshot` 所属节点的 key。
 
 </br>
 
-------
+---
+
 ### children
 
-**定义**
+##### 定义
 
-```objectivec
-@property (strong, readonly, nonatomic) NSEnumerator <WDGDataSnapshot *>* children
+<div class="swift-lan">Swift</div>```swift
+var children: NSEnumerator { get }
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+@property (readonly, strong, nonatomic) NSEnumerator<WDGDataSnapshot *> *children;
 ```
 
-**说明**
+##### 说明
 
-获取当前 WDGDataSnapshot 中，所有子节点的迭代器。
-
-**示例**
-
+当前 `WDGDataSnapshot` 中，所有子节点的迭代器。
+例如：
 ```objectivec
-for (WDGDataSnapshot* child in snapshot.children) {
+for (WDGDataSnapshot *child in snapshot.children) {
     ...
 }
 ```
 
 </br>
 
-------
+---
+
 ### priority
 
-**定义**
+##### 定义
 
-```objectivec
-@property (strong, readonly, nonatomic, nullable) id priority
+<div class="swift-lan">Swift</div>```swift
+var priority: Any? { get }
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+@property (readonly, strong, nonatomic, nullable) id priority;
 ```
 
-**说明**
+##### 说明
 
-获取该 WDGDataSnapshot 对象的优先级。
-优先级是一个字符串，若没有设置 priority，则返回 nil。
+当前节点的 priority 值。优先级不存在时为 nil。
 
 </br>
 
-------
+---
+
+
+
+
+
 ## 方法
 
-### - childSnapshotForPath
+### - childSnapshotForPath:
 
-**定义**
+##### 定义
 
-```objectivec
-- (WDGDataSnapshot *)childSnapshotForPath:(NSString *)childPathString
+<div class="swift-lan">Swift</div>```swift
+func childSnapshot(forPath childPathString: String) -> WDGDataSnapshot
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+- (WDGDataSnapshot *)childSnapshotForPath:(NSString *)childPathString;
 ```
 
-**说明**
+##### 说明
 
-根据指定的相对路径，来获取当前节点下的 WDGDataSnapshot。
-childPathString 为相对路径。
-相对路径可以是一个简单的节点名字（例如，‘fred’），也可以是一个更深的路径，（例如，'fred/name/first'）多层级间需要使用"/"分隔。
-如果节点的位置没有数据，则返回一个空的 WDGDataSnapshot。
+根据相对路径，来获取当前节点下子节点的数据快照。
+相对路径可以是一个字节点的 key 值（例如：`Beijing`），也可以是更深层次的路径（例如：`Beijing/pm25`）。
+如果相对路径下并没有数据，则返回 nil。
+根据指定的相对路径，来获取当前节点下的 `WDGDataSnapshot`。
 
-**参数**
+##### 参数
 
-参数名 | 描述
---- | ---
-childPathString | 节点数据的相对路径  
+ 参数名 | 说明 
+---|---
+childPathString|节点数据的相对路径，多层级间需要使用 `/` 分隔。
 
-**返回值**
 
-指定节点位置的 WDGDataSnapshot 实例。
+
+
+##### 返回值
+
+`WDGDataSnapshot` 实例。
 
 </br>
 
---- 
+---
+
 ### - hasChild:
 
-**定义**
+##### 定义
 
-```objectivec
-- (BOOL)hasChild:(NSString *)childPathString
+<div class="swift-lan">Swift</div>```swift
+func hasChild(_ childPathString: String) -> Bool
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+- (BOOL)hasChild:(NSString *)childPathString;
 ```
 
-**说明**
+##### 说明
 
-用特定的 WDGApp 获取这个 WDGSync 实例。
+判断是否存在某个指定的子节点。如果指定节点下的数据不为空，则返回 YES。
 
-**参数**
+##### 参数
 
-参数名 | 描述
---- | ---
-app | 用于得到 WDGSync 实例的 WDGApp 对象。
+ 参数名 | 说明 
+---|---
+childPathString|相对路径
 
-**返回值**
 
-WDGSync 实例。
+
+
+##### 返回值
+
+如果指定路径下存在子节点，返回 YES，否则返回 NO。
 
 </br>
 
---- 
+---
+
 ### - hasChildren
 
-**定义**
+##### 定义
 
-```objectivec
-- (BOOL)hasChildren
+<div class="swift-lan">Swift</div>```swift
+func hasChildren() -> Bool
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+- (BOOL)hasChildren;
 ```
 
-**说明**
+##### 说明
 
-如果这个 WDGDataSnapshot 有任何子节点返回 YES，否则 NO。
+如果 `WDGDataSnapshot` 存在子节点返回 YES，否则返回 NO。
+你可以通过使用 `hasChildren` 方法来确定当前的数据快照是否含有子节点，进而决定是否利用 [children](WDGDataSnapshot.html#children) 属性遍历数据。
 
-**返回值**
 
-如果这个 WDGDataSnapshot 有任何子节点返回 YES。
+##### 返回值
+
+如果 `WDGDataSnapshot` 存在子节点返回 YES，否则返回 NO。
 
 </br>
 
---- 
-### - valueInExportFormat
+---
 
-**定义**
-
-```objectivec
-- (id __nullable)valueInExportFormat
-```
-
-**说明**
-
-返回节点的原始数据。
-
-**返回值**
-
-返回的节点原始数据。
-
-</br>
-
---- 
 ### - exists
 
-**定义**
+##### 定义
 
-```objectivec
-- (BOOL)exists
+<div class="swift-lan">Swift</div>```swift
+func exists() -> Bool
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+- (BOOL)exists;
 ```
 
-**说明**
+##### 说明
 
-如果 WDGDataSnapshot 中包含非空数据，返回 YES。
+判断当前 `WDGDataSnapshot` 实例中是否包含数据。使用 exists 方法进行非空判断比 `snapshot.value != nil` 更高效。
 
-**返回值**
 
-如果 WDGDataSnapshot 包含一个非空数据，就返回 YES
+##### 返回值
+
+如果 `WDGDataSnapshot` 包含非空数据，返回 YES。
+
+</br>
+
+---
+
+### - valueInExportFormat
+
+##### 定义
+
+<div class="swift-lan">Swift</div>```swift
+func valueInExportFormat() -> Any?
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+- (id _Nullable)valueInExportFormat;
+```
+
+##### 说明
+
+将 `WDGDataSnapshot` 中的全部内容导出。
+`valueInExportFormat` 方法和 [value](WDGDataSnapshot.html#value) 方法类似，都可以导出数据。但是当节点的 priority 值不为空时，`valueInExportFormat` 会导出包含 priority 的数据，适合用于备份。
+
+
+
+
 

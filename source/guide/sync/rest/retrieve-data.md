@@ -77,11 +77,11 @@ curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
 
 | 方法                   | 用法                                      |
 | -------------------- | --------------------------------------- |
-| orderBy=limitToFirst | 设置从第一条开始，一共返回多少条数据（节点）。                 |
-| orderBy=limitToLast  | 设置从最后一条开始，一共返回多少条（返回结果仍是升序，降序要自己处理）。    |
-| orderBy=startAt      | 返回大于或等于指定的键、值或优先级的数据，具体取决于所选的排序方法。      |
-| orderBy=endAt        | 返回小于或等于指定的键、值或优先级的数据，具体取决于所选的排序方法。      |
-| orderBy=equalTo      | 返回等于指定的键、值或优先级的数据，具体取决于所选的排序方法。可用于精确查询。 |
+| orderBy&limitToFirst | 设置从第一条开始，一共返回多少条数据（节点）。                 |
+| orderBy&limitToLast  | 设置从最后一条开始，一共返回多少条（返回结果仍是升序，降序要自己处理）。    |
+| orderBy&startAt      | 返回大于或等于指定的键、值或优先级的数据，具体取决于所选的排序方法。      |
+| orderBy&endAt        | 返回小于或等于指定的键、值或优先级的数据，具体取决于所选的排序方法。      |
+| orderBy&equalTo      | 返回等于指定的键、值或优先级的数据，具体取决于所选的排序方法。可用于精确查询。 |
 
 **限制返回节点数量**
 

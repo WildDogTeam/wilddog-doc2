@@ -6,16 +6,15 @@ title:  ServerValue
 
 ### TIMESTAMP
 
-**定义**
+##### 定义
 
 ```java
-public static final Map<String, String> TIMESTAMP = createServerValuePlaceholder("timestamp");
+static final Map<String, String> TIMESTAMP = createServerValuePlaceholder("timestamp");
 ```
 
-**说明**
+##### 说明
 
-将当前map上传到服务器，然后生成数据以时间戳的形式存在。
+将当前 map 上传到服务器，然后生成以时间戳形式存在的数据。详细使用请参考：[TIMESTAMP 完整指南](../../../guide/sync/android/advance-feature.html#云端时间戳)。
 
 </br>
 
-------

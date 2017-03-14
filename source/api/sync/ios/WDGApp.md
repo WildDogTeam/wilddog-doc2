@@ -1,131 +1,217 @@
-title: WDGApp 
+title: WDGApp
 ---
-WDGApp 是野狗各个功能模块的入口。用于初始化时的必要参数配置。一个 WDGApp 对象对应一个野狗应用，在 SDK 内以应用别名区分。
+
+`WDGApp` 是野狗各个功能模块的入口。用于初始化时的必要参数配置。
+一个 `WDGApp` 实例对应一个野狗应用，在 SDK 内以应用名字区分。
+
 
 ## 属性
 
 ### name
 
-**定义**
+##### 定义
 
-```objectivec```
-@property(nonatomic, copy, readonly) NSString *name
+<div class="swift-lan">Swift</div>```swift
+var name: String { get }
 ```
-**说明**
+<div class="objectivec-lan">Objective-C</div>```objectivec
+@property (readonly, copy, nonatomic) NSString *name;
+```
 
-应用的别名。
+##### 说明
+
+获取这个 `WDGApp` 实例的名字。
+
+</br>
+
+---
 
 ### options
 
-**定义**
+##### 定义
 
-```objectivec```
-@property(nonatomic, readonly) WDGOptions *options
+<div class="swift-lan">Swift</div>```swift
+var options: WDGOptions { get }
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
+@property (readonly, nonatomic) WDGOptions *options;
 ```
 
-**说明**
+##### 说明
 
 初始化 SDK 的配置参数。
+
+</br>
+
+---
+
+
+
+
 
 ## 方法
 
 ### + configureWithOptions:
-**定义**
 
-```objectivec```
-+ (void)configureWithOptions:(WDGOptions *)options
+##### 定义
+
+<div class="swift-lan">Swift</div>```swift
+class func configure(with options: WDGOptions)
 ```
-**说明**
+<div class="objectivec-lan">Objective-C</div>```objectivec
++ (void)configureWithOptions:(WDGOptions *)options;
+```
 
-初始化默认的 Wilddog app。默认的 app 名字是 '__WDGAPP_DEFAULT'。如果配置失败，会抛出异常。这个方法能确保线程安全。
+##### 说明
 
-**参数**
+初始化默认的 Wilddog app。默认的 app 名字是 `__WDGAPP_DEFAULT`。如果配置失败，会抛出异常。
+这个方法是线程安全的。
 
-参数名 | 描述
---- | ---
-options | 配置 Wilddog 应用所需的 WDGOptions 实例。
+##### 参数
 
+ 参数名 | 说明 
+---|---
+options|配置 Wilddog 应用所需的 [WDGOptions](WDGOptions.html) 实例。
+
+
+
+
+
+</br>
+
+---
 
 ### + configureWithName:options:
 
-**定义**
+##### 定义
 
-```objectivec```
-+ (void)configureWithName:(NSString *)name options:(WDGOptions *)options
+<div class="swift-lan">Swift</div>```swift
+class func configure(withName name: String, options: WDGOptions)
 ```
-**说明**
+<div class="objectivec-lan">Objective-C</div>```objectivec
++ (void)configureWithName:(NSString *)name options:(WDGOptions *)options;
+```
 
-用 options 和 name 配置一个 Wilddog app. 如果配置失败，会抛出异常。这个方法是线程安全的。
+##### 说明
 
-**参数**
+用 options 和 name 配置一个 Wilddog app。如果配置失败，会抛出异常。
+这个方法是线程安全的。
 
-参数名 | 描述
---- | ---
-name | 应用别名。这个别名只能包含字母、数组和下划线。
-options | 配置 Wilddog 应用所需的 WDGOptions 实例。
+##### 参数
 
+ 参数名 | 说明 
+---|---
+name|开发者自己起名的应用名字。这个名字只能包含字母、数字和下划线。
+options|配置 Wilddog 应用所需的 [WDGOptions](WDGOptions.html) 实例。
+
+
+
+
+
+</br>
+
+---
 
 ### + defaultApp
 
-**定义**
+##### 定义
 
-```objectivec```
-+ (nullable WDGApp *)defaultApp NS_SWIFT_NAME(defaultApp())
+<div class="swift-lan">Swift</div>```swift
+class func defaultApp() -> WDGApp?
 ```
-**说明**
+<div class="objectivec-lan">Objective-C</div>```objectivec
++ (nullable WDGApp *)defaultApp;
+```
 
-返回一个默认的 app。如果默认 app 不存在，则返回 nil。
+##### 说明
 
+返回默认的 `WDGApp` 实例，即通过 [configureWithOptions:](WDGApp.html#configureWithOptions) 配置的实例。如果默认 app 不存在，则返回 nil。
+这个方法是线程安全的。
+
+
+##### 返回值
+
+`WDGApp` 实例。
+
+</br>
+
+---
 
 ### + appNamed:
 
-**定义**
+##### 定义
 
-```objectivec```
-+ (nullable WDGApp *)appNamed:(NSString *)name
+<div class="swift-lan">Swift</div>```swift
+/*not inherited*/ init?(named name: String)
 ```
-**说明**
+<div class="objectivec-lan">Objective-C</div>```objectivec
++ (nullable WDGApp *)appNamed:(NSString *)name;
+```
 
-返回 name 对应的 WDGApp 实例。如果没有 WDGApp 实例，则返回 nil。这个方法能确保线程安全。
+##### 说明
 
-**参数**
+返回一个之前通过 [configureWithName:options:](WDGApp.html#configureWithName-options) 配置的 WDGApp 实例。如果这个 app 不存在, 则返回 nil。
+这个方法是线程安全的。
 
-参数名 | 描述
---- | ---
-name | 应用别名
 
-**返回值**
+##### 返回值
 
-应用别名对应的 app 对象。
+`WDGApp` 实例。
+
+</br>
+
+---
 
 ### + allApps
 
-**定义**
+##### 定义
 
-```objectivec```
-+ (nullable NSDictionary *)allApps
+<div class="swift-lan">Swift</div>```swift
+class func allApps() -> [AnyHashable : Any]?
 ```
-**说明**
+<div class="objectivec-lan">Objective-C</div>```objectivec
++ (nullable NSDictionary *)allApps;
+```
 
-返回所有的 WDGApp 实例。如果没有 WDGApp 实例，则返回 nil。这个方法能确保线程安全。
+##### 说明
 
-**返回值**
+返回所有现存的 `WDGApp` 实例。如果没有 `WDGApp` 实例，则返回 nil。
+这个方法是线程安全的。
 
-返回所有现存的 WDGApp 实例。
+
+##### 返回值
+
+包含所有 `WDGApp` 实例的字典，key 为 `WDGApp` 实例对应的名字。
+
+</br>
+
+---
 
 ### - deleteApp:
 
-**定义**
+##### 定义
 
-```objectivec```
-- (void)deleteApp:(WDGAppVoidBoolCallback)completion
+<div class="swift-lan">Swift</div>```swift
+func delete(_ completion: @escaping WDGAppVoidBoolCallback)
 ```
-**说明**
+<div class="objectivec-lan">Objective-C</div>```objectivec
+- (void)deleteApp:(WDGAppVoidBoolCallback)completion;
+```
 
-删除当前的 WDGApp, 释放相关的数据，并回收它的名字以便将来使用。这个方法能确保线程安全。
+##### 说明
 
-**参数**
+清除当前的 `WDGApp`，释放相关的数据，并回收它的名字以便将来使用。
+这个方法是线程安全的。
 
-参数名 | 描述
---- | ---
-completion | 删除成功回调方法。
+##### 参数
+
+ 参数名 | 说明 
+---|---
+completion|删除成功后，会调用这个回调函数。
+
+
+
+
+
+
+

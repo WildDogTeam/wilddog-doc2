@@ -127,6 +127,7 @@ creatIframe(function () {
       } else {
         loginTab.style.display = 'none';
         userProfile.style.display = 'block';
+        
       }
     }
   })

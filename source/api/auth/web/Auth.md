@@ -97,9 +97,9 @@ createUserWithEmailAndPassword(email, password)
 
 可能发生的错误：
 
-- invalid_email 表示手机格式错误。
-- email_already_in_use 表示手机已经被注册。
-- authentication_disabled 表示手机登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+- invalid_email 表示邮箱格式错误。
+- email_already_in_use 表示邮箱已经被注册。
+- authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
@@ -221,9 +221,9 @@ wilddog.auth().signInWithPhoneAndPassword(phone, password)
 
 可能发生的错误：
 
-- invalid_phone 表示邮箱格式错误。
-- phone_already_in_use 表示邮箱已经被注册。
-- authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
+- invalid_phone 表示手机号格式错误。
+- phone_already_in_use 表示手机已经被注册。
+- authentication_disabled 表示手机登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
 - [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
 
@@ -315,6 +315,10 @@ wilddog.auth().signInWithRedirect(weiboProvider).then(function () {
 
 </br>
 
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+  `signInWithRedirect` 登录成功后，页面会重新加载并执行 js 代码，因此需要配合 `onAuthStateChanged` 使用，避免 `signInWithRedirect` 的重复调用。[详情请参考完整指南](/guide/auth/web/weixin.html)
+</blockquote>
 ----
 
 
@@ -439,7 +443,7 @@ sendPasswordResetSms(phone)
 
  **说明**
 
-通过邮箱找回密码。
+通过手机找回密码。
 
 **参数**
 

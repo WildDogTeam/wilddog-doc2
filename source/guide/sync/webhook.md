@@ -120,7 +120,7 @@ public class DigestUtils {
 
 若重试 3 次之后仍然失败，则放弃此次回调，产生一条失败日志，并且当前 Webhook 记录一次异常。连续 5 次异常，该 Webhook 置为“异常停用”状态，之后不会再触发该 Webhook。
 
-你可以通过 `控制台-实时数据同步-Webhook` 中手动开启，重新启用。
+你可以通过 `控制台-实时通信引擎-Webhook` 中手动开启，重新启用。
 
 
 <blockquote class="warning">
@@ -154,14 +154,14 @@ public class DigestUtils {
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-失败日志在 `控制台-实时数据同步-Webhook` 中查看，可查询最近的 50 条记录。
+失败日志在 `控制台-实时通信引擎-Webhook` 中查看，可查询最近的 50 条记录。
 </blockquote>
 
 
 ## 说明
 
 ### 已知问题
-Beta 版中，数据路径中有通配符时，`PUT`造成的隐式删除，不会触发 Webhook。
+数据路径中有通配符时，`PUT`造成的隐式删除，不会触发 Webhook。
 
 例如，监听 `/a/$b`，`/a` 节点下原本的数据为：
 

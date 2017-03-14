@@ -1,23 +1,23 @@
 title: WilddogOptions
 ----
-用于初始化WilddogSync设置。
+[WilddogSync](/api/sync/android/WilddogSync.html) 初始化设置选项，可以使用 [WilddogOptions.Builder](/api/sync/android/WilddogOptions.Builder.html) 创建。
 
 ## 方法
 
 ### getSyncUrl()
-**定义**
+##### 定义
 
 ```java
-public String getSyncUrl ()
+String getSyncUrl()
 ```
 
-**说明**
+##### 说明
 
-Sync 的根路径 URL, e.g. `http://your-appid.wilddogio.com`.
+[WilddogSync](/api/sync/android/WilddogSync.html) 的根路径 URL，例如： `http://example.wilddogio.com`。
 
-**返回值**
+##### 返回值
 
-`String`WilddogSync的根节点路径。
+`String` WilddogSync 的根节点路径。
 </br>
 
---- 
+

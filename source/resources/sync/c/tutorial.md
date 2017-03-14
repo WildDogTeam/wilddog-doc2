@@ -9,7 +9,7 @@ title: 实战教程
 
 ## 示例说明
 
-远程计算器示例的最终的效果如下：
+远程加法器示例的最终的效果如下：
 ![](/images/c_tutorial_a.jpg)
 
 在这种多端交互的应用，即使是在嵌入式中，借助 Wilddog C/嵌入式 SDK，只需要百余行代码即可实现，足见 Wilddog 在实时领域的简单与强大。
@@ -17,25 +17,36 @@ title: 实战教程
 
 ## 具体步骤
 
-### 建立 Wilddog 引用
-初始化一个 Wilddog 会话，该会话连接到 `YOUR_URL` 。
+### 引入 Wilddog Sync C/嵌入式 SDK
+
+从 github 中下载 [Sync C/嵌入式 SDK](https://github.com/WildDogTeam/wilddog-client-c) 。
+
+为简便起见，我们直接使用 SDK 的编译框架。以 Linux 为例，我们在 `examples/linux` 目录下新建一个 C 文件 remote-cal.c ，然后开始编写远程加法器示例。
+
+### 建立 Wilddog Sync 引用
+
+初始化一个 Wilddog Sync 会话，该会话连接到 `DEMO_YOUR_URL` 。
+
 ```c
-Wilddog_T wilddog = wilddog_initWithUrl((Wilddog_Str_T*)YOUR_URL);
+Wilddog_T wilddog = wilddog_initWithUrl((Wilddog_Str_T*)DEMO_YOUR_URL);
 ```
 
 ### 监听输入
 
 监听加数和被加数对应的父节点，一旦加数和被加数被修改时，客户端会收到推送。
-注意我们监听的是操作数的父节点，收到的推送如下  '"/":{"sum":0, "augend":0, "addend":0}'
+注意我们监听的是操作数的父节点，收到的推送如下  '"/":{"sum":0, "augend":0, "addend":0}'。
+
 ```c
 wilddog_addObserver(wilddog,WD_ET_VALUECHANGE,(onEventFunc)addObserver_callback,(void*)wilddog);
 ```
+
 网页端的数据结构如下：
 ![](/images/c_tutorial_b.jpg)
 
 ### 获取输入
 
 客户端接收到的数据节点加数 `append`、被加数`augend`和结果`sum`位于同一层级，是通过双向链表组织起来，可以遍历这个链表获取对应的节点.
+
 ```c
 /* get node pointer according the key value */
 STATIC Wilddog_Node_T *node_get(Wilddog_Node_T *p_head,const char* key_name)
@@ -59,7 +70,9 @@ STATIC Wilddog_Node_T *node_get(Wilddog_Node_T *p_head,const char* key_name)
     return NULL;
 }
 ```
-利用wilddog_node_getValue() 方法获取它们的 value 如下 ： 
+
+利用wilddog_node_getValue() 方法获取它们的 value ，如下 ： 
+
 ```c
     Wilddog_Node_T *p_augend = node_get(p_node,"augend");
     Wilddog_Node_T *p_addend = node_get(p_node,"append");
@@ -78,7 +91,7 @@ wilddog_setValue(wilddog,(Wilddog_Node_T*)p_newdata,sumSet_callback,NULL);
 ```
 
 ## 获取示例源码
-点此获取完整的[示例源码](https://github.com/skylli/demo-c-doc4.git)。
+点此获取完整的[示例源码](https://github.com/WildDogTeam/sync-tutorial-c)。
 
 
 

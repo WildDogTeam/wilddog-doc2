@@ -1,23 +1,33 @@
-
 title: WDGServerValue
 ---
 
-用于写入 Wilddog Sync 时间戳
+用于写入 Wilddog Sync 时间戳。
+
+
+
 
 ## 方法
 
 ### + timestamp
 
-**定义**
+##### 定义
 
-```objectivec
-+ (NSDictionary *)timestamp
+<div class="swift-lan">Swift</div>```swift
+class func timestamp() -> Any!
+```
+<div class="objectivec-lan">Objective-C</div>```objectivec
++ (NSDictionary *)timestamp;
 ```
 
-**说明**
+##### 说明
 
-返回一个字典，它可以作为一个值(value)或者优先级(priority)写入 Wilddog Sync 中，写入的字典数据会由 Wilddog Sync 自动转换为时间戳形式的数据。
+可以作为 value 或者 priority 写入 Wilddog Sync 中，写入的字典数据会由 Wilddog Sync 自动转换为自 Unix epoch 开始的的毫秒数。
+详细使用可参考：[timestamp 完整指南](../../../guide/sync/ios/advance-feature.html#云端时间戳)
 
-**返回值**
 
-返回一个载有 [".sv":"timestamp"] 的字典。
+##### 返回值
+
+ 返回一个载有 `@{ @".sv": @"timestamp" }` 的字典。
+
+
+

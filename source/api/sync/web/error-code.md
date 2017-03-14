@@ -3,7 +3,7 @@ title:  错误码
 
 | 错误码	| 错误信息 |描述   |
 | --- | ----- | ------ |
-| 26001 | The server indicated that this operation failed | 服务端原因导致操作失败。 |
+| 26001 | The server indicated that this operation failed | 云端原因导致操作失败。 |
 | 26002 | Wilddog server is busy now, please try again later | 服务器繁忙。 |
 | 26003 | Server unavailable    | 服务不可用。 |
 | 26101 | This client does not have permission to perform this operation | 客户端没有权限执行此操作 |

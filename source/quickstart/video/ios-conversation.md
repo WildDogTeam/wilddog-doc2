@@ -24,7 +24,7 @@ title: 视频通话
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，开启视频通话功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
+进入 管理应用-实时视频通话，填写表单，开启视频通话功能。
 
 <img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
 

@@ -4,6 +4,13 @@ title: 更新日志
 
 ## Javascript SDK
 
+
+### V2.5.1 - 2017.02.08
+
+<span class="changelog fix">修复</span>
+
+- 修复了 init App 后立即执行 signOut() 无效的问题。
+
 ### V2.5.1 - 2017.02.08
 
 <span class="changelog fix">修复</span>
