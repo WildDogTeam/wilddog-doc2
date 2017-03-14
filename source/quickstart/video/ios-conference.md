@@ -24,8 +24,7 @@ title: 视频会议
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，开启多人视频会议功能。如果没有试用码，请提交申请，我们会在3个工作日内审核并发放试用码。
-
+进入 管理应用-实时视频通话，填写表单，开启多人视频会议功能。
 <img src='/images/video_quickstart_open_conference.jpg' alt="video_quickstart_open_conference">
 
 ## 4. 安装快速入门
