@@ -151,10 +151,12 @@ var url = ref.toString();
 
 ##### 说明
 
-向指定节点写入数据。此方法会先清空指定节点，再写入数据。
+向指定节点写入数据。此方法会先清空指定节点，再写入数据。详细使用请参考：[set() 完整指南](../../../guide/sync/web/save-data.html#写入数据)。
+
 支持的数据类型：
  - Object、 Array、String、 Number、 Boolean 等基本数据类型;
 `Wliddog Sync` 没有对数组的原生支持，但是支持以数组下标作为 key ，数组元素作为 value 的方式进行存储。
+
 例如：
 ```js
         var array = [];
@@ -167,6 +169,7 @@ var url = ref.toString();
 ```
 在数据监听中获取数据时，如果满足条件：当 0 到最大的 key（比如 n ） 之间，n+1 个元素中超过一半以上有值，数据将被转换为数组类型;
 如果不满足条件，Wilddog Sync 处理数据时会将其转换为 JSON。
+
  - null 当 value 为 null 时，等价于当前节点的 `remove()` 操作，会删除当前节点。
 
 ##### 参数
@@ -201,7 +204,7 @@ wilddog.sync().ref('city').set({"temp":10,"pm25":500})
 
 ##### 说明
 
-对当前节点进行数据合并操作，更新当前节点下的数据。
+对当前节点进行数据合并操作，更新当前节点下的数据。详细使用请参考：[update() 完整指南](../../../guide/sync/web/save-data.html#更新数据)。
 与 `set()` 方法覆盖当前节点下所有数据的方式不同，使用 `update()` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
 使用此方法可以对同一节点的子节点同时进行更新和删除操作。
 `update` 支持多路径更新。需要同时向多个节点写入数据时，你应该优先考虑使用 `update` 而不是 [transaction](/api/sync/web/Reference.html#transaction)，具体使用方法参见下方示例。
@@ -251,7 +254,7 @@ wilddog.sync().ref('/yourPath').update({
 
 ##### 说明
 
-删除当前节点，效果等同于 `set(null)`，如果父级节点只有当前节点一个子节点，会递归删除父级节点。
+删除当前节点，效果等同于 `set(null)`，如果父级节点只有当前节点一个子节点，会递归删除父级节点。详细使用请参考：[update() 完整指南](../../../guide/sync/web/save-data.html#删除数据)。
 
 ##### 返回值
 
@@ -279,7 +282,7 @@ wilddog.sync().ref('city').remove()
 ##### 说明
 
 向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：-KdzI7I-AsBST9NlasJM）。
-新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
+新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。详细使用请参考：[push() 完整指南](../../../guide/sync/web/save-data.html#追加子节点)。
 
 ##### 参数
 
@@ -326,7 +329,8 @@ var newKey = newRef.key()
 `setWithPriority(value, priority)`
 
 ##### 说明
-把数据写到当前位置，类似 [set](/api/sync/web/Reference.html#set)，不同之处是需要指定一个优先级。默认排序按照优先级排序（参考 [orderByPriority](/guide/sync/web/retrieve-data.html#排序规则)）。
+
+把数据写到当前位置，类似 [set](/api/sync/web/Reference.html#set)，不同之处是需要指定一个优先级。默认排序按照优先级排序（参考 [orderByPriority](/guide/sync/web/retrieve-data.html#排序规则)）。详细使用请参考：[setWithPriority() 完整指南](../../../guide/sync/web/save-data.html#写入数据并设置节点优先级)。
 
 ##### 参数
 
@@ -367,8 +371,9 @@ wilddog.sync().ref().setWithPriority(user,100)
 
 ##### 说明
 
-设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 `null。`
+设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 `null`。详细使用请参考：[setPriority() 完整指南](../../../guide/sync/web/save-data.html#设置节点优先级)。
 不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority`。
+
 节点按照如下优先级规则升序排列：null < Number < String。
 - priority 为 null 的排最先；
 - priority 为数值的次之，按照数值从小到大排序；
@@ -415,7 +420,7 @@ wilddog.sync().ref('user').setWithPriority(100)
 用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。
 与 [set()](/api/sync/web/Reference.html#set) 直接覆盖以前的数据不同，在不同客户端并发修改时，`transaction()` 不会单纯覆盖节点数据。
 客户端提交事务至服务器，如果数据已被其他客户端修改，那么服务器会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。
-在 `transaction()` 的执行过程中客户端可能会重复写入直到成功，也可以在 `updateFunction` 中直接 `return;` 手动终止事务。
+在 `transaction()` 的执行过程中客户端可能会重复写入直到成功，也可以在 `updateFunction` 中直接 `return;` 手动终止事务。详细使用请参考：[transaction() 完整指南](../../../guide/sync/web/save-data.html#事务处理)。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -523,7 +528,7 @@ wilmaRef.transaction(function(currentData) {
 
 ##### 说明
 
-获取与当前数据节点关联的离线事件对象。
+获取与当前数据节点关联的离线事件对象。详细使用请参考：[完整指南](../../../guide/sync/web/offline-capabilities.html)。
 
 ##### 返回值
 
