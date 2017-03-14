@@ -147,6 +147,7 @@ title: 通知类短信
   ],
   "type": 3 //type为3代表通知类or验证码类上行类型
 }
+```
 
 ## 调用接口
 - 需生成 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 及调用接口，请参考 [接口文档](/api/sms/sendcode.html)。
