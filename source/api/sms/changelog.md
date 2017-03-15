@@ -2,7 +2,15 @@
 title: 更新日志
 ---
 
-## SMS API Beta
+## SMS API 
+
+### v1.0.0 - 2017.3.15
+
+<span class="changelog add">新增</span>
+
+- 配置上行推送地址
+- 查询用户回复记录
+
 
 ### v0.2.1 - 2017.2.10
 
