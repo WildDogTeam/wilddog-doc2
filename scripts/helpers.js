@@ -79,14 +79,14 @@ hexo.extend.helper.register('doc_sidebar', function(className){
               thirList = thirList.replace('sublist', 'sublist current');
               currentClass += ' current';
             }
-            thirList += '<li class=\'sublist-item\'><a href="' + url + '" class="' + currentClass + '" title= ' + content + '><span class="sidebar-link-text">' + (content) + '</span>' + (content === '微信小程序' ? '<img src="/images/new.svg" class="icon-new" width="34" height="15">' : (content === '即时通讯' ? '<img src="/images/preview.svg" class="icon-preview" width="34" height="8">' : (content === '短信' ? '<img src="/images/beta.svg" class="icon-preview" width="22" height="8">' : ''))) + '</a><\/li>';
+            thirList += '<li class=\'sublist-item\'><a href="' + url + '" class="' + currentClass + '" title= ' + content + '><span class="sidebar-link-text">' + (content) + '</span>' + (content === '微信小程序' ? '<img src="/images/new.svg" class="icon-new" width="34" height="15">' : (content === '即时通讯' ? '<img src="/images/preview.svg" class="icon-preview" width="34" height="8">' : (content === '短信' ? '' : ''))) + '</a><\/li>';
           })
           thirList += '<\/ul>';
           thirListStart += (thirList + '<\/li>');
           subList += thirListStart;
           subList += '<\/li>';
         } else {
-          subList += '<li class=\'sublist-item\'><a href="' + link + '" class="' + itemClass + '" title= ' + text + '><span class="sidebar-link-text">' + (text) + '</span>' + (text === '微信小程序' ? '<img src="/images/new.svg" class="icon-new" width="34" height="15">' : (text === '即时通讯' ? '<img src="/images/preview.svg" class="icon-preview" width="34" height="8">' : (text === '短信' ? '<img src="/images/beta.svg" class="icon-preview" width="22" height="8">' : ''))) + '</a>';
+          subList += '<li class=\'sublist-item\'><a href="' + link + '" class="' + itemClass + '" title= ' + text + '><span class="sidebar-link-text">' + (text) + '</span>' + (text === '微信小程序' ? '<img src="/images/new.svg" class="icon-new" width="34" height="15">' : (text === '即时通讯' ? '<img src="/images/preview.svg" class="icon-preview" width="34" height="8">' : (text === '短信' ? '' : ''))) + '</a>';
         }
       })
       subList += '<\/ul><\/li>'
