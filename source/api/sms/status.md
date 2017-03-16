@@ -13,7 +13,7 @@ https://api.wilddog.com/sms/v1/{:appId}/status
 **返回数据格式**
 
 ```
-json
+JSON
 ```
 
 **HTTP 请求方式**    
