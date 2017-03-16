@@ -11,8 +11,10 @@ cd "$PRGDIR/.."
 rm -rf dist
 rm -rf public
 
-npm install
-npm install hexo-cli -g
+npm set progress=false
+
+npm install --cache-min Infinity
+npm install hexo-cli -g --cache-min Infinity
 
 hexo generate
 mv public dist
