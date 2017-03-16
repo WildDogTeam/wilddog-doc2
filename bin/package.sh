@@ -17,9 +17,6 @@ npm install --cache-min Infinity
 npm install hexo-cli -g --cache-min Infinity
 
 hexo generate
-mv public dist
-
-cd dist
-tar -zcv  -f wilddog-doc2.tar.gz *
-
+mkdir dist
+mv public dist/wilddog-doc2
 
