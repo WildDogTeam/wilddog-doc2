@@ -13,8 +13,8 @@ rm -rf public
 
 npm set progress=false
 
-npm install --cache-min Infinity
-npm install hexo-cli -g --cache-min Infinity
+npm install 
+npm install hexo-cli -g 
 
 hexo generate
 gulp build
