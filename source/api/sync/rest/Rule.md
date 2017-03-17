@@ -6,13 +6,13 @@ REST API 可以用来查询和更改规则表达式。该操作必须使用应�
 
 ### PUT
 
-**说明**
+##### 说明
 
-```
-通过 PUT 请求对规则表达式进行修改。
-```
 
-**示例**
+通过`PUT`请求对规则表达式进行修改。
+
+
+##### 示例
 
 
 ```
@@ -22,12 +22,13 @@ curl -X PUT -d '{"rules":{".read":true}}' 'https://<appId>.wilddogio.com/.settin
 
 ### GET
 
-**说明**
+##### 说明
 
-```
-通过 GET 请求对规则表达式进行获取。
-```
 
+通过`GET`请求对规则表达式进行获取。
+
+
+##### 示例
 ```
 curl  'https://<appId>.wilddogio.com/.settings/rules.json?auth=WILDDOG_SECRET'
 

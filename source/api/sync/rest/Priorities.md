@@ -1,15 +1,15 @@
 title: Priorities
 ---
 
-某个节点的优先级信息会被一个名为 .priority 的虚拟节点储存。优先级可以通过REST请求读取或写入。
+某个节点的优先级信息会被一个名为 `.priority` 的虚拟节点储存。优先级可以通过 REST 请求读取或写入。
 
 ## 方法
 
 ### 查询优先级信息
 
-**示例**
+##### 示例
 
-例如，下面的请求用来检索 users\/tom 节点的优先级信息：
+例如，下面的请求用来检索 `/users/tom` 节点的优先级信息：
 
 ```
 curl 'https://samplechat.wilddogio.com/users/tom/.priority.json'
@@ -18,7 +18,7 @@ curl 'https://samplechat.wilddogio.com/users/tom/.priority.json'
 
 ### 增加优先级信息
 
-**示例**
+##### 示例
 
 当要同时写入优先级信息和数据信息时，你可以在要写入的JSON中增加 `.priority` 子节点：
 

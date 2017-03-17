@@ -33,7 +33,7 @@ curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
 
 ### 排序方法
 
-Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority) 或按指定子节点的值 (value) 对数据进行排序：
+Wilddog Sync 支持按键`key`、按值`value`、按节点的优先级`priority` 或按指定子节点的值`value`对数据进行排序：
 
 | 参数                     | 用法                    |
 | ---------------------- | --------------------- |
@@ -42,7 +42,7 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 | orderBy="$value"       | 按值(value)对结果排序。       |
 | orderBy="$priority"    | 按优先级(priority)对结果排序。  |
 
-其中{childValue}为子节点的名称。
+其中`{childValue}`为子节点的名称。
 例如，[恐龙应用数据页面](https://dinosaur-facts.wilddogio.com) 中演示如何按照每个恐龙的身高（`height`节点的值）进行排序：
 
 ```
@@ -64,11 +64,11 @@ curl 'https://dinosaur-facts.wilddogio.com/dinosaurs.json?orderBy="height"'
 
 **orderByKey**
 
-当使用 `orderBy="$key"` 对数据进行排序时，系统会按 key 以字典序进行升序排列。
+当使用 `orderBy="$key"` 对数据进行排序时，系统会按`key`以字典序进行升序排列。
 
 **orderByValue**
 
-当使用 `orderBy="$value"` 时，按照子节点的值进行排序。排序规则和 `orderByChild` 一样，唯一不同的是将子节点指定的 key 改为子节点的值。
+当使用 `orderBy="$value"` 时，按照子节点的值进行排序。排序规则和 `orderByChild` 一样，唯一不同的是将子节点指定的`key`改为子节点的值。
 
 
 ## 数据过滤
@@ -106,7 +106,7 @@ curl 'https://dinosaur-facts.wilddogio.com/scores.json?orderBy="$value"&startAt=
 
 ## Streaming
 
-Wilddog REST端点支持 [EventSource\/Server-Sent Events](http://www.w3.org/TR/eventsource/) 协议，使客户端可以持续得到指定节点下数据发生的变化。
+Wilddog REST端点支持 [EventSource/Server-Sent Events](http://www.w3.org/TR/eventsource/) 协议，使客户端可以持续得到指定节点下数据发生的变化。
 
 想要开始streaming，我们需要：
 

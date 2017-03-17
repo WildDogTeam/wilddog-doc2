@@ -87,7 +87,7 @@ curl -X POST -d '{
 }
 
 ```
-只更新 gracehop 的 nickname:
+只更新 `gracehop` 的 `nickname`:
 
 ```
 curl -X PATCH -d '{

@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过 cURL 工具的例子来了解实时通信引擎的用法。
+你可以通过`cURL`工具的例子来了解实时通信引擎的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -19,7 +19,7 @@ title: 快速入门
 
 对于 Wilddog 任何 [节点](/guide/reference/term.html#节点)，你可以将该节点相对于根节点的路径作为数据地址。在数据地址后加上`.json`，作为 URL 发送标准的 HTTPS REST 请求，以此写入与读取数据。在本文档中，我们使用 [cURL](https://en.wikipedia.org/wiki/CURL) 工具发送 HTTPS 请求。
 
-例如，已有数据是这样的那么若要操作users节点的数据,数据路径为 /rest/quickstart/users：
+例如，已有数据是这样的那么若要操作users节点的数据,数据路径为 `/rest/quickstart/users`：
 
 ```javascript
 {
@@ -50,7 +50,7 @@ curl -X PUT -d '{ "alanisawesome": { "name": "Alan Turing", "birthday": "June 23
 
 ## 3. 读取数据
 
-`GET` 请求用于读取 /rest/quickstart/users 下的数据： 
+`GET` 请求用于读取 `/rest/quickstart/users` 下的数据： 
 
 ```javascript
 curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
