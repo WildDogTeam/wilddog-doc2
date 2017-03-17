@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.10 - 2017.03.17
+
+<span class="changelog optimize">优化</span>
+
+- 优化 gateway 协议。
+
 ### v0.5.8 - 2017.02.24
 
 <span class="changelog optimize">优化</span>
