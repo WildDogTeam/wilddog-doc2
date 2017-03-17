@@ -12,6 +12,7 @@ title: REST API 简介
 ##### 说明
 
 通过 HTTP 发送 `GET` 请求就可以读取数据库中的数据。请求成功将会返回 200 OK 状态码。响应中会包含要查询的数据。
+详细使用可参考：[完整指南－数据查询](../../../guide/sync/rest/retrieve-data.html#数据查询)
 
 ##### 示例
 
@@ -27,8 +28,6 @@ curl 'https://samplechat.wilddogio.com/users/jack/name.json'
 
 ```
 
-详细使用可参考：[完整指南－数据查询](../../../guide/sync/rest/retrieve-data.html#数据查询)
-
 ---
 
 ### PUT
@@ -36,6 +35,7 @@ curl 'https://samplechat.wilddogio.com/users/jack/name.json'
 ##### 说明
 
 向指定节点写入数据。此方法会先清空指定节点，再写入数据。
+详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#写入数据)
 
 ##### 示例
 
@@ -51,7 +51,6 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 { "first": "Jack", "last": "Sparrow" }
 
 ```
-详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#写入数据)
 
 ---
 
@@ -60,6 +59,7 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 ##### 说明
 
 向指定节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：-INOQPH-aV_psbk3ZXEX）。新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
+详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#追加子节点)
 
 ##### 示例
 
@@ -76,8 +76,6 @@ curl -X POST -d '{"user_id" : "jack", "text" : "Ahoy!"}' \
 
 ```
 
-详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#追加子节点)
-
 ---
 
 ### PATCH
@@ -86,6 +84,7 @@ curl -X POST -d '{"user_id" : "jack", "text" : "Ahoy!"}' \
 
 对指定节点进行数据合并操作，更新指定节点下的数据。与`PUT`方法覆盖当前节点下所有数据的方式不同，使用`PATCH`方法，不存在的子节点将会被新增，存在的子节点将会被更新。使用此方法可以对同一节点的子节点同时进行更新和删除操作。
 `PATCH`支持多路径更新。
+详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#更新数据)
 
 ##### 示例
 
@@ -101,7 +100,6 @@ curl -X PATCH -d '{"last":"Jones"}' \
 { "last": "Jones" }
 
 ```
-详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#更新数据)
 
 <blockquote class="warning">
 <p><strong>重要：</strong></p>
@@ -130,6 +128,7 @@ curl -X PATCH -d '{"jack/name":"Jones", "tom/age":27}' \
 ##### 说明
 
 我们可以使用`DELETE`请求来删除数据。
+详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#删除数据)
 
 ##### 示例
 
@@ -143,7 +142,6 @@ curl -X DELETE \
 
 请求成功将会返回 200 OK 状态码。响应中会包含空的 JSON。
 
-详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#删除数据)
 
 ---
 
