@@ -17,6 +17,8 @@ npm install --cache-min Infinity
 npm install hexo-cli -g --cache-min Infinity
 
 hexo generate
+gulp build
+mv dist dist2
 mkdir dist
-mv public dist/wilddog-doc2
+mv dist2 dist/wilddog-doc2
 
