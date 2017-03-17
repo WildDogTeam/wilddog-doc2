@@ -27,6 +27,8 @@ curl 'https://samplechat.wilddogio.com/users/jack/name.json'
 
 ```
 
+详细使用可参考：[完整指南－数据查询](../../../guide/sync/rest/retrieve-data.html#数据查询)
+
 ---
 
 ### PUT
@@ -49,6 +51,7 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 { "first": "Jack", "last": "Sparrow" }
 
 ```
+详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#写入数据)
 
 ---
 
@@ -73,6 +76,8 @@ curl -X POST -d '{"user_id" : "jack", "text" : "Ahoy!"}' \
 
 ```
 
+详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#追加子节点)
+
 ---
 
 ### PATCH
@@ -96,6 +101,7 @@ curl -X PATCH -d '{"last":"Jones"}' \
 { "last": "Jones" }
 
 ```
+详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#更新数据)
 
 <blockquote class="warning">
 <p><strong>重要：</strong></p>
@@ -136,6 +142,8 @@ curl -X DELETE \
 ##### 返回值
 
 请求成功将会返回 200 OK 状态码。响应中会包含空的 JSON。
+
+详细使用可参考：[完整指南－数据操作](../../../guide/sync/rest/save-data.html#删除数据)
 
 ---
 
