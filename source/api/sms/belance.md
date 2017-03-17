@@ -13,7 +13,7 @@ https://api.wilddog.com/sms/v1/{:appId}/getBalance
 **返回数据格式**
 
 ```
-json
+JSON
 ```
 
 **HTTP 请求方式**    
@@ -37,6 +37,8 @@ GET
  
 **返回说明**
 
+正常返回如下：
+
 ```
 "Content-Type": "application/json; charset=utf-8" 
 {
@@ -47,6 +49,16 @@ GET
 	}
 }
 ```
+
+异常返回如下：
+
+```
+{
+  "errocode": 7xxxx,
+  "message": "xxxxxx"
+}
+```
+其中 `errocde` 对应信息在此处查询 [短信错误码](/api/sms/error-code.html)。
 
 **示例代码**
 

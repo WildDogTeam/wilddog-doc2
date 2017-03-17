@@ -2,7 +2,7 @@
 title: 发送通知类短信
 ---
 
-用于发送通知类短信，需配合 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 使用。该接口限制每秒最多可调用 20 次。
+用于发送通知类短信，需配合 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 使用。该接口限制每秒最多可调用 40 次。
 
 **URL**
 
@@ -12,7 +12,7 @@ https://api.wilddog.com/sms/v1/{:appId}/notify/send
 **返回数据格式**
 
 ```
-json
+JSON
 ```
 
 **HTTP请求方式**    
@@ -41,6 +41,8 @@ POST
 
 **返回说明**
 
+正常返回如下：
+
 ```
 "Content-Type": "application/json; charset=utf-8"
 {
@@ -50,6 +52,16 @@ POST
    }
 }
 ```
+
+异常返回如下：
+
+```
+{
+  "errcode": 7xxxx,
+  "message": "xxxxxx"
+}
+```
+其中 `errocde` 对应信息在此处查询 [短信错误码](/api/sms/error-code.html)。
 
 **示例代码**
 
