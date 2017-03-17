@@ -13,8 +13,8 @@ rm -rf public
 
 npm set progress=false
 
-npm install 
-npm install hexo-cli -g 
+yarn install 
+yarn install hexo-cli -g 
 
 hexo generate
 gulp build
