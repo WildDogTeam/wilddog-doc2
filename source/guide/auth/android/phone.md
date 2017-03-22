@@ -122,10 +122,11 @@ user.sendPhoneVerification()
 
 ```java
 String code = "090909";
-mAuth.verifiyPhone(code)
-     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+WilddogUser user = mAuth.getCurrentUser();
+user.verifiyPhone(code)
+     .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                   @Override
-                  public void onComplete( Task<AuthResult> task) {
+                  public void onComplete( Task<Void> task) {
                       Log.d(TAG, "verifiyPhone:onComplete:" + task.isSuccessful());
                       if (!task.isSuccessful()) {
                         Log.e(TAG, "verifiyPhone", task.getException());
