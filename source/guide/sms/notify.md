@@ -61,7 +61,7 @@ title: 通知类短信
 
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
-|params           |string         |否         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"];对于不包含变量的模板，表示模板即短信全文内容。|
+|params           |string         |否         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"]；对于不包含变量的模板，表示模板即短信全文内容，无需传递此参数。|
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
@@ -88,7 +88,7 @@ title: 通知类短信
 
 ## 配置上行接口（选配）
 
-配置上行接口用于获取用户短信发送状态以及用户回复内容。可选择配置，默认关闭。
+配置上行接口后，野狗会将用户短信发送状态以及用户回复内容发送至该接口。可选择配置，默认关闭。
 
 你需要提供一个公网可访问的 http 接口地址，在 控制面板-短信-用户回复 中配置为推送地址。如下：
 
@@ -96,8 +96,10 @@ title: 通知类短信
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-  <li>如果连续 5 次接口请求失败，上行功能将被禁用，需要在控制面板重新开启。</li>
-  <li>你需要保证接口的安全性，以防止恶意调用。</li>
+  <li>上行接口返回状态码200代表接收上行数据成功，返回其他状态码系统会进行重试</li>
+  <li>如果连续 5 次接口请求失败，上行功能将被关闭，需要在控制面板重新开启。</li>
+  <li>上行接口需要自行保证安全性，如校验rrid、mobile等参数是否合法，以防止恶意调用。</li>
+  <li>因为网络原因，可能会导致上行推送重复提交，需要上行接口侧做好幂等操作</li>
 </blockquote>
 
 在返回状态或上行时，系统会调用该地址，将状态或上行以 JSON 形式进行推送，你应该获取整个 post 内容，进行数据解析。
@@ -108,8 +110,8 @@ title: 通知类短信
 {
   "data": [
     {
-      "status": "Success", //Success代表成功 Failure代表失败
-      "deliveryStatus": "DELIVRD",
+      "status": "Success", //Success代表发送成功 Failure代表发送失败
+      "deliveryStatus": "DELIVRD", //运营商状态码
       "mobile": "xxxxxxxxxxx",
       "rrid": "$rrid",
       "receiveTime": "2016-12-28 14:43:21"
@@ -139,3 +141,4 @@ title: 通知类短信
 ## 调用接口
 - 需生成 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 及调用接口，请参考 [接口文档](/api/sms/sendcode.html)。
 - 如需校验验证码和查询短信发送状态，请参考 [校验验证码](/api/sms/checkcode.html) 、[查询模板短信发送状态](/api/sms/sendcode.html)。
+
