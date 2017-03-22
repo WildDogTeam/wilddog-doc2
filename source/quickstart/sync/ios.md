@@ -60,12 +60,21 @@ SDK 的安装方式有两种，你可以任选其一：
 </div>
 <div class="slide-content slide-content-show">
 ```objectivec
-	#import "Wilddog.h"
+  // Pod 集成：
+  @import Wilddog;
+  
+  // 手动集成：
+  @import WilddogSync;
+  @import WilddogCore;
 ```
 </div>
 <div class="slide-content">
 ```swift
-	import Wilddog
+  // Pod 集成：
+  import Wilddog
+  // 手动集成：
+  import WilddogSync
+  import WilddogCore
 ```
 </div>
 </div>
@@ -93,7 +102,7 @@ WDGSyncReference *ref = [[WDGSync sync] reference];
 ```swift
 //初始化 WDGApp
 let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 
 //获取一个指向根节点的 WDGSyncReference 实例
 let ref = WDGSync.sync().reference()
@@ -168,14 +177,14 @@ ref.setValue(["messageboard" : ["message1" : ["content" : "Wilddog, Cool!", "pre
 <div class="slide-content">
 ```swift
 // snapshot 里面的数据会一直和云端保持同步
-ref.observeEventType(.Value, withBlock: {
-  snapshot in
-  print("\(snapshot.key) -> \(snapshot.value)")
+ref.observe(.value, with: {
+    snapshot in
+    print("\(snapshot.key) -> \(snapshot.value)")
 })
 // 如果你只想监听一次，那么你可以使用 observeSingleEventOfType 方法
-ref.observeSingleEventOfType(.Value, withBlock: {
-  snapshot in
-  print("\(snapshot.key) -> \(snapshot.value)")
+ref.observeSingleEvent(of: .value, with: {
+    snapshot in
+    print("\(snapshot.key) -> \(snapshot.value)")
 })
 ```
 </div>
