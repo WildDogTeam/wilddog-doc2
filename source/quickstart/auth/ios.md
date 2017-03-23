@@ -46,7 +46,9 @@ SDK 的安装方式有两种，你可以任选其一：
 1. 下载 Auth SDK <a href="#" class="ios-download-auth">点此下载</a>。 
 2. 下载 Core SDK <a href="#" class="ios-download-core">点此下载</a>。  
 3. 把 WilddogAuth.framework 和 WilddogCore.framework 拖到工程目录中。  
-4. 选中 Copy items if needed 、Create Groups，点击 Finish。  
+4. 选中 Copy items if needed 、Create Groups，点击 Finish。 
+5. 点击工程文件 -> TARGETS -> Build Settings，在 Other Linker Flags 中添加 -ObjC。
+ 
 
 ## 3. 创建 Auth 实例
 
@@ -92,7 +94,7 @@ WDGAuth *auth = [WDGAuth auth];
 ```swift
 //初始化 WDGApp
 let options = WDGOptions.init(syncURL: "https://your-wilddog-appid.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 
 let auth = WDGAuth.auth()
 
@@ -126,7 +128,7 @@ let auth = WDGAuth.auth()
 <div class="slide-content">
 ```swift
 //创建一个基于密码的帐户，创建成功后会自动登录
-auth?.createUserWithEmail("user@example.com", password:"password", completion: { (user, error) in
+auth?.createUser(withEmail: "user@example.com", password:"password", completion: { (user, error) in
     //...
 })
 ```
@@ -153,7 +155,7 @@ auth?.createUserWithEmail("user@example.com", password:"password", completion: {
 </div>
 <div class="slide-content">
 ```swift
-auth?.signInWithEmail(email, password: password) { (user, error) in
+auth?.signIn(withEmail: email, password: password) { (user, error) in
   // ...
 }
 ```
