@@ -10,7 +10,7 @@ title: 错误码
 | 40003 | ConnectFailed | 参与者无法建立连接 |
 | 40004 | ConnectionDisconnected | 参与者连接失败 |
 | 40005 | TooManyActiveConnections | 视频通话和会议的数量超过上限 |
-| 40101 | ClientRegistrationFailed | Client初始化失败，Video 功能未开启 |
+| 40101 | ClientRegistrationFailed | Client初始化失败，Video 功能未开启或已停用 |
 | 40102 | InvalidAuthArgument | Client初始化失败，Auth token 过期 |
 | 40201 | ConversationRegistrationFailed | Conversation 创建失败，未在控制面板中开启功能 |
 | 40202 | ConversationInvitationFailed | 视频通话邀请发起失败 |
