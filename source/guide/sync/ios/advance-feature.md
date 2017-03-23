@@ -24,7 +24,7 @@ WDGSyncReference *currentServerTimeRef = [[WDGSync sync] referenceFromURL:@"http
 </div>
 <div class="slide-content">
 ```swift
-var currentServerTimeRef = WDGSync.sync().referenceFromURL("https://samplechat.wilddogio.com/servertimestamp")
+let currentServerTimeRef = WDGSync.sync().reference(fromURL: "https://samplechat.wilddogio.com/servertimestamp")
 //写入当前云端时间戳
 currentServerTimeRef.setValue(WDGServerValue.timestamp())
 ```
@@ -54,8 +54,8 @@ WDGSyncReference *offsetRef = [[WDGSync sync] referenceWithPath:@".info/serverTi
 </div>
 <div class="slide-content">
 ```swift
-let offsetRef = WDGSync.sync().referenceWithPath(".info/serverTimeOffset")
-offsetRef.observeEventType(.Value, withBlock: { snapshot in
+let offsetRef = WDGSync.sync().reference(withPath: ".info/serverTimeOffset")
+offsetRef.observe(.value, with: { snapshot in
     if let offset = snapshot.value as? Double {
         let estimatedServerTimeMs = NSDate().timeIntervalSince1970 * 1000.0 + offset
     }

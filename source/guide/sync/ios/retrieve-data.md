@@ -58,13 +58,13 @@ WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"web/saving-data/wild
 
 // 初始化 
 let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 // 获取一个 WDGSyncReference 实例
-let ref = WDGSync.sync().referenceWithPath("web/saving-data/wildblog/users/jobs")
-ref.observeEventType(.Value, withBlock: { snapshot in
+let ref = WDGSync.sync().reference(withPath: "web/saving-data/wildblog/users/jobs")
+ref.observe(.value, with: { snapshot in
     print(snapshot.value)
-}, withCancelBlock: { error in
-    print(error.description)
+}) { error in
+    print(error.localizedDescription)
 })
 ```
 </div>
@@ -93,10 +93,11 @@ WDGSyncReference *ref = [[WDGSync sync] referenceFromURL:@"https://docs-examples
 ```swift
 
 // 获取一个 WDGSyncReference 实例
-let ref = WDGSync.sync().referenceFromURL("https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts")
-ref.observeEventType(.ChildAdded, withBlock: { snapshot in
-    print(snapshot.value!.objectForKey("author"))
-    print(snapshot.value!.objectForKey("title"))
+let ref = WDGSync.sync().reference(fromURL: "https://docs-examples.wilddogio.com/web/saving-data/wildblog/posts")
+ref.observe(.childAdded, with: { snapshot in
+    let value = snapshot.value as? NSDictionary
+    print(value?["author"] as! String)
+    print(value?["title"] as! String)
 })
 ```
 </div>
@@ -131,11 +132,11 @@ WDGSyncHandle handle = [ref observeEventType:WDGDataEventTypeValue withBlock:^(W
 </div>
 <div class="slide-content">
 ```swift
-var handle = ref.observeEventType(.Value, withBlock: { snapshot in
+var handle = ref.observe(.value, with: { snapshot in
     print("Snapshot value: \(snapshot.value)")
 })
 
-ref.removeObserverWithHandle(handle)
+ref.removeObserver(withHandle: handle)
 
 ```
 </div>
@@ -214,11 +215,12 @@ WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"students"];
 ```swift
 // 初始化 
 let options = WDGOptions.init(syncURL: "https://class-demo.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 // 使用 orderByChild 进行排序
-let ref = WDGSync.sync().referenceWithPath("students")
-ref.queryOrderedByChild("height").observeEventType(.ChildAdded, withBlock: { snapshot in
-    if let height = snapshot.value!["height"] as? Double {
+let ref = WDGSync.sync().reference(withPath: "students")
+ref.queryOrdered(byChild: "height").observe(.childAdded, with: { snapshot in
+    let value = snapshot.value as! NSDictionary
+    if let height = value["height"] as? Double {
         print("\(snapshot.key) was \(height) meters tall")
     }
 })

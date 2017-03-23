@@ -35,12 +35,12 @@ WDGSyncReference *connectedRef = [[WDGSync sync] referenceWithPath:@".info/conne
 ```swift
 //初始化 
 let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 
 //创建一个 WDGSyncReference 实例
-let connectedRef = WDGSync.sync().referenceWithPath(".info/connected")
+let connectedRef = WDGSync.sync().reference(withPath: ".info/connected")
 
-connectedRef.observeEventType(.Value, withBlock: {snapshot in
+connectedRef.observe(.value, with: {snapshot in
     let connected = snapshot.value as? Bool
     if connected != nil && connected! {
         print("connected")
@@ -81,11 +81,8 @@ WDGSyncReference *presenceRef = [[WDGSync sync] referenceFromURL:@"https://sampl
 </div>
 <div class="slide-content">
 ```swift
-presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
-    if error != nil {
-        print("Could not establish onDisconnect event: \(error)")
-    }
-})
+let presenceRef = WDGSync.sync().reference(fromURL: "https://samplechat.wilddogio.com/disconnectmessage")
+presenceRef.onDisconnectSetValue("I disconnected!")
 ```
 </div>
 </div>
@@ -109,7 +106,7 @@ presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
 </div>
 <div class="slide-content">
 ```swift
-presenceRef.onDisconnectRemoveValueWithCompletionBlock({ error, ref in
+presenceRef.onDisconnectRemoveValue(completionBlock: { error, ref in
     if error != nil {
         print("Could not establish onDisconnect event: \(error)")
     }
@@ -237,8 +234,8 @@ WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 </div>
 <div class="slide-content">
 ```swift
-let scoresRef = WDGSync.sync().referenceWithPath("scores")
-scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
+let scoresRef = WDGSync.sync().reference(withPath: "scores")
+scoresRef.queryOrderedByValue().queryLimited(toLast: 4).observe(.childAdded, with: { snapshot in
     print("The \(snapshot.key) student's score is \(snapshot.value)")
 })
 ```
@@ -262,8 +259,8 @@ scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdd
 </div>
 <div class="slide-content">
 ```swift
-let scoresRef = WDGSync.sync().referenceWithPath("scores")
-scoresRef.queryOrderedByValue().queryLimitedToLast(4).observeEventType(.ChildAdded, withBlock: { snapshot in
+let scoresRef = WDGSync.sync().reference(withPath: "scores")
+scoresRef.queryOrderedByValue().queryLimited(toLast: 2).observe(.childAdded, with: { snapshot in
     print("The \(snapshot.key) student's score is \(snapshot.value)")
 })
 ```
@@ -297,7 +294,7 @@ WDGSyncReference *scoresRef = [[WDGSync sync] referenceWithPath:@"scores"];
 </div>
 <div class="slide-content">
 ```swift
-let scoresRef = WDGSync.sync().referenceWithPath("scores")
+let scoresRef = WDGSync.sync().reference(withPath: "scores")
 scoresRef.keepSynced(true)
 ```
 </div>

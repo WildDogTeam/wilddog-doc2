@@ -51,13 +51,13 @@ WDGSyncReference *usersRef = [ref childWithPath: @"Jobs"];
 ```swift 
 //初始化
 let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 // 获取一个 WDGSyncReference 实例
-let ref = WDGSync.sync().referenceWithPath("/web/saving-data/wildblog/users")
-var jobs = ["full_name": "Steve Jobs", "gender": "male"]
+let ref = WDGSync.sync().reference(withPath: "/web/saving-data/wildblog/users")
+let jobs = ["full_name": "Steve Jobs", "gender": "male"]
 
 // child 用来定位到某个节点。
-var usersRef = ref.child("jobs")
+let usersRef = ref.child("jobs")
 usersRef.setValue(jobs)
 ```
 </div>
@@ -85,9 +85,11 @@ NSDictionary *jobs = @{
 </div>
 <div class="slide-content">
 ```swift 
+let jobs = ["full_name" : "Steve Jobs",
+            "gender" : "male"]
 ref.child("Jobs").setValue(jobs, withCompletionBlock: { error, ref in
-    if error == nil{
-         // 数据同步到野狗云端成功完成
+    if error == nil {
+        // 数据同步到野狗云端成功完成
     }
 })
 ```
@@ -124,7 +126,7 @@ WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"user"];
 <div class="slide-content">
 
 ```swift
-let ref = WDGSync.sync().referenceWithPath("user")
+let ref = WDGSync.sync().reference(withPath: "user")
 ref.setPriority(100) { (error, ref) in
             if error == nil {
                 // set priority success.
@@ -152,7 +154,7 @@ ref.setPriority(100) { (error, ref) in
 <div class="slide-content slide-content-show">
 
 ```objectivec
-WDGSyncReference *ref = [[WDGSync sync] reference:@"full_name"];
+WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"full_name"];
 [ref setValue:@"jack"
   andPriority:@100
 withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref) {
@@ -165,7 +167,7 @@ withCompletionBlock:^(NSError * _Nullable error, WDGSyncReference * _Nonnull ref
 <div class="slide-content">
 
 ​```swift
-let ref = WDGSync.sync().reference("full_name")
+let ref = WDGSync.sync().reference(withPath: "full_name")
 ref.setValue("jack", andPriority: 100) { (error, ref) in
     if error == nil {
          // set data success.
@@ -210,8 +212,8 @@ NSDictionary *message2 = @{
 <div class="slide-content">
 ```swift
 let messageRef = ref.child("messages")
-messageRef.childByAuthId().setValue(["full_name" : "Steve Jobs","message" : "Think difference"])
-messageRef.childByAuthId().setValue(["full_name" : "Bill Gates","message" : "Hello World"])
+messageRef.childByAutoId().setValue(["full_name" : "Steve Jobs","message" : "Think difference"])
+messageRef.childByAutoId().setValue(["full_name" : "Bill Gates","message" : "Hello World"])
 ```
 </div>
 </div>
@@ -275,8 +277,8 @@ NSDictionary *fullname = @{
 <div class="slide-content">
 ```swift
 
-var jobsRef = usersRef.child("jobs")
-var fullname = ["full_name": "Tim Cook"]
+let jobsRef = usersRef.child("jobs")
+let fullname = ["full_name": "Tim Cook"]
 //只更新 jobs 的 full_name
 jobsRef.updateChildValues(fullname)
 
@@ -418,10 +420,10 @@ WDGSyncReference *upvotesRef =[[WDGSync sync] referenceWithPath:@"/web/saving-da
 ```swift
 // 初始化 
 let options = WDGOptions.init(syncURL: "https://docs-examples.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 
 // 获取一个 WDGSyncReference 实例
-let upvotesRef = WDGSync.sync().referenceWithPath("/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes")
+let upvotesRef = WDGSync.sync().reference(withPath: "/web/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes")
         
 upvotesRef.runTransactionBlock({
      (currentData:WDGMutableData!) in
@@ -430,7 +432,7 @@ upvotesRef.runTransactionBlock({
          value = 0
      }
      currentData.value = value! + 1
-     return WDGTransactionResult.successWithValue(currentData)
+     return WDGTransactionResult.success(withValue: currentData)
 })
 
 ```
