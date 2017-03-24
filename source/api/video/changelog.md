@@ -4,7 +4,7 @@ title: 更新日志
 
 ## Javascript SDK
 
-### v0.5.12 - 2017.03.17
+### v0.5.12 - 2017.03.24
 
 <span class="changelog optimize">优化</span>
 
@@ -150,6 +150,21 @@ title: 更新日志
 
 ---
 ## Android SDK
+
+### v0.5.12 - 2017.03.23
+
+<span class="changelog optimize">优化</span>
+
+- 优化错误码结构。
+- 删除多余日志信息。
+
+
+### v0.5.10 - 2017.03.08
+
+<span class="changelog optimize">优化</span>
+
+- 优化 gateway 协议。
+
 
 ### v0.5.8 - 2017.02.24
 
