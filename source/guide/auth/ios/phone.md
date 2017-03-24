@@ -43,7 +43,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog
 <div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 ```
 </div>
 </div>
@@ -66,7 +66,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.createUserWithPhone("18888888888", password: "password123") { 
+WDGAuth.auth()?.createUser(withPhone: "18888888888", password: "password123") { 
   (user, error) in
   // ...
 }
@@ -113,7 +113,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog
 <div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 ```
 </div>
 </div>
@@ -136,7 +136,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.signInWithPhone("18888888888", password: "password123") { (user, error) in
+WDGAuth.auth()?.signIn(withPhone: "18888888888", password: "password123") { (user, error) in
   // ...
 }
 ```
@@ -164,7 +164,7 @@ WDGAuth.auth()?.signInWithPhone("18888888888", password: "password123") { (user,
 </div>
 <div class="slide-content">
 ```swift
-user?.sendPhoneVerificationWithCompletion { error in
+user?.sendPhoneVerification { error in
   // ...
 }
 ```
@@ -188,7 +188,7 @@ user?.sendPhoneVerificationWithCompletion { error in
 </div>
 <div class="slide-content">
 ```swift
-user?.verifyPhoneWithSmsCode(realSms){ error in
+user?.verifyPhone(withSmsCode: realSms){ error in
   // ...
 }
 ```

@@ -43,7 +43,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog
 <div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 ```
 </div>
 </div>
@@ -66,7 +66,7 @@ WDGAuth *auth = [WDGAuth auth];
 <div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
-auth?.signInAnonymouslyWithCompletion(){(user, error) in
+auth?.signInAnonymously(){(user, error) in
    //...
 }
 ```
@@ -89,8 +89,8 @@ NSString *uid = user.uid;
 </div>
 <div class="slide-content">
 ```swift
-let user = WDGAuth.auth().currentUser;
-let isAnonymous = user!.anonymous  // true
+let user = WDGAuth.auth()!.currentUser;
+let isAnonymous = user!.isAnonymous  // true
 let uid = user!.uid
 ```
 </div>
@@ -122,7 +122,7 @@ WDGAuthCredential *credential =
 </div>
 <div class="slide-content">
 ```swift
-let credential = WDGEmailPasswordAuthProvider.credentialWithEmail("12345678@wilddog.com", password: "password123")
+let credential = WDGEmailPasswordAuthProvider.credential(withEmail: "12345678@wilddog.com", password: "password123")
 ```
 </div>
 </div>
@@ -145,7 +145,7 @@ WDGAuth *auth = [WDGAuth auth];
 <div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
-auth!.currentUser?.linkWithCredential(credential) { (user, error) in
+auth!.currentUser?.link(with: credential) { (user, error) in
      // ...
 }
 ```
@@ -183,13 +183,13 @@ WDGAuthCredential *credential = [WDGWeiXinAuthProvider credentialWithCode:weixin
 <div class="slide-content">
 ```swift
 // QQ 认证
-let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth.accessToken)
+let credential = WDGQQAuthProvider.credential(withAccessToken: qqOAuth.accessToken)
 
 // 微博认证
-let credential = WDGSinaAuthProvider.credentialWithAccessToken(sinaOAuth.accessToken, userID: sinaOAuth.userID)
+let credential = WDGSinaAuthProvider.credential(withAccessToken: sinaOAuth.accessToken, userID: sinaOAuth.userID)
 
 // 微信认证
-let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
+let credential = WDGWeiXinAuthProvider.credential(withCode: weixinOAuth.code)
 
 ```
 </div>
@@ -214,7 +214,7 @@ WDGAuth *auth = [WDGAuth auth];
 <div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
-auth!.currentUser?.linkWithCredential(credential) { (user, error) in
+auth!.currentUser?.link(with: credential) { (user, error) in
      // ...
 }
 

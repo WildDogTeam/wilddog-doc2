@@ -41,7 +41,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog
 <div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 ```
 </div>
 </div>
@@ -143,7 +143,7 @@ WDGAuthCredential *credential =
 </div>
 <div class="slide-content">
 ```swift
-let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
+let credential = WDGWeiXinAuthProvider.credential(withCode: weixinOAuth.code)
 ```
 </div>
 </div>
@@ -165,7 +165,7 @@ let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.signInWithCredential(credential){(user, error) in
+WDGAuth.auth()?.signIn(with: credential){(user, error) in
     // ...
 }
 ```
