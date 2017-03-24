@@ -54,9 +54,10 @@ Video 提供了 Web、Android、iOS 三端的 SDK，不仅支持三端同时开�
 
 或者，点击查看 [WebRTC支持状态](http://iswebrtcreadyyet.com/) 。
 
-## 预览版限制
+## 公测版限制
 
-Video SDK 目前为预览版，部分功能特性还在开发中，正式版发布时部分 API 可能会修改。
+- Video 公测版处于不断完善的阶段，我们欢迎你的任何反馈和建议。
+- 为防止恶意使用，使用Video 前用户需保证帐户余额大于 20元。充值请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
 
 
 ## 帮助与支持
