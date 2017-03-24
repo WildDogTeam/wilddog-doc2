@@ -4,6 +4,16 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.12 - 2017.03.17
+
+<span class="changelog optimize">优化</span>
+
+- 优化错误码结构。
+
+<span class="changelog fix">修复</span>
+
+- 修复 Client 中无法监听 error 事件的问题。
+
 ### v0.5.10 - 2017.03.17
 
 <span class="changelog optimize">优化</span>
