@@ -299,6 +299,44 @@ title: 更新日志
 ---
 ## iOS SDK
 
+### V0.5.13 - 2016.03.24
+
+<span class="changelog add">新增</span>
+
+- 欠费错误码信息。
+
+<span class="changelog optimize">优化</span>
+
+- 程序行进中的具体的错误提示信息。
+
+### v0.5.12 - 2017.03.17
+
+<span class="changelog add">新增</span>
+
+- 统计上报信息中 RTCIceConnectionStatus 和本地 IP。
+
+### v0.5.11 - 2017.03.14
+
+<span class="changelog fix">修复</span>
+
+- 在 socket 连接成功之前返回的 WDGVideoOutgoingInvite 对象属性不全的问题。
+
+### V0.5.10 - 2016.03.10
+
+<span class="changelog optimize">优化</span>
+
+- 视频会话和视频会议网络注册的流程。
+
+<span class="changelog fix">修复</span>
+
+- 新版统计数据中部分字段无用的问题，移除旧版统计。
+
+### v0.5.9 - 2017.03.07
+
+<span class="changelog add">新增</span>
+
+- 视频会话和视频会议的数据统计。
+
 ### v0.5.8 - 2017.02.24
 
 <span class="changelog optimize">优化</span>
