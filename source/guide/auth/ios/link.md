@@ -29,13 +29,13 @@ title:  绑定多种登录方式
 <div class="slide-content slide-content-show">
 ```objectivec
 WDGAuthCredential *credential =
-    [WDGEmailPasswordAuthProvider credentialWithEmail:email
+    [WDGWilddogAuthProvider credentialWithEmail:email
                                             password:password];
 ```
 </div>
 <div class="slide-content">
 ```swift
-let credential = WDGEmailPasswordAuthProvider.credentialWithEmail(email, password: password)
+let credential = WDGWilddogAuthProvider.credential(withEmail: email, password: password)
 
 ```
 </div>
@@ -62,7 +62,7 @@ WDGAuth *auth = [WDGAuth auth];
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.currentUser?.linkWithCredential(credential, completion: { (user, error) in
+WDGAuth.auth()?.currentUser?.link(with: credential, completion: { (user, error) in
     // ...
 })
 
@@ -102,13 +102,13 @@ WDGAuthCredential *credential = [WDGWeiXinAuthProvider credentialWithCode:weixin
 <div class="slide-content">
 ```swift
 // QQ 登录
-let credential = WDGQQAuthProvider.credentialWithAccessToken(qqOAuth.accessToken)
+let credential = WDGQQAuthProvider.credential(withAccessToken: qqOAuth.accessToken)
 
 // 微博登录
-let credential = WDGSinaAuthProvider.credentialWithAccessToken(sinaOAuth.accessToken, userID: sinaOAuth.userID)
+let credential = WDGSinaAuthProvider.credential(withAccessToken: sinaOAuth.accessToken, userID: sinaOAuth.userID)
 
 // 微信登录
-let credential = WDGWeiXinAuthProvider.credentialWithCode(weixinOAuth.code)
+let credential = WDGWeiXinAuthProvider.credential(withCode: weixinOAuth.code)
 
 ```
 </div>
@@ -133,7 +133,7 @@ WDGAuth *auth = [WDGAuth auth];
 <div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
-auth!.currentUser?.linkWithCredential(credential) { (user, error) in
+auth!.currentUser?.link(with: credential) { (user, error) in
      // ...
 }
 
@@ -171,7 +171,7 @@ WDGUser *currentUser = [WDGAuth auth].currentUser;
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.currentUser?.unlinkFromProvider("weixin", completion: { (user, error) in
+WDGAuth.auth()?.currentUser?.unlink(fromProvider: "weixin", completion: { (user, error) in
     // ...
 })
 

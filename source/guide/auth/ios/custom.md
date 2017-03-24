@@ -44,7 +44,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog
 <div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 ```
 </div>
 </div>
@@ -70,7 +70,7 @@ WDGAuth *auth = [WDGAuth auth];
 <div class="slide-content">
 ```swift
 let auth = WDGAuth.auth()
-auth?.signInWithCustomToken(customToken) { (user, error) in
+auth?.signIn(withCustomToken: customToken) { (user, error) in
   // ...
 }
 ```

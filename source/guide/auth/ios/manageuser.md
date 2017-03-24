@@ -50,7 +50,7 @@ title: 用户管理
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.addAuthStateDidChangeListener{ auth, user in
+WDGAuth.auth()?.addStateDidChangeListener{ auth, user in
     if let user = user {
         // 用户已登录
     } else {
@@ -127,7 +127,7 @@ if let user = WDGAuth.auth()?.currentUser {
     let phone = user.phone
     let email = user.email
     let photoUrl = user.photoURL
-    let uid = user.id;  
+    let uid = user.uid;  
 } else {
     // 没有用户登录
 }
@@ -220,8 +220,8 @@ if let user = user {
     
     changeRequest.displayName = "Jane Q. User"
     changeRequest.photoURL =
-        NSURL(string: "https://example.com/jane-q-user/profile.jpg")
-    changeRequest.commitChangesWithCompletion { error in
+        NSURL(string: "https://example.com/jane-q-user/profile.jpg") as URL?
+    changeRequest.commitChanges { error in
         if let error = error {
             // 发生错误
         } else {
@@ -294,7 +294,7 @@ user?.updatePhone("13888888888") { error in
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.sendPasswordResetSmsWithPhone("18888888888") { (error) in
+WDGAuth.auth()?.sendPasswordResetSms(withPhone: "18888888888") { (error) in
   // ...
 }
 ```
@@ -320,7 +320,7 @@ WDGAuth.auth()?.sendPasswordResetSmsWithPhone("18888888888") { (error) in
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.confirmPasswordResetSmsWithPhone("18888888888", smsCode: realSms, newPassword: "newpassword123") { (error) in
+WDGAuth.auth()?.confirmPasswordResetSms(withPhone: "18888888888", smsCode: realSms, newPassword: "newpassword123") { (error) in
   // ...
 }
 ```
@@ -447,7 +447,7 @@ NSString *email = @"user@example.com";
 ```swift
 let email = "user@example.com"
 
-WDGAuth.auth()?.sendPasswordResetWithEmail(email) { error in
+WDGAuth.auth()?.sendPasswordReset(withEmail: email) { error in
     if let error = error {
         // 发生错误
     } else {
@@ -494,7 +494,7 @@ WDGUser *user = [WDGAuth auth].currentUser;
 ```swift
 let user = WDGAuth.auth()?.currentUser
 
-user?.deleteWithCompletion { error in
+user?.delete { error in
     if let error = error {
         // 发生错误
     } else {
@@ -558,7 +558,7 @@ var credential: WDGAuthCredential // 需要初始化
 
 // Prompt the user to re-provide their sign-in credentials
 
-user?.reauthenticateWithCredential(credential) { error in
+user?.reauthenticate(with: credential, completion:  { (error) in
     if let error = error {
         // 发生错误
     } else {

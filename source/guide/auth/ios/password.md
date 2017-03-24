@@ -43,7 +43,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog
 <div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 ```
 </div>
 </div>
@@ -67,7 +67,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.createUserWithEmail("12345678@wilddog.com", password: "password123") { 
+WDGAuth.auth()?.createUser(withEmail: "12345678@wilddog.com", password: "password123") { 
   (user, error) in
   // ...
 }
@@ -114,7 +114,7 @@ WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<your-wilddog
 <div class="slide-content">
 ```swift
 let options = WDGOptions.init(syncURL: "https://<your-wilddog-appid>.wilddogio.com")
-WDGApp.configureWithOptions(options)
+WDGApp.configure(with: options)
 ```
 </div>
 </div>
@@ -137,7 +137,7 @@ WDGApp.configureWithOptions(options)
 </div>
 <div class="slide-content">
 ```swift
-WDGAuth.auth()?.signInWithEmail("12345678@wilddog.com", password: "password123") { (user, error) in
+WDGAuth.auth()?.signIn(withEmail: "12345678@wilddog.com", password: "password123") { (user, error) in
   // ...
 }
 ```
