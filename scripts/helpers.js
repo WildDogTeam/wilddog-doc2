@@ -50,7 +50,8 @@ hexo.extend.helper.register('page_nav', function(){
 hexo.extend.helper.register('doc_sidebar', function(className){
   var type = this.page.canonical_path.split('/')[0];
   var sidebar = this.site.data.sidebar[type];
-  var path = "/" + this.path;
+  console.log(sidebar)
+  var path = "/" + this.path
   var result = '<ul class=\'sidebar-nav\'>';
   var self = this;
   var prefix = 'sidebar.' + type + '.';
@@ -63,8 +64,11 @@ hexo.extend.helper.register('doc_sidebar', function(className){
       _.each(menu, function(link, text){
         var itemClass = className + '-link';
         if (link === path) {
+          //大标题 strong 标签加上类名
           listStart = listStart.replace('-title', '-title select current');
+          //ul 默认的display none
           subList = subList.replace('sublist', 'sublist current');
+          //当前小标题加上；类名
           itemClass += ' current';
         }
         if (typeof link === 'object') {
