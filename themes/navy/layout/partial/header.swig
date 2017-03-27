@@ -5,10 +5,11 @@
     </h1>
     <nav id="main-nav">
       <a href="javascript:;" class="main-nav-link">概览</a>
-      <a href="javascript:;" class="main-nav-link">快速入门</a>
-      <a href="javascript:;" class="main-nav-link">完整指南</a>
-      <a href="javascript:;" class="main-nav-link">API 文档</a>
-      <a href="javascript:;" class="main-nav-link">示例代码</a>
+      <a href="javascript:;" class="main-nav-link">实时通信引擎</a>
+      <a href="javascript:;" class="main-nav-link">实时视频通话</a>
+      <a href="javascript:;" class="main-nav-link">即时通信</a>
+      <a href="javascript:;" class="main-nav-link">短信</a>
+      <a href="javascript:;" class="main-nav-link">身份认证</a>
       <a href="javascript:;" class="main-nav-link">控制面板指南</a>
     </nav>
     <div class="searchbar">

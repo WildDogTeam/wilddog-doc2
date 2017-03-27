@@ -12,20 +12,23 @@ window.onload = function() {
     }
 
     //  切换头部选中状态
-    var type = window.location.pathname.split('/')[1];
+    var type = window.location.pathname.split('/')[2]
+    var type = type.split('.')[0]
     var headerNavs = getClass('main-nav-link');
-    if (type === 'overview') {
+    if (type === 'index') {
         addClass(headerNavs[0], 'current')
-    } else if (type === 'quickstart') {
+    } else if (type === 'sync') {
         addClass(headerNavs[1], 'current')
-    } else if (type === 'guide') {
+    } else if (type === 'video') {
         addClass(headerNavs[2], 'current')
-    } else if (type === 'api') {
+    } else if (type === 'im') {
         addClass(headerNavs[3], 'current')
-    } else if (type === 'resources') {
+    } else if (type === 'sms') {
         addClass(headerNavs[4], 'current')
-    } else if (type === 'console') {
+    } else if (type === 'auth') {
         addClass(headerNavs[5], 'current')
+    } else if (type === 'creat') {
+        addClass(headerNavs[6], 'current')
     }
 
     // 侧边栏收起
@@ -220,25 +223,6 @@ window.onload = function() {
         });
     });
 
-
-    /*    var slides = getClass('slide');
-        slides.forEach(function (ele) {
-          var tabs = Array.prototype.slice.call(ele.getElementsByClassName('slide-tab'), 0);
-          var contents = Array.prototype.slice.call(ele.getElementsByClassName('slide-content'), 0);
-          tabs.forEach(function (tab) {
-            tab.addEventListener('click', function () {
-              getSiblings(tab).forEach(function (sibling) {
-                removeClass(sibling, 'tab-current')
-              });
-              var index = tabs.indexOf(this);
-              addClass(this, 'tab-current');
-              contents.forEach(function (content) {
-                removeClass(content, 'slide-content-show')
-              });
-              addClass(contents[index], 'slide-content-show');
-            })
-          })
-        })*/
 
     $('.slide').each(function(index, el) {
         $(el).find('.slide-tab').click(function(event) {
