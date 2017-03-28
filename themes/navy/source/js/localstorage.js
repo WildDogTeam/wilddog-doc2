@@ -73,20 +73,20 @@ localStorage.removeItem('navsrc');
 localStorage.removeItem('class');
 
 var currentL = window.location.pathname.split('/')[1];
-var currentNav = window.location.pathname.split('/')[2];
+// var currentNav = window.location.pathname.split('/')[2];
 
 var srcs = [{
-    index: '/overview/index.html',
-    sync: '/overview/sync.html',
-    video: '/overview/video.html',
-    im: '/overview/im.html',
-    sms: '/overview/sms.html',
-    auth: '/overview/auth.html',
-    creat: '/console/creat.html'
+    overview: '/overview/index.html',
+    sync: '/sync/web/index.html',
+    video: '/video/web/index.html',
+    im: '/im/android/index.html',
+    sms: '/sms/index.html',
+    auth: '/auth/web/index.html',
+    console: '/console/index.html'
 }];
 
 var currentUrls = {
-    index: '',
+    overview: '',
     sync: '',
     video: '',
     im: '',
@@ -96,8 +96,7 @@ var currentUrls = {
 };
 
 currentUrls = JSON.parse(sessionStorage.getItem('navsrc')) || currentUrls;
-
-var navlinks = ['index', 'sync', 'video', 'im', 'sms', 'auth', 'creat'];
+var navlinks = ['overview', 'sync', 'video', 'im', 'sms', 'auth', 'console'];
 
 var links = [].slice.call(document.getElementsByClassName('sidebar-link'));
 var navs = [].slice.call(document.getElementsByClassName('main-nav-link'));
@@ -116,7 +115,7 @@ navs.forEach(function(ele, index) {
         href = srcs[0][navlinks[index]];
     } else {
         href = currentUrls[navlinks[index]];
-        console.log(currentUrls[navlinks[index]])
+        // console.log(currentUrls[navlinks[index]])
     }
     ele.setAttribute('href', href);
 });

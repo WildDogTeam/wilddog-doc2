@@ -19,7 +19,49 @@
     padding-bottom: 20px
     height: 100%
     overflow: auto
-
+  .outer
+    position: relative
+    margin-bottom: 10px
+    .selected
+      border: 1px solid #999
+      height: 30px
+      line-height: 31px
+      width: 140px
+      padding-left: 10px
+      border-radius: 3px
+      letter-spacing: 1px
+      position: relative
+      color: #333
+      cursor: pointer
+      &:after
+        content: ''
+        position: absolute
+        top: 12px
+        right: 6px
+        width: 0
+        height: 3px
+        border: 5px solid transparent
+        border-top-color: #ccc
+    ul.platforms
+        display: none
+        position: absolute
+        width: 140px
+        background: #fff
+        z-index: 100
+        border:1px solid #ccc
+        border-top:none
+        padding-top: 5px
+        padding-bottom: 5px
+        box-shadow: 0 0 6px rgba(0,0,0,.1)
+        li
+          line-height: 2
+          padding-left: 10px
+          a
+           color: #666
+           text-decoration:none
+           &:hover
+            color: #e6501e
+  
 .sidebar-title
   font-size: 14px
   color: #333
@@ -133,3 +175,13 @@
     float: right
     img
       box-shadow: none
+      
+//左侧导航栏hacker
+.sidebar-nav
+  .sidebar-nav-item
+    > .sidebar-title:first-child
+      display:none
+    > .sublist
+      border-left: none
+
+    

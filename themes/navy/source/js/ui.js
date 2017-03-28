@@ -1,21 +1,22 @@
 getClass('line').forEach(function(ele) {
     ele.style.opacity = '0';
 })
-window.onload = function() {
 
+$(function() {
     //右侧目录判断是否显示
     var airticleContent = document.querySelector('.article .inner');
     var toc = getClass('toc-content')[0];
-
+    var platformsArr = [];
+    var platformsLink = []
     if (getClass('toc-item').length < 1 && airticleContent) {
         airticleContent.removeChild(toc)
     }
 
     //  切换头部选中状态
-    var type = window.location.pathname.split('/')[2]
-    var type = type.split('.')[0]
+    var type = window.location.pathname.split('/')[1]
+        // var type = type.split('.')[0]
     var headerNavs = getClass('main-nav-link');
-    if (type === 'index') {
+    if (type === 'overview') {
         addClass(headerNavs[0], 'current')
     } else if (type === 'sync') {
         addClass(headerNavs[1], 'current')
@@ -27,7 +28,7 @@ window.onload = function() {
         addClass(headerNavs[4], 'current')
     } else if (type === 'auth') {
         addClass(headerNavs[5], 'current')
-    } else if (type === 'creat') {
+    } else if (type === 'console') {
         addClass(headerNavs[6], 'current')
     }
 
@@ -50,8 +51,6 @@ window.onload = function() {
             })
         })
     });
-
-
 
     //滚屏时右侧边栏根据当前标题高亮对应目录项
     var headings = getClass('article-heading');
@@ -235,5 +234,33 @@ window.onload = function() {
         });
     });
 
+    var fillplatforms = function(argument) {
+        platformsArr = $('#sidebar .outer').find('input').val().split(',');
+        var platformsName = window.location.pathname.split('/')[2];
+        $('#sidebar .outer .selected').text(platformsName);
+        $('#sidebar .inner .sidebar-nav .sidebar-nav-item').each(function(index, el) {
+            var href = $(el).children('.sublist').find('.sublist-item').eq(0).children('a').attr('href');
+            platformsLink.push(href)
+        });
 
-};
+
+        platformsArr.forEach(function(ele, index) {
+            var aEle = '<a href=' + platformsLink[index] + '>'+  ele  +'</a>'
+            var liEle = '<li class="item"> ' + aEle + '</li>';
+            $('#sidebar .outer .platforms').append(liEle);
+        });
+
+        $('#sidebar .outer .selected').click(function(event) {
+            $(this).siblings('.platforms').slideToggle(100)
+        });
+
+        $('#sidebar .outer .platforms').find('.item').click(function(event) {
+            var text = $(this).text()
+            $(this).parent('.platforms').hide();
+            $('#sidebar .inner .sidebar-nav').children('.sidebar-nav-item').eq(index).show().siblings('.sidebar-nav-item').hide()
+            $('#sidebar .inner .sidebar-nav').children('.sidebar-nav-item').eq(index).children('.sublist').addClass('current')
+        });
+    }
+
+    fillplatforms()
+})

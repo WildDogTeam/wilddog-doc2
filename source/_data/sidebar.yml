@@ -1,0 +1,32 @@
+overview:
+  概览:
+    简介: /overview/index.html
+
+sync:
+  WEB:
+    概览: /sync/web/index.html
+    基础概念: /sync/web/concept.html
+    快速入门: /sync/web/quickstart.html
+    完整指南:
+      数据操作: /sync/web/guide/save-data.html
+      事件监听: /sync/web/guide/retrieve-data.html
+      离线功能: /sync/web/guide/offline-capabilities.html
+      高级特性: /sync/web/guide/advance-feature.html
+      webhook: /sync/web/guide/webhook.html
+    安全性与规则: 
+      简介: /sync/web/rules/introduce.html
+      指南: /sync/web/rules/guide.html
+      读写权限控制: /sync/web/rules/access.html
+      读写访问控制: /sync/web/rules/auth.html
+      数据校验: /sync/web/rules/validate.html
+      数据索引: /sync/web/rules/index.html
+  iOS:
+    概览: /sync/ios/index.html
+    基础概念: /sync/ios/concept.html
+    快速入门: /sync/ios/quickstart.html
+    完整指南:
+      数据操作: /sync/ios/guide/save-data.html
+      事件监听: /sync/ios/guide/retrieve-data.html
+      离线功能: /sync/ios/guide/offline-capabilities.html
+      高级特性: /sync/ios/guide/advance-feature.html
+      webhook: /sync/ios/guide/webhook.html
