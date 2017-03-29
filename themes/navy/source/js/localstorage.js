@@ -77,12 +77,12 @@ var currentL = window.location.pathname.split('/')[1];
 
 var srcs = [{
     overview: '/overview/index.html',
-    sync: '/sync/web/index.html',
-    video: '/video/web/index.html',
-    im: '/im/android/index.html',
+    sync: '/sync/Web/index.html',
+    video: '/video/Web/index.html',
+    im: '/im/Android/index.html',
     sms: '/sms/index.html',
-    auth: '/auth/web/index.html',
-    console: '/console/index.html'
+    auth: '/auth/Web/index.html',
+    console: '/console/creat.html'
 }];
 
 var currentUrls = {
@@ -92,7 +92,7 @@ var currentUrls = {
     im: '',
     sms: '',
     auth: '',
-    creat: ''
+    console: ''
 };
 
 currentUrls = JSON.parse(sessionStorage.getItem('navsrc')) || currentUrls;
@@ -115,7 +115,7 @@ navs.forEach(function(ele, index) {
         href = srcs[0][navlinks[index]];
     } else {
         href = currentUrls[navlinks[index]];
-        // console.log(currentUrls[navlinks[index]])
+        console.log(currentUrls[navlinks[index]])
     }
     ele.setAttribute('href', href);
 });

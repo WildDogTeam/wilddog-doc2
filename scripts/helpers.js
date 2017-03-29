@@ -107,10 +107,16 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
 
 hexo.extend.helper.register('doc_platform', function() {
     var type = this.page.canonical_path.split('/')[0];
+    // console.log(type)
     var sidebar = this.site.data.sidebar[type];
-    // console.log(Object.keys(sidebar))
-    var result = Object.keys(sidebar)
-    return result
+    console.log(sidebar)
+    if (sidebar) {
+        var result = Object.keys(sidebar)
+        return result
+    } else {
+        return ''
+    }
+
 });
 
 

@@ -234,16 +234,21 @@ $(function() {
         });
     });
 
-    var fillplatforms = function(argument) {
+    var fillplatforms = function() {
         platformsArr = $('#sidebar .outer').find('input').val().split(',');
         var platformsName = window.location.pathname.split('/')[2];
+        var type = window.location.pathname.split('/')[1];
+        if(type == 'sync' || type == 'video' || type == 'im' || type == 'auth') {
+            $('#sidebar .outer').addClass('outer-show');
+        } else {
+            $('.sidebar-nav .sidebar-nav-item').children('.sidebar-title').eq(0).show()
+        }
         $('#sidebar .outer .selected').text(platformsName);
         $('#sidebar .inner .sidebar-nav .sidebar-nav-item').each(function(index, el) {
             var href = $(el).children('.sublist').find('.sublist-item').eq(0).children('a').attr('href');
             platformsLink.push(href)
-        });
-
-
+        })
+        
         platformsArr.forEach(function(ele, index) {
             var aEle = '<a href=' + platformsLink[index] + '>'+  ele  +'</a>'
             var liEle = '<li class="item"> ' + aEle + '</li>';
