@@ -1,4 +1,4 @@
-﻿title: wilddog.video.Participant
+﻿title: wilddog.video.LocalParticipant
 ---
 
 代表视频通话和会议的本地参与者。

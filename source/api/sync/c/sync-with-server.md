@@ -401,6 +401,8 @@ int main(void){
   <p><strong>注意：</strong></p>
   <ul>
     <li>wilddog_auth 函数需在调用 wilddog_initWithUrl 初始化该 appId 并获取实例后调用，否则将不生效。</li>
+    <li>1.0 版本只支持 1.0 版本的 token，2.0 版本只支持 2.0 版本的 token。</li>
+    <li>1.0 版本是否认证成功不能直接根据 wilddog_auth 的回调函数判断，需根据同步数据的结果判断，2.0 版本如果认证失败 wilddog_auth 回调中会返回错误。</li>
   </ul>
 </blockquote>
 
