@@ -238,32 +238,34 @@ $(function() {
         platformsArr = $('#sidebar .outer').find('input').val().split(',');
         var platformsName = window.location.pathname.split('/')[2];
         var type = window.location.pathname.split('/')[1];
-        if(type == 'sync' || type == 'video' || type == 'im' || type == 'auth') {
+
+        if (type == 'sync' || type == 'video' || type == 'im' || type == 'auth') {
             $('#sidebar .outer').addClass('outer-show');
+            $('.sidebar-nav .sidebar-nav-item').each(function(index, el) {
+                var sidebarTitlePlatformsName = $(el).children('.sidebar-title').text()
+                if (sidebarTitlePlatformsName == platformsName) {
+                    $(el).show().siblings('.sidebar-nav-item').hide()
+                }
+            });
         } else {
-            $('.sidebar-nav .sidebar-nav-item').children('.sidebar-title').eq(0).show()
+            $('.sidebar-nav .sidebar-nav-item').children('.sidebar-title').css('display', 'inline-block');
+            $('.sidebar-nav .sidebar-nav-item').children('.sublist').css('border-left', '2px solid #eee');
         }
+
         $('#sidebar .outer .selected').text(platformsName);
         $('#sidebar .inner .sidebar-nav .sidebar-nav-item').each(function(index, el) {
             var href = $(el).children('.sublist').find('.sublist-item').eq(0).children('a').attr('href');
             platformsLink.push(href)
         })
-        
+
         platformsArr.forEach(function(ele, index) {
-            var aEle = '<a href=' + platformsLink[index] + '>'+  ele  +'</a>'
+            var aEle = '<a class="platform-links" href=' + platformsLink[index] + '>' + ele + '</a>'
             var liEle = '<li class="item"> ' + aEle + '</li>';
             $('#sidebar .outer .platforms').append(liEle);
         });
 
         $('#sidebar .outer .selected').click(function(event) {
             $(this).siblings('.platforms').slideToggle(100)
-        });
-
-        $('#sidebar .outer .platforms').find('.item').click(function(event) {
-            var text = $(this).text()
-            $(this).parent('.platforms').hide();
-            $('#sidebar .inner .sidebar-nav').children('.sidebar-nav-item').eq(index).show().siblings('.sidebar-nav-item').hide()
-            $('#sidebar .inner .sidebar-nav').children('.sidebar-nav-item').eq(index).children('.sublist').addClass('current')
         });
     }
 

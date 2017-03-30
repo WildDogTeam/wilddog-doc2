@@ -96,10 +96,16 @@ var currentUrls = {
 };
 
 currentUrls = JSON.parse(sessionStorage.getItem('navsrc')) || currentUrls;
+console.log(currentUrls)
+
 var navlinks = ['overview', 'sync', 'video', 'im', 'sms', 'auth', 'console'];
 
+//左侧每个链接单元
 var links = [].slice.call(document.getElementsByClassName('sidebar-link'));
+
+//顶部导航栏
 var navs = [].slice.call(document.getElementsByClassName('main-nav-link'));
+// var platformLinks = [].slice.call(document.getElementsByClassName('platform-links'));
 
 links.forEach(function(element, index) {
     element.addEventListener('click', function(e) {
@@ -109,13 +115,21 @@ links.forEach(function(element, index) {
     })
 });
 
+// platformLinks.forEach(function(element, index) {
+//     element.addEventListener('click', function(e) {
+//         currentUrls[currentL] = this.href;
+//         sessionStorage.setItem('navsrc', JSON.stringify(currentUrls));
+//     })
+// });
+
 navs.forEach(function(ele, index) {
     var href;
     if (currentUrls[navlinks[index]] === '') {
         href = srcs[0][navlinks[index]];
+        // console.log('navs1111+++' + href)
     } else {
         href = currentUrls[navlinks[index]];
-        console.log(currentUrls[navlinks[index]])
+        // console.log('navs222+++' + href)
     }
     ele.setAttribute('href', href);
 });

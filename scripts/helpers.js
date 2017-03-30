@@ -29,7 +29,6 @@ hexo.extend.helper.register('page_nav', function() {
             }
         }
     }
-
     var keys = Object.keys(list);
     var index = keys.indexOf(path);
     var result = '';
@@ -43,7 +42,6 @@ hexo.extend.helper.register('page_nav', function() {
         result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(list[keys[index + 1]]) + '">' +
             '<div class=\'page-title\'><div class=\'text-right\'>下一节：</div>' + this.__(list[keys[index + 1]]) + '</div><img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></a>';
     }
-
     return result;
 });
 
@@ -105,34 +103,40 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
 
 });
 
+// hexo.extend.helper.register('doc_platform', function() {
+//     var type = this.page.canonical_path.split('/')[0];
+//     var sidebar = this.site.data.sidebar[type];
+//     var result = '<ul class=\'platforms\'>';
+//     _.each(sidebar, function(menu, title) {
+//         if (typeof menu !== 'object') {
+//             console.log(menu, title)
+//         }
+//     })
+// });
+
 hexo.extend.helper.register('doc_platform', function() {
     var type = this.page.canonical_path.split('/')[0];
     // console.log(type)
     var sidebar = this.site.data.sidebar[type];
-    console.log(sidebar)
+    // console.log(sidebar)
     if (sidebar) {
         var result = Object.keys(sidebar)
         return result
     } else {
         return ''
     }
-
 });
-
 
 hexo.extend.helper.register('canonical_url', function(lang) {
     var path = this.page.canonical_path;
     if (lang && lang !== 'en') path = lang + '/' + path;
-
     return this.config.url + '/' + path;
 });
 
 hexo.extend.helper.register('url_for_lang', function(path) {
     var lang = this.page.lang;
     var url = this.url_for(path);
-
     if (lang !== 'en' && url[0] === '/') url = '/' + lang + url;
-
     return url;
 });
 
@@ -143,16 +147,13 @@ hexo.extend.helper.register('raw_link', function(path) {
 hexo.extend.helper.register('page_anchor', function(str) {
     var $ = cheerio.load(str, { decodeEntities: false });
     var headings = $('h1, h2, h3, h4, h5, h6');
-
     if (!headings.length) return str;
-
     headings.each(function(index) {
         var id = $(this).attr('id');
         if (index === 0 && !this.prev) {
             $(this).addClass('top-heading')
         }
-        $(this)
-            .addClass('article-heading')
+        $(this).addClass('article-heading')
     });
 
     return $.html();
@@ -175,7 +176,6 @@ hexo.extend.helper.register('lunr_index', function(data) {
 
 hexo.extend.helper.register('canonical_path_for_nav', function() {
     var path = this.page.canonical_path;
-
     if (startsWith(path, 'docs/') || startsWith(path, 'api/')) {
         return path;
     } else {

@@ -406,12 +406,12 @@ im:
     概览: /im/iOS/index.html
     快速入门: /im/iOS/quickstart.html
     完整指南:
-      初始化: /im/iOS/intialize.html
-      用户集成: /im/iOS/guide/users.html
-      消息收发: /im/iOS/guide/message.html
-      未读消息计数: /im/iOS/guide/unread.html
-      讨论组管理: /im/iOS/guide/group.html
-      离线推送: /im/iOS/guide/push.html
+      初始化: /im/iOS/guide/intialize.html
+      用户集成: /im/iOS/guide/guide/users.html
+      消息收发: /im/iOS/guide/guide/message.html
+      未读消息计数: /im/iOS/guide/guide/unread.html
+      讨论组管理: /im/iOS/guide/guide/group.html
+      离线推送: /im/iOS/guide/guide/push.html
     API 文档:
       WDGIM: /im/iOS/api/WDGIM.html
       WDGIMConversation: /im/iOS/api/WDGIMConversation.html
