@@ -165,24 +165,19 @@
   top: -8px
   border-radius: 0
 
-.old-doc
+.console
   margin-top: 20px
   padding-top: 30px
   padding-right: 18px
   border-top: 1px solid #e5e5e5
+  padding-left: 1em
 
-.old-doc-link
+.console-link
   display: block
   color: #333
   text-decoration: none
   &:hover
     color: #e6501e
-    path
-      stroke: #e6501e
-  .back-icon
-    float: right
-    img
-      box-shadow: none
       
 //左侧导航栏hacker
 .sidebar-nav
@@ -193,8 +188,18 @@
       border-left: none
       
 .show-title
+  padding-bottom: 16px
   .sidebar-nav-item
     display: list-item
+    padding-top: 7px;
+    padding-bottom: 7px;
+    padding-left: 1em;
+    .sidebar-title
+      margin-bottom: 0
+      &.select
+        margin-bottom: 6px;
+      .sidebar-link
+        line-height: 1
     > .sidebar-title:first-child
       display:inline-block
     > .sublist
