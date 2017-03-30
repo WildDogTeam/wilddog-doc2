@@ -22,7 +22,7 @@ sync:
       简介: /sync/Web/rules/introduce.html
       #指南: /sync/Web/rules/guide.html
       读写权限控制: /sync/Web/rules/access.html
-      读写访问控制: /sync/Web/rules/auth.html
+      用户访问控制: /sync/Web/rules/auth.html
       数据校验: /sync/Web/rules/validate.html
       数据索引: /sync/Web/rules/index.html
     API 文档:
@@ -60,7 +60,7 @@ sync:
       简介: /sync/iOS/rules/introduce.html
       #指南: /sync/iOS/rules/guide.html
       读写权限控制: /sync/iOS/rules/access.html
-      读写访问控制: /sync/iOS/rules/auth.html
+      用户访问控制: /sync/iOS/rules/auth.html
       数据校验: /sync/iOS/rules/validate.html
       数据索引: /sync/iOS/rules/index.html
     API 文档:
@@ -99,7 +99,7 @@ sync:
       简介: /sync/Android/rules/introduce.html
       #指南: /sync/Android/rules/guide.html
       读写权限控制: /sync/Android/rules/access.html
-      读写访问控制: /sync/Android/rules/auth.html
+      用户访问控制: /sync/Android/rules/auth.html
       数据校验: /sync/Android/rules/validate.html
       数据索引: /sync/Android/rules/index.html
     API 文档:
@@ -146,7 +146,7 @@ sync:
       简介: /sync/C/rules/introduce.html
       #指南: /sync/C/rules/guide.html
       读写权限控制: /sync/C/rules/access.html
-      读写访问控制: /sync/C/rules/auth.html
+      用户访问控制: /sync/C/rules/auth.html
       数据校验: /sync/C/rules/validate.html
       数据索引: /sync/C/rules/index.html
     API 文档:
@@ -178,7 +178,7 @@ sync:
       简介: /sync/REST/rules/introduce.html
       #指南: /sync/C/rules/guide.html
       读写权限控制: /sync/REST/rules/access.html
-      读写访问控制: /sync/REST/rules/auth.html
+      用户访问控制: /sync/REST/rules/auth.html
       数据校验: /sync/REST/rules/validate.html
       数据索引: /sync/REST/rules/index.html
     API 文档:
@@ -214,7 +214,7 @@ sync:
       简介: /sync/WeChat/rules/introduce.html
       #指南: /sync/Web/rules/guide.html
       读写权限控制: /sync/WeChat/rules/access.html
-      读写访问控制: /sync/WeChat/rules/auth.html
+      用户访问控制: /sync/WeChat/rules/auth.html
       数据校验: /sync/WeChat/rules/validate.html
       数据索引: /sync/WeChat/rules/index.html
     API 文档:
@@ -248,7 +248,7 @@ sync:
       简介: /sync/Egret/rules/introduce.html
       #指南: /sync/Web/rules/guide.html
       读写权限控制: /sync/Egret/rules/access.html
-      读写访问控制: /sync/Egret/rules/auth.html
+      用户访问控制: /sync/Egret/rules/auth.html
       数据校验: /sync/Egret/rules/validate.html
       数据索引: /sync/Egret/rules/index.html
     API 文档:
@@ -276,15 +276,15 @@ video:
       视频通话: /video/Web/guide/conversation.html
       多人视频会议: /video/Web/guide/conference.html
     API 文档:
-      Video: /sync/Web/api/wilddogVideo.html
-      Client: /sync/Web/api/wilddogVideoClient.html
+      Video: /video/Web/api/wilddogVideo.html
+      Client: /video/Web/api/wilddogVideoClient.html
       Conference: /video/Web/api/conference.html
       Conversation: /video/Web/api/conversation.html
       LocalParticipant: /video/Web/api/localParticipant.html
       Participant: /video/Web/api/participant.html
       LocalStream: /video/Web/api/localStream.html
       RemoteStream: /video/Web/api/remoteStream.html
-      MeetingCast: /video/Web/api/MeetingCast.html
+      MeetingCast: /video/Web/api/meetingCast.html
       OutgoingInvite: video/Web/api/outgoingInvite.html
       IncomingInvite: video/Web/api/incomingInvite.html 
       错误码: /video/Web/api/error-code.html
