@@ -140,9 +140,18 @@
   &.current
     display: block
   .sublist-item
-    &:first-child
-      margin-top: 6px
-
+    // &:first-child
+    //   margin-top: 6px
+    .subsublist
+      display: none
+      border-left: 2px solid #eee
+      &.current
+        display: block
+      .subsublist-item
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 1em;
+        
 .sublist-item
   padding-top: 7px
   padding-bottom: 7px
@@ -201,11 +210,10 @@
     .sidebar-title
       &:first-child
         display:inline-block
-      // &.select
-      //   margin-bottom: 6px
       .sidebar-link
         line-height: 1
     > .sublist
       border-left: 2px solid #eee
+      margin-top: 6px
   
     

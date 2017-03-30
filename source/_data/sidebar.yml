@@ -93,7 +93,7 @@ sync:
       离线功能: /sync/Android/guide/offline-capabilities.html
       高级特性: /sync/Android/guide/advance-feature.html
       Webhook: /sync/Android/guide/webhook.html
-      最佳实践 : 
+      最佳实践: 
         组织数据: /sync/Android/guide/bestpractice/structure-data.html
         数组处理: /sync/Android/guide/bestpractice/array.html
         离线事件: /sync/Android/guide/bestpractice/offline.html
