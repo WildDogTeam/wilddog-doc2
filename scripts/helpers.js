@@ -53,11 +53,20 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
     var self = this;
     var prefix = 'sidebar.' + type + '.';
     var listStart = '';
-
+    //短信和overview 因为sidebar-title部分是下一级,必须显示出来 
+    var Flag = type == 'sms' || type == 'overview'
+    if (Flag) {
+        var result = '<ul class=\'sidebar-nav show-title\'>';
+    }
     _.each(sidebar, function(menu, title) {
         if (typeof menu === 'object') {
             listStart += '<li class=\'sidebar-nav-item\'><strong class="' + className + '-title">' + title + '</strong>';
             var subList = '<ul class=\'sublist\'>';
+
+            if (title == path.split('/')[2]) {
+                listStart = listStart.replace('sidebar-nav-item', 'sidebar-nav-item sidebar-nav-item-show');
+            }
+
             _.each(menu, function(link, text) {
                 var itemClass = className + '-link';
                 if (link === path) {
@@ -68,6 +77,7 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
                     //当前小标题加上；类名
                     itemClass += ' current';
                 }
+
                 if (typeof link === 'object') {
                     var thirList = '<ul class=\'sublist\'>';
                     var thirListStart = '<li class=\'sublist-item\'><strong class="' + className + '-title">' + text + '</strong>';
@@ -103,29 +113,25 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
 
 });
 
-// hexo.extend.helper.register('doc_platform', function() {
-//     var type = this.page.canonical_path.split('/')[0];
-//     var sidebar = this.site.data.sidebar[type];
-//     var result = '<ul class=\'platforms\'>';
-//     _.each(sidebar, function(menu, title) {
-//         if (typeof menu !== 'object') {
-//             console.log(menu, title)
-//         }
-//     })
-// });
-
 hexo.extend.helper.register('doc_platform', function() {
     var type = this.page.canonical_path.split('/')[0];
-    // console.log(type)
     var sidebar = this.site.data.sidebar[type];
-    // console.log(sidebar)
-    if (sidebar) {
-        var result = Object.keys(sidebar)
-        return result
+    var path = "/" + this.path;
+    var platformName = path.split('/')[2];
+    var result
+
+    if (type == 'sms' || type == 'overview') {
+        result = ''
     } else {
-        return ''
+        var sidebarKeys = Object.keys(sidebar);
+        result = '<input type=\'hidden\' value=' + sidebarKeys + '>'
+        result += '<div class=\'selected\'>' + platformName + '</div>';
+        result += '<ul class=\'platforms\'>' + '</ul>'
     }
+    return result
+
 });
+
 
 hexo.extend.helper.register('canonical_url', function(lang) {
     var path = this.page.canonical_path;
