@@ -80,7 +80,7 @@
 .sidebar-nav .sidebar-title
   display: inline-block
   padding-right: 12px
-  margin-bottom: 6px
+  // margin-bottom: 6px
   position: relative
   cursor: pointer
   font-weight: 500
@@ -139,6 +139,9 @@
   border-left: 2px solid #eee
   &.current
     display: block
+  .sublist-item
+    &:first-child
+      margin-top: 6px
 
 .sublist-item
   padding-top: 7px
@@ -148,7 +151,7 @@
     line-height: 1
   .sublist
     .sidebar-link
-      line-height: 1.5
+      line-height: 1
       
 .sidebar-link-text,
 .icon-new
@@ -186,22 +189,22 @@
       display:none
     > .sublist
       border-left: none
-      
+ 
 .show-title
   padding-bottom: 16px
   .sidebar-nav-item
     display: list-item
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 1em;
+    padding-top: 7px
+    padding-bottom: 7px
+    padding-left: 1em
+    line-height: 1
     .sidebar-title
-      margin-bottom: 0
-      &.select
-        margin-bottom: 6px;
+      &:first-child
+        display:inline-block
+      // &.select
+      //   margin-bottom: 6px
       .sidebar-link
         line-height: 1
-    > .sidebar-title:first-child
-      display:inline-block
     > .sublist
       border-left: 2px solid #eee
   
