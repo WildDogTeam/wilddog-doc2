@@ -18,4 +18,5 @@ title:  错误码
 | 26204 | The transaction was overridden by a subsequent set | 事务操作被随后的写操作覆盖。 |
 | 26801 | The supplied auth token has expired   | token 过期。 |
 | 26802 | The supplied auth token was invalid  | token 无效。 |
+| 26301 | Could not set priority on non-existent node|不能给不存在的节点设置 priority| 
 | 29999 |Unknown error 	 | 未知错误。 |

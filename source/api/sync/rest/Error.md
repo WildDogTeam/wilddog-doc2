@@ -20,6 +20,7 @@ Wilddog 的 REST API 将在以下情况返回错误码：
 
 
 
+
 ## 错误信息
 
 ##### 说明
@@ -80,6 +81,7 @@ or
 |20312| The type of priority is not correct | priority 类型不正确 |
 |20313| The priority can't be set as boolean | priority不能设置为boolean型 |
 |20314| Value of '.sv' must be 'timestamp' | .sv 的值只能为字符串 timestamp |
+|20315|Could not set priority on non-existent node|不能给不存在的节点设置 priority|
 |20401| This client does not have permission to perform this operation | 没有操作权限 |
 |20402| Data requested exceeds the maximum size that can be accessed with a single query request | 单次请求数据量过大 |
 |20403| Size of the leaf node exceeds the limitation (1M bytes) | 写入数据中叶子节点数据量过大 |

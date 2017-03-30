@@ -157,6 +157,7 @@ user.updatePhone(phone)
   <ul>
     <li>要更新手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户手机号。</li>
+    <li>已经通过邮箱登录接口获得的 token，不会受到修改密码的影响，只要 token 未过期仍然可以使用。</li>
   </ul>
 </blockquote>
 
