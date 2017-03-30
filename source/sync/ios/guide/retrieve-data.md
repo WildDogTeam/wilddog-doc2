@@ -103,7 +103,7 @@ ref.observe(.childAdded, with: { snapshot in
 </div>
 </div>
 
-更详细的用法说明，请参考 [API 文档](/api/sync/ios/WDGSyncReference.html#–-observeEventType-withBlock)。
+更详细的用法说明，请参考 [API 文档](/sync/iOS/api/WDGSyncReference.html#observeEventType-withBlock)。
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>

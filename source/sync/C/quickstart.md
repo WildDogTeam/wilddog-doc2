@@ -106,7 +106,7 @@ int main(void){
 
 ## 5. 监听数据 
 
-[wilddog_addObserver()](/api/sync/c/api.html#wilddog-addObserver) 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+[wilddog_addObserver()](/api/sync/c/api.html#wilddog-addObserver) 方法用于监听 [节点](/sync/C/guide/concept.html#Sync-的数据结构是什么？) 的数据。
 
 ```c
 #include "wilddog.h"
@@ -132,4 +132,4 @@ int main(){
 
 ## 5.更多使用
 - 了解 Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
-- 了解 Sync 更多使用方式，请参考 [完整指南](/guide/sync/c/config-and-porting.html) 和 [API 文档](/api/sync/c/api.html)。
+- 了解 Sync 更多使用方式，请参考 [完整指南](/sync/C/guide/save-data.html) 和 [API 文档](/sync/C/api/App.html)。

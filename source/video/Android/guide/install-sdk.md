@@ -3,7 +3,7 @@ title : 安装 SDK
 
 本篇文档介绍如何安装和初始化 SDK。
 
-### 安装 SDK
+### 安装和初始化 SDK
 
 
 Video SDK 包含了 Sync 和 Auth SDK 的依赖，不需要重复导入 Sync / Auth SDK 。

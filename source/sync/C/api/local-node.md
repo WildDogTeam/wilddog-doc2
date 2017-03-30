@@ -326,7 +326,7 @@ Wilddog_Return_T wilddog_node_delete( Wilddog_Node_T *head)
 
 **返回值**
 
-成功返回 0，否则返回[错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回[错误码](/sync/C/api/error-code.html)。
 
 **示例**
 
@@ -477,7 +477,7 @@ Wilddog_Return_T (Wilddog_Node_T *node, unsigned char *value, int len)
 
 **返回值**
 
-成功返回 0，否则返回 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回 [错误码](/sync/C/api/error-code.html)。
 
 **示例**
 

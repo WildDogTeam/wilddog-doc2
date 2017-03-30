@@ -3,7 +3,7 @@ title: 实战教程
 ---
 本文档将给出一些详尽的示例教程。
 
-如需了解创建应用、读写数据等基础操作，请参考文档[快速入门](/quickstart/sync/android.html)。
+如需了解创建应用、读写数据等基础操作，请参考文档 [快速入门](/sync/Android/quickstart.html)。
 
 ## 教程说明
 

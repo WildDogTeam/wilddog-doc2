@@ -1,5 +1,5 @@
 
-title: 简介
+title: 规则表达式简介
 ---
 
 本篇文档介绍如何使用规则表达式对 Wilddog Sync 进行数据读写权限控制、用户访问控制、数据校验及数据索引。
@@ -37,7 +37,7 @@ title: 简介
 
 规则表达式可以控制每个用户对数据的访问权限。
 
-例如，授权用户在 `/users/<uid>` 写入数据，使用 [内置对象](/guide/sync/rules/access.html#内置对象) 中的 `auth` 获取用户：
+例如，授权用户在 `/users/<uid>` 写入数据，使用 [内置对象](/sync/Web/rules/access.html#内置对象)) 中的 `auth` 获取用户：
 
 ```javascript
 {

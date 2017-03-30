@@ -4,7 +4,7 @@ title: 实战教程
 
 本文档将给出一些详尽的示例教程。
 
-如需了解创建应用、读写数据等基础操作，请参考文档[快速入门](/quickstart/sync/web.html)。
+如需了解创建应用、读写数据等基础操作，请参考文档 [快速入门](/sync/Web/quickstart.html)。
 
 
 ## 示例说明
@@ -24,7 +24,7 @@ title: 实战教程
 
 ### 2. 实现 “说点什么” 与 “发射” 功能
 
-使用写入数据的 API [push()](/guide/sync/web/save-data.html#追加新节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
+使用写入数据的 API [push()](sync/Web/guide/save-data.html#追加子节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
 
 ```js
 // 创建数据库引用。最好自己创建一个应用，把 danmu 即 `appId` 换成你自己的
@@ -53,7 +53,7 @@ ref.child('message').push(text);
 ref.remove();
 ```
 ### 4. 在窗口显示
-在窗口显示即读取数据，Wilddog [获取数据](/guide/sync/web/retrieve-data.html)是先绑定监听事件，然后在回调函数中获取数据：
+在窗口显示即读取数据，Wilddog [获取数据](/sync/Web/guide/retrieve-data.html)是先绑定监听事件，然后在回调函数中获取数据：
 
 ```js
 // 绑定 'child_added' 事件，当 message 节点下有子节点新增时，就会触发回调，回调的 `snapshot` 对象包含了新增的数据

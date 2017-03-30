@@ -16,7 +16,7 @@ Sync 的数据以 [JSON](http://json.org/json-zh.html) 格式存储。它是键�
 
 <img src='/images/group.png' alt="/images/group.png" width="450">
 
-其中每个节点都可以设置 [优先级(priority)](/guide/sync/web/save-data.html#设置节点优先级)，用于实现节点按优先级排序。
+其中每个节点都可以设置 [优先级(priority)](/sync/iOS/guide/save-data.html#设置节点优先级)，用于实现节点按优先级排序。
 
 #### 子节点
 某个节点下的所有节点，统称为该节点的子节点。
@@ -31,7 +31,7 @@ Sync 的数据以 [JSON](http://json.org/json-zh.html) 格式存储。它是键�
 
 ### 事件是什么？
 
-Sync 中，数据在云端发生的任何变化都称为事件。数据的不同变化都有对应的 [事件类型](/guide/sync/web/retrieve-data.html#事件)。
+Sync 中，数据在云端发生的任何变化都称为事件。数据的不同变化都有对应的 [事件类型](/sync/iOS/guide/retrieve-data.html#事件)。
 
 
 ### 事件监听能做什么？
@@ -42,7 +42,7 @@ Sync 中，数据在云端发生的任何变化都称为事件。数据的不同
 - 获取并同步用户发送的消息；
 - 实时更新用户的在线状态。
 
-具体相关信息，请参考：[事件监听](/guide/sync/web/retrieve-data.html) 。
+具体相关信息，请参考：[事件监听](/iOS/Web/guide/retrieve-data.html) 。
 
 ### 规则表达式是什么？ 
 规则表达式是 Sync 对数据访问控制的方法。它是一种 JSON 格式的策略描述语言，灵活性高且扩展性强。
@@ -53,4 +53,4 @@ Sync 中，数据在云端发生的任何变化都称为事件。数据的不同
 #### 数据校验
 例如，控制每条消息不可超过 100 个字符。
 
-具体相关信息，请参考：[规则表达式](/guide/sync/rules/introduce.html) 。
+具体相关信息，请参考：[安全性与规则](/sync/iOS/rules/introduce.html) 。

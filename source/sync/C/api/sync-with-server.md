@@ -28,7 +28,7 @@ Wilddog_Return_T wilddog_getValue(Wilddog_T wilddog, onQueryFunc callback, void*
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -97,7 +97,7 @@ Wilddog_Return_T wilddog_setValue(Wilddog_T wilddog, Wilddog_Node_T *p_node, onS
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -160,7 +160,7 @@ Wilddog_Return_T wilddog_push( Wilddog_T wilddog, Wilddog_Node_T *p_node, onPush
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -232,7 +232,7 @@ Wilddog_Return_T wilddog_removeValue(Wilddog_T wilddog, onRemoveFunc callback, v
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -282,13 +282,13 @@ Wilddog_Return_T wilddog_addObserver(Wilddog_T wilddog, Wilddog_EventType_T even
 | 参数名 | 说明 |
 |---|---|
 | wilddog | `Wilddog_T ` 类型。当前路径对应 Wilddog Sync 实例。 |
-| event | [Wilddog_EventType_T]() 类型。监听的事件类型。 |
+| event | `Wilddog_EventType_T`类型。监听的事件类型。 |
 | callback | `onRemoveFunc` 类型。服务端回应数据或者回应超时触发的回调函数。|
 | arg | `void` 指针类型。可为 NULL，用户给回调函数传入的参数。|
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -339,11 +339,11 @@ Wilddog_Return_T wilddog_removeObserver(Wilddog_T wilddog, Wilddog_EventType_T e
 | 参数名 | 说明 |
 |---|---|
 | wilddog | `Wilddog_T ` 类型。当前路径对应 Wilddog Sync 实例。 |
-| event | [Wilddog_EventType_T]() 类型。 取消的事件类型。|
+| event | `Wilddog_EventType_T` 类型。 取消的事件类型。|
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)。
 
 **示例**
 
@@ -419,14 +419,14 @@ Wilddog_Return_T wilddog_auth(Wilddog_Str_T *p_host, u8 *p_auth, int len, onAuth
 | 参数名 | 说明 |
 |---|---|
 | p_host | `Wilddog_Str_T` 指针类型。进行 auth 认证的 host 字符串，如 `"<appId>.wilddogio.com"`。 |
-| p_auth | `unsigned char` 指针类型。指向 auth 数据的指针，auth 数据可以使用其他端 SDK 的 token，或者[使用 Server SDK 生成](/guide/auth/server/server.html)。|
+| p_auth | `unsigned char` 指针类型。指向 auth 数据的指针，auth 数据可以使用其他端 SDK 的 token，或者[使用 Server SDK 生成](/auth/Server/server.html)。|
 | len | `int` 类型。auth 数据的长度。 |
 | onAuth | `onAuthFunc` 类型。服务端回应认证或者认证超时触发的回调函数。 |
 | args | `void` 指针类型。用户给回调函数传入的参数。|
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)。
 
 **示例**
 
@@ -478,7 +478,7 @@ Wilddog_Return_T wilddog_unauth(Wilddog_Str_T *p_host, onAuthFunc onAuth, void *
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)。
 
 **示例**
 

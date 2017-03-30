@@ -29,7 +29,7 @@ Wilddog_Return_T wilddog_onDisconnectSetValue(Wilddog_T wilddog, Wilddog_Node_T 
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -90,7 +90,7 @@ Wilddog_Return_T wilddog_onDisconnectPush( Wilddog_T wilddog, Wilddog_Node_T *p_
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -150,7 +150,7 @@ Wilddog_Return_T wilddog_onDisconnectRemoveValue(Wilddog_T wilddog, onDisConnect
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)，同时会触发回调函数，错误码也能够在回调函数中查询。
 
 **示例**
 
@@ -206,7 +206,7 @@ Wilddog_Return_T wilddog_cancelDisconnectOperations(Wilddog_T wilddog, onDisConn
 
 **返回值**
 
-成功返回 0，否则返回对应 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应 [错误码](/sync/C/api/error-code.html)。
 
 **示例**
 

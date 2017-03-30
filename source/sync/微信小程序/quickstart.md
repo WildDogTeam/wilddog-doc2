@@ -225,7 +225,7 @@ value:{
 取消数据绑定
 
 ## 5.更多使用
-- 了解更多使用方式，请参考 [完整指南](/guide/sync/web/save-data.html) 和 [API 文档](/api/sync/web/api.html)。
+- 了解更多使用方式，请参考 [完整指南](/微信小程序/guide/save-data.html)。
 
 
 　

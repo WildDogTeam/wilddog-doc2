@@ -8,10 +8,10 @@ title:  数据操作
 
 | 方法                       | 说明                                       |
 | ------------------------ | ---------------------------------------- |
-| setValue()               | 向指定 [节点](/guide/sync/concept.html#Sync-的数据结构是什么？) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| setValue()               | 向指定 [节点](/sync/Android/guide/concept.html#Sync-的数据结构是什么？) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
 | setPriority()            | 设置节点优先级。                                 |
 | setValue(value,priority) | 向指定节点写入数据并且设置该节点优先级。                     |
-| push()                   | 向指定节点添加 [子节点](/guide/sync/concept.html#子节点)。子节点的 [key](/guide/sync/concept.html#Key-Value-结构) 自动生成并保证唯一。 |
+| push()                   | 向指定节点添加 [子节点](/sync/Android/guide/concept.html#Sync-的数据结构是什么？)。子节点的 [key](/sync/Android/guide/concept.html#Sync-的数据结构是什么？) 自动生成并保证唯一。 |
 | removeValue()            | 删除指定节点。                                  |
 | updateChildren()         | 更新指定子节点。                                 |
 | runTransaction()         | 并发操作时保证数据一致性。                            |
@@ -61,7 +61,7 @@ title:  数据操作
 
 `setPriority(priority)` 方法用于设置节点的优先级。
 
-Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/android/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
+Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/sync/Android/guide/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
 
 例如，设置`user`节点的优先级为100：
 
@@ -69,7 +69,7 @@ Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点
 ref.child("user").setPriority(100);
 ```
 
-更多使用，请参考 [setPriority()](/api/sync/android/SyncReference.html#setPriority-priority)。
+更多使用，请参考 [setPriority(priority)](/sync/Android/api/SyncReference.html#setPriority-priority)。
 
 ## 写入数据并设置节点优先级
 
@@ -130,7 +130,7 @@ postsRef.push().setValue(anotherNews);
 
 `updateChildren()` 方法用于更新指定子节点。
 
-`updateChildren()` 方法支持多路径更新。可以只调用一次方法更新多个[路径](/guide/reference/term.html#路径-path)的数据。
+`updateChildren()` 方法支持多路径更新。可以只调用一次方法更新多个路径的数据。
 
 例如，更新 `Jobs` 的个人信息：
 
@@ -241,7 +241,7 @@ upvotesRef.runTransaction(new Transaction.Handler() {
   回调方法的返回值可能为空，需要进行相应的处理。
 </blockquote>
 
-更多使用，请参考 [runTransaction()](/api/sync/android/SyncReference.html#runTransaction-handler)。
+更多使用，请参考 [runTransaction()](/sync/Android/api/SyncReference.html#runTransaction-handler)。
 
 
 

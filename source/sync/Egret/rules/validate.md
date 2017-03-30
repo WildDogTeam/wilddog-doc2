@@ -70,7 +70,7 @@ title: 数据校验
  ".validate": "newData.isString() &&  newData.val().matches(/^(19|20)[0-9][0-9][-\\/. ](0[1-9]|1[012])[-\\/. ](0[1-9]|[12][0-9]|3[01])$/)"
 ```
 
-关于正则表达式校验的更多内容，请参考 [API 文档](/api/sync/rule.html#matches)。
+关于正则表达式校验的更多内容，请参考 [API 文档](/sync/Web/rules/ruleapi.html#matches)。
 
 
 

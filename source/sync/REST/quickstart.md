@@ -17,7 +17,7 @@ title: 快速入门
 
 ## 2. 写入数据
 
-对于 Wilddog 任何 [节点](/guide/reference/term.html#节点)，你可以将该节点相对于根节点的路径作为数据地址。在数据地址后加上`.json`，作为 URL 发送标准的 HTTPS REST 请求，以此写入与读取数据。在本文档中，我们使用 [cURL](https://en.wikipedia.org/wiki/CURL) 工具发送 HTTPS 请求。
+对于 Wilddog 任何 [节点](/sync/REST/guide/concept.html#Sync-的数据结构是什么？)，你可以将该节点相对于根节点的路径作为数据地址。在数据地址后加上`.json`，作为 URL 发送标准的 HTTPS REST 请求，以此写入与读取数据。在本文档中，我们使用 [cURL](https://en.wikipedia.org/wiki/CURL) 工具发送 HTTPS 请求。
 
 例如，已有数据是这样的那么若要操作users节点的数据,数据路径为 `/rest/quickstart/users`：
 
@@ -72,4 +72,4 @@ curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 
 ## 4.更多使用
 - 了解 Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
-- 了解 Sync 更多使用方式，请参考 [完整指南](/guide/sync/rest/save-data.html) 和 [API文档](/api/sync/rest.html)。
+- 了解 Sync 更多使用方式，请参考 [完整指南](/sync/REST/guide/save-data.html) 和 [API文档](/sync/REST/api/introduce.html)。

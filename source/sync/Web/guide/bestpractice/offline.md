@@ -14,7 +14,7 @@ title:  离线事件
 为避免上述情况，可通过手动重新注册离线事件，保证异常断连时，离线事件也能触发。
 
 ## 手动注册离线事件
-通过 [离线事件](/guide/sync/web/offline-capabilities.html#离线事件) 与 [监听连接状态](/guide/sync/web/offline-capabilities.html#监听连接状态) 配合使用，将离线事件的注册代码放到监听连接状态的回调函数中，可实现异常情况下离线事件的重新注册：
+通过 [离线事件](/sync/Web/guide/offline-capabilities.html#离线事件) 与 [监听连接状态](/sync/Web/guide/offline-capabilities.html#监听连接状态) 配合使用，将离线事件的注册代码放到监听连接状态的回调函数中，可实现异常情况下离线事件的重新注册：
 
 ```
 var config = {

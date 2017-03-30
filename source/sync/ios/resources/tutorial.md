@@ -4,7 +4,7 @@ title: 实战教程
 
 本文档将给出一些详尽的示例教程。
 
-如需了解创建应用、读写数据等基础操作，请参考文档[快速入门](/quickstart/sync/ios.html)。
+如需了解创建应用、读写数据等基础操作，请参考文档 [快速入门](/sync/iOS/quickstart.html)。
 
 
 ## 示例说明
@@ -61,7 +61,7 @@ _wilddog = [[WDGSync sync] referenceWithPath:@"message"];
 ```
 
 ### 3. 发送弹幕
-使用写入数据的 API [childByAutoId](/guide/sync/ios/save-data.html#追加子节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
+使用写入数据的 API [childByAutoId](/sync/iOS/guide/save-data.html#追加子节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
 
 
 ```objectivec

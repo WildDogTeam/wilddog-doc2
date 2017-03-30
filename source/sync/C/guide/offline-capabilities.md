@@ -69,7 +69,7 @@ wilddog_cancelDisconnectOperations()  | 取消之前所设置的离线事件。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  客户端若没有调用 [wilddog_goOffline()](/guide/sync/c/offline-capabilities.html#手动建立或断开连接)，直接关机或者断网，离线事件的触发有 3 分钟的延迟。
+  客户端若没有调用 `wilddog_goOffline()`，直接关机或者断网，离线事件的触发有 3 分钟的延迟。
 </blockquote>
 
 例如，当用户的网络连接中断时，使用`wilddog_onDisconnectSetValue()` 方法，记录这个用户已经离线：
