@@ -54,7 +54,7 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
     var prefix = 'sidebar.' + type + '.';
     var listStart = '';
     //短信和overview 因为sidebar-title部分是下一级,必须显示出来 
-    var Flag = type == 'sms' || type == 'overview'
+    var Flag = type == 'sms' || type == 'overview' ||  type == 'console'
     if (Flag) {
         var result = '<ul class=\'sidebar-nav show-title\'>';
     }
@@ -109,6 +109,9 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
         listStart = '';
     });
     result += '<\/ul>'
+    if (type !== 'overview' && type !== 'console') {
+        result += '<div class=\'console\'><a href=\'/console/creat.html\' class=\'console-link\'>控制面板指南</a></div>'
+    }
     return result;
 
 });
@@ -120,7 +123,7 @@ hexo.extend.helper.register('doc_platform', function() {
     var platformName = path.split('/')[2];
     var result
 
-    if (type == 'sms' || type == 'overview') {
+    if (type == 'sms' || type == 'overview' || type == 'console') {
         result = ''
     } else {
         var sidebarKeys = Object.keys(sidebar);

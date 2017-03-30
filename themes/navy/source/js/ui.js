@@ -28,13 +28,9 @@ $(function() {
         addClass(headerNavs[4], 'current')
     } else if (type === 'auth') {
         addClass(headerNavs[5], 'current')
-    } else if (type === 'console') {
-        addClass(headerNavs[6], 'current')
     }
-
     // 侧边栏收起
     var sidebarTitle = getClass('sidebar-title');
-
     sidebarTitle.forEach(function(ele) {
         ele.addEventListener('click', function() {
             toggleClass(ele, 'select');
@@ -235,23 +231,35 @@ $(function() {
     });
 
     var fillplatforms = function() {
-        platformsArr = $('#sidebar .outer').find('input').val().split(',');
+        if ($('#sidebar .outer').find('input').val()) {
+            platformsArr = $('#sidebar .outer').find('input').val().split(',');
+            //动态生成目录
+            $('#sidebar .inner .sidebar-nav .sidebar-nav-item').each(function(index, el) {
+                var href = $(el).children('.sublist').find('.sublist-item').eq(0).children('a').attr('href');
+                platformsLink.push(href)
+            })
 
-        //动态生成目录
-        $('#sidebar .inner .sidebar-nav .sidebar-nav-item').each(function(index, el) {
-            var href = $(el).children('.sublist').find('.sublist-item').eq(0).children('a').attr('href');
-            platformsLink.push(href)
-        })
+            platformsArr.forEach(function(ele, index) {
+                var aEle = '<a class="platform-links" href=' + platformsLink[index] + '>' + ele + '</a>'
+                var liEle = '<li class="item"> ' + aEle + '</li>';
+                $('#sidebar .outer .platforms').append(liEle);
+            });
 
-        platformsArr.forEach(function(ele, index) {
-            var aEle = '<a class="platform-links" href=' + platformsLink[index] + '>' + ele + '</a>'
-            var liEle = '<li class="item"> ' + aEle + '</li>';
-            $('#sidebar .outer .platforms').append(liEle);
-        });
+            $('#sidebar .outer .selected').click(function(event) {
+                event.stopPropagation();
+                $(this).siblings('.platforms').slideToggle(100)
+            });
 
-        $('#sidebar .outer .selected').click(function(event) {
-            $(this).siblings('.platforms').slideToggle(100)
-        });
+            $(document).click(function(e) {
+                var _con = $('.platforms');
+                if (!_con.is(e.target) && _con.has(e.target).length === 0) {
+                    _con.slideUp(100)
+                }
+
+            });
+        }
+
+
     }
     fillplatforms()
 })
