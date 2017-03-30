@@ -115,13 +115,6 @@ links.forEach(function(element, index) {
     })
 });
 
-// platformLinks.forEach(function(element, index) {
-//     element.addEventListener('click', function(e) {
-//         currentUrls[currentL] = this.href;
-//         sessionStorage.setItem('navsrc', JSON.stringify(currentUrls));
-//     })
-// });
-
 navs.forEach(function(ele, index) {
     var href;
     if (currentUrls[navlinks[index]] === '') {

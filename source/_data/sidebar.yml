@@ -45,7 +45,7 @@ sync:
     概览: /sync/iOS/index.html
     快速入门: /sync/iOS/quickstart.html
     完整指南:
-      基础概念: /sync/Web/guide/concept.html
+      基础概念: /sync/iOS/guide/concept.html
       数据操作: /sync/iOS/guide/save-data.html
       事件监听: /sync/iOS/guide/retrieve-data.html
       离线功能: /sync/iOS/guide/offline-capabilities.html

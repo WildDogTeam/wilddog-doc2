@@ -236,23 +236,8 @@ $(function() {
 
     var fillplatforms = function() {
         platformsArr = $('#sidebar .outer').find('input').val().split(',');
-        var platformsName = window.location.pathname.split('/')[2];
-        var type = window.location.pathname.split('/')[1];
 
-        if (type == 'sync' || type == 'video' || type == 'im' || type == 'auth') {
-            $('#sidebar .outer').addClass('outer-show');
-            $('.sidebar-nav .sidebar-nav-item').each(function(index, el) {
-                var sidebarTitlePlatformsName = $(el).children('.sidebar-title').text()
-                if (sidebarTitlePlatformsName == platformsName) {
-                    $(el).show().siblings('.sidebar-nav-item').hide()
-                }
-            });
-        } else {
-            $('.sidebar-nav .sidebar-nav-item').children('.sidebar-title').css('display', 'inline-block');
-            $('.sidebar-nav .sidebar-nav-item').children('.sublist').css('border-left', '2px solid #eee');
-        }
-
-        $('#sidebar .outer .selected').text(platformsName);
+        //动态生成目录
         $('#sidebar .inner .sidebar-nav .sidebar-nav-item').each(function(index, el) {
             var href = $(el).children('.sublist').find('.sublist-item').eq(0).children('a').attr('href');
             platformsLink.push(href)
@@ -268,6 +253,5 @@ $(function() {
             $(this).siblings('.platforms').slideToggle(100)
         });
     }
-
     fillplatforms()
 })
