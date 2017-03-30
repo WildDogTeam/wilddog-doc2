@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.3 - 2017.03.29
+
+<span class="changelog feature">改进</span>
+
+- 改进了 node 版日活统计规则，多次使用 node sdk 将不会重复统计日活设备数。
+
 ### V2.5.2 - 2017.02.06
 
 <span class="changelog feature">修复</span>
