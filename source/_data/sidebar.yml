@@ -1,6 +1,6 @@
 overview:
   概览:
-    简介: /overview/index.html
+    野狗简介: /overview/index.html
 
 sync:
   Web:
@@ -22,7 +22,7 @@ sync:
       简介: /sync/Web/rules/introduce.html
       #指南: /sync/Web/rules/guide.html
       读写权限控制: /sync/Web/rules/access.html
-      读写访问控制: /sync/Web/rules/auth.html
+      用户访问控制: /sync/Web/rules/auth.html
       数据校验: /sync/Web/rules/validate.html
       数据索引: /sync/Web/rules/index.html
     API 文档:
@@ -60,7 +60,7 @@ sync:
       简介: /sync/iOS/rules/introduce.html
       #指南: /sync/iOS/rules/guide.html
       读写权限控制: /sync/iOS/rules/access.html
-      读写访问控制: /sync/iOS/rules/auth.html
+      用户访问控制: /sync/iOS/rules/auth.html
       数据校验: /sync/iOS/rules/validate.html
       数据索引: /sync/iOS/rules/index.html
     API 文档:
@@ -99,7 +99,7 @@ sync:
       简介: /sync/Android/rules/introduce.html
       #指南: /sync/Android/rules/guide.html
       读写权限控制: /sync/Android/rules/access.html
-      读写访问控制: /sync/Android/rules/auth.html
+      用户访问控制: /sync/Android/rules/auth.html
       数据校验: /sync/Android/rules/validate.html
       数据索引: /sync/Android/rules/index.html
     API 文档:
@@ -146,7 +146,7 @@ sync:
       简介: /sync/C/rules/introduce.html
       #指南: /sync/C/rules/guide.html
       读写权限控制: /sync/C/rules/access.html
-      读写访问控制: /sync/C/rules/auth.html
+      用户访问控制: /sync/C/rules/auth.html
       数据校验: /sync/C/rules/validate.html
       数据索引: /sync/C/rules/index.html
     API 文档:
@@ -178,7 +178,7 @@ sync:
       简介: /sync/REST/rules/introduce.html
       #指南: /sync/C/rules/guide.html
       读写权限控制: /sync/REST/rules/access.html
-      读写访问控制: /sync/REST/rules/auth.html
+      用户访问控制: /sync/REST/rules/auth.html
       数据校验: /sync/REST/rules/validate.html
       数据索引: /sync/REST/rules/index.html
     API 文档:
@@ -195,38 +195,38 @@ sync:
       实战教程: /sync/C/resources/tutorial.html
     更新日志: /sync/C/changelog.html
 
-  WeChat:
-    概览: /sync/WeChat/index.html
-    快速入门: /sync/WeChat/quickstart.html
+  微信小程序:
+    概览: /sync/微信小程序/index.html
+    快速入门: /sync/微信小程序/quickstart.html
     完整指南:
-      基础概念: /sync/WeChat/guide/concept.html
-      数据操作: /sync/WeChat/guide/save-data.html
-      事件监听: /sync/WeChat/guide/retrieve-data.html
-      离线功能: /sync/WeChat/guide/offline-capabilities.html
-      高级特性: /sync/WeChat/guide/advance-feature.html
-      Webhook: /sync/WeChat/guide/webhook.html
+      基础概念: /sync/微信小程序/guide/concept.html
+      数据操作: /sync/微信小程序/guide/save-data.html
+      事件监听: /sync/微信小程序/guide/retrieve-data.html
+      离线功能: /sync/微信小程序/guide/offline-capabilities.html
+      高级特性: /sync/微信小程序/guide/advance-feature.html
+      Webhook: /sync/微信小程序/guide/webhook.html
       最佳实践 : 
-        组织数据: /sync/WeChat/guide/bestpractice/structure-data.html
-        数组处理: /sync/WeChat/guide/bestpractice/array.html
-        离线事件: /sync/WeChat/guide/bestpractice/offline.html
-      数据限制 : /sync/WeChat/guide/datalimit.html
+        组织数据: /sync/微信小程序/guide/bestpractice/structure-data.html
+        数组处理: /sync/微信小程序/guide/bestpractice/array.html
+        离线事件: /sync/微信小程序/guide/bestpractice/offline.html
+      数据限制 : /sync/微信小程序/guide/datalimit.html
     安全性与规则: 
-      简介: /sync/WeChat/rules/introduce.html
+      简介: /sync/微信小程序/rules/introduce.html
       #指南: /sync/Web/rules/guide.html
-      读写权限控制: /sync/WeChat/rules/access.html
-      读写访问控制: /sync/WeChat/rules/auth.html
-      数据校验: /sync/WeChat/rules/validate.html
-      数据索引: /sync/WeChat/rules/index.html
+      读写权限控制: /sync/微信小程序/rules/access.html
+      用户访问控制: /sync/微信小程序/rules/auth.html
+      数据校验: /sync/微信小程序/rules/validate.html
+      数据索引: /sync/微信小程序/rules/index.html
     API 文档:
-      App: /sync/WeChat/api/App.html
-      Sync: /sync/WeChat/api/Sync.html
-      Reference: /sync/WeChat/api/Reference.html
-      Query: /sync/WeChat/api/Query.html
-      OnDisconnect: /sync/WeChat/api/OnDisconnect.html
-      DataSnapshot: /sync/WeChat/api/DataSnapshot.html
-      Promise: /sync/WeChat/api/Promise.html
-      Void: /sync/WeChat/api/Void.html
-      错误码: /sync/WeChat/api/error-code.html
+      App: /sync/微信小程序/api/App.html
+      Sync: /sync/微信小程序/api/Sync.html
+      Reference: /sync/微信小程序/api/Reference.html
+      Query: /sync/微信小程序/api/Query.html
+      OnDisconnect: /sync/微信小程序/api/OnDisconnect.html
+      DataSnapshot: /sync/微信小程序/api/DataSnapshot.html
+      Promise: /sync/微信小程序/api/Promise.html
+      Void: /sync/微信小程序/api/Void.html
+      错误码: /sync/微信小程序/api/error-code.html
     更新日志: /sync/Web/changelog.html
 
   Egret:
@@ -248,7 +248,7 @@ sync:
       简介: /sync/Egret/rules/introduce.html
       #指南: /sync/Web/rules/guide.html
       读写权限控制: /sync/Egret/rules/access.html
-      读写访问控制: /sync/Egret/rules/auth.html
+      用户访问控制: /sync/Egret/rules/auth.html
       数据校验: /sync/Egret/rules/validate.html
       数据索引: /sync/Egret/rules/index.html
     API 文档:
@@ -271,20 +271,20 @@ video:
       视频通话: /video/Web/quickstart/web-conversation.html
       视频会议: /video/Web/quickstart/web-conference.html
     完整指南:
-      基础概念: /video/Web/core.html
+      基础概念: /video/Web/guide/core.html
       安装和初始化 SDK: /video/Web/guide/install-sdk.html
       视频通话: /video/Web/guide/conversation.html
       多人视频会议: /video/Web/guide/conference.html
     API 文档:
-      Video: /sync/Web/api/wilddogVideo.html
-      Client: /sync/Web/api/wilddogVideoClient.html
+      Video: /video/Web/api/wilddogVideo.html
+      Client: /video/Web/api/wilddogVideoClient.html
       Conference: /video/Web/api/conference.html
       Conversation: /video/Web/api/conversation.html
       LocalParticipant: /video/Web/api/localParticipant.html
       Participant: /video/Web/api/participant.html
       LocalStream: /video/Web/api/localStream.html
       RemoteStream: /video/Web/api/remoteStream.html
-      MeetingCast: /video/Web/api/MeetingCast.html
+      MeetingCast: /video/Web/api/meetingCast.html
       OutgoingInvite: video/Web/api/outgoingInvite.html
       IncomingInvite: video/Web/api/incomingInvite.html 
       错误码: /video/Web/api/error-code.html
@@ -292,6 +292,44 @@ video:
       示例库: /video/Web/resources/resources.html
       实战教程: /video/Web/resources/tutorial.html
     更新日志: /video/Web/changelog.html
+
+  iOS:
+    概览: /video/iOS/index.html
+    快速入门: 
+      视频通话: /video/iOS/quickstart/ios-conversation.html
+      视频会议: /video/iOS/quickstart/ios-conference.html
+    完整指南:
+      基础概念: /video/iOS/guide/core.html
+      安装和初始化 SDK: /video/iOS/guide/install-sdk.html
+      视频通话: /video/iOS/guide/conversation.html
+      多人视频会议: /video/iOS/guide/conference.html
+    API 文档:
+      WDGVideoClient: /video/iOS/api/WDGVideoClient.html
+      WDGVideoClientDelegate: /video/iOS/api/WDGVideoClientDelegate.html
+      WDGVideoConversation: /video/iOS/api/WDGVideoConversation.html
+      WDGVideoConversationDelegate: /video/iOS/api/WDGVideoConversationDelegate.html
+      WDGVideoConference: /video/iOS/api/WDGVideoConference.html
+      WDGVideoConferenceDelegate: /video/iOS/api/WDGVideoConferenceDelegate.html
+      WDGVideoLocalParticipant: /video/iOS/api/WDGVideoLocalParticipant.html
+      WDGVideoParticipant: /video/iOS/api/WDGVideoParticipant.html
+      WDGVideoParticipantDelegate: /video/iOS/api/WDGVideoParticipantDelegate.html
+      WDGVideoIncomingInvite: /video/iOS/api/WDGVideoIncomingInvite.html
+      WDGVideoOutgoingInvite: /video/iOS/api/WDGVideoOutgoingInvite.html
+      WDGVideoStream: /video/iOS/api/WDGVideoStream.html
+      WDGVideoLocalStream: /video/iOS/api/WDGVideoLocalStream.html
+      WDGVideoRemoteStream: /video/iOS/api/WDGVideoRemoteStream.html
+      WDGVideoView: /video/iOS/api/WDGVideoView.html
+      WDGVideoMeetingCast: /video/iOS/api/WDGVideoMeetingCast.html
+      WDGVideoMeetingCastDelegate: /video/iOS/api/WDGVideoMeetingCastDelegate.html
+      WDGVideoClientOptions: /video/iOS/api/WDGVideoClientOptions.html
+      WDGVideoConnectOptions: /video/iOS/api/WDGVideoConnectOptions.html
+      WDGVideoLocalStreamOptions: /video/iOS/api/WDGVideoLocalStreamOptions.html
+      错误码: /video/iOS/api/error-code.html
+    示例代码:
+      示例库: /video/iOS/resources/resources.html
+      实战教程: /video/iOS/resources/tutorial.html
+    更新日志: /video/iOS/changelog.html
+
 
   Android:
     概览: /video/Android/index.html
@@ -335,50 +373,37 @@ video:
       实战教程: /video/Android/resources/tutorial.html
     更新日志: /video/Android/changelog.html
 
-  iOS:
-    概览: /video/iOS/index.html
-    快速入门: 
-      视频通话: /video/iOS/quickstart/ios-conversation.html
-      视频会议: /video/iOS/quickstart/ios-conference.html
-    完整指南:
-      基础概念: /video/iOS/guide/core.html
-      安装和初始化 SDK: /video/iOS/guide/install-sdk.html
-      视频通话: /video/iOS/guide/conversation.html
-      多人视频会议: /video/iOS/guide/conference.html
-    API 文档:
-      WDGVideoClient: /video/iOS/api/WDGVideoClient.html
-      WDGVideoClientDelegate: /video/iOS/api/WDGVideoClientDelegate
-      WDGVideoConversation: /video/iOS/api/WDGVideoConversation.html
-      WDGVideoConversationDelegate: /video/iOS/api/WDGVideoConversationDelegate.html
-      WDGVideoConference: /video/iOS/api/WDGVideoConference.html
-      WDGVideoConferenceDelegate: /video/iOS/api/WDGVideoConferenceDelegate.html
-      WDGVideoLocalParticipant: /video/iOS/api/WDGVideoLocalParticipant.html
-      WDGVideoParticipant: /video/iOS/api/WDGVideoParticipant.html
-      WDGVideoParticipantDelegate: /video/iOS/api/WDGVideoParticipantDelegate.html
-      WDGVideoIncomingInvite: /video/iOS/api/WDGVideoIncomingInvite.html
-      WDGVideoOutgoingInvite: /video/iOS/api/WDGVideoOutgoingInvite.html
-      WDGVideoStream: /video/iOS/api/WDGVideoStream.html
-      WDGVideoLocalStream: /video/iOS/api/WDGVideoLocalStream.html
-      WDGVideoRemoteStream: /video/iOS/api/WDGVideoRemoteStream.html
-      WDGVideoView: /video/iOS/api/WDGVideoView.html
-      WDGVideoMeetingCast: /video/iOS/api/WDGVideoMeetingCast.html
-      WDGVideoMeetingCastDelegate: /video/iOS/api/WDGVideoMeetingCastDelegate.html
-      WDGVideoClientOptions: /video/iOS/api/WDGVideoClientOptions.html
-      WDGVideoConnectOptions: /video/iOS/api/WDGVideoConnectOptions.html
-      WDGVideoLocalStreamOptions: /video/iOS/api/WDGVideoLocalStreamOptions.html
-      错误码: /video/iOS/api/error-code.html
-    示例代码:
-      示例库: /video/iOS/resources/resources.html
-      实战教程: /video/iOS/resources/tutorial.html
-    更新日志: /video/iOS/changelog.html
-
-
 im:
+  iOS:
+    概览: /im/iOS/index.html
+    快速入门: /im/iOS/quickstart.html
+    完整指南:
+      初始化: /im/iOS/guide/intialize.html
+      用户集成: /im/iOS/guide/users.html
+      消息收发: /im/iOS/guide/message.html
+      未读消息计数: /im/iOS/guide/unread.html
+      讨论组管理: /im/iOS/guide/group.html
+      离线推送: /im/iOS/guide/push.html
+    API 文档:
+      WDGIM: /im/iOS/api/WDGIM.html
+      WDGIMConversation: /im/iOS/api/WDGIMConversation.html
+      WDGIMMessage: /im/iOS/api/WDGIMMessage.html
+      WDGIMMessageGroupTip: /im/iOS/api/WDGIMMessageGroupTip.html
+      WDGIMMessageImage: /im/iOS/api/WDGIMMessageImage.html
+      WDGIMMessageText: /im/iOS/api/WDGIMMessageText.html
+      WDGIMMessageVoice: /im/iOS/api/WDGIMMessageVoice.html
+      WDGIMNotify: /im/iOS/api/WDGIMNotify.html
+      WDGIMUser: /im/iOS/api/WDGIMUser.html
+      错误码: /im/iOS/api/error-code.html
+    示例代码:
+      示例库: /im/iOS/resources.html
+    更新日志: /im/iOS/changelog.html
+
   Android:
     概览: /im/Android/index.html
     快速入门: /im/Android/quickstart.html
     完整指南:
-      初始化: /im/Android/intialize.html
+      初始化: /im/Android/guide/intialize.html
       用户集成: /im/Android/guide/users.html
       消息收发: /im/Android/guide/message.html
       未读消息计数: /im/Android/guide/unread.html
@@ -399,33 +424,8 @@ im:
       VoiceMessage: /im/Android/api/VoiceMessage.html
       错误码: /im/Android/api/error-code.html
     示例代码:
-      示例库: /im/Android/resources/resources.html
-    更新日志: /im/Android/changelog.html
-
-  iOS:
-    概览: /im/iOS/index.html
-    快速入门: /im/iOS/quickstart.html
-    完整指南:
-      初始化: /im/iOS/guide/intialize.html
-      用户集成: /im/iOS/guide/guide/users.html
-      消息收发: /im/iOS/guide/guide/message.html
-      未读消息计数: /im/iOS/guide/guide/unread.html
-      讨论组管理: /im/iOS/guide/guide/group.html
-      离线推送: /im/iOS/guide/guide/push.html
-    API 文档:
-      WDGIM: /im/iOS/api/WDGIM.html
-      WDGIMConversation: /im/iOS/api/WDGIMConversation.html
-      WDGIMMessage: /im/iOS/api/WDGIMMessage.html
-      WDGIMMessageGroupTip: /im/iOS/api/WDGIMMessageGroupTip.html
-      WDGIMMessageImage: /im/iOS/api/WDGIMMessageImage.html
-      WDGIMMessageText: /im/iOS/api/WDGIMMessageText.html
-      WDGIMMessageVoice: /im/iOS/api/WDGIMMessageVoice.html
-      WDGIMNotify: /im/iOS/api/WDGIMNotify.html
-      WDGIMUser: /im/iOS/api/WDGIMUser.html
-      错误码: /im/iOS/api/error-code.html
-    示例代码:
-      示例库: /im/iOS/resources/resources.html
-    更新日志: /im/iOS/changelog.html
+      示例库: /im/Android/resources.html
+    更新日志: /im/Android/changelog.html 
 
 sms:
   概览: /sms/index.html
@@ -462,7 +462,7 @@ auth:
       自定义身份认证: /auth/Web/guide/custom.html
       匿名身份认证: /auth/Web/guide/anonymous.html
       绑定多种登录方式: /auth/Web/guide/link.html
-    api:
+    API 文档:
       App: /auth/Web/api/App.html
       Auth: /auth/Web/api/Auth.html
       User: /auth/Web/api/User.html
@@ -475,7 +475,7 @@ auth:
       WeixinmpAuthProvider: /auth/Web/api/WeixinmpAuthProvider.html
       Credential: /auth/Web/api/Credential.html
       Promise: /auth/Web/api/Promise.html
-      Void: /auth/Web/api/Promise.html
+      Void: /auth/Web/api/Void.html
       错误码: /auth/Web/api/error-code.html
     更新日志: /auth/Web/changelog.html
 
@@ -494,7 +494,7 @@ auth:
       自定义身份认证: /auth/iOS/guide/custom.html
       匿名身份认证: /auth/iOS/guide/anonymous.html
       绑定多种登录方式: /auth/iOS/guide/link.html
-    api:
+    API 文档:
       WDGAuth: /auth/iOS/api/WDGAuth.html
       WDGAuthCredential: /auth/iOS/api/WDGAuthCredential.html
       WDGWilddogAuthProvider: /auth/iOS/api/WDGWilddogAuthProvider.html
@@ -507,7 +507,7 @@ auth:
       WDGAuthErrors: /auth/iOS/api/WDGAuthErrors.html
       错误码: /auth/iOS/api/error-code.html
     示例代码:
-      示例库: /auth/iOS/resources/resources.html
+      示例库: /auth/iOS/resources.html
     更新日志: /auth/iOS/changelog.html
 
   Android: 
@@ -520,12 +520,11 @@ auth:
       邮箱登录: /auth/Android/guide/password.html
       QQ 登录: /auth/Android/guide/qq.html
       微信登录: /auth/Android/guide/weixin.html
-      微信公众号登录: /Android/Android/guide/weixin.html
       微博登录: /auth/Android/guide/weibo.html
       自定义身份认证: /auth/Android/guide/custom.html
       匿名身份认证: /auth/Android/guide/anonymous.html
       绑定多种登录方式: /auth/Android/guide/link.html
-    api:
+    API 文档:
       WilddogAuth: /auth/Android/api/WilddogAuth.html
       WilddogAuth.AuthStateListener: /auth/Android/api/WilddogAuth.AuthStateListener.html
       UserInfo: /auth/Android/api/UserInfo.html
@@ -547,40 +546,40 @@ auth:
       UserProfileChangeRequest: /auth/Android/api/UserProfileChangeRequest.html
       错误码: /auth/Android/api/error-code.html
     示例代码:
-      示例库: /auth/Android/resources/resources.html
+      示例库: /auth/Android/resources.html
     更新日志: /auth/Android/changelog.html
 
-  WeChat: 
-    概览: /auth/WeChat/index.html
-    快速入门: /auth/WeChat/quickstart.html
+  微信小程序: 
+    概览: /auth/微信小程序/index.html
+    快速入门: /auth/微信小程序/quickstart.html
     完整指南:
-      基础概念: /auth/WeChat/guide/concept.html
-      用户管理: /auth/WeChat/guide/manageuser.html
-      手机登录: /auth/WeChat/guide/phone.html
-      邮箱登录: /auth/WeChat/guide/password.html
-      QQ 登录: /auth/WeChat/guide/qq.html
-      微信登录: /auth/WeChat/guide/weixin.html
-      微信公众号登录: /auth/WeChat/guide/weixin.html
-      微博登录: /auth/WeChat/guide/weibo.html
-      自定义身份认证: /auth/WeChat/guide/custom.html
-      匿名身份认证: /auth/WeChat/guide/anonymous.html
-      绑定多种登录方式: /auth/WeChat/guide/link.html
-    api:
-      App: /auth/WeChat/api/App.html
-      Auth: /auth/WeChat/api/Auth.html
-      User: /auth/WeChat/api/User.html
-      UserInfo: /auth/WeChat/api/UserInfo.html
-      Provider: /auth/WeChat/api/Provider.html
-      WilddogAuthProvider: /auth/WeChat/api/WilddogAuthProvider.html
-      WeiboAuthProvider: /auth/WeChat/api/WeiboAuthProvider.html
-      QQAuthProvider: /auth/WeChat/api/QQAuthProvider.html
-      WeixinAuthProvider: /auth/WeChat/api/WeixinAuthProvider.html
-      WeixinmpAuthProvider: /auth/WeChat/api/WeixinmpAuthProvider.html
-      Credential: /auth/WeChat/api/Credential.html
-      Promise: /auth/WeChat/api/Promise.html
-      Void: /auth/WeChat/api/Promise.html
-      错误码: /auth/WeChat/api/error-code.html
-    更新日志: /auth/WeChat/changelog.html
+      基础概念: /auth/微信小程序/guide/concept.html
+      用户管理: /auth/微信小程序/guide/manageuser.html
+      手机登录: /auth/微信小程序/guide/phone.html
+      邮箱登录: /auth/微信小程序/guide/password.html
+      QQ 登录: /auth/微信小程序/guide/qq.html
+      微信登录: /auth/微信小程序/guide/weixin.html
+      微信公众号登录: /auth/微信小程序/guide/weixinpublic.html
+      微博登录: /auth/微信小程序/guide/weibo.html
+      自定义身份认证: /auth/微信小程序/guide/custom.html
+      匿名身份认证: /auth/微信小程序/guide/anonymous.html
+      绑定多种登录方式: /auth/微信小程序/guide/link.html
+    API 文档:
+      App: /auth/微信小程序/api/App.html
+      Auth: /auth/微信小程序/api/Auth.html
+      User: /auth/微信小程序/api/User.html
+      UserInfo: /auth/微信小程序/api/UserInfo.html
+      Provider: /auth/微信小程序/api/Provider.html
+      WilddogAuthProvider: /auth/微信小程序/api/WilddogAuthProvider.html
+      WeiboAuthProvider: /auth/微信小程序/api/WeiboAuthProvider.html
+      QQAuthProvider: /auth/微信小程序/api/QQAuthProvider.html
+      WeixinAuthProvider: /auth/微信小程序/api/WeixinAuthProvider.html
+      WeixinmpAuthProvider: /auth/微信小程序/api/WeixinmpAuthProvider.html
+      Credential: /auth/微信小程序/api/Credential.html
+      Promise: /auth/微信小程序/api/Promise.html
+      Void: /auth/微信小程序/api/Void.html
+      错误码: /auth/微信小程序/api/error-code.html
+    更新日志: /auth/微信小程序/changelog.html
 
   Egret: 
     概览: /auth/Egret/index.html
@@ -592,12 +591,12 @@ auth:
       邮箱登录: /auth/Egret/guide/password.html
       QQ 登录: /auth/Egret/guide/qq.html
       微信登录: /auth/Egret/guide/weixin.html
-      微信公众号登录: /auth/Egret/guide/weixin.html
+      微信公众号登录: /auth/Egret/guide/weixinpublic.html
       微博登录: /auth/Egret/guide/weibo.html
       自定义身份认证: /auth/Egret/guide/custom.html
       匿名身份认证: /auth/Egret/guide/anonymous.html
       绑定多种登录方式: /auth/Egret/guide/link.html
-    api:
+    API 文档:
       App: /auth/Egret/api/App.html
       Auth: /auth/Egret/api/Auth.html
       User: /auth/Egret/api/User.html
@@ -610,11 +609,11 @@ auth:
       WeixinmpAuthProvider: /auth/Egret/api/WeixinmpAuthProvider.html
       Credential: /auth/Egret/api/Credential.html
       Promise: /auth/Egret/api/Promise.html
-      Void: /auth/Egret/api/Promise.html
+      Void: /auth/Egret/api/Void.html
       错误码: /auth/Egret/api/error-code.html
     更新日志: /auth/Egret/changelog.html
 
-  Server SDK:
+  Server:
     简介: /auth/Server/introduction.html
     使用 Server SDK 进行认证: /auth/Server/server.html
 

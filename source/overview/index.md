@@ -1,5 +1,5 @@
 
-title:  简介
+title:  野狗简介
 ---
 <h2 id='野狗是什么' class="article-heading top-heading">野狗是什么</h2>
 
