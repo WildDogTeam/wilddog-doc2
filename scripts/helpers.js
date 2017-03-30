@@ -53,7 +53,8 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
     var self = this;
     var prefix = 'sidebar.' + type + '.';
     var listStart = '';
-    //短信和overview 因为sidebar-title部分是下一级,必须显示出来 
+
+    //短信和overview 因为sidebar-title部分是下一级,必须显示出来,最外层ul加一个类名
     var Flag = type == 'sms' || type == 'overview' ||  type == 'console'
     if (Flag) {
         var result = '<ul class=\'sidebar-nav show-title\'>';
@@ -66,7 +67,6 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
             if (title == path.split('/')[2]) {
                 listStart = listStart.replace('sidebar-nav-item', 'sidebar-nav-item sidebar-nav-item-show');
             }
-
             _.each(menu, function(link, text) {
                 var itemClass = className + '-link';
                 if (link === path) {
@@ -77,7 +77,6 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
                     //当前小标题加上；类名
                     itemClass += ' current';
                 }
-
                 if (typeof link === 'object') {
                     var thirList = '<ul class=\'sublist\'>';
                     var thirListStart = '<li class=\'sublist-item\'><strong class="' + className + '-title">' + text + '</strong>';
@@ -90,6 +89,8 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
                             thirList = thirList.replace('sublist', 'sublist current');
                             currentClass += ' current';
                         }
+                        
+
                         thirList += '<li class=\'sublist-item\'><a href="' + url + '" class="' + currentClass + '" title= ' + content + '><span class="sidebar-link-text">' + (content) + '</span>' + (content === '微信小程序' ? '<img src="/images/new.svg" class="icon-new" width="34" height="15">' : (content === '即时通讯' ? '<img src="/images/preview.svg" class="icon-preview" width="34" height="8">' : (content === '短信' ? '' : ''))) + '</a><\/li>';
                     })
                     thirList += '<\/ul>';
@@ -109,6 +110,7 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
         listStart = '';
     });
     result += '<\/ul>'
+
     if (type !== 'overview' && type !== 'console') {
         result += '<div class=\'console\'><a href=\'/console/creat.html\' class=\'console-link\'>控制面板指南</a></div>'
     }
