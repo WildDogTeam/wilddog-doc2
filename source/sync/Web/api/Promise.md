@@ -42,4 +42,4 @@ title: Promise
 
 ##### 返回值
 
-[Void](/api/sync/web/Void.html)
+[Void](Void.html)

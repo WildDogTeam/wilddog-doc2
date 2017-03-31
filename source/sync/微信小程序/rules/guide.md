@@ -132,7 +132,7 @@ auth 代表已经登录的用户对象，auth.uid 是通过 Wilddog Auth 验证�
 | $variables | 节点的名称变量，代表动态路径的通配符。                      |
 | auth       | `Auth`类型对象，代表已经登录用户对象。                   |
 
-还有许多内置函数和运算符，可以查看 [规则表达式API 文档](/api/sync/rule.html)
+还有许多内置函数和运算符，可以查看 [规则表达式API 文档](/sync/微信小程序/rules/ruleapi.html)
 
 **data与 newData**
 
@@ -229,7 +229,7 @@ auth 代表已经登录的用户对象，auth.uid 是通过 Wilddog Auth 验证�
 }
 ```
 
-内置变量自带了很多判断函数，例如 isString(), lenght()等。更多的判断函数可以参考 [规则表达式API 文档](/api/sync/rule.html)
+内置变量自带了很多判断函数，例如 isString(), lenght()等。更多的判断函数可以参考 [规则表达式API 文档](/sync/微信小程序/rules/ruleapi.html)
 
 **.validate规则不会向下级联。如果在一次操作中，任何一个子节点的.validate规则失败，整个写操作都将失败。当数据被删除（也就是值为null）时，.validate表达式被忽略。**
 
@@ -241,7 +241,7 @@ auth 代表已经登录的用户对象，auth.uid 是通过 Wilddog Auth 验证�
 
 1. ".validate": "newData.isString() &&  newData.val().matches(/^(19|20)[0-9][0-9][-\\/. ](0[1-9]|1[012])[-\\/. ](0[1-9]|[12][0-9]|3[01])$/)"
 
-Wilddog只支持一部分正则表达式的功能，已经能够满足绝大部分的需求，关于正则表达式校验的更多内容请看[正则表达式校验](/api/sync/rule.html#matches)。
+Wilddog只支持一部分正则表达式的功能，已经能够满足绝大部分的需求，关于正则表达式校验的更多内容请看[正则表达式校验](/sync/微信小程序/rules/ruleapi.html#matches)。
 
 
 
