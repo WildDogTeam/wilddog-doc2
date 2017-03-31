@@ -9,7 +9,7 @@ EmailAuthProvider 是邮箱密码登录方式信息
 
 **定义**
 
-继承自 [Provider](/api/auth/web/Provider.html)
+继承自 [Provider](/auth/Web/api/Provider.html)
 
 </br>
 
@@ -48,7 +48,7 @@ credential(email, password)
 
 **返回值**
 
-[wilddog.auth.Credential](/api/auth/web/Credential.html)
+[wilddog.auth.Credential](/auth/Web/api/Credential.html)
 
 </br>
 

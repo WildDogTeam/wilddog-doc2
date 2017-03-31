@@ -76,7 +76,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
 });
 ```
 
-更多登录绑定方式，请参考 [API 文档](/api/auth/web/User.html#link)。
+更多登录绑定方式，请参考 [API 文档](/auth/Egret/api/User.html#link)。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>

@@ -43,7 +43,7 @@ auth()
 
 **返回值**
 
-[wilddog.Auth](/api/auth/web/Auth.html)
+[wilddog.Auth](/auth/Web/api/Auth.html)
 
 </br>
 
@@ -63,4 +63,4 @@ sync()
 
  **返回值**
 
-[wilddog.Sync](/api/sync/web/api.html#wilddog-Sync)
+[wilddog.Sync](/sync/Web/api/App.html)

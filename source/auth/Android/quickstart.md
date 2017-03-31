@@ -111,4 +111,4 @@ wildoogAuth.signInWithEmailAndPassword("123456789@qq.com","45678901").addOnCompl
 wilddogAuth.signOut();
 ```
 
-Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/android/AuthCredential.html)。
+Auth 更多使用方式，请参考 [完整指南](/auth/Android/guide/concept.html) 和  [API 文档](/auth/Android/api/WilddogAuth.html)。

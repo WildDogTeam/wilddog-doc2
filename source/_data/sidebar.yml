@@ -559,37 +559,37 @@ auth:
       示例库: /auth/Android/resources.html
     更新日志: /auth/Android/changelog.html
 
-  微信小程序: 
-    概览: /auth/微信小程序/index.html
-    快速入门: /auth/微信小程序/quickstart.html
-    完整指南:
-      基础概念: /auth/微信小程序/guide/concept.html
-      用户管理: /auth/微信小程序/guide/manageuser.html
-      手机登录: /auth/微信小程序/guide/phone.html
-      邮箱登录: /auth/微信小程序/guide/password.html
-      QQ 登录: /auth/微信小程序/guide/qq.html
-      微信登录: /auth/微信小程序/guide/weixin.html
-      微信公众号登录: /auth/微信小程序/guide/weixinpublic.html
-      微博登录: /auth/微信小程序/guide/weibo.html
-      自定义身份认证: /auth/微信小程序/guide/custom.html
-      匿名身份认证: /auth/微信小程序/guide/anonymous.html
-      绑定多种登录方式: /auth/微信小程序/guide/link.html
-    API 文档:
-      App: /auth/微信小程序/api/App.html
-      Auth: /auth/微信小程序/api/Auth.html
-      User: /auth/微信小程序/api/User.html
-      UserInfo: /auth/微信小程序/api/UserInfo.html
-      Provider: /auth/微信小程序/api/Provider.html
-      WilddogAuthProvider: /auth/微信小程序/api/WilddogAuthProvider.html
-      WeiboAuthProvider: /auth/微信小程序/api/WeiboAuthProvider.html
-      QQAuthProvider: /auth/微信小程序/api/QQAuthProvider.html
-      WeixinAuthProvider: /auth/微信小程序/api/WeixinAuthProvider.html
-      WeixinmpAuthProvider: /auth/微信小程序/api/WeixinmpAuthProvider.html
-      Credential: /auth/微信小程序/api/Credential.html
-      Promise: /auth/微信小程序/api/Promise.html
-      Void: /auth/微信小程序/api/Void.html
-      错误码: /auth/微信小程序/api/error-code.html
-    更新日志: /auth/微信小程序/changelog.html
+  #微信小程序: 
+    #概览: /auth/微信小程序/index.html
+    #快速入门: /auth/微信小程序/quickstart.html
+    #完整指南:
+      #基础概念: /auth/微信小程序/guide/concept.html
+      #用户管理: /auth/微信小程序/guide/manageuser.html
+      #手机登录: /auth/微信小程序/guide/phone.html
+      #邮箱登录: /auth/微信小程序/guide/password.html
+      #QQ 登录: /auth/微信小程序/guide/qq.html
+      #微信登录: /auth/微信小程序/guide/weixin.html
+      #微信公众号登录: /auth/微信小程序/guide/weixinpublic.html
+      #微博登录: /auth/微信小程序/guide/weibo.html
+      #自定义身份认证: /auth/微信小程序/guide/custom.html
+      #匿名身份认证: /auth/微信小程序/guide/anonymous.html
+      #绑定多种登录方式: /auth/微信小程序/guide/link.html
+    #API 文档:
+      #App: /auth/微信小程序/api/App.html
+      #Auth: /auth/微信小程序/api/Auth.html
+      #User: /auth/微信小程序/api/User.html
+      #UserInfo: /auth/微信小程序/api/UserInfo.html
+      #Provider: /auth/微信小程序/api/Provider.html
+      #WilddogAuthProvider: /auth/微信小程序/api/WilddogAuthProvider.html
+      #WeiboAuthProvider: /auth/微信小程序/api/WeiboAuthProvider.html
+      #QQAuthProvider: /auth/微信小程序/api/QQAuthProvider.html
+      #WeixinAuthProvider: /auth/微信小程序/api/WeixinAuthProvider.html
+      #WeixinmpAuthProvider: /auth/微信小程序/api/WeixinmpAuthProvider.html
+      #Credential: /auth/微信小程序/api/Credential.html
+      #Promise: /auth/微信小程序/api/Promise.html
+      #Void: /auth/微信小程序/api/Void.html
+      #错误码: /auth/微信小程序/api/error-code.html
+    #更新日志: /auth/微信小程序/changelog.html
 
   Egret: 
     概览: /auth/Egret/index.html

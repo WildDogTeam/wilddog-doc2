@@ -106,7 +106,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
 });
 ```
 
-更多认证绑定方式，请参考 [API 文档](/api/auth/web/User.html#link)。
+更多认证绑定方式，请参考 [API 文档](/auth/Egret/api/User.html#link)。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -130,7 +130,7 @@ wilddog.auth().currentUser.linkWithPopup(provider).then(function (result) {
 
 ## 更多使用
 
-- 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/web/manageuser.html)。
+- 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [用户管理](/auth/Egret/guide/manageuser.html)。
 
 
-- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用匿名登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/sync/Egret/index.html) 无缝集成：使用匿名登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/auth/Egret/guide/concept.html)。Wilddog ID 结合 [规则表达式](/sync/Egret/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。

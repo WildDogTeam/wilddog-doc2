@@ -132,7 +132,7 @@ non-null Array of wilddog.UserInfo
 
 **返回值**
 
-[wilddog.UserInfo](/api/auth/web/UserInfo.html)
+[wilddog.UserInfo](/auth/Web/api/UserInfo.html)
 
 </br>
 
@@ -203,11 +203,11 @@ link(credential)
 
 | 参数名       | 描述          |
 | ---------- | ----------- |
-| credential | [wilddog.auth.Credential](/api/auth/web/Credential.html)特定登录方式的认证凭据 |
+| credential | [wilddog.auth.Credential](/auth/Web/api/Credential.html)特定登录方式的认证凭据 |
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[wilddog.User](/auth/Web/api/User.html)>
 
 **参考**
 
@@ -233,7 +233,7 @@ linkWithPopup(provider)
 
 | 参数名      | 描述                                       |
 | -------- | ---------------------------------------- |
-| provider | [wilddog.auth.Provider](/api/auth/web/Provider.html) 类型，特定登录方式的实例 |
+| provider | [wilddog.auth.Provider](/auth/Web/api/Provider.html) 类型，特定登录方式的实例 |
 
 
 **说明**
@@ -242,7 +242,7 @@ linkWithPopup(provider)
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[wilddog.User](/auth/Web/api/User.html)>
 
 **示例**
 
@@ -284,11 +284,11 @@ linkWithRedirect(provider)
 
 | 参数名      | 描述                                       |
 | -------- | ---------------------------------------- |
-| provider | [wilddog.auth.Provider](/api/auth/web/Provider.html)类型，特定登录方式的实例 |
+| provider | [wilddog.auth.Provider](/auth/Web/api/Provider.html)类型，特定登录方式的实例 |
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[wilddog.User](/auth/Web/api/User.html)>
 
 **示例**
 
@@ -336,7 +336,7 @@ unlink(providerId)
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[Void](/auth/Web/api/Void.html)>
 
 **示例**：
 
@@ -371,7 +371,7 @@ delete()
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[Void](/auth/Web/api/Void.html)>
 
 </br>
 
@@ -398,7 +398,7 @@ updateProfile(profile)
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[wilddog.User](/auth/Web/api/User.html)>
 
 **示例**
 
@@ -437,7 +437,7 @@ updateEmail(email)
 
  **说明**
 
-修改当前用户的邮箱，修改成功之后会触发 [onAuthStateChanged](/api/auth/web/Auth.html#onAuthStateChanged)
+修改当前用户的邮箱，修改成功之后会触发 [onAuthStateChanged](/auth/Web/api/Auth.html#onAuthStateChanged)
 
 **参数**
 
@@ -447,7 +447,7 @@ updateEmail(email)
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[wilddog.User](/auth/Web/api/User.html)>
 
 
 **参考**
@@ -471,7 +471,7 @@ updatePhone(phone)
 
  **说明**
 
-修改当前用户的手机号，修改成功之后会触发 [onAuthStateChanged](/api/auth/web/Auth.html#onAuthStateChanged)
+修改当前用户的手机号，修改成功之后会触发 [onAuthStateChanged](/auth/Web/api/Auth.html#onAuthStateChanged)
 
 **参数**
 
@@ -506,7 +506,7 @@ updatePassword(password)
 
 **说明**
 
-修改当前用户的密码，修改成功之后会触发 [onAuthStateChanged](/api/auth/web/Auth.html#onAuthStateChanged)
+修改当前用户的密码，修改成功之后会触发 [onAuthStateChanged](/auth/Web/api/Auth.html#onAuthStateChanged)
 
 **参数**
 
@@ -537,18 +537,18 @@ reauthenticate(credential)
 
 **说明**
 
-使用 [wilddog.auth.Credential](/api/auth/web.html#wilddog-auth-Credential) 为用户重新认证，某些敏感操作（比如更新用户密码）对用户认证时间有较为严格的要求，这个时候你可以调用这个方法来刷新用户的认证信息。
+使用 [wilddog.auth.Credential](/auth/Web/api/Credential.html) 为用户重新认证，某些敏感操作（比如更新用户密码）对用户认证时间有较为严格的要求，这个时候你可以调用这个方法来刷新用户的认证信息。
 
 **参数**
 
 | 参数名        | 描述                                       |
 | ---------- | ---------------------------------------- |
-| credential | [wilddog.auth.Credential](/api/auth/web.html#wilddog-auth-Credential) 类型，特定登录方式的认证凭据 |
+| credential | [wilddog.auth.Credential](/auth/Web/api/Credential.html) 类型，特定登录方式的认证凭据 |
 
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[Void](/auth/Web/api/Void.html)>
 
 **示例**
 

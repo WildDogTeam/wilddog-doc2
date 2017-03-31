@@ -15,7 +15,7 @@ wilddog.Auth 对象负责用户认证及密码找回等功能，它不能直接�
 ```
 **返回值**
 
-[wilddog.User](/api/auth/web/User.html)
+[wilddog.User](/auth/Web/api/User.html)
 
 **说明**
 
@@ -51,7 +51,7 @@ onAuthStateChanged(callback)
 
 | 参数名      | 描述                                       |
 | -------- | ---------------------------------------- |
-| callback | 定义为function([user](/api/auth/web/User.html))，auth 状态变为登录状态时传回 user 对象，auth 状态变为登出时返回值为 null。 |
+| callback | 定义为function([user](/auth/Web/api/User.html))，auth 状态变为登录状态时传回 user 对象，auth 状态变为登出时返回值为 null。 |
 
 
 **示例**
@@ -91,7 +91,7 @@ createUserWithEmailAndPassword(email, password)
 
 **返回值**
 
-[wilddog.User](/api/auth/web/User.html) 对象
+[wilddog.User](/auth/Web/api/User.html) 对象
 
 **参考**
 
@@ -101,7 +101,7 @@ createUserWithEmailAndPassword(email, password)
 - email_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -138,7 +138,7 @@ createUserWithPhoneAndPassword(phone, password)
 - phone_already_in_use 表示手机号已经被注册。
 - authentication_disabled 表示手机号登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -193,7 +193,7 @@ wilddog.auth().signInWithEmailAndPassword(email, password)
 - email_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 <br/>
 
@@ -225,7 +225,7 @@ wilddog.auth().signInWithPhoneAndPassword(phone, password)
 - phone_already_in_use 表示手机已经被注册。
 - authentication_disabled 表示手机登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 <br/>
 
@@ -269,7 +269,7 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
 可能发生的错误：
 
 -  authentication_disabled 表示 Oauth 登录方式没有打开，可以在野狗的控制面板中打开这个选项。
--  [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+-  参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 
 
@@ -311,7 +311,7 @@ wilddog.auth().signInWithRedirect(weiboProvider).then(function () {
 可能发生的错误：
 
 -  authentication_disabled 表示 Oauth 登录方式没有打开，可以在野狗的控制面板中打开这个选项。
--  [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+-  参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -357,7 +357,7 @@ wilddog.auth().signInWithCustomToken(token).then(function () {
 可能发生的错误：
 
 - invalid_token  无效的 custom token。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -378,7 +378,7 @@ signInWithCredential(credential)
 
 | 参数名        | 描述                                       |
 | ---------- | ---------------------------------------- |
-| credential | [wilddog.auth.Credential](/api/auth/web/Credential.html) 第三方提供的凭证。 |
+| credential | [wilddog.auth.Credential](/auth/Web/api/Credential.html) 第三方提供的凭证。 |
 
 **示例**
 
@@ -399,7 +399,7 @@ wilddog.auth().signInWithCredential(credential).then(function(user){
 - authentication_disabled 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
 - invalid_email 表示邮箱错误。
 - invalid_password 表示密码错误。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -427,7 +427,7 @@ sendPasswordResetEmail(email)
 
 可能发生的错误：
 - invalid_email 表示邮箱错误。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -455,7 +455,7 @@ sendPasswordResetSms(phone)
 
 可能发生的错误：
 - invalid_phone 表示手机号错误。
-- [See Errors API](/api/auth/web/error-code.html) 调用可能发生的所有错误。
+- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -475,7 +475,7 @@ signOut()
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[Void](/auth/Web/api/Void.html)>
 
 </br>
 
@@ -505,4 +505,4 @@ confirmPasswordResetSms(phone, code, newPassword)
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+[wilddog.Promise](/auth/Web/api/Promise.html).<[Void](/auth/Web/api/Void.html)>
