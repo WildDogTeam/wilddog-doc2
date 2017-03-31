@@ -19,8 +19,8 @@ void onComplete(SyncError error, SyncReference ref)
 
 参数名 | 说明
 --- | ---
-error | [SyncError](/api/sync/android/SyncError.html) 错误详细描述。
-ref | [SyncReference](/api/sync/android/SyncReference.html) 当前操作的节点引用。
+error | [SyncError](/sync/Android/api/SyncError.html) 错误详细描述。
+ref | [SyncReference](/sync/Android/api/SyncReference.html) 当前操作的节点引用。
 </br>
 
 
