@@ -1,4 +1,3 @@
-<<<<<<< HEAD:source/video/Android/api/participant-listener.md
 title: Conversation.Listener
 ---
 
@@ -22,7 +21,7 @@ void onStreamAdded(RemoteStream remoteStream)
 
 | 参数名 | 描述 |
 |---|---|
-|remoteStream|[RemoteStream](/api/video/android/remote-stream.html),远端参与者发送的媒体流。|
+|remoteStream|[RemoteStream](/video/Android/api/remote-stream.html),远端参与者发送的媒体流。|
 
 </br>
 
@@ -44,8 +43,8 @@ void onConnectFailed(Participant participant,VideoException exception)
 
 | 参数名 | 描述 |
 |---|---|
-|participant|[Participant](/api/video/android/participant.html)连接失败的远端参与者对象|
-|exception|[VideoException](/api/video/android/video-exception.html),连接失败错误信息|
+|participant|[Participant](/video/Android/api/participant.html)连接失败的远端参与者对象|
+|exception|[VideoException](/video/Android/api/video-exception.html),连接失败错误信息|
 
 </br>
 
@@ -68,8 +67,8 @@ void onDisconnected(Participant participant,VideoException exception)
 
 | 参数名 | 描述 |
 |---|---|
-|participant|[Participant](/api/video/android/participant.html)断开连接的远端参与者对象|
-|exception|[VideoException](/api/video/android/video-exception.html),连接断开错误信息|
+|participant|[Participant](/video/Android/api/participant.html)断开连接的远端参与者对象|
+|exception|[VideoException](/video/Android/api/video-exception.html),连接断开错误信息|
 
 </br>
 
@@ -99,7 +98,7 @@ void onStreamAdded(RemoteStream remoteStream)
 
 | 参数名 | 描述 |
 |---|---|
-|remoteStream|[RemoteStream](/api/video/android/remote-stream.html),远端参与者发送的媒体流。|
+|remoteStream|[RemoteStream](/video/Android/api/remote-stream.html),远端参与者发送的媒体流。|
 
 </br>
 
@@ -121,8 +120,8 @@ void onConnectFailed(Participant participant,VideoException exception)
 
 | 参数名 | 描述 |
 |---|---|
-|participant|[Participant](/api/video/android/participant.html)连接失败的远端参与者对象|
-|exception|[VideoException](/api/video/android/video-exception.html),连接失败错误信息|
+|participant|[Participant](/video/Android/api/participant.html)连接失败的远端参与者对象|
+|exception|[VideoException](video/Android/api/video-exception.html),连接失败错误信息|
 
 </br>
 
@@ -145,11 +144,9 @@ void onDisconnected(Participant participant,VideoException exception)
 
 | 参数名 | 描述 |
 |---|---|
-|participant|[Participant](/api/video/android/participant.html)断开连接的远端参与者对象|
-|exception|[VideoException](/api/video/android/video-exception.html),连接断开错误信息|
+|participant|[Participant](/video/Android/api/participant.html)断开连接的远端参与者对象|
+|exception|[VideoException](video/Android/api/video-exception.html),连接断开错误信息|
 
 </br>
 
 
-
->>>>>>> 81f7501ff8cbdf1b4decc8787a2efb2fdb226b57:source/api/video/android/participant-listener.md

@@ -295,8 +295,8 @@ video:
       LocalStream: /video/Web/api/localStream.html
       RemoteStream: /video/Web/api/remoteStream.html
       MeetingCast: /video/Web/api/meetingCast.html
-      OutgoingInvite: video/Web/api/outgoingInvite.html
-      IncomingInvite: video/Web/api/incomingInvite.html 
+      OutgoingInvite: /video/Web/api/outgoingInvite.html
+      IncomingInvite: /video/Web/api/incomingInvite.html 
       错误码: /video/Web/api/error-code.html
     示例代码:
       示例库: /video/Web/resources/resources.html

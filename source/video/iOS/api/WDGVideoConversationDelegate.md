@@ -1,7 +1,7 @@
 title: WDGVideoConversationDelegate
 ---
 
-[WDGVideoConversation](../Classes/WDGVideoConversation.html) 的代理方法。
+[WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 的代理方法。
 
 ## 方法
 
@@ -15,13 +15,13 @@ title: WDGVideoConversationDelegate
 
 **说明**
 
-[WDGVideoConversation](../Classes/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话已建立连接。
+[WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话已建立连接。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-conversation|调用该方法的 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例。
+conversation|调用该方法的 [WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 实例。
 
 </br>
 
@@ -37,13 +37,13 @@ conversation|调用该方法的 [WDGVideoConversation](../Classes/WDGVideoConver
 
 **说明**
 
-[WDGVideoConversation](../Classes/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话未能建立连接。
+[WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话未能建立连接。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-conversation|调用该方法的 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例。
+conversation|调用该方法的 [WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 实例。
 error|错误信息，描述未能建立连接的原因。
 
 </br>
@@ -60,13 +60,13 @@ error|错误信息，描述未能建立连接的原因。
 
 **说明**
 
-[WDGVideoConversation](../Classes/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话已断开连接。
+[WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话已断开连接。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-conversation|调用该方法的 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例。
+conversation|调用该方法的 [WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 实例。
 error|错误信息，描述连接断开的原因。本地主动断开连接时为 nil。
 
 </br>
@@ -83,14 +83,14 @@ error|错误信息，描述连接断开的原因。本地主动断开连接时�
 
 **说明**
 
-[WDGVideoConversation](../Classes/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话有新的参与者加入。
+[WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话有新的参与者加入。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-conversation|调用该方法的 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例。
-participant|代表新的参与者的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例。
+conversation|调用该方法的 [WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 实例。
+participant|代表新的参与者的 [WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 实例。
 
 </br>
 
@@ -106,11 +106,11 @@ participant|代表新的参与者的 [WDGVideoParticipant](../Classes/WDGVideoPa
 
 **说明**
 
-[WDGVideoConversation](../Classes/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话某个参与者断开了连接。
+[WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 通过调用该方法通知代理当前视频通话某个参与者断开了连接。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-conversation|调用该方法的 [WDGVideoConversation](../Classes/WDGVideoConversation.html) 实例。
-participant|代表已断开连接的参与者的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例。
+conversation|调用该方法的 [WDGVideoConversation](/video/iOS/api/WDGVideoConversation.html) 实例。
+participant|代表已断开连接的参与者的 [WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 实例。

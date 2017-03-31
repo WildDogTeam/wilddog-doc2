@@ -1,7 +1,7 @@
 title: WDGVideoLocalStream
 ---
 
-`WDGVideoLocalStream` 继承自 [WDGVideoStream](../Classes/WDGVideoStream.html) ，具有 [WDGVideoStream](../Classes/WDGVideoStream.html) 所有的方法。
+`WDGVideoLocalStream` 继承自 [WDGVideoStream](/video/iOS/api/WDGVideoStream.html) ，具有 [WDGVideoStream](/video/iOS/api/WDGVideoStream.html) 所有的方法。
 
 ## 方法
 
@@ -21,7 +21,7 @@ title: WDGVideoLocalStream
 
  参数名 | 说明 
 ---|---
-options|[WDGVideoLocalStreamOptions](../Classes/WDGVideoLocalStreamOptions.html) 实例。
+options|[WDGVideoLocalStreamOptions](/video/iOS/api/WDGVideoLocalStreamOptions.html) 实例。
 
 **返回值**
 

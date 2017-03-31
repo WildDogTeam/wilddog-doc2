@@ -34,7 +34,7 @@ public LocalParticipant getLocalParticipant()
 
 **说明**
 
-获取当前视频会议中的 '[LocalParticipant](/api/video/android/local-participant.html)' 对象，代表本地参与者。
+获取当前视频会议中的 '[LocalParticipant](/video/Android/api/local-participant.html)' 对象，代表本地参与者。
 
 
 **返回值**
@@ -53,7 +53,7 @@ public Set<Participant> getParticipants()
 
 **说明**
 
-获取当前视频会议中的 '[Participant](/api/video/android/participant.html)' 对象,代表所有远端参与者。
+获取当前视频会议中的 '[Participant](/video/Android/api/participant.html)' 对象,代表所有远端参与者。
 
 
 **返回值**
@@ -77,7 +77,7 @@ public ConnectStatus getStatus()
 
 **返回值**
 
-当前视频会议状态[ConnectStatus](/api/video/android/connect-status.html)。
+当前视频会议状态[ConnectStatus](/video/Android/api/connect-status.html)。
 
 ---
 
@@ -99,7 +99,7 @@ public MeetingCast getMeetingCast(MeetingCastStateListener listener)
 
 | 参数名 | 描述 |
 |---|---|
-|listener|视频会议监听[MeetingCastStateListener](/api/video/android/meeting-cast-listener.html),参与者连接成功后会触发 onParticipantConnected 事件|
+|listener|视频会议监听[MeetingCastStateListener](/video/Android/api/meeting-cast-listener.html),参与者连接成功后会触发 onParticipantConnected 事件|
 
 
 **示例**

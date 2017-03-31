@@ -31,7 +31,7 @@ title: WDGVideoConnectOptions
 
 **说明**
 
-可选，自定义字符串。发起视频通话时，被邀请者将在 [WDGVideoIncomingInvite](../Classes/WDGVideoIncomingInvite.html) 对象中得到该数据。连接会议时，该数据发往后端服务器。
+可选，自定义字符串。发起视频通话时，被邀请者将在 [WDGVideoIncomingInvite](/video/iOS/api/WDGVideoIncomingInvite.html) 对象中得到该数据。连接会议时，该数据发往后端服务器。
 
 </br>
 
@@ -55,7 +55,7 @@ title: WDGVideoConnectOptions
 
  参数名 | 说明 
 ---|---
-localStream|[WDGVideoLocalStream](../Classes/WDGVideoLocalStream.html) 类型的本地媒体流对象。
+localStream|[WDGVideoLocalStream](/video/iOS/api/WDGVideoLocalStream.html) 类型的本地媒体流对象。
 
 **返回值**
 

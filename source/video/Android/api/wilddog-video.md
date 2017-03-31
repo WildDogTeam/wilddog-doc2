@@ -51,7 +51,7 @@ static WilddogVideo getInstance()
 
 **返回值**
 
-[WilddogVideo](/api/video/android/wilddog-video.html)
+[WilddogVideo](/video/Android/api/wilddog-video.html)
 
 **示例**
 
@@ -77,7 +77,7 @@ WilddogVideoClient getClient()
 
 **返回值**
 
-[WilddogVideoClient](/api/video/android/wilddog-video-client.html)
+[WilddogVideoClient](/video/Android/api/wilddog-video-client.html)
 
 **示例**
 
@@ -110,7 +110,7 @@ public LocalStream createLocalStream(LocalStreamOptions options, CompleteListene
 
 **返回值**
 
-[LocalStream](/api/video/android/local-stream.html)
+[LocalStream](/video/Android/api/local-stream.html)
 
 **示例**
 

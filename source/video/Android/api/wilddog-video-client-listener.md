@@ -21,8 +21,8 @@ void onIncomingInvite(WilddogVideoClient client, IncomingInvite incomingInvite)
 
 | 参数名 | 描述 |
 |---|---|
-|client|[WilddogVideoClient](/api/video/android/wilddog-video-client.html) 对象|
-|incomingInvite|等待接受的[IncomingInvite](/api/video/android/incoming-invite.html)视频通话邀请对象|
+|client|[WilddogVideoClient](/video/Android/api/wilddog-video-client.html) 对象|
+|incomingInvite|等待接受的[IncomingInvite](/video/Android/api/incoming-invite.html)视频通话邀请对象|
 
 </br>
 
@@ -44,5 +44,5 @@ void onIncomingInviteCanceled(WilddogVideoClient client, IncomingInvite incoming
 
 | 参数名 | 描述 |
 |---|---|
-|client|[WilddogVideoClient](/api/video/android/wilddog-video-client.html) 对象|
-|incomingInvite|被取消的[IncomingInvite](/api/video/android/incoming-invite.html)视频通话邀请对象|
+|client|[WilddogVideoClient](/video/Android/api/wilddog-video-client.html) 对象|
+|incomingInvite|被取消的[IncomingInvite](/video/Android/api/incoming-invite.html)视频通话邀请对象|
