@@ -104,7 +104,7 @@ console.log(app.options.synURL === config.synURL);  // true
 
 ##### 返回值
 
-[wilddog.Auth](/api/auth/web/Auth.html)
+[wilddog.Auth](/auth/Web/api/Auth.html)
 
 ##### 示例
 
@@ -126,7 +126,7 @@ var auth = app.auth();
 
 ##### 返回值
 
-[wilddog.Sync](/api/sync/web/Sync.html)
+[wilddog.Sync](Sync.html)
 
 ##### 示例
 

@@ -25,7 +25,7 @@ void onChildAdded(DataSnapshot snapshot, String previousChildName)
 
 参数名 | 说明
 --- | ---
-snapshot | [DataSnapshot](/api/sync/android/DataSnapshot.html) 子节点数据快照。
+snapshot | [DataSnapshot](/sync/Android/api/DataSnapshot.html) 子节点数据快照。
 previousChildName | `String` 按照当前排序前一节点的 key 值。如果当前节点为第一个子节点，该值为 null。
 
 </br>
@@ -47,7 +47,7 @@ void onChildChanged(DataSnapshot snapshot, String previousChildName)
 
 参数名 | 说明
 --- | ---
-snapshot | [DataSnapshot](/api/sync/android/DataSnapshot.html) 变化后的子节点数据快照。
+snapshot | [DataSnapshot](/sync/Android/api/DataSnapshot.html) 变化后的子节点数据快照。
 previousChildName | `String` 按照当前排序前一节点的 key 值。如果当前节点为第一个子节点，该值为 null。
 
 </br>
@@ -69,7 +69,7 @@ void onChildMoved(DataSnapshot snapshot, String previousChildName)
 
 参数名 | 说明
 --- | ---
-snapshot | [DataSnapshot](/api/sync/android/DataSnapshot.html) 排序发生变化的子节点数据快照。
+snapshot | [DataSnapshot](/sync/Android/api/DataSnapshot.html) 排序发生变化的子节点数据快照。
 previousChildName | `String` 按照当前排序前一节点的 key 值。如果当前节点为第一个子节点，该值为 null。
 
 ##### 示例
@@ -105,7 +105,7 @@ void onChildRemoved(DataSnapshot snapshot)
 
 参数名 | 说明
 --- | ---
-snapshot | [DataSnapshot](/api/sync/android/DataSnapshot.html) 被移除的子节点数据快照。
+snapshot | [DataSnapshot](/sync/Android/api/DataSnapshot.html) 被移除的子节点数据快照。
 </br>
 
 ---
@@ -125,7 +125,7 @@ void onCancelled(SyncError error)
 
 参数名 | 说明
 --- | ---
-error | [SyncError](/api/sync/android/SyncError.html) 错误详细描述。
+error | [SyncError](/sync/Android/api/SyncError.html) 错误详细描述。
 
 
 </br>

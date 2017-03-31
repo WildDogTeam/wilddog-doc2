@@ -16,7 +16,7 @@ Sync 的数据以 [JSON](http://json.org/json-zh.html) 格式存储。它是键�
 
 <img src='/images/group.png' alt="/images/group.png" width="450">
 
-其中每个节点都可以设置 [优先级(priority)](/sync/Web/guide/save-data.html#设置节点优先级)，用于实现节点按优先级排序。
+其中每个节点都可以设置 [优先级(priority)](/sync/Egret/guide/save-data.html#设置节点优先级)，用于实现节点按优先级排序。
 
 #### 子节点
 某个节点下的所有节点，统称为该节点的子节点。
