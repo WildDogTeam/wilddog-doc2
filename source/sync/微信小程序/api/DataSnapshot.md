@@ -3,7 +3,7 @@ title: DataSnapshot
 
 ---
 
-`wilddog.sync.DataSnapshot` 是当前指定节点下的数据快照，`DataSnapshot` 不会随当前节点数据的变化而发生改变。我们无法直接创建这个对象，而应当在 [on](/api/sync/web/Query.html#on) 或 [once](/api/sync/web/Query.html#once) 的回调函数中来获取它。
+`wilddog.sync.DataSnapshot` 是当前指定节点下的数据快照，`DataSnapshot` 不会随当前节点数据的变化而发生改变。我们无法直接创建这个对象，而应当在 [on](Query.html#on) 或 [once](Query.html#once) 的回调函数中来获取它。
 
 ## 方法
 
@@ -134,7 +134,7 @@ ref.on('value',function(snapshot){
 
 ##### 说明
 
-遍历数据快照中的每一个子节点。受 JavaScript Object 对象的影响，`snapshot` 直接通过 `val()` 方法返回的数据不能保证显示的顺序完全符合 [orderBy\*()](/guide/sync/web/retrieve-data.html#根据数据排序监听) 的要求，因此我们提供了 `forEach()` 方法来解决这个问题。如果没有使用 [orderBy\*()](/guide/sync/web/retrieve-data.html#根据数据排序监听) 方法，依次遍历出来的结果默认选择 key 排序（除非数据快照设置过 priority ，则会根据 priority 排序）。
+遍历数据快照中的每一个子节点。受 JavaScript Object 对象的影响，`snapshot` 直接通过 `val()` 方法返回的数据不能保证显示的顺序完全符合 [orderBy\*()](/sync/微信小程序/guide/retrieve-data.html#根据数据排序监听) 的要求，因此我们提供了 `forEach()` 方法来解决这个问题。如果没有使用 [orderBy\*()](/sync/微信小程序/guide/retrieve-data.html#根据数据排序监听) 方法，依次遍历出来的结果默认选择 key 排序（除非数据快照设置过 priority ，则会根据 priority 排序）。
 
 ##### 参数
 
@@ -144,7 +144,7 @@ ref.on('value',function(snapshot){
 
 ##### 返回值
 
-[Void](/api/sync/web/Void.html)
+[Void](Void.html)
 
 ##### 示例
 
@@ -374,11 +374,11 @@ ref.once('value', function (snapshot) {
 
 ##### 说明
 
-返回当前数据快照所关联的 [wilddog.sync.Reference](/api/sync/web/Reference.html) 实例。
+返回当前数据快照所关联的 [wilddog.sync.Reference](Reference.html) 实例。
 
 ##### 返回值
 
-[wilddog.sync.Reference](/api/sync/web/Reference.html)
+[wilddog.sync.Reference](Reference.html)
 
 ##### 示例
 

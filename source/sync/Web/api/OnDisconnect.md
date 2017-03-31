@@ -4,7 +4,7 @@ title: OnDisconnect
 ---
 
 离线事件是云端与客户端断开连接时自动触发的事件。
-断开连接包括客户端主动断开连接，或者意外的网络中断。触发事件即执行特定的数据操作，它支持离线写入，更新和删除数据方法。详细使用请参考：[完整指南-离线功能](../../../guide/sync/web/offline-capabilities.html)。
+断开连接包括客户端主动断开连接，或者意外的网络中断。触发事件即执行特定的数据操作，它支持离线写入，更新和删除数据方法。详细使用请参考：[完整指南-离线功能](/sync/Web/guide/offline-capabilities.html)。
 
 ## 方法
 
@@ -24,7 +24,7 @@ title: OnDisconnect
 
 ##### 返回值
 
-[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/Void.html)>
+[wilddog.Promise](Promise.html)<[Void](Void.html)>
 
 ##### 示例
 
@@ -42,7 +42,7 @@ disconnectRef.onDisconnect().set('I disconnected!')
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   `onDisconnect()` 设置的离线操作只会触发一次。<br>
-  如需每次离线时都执行 `set()` 方法，则需要 [监听连接状态](/guide/sync/web/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 `onDisconnect().set()` 设置想要执行的写入操作。<br/>
+  如需每次离线时都执行 `set()` 方法，则需要 [监听连接状态](/sync/Web/guide/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 `onDisconnect().set()` 设置想要执行的写入操作。<br/>
 </blockquote>
 
 ----
@@ -65,7 +65,7 @@ disconnectRef.onDisconnect().set('I disconnected!')
 
 ##### 返回值
 
-[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/Void.html)>
+[wilddog.Promise](Promise.html)<[Void](Void.html)>
 
 ##### 示例
 
@@ -83,7 +83,7 @@ disconnectRef.onDisconnect().update({"message":'I disconnected!'})
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   `onDisconnect()` 设置的离线操作只会触发一次。<br>
-  如需每次离线时都执行 `update()` 方法，则需要 [监听连接状态](/guide/sync/web/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 `onDisconnect().update()` 设置想要执行的更新操作。<br/>
+  如需每次离线时都执行 `update()` 方法，则需要 [监听连接状态](/sync/Web/guide/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 `onDisconnect().update()` 设置想要执行的更新操作。<br/>
 </blockquote>
 
 ----
@@ -100,7 +100,7 @@ disconnectRef.onDisconnect().update({"message":'I disconnected!'})
 
 ##### 返回值
 
-[wilddog.Promise](/api/sync/web/api.html#wilddog-Promise)<[Void](/api/sync/web/Void.html)>
+[wilddog.Promise](Promise.html)<[Void](Void.html)>
 
 ##### 示例
 
@@ -118,7 +118,7 @@ disconnectRef.onDisconnect().remove()
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   `onDisconnect()` 设置的离线操作只会触发一次。<br>
-  如需每次离线时都执行 remove() 方法，则需要 [监听连接状态](/guide/sync/web/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 `onDisconnect().remove()` 设置想要执行的删除操作。<br/>
+  如需每次离线时都执行 remove() 方法，则需要 [监听连接状态](/sync/Web/guide/offline-capabilities.html#监听连接状态)，在连接建立成功后都通过 `onDisconnect().remove()` 设置想要执行的删除操作。<br/>
 </blockquote>
 
 ----
@@ -144,7 +144,7 @@ disconnectRef.onDisconnect().remove()
 
 ##### 返回值
 
-[wilddog.Promise](/api/sync/web/Promise.html)<[Void](/api/sync/web/Void.html)>
+[wilddog.Promise](Promise.html)<[Void](Void.html)>
 
 ##### 示例
 
@@ -161,7 +161,7 @@ disconnectRef.onDisconnect().setWithPriority('I disconnected', 10)
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  `onDisconnect()` 设置的离线操作只会触发一次。如果你想在每次断线时都执行 `setWithPriority()` 方法，需要在每次 [监听](/guide/sync/web/offline-capabilities.html#监听连接状态) 连接建立成功后都通过 `onDisconnect().setWithPriority()` 设置想要执行的写入操作。<br/>
+  `onDisconnect()` 设置的离线操作只会触发一次。如果你想在每次断线时都执行 `setWithPriority()` 方法，需要在每次 [监听](/sync/Web/guide/offline-capabilities.html#监听连接状态) 连接建立成功后都通过 `onDisconnect().setWithPriority()` 设置想要执行的写入操作。<br/>
 </blockquote>
 
 ----
@@ -178,7 +178,7 @@ disconnectRef.onDisconnect().setWithPriority('I disconnected', 10)
 
 ##### 返回值
 
-[Void](/api/sync/web/Void.html)
+[Void](Void.html)
 
 ##### 示例
 

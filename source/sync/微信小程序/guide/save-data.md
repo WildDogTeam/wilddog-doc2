@@ -249,7 +249,7 @@ upvotesRef.transaction(function (currentValue) {
   回调方法的返回值可能为空，需要进行相应的处理。
 </blockquote>
 
-更多使用，请参考 [transaction()](/sync/Web/api/Reference.html#transaction)。
+更多使用，请参考 [transaction()](/sync/微信小程序/api/Reference.html#transaction)。
 
 
 

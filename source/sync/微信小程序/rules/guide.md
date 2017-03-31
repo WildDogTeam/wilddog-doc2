@@ -303,7 +303,7 @@ Wilddog Auth 身份认证集成 Sync 实时通信引擎，能允许你控制每�
 
 ### 使用自定义 Token
 
-对于希望实现自定义认证的开发者，Wilddog Auth 也允许开发者[在其服务器上创建自己的自定义 Token 来进行认证](/guide/auth/server/server.html)。
+对于希望实现自定义认证的开发者，Wilddog Auth 也允许开发者[在其服务器上创建自己的自定义 Token 来进行认证](/sync/微信小程序/guide/auth/server/server.html)。
 你在创建自定义 Token 时，可以自定义额外的属性字段。这些额外的属性也会像 `uid`、`provider` 一样包含在 auth 变量中,但是使用起来发生了变化.
 目前自定义的额外属性会放在auth.token里面
 下面是一个添加并使用 `isAdmin` 自定义属性的规则示例：
@@ -318,7 +318,7 @@ Wilddog Auth 身份认证集成 Sync 实时通信引擎，能允许你控制每�
 }
 ```
 
-有关自定义 Token 的具体使用方法，参见[使用 Wilddog Server SDK 进行身份认证](/guide/auth/server/server.html)。
+有关自定义 Token 的具体使用方法，参见[使用 Wilddog Server SDK 进行身份认证](/sync/微信小程序/guide/auth/server/server.html)。
 
 ## 数据索引
 

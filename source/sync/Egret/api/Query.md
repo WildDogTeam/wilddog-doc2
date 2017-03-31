@@ -1,7 +1,7 @@
 title: Query
 ---
 
-`wilddog.sync.Query` 对象包含了所有与我们数据查询及监听的 API，同时它也是 [wilddog.sync.Reference](/api/sync/web/Reference.html) 的父类。
+`wilddog.sync.Query` 对象包含了所有与我们数据查询及监听的 API，同时它也是 [wilddog.sync.Reference](Reference.html) 的父类。
 
 ## 方法
 
@@ -17,7 +17,7 @@ title: Query
 
 ##### 返回值
 
-[wilddog.sync.Reference](/api/sync/web/Reference.html)
+[wilddog.sync.Reference](Reference.html)
 
 ##### 示例
 
@@ -38,23 +38,23 @@ var ref = query.ref();
 
 ##### 说明
 
-监听指定节点的数据。详细使用请参考：[完整指南-设置监听](../../../guide/sync/web/retrieve-data.html#设置监听)。
+监听指定节点的数据。详细使用请参考：[完整指南-设置监听](/sync/Egret/guide/retrieve-data.html#设置监听)。
 这是从 Wilddog Sync 云端监听数据的主要方式，当监听到当前节点的初始数据或当前节点的数据改变时，将会触发指定事件对应的回调 `onEvent。`
 此外，对于 `child_added`, `child_changed`, `child_moved` 和 `child_removed` 事件，回调 `onEvent` 将带有当前排序下前一节点的 key 值。
-可使用 [off()](/api/sync/web/Query.html#off) 方法移除监听。
+可使用 [off()](Query.html#off) 方法移除监听。
 
 ##### 参数
 
 | 参数名            | 说明                                       |
 | -------------- | ---------------------------------------- |
-| type           | String 类型(non-null)<br>事件类型参见 [EventType](/api/sync/web/Query.html#EventType)。 |
-| onEvent        | [onEvent](/api/sync/web/Query.html#onEvent)(non-null)类型<br>事件发生时的回调函数 。                             |
-| cancelCallback | [cancelCallback](/api/sync/web/Query.html#cancelCallback)(optional)类型<br>如果操作失败，这个函数会被调用。                         |
+| type           | String 类型(non-null)<br>事件类型参见 [EventType](Query.html#EventType)。 |
+| onEvent        | [onEvent](Query.html#onEvent)(non-null)类型<br>事件发生时的回调函数 。                             |
+| cancelCallback | [cancelCallback](Query.html#cancelCallback)(optional)类型<br>如果操作失败，这个函数会被调用。                         |
 | context        | Object(optional)类型<br> 如果指定，你的回调函数中的this将代表这个对象。                |
 
 ##### 返回值
 
-[Void](/api/sync/web/Void.html)
+[Void](Void.html)
 
 ##### 示例
 
@@ -68,7 +68,7 @@ wilddog.sync().ref('city').on('child_added',function(snapshot,prev){
 
 #### EventType
 
-Query [on](/api/sync/web/Query.html#on) 和 [once](/api/sync/web/Query.html#once) 所支持的事件列表。详细使用请参考：[完整指南-设置事件](../../../guide/sync/web/retrieve-data.html#设置事件)。
+Query [on](Query.html#on) 和 [once](Query.html#once) 所支持的事件列表。详细使用请参考：[完整指南-设置事件](/sync/Egret/guide/retrieve-data.html#设置事件)。
 
 | 名称            | 说明                  |
 | ------------- | ------------------- |
@@ -94,12 +94,12 @@ Query [on](/api/sync/web/Query.html#on) 和 [once](/api/sync/web/Query.html#once
 
 | 参数名      | 说明                                       |
 | -------- | ---------------------------------------- |
-| snapshot | [wilddog.sync.DataSnapshot](/api/sync/web/DataSnapshot.html)(non-null)类型<br>事件发生后当前节点的数据快照                           |
+| snapshot | [wilddog.sync.DataSnapshot](DataSnapshot.html)(non-null)类型<br>事件发生后当前节点的数据快照                           |
 | prev     | String 在 `child_*` 事件中会有 `prev` 参数。表示当前节点的上一个节点的 key |
 
 ##### 返回值
 
-[Void](/api/sync/web/Void.html)
+[Void](Void.html)
 
 ---
 
@@ -121,13 +121,13 @@ Query [on](/api/sync/web/Query.html#on) 和 [once](/api/sync/web/Query.html#once
 
 ##### 返回值
 
-[Void](/api/sync/web/Void.html)
+[Void](Void.html)
 
 ---
 
 ### off
 
-取消监听事件。取消之前用 [on](/api/sync/web/Query.html#on) 注册的回调函数。详细使用请参考：[完整指南-移除监听](../../../guide/sync/web/retrieve-data.html#移除监听)。
+取消监听事件。取消之前用 [on](Query.html#on) 注册的回调函数。详细使用请参考：[完整指南-移除监听](/sync/Egret/guide/retrieve-data.html#移除监听)。
 
 ##### 定义
 
@@ -137,9 +137,9 @@ Query [on](/api/sync/web/Query.html#on) 和 [once](/api/sync/web/Query.html#once
 
 | 参数名     | 说明                                       |
 | ------- | ---------------------------------------- |
-| type    | String(non-null)类型<br>事件类型参见 [EventType](/api/sync/web/Query.html#EventType)。 |
-| onEvent | [onEvent](/api/sync/web/Query.html#onEvent)(non-null)类型<br> 在 [on](/api/sync/web/Query.html#on) 中所传入的回调函数 。 |
-| context | Object(optional)类型 <br> 在 [on](/api/sync/web/Query.html#on) 中所传入的 `context` 。 |
+| type    | String(non-null)类型<br>事件类型参见 [EventType](Query.html#EventType)。 |
+| onEvent | [onEvent](Query.html#onEvent)(non-null)类型<br> 在 [on](Query.html#on) 中所传入的回调函数 。 |
+| context | Object(optional)类型 <br> 在 [on](Query.html#on) 中所传入的 `context` 。 |
 
 ##### 示例
 
@@ -160,18 +160,18 @@ wilddogRef.off('value', onValueChange);
 
 ##### 说明
 
-同 [on](/api/sync/web/Query.html#on) 类似，不同之处在于 `once` 中的回调函数只被执行一次，之后会自动取消监听。详细使用请参考：[完整指南-设置监听](../../../guide/sync/web/retrieve-data.html#设置监听)。
+同 [on](Query.html#on) 类似，不同之处在于 `once` 中的回调函数只被执行一次，之后会自动取消监听。详细使用请参考：[完整指南-设置监听](/sync/Egret/guide/retrieve-data.html#设置监听)。
 
 ##### 参数
 
 | 参数名  | 说明                                       |
 | ---- | ---------------------------------------- |
-| type | String(non-null)<br>事件类型参见 [EventType](/api/sync/web/Query.html#EventType)。 |
-| onEvent | [onEvent](/api/sync/web/Query.html#onEvent)(non-null)类型<br> 在 [on](/api/sync/web/Query.html#on) 中所传入的回调函数 。 |
+| type | String(non-null)<br>事件类型参见 [EventType](Query.html#EventType)。 |
+| onEvent | [onEvent](Query.html#onEvent)(non-null)类型<br> 在 [on](Query.html#on) 中所传入的回调函数 。 |
 
 ##### 返回值
 
-[wilddog.Promise](/api/sync/web/Promise.html).<[wilddog.sync.DataSnapshot](/api/sync/web/DataSnapshot.html)>
+[wilddog.Promise](Promise.html).<[wilddog.sync.DataSnapshot](DataSnapshot.html)>
 
 ##### 示例
 
@@ -194,7 +194,7 @@ wilddog.sync().ref('city').once('child_added')
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 实例，按子节点下指定的 key 对应的 value 对结果进行排序。排序的详情请参考 [数据排序](/guide/sync/web/retrieve-data.html#根据数据排序监听) 。详细使用请参考：[完整指南-根据数据排序监听](../../../guide/sync/web/retrieve-data.html#根据数据排序监听)。
+创建一个新 [wilddog.sync.Query](Query.html) 实例，按子节点下指定的 key 对应的 value 对结果进行排序。排序的详情请参考 [数据排序](/sync/Egret/guide/retrieve-data.html#根据数据排序监听) 。详细使用请参考：[完整指南-根据数据排序监听](/sync/Egret/guide/retrieve-data.html#根据数据排序监听)。
 <br>此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
 
 ##### 参数
@@ -206,7 +206,7 @@ wilddog.sync().ref('city').once('child_added')
 
 ##### 返回值
 
-[wilddog.sync.Query](/api/sync/web/Query.html)
+[wilddog.sync.Query](Query.html)
 
 ##### 示例
 
@@ -228,12 +228,12 @@ ref.orderByChild("height").on("child_added",function(snapshot){
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 实例，按子节点的 key 对结果以字典序进行排序。详细使用请参考：[完整指南-根据数据排序监听](../../../guide/sync/web/retrieve-data.html#根据数据排序监听)。
+创建一个新 [wilddog.sync.Query](Query.html) 实例，按子节点的 key 对结果以字典序进行排序。详细使用请参考：[完整指南-根据数据排序监听](/sync/Egret/guide/retrieve-data.html#根据数据排序监听)。
 <br>此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
 
 ##### 返回值
 
-[wilddog.sync.Query](/api/sync/web/Query.html)
+[wilddog.sync.Query](Query.html)
 
 ##### 示例
 
@@ -255,12 +255,12 @@ ref.orderByKey().on("child_added",function(snapshot){
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 实例，按节点的 value 对结果排序。排序的详情请参考 [数据排序](/guide/sync/web/retrieve-data.html#根据数据排序监听) 。详细使用请参考：[完整指南-根据数据排序监听](../../../guide/sync/web/retrieve-data.html#根据数据排序监听)。
+创建一个新 [wilddog.sync.Query](Query.html) 实例，按节点的 value 对结果排序。排序的详情请参考 [数据排序](/sync/Egret/guide/retrieve-data.html#根据数据排序监听) 。详细使用请参考：[完整指南-根据数据排序监听](/sync/Egret/guide/retrieve-data.html#根据数据排序监听)。
 <br>此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。
 
 ##### 返回值
 
-[wilddog.sync.Query](/api/sync/web/Query.html)
+[wilddog.sync.Query](Query.html)
 
 ##### 示例
 
@@ -283,13 +283,13 @@ scoresRef.orderByValue().limitToLast(3).on("value", function(snapshot) {
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 实例，按节点的 priority 对结果排序。节点按照如下优先级规则升序排列：null < Number < String。
+创建一个新 [wilddog.sync.Query](Query.html) 实例，按节点的 priority 对结果排序。节点按照如下优先级规则升序排列：null < Number < String。
   - priority 为 null 的排最先；
   - priority 为数值的次之，按照数值从小到大排序；   
   - priority 为字符串的排最后，按照字典序排列；   
   - 当两个子节点有相同的 priority（包括没有 priority），它们按照 key 进行排列，数字优先（按数值从小到大排序），其余以字典序排序。
 
-此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。详细使用请参考：[完整指南-根据数据排序监听](../../../guide/sync/web/retrieve-data.html#根据数据排序监听)。
+此方法可以与 `startAt`、`endAt` 或 `equalTo` 方法联合使用。详细使用请参考：[完整指南-根据数据排序监听](/sync/Egret/guide/retrieve-data.html#根据数据排序监听)。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -298,7 +298,7 @@ scoresRef.orderByValue().limitToLast(3).on("value", function(snapshot) {
 
 ##### 返回值
 
-[wilddog.sync.Query](/api/sync/web/Query.html)
+[wilddog.sync.Query](Query.html)
 
 ##### 示例
 
@@ -318,7 +318,7 @@ ref.orderByPriority().on("child_added", function(snapshot) {
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。详细使用请参考：[完整指南-根据数据筛选结果监听](../../../guide/sync/web/retrieve-data.html#根据数据筛选结果监听)。
+创建一个新 [wilddog.sync.Query](Query.html) 实例，可以查询所有大于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。详细使用请参考：[完整指南-根据数据筛选结果监听](/sync/Egret/guide/retrieve-data.html#根据数据筛选结果监听)。
 此方法应与 `orderByKey`、`orderByChild`、`orderByValue` 或 `orderByPriority` 方法联合使用。
 
 ##### 参数
@@ -330,7 +330,7 @@ ref.orderByPriority().on("child_added", function(snapshot) {
 
 ##### 返回值
 
-[wilddog.sync.Query](/api/sync/web/Query.html)
+[wilddog.sync.Query](Query.html)
 
 ##### 示例
 
@@ -350,7 +350,7 @@ ref.orderByKey().startAt('jack').on("child_added",function(snapshot){
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。详细使用请参考：[完整指南-根据数据筛选结果监听](../../../guide/sync/web/retrieve-data.html#根据数据筛选结果监听)。
+创建一个新 [wilddog.sync.Query](Query.html) 实例，可以查询所有小于或等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。详细使用请参考：[完整指南-根据数据筛选结果监听](/sync/Egret/guide/retrieve-data.html#根据数据筛选结果监听)。
 此方法应与 `orderByKey`、`orderByChild`、`orderByValue` 或 `orderByPriority` 方法联合使用。
 
 ##### 参数
@@ -363,7 +363,7 @@ ref.orderByKey().startAt('jack').on("child_added",function(snapshot){
 
 ##### 返回值
 
-[wilddog.sync.Query](/api/sync/web/Query.html)
+[wilddog.sync.Query](Query.html)
 
 ##### 示例
 
@@ -383,7 +383,7 @@ ref.orderByKey().endAt('jack').on("child_added",function(snapshot){
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 实例，可以查询等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。详细使用请参考：[完整指南-根据数据筛选结果监听](../../../guide/sync/web/retrieve-data.html#根据数据筛选结果监听)。
+创建一个新 [wilddog.sync.Query](Query.html) 实例，可以查询等于指定的 key、value 或 priority 的节点，具体取决于所选的排序方法。可用于精确查询。详细使用请参考：[完整指南-根据数据筛选结果监听](/sync/Egret/guide/retrieve-data.html#根据数据筛选结果监听)。
 此方法应与 `orderByKey`、`orderByChild`、`orderByValue` 或 `orderByPriority` 方法联合使用。
 
 ##### 参数
@@ -395,7 +395,7 @@ ref.orderByKey().endAt('jack').on("child_added",function(snapshot){
 
 ##### 返回值
 
-[wilddog.sync.Query](/api/sync/web/Query.html)
+[wilddog.sync.Query](Query.html)
 
 ##### 示例
 
@@ -415,7 +415,7 @@ ref.orderByKey().equalTo('jack').on("child_added",function(snapshot){
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 对象，获取当前排序下从第一个节点开始的最多 (limit) 条数据。详细使用请参考：[完整指南-根据数据筛选结果监听](../../../guide/sync/web/retrieve-data.html#根据数据筛选结果监听)。
+创建一个新 [wilddog.sync.Query](Query.html) 对象，获取当前排序下从第一个节点开始的最多 (limit) 条数据。详细使用请参考：[完整指南-根据数据筛选结果监听](/sync/Egret/guide/retrieve-data.html#根据数据筛选结果监听)。
 
 ##### 参数
 
@@ -425,7 +425,7 @@ ref.orderByKey().equalTo('jack').on("child_added",function(snapshot){
 
 ##### 返回值
 
-[wilddog.sync.Query](/api/sync/web/Query.html)
+[wilddog.sync.Query](Query.html)
 
 ##### 示例
 ```js
@@ -444,7 +444,7 @@ ref.limitToFirst(10).on("child_added",function(snapshot){
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](/api/sync/web/Query.html) 对象，获取当前排序下从第一个节点开始的最多 (limit) 条数据。详细使用请参考：[完整指南-根据数据筛选结果监听](../../../guide/sync/web/retrieve-data.html#根据数据筛选结果监听)。
+创建一个新 [wilddog.sync.Query](Query.html) 对象，获取当前排序下从第一个节点开始的最多 (limit) 条数据。详细使用请参考：[完整指南-根据数据筛选结果监听](/sync/Egret/guide/retrieve-data.html#根据数据筛选结果监听)。
 
 ##### 参数
 
@@ -454,7 +454,7 @@ ref.limitToFirst(10).on("child_added",function(snapshot){
 
 ##### 返回值
 
-[wilddog.sync.Query](/api/sync/web/Query.html)
+[wilddog.sync.Query](Query.html)
 
 ##### 示例
 
