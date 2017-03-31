@@ -57,7 +57,7 @@ WilddogOptions getOptions()
 获取初始化 `WilddogApp` 时传入的 `WilddogOptions` 实例。
 
 ##### 返回值
-[WilddogOptions](/api/sync/android/WilddogOptions.html) 实例对象。
+[WilddogOptions](/sync/Android/api/WilddogOptions.html) 实例对象。
 </br>
 
 --- 
@@ -82,7 +82,7 @@ static WilddogApp initializeApp(Context context, WilddogOptions options)
 参数名 | 说明
 --- | ---
 context | Android `Context` 实例对象。
-options | 配置当前应用的 [WilddogOptions](/api/sync/android/WilddogOptions.html) 实例对象，必须包含 [WilddogSync](/api/sync/android/WilddogSync.html) 路径信息（例如：`https://example.wilddogio.com`）。
+options | 配置当前应用的 [WilddogOptions](/sync/Android/api/WilddogOptions.html) 实例对象，必须包含 [WilddogSync](/sync/Android/api/WilddogSync.html) 路径信息（例如：`https://example.wilddogio.com`）。
 
 ##### 返回值
 `WilddogApp` 实例对象。
@@ -106,7 +106,7 @@ static WilddogApp initializeApp(Context context, WilddogOptions options, String 
 参数名 | 说明
 --- | ---
 context | 当前应用的 Android `Context` 对象。
-options | 配置当前应用的 [WilddogOptions](/api/sync/android/WilddogOptions.html) 实例对象。
+options | 配置当前应用的 [WilddogOptions](/sync/Android/api/WilddogOptions.html) 实例对象。
 name | `WilddogApp` 实例名称，只能包含字母、数字和下划线（例如：wilddog、wilddog_1）。
 
 ##### 返回值
