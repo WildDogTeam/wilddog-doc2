@@ -78,7 +78,7 @@ presenceRef.onDisconnect().cancel();
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-  通过该 <a href="/guide/sync/bestpractice/offline.html">最佳实践</a>，可以保证网络意外中断情况时，离线事件也能成功触发。
+  通过该 <a href="/sync/微信小程序/guide/bestpractice/offline.html">最佳实践</a>，可以保证网络意外中断情况时，离线事件也能成功触发。
 </blockquote>
 
 ## 手动建立或断开连接

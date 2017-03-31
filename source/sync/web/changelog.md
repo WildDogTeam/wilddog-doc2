@@ -117,10 +117,4 @@ title: 更新日志
 
 - Wilddog SDK 提供 Sync 与 Auth 两个模块。
 
-  新版的使用方式请参考 [新版 Wilddog 文档](/quickstart/sync/web.html)。
-
-
-
-</br>
-
 

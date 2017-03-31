@@ -72,4 +72,4 @@ node https_channel_server.js
 
 <img src='/images/video_quickstart_wen_conversation.png' alt="video_quickstart_createApp">
 
-更多详细信息请见 [完整指南](/guide/video/core.html) 和  [API 文档](/api/video/web/wilddogVideo.html)。
+更多详细信息请见 [完整指南](/video/Web/guide/core.html) 和  [API 文档](/video/Web/api/wilddogVideo.html)。

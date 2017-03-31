@@ -11,7 +11,7 @@ title: 接口验证机制
 
 ## 生成数字签名的方法
 
-1.将实际调用 API([发送验证码短信](/api/sms/sendcode.html)、[发送通知类短信](/api/sms/send.html)、[校验验证码](/api/sms/checkcode.html)、[查询发送状态](/api/sms/status.html)) 的参数以字母升序(A-Z)排列，除去其中的 `signature`字段。
+1.将实际调用 API([发送验证码短信](/sms/api/sendcode.html)、[发送通知类短信](/sms/api/send.html)、[校验验证码](/sms/api/checkcode.html)、[查询发送状态](/sms/api/status.html) 的参数以字母升序(A-Z)排列，除去其中的 `signature`字段。
 
 特别注意以下规则：
 
@@ -72,7 +72,7 @@ Java 示例如下（其他语言规则一致）：
 
 ```
 
-此处可参考完整 [示例代码](/resources/sms/resources.html)。
+此处可参考完整 [示例代码](/sms/resources/resources.html)。
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>

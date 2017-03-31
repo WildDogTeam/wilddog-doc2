@@ -44,7 +44,7 @@ title: 实战教程
 ### 4.生成数字签名（signature ）
 （1）罗列实际调用的 API 参数，除去其中的 signature 字段。
 
-因本次示例为 [通知类短信](/api/sms/send.html)，除去 `signature`后，传送的参数如下：
+因本次示例为 [通知类短信](/sms/guide/notify.html)，除去 `signature`后，传送的参数如下：
 
 ```
 templateId：100001
@@ -82,7 +82,7 @@ sign_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templa
 ```
 curl -X POST https://api.wilddog.com/sms/v1/yourtestapp/notify/send -d "signature =4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E&templateId =100001& timestamp =13452366225&mobiles=1482301296&params=["王小豆","个人版套版套餐"]"
 ```
-此处规则详情请参考 [完整指南](/guide/sms/signature.html#生成数字签名的方法)。
+此处规则详情请参考 [完整指南](/sms/guide/signature.html#生成数字签名的方法)。
 ## 获取示例源码
 
 点此获取完整的 [示例源码](https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/resources/sms/nitifydemo.md)。
