@@ -19,6 +19,7 @@ hexo.extend.helper.register('page_nav', function() {
     var list = {};
     var prefix = 'sidebar.' + type + '.';
     for (var i in sidebar) {
+        
         for (var j in sidebar[i]) {
             if (typeof sidebar[i][j] === 'string') {
                 list[sidebar[i][j]] = j;
@@ -33,16 +34,22 @@ hexo.extend.helper.register('page_nav', function() {
     var index = keys.indexOf(path);
     var result = '';
 
-    if (index > 0) {
-        result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(list[keys[index - 1]]) + '">' +
-            '<img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'><div class=\'page-title\'><div>上一节：</div>' + this.__(list[keys[index - 1]]) + ' </div></a>';
+    // console.log(keys)
+
+    if (type != 'sms') {
+        if (index > 0) {
+            result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(list[keys[index - 1]]) + '">' +
+                '<img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'><div class=\'page-title\'><div>上一节：</div>' + this.__(list[keys[index - 1]]) + ' </div></a>';
+        }
+
+        if (index < keys.length - 1) {
+            result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(list[keys[index + 1]]) + '">' +
+                '<div class=\'page-title\'><div class=\'text-right\'>下一节：</div>' + this.__(list[keys[index + 1]]) + '</div><img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></a>';
+        }
     }
 
-    if (index < keys.length - 1) {
-        result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(list[keys[index + 1]]) + '">' +
-            '<div class=\'page-title\'><div class=\'text-right\'>下一节：</div>' + this.__(list[keys[index + 1]]) + '</div><img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></a>';
-    }
     return result;
+
 });
 hexo.extend.helper.register('doc_sidebar', function(className) {
     var type = this.page.canonical_path.split('/')[0];
@@ -90,7 +97,7 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
                             thirList = thirList.replace('sublist', 'sublist current');
                             currentClass += ' current';
                         }
-                        
+
                         //第四层级嵌套
                         if (typeof url === 'object') {
                             var fourthList = '<ul class=\'subsublist\'>';
