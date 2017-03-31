@@ -15,7 +15,7 @@ int getCode()
 
 ##### 说明
 
-返回当前错误的错误码，详细错误码请参阅 [错误码](/api/sync/android/error-code.html)
+返回当前错误的错误码，详细错误码请参阅 [错误码](/sync/Android/api/error-code.html)
 
 ##### 返回值
 

@@ -31,7 +31,7 @@ title: WDGVideoConference
 
 **说明**
 
-[WDGVideoConnectionStatus](../Enums.html#/c:@E@WDGVideoConnectionStatus) 类型，表示会议的状态。
+[WDGVideoConnectionStatus](/video/iOS/api/WDGVideoConference.html#WDGVideoConnectionStatus) 类型，表示会议的状态。
 
 </br>
 
@@ -79,7 +79,7 @@ title: WDGVideoConference
 
 **说明**
 
-[WDGVideoMeetingCast](../Classes/WDGVideoMeetingCast.html) 类型，用于查看并控制当前视频会议的直播状态。当野狗控制台中未开启直播推流功能时该属性为 nil。
+[WDGVideoMeetingCast](/video/iOS/api/WDGVideoMeetingCast.html) 类型，用于查看并控制当前视频会议的直播状态。当野狗控制台中未开启直播推流功能时该属性为 nil。
 
 </br>
 
@@ -95,7 +95,7 @@ title: WDGVideoConference
 
 **说明**
 
-符合 [WDGVideoConferenceDelegate](../Protocols/WDGVideoConferenceDelegate.html) 协议的代理。
+符合 [WDGVideoConferenceDelegate](/video/iOS/api/WDGVideoConferenceDelegate.html) 协议的代理。
 
 </br>
 
@@ -129,7 +129,7 @@ title: WDGVideoConference
 
 **说明**
 
-依据会议参与者的 Wilddog ID 获取对应的 [WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 模型。
+依据会议参与者的 Wilddog ID 获取对应的 [WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 模型。
 
 **参数**
 
@@ -139,7 +139,7 @@ participantID|会议参与者的 Wilddog ID。
 
 **返回值**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 实例，若未找到相应参与者，返回 nil。
+[WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 实例，若未找到相应参与者，返回 nil。
 
 </br>
 

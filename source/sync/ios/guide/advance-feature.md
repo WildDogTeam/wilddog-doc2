@@ -6,7 +6,7 @@ title: 高级特性
 
 ## 云端时间戳
 
-`[WDGServerValue timestamp]` 用于记录当前 [云端时间戳](/api/sync/ios/WDGServerValue.html)。
+`[WDGServerValue timestamp]` 用于记录当前 [云端时间戳](/sync/iOS/api/WDGServerValue.html#timestamp)。
 
 例如，在`servertimestamp` 节点下记录当前云端时间：
 

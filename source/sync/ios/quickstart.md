@@ -153,7 +153,7 @@ ref.setValue(["messageboard" : ["message1" : ["content" : "Wilddog, Cool!", "pre
 
 ## 5. 监听数据
 
-`observeEventType` 或 `observeSingleEventOfType` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
+`observeEventType` 或 `observeSingleEventOfType` 方法用于监听节点的数据。
 
 例如，从应用中获得评论数据：
 
@@ -193,6 +193,6 @@ ref.observeSingleEvent(of: .value, with: {
 
 ## 6.更多使用
 - 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
-- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/guide/sync/ios/save-data.html) 和 [API 文档](/api/sync/ios/WDGSync.html)。
+- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/sync/iOS/guide/save-data.html) 和 [API 文档](/sync/iOS/api/App.html)。
 
 

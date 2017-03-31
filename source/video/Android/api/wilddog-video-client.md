@@ -22,7 +22,7 @@ void setInviteListener(WilddogVideoClient.Listener listener)
 
 | 参数名 | 描述 |
 |---|---|
-|listener|[WilddogVideoClient.Listener](/api/video/android/wilddog-video-client.html),视频通话邀请监听,监听当前邀请状态|
+|listener|[WilddogVideoClient.Listener](/video/Android/api/wilddog-video-client-listener.html),视频通话邀请监听,监听当前邀请状态|
 
 **示例**
 
@@ -64,12 +64,12 @@ OutgiongInvite inviteToConversation(String participantId, ConnectOptions options
 | 参数名 | 描述 |
 |---|---|
 |participantId|被邀请者的 Wilddog ID ,唯一标识被邀请者的身份|
-|options|[ConnectOptions](/api/video/android/connect-options.html) 对象,提供邀请加入视频通话相关参数|
-|callback|[ConversationCallback](/api/video/android/conversation-callback.html) 视频通话回调，视频通话建立成功后在 `onConversation` 方法中返回视频通话对象|
+|options|[ConnectOptions](/video/Android/api/connect-options.html) 对象,提供邀请加入视频通话相关参数|
+|callback|[ConversationCallback](/video/Android/api/conversation-callback.html) 视频通话回调，视频通话建立成功后在 `onConversation` 方法中返回视频通话对象|
 
 **返回值**
 
-[OutgoingInvite](/api/video/android/outgoing-invite.html)
+[OutgoingInvite](/video/Android/api/outgoing-invite.html)
 
 **示例**
 
@@ -112,12 +112,12 @@ public Conference connectToConference(String conferenceId, ConnectOptions option
 | 参数名 | 描述 |
 |---|---|
 |conferenceId|要加入的 Conference ID ,唯一标识加入的会议|
-|options|[ConnectOptions](/api/video/android/connect-options.html) 对象,提供邀请加入会议相关参数|
-|listener|[Conference.Listener](/api/video/android/conference-listener.html) 视频会议回调，返回会议相关状态，在回调方法中处理会议连接/连接失败/断连/用户加入/用户离开等事件|
+|options|[ConnectOptions](/video/Android/api/connect-options.html) 对象,提供邀请加入会议相关参数|
+|listener|[Conference.Listener](/video/Android/api/conference-listener.html) 视频会议回调，返回会议相关状态，在回调方法中处理会议连接/连接失败/断连/用户加入/用户离开等事件|
 
 **返回值**
 
-[Conference](/api/video/android/conference.html)
+[Conference](/video/Android/api/conference.html)
 
 **示例**
 

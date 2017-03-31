@@ -30,7 +30,7 @@ title: 通知类短信
 ### 配置模版
 
 
-通知类模版需创建后提交审核。每个用户可以使用 [变量](/guide/sms/notify.html#配置变量) 来替换内容，每个应用最多创建 50 条通知类模版。过程如下：
+通知类模版需创建后提交审核。每个用户可以使用 [变量](/sms/guide/notify.html#配置变量) 来替换内容，每个应用最多创建 50 条通知类模版。过程如下：
 
 ![](/images/notifyprocess.jpg)
 
@@ -139,6 +139,6 @@ title: 通知类短信
 ```
 
 ## 调用接口
-- 需生成 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 及调用接口，请参考 [接口文档](/api/sms/sendcode.html)。
-- 如需校验验证码和查询短信发送状态，请参考 [校验验证码](/api/sms/checkcode.html) 、[查询模板短信发送状态](/api/sms/sendcode.html)。
+- 需生成 [数字签名](/sms/guide/signature.html#生成数字签名的方法) 及调用接口，请参考 [接口文档](/sms/api/send.html)。
+- 如需查询短信发送状态，请参考 [查询发送状态](/sms/api/status.html)。
 

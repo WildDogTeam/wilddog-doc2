@@ -3,7 +3,7 @@ title : 安装 SDK
 
 本篇文档介绍如何安装和初始化 SDK。
 
-### 安装 SDK
+### 安装和初始化 SDK
 
 
 Video SDK 包含了 Sync 和 Auth SDK 的依赖，不需要重复导入 Sync / Auth SDK 。
@@ -33,7 +33,7 @@ android {
 
 客户端在使用 Video SDK 前需要初始化 `WilddogVideoClient` 来连接客户端和野狗服务器。
 
-初始化 `WilddogVideoClient` 之前，要先经过 [野狗身份认证](/overview/auth.html)。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式进行身份认证。
+初始化 `WilddogVideoClient` 之前，要先经过 [野狗身份认证](/auth/Android/index.html)。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式进行身份认证。
 
 
 例如，以匿名方式登录后初始化 `WilddogVideoClient` ：

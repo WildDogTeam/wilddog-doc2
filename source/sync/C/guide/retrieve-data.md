@@ -89,7 +89,7 @@ void loop(){
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-  如果你只想获取数据，可使用[wilddog_getValue()](/guide/sync/c/save-data.html#获取数据)方法。
+  如果你只想获取数据，可使用[wilddog_getValue()](/sync/C/guide/save-data.html#获取数据)方法。
 </blockquote>
 
 ### 移除监听

@@ -1,7 +1,7 @@
 title: Sync
 ---
 
-`wilddog.Sync` 是访问 Wilddog Sync SDK 的入口。不能直接创建 `Sync` 实例，而必须要通过 `wilddog.App` 实例的 [sync](/api/sync/web/App.html#sync) 方法来获取它。
+`wilddog.Sync` 是访问 Wilddog Sync SDK 的入口。不能直接创建 `Sync` 实例，而必须要通过 `wilddog.App` 实例的 [sync](App.html#sync) 方法来获取它。
 
 ## 属性
 
@@ -13,7 +13,7 @@ title: Sync
 
 ##### 说明
 
-`ServerValue.TIMESTAMP` 是一个用于在我们的数据中插入云端当前时间的占位符，在本地无法查看具体时间。时间格式为自 [Unix epoch](https://en.wikipedia.org/wiki/Unix_time) 开始的的毫秒数。详细使用请参考：[完整指南-云端时间戳](../../../guide/sync/web/advance-feature.html#云端时间戳)。
+`ServerValue.TIMESTAMP` 是一个用于在我们的数据中插入云端当前时间的占位符，在本地无法查看具体时间。时间格式为自 [Unix epoch](https://en.wikipedia.org/wiki/Unix_time) 开始的的毫秒数。详细使用请参考：[完整指南-云端时间戳](/sync/Egret/guide/advance-feature.html#云端时间戳)。
 
 ##### 示例
 
@@ -42,7 +42,7 @@ mySessionRef.update({
 
 ##### 说明
 
-返回以 `path` 为相对路径的 [wilddog.sync.Reference](/api/sync/web/Reference.html) 实例。
+返回以 `path` 为相对路径的 [wilddog.sync.Reference](Reference.html) 实例。
 
 ##### 参数
 
@@ -52,7 +52,7 @@ mySessionRef.update({
 
 ##### 返回值
 
-[wilddog.sync.Reference](/api/sync/web/Reference.html)
+[wilddog.sync.Reference](Reference.html)
 
 ##### 示例
 
@@ -75,11 +75,11 @@ var refToA = wilddog.sync().ref('/a');
 
 ##### 说明
 
-手动断开连接，关闭自动重连。详细使用请参考：[完整指南-手动建立或断开连接](../../../guide/sync/web/offline-capabilities.html#手动建立或断开连接)。
+手动断开连接，关闭自动重连。详细使用请参考：[完整指南-手动建立或断开连接](/sync/Egret/guide/offline-capabilities.html#手动建立或断开连接)。
 
 ##### 返回值
 
-[Void](/api/sync/web/Void.html)
+[Void](Void.html)
 
 ##### 示例
 ```js
@@ -97,11 +97,11 @@ wilddog.sync().goOffline();
 
 ##### 说明
 
-手动恢复连接，开启自动重连。详细使用请参考：[完整指南-手动建立或断开连接](../../../guide/sync/web/offline-capabilities.html#手动建立或断开连接)。
+手动恢复连接，开启自动重连。详细使用请参考：[完整指南-手动建立或断开连接](/sync/Egret/guide/offline-capabilities.html#手动建立或断开连接)。
 
 ##### 返回值
 
-[Void](/api/sync/web/Void.html)
+[Void](Void.html)
 
 ##### 示例
 ```js

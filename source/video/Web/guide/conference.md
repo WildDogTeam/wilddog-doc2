@@ -1,7 +1,7 @@
 title: 多人视频会议
 ---
 
-本篇文档介绍开发多人视频会议的主要环节，包括 [创建视频会议](/guide/video/web/conference.html#创建视频会议)、[管理其他参与者](/guide/video/web/conference.html#管理其他参与者) 和 [加入视频会议相关](/guide/video/web/conference.html#加入视频会议相关)。
+本篇文档介绍开发多人视频会议的主要环节，包括 [创建视频会议](/video/Web/guide/conference.html#创建视频会议)、[管理其他参与者](/video/Web/guide/conference.html#管理其他参与者) 和 [加入视频会议相关](/video/Web/guide/conference.html#加入视频会议相关)。
 
 ## 创建视频会议
 
@@ -9,7 +9,7 @@ title: 多人视频会议
 
 ### 配置和预览本地媒体流
 
-本地媒体流( [Local Stream](/guide/video/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
+本地媒体流（ [Local Stream](/video/Web/guide/core.html#Local-Stream)）包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>

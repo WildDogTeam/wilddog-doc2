@@ -85,7 +85,7 @@ ChildEventListener listener = ref.addChildEventListener(new ChildEventListener()
 });
 ```
 
-更详细的用法说明，请参考 [API 文档](/api/sync/android/Query.html)。
+更详细的用法说明，请参考 [API 文档](/sync/Android/api/Query.html)。
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
@@ -223,7 +223,7 @@ queryRef.addChildEventListener(new ChildEventListener() {
   <p><strong>注意：</strong></p>
   <ul>
     <li>每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。</li>
-    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。</li>
+    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 `.indexOn `规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/sync/Android/rules/index.html)。</li>
   </ul>
 </blockquote>
 
@@ -303,6 +303,6 @@ queryRef.startAt(60).addChildEventListener(new ChildEventListener() {
   范围筛选中，当节点的 value 相同时，会按照 key 进行排序。
 </blockquote>
 
-范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
+范围筛选可用于 **数据分页** 和 **精确查询** 。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
 
 

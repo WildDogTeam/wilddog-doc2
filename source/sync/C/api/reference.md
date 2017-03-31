@@ -65,7 +65,7 @@ Wilddog_Return_T wilddog_destroy(Wilddog_T *p_wilddog)
 
 **返回值**
 
-成功返回 0，否则返回对应的 [错误码](/api/sync/c/error-code.html)。
+成功返回 0，否则返回对应的 [错误码](/sync/C/api/error-code.html)。
 
 **示例**
 

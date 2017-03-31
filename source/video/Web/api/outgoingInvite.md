@@ -72,7 +72,7 @@ Object
 
 **说明**
 
-对方接受邀请后创建的 [wilddog.video.Conversation](/api/video/web/conversation.html)
+对方接受邀请后创建的 [wilddog.video.Conversation](/video/Web/api/conversation.html)
 
 </br>
 

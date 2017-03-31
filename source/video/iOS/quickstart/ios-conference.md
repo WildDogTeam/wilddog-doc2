@@ -81,4 +81,4 @@ title: 视频会议
 <img src='/images/video_quickstart_ios_conference_3.jpg' alt="video_quickstart_android_conference_multi" width="300" >
 
 
-更多详细功能请见 [完整指南](/guide/video/core.html) 和  [API 文档](/api/video/ios/Classes/WDGVideoClient.html)。
+更多详细功能请见 [完整指南](/video/iOS/guide/core.html) 和  [API 文档](/video/iOS/api/WDGVideoClient.html)。

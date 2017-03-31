@@ -73,7 +73,7 @@ postsRef.on('child_removed', function(data) {
 });
 ```
 
-更多使用，请参考 [on()](/api/sync/web/api.html#on)。
+更多使用，请参考 [on()](/sync/Egret/api/Query.html#on)。
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
@@ -179,7 +179,7 @@ ref.orderByValue().on("value", function(snapshot) {
   <p><strong>注意：</strong></p>
   <ul>
     <li>每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。</li>
-    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加数据索引以提高排序效率。更多使用，请参考 [数据索引](/guide/sync/rules/index.html)。</li>
+    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/sync/Egret/rules/index.html) 规则，在服务器上添加数据索引以提高排序效率。更多使用，请参考 [数据索引](/sync/Egret/rules/index.html) 。</li>
   </ul>
 </blockquote>
 
@@ -244,4 +244,4 @@ ref.orderByValue().startAt(60).on("child_added", function(snapshot) {
 </blockquote>
 
 
-范围筛选可用于**数据分页**和**精确查询**。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。
+范围筛选可用于 **数据分页** 和 **精确查询** 。关于分页的具体实现，请参考 [如何实现分页](https://coding.net/u/wilddog/p/wilddog-gist-js/git/tree/master/src/pagination)。

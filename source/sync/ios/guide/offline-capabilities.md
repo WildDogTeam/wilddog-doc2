@@ -141,10 +141,10 @@ presenceRef.cancelDisconnectOperations()
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-  通过该 <a href="/guide/sync/bestpractice/offline.html">最佳实践</a>，可以保证网络意外中断情况时，离线事件也能成功触发。
+  通过该 <a href="/sync/iOS/guide/bestpractice/offline.html">最佳实践</a>，可以保证网络意外中断情况时，离线事件也能成功触发。
 </blockquote>
 
-更多离线事件的方法，请参考 [API 文档](/api/sync/ios/WDGSyncReference.html#–-onDisconnectSetValue)。
+更多离线事件的方法，请参考 [API 文档](/sync/iOS/api/WDGSyncReference.html#onDisconnectSetValue)。
 
 ## 手动建立或断开连接
 `goOnline` 和 `goOffline` 方法用于手动建立连接和断开连接。
@@ -182,7 +182,7 @@ WDGSyncReference.goOnline()
 | ------ | ---------------------------------------- |
 | 离线查询   | 在无网环境时仍然可以查询数据。                          |
 | 发送离线数据 | 在无网环境时操作的数据会在重新连接时发送。                    |
-| 提前同步   | 在查询数据前自动同步指定[节点](/guide/reference/term.html#节点)下的数据。 |
+| 提前同步   | 在查询数据前自动同步指定[节点](/sync/iOS/guide/concept.html#Sync-的数据结构是什么？)下的数据。 |
 
 
 

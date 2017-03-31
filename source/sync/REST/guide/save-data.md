@@ -9,7 +9,7 @@ title: 数据操作
 | 方法     | 说明                                       |
 | ------ | ---------------------------------------- |
 | PUT    | 向指定 [节点](/guide/sync/concept.html#Sync-的数据结构是什么？)写入数据。若此节点已存在数据，会覆盖原有数据。 |
-| POST   | 向指定节点添加 [子节点](/guide/sync/concept.html#子节点)。子节点的 [key](/guide/sync/concept.html#Key-Value-结构) 自动生成并保证唯一。 |
+| POST   | 向指定节点添加 [子节点](/sync/Web/guide/concept.html#Sync-的数据结构是什么？)。子节点的 [key](/sync/Web/guide/concept.html#Sync-的数据结构是什么？) 自动生成并保证唯一。 |
 | PATCH  | 更新指定子节点。                                 |
 | DELETE | 删除指定节点。                                  |
 

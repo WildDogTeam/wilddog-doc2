@@ -41,4 +41,4 @@ LocalStream getLocalStream()
 
 **返回值**
 
-[LocalStream](/api/video/android/local-stream.html)
+[LocalStream](/video/Android/api/local-stream.html)

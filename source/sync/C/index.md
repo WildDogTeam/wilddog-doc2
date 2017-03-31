@@ -70,7 +70,7 @@ Sync 采用基于资源的数据访问控制列表(ACL)来进行数据访问授�
 
 ![](/images/protect.jpg)
 
-更多具体细节，请参考文档 Sync [快速入门](/quickstart/sync/web.html) 。
+更多具体细节，请参考文档 Sync [快速入门](/sync/C/quickstart.html) 。
 
 
 

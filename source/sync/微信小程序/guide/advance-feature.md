@@ -6,7 +6,7 @@ title: 高级特性
 
 ## 云端时间戳
 
-`wilddog.sync().ServerValue.TIMESTAMP` 用于记录当前 [云端时间戳](/api/sync/web/api.html#ServerValue)。
+`wilddog.sync().ServerValue.TIMESTAMP` 用于记录当前 [云端时间戳](/sync/微信小程序/api/Sync.html#ServerValue-TIMESTAMP)。
 
 例如，在`servertimestamp` 节点下记录当前云端时间：
 

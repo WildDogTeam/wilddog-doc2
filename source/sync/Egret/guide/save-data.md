@@ -8,10 +8,10 @@ title:  数据操作
 
 | 方法                | 说明                                       |
 | ----------------- | ---------------------------------------- |
-| set()             | 向指定 [节点](/guide/sync/concept.html#Sync-的数据结构是什么？) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
+| set()             | 向指定 [节点](/sync/Egret/guide/concept.html#Sync-的数据结构是什么？) 写入数据。若此节点已存在数据，会覆盖原有数据。 |
 | setPriority()     | 设置节点优先级。                                 |
 | setWithPriority() | 向指定节点写入数据并且设置该节点优先级。                     |
-| push()            | 向指定节点添加 [子节点](/guide/sync/concept.html#子节点)。子节点的 [key](/guide/sync/concept.html#Key-Value-结构) 自动生成并保证唯一。 |
+| push()            | 向指定节点添加 [子节点](/sync/Egret/guide/concept.html#Sync-的数据结构是什么？)。子节点的 [key](/sync/Egret/guide/concept.html#Sync-的数据结构是什么？) 自动生成并保证唯一。 |
 | remove()          | 删除指定节点。                                  |
 | update()          | 更新指定子节点。                                 |
 | transaction()     | 并发操作时保证数据一致性。                            |
@@ -59,7 +59,7 @@ ref.child("Jobs").set({
 
 `setPriority(priority)` 方法用于设置节点的优先级。
 
-Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/guide/sync/web/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
+Wilddog Sync 支持为每个节点设置优先级(priority)，用于实现节点按 [优先级排序](/sync/Egret/guide/retrieve-data.html#根据数据排序监听)。优先级是节点的隐藏属性，默认为 null。
 
 例如，设置`user`节点的优先级为100：
 
@@ -73,7 +73,7 @@ wilddog.sync().ref('user').setWithPriority(100)
     });
 ```
 
-更多使用，请参考 [setPriority()](/api/sync/web/api.html#setPriority)。
+更多使用，请参考 [setPriority()](/sync/Egret/api/Reference.html#setPriority)。
 
 
 
@@ -94,7 +94,7 @@ wilddog.sync().ref('full_name').setWithPriority('jack',100)
     });
 ```
 
-更多使用，请参考 [setWithPriority()](/api/sync/web/api.html#setWithPriority)。
+更多使用，请参考 [setWithPriority()](/sync/Egret/api/Reference.html#setWithPriority)。
 
 
 
@@ -141,7 +141,7 @@ wilddog.sync().ref('full_name').setWithPriority('jack',100)
 
 `update()` 方法用于更新指定子节点。
 
-`update()` 方法支持多路径更新。可以只调用一次方法更新多个[路径](/guide/reference/term.html#路径-path)的数据。
+`update()` 方法支持多路径更新。可以只调用一次方法更新多个路径的数据。
 
 例如，更新 `Jobs` 的个人信息：
 
@@ -249,7 +249,7 @@ upvotesRef.transaction(function (currentValue) {
   回调方法的返回值可能为空，需要进行相应的处理。
 </blockquote>
 
-更多使用，请参考 [transaction()](/api/sync/web/api.html#transaction)。
+更多使用，请参考 [transaction()](/sync/Egret/api/Reference.html#transaction)。
 
 
 

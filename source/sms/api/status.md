@@ -2,7 +2,7 @@
 title: 查询发送状态
 ---
 
-用于查询短信发送状态，需配合 [数字签名](/guide/sms/signature.html#生成数字签名的方法) 使用。
+用于查询短信发送状态，需配合 [数字签名](/sms/guide/signature.html#数字签名验证模式) 使用。
 
 **URL**
 
@@ -27,7 +27,7 @@ GET
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
 |rrid          |string         |是         |rrid|
-|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证 ，其中参与签名加密的参数包括 `rrid` |
+|signature      |string         |是         |[数字签名](/sms/guide/signature.html#数字签名验证模式) ，合法性验证 ，其中参与签名加密的参数包括 `rrid` |
  
  
 **返回说明**

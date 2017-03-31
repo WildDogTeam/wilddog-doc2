@@ -48,4 +48,4 @@ title: 用户访问控制
   }
 }
 ```
-关于自定义 Token 的具体使用方法，请参考 [Wilddog Server SDK](/guide/auth/server/server.html) 进行身份认证。
+关于自定义 Token 的具体使用方法，请参考 [Wilddog Server SDK](/auth/Server/server.html) 进行身份认证。

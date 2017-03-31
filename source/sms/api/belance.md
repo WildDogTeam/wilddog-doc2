@@ -26,7 +26,7 @@ GET
     
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
-|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证，其中参与签名加密的参数包括`timestamp`|
+|signature      |string         |是         |[数字签名](/sms/guide/signature.html#数字签名验证模式) ，合法性验证，其中参与签名加密的参数包括`timestamp`|
 |timestamp      |string         |是         | UNIX 时间戳|
  
 <blockquote class="warning">
@@ -58,7 +58,7 @@ GET
   "message": "xxxxxx"
 }
 ```
-其中 `errocde` 对应信息在此处查询 [短信错误码](/api/sms/error-code.html)。
+其中 `errocde` 对应信息在此处查询 [短信错误码](/sms/api/error-code.html)。
 
 **示例代码**
 
