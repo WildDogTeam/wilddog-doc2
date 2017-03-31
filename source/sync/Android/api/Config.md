@@ -1,6 +1,6 @@
 title:  Config
 ---
-配置信息类。可以为 [SyncReference](napi/sync/android/SyncReference.html) 提供配置信息。默认使用 Wilddog Sync 提供的默认配置对象。
+配置信息类。可以为 [SyncReference](/sync/Android/api/SyncReference.html) 提供配置信息。默认使用 Wilddog Sync 提供的默认配置对象。
 ## 方法
 
 ### setLogger(logger)
