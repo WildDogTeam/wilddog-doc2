@@ -1,7 +1,7 @@
 title: 视频通话
 ---
 
-本篇文档介绍开发视频通话的主要环节，包括 [创建视频通话](/video/Web/guide/conversation.html)、[管理其他参与者](/video/Web/guide/conversation.html#管理其他参与者)、[加入视频通话相关](/guide/video/web/conversation.html#加入视频通话相关) 和 [数据安全性](/guide/video/web/conversation.html#数据安全性)。
+本篇文档介绍开发视频通话的主要环节，包括 [创建视频通话](/video/Web/guide/conversation.html)、[管理其他参与者](/video/Web/guide/conversation.html#管理其他参与者)、[加入视频通话相关](/video/Web/guide/conversation.html#加入视频通话相关) 和 [数据安全性](/video/Web/guide/conversation.html#数据安全性)。
 
 ## 创建视频通话
 
