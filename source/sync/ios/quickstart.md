@@ -192,7 +192,7 @@ ref.observeSingleEvent(of: .value, with: {
 
 
 ## 6.更多使用
-- 了解 Wilddog Sync 数据访问控制，请参考 [规则表达式](/quickstart/sync/rule.html)
+- 了解 Sync 数据访问控制，请参考 [安全性与规则](/sync/iOS/rules/introduce.html)
 - 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/sync/iOS/guide/save-data.html) 和 [API 文档](/sync/iOS/api/App.html)。
 
 
