@@ -1,5 +1,3 @@
-<<<<<<< HEAD:source/auth/iOS/guide/manageuser.md
-
 title: 用户管理
 ---
 

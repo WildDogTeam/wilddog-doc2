@@ -247,13 +247,15 @@ $(function() {
 
         $('#sidebar .outer .selected').click(function(event) {
             event.stopPropagation();
-            $(this).siblings('.platforms').slideToggle(100)
+            $(this).siblings('.platforms').slideToggle(100);
+            $(this).toggleClass('ui');
         });
 
         $(document).click(function(e) {
             var _con = $('.platforms');
             if (!_con.is(e.target) && _con.has(e.target).length === 0) {
                 _con.slideUp(100)
+                $('#sidebar .outer .selected').removeClass('ui')
             }
 
         });
