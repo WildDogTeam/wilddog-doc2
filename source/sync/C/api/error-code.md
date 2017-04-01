@@ -30,7 +30,7 @@ title:  错误码
 | 412  | WILDDOG_HTTP_PRECONDITION_FAIL   | 资源(存储、流量或连接数)超出限制，请进入 Wilddog 的控制查看      |
 | 413  | WILDDOG_HTTP_REQ_ENTITY_TOOLARGE | 请求的数据大小溢出                                |
 | 415  | WILDDOG_HTTP_UNSUPPORT_MEDIA     | 请求的数据格式出错                                |
-| 500  | WILDDOG_HTTP_INTERNAL_SERVER_ERR | 服务端出错，劳烦联系野狗工作人员                         |
+| 500  | WILDDOG_HTTP_INTERNAL_SERVER_ERR | 服务端出错，联系野狗工作人员                         |
 | 501  | WILDDOG_HTTP_NOT_IMPLEMENTED     | 当服务器无法识别请求的方法，并且无法支持其对任何资源的请求            |
 | 502  | WILDDOG_HTTP_BAD_GATEWAY         | 上游服务器接收到无效的响应                            |
 | 503  | WILDDOG_HTTP_SERVICE_UNAVAILABLE | 当服务器无法识别请求的方法，并且无法支持其对任何资源的请求            |

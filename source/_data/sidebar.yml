@@ -176,7 +176,6 @@ sync:
       最佳实践 : 
         组织数据: /sync/REST/guide/bestpractice/structure-data.html
         数组处理: /sync/REST/guide/bestpractice/array.html
-        离线事件: /sync/REST/guide/bestpractice/offline.html
       数据限制 : /sync/REST/guide/datalimit.html
     安全性与规则: 
       规则表达式简介: /sync/REST/rules/introduce.html
