@@ -171,7 +171,7 @@ sync:
     完整指南:
       数据操作: /sync/REST/guide/save-data.html
       数据查询: /sync/REST/guide/retrieve-data.html
-      其他平台: /sync/REST/guide/offline-capabilities.html
+      其他平台: /sync/REST/guide/library.html
       Webhook: /sync/REST/guide/webhook.html
       最佳实践 : 
         组织数据: /sync/REST/guide/bestpractice/structure-data.html
@@ -194,10 +194,7 @@ sync:
       Server Values: /sync/REST/api/Server Values.html
       Rule: /sync/REST/api/Rule.html
       错误码: /sync/REST/api/Error.html
-    示例代码:
-      示例库: /sync/C/resources/resources.html
-      实战教程: /sync/C/resources/tutorial.html
-    更新日志: /sync/C/changelog.html
+    更新日志: /sync/REST/changelog.html
 
   微信小程序:
     概览: /sync/微信小程序/index.html
@@ -466,7 +463,7 @@ auth:
       邮箱登录: /auth/Web/guide/password.html
       QQ 登录: /auth/Web/guide/qq.html
       微信登录: /auth/Web/guide/weixin.html
-      微信公众号登录: /auth/Web/guide/weixin.html
+      微信公众号登录: /auth/Web/guide/weixinpublic.html
       微博登录: /auth/Web/guide/weibo.html
       自定义身份认证: /auth/Web/guide/custom.html
       匿名身份认证: /auth/Web/guide/anonymous.html
@@ -620,7 +617,6 @@ auth:
       Promise: /auth/Egret/api/Promise.html
       Void: /auth/Egret/api/Void.html
       错误码: /auth/Egret/api/error-code.html
-    更新日志: /auth/Egret/changelog.html
 
   Server:
     简介: /auth/Server/introduction.html
