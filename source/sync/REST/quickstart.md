@@ -1,4 +1,3 @@
-
 title: 快速入门
 ---
 
@@ -73,3 +72,4 @@ curl -X GET 'https://docs-examples.wilddogio.com/rest/quickstart/users.json'
 ## 4.更多使用
 - 了解 Sync 数据访问控制，请参考 [安全性与规则](/sync/REST/rules/introduce.html)
 - 了解 Sync 更多使用方式，请参考 [完整指南](/sync/REST/guide/save-data.html) 和 [API文档](/sync/REST/api/introduce.html)。
+

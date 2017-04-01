@@ -1,4 +1,4 @@
-title: WDGIMMessageVoice 
+title: WDGIMMessageImage 
 ---
 WDGIMMessageImage 是 Wilddog IM SDK 图片消息类。
 

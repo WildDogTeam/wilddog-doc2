@@ -483,7 +483,6 @@ auth:
       Promise: /auth/Web/api/Promise.html
       Void: /auth/Web/api/Void.html
       错误码: /auth/Web/api/error-code.html
-    更新日志: /auth/Web/changelog.html
 
   iOS: 
     概览: /auth/iOS/index.html
