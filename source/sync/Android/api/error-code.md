@@ -1,4 +1,3 @@
-<<<<<<< HEAD:source/sync/Android/api/error-code.md
 title:  错误码
 ---
 

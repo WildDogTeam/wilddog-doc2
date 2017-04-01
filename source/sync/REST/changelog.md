@@ -2,7 +2,7 @@
 title: 更新日志
 ---
 
-## rest
+## REST
 
 ### V2.3.6 - 2017.03.28
 <span class="changelog fix">修复</span>
