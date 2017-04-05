@@ -96,7 +96,7 @@ WilddogUser user = auth.getCurrentUser();
 ```
 
 ## 更新用户信息
- `WilddogUser` 实例用于更新 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
+ `WilddogUser` 实例用于更新 [用户属性](/auth/Android/guide/concept.html#用户属性) 及用户的登录信息。
 
 ### 更新用户属性
 
@@ -154,7 +154,7 @@ user.updatePhone(phone)
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>要更新手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>要更新手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/Android/guide/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户手机号。</li>
   </ul>
 </blockquote>
@@ -224,7 +224,7 @@ user.updateEmail("12345678@gmail.com")
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/Android/guide/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。</li>
   </ul>
 </blockquote>
@@ -253,7 +253,7 @@ user.updatePassword(newPassword)
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/Android/guide/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。</li>
   </ul>
 </blockquote>
@@ -318,7 +318,7 @@ auth.getCurrentUser().delete()
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/android/manageuser.html#重新进行身份认证)。</li>
+    <li>要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/Android/guide/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。</li>
   </ul>
 </blockquote>
