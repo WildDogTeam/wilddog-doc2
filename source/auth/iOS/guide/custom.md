@@ -49,7 +49,7 @@ WDGApp.configure(with: options)
 </div>
 </div>
 
-3.当用户成功登录你的用户系统时，服务器通过 [Server SDK 生成 Custom Token](/guide/auth/server/server.html)，并返回给客户端。
+3.当用户成功登录你的用户系统时，服务器通过 [Server SDK 生成 Custom Token](/auth/Server/server.html)，并返回给客户端。
 
 4.客户端收到 Custom Token 后，使用 `signInWithCustomToken:` 方法进行认证：
 

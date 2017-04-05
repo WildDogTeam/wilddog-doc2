@@ -578,7 +578,7 @@ sendEmailVerification()
 
 **返回**
 
- [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+ [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/auth/Web/api/Void.html)>
 
 </br>
 
@@ -594,7 +594,7 @@ sendPhoneVerification()
 
 **返回**
 
- [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+ [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/auth/Web/api/Void.html)>
 
 
 </br>
@@ -619,4 +619,4 @@ verifiyPhone(code)
 
 **返回**
 
- [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/api/auth/web/Void.html)>
+ [wilddog.Promise](/api/auth/web/Promise.html).<[Void](/auth/Web/api/Void.html)>
