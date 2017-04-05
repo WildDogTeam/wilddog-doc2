@@ -481,7 +481,7 @@ updatePhone(phone)
 
 **返回值**
 
-[wilddog.Promise](/api/auth/web/Promise.html).<[wilddog.User](/api/auth/web/User.html)>
+[wilddog.Promise](/auth/Egret/api/Promise.html).<[wilddog.User](/auth/Egret/api/User.html)>
 
 
 **参考**
