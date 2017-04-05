@@ -158,4 +158,4 @@ myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 ```
 ## 7.更多使用
 - 了解 Sync 数据访问控制，请参考 [安全性与规则](/sync/Android/rules/introduce.html)
-- 了解 Sync 更多使用方式，请参考 [完整指南](/guide/sync/android/save-data.html) 和 [API 文档](/api/sync/android/ChildEventListener.html)。
+- 了解 Sync 更多使用方式，请参考 [完整指南](/sync/Android/guide/save-data.html) 和 [API 文档](/api/sync/android/ChildEventListener.html)。

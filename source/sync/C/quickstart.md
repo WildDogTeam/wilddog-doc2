@@ -105,7 +105,7 @@ int main(void){
 
 ## 5. 监听数据 
 
-[wilddog_addObserver()](/api/sync/c/api.html#wilddog-addObserver) 方法用于监听 [节点](/sync/C/guide/concept.html#Sync-的数据结构是什么？) 的数据。
+[wilddog_addObserver()](/sync/C/api/sync-with-server.html#wilddog-addObserver) 方法用于监听 [节点](/sync/C/guide/concept.html#Sync-的数据结构是什么？) 的数据。
 
 ```c
 #include "wilddog.h"
@@ -127,9 +127,9 @@ int main(){
     wilddog_destroy(&ref);
 }
 ```
-回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 [wilddog_getValue()](/api/sync/c/api.html#wilddog-getValue) 方法。
+回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 [wilddog_getValue()](/sync/C/api/sync-with-server.html#wilddog-getValue) 方法。
 
 ## 5.更多使用
 - 了解 Sync 数据访问控制，请参考 [安全性与规则](/sync/C/rules/introduce.html)
-- 了解 Sync 更多使用方式，请参考 [完整指南](/sync/C/guide/save-data.html) 和 [API 文档](/sync/C/api/App.html)。
+- 了解 Sync 更多使用方式，请参考 [完整指南](/sync/C/guide/save-data.html) 和 [API 文档](/sync/C/api/reference.html)。
 

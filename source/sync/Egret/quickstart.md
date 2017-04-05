@@ -66,7 +66,7 @@ wilddoog.sync().ref().on('child_added',function(snapshot){
 
 ## 5.更多使用
 
-- 了解更多使用方式，请参考 [完整指南](/sync/Egret/guide/save-data.html) 和 [API 文档](/sync/Egret/api/App.html)。
+- 了解更多使用方式，请参考 [完整指南](/auth/Egret/guide/concept.html) 和 [API 文档](/auth/Egret/api/App.html)。
 
 
 

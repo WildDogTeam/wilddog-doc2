@@ -306,7 +306,7 @@ scoresRef.queryOrderedByValue().observeEventType(.ChildAdded, withBlock: { snaps
   <p><strong>注意：</strong></p>
   <ul>
     <li>每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。</li>
-    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/guide/sync/rules/introduce.html#indexOn) 规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/guide/sync/rules/guide.html#数据索引)。</li>
+    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 `.indexOn`规则，在服务器上添加索引以提高排序效率。详细请参考 [添加索引](/sync/iOS/rules/index.html)。</li>
   </ul>
 </blockquote>
 

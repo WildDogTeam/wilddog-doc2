@@ -446,4 +446,4 @@ upvotesRef.runTransactionBlock({
   回调方法的返回值可能为空，需要进行相应的处理。
 </blockquote>
 
-更多使用，请参考 [- runTransactionBlock:](/api/sync/ios/WDGSyncReference.html#–-runTransactionBlock)。
+更多使用，请参考 [- runTransactionBlock:](/sync/iOS/api/WDGSyncReference.html#runTransactionBlock)。

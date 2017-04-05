@@ -50,7 +50,7 @@ title: 读写权限控制
 | $variables | 通配变量。代表节点列表下某个相同的键 (key) 。                       |
 | auth       | 代表已登录用户对象。                   |
 
-内置对象的使用，请参考 [规则表达式 API 文档](/api/sync/rule.html)。
+内置对象的使用，请参考 [规则表达式 API 文档](/sync/iOS/rules/ruleapi.html)。
 
 ## $ 通配符
 

@@ -24,7 +24,7 @@ title: 实战教程
 
 ### 2. 实现 “说点什么” 与 “发射” 功能
 
-使用写入数据的 API [push()](sync/Web/guide/save-data.html#追加子节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
+使用写入数据的 API [push()](/sync/Web/guide/save-data.html#追加子节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
 
 ```js
 // 创建数据库引用。最好自己创建一个应用，把 danmu 即 `appId` 换成你自己的
