@@ -58,7 +58,7 @@ POST
 
 ```
 {
-  "errocode": 7xxxx,
+  "errcode": 7xxxx,
   "message": "xxxxxx"
 }
 ```
