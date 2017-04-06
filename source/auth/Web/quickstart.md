@@ -53,7 +53,7 @@ import * as wilddog from 'wilddog'
 ```javascript
 var config = {
   authDomain: "<appId>.wilddog.com"
-｝
+}
 wilddog.initializeApp(config);
 
 ```

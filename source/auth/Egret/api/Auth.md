@@ -101,7 +101,7 @@ createUserWithEmailAndPassword(email, password)
 - email_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
+- 参考 [错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -128,7 +128,7 @@ createUserWithPhoneAndPassword(phone, password)
 
 **返回值**
 
-[wilddog.User](/api/auth/web/User.html) 对象
+[wilddog.User](/auth/Egret/api/User.html) 对象
 
 **参考**
 
@@ -138,7 +138,7 @@ createUserWithPhoneAndPassword(phone, password)
 - phone_already_in_use 表示手机号已经被注册。
 - authentication_disabled 表示手机号登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
+- 参考 [错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -193,7 +193,7 @@ wilddog.auth().signInWithEmailAndPassword(email, password)
 - email_already_in_use 表示邮箱已经被注册。
 - authentication_disabled 表示邮箱登录方式没有打开，可以在野狗的控制面板中打开这个选项。
 - invalid_password 密码不符合规定。
-- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
+- 参考 [错误码](/auth/Egret/api/error-code.html) 查看调用时可能发生的所有错误。
 
 <br/>
 
@@ -248,7 +248,7 @@ signInWithPopup(provider)
 
 | 参数名      | 描述                                       |
 | -------- | ---------------------------------------- |
-| provider | [provider](/api/auth/web/Provider.html)为特定身份提供商实例。 |
+| provider | [provider](/auth/Egret/guide/concept.html#Provider)为特定身份提供商实例。 |
 
 **参考**
 
@@ -269,7 +269,7 @@ wilddog.auth().signInWithPopup(weiboProvider).then(function () {
 可能发生的错误：
 
 -  authentication_disabled 表示 Oauth 登录方式没有打开，可以在野狗的控制面板中打开这个选项。
--  参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
+-  参考 [错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 
 
@@ -293,7 +293,7 @@ signInWithRedirect(provider)
 
 | 参数名      | 描述                                       |
 | -------- | ---------------------------------------- |
-| provider | [provider](/api/auth/web/Provider.html) 为特定身份提供商实例。 |
+| provider | [provider](/auth/Egret/guide/concept.html#Provider) 为特定身份提供商实例。 |
 
 **示例**
 
@@ -311,7 +311,7 @@ wilddog.auth().signInWithRedirect(weiboProvider).then(function () {
 可能发生的错误：
 
 -  authentication_disabled 表示 Oauth 登录方式没有打开，可以在野狗的控制面板中打开这个选项。
--  参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
+-  参考 [错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -357,7 +357,7 @@ wilddog.auth().signInWithCustomToken(token).then(function () {
 可能发生的错误：
 
 - invalid_token  无效的 custom token。
-- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
+- 参考 [错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -399,7 +399,7 @@ wilddog.auth().signInWithCredential(credential).then(function(user){
 - authentication_disabled 表示这种登录方式没有打开，可以在野狗控制面板中打开这个选项。
 - invalid_email 表示邮箱错误。
 - invalid_password 表示密码错误。
-- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
+- 参考 [错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -427,7 +427,7 @@ sendPasswordResetEmail(email)
 
 可能发生的错误：
 - invalid_email 表示邮箱错误。
-- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
+- 参考 [错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -455,7 +455,7 @@ sendPasswordResetSms(phone)
 
 可能发生的错误：
 - invalid_phone 表示手机号错误。
-- 参考[错误码](/auth/Web/api/error-code.html) 查看调用时可能发生的所有错误。
+- 参考[错误码](/auth/Egret/api/error-code.html) 查看调用时可能发生的所有错误。
 
 </br>
 
@@ -475,7 +475,7 @@ signOut()
 
 **返回值**
 
-[wilddog.Promise](/auth/Web/api/Promise.html).<[Void](/auth/Web/api/Void.html)>
+[wilddog.Promise](/auth/Egret/api/Promise.html).<[Void](/auth/Egret/api/Void.html)>
 
 </br>
 
@@ -505,4 +505,4 @@ confirmPasswordResetSms(phone, code, newPassword)
 
 **返回值**
 
-[wilddog.Promise](/auth/Web/api/Promise.html).<[Void](/auth/Web/api/Void.html)>
+[wilddog.Promise](/auth/Egret/api/Promise.html).<[Void](/auth/Egret/api/Void.html)>

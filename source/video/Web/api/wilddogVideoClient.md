@@ -14,7 +14,7 @@ wilddog.video.client()
 
 **说明**
 
-获取 [wilddog.video.Client](video/Web/api/wilddogVideoClient.html) 实例。
+获取 `wilddog.video.Client`实例。
 
 **示例**
 
@@ -100,7 +100,7 @@ inviteToConversation(remoteUid, options)
 
 **返回值**
 
-[OutgoingInvite](video/Web/api/outgoingInvite.html)
+[OutgoingInvite](/video/Web/api/outgoingInvite.html)
 
 **示例**
 
@@ -199,7 +199,7 @@ Object
 
 | 参数名 | 说明 |
 |---|---|
-| incomingInvite | [IncomingInvite](/api/video/web/incomingInvite.html) 类型。|
+| incomingInvite | [IncomingInvite](/video/Web/api/incomingInvite.html) 类型。|
 
 **示例**
 

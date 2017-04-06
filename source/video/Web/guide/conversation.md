@@ -31,7 +31,7 @@ wilddog.video().createStream({audio:true,video:true})
 
 ### 发起视频通话
 
-只有另一个 [Client](/guide/video/core.html#Client) 接受了一方的邀请，通话才能建立成功。
+只有另一个 [Client](/video/Web/guide/core.html#Client) 接受了一方的邀请，通话才能建立成功。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -140,7 +140,7 @@ conversation.on('disconnected', function(){
 
 ### 保护信令交互的安全
 
-视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置 [规则表达式](/guide/sync/rules/introduce.html) 。
+视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置 [规则表达式](/sync/Web/rules/introduce.html) 。
 
 规则表达式设置页面如下：
 
