@@ -23,6 +23,12 @@ title: 管理应用
 
 ![](http://7u2r36.com1.z0.glb.clouddn.com/16-8-18/32430219.jpg)
 
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+控制面板最多能导出 2000 条数据，超出限制请使用 [REST 接口](/sync/REST/quickstart.html) 分批导出。
+</blockquote>
+
+
 ### 配置规则表达式
 
 

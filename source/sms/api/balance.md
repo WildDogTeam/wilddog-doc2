@@ -54,11 +54,11 @@ GET
 
 ```
 {
-  "errocode": 7xxxx,
+  "errcode": 7xxxx,
   "message": "xxxxxx"
 }
 ```
-其中 `errocde` 对应信息在此处查询 [短信错误码](/sms/api/error-code.html)。
+其中 `errcode` 对应信息在此处查询 [短信错误码](/sms/api/error-code.html)。
 
 **示例代码**
 
