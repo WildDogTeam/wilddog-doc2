@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.4 - 2017.03.30
+
+<span class="changelog feature">改进</span>
+
+- 改进 node 版日活统计规则，多次启动 node 服务将不会重复计算日活次数。
+
 ### V2.5.2 - 2017.02.06
 
 <span class="changelog feature">修复</span>
@@ -116,5 +122,3 @@ title: 更新日志
 - 移除原有 Wilddog SDK 中 Auth 功能。
 
 - Wilddog SDK 提供 Sync 与 Auth 两个模块。
-
-

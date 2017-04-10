@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.13 - 2017.04.10
+
+<span class="changelog fix">修复</span>
+
+- 修复调用 createStream， video 选项设为 false 时报错的问题。
+
 ### v0.5.12 - 2017.03.24
 
 <span class="changelog optimize">优化</span>
