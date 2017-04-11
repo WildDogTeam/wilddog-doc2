@@ -46,7 +46,7 @@ SDK 的安装方式有两种，你可以任选其一：
 2. 下载 Core SDK <a href="#" class="ios-download-core">点此下载</a>。        
 3. 把 WilddogSync.framework 和 WilddogCore.framework 拖到工程目录中。  
 4. 选中 Copy items if needed 、Create Groups，点击 Finish。  
-5. 点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 JavaScriptCore.framework、 libsqlite3 加入列表中。
+5. 点击工程文件 -> TARGETS -> General，在 Linked Frameworks and Libraries 选项中点击 '+'，将 libicucore、libsqlite3、CFNetwork.framework、Security.framework、MobileCoreServices.framework、SystemConfiguration.framework 加入列表中。
 6. 点击工程文件 -> TARGETS -> Build Settings，在 Other Linker Flags 中添加 -ObjC。
 
 ## 3. 创建 Wilddog Sync 实例
