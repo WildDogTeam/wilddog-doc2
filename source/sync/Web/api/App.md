@@ -3,11 +3,13 @@ title: App
 ---
 
 `App` 是 Wilddog SDK 的核心，它维护着应用的全局上下文数据，不同模块之间需要通过它来进行交互。同时 `App` 也是我们访问 Wilddog 各个功能模块的入口，所以初始化 `App` 是我们使用其他任何 API 接口的前提。
-要使用 Wilddog 实时通信引擎服务，你的初始化参数中必须包含 `syncURL`， 代码如下：
+要使用 Wilddog 实时通信引擎服务，你的初始化参数中必须包含 `syncURL`，`websocketOnly` 为可选参数，代码如下：
 
 ```js
 var config = {
   syncURL: "https://<appId>.wilddogio.com",
+  // 连接方式可选项，如不设置该参数，则默认为 false，连接 WilddogSync 服务器时采用 polling 和 websocket 两种模式
+  websocketOnly: false,
   // 若同时使用 Auth SDK ，应设置 authDomain
   authDomain: "<appId>.wilddog.com"
 };
@@ -31,7 +33,8 @@ var wilddog = wilddog.initializeApp(config);
 // 我们还可以使用不同配置声明多个不同的 App 实例
 var anotherConfig = {
   synURL: "https://<appId-a>.wilddogio.com",
-  authDomain: "<appId-a>.wilddog.com"
+  authDomain: "<appId-a>.wilddog.com"，
+  websocketOnly: false
 };
 var anotherApp = wilddog.initializeApp(anotherConfig, "ANOTHER_APP");
 // 通过 anotherApp 或 wilddog.ANOTHER_APP 来获取已有的 wilddog.App 实例

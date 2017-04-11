@@ -4,6 +4,17 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.5 - 2017.03.30
+
+<span class="changelog feature">改进</span>
+
+- 优化 WilddogSync 建连策略，使得服务不可用时能快速切换服务。
+- 优化 WilddogSync 建连策略，无网环境停止尝试重连，网络回复后自动重连。
+
+<span class="changelog add">新增</span>
+
+- config 增加 websocketOnly 选项。
+
 ### V2.5.4 - 2017.03.30
 
 <span class="changelog feature">改进</span>
