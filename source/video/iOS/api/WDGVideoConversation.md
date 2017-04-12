@@ -47,7 +47,7 @@ title: WDGVideoConversation
 
 **说明**
 
-[WDGVideoLocalParticipant](../Classes/WDGVideoLocalParticipant.html) 类型，表示当前视频通话所使用的本地视频、音频流。
+[WDGVideoLocalParticipant](/video/iOS/api/WDGVideoLocalParticipant.html) 类型，表示当前视频通话所使用的本地视频、音频流。
 
 </br>
 
@@ -63,7 +63,7 @@ title: WDGVideoConversation
 
 **说明**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 对象，视频通话的对方。
+[WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 对象，视频通话的对方。
 
 </br>
 
@@ -79,7 +79,7 @@ title: WDGVideoConversation
 
 **说明**
 
-符合 [WDGVideoConversationDelegate](../Protocols/WDGVideoConversationDelegate.html) 协议的代理。
+符合 [WDGVideoConversationDelegate](/video/iOS/api/WDGVideoClientDelegate.html) 协议的代理。
 
 </br>
 

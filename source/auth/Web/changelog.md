@@ -4,6 +4,11 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.3 - 2017.03.29
+
+<span class="changelog fix">修复</span>
+
+- 修复了 onAuthStateChanged 在 OAuth 的 redirect 方式登录时会多触发一次 auth 事件的问题。
 
 ### V2.5.1 - 2017.02.08
 
@@ -140,4 +145,3 @@ title: 更新日志
 - Wilddog SDK 提供 Sync 与 Auth 两个模块。
 
   新版的使用方式请参考 [新版 Wilddog 文档](/quickstart/sync/web.html)。
-

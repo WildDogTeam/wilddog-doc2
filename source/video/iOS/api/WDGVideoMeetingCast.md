@@ -47,7 +47,7 @@ title: WDGVideoMeetingCast
 
 **说明**
 
-符合 [WDGVideoMeetingCastDelegate](../Protocols/WDGVideoMeetingCastDelegate.html) 协议的代理，负责处理直播相关的事件。
+符合 [WDGVideoMeetingCastDelegate](/video/iOS/api/WDGVideoMeetingCastDelegate.html) 协议的代理，负责处理直播相关的事件。
 
 </br>
 
@@ -65,7 +65,7 @@ title: WDGVideoMeetingCast
 
 **说明**
 
-开启直播。通过 [WDGVideoMeetingCastDelegate](../Protocols/WDGVideoMeetingCastDelegate.html) 获得直播信息。
+开启直播。通过 [WDGVideoMeetingCastDelegate](/video/iOS/api/WDGVideoMeetingCastDelegate.html) 获得直播信息。
 
 **参数**
 
@@ -87,7 +87,7 @@ participantID|开启直播，并直播 Wilddog ID 为 participantID 的参与者
 
 **说明**
 
-开启直播。通过 [WDGVideoMeetingCastDelegate](../Protocols/WDGVideoMeetingCastDelegate.html) 获得直播信息。
+开启直播。通过 [WDGVideoMeetingCastDelegate](/video/iOS/api/WDGVideoMeetingCastDelegate.html) 获得直播信息。
 
 **参数**
 
@@ -110,7 +110,7 @@ completionHandler|操作完成时通过回调返回操作状态，若失败则�
 
 **说明**
 
-在直播开启后，切换直播视频流。通过 [WDGVideoMeetingCastDelegate](../Protocols/WDGVideoMeetingCastDelegate.html) 获得直播信息。
+在直播开启后，切换直播视频流。通过 [WDGVideoMeetingCastDelegate](/video/iOS/api/WDGVideoMeetingCastDelegate.html) 获得直播信息。
 
 **参数**
 
@@ -132,7 +132,7 @@ participantID|直播 Wilddog ID 为 participantID 的参与者的媒体流。
 
 **说明**
 
-在直播开启后，切换直播视频流。通过 [WDGVideoMeetingCastDelegate](../Protocols/WDGVideoMeetingCastDelegate.html) 获得直播信息。
+在直播开启后，切换直播视频流。通过 [WDGVideoMeetingCastDelegate](/video/iOS/api/WDGVideoMeetingCastDelegate.html) 获得直播信息。
 
 **参数**
 

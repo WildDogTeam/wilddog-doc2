@@ -9,7 +9,7 @@ WilddogAuthProvider 是邮箱和手机号认证方式的 Provider 类。
 
 **定义**
 
-继承自 [Provider](/api/auth/web/Provider.html)
+继承自 [Provider](/auth/Web/api/Provider.html)
 
 </br>
 
@@ -48,7 +48,7 @@ emailCredential(email, password)
 
 **返回值**
 
-[wilddog.auth.Credential](/api/auth/web/Credential.html)
+[wilddog.auth.Credential](/auth/Web/api/Credential.html)
 
 </br>
 
@@ -71,7 +71,7 @@ phoneCredential(phone, password)
 
 **返回值**
 
-[wilddog.auth.Credential](/api/auth/web/Credential.html)
+[wilddog.auth.Credential](/auth/Web/api/Credential.html)
 
 </br>
 

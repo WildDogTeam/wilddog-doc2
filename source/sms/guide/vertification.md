@@ -151,5 +151,5 @@ title: 验证码短信
 
 ## 调用接口
 
-- 需生成 [数字签名](/sms/guide/signature.html#生成数字签名的方法) 及调用接口，请参考 [接口文档](sms/api/sendcode.html)。
+- 需生成 [数字签名](/sms/guide/signature.html#生成数字签名的方法) 及调用接口，请参考 [接口文档](/sms/api/sendcode.html)。
 - 如需校验验证码和查询短信发送状态，请参考 [校验验证码](/sms/api/checkcode.html) 、[查询发送状态](/sms/api/status.html)。

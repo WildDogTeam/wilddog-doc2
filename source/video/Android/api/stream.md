@@ -23,7 +23,7 @@ void attach(WilddogVideoView videoView)
 
 | 参数名 | 描述 |
 |---|---|
-|videoView|[WilddogVideoView](/api/video/android/wilddog-video-view.html),用户创建的视频展示控件,讲当前流在视频展示控件上播放。|
+|videoView|[WilddogVideoView](/video/Android/api/wilddog-video-view.html),用户创建的视频展示控件,讲当前流在视频展示控件上播放。|
 
 
 **示例**

@@ -8,15 +8,15 @@ title: 用户管理
 
 创建用户包含以下四种方法:
 
-- 通过 [手机号密码](/guide/auth/web/phone.html) 创建
-- 通过 [邮箱密码](/guide/auth/web/password.html) 创建
+- 通过 [手机登录](/auth/Web/guide/phone.html) 创建
+- 通过 [邮箱登录](/auth/Web/guide/password.html) 创建
 - 通过第三方身份认证提供商授权创建
 - 在 控制面板—身份认证—用户 中手动创建
 
 
 ## 获取用户信息
 
-用户信息包含 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
+用户信息包含 [用户属性](/auth/Web/guide/concept.html#用户属性) 及用户的登录信息。
 
 ### 获取当前登录用户
 
@@ -76,7 +76,7 @@ if (user != null) {
 
 ### 获取 Provider 的用户属性
 
- `providerData` 用于获取所有 [Provider](/guide/auth/core/concept.html#Provider) 的用户属性。
+ `providerData` 用于获取所有 [Provider](/auth/Web/guide/concept.html#Provider) 的用户属性。
 
 ```js
 var user = wilddog.auth().currentUser;
@@ -92,7 +92,7 @@ user.providerData.forEach(function (profile) {
 ```
 
 ## 更新用户信息
- `User` 实例用于更新 [用户属性](/guide/auth/core/concept.html#用户属性) 及用户的登录信息。
+ `User` 实例用于更新 [用户属性](/auth/Web/guide/concept.html#用户属性) 及用户的登录信息。
 
 ### 更新用户属性
 
@@ -132,7 +132,7 @@ wilddog.auth().currentUser.updatePhone("18888888888").then(function() {
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>要更新用户的手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/web/manageuser.html#重新进行身份认证)。</li>
+    <li>要更新用户的手机号，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/Web/guide/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新手机号。</li>
   </ul>
 </blockquote>
@@ -154,7 +154,7 @@ wilddog.auth().currentUser.updateEmail("12345678@wilddog.com").then(function() {
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/web/manageuser.html#重新进行身份认证)。</li>
+    <li>要更新用户的邮箱地址，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/Web/guide/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新邮箱地址。</li>
   </ul>
 </blockquote>
@@ -176,7 +176,7 @@ wilddog.auth().currentUser.updatePassword("password123").then(function() {
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/guide/auth/web/manageuser.html#重新进行身份认证)。</li>
+    <li>要更新密码，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/Web/guide/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。</li>
   </ul>
 </blockquote>
@@ -244,7 +244,7 @@ wilddog.auth().currentUser.delete().then(function() {
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/#重新进行身份认证)。</li>
+    <li>要删除用户，该用户必须最近登录过。请参考 [重新进行身份认证](/auth/Web/guide/manageuser.html#重新进行身份认证)。</li>
     <li>使用 customToken 登录时，若该登录用户为 admin 用户，则不能更新用户密码。</li>
   </ul>
 </blockquote>

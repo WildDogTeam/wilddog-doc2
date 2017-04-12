@@ -1,7 +1,7 @@
 title: WDGVideoParticipantDelegate
 ---
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 的代理方法。
+[WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 的代理方法。
 
 ## 方法
 
@@ -15,14 +15,14 @@ title: WDGVideoParticipantDelegate
 
 **说明**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 通过该方法通知代理收到参与者发布的媒体流。
+[WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 通过该方法通知代理收到参与者发布的媒体流。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participant|[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 对象，代表当前参与者。
-stream|[WDGVideoRemoteStream](../Classes/WDGVideoRemoteStream.html) 对象，代表收到的媒体流。
+participant|[WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 对象，代表当前参与者。
+stream|[WDGVideoRemoteStream](/video/iOS/api/WDGVideoRemoteStream.html) 对象，代表收到的媒体流。
 
 </br>
 
@@ -38,13 +38,13 @@ stream|[WDGVideoRemoteStream](../Classes/WDGVideoRemoteStream.html) 对象，代
 
 **说明**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 通过该方法通知代理未能收到参与者发布的媒体流。
+[WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 通过该方法通知代理未能收到参与者发布的媒体流。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participant|[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 对象，代表当前参与者。
+participant|[WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 对象，代表当前参与者。
 error|错误信息，描述连接失败的原因。
 
 </br>
@@ -61,12 +61,12 @@ error|错误信息，描述连接失败的原因。
 
 **说明**
 
-[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 通过该方法通知代理参与者的媒体流中断。
+[WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 通过该方法通知代理参与者的媒体流中断。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-participant|[WDGVideoParticipant](../Classes/WDGVideoParticipant.html) 对象，代表当前参与者。
+participant|[WDGVideoParticipant](/video/iOS/api/WDGVideoParticipant.html) 对象，代表当前参与者。
 error|错误信息，描述媒体流中断的原因。
 

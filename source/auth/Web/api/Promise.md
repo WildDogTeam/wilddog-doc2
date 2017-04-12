@@ -54,6 +54,6 @@ catch(onReject)
 
 **返回值**
 
-[Void](/api/auth/web.html#Void)
+[Void](/auth/Web/api/Void.html)
 
 </br>

@@ -14,7 +14,7 @@ Webhook 目前仅支持 `POST` 请求，请求中 `Header` 的`Content-type`类�
 
 - `wilddog-webhook-request-id`由`appId`和一个与时间戳相关的递增数据组成，可以通过该字段完成请求的去重功能。
 
-- `wilddog-webhook-signature`为请求签名，可以通过该字段验证请求是否被篡改或被伪造。签名生成方法，请参考 [安全性](/guide/sync/webhook.html#安全性)。
+- `wilddog-webhook-signature`为请求签名，可以通过该字段验证请求是否被篡改或被伪造。签名生成方法，请参考 [安全性](/sync/REST/guide/webhook.html#安全性)。
 
 请求中包含的 Payload 格式示例如下：
 

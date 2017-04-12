@@ -41,7 +41,7 @@ public MeetingCastStatus getStatus()
 
 **返回值**
 
-[MeetingCastStatus](/api/video/android/meeting-cast-status.html)类型对象，代表当前直播状态。
+[MeetingCastStatus](/video/Android/api/meeting-cast-status.html)类型对象，代表当前直播状态。
 
 </br>
 
@@ -87,7 +87,7 @@ void start(String participantId,CompleteListener listener)
 | 参数名 | 描述 |
 |---|---|
 |participantId|String,需要直播的视频流的发布者的 Wilddog ID|
-|CompleteListener|[CompleteListener](/api/video/android/complete-listener.html),事件完成回调，事件完成后会触发 `onCompleted` 方法，如回调方法的 `VideoException` 参数不为空，则表示 `start` 操作失败，详细错误信息在 `VideoException` 中给出|
+|CompleteListener|[CompleteListener](/video/Android/api/complete-listener.html),事件完成回调，事件完成后会触发 `onCompleted` 方法，如回调方法的 `VideoException` 参数不为空，则表示 `start` 操作失败，详细错误信息在 `VideoException` 中给出|
 
 
 **示例**
@@ -152,7 +152,7 @@ void switchParticipant(String participantId, CompleteListener listener)
 | 参数名 | 描述 |
 |---|---|
 |participantId|String,需要切换直播的视频流的发布者的 Wilddog ID|
-|CompleteListener|[CompleteListener](/api/video/android/complete-listener.html),事件完成回调，事件完成后会触发 `onCompleted` 方法，如回调方法的 `VideoException` 参数不为空，则表示 `switchParticipant` 操作失败，详细错误信息在 `VideoException` 中给出|
+|CompleteListener|[CompleteListener](/video/Android/api/complete-listener.html),事件完成回调，事件完成后会触发 `onCompleted` 方法，如回调方法的 `VideoException` 参数不为空，则表示 `switchParticipant` 操作失败，详细错误信息在 `VideoException` 中给出|
 
 **示例**
 

@@ -13,12 +13,12 @@ sync:
       离线功能: /sync/Web/guide/offline-capabilities.html
       高级特性: /sync/Web/guide/advance-feature.html
       Webhook: /sync/Web/guide/webhook.html
-      最佳实践 : 
+      最佳实践 :
         组织数据: /sync/Web/guide/bestpractice/structure-data.html
         数组处理: /sync/Web/guide/bestpractice/array.html
         离线事件: /sync/Web/guide/bestpractice/offline.html
       数据限制 : /sync/Web/guide/datalimit.html
-    安全性与规则: 
+    安全性与规则:
       规则表达式简介: /sync/Web/rules/introduce.html
       #指南: /sync/Web/rules/guide.html
       读写权限控制: /sync/Web/rules/access.html
@@ -42,7 +42,7 @@ sync:
       实战教程: /sync/Web/resources/tutorial.html
     更新日志: /sync/Web/changelog.html
 
-    
+
   iOS:
     概览: /sync/iOS/index.html
     快速入门: /sync/iOS/quickstart.html
@@ -53,12 +53,12 @@ sync:
       离线功能: /sync/iOS/guide/offline-capabilities.html
       高级特性: /sync/iOS/guide/advance-feature.html
       Webhook: /sync/iOS/guide/webhook.html
-      最佳实践 : 
+      最佳实践 :
         组织数据: /sync/iOS/guide/bestpractice/structure-data.html
         数组处理: /sync/iOS/guide/bestpractice/array.html
         离线事件: /sync/iOS/guide/bestpractice/offline.html
       数据限制 : /sync/iOS/guide/datalimit.html
-    安全性与规则: 
+    安全性与规则:
       规则表达式简介: /sync/iOS/rules/introduce.html
       #指南: /sync/iOS/rules/guide.html
       读写权限控制: /sync/iOS/rules/access.html
@@ -93,12 +93,12 @@ sync:
       离线功能: /sync/Android/guide/offline-capabilities.html
       高级特性: /sync/Android/guide/advance-feature.html
       Webhook: /sync/Android/guide/webhook.html
-      最佳实践: 
+      最佳实践:
         组织数据: /sync/Android/guide/bestpractice/structure-data.html
         数组处理: /sync/Android/guide/bestpractice/array.html
         离线事件: /sync/Android/guide/bestpractice/offline.html
       数据限制 : /sync/Android/guide/datalimit.html
-    安全性与规则: 
+    安全性与规则:
       规则表达式简介: /sync/Android/rules/introduce.html
       #指南: /sync/Android/rules/guide.html
       读写权限控制: /sync/Android/rules/access.html
@@ -141,12 +141,12 @@ sync:
       事件监听: /sync/C/guide/retrieve-data.html
       离线功能: /sync/C/guide/offline-capabilities.html
       Webhook: /sync/C/guide/webhook.html
-      最佳实践 : 
+      最佳实践 :
         组织数据: /sync/C/guide/bestpractice/structure-data.html
         数组处理: /sync/C/guide/bestpractice/array.html
         离线事件: /sync/C/guide/bestpractice/offline.html
       数据限制 : /sync/C/guide/datalimit.html
-    安全性与规则: 
+    安全性与规则:
       规则表达式简介: /sync/C/rules/introduce.html
       #指南: /sync/C/rules/guide.html
       读写权限控制: /sync/C/rules/access.html
@@ -169,16 +169,16 @@ sync:
     概览: /sync/REST/index.html
     快速入门: /sync/REST/quickstart.html
     完整指南:
+      基础概念: /sync/REST/guide/concept.html
       数据操作: /sync/REST/guide/save-data.html
       数据查询: /sync/REST/guide/retrieve-data.html
-      其他平台: /sync/REST/guide/offline-capabilities.html
+      其他平台: /sync/REST/guide/library.html
       Webhook: /sync/REST/guide/webhook.html
-      最佳实践 : 
+      最佳实践 :
         组织数据: /sync/REST/guide/bestpractice/structure-data.html
         数组处理: /sync/REST/guide/bestpractice/array.html
-        离线事件: /sync/REST/guide/bestpractice/offline.html
       数据限制 : /sync/REST/guide/datalimit.html
-    安全性与规则: 
+    安全性与规则:
       规则表达式简介: /sync/REST/rules/introduce.html
       #指南: /sync/C/rules/guide.html
       读写权限控制: /sync/REST/rules/access.html
@@ -192,13 +192,10 @@ sync:
       Auth: /sync/REST/api/Auth.html
       Streaming: /sync/REST/api/Streaming.html
       Priorities: /sync/REST/api/Priorities.html
-      Server Values: /sync/REST/api/Server Values.html
+      Server Values: /sync/REST/api/ServerValues.html
       Rule: /sync/REST/api/Rule.html
       错误码: /sync/REST/api/Error.html
-    示例代码:
-      示例库: /sync/C/resources/resources.html
-      实战教程: /sync/C/resources/tutorial.html
-    更新日志: /sync/C/changelog.html
+    更新日志: /sync/REST/changelog.html
 
   微信小程序:
     概览: /sync/微信小程序/index.html
@@ -210,12 +207,12 @@ sync:
       离线功能: /sync/微信小程序/guide/offline-capabilities.html
       高级特性: /sync/微信小程序/guide/advance-feature.html
       Webhook: /sync/微信小程序/guide/webhook.html
-      最佳实践 : 
+      最佳实践 :
         组织数据: /sync/微信小程序/guide/bestpractice/structure-data.html
         数组处理: /sync/微信小程序/guide/bestpractice/array.html
         离线事件: /sync/微信小程序/guide/bestpractice/offline.html
       数据限制 : /sync/微信小程序/guide/datalimit.html
-    安全性与规则: 
+    安全性与规则:
       规则表达式简介: /sync/微信小程序/rules/introduce.html
       #指南: /sync/Web/rules/guide.html
       读写权限控制: /sync/微信小程序/rules/access.html
@@ -245,12 +242,12 @@ sync:
       离线功能: /sync/Egret/guide/offline-capabilities.html
       高级特性: /sync/Egret/guide/advance-feature.html
       Webhook: /sync/Egret/guide/webhook.html
-      最佳实践 : 
+      最佳实践 :
         组织数据: /sync/Egret/guide/bestpractice/structure-data.html
         数组处理: /sync/Egret/guide/bestpractice/array.html
         离线事件: /sync/Egret/guide/bestpractice/offline.html
       数据限制 : /sync/Egret/guide/datalimit.html
-    安全性与规则: 
+    安全性与规则:
       规则表达式简介: /sync/Egret/rules/introduce.html
       #指南: /sync/Web/rules/guide.html
       读写权限控制: /sync/Egret/rules/access.html
@@ -268,16 +265,13 @@ sync:
       Promise: /sync/Egret/api/Promise.html
       Void: /sync/Egret/api/Void.html
       错误码: /sync/Egret/api/error-code.html
-    示例代码:
-      示例库: /sync/Egret/resources/resources.html
-      实战教程: /sync/Egret/resources/tutorial.html
     更新日志: /sync/Egret/changelog.html
 
 
 video:
   Web:
     概览: /video/Web/index.html
-    快速入门: 
+    快速入门:
       视频通话: /video/Web/quickstart/web-conversation.html
       视频会议: /video/Web/quickstart/web-conference.html
     完整指南:
@@ -295,8 +289,8 @@ video:
       LocalStream: /video/Web/api/localStream.html
       RemoteStream: /video/Web/api/remoteStream.html
       MeetingCast: /video/Web/api/meetingCast.html
-      OutgoingInvite: video/Web/api/outgoingInvite.html
-      IncomingInvite: video/Web/api/incomingInvite.html 
+      OutgoingInvite: /video/Web/api/outgoingInvite.html
+      IncomingInvite: /video/Web/api/incomingInvite.html
       错误码: /video/Web/api/error-code.html
     示例代码:
       示例库: /video/Web/resources/resources.html
@@ -305,7 +299,7 @@ video:
 
   iOS:
     概览: /video/iOS/index.html
-    快速入门: 
+    快速入门:
       视频通话: /video/iOS/quickstart/ios-conversation.html
       视频会议: /video/iOS/quickstart/ios-conference.html
     完整指南:
@@ -343,7 +337,7 @@ video:
 
   Android:
     概览: /video/Android/index.html
-    快速入门: 
+    快速入门:
       视频通话: /video/Android/quickstart/android-conversation.html
       视频会议: /video/Android/quickstart/android-conference.html
     完整指南:
@@ -435,7 +429,7 @@ im:
       错误码: /im/Android/api/error-code.html
     示例代码:
       示例库: /im/Android/resources.html
-    更新日志: /im/Android/changelog.html 
+    更新日志: /im/Android/changelog.html
 
 sms:
   概览: /sms/index.html
@@ -457,7 +451,7 @@ sms:
   更新日志: /sms/changelog.html
 
 auth:
-  Web: 
+  Web:
     概览: /auth/Web/index.html
     快速入门: /auth/Web/quickstart.html
     完整指南:
@@ -467,7 +461,7 @@ auth:
       邮箱登录: /auth/Web/guide/password.html
       QQ 登录: /auth/Web/guide/qq.html
       微信登录: /auth/Web/guide/weixin.html
-      微信公众号登录: /auth/Web/guide/weixin.html
+      微信公众号登录: /auth/Web/guide/weixinpublic.html
       微博登录: /auth/Web/guide/weibo.html
       自定义身份认证: /auth/Web/guide/custom.html
       匿名身份认证: /auth/Web/guide/anonymous.html
@@ -487,9 +481,8 @@ auth:
       Promise: /auth/Web/api/Promise.html
       Void: /auth/Web/api/Void.html
       错误码: /auth/Web/api/error-code.html
-    更新日志: /auth/Web/changelog.html
 
-  iOS: 
+  iOS:
     概览: /auth/iOS/index.html
     快速入门: /auth/iOS/quickstart.html
     完整指南:
@@ -520,7 +513,7 @@ auth:
       示例库: /auth/iOS/resources.html
     更新日志: /auth/iOS/changelog.html
 
-  Android: 
+  Android:
     概览: /auth/Android/index.html
     快速入门: /auth/Android/quickstart.html
     完整指南:
@@ -559,39 +552,39 @@ auth:
       示例库: /auth/Android/resources.html
     更新日志: /auth/Android/changelog.html
 
-  微信小程序: 
-    概览: /auth/微信小程序/index.html
-    快速入门: /auth/微信小程序/quickstart.html
-    完整指南:
-      基础概念: /auth/微信小程序/guide/concept.html
-      用户管理: /auth/微信小程序/guide/manageuser.html
-      手机登录: /auth/微信小程序/guide/phone.html
-      邮箱登录: /auth/微信小程序/guide/password.html
-      QQ 登录: /auth/微信小程序/guide/qq.html
-      微信登录: /auth/微信小程序/guide/weixin.html
-      微信公众号登录: /auth/微信小程序/guide/weixinpublic.html
-      微博登录: /auth/微信小程序/guide/weibo.html
-      自定义身份认证: /auth/微信小程序/guide/custom.html
-      匿名身份认证: /auth/微信小程序/guide/anonymous.html
-      绑定多种登录方式: /auth/微信小程序/guide/link.html
-    API 文档:
-      App: /auth/微信小程序/api/App.html
-      Auth: /auth/微信小程序/api/Auth.html
-      User: /auth/微信小程序/api/User.html
-      UserInfo: /auth/微信小程序/api/UserInfo.html
-      Provider: /auth/微信小程序/api/Provider.html
-      WilddogAuthProvider: /auth/微信小程序/api/WilddogAuthProvider.html
-      WeiboAuthProvider: /auth/微信小程序/api/WeiboAuthProvider.html
-      QQAuthProvider: /auth/微信小程序/api/QQAuthProvider.html
-      WeixinAuthProvider: /auth/微信小程序/api/WeixinAuthProvider.html
-      WeixinmpAuthProvider: /auth/微信小程序/api/WeixinmpAuthProvider.html
-      Credential: /auth/微信小程序/api/Credential.html
-      Promise: /auth/微信小程序/api/Promise.html
-      Void: /auth/微信小程序/api/Void.html
-      错误码: /auth/微信小程序/api/error-code.html
-    更新日志: /auth/微信小程序/changelog.html
+  #微信小程序:
+    #概览: /auth/微信小程序/index.html
+    #快速入门: /auth/微信小程序/quickstart.html
+    #完整指南:
+      #基础概念: /auth/微信小程序/guide/concept.html
+      #用户管理: /auth/微信小程序/guide/manageuser.html
+      #手机登录: /auth/微信小程序/guide/phone.html
+      #邮箱登录: /auth/微信小程序/guide/password.html
+      #QQ 登录: /auth/微信小程序/guide/qq.html
+      #微信登录: /auth/微信小程序/guide/weixin.html
+      #微信公众号登录: /auth/微信小程序/guide/weixinpublic.html
+      #微博登录: /auth/微信小程序/guide/weibo.html
+      #自定义身份认证: /auth/微信小程序/guide/custom.html
+      #匿名身份认证: /auth/微信小程序/guide/anonymous.html
+      #绑定多种登录方式: /auth/微信小程序/guide/link.html
+    #API 文档:
+      #App: /auth/微信小程序/api/App.html
+      #Auth: /auth/微信小程序/api/Auth.html
+      #User: /auth/微信小程序/api/User.html
+      #UserInfo: /auth/微信小程序/api/UserInfo.html
+      #Provider: /auth/微信小程序/api/Provider.html
+      #WilddogAuthProvider: /auth/微信小程序/api/WilddogAuthProvider.html
+      #WeiboAuthProvider: /auth/微信小程序/api/WeiboAuthProvider.html
+      #QQAuthProvider: /auth/微信小程序/api/QQAuthProvider.html
+      #WeixinAuthProvider: /auth/微信小程序/api/WeixinAuthProvider.html
+      #WeixinmpAuthProvider: /auth/微信小程序/api/WeixinmpAuthProvider.html
+      #Credential: /auth/微信小程序/api/Credential.html
+      #Promise: /auth/微信小程序/api/Promise.html
+      #Void: /auth/微信小程序/api/Void.html
+      #错误码: /auth/微信小程序/api/error-code.html
+    #更新日志: /auth/微信小程序/changelog.html
 
-  Egret: 
+  Egret:
     概览: /auth/Egret/index.html
     快速入门: /auth/Egret/quickstart.html
     完整指南:
@@ -621,7 +614,6 @@ auth:
       Promise: /auth/Egret/api/Promise.html
       Void: /auth/Egret/api/Void.html
       错误码: /auth/Egret/api/error-code.html
-    更新日志: /auth/Egret/changelog.html
 
   Server:
     简介: /auth/Server/introduction.html
@@ -629,8 +621,7 @@ auth:
 
 console:
   控制面板:
-    管理应用: /console/creat.html
-    创建应用: /console/administer.html
+    创建应用: /console/creat.html
+    管理应用: /console/administer.html
 
 
-    

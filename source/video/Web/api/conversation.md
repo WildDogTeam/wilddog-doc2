@@ -180,7 +180,7 @@ conversation.on('disconnected', function(conversationId){
 
 | 参数名 | 说明 |
 |---|---|
-| participant | [wilddog.video.Participant](/api/video/web/participant.html) 类型。加入房间的 Participant 对象。|
+| participant | [wilddog.video.Participant](/video/Web/api/participant.html) 类型。加入房间的 Participant 对象。|
 
 **示例**
 
@@ -201,7 +201,7 @@ conversation.on('participant_connected', function(participant){
 
 | 参数名 | 说明 |
 |---|---|
-| participant | [wilddog.video.Participant](/api/video/web/participant.html) 类型。离开房间的 Participant 对象。|
+| participant | [wilddog.video.Participant](/video/Web/api/participant.html) 类型。离开房间的 Participant 对象。|
 
 **示例**
 

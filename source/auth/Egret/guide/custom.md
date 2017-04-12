@@ -28,7 +28,7 @@ title:  自定义身份认证
  wilddog.initializeApp(config);
 ```
 
-3.当用户成功登录你的用户系统时，服务器通过 [Server SDK 生成 Custom Token](/guide/auth/server/server.html)，并返回给客户端。
+3.当用户成功登录你的用户系统时，服务器通过 [Server SDK 生成 Custom Token](/auth/Server/server.html)，并返回给客户端。
 
 4.客户端收到 Custom Token 后，使用 `signInWithCustomToken()` 方法进行认证：
 
@@ -58,7 +58,7 @@ wilddog.auth().signInWithCustomToken(customToken).then(function (user){
 
 ## 更多使用
 
-- 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/web/manageuser.html)。
+- 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [用户管理](/auth/Egret/guide/manageuser.html)。
 
 
-- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用自定义登录登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/sync/Egret/index.html) 无缝集成：使用自定义身份认证后，Wilddog Auth 将给用户生成 [Wilddog ID](/auth/Egret/guide/concept.html)。Wilddog ID 结合 [规则表达式](/sync/Egret/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。

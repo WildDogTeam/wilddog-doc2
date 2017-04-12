@@ -44,9 +44,9 @@ title: 读写权限控制
 | 内置对象     | 描述                                       |
 | ---------- | ---------------------------------------- |
 | now        | 代表云端的时间戳，以毫秒为单位。                           |
-| root       | [`RuleDataSnapshot`](/api/sync/rule.html#RuleDataSnapshot-Methods)类型的对象，代表根节点`/`的数据引用。 |
-| newData    | [`RuleDataSnapshot`](/api/sync/rule.html#RuleDataSnapshot-Methods)类型的对象，代表数据操作之后的新数据引用。 |
-| data       | [`RuleDataSnapshot`](/api/sync/rule.html#RuleDataSnapshot-Methods)类型的对象，代表数据操作前的原始数据引用。  |
+| root       | [`RuleDataSnapshot`](/sync/Egret/rules/ruleapi.html#RuleDataSnapshot-Methods)类型的对象，代表根节点`/`的数据引用。 |
+| newData    | [`RuleDataSnapshot`](/sync/Egret/rules/ruleapi.html#RuleDataSnapshot-Methods)类型的对象，代表数据操作之后的新数据引用。 |
+| data       | [`RuleDataSnapshot`](/sync/Egret/rules/ruleapi.html#RuleDataSnapshot-Methods)类型的对象，代表数据操作前的原始数据引用。  |
 | $variables | 通配变量。代表节点列表下某个相同的键 (key) 。                       |
 | auth       | 代表已登录用户对象。                   |
 

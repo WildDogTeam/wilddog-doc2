@@ -179,7 +179,7 @@ ref.orderByValue().on("value", function(snapshot) {
   <p><strong>注意：</strong></p>
   <ul>
     <li>每次只能使用一种排序方法。对同一监听调用多个排序方法会引发错误。</li>
-    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/sync/Web/rules/index.html) 规则，在服务器上添加数据索引以提高排序效率。更多使用，请参考 [数据索引](/sync/Web/rules/index.html) 。</li>
+    <li>排序会占用较多计算机资源。如果你的应用使用了排序，建议定义 [.indexOn](/sync/微信小程序/rules/index.html) 规则，在服务器上添加数据索引以提高排序效率。更多使用，请参考 [数据索引](/sync/微信小程序/rules/index.html) 。</li>
   </ul>
 </blockquote>
 

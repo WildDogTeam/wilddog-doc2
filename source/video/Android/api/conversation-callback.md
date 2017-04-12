@@ -25,8 +25,8 @@ void onConversation(@Nullable  Conversation conversation,@Nullable  VideoExcepti
 
 | 参数名 | 描述 |
 |---|---|
-|conversation|[Conversation](/api/video/android/conversation.html),视频通话对象|
-|exception|[VideoException](/api/video/android/video-exception.html),视频通话异常对象|
+|conversation|[Conversation](/video/Android/api/conversation.html),视频通话对象|
+|exception|[VideoException](/video/Android/api/video-exception.html),视频通话异常对象|
 
 **示例**
 

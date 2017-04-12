@@ -1,7 +1,7 @@
 title: 视频通话
 ---
 
-本篇文档介绍开发视频通话的主要环节，包括 [创建视频通话](/video/Web/guide/conversation.html)、[管理其他参与者](/video/Web/guide/conversation.html#管理其他参与者)、[加入视频通话相关](/guide/video/web/conversation.html#加入视频通话相关) 和 [数据安全性](/guide/video/web/conversation.html#数据安全性)。
+本篇文档介绍开发视频通话的主要环节，包括 [创建视频通话](/video/Web/guide/conversation.html)、[管理其他参与者](/video/Web/guide/conversation.html#管理其他参与者)、[加入视频通话相关](/video/Web/guide/conversation.html#加入视频通话相关) 和 [数据安全性](/video/Web/guide/conversation.html#数据安全性)。
 
 ## 创建视频通话
 
@@ -9,7 +9,7 @@ title: 视频通话
 
 ### 配置和预览本地媒体流
 
-本地媒体流( [Local Stream](/guide/video/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
+本地媒体流( [Local Stream](/video/Web/guide/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -31,7 +31,7 @@ wilddog.video().createStream({audio:true,video:true})
 
 ### 发起视频通话
 
-只有另一个 [Client](/guide/video/core.html#Client) 接受了一方的邀请，通话才能建立成功。
+只有另一个 [Client](/video/Web/guide/core.html#Client) 接受了一方的邀请，通话才能建立成功。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -140,7 +140,7 @@ conversation.on('disconnected', function(){
 
 ### 保护信令交互的安全
 
-视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置 [规则表达式](/guide/sync/rules/introduce.html) 。
+视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置 [规则表达式](/sync/Web/rules/introduce.html) 。
 
 规则表达式设置页面如下：
 

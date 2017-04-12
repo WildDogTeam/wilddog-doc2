@@ -14,7 +14,7 @@ wilddog.video.client()
 
 **说明**
 
-获取 [wilddog.video.Client](/api/video/web/wilddogVideoClient.html) 实例。
+获取 `wilddog.video.Client`实例。
 
 **示例**
 
@@ -95,12 +95,12 @@ inviteToConversation(remoteUid, options)
 
 | 参数名 | 说明 |
 |---|---|
-| remoteUid | `string` 类型。Conversation 接受方的 Wilddog ID。<br>[如何获取自身的 Wilddog ID](/resources/video/web/tutorial.html#2-用户身份认证) |
-| options | [ClientInviteConstraints](/api/video/web/wilddogVideoClient.html#ClientInviteConstraints) 类型。Client 发起 Conversation 需要的参数。|
+| remoteUid | `string` 类型。Conversation 接受方的 Wilddog ID。<br>[如何获取自身的 Wilddog ID](/video/Web/resources/tutorial.html#2-用户身份认证) |
+| options | [ClientInviteConstraints](/video/Web/api/wilddogVideoClient.html#ClientConstraints) 类型。Client 发起 Conversation 需要的参数。|
 
 **返回值**
 
-[OutgoingInvite](/api/video/web/outgoingInvite.html)
+[OutgoingInvite](/video/Web/api/outgoingInvite.html)
 
 **示例**
 
@@ -137,11 +137,11 @@ connectToConference(conferenceId, options)
 | 参数名 | 说明 |
 |---|---|
 | conferenceId | `string` 类型。Conference 的唯一标识 ID , 由用户自由填写。 |
-| options | [ClientConstraints](/api/video/web/wilddogVideoClient.html#ClientInviteConstraints) 类型。Client 发起 Conversation 需要的参数。|
+| options | [ClientConstraints](/video/Web/api/wilddogVideoClient.html#ClientConstraints) 类型。Client 发起 Conversation 需要的参数。|
 
 **返回值**
 
-[Conference](/api/video/web/conference.html)
+[Conference](/video/Web/api/conference.html)
 
 **示例**
 
@@ -176,7 +176,7 @@ Object
 | 参数名 | 说明 |
 |---|---|
 | userData | `string` 类型。可添加的自定义消息，对方在收到的邀请中可以获取。 |
-| stream | [wilddog.video.LocalStream](/api/video/web/localStream.html)类型。本地视频流对象。 |
+| stream | [wilddog.video.LocalStream](/video/Web/api/localStream.html)类型。本地视频流对象。 |
 
 </br>
 
@@ -199,7 +199,7 @@ Object
 
 | 参数名 | 说明 |
 |---|---|
-| incomingInvite | [IncomingInvite](/api/video/web/incomingInvite.html) 类型。|
+| incomingInvite | [IncomingInvite](/video/Web/api/incomingInvite.html) 类型。|
 
 **示例**
 

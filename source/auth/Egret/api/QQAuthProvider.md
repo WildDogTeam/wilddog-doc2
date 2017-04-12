@@ -9,7 +9,7 @@ QQAuthProvider 是 QQ 登录方式中 provider 类
 
 **定义**
 
-继承自 [Provider](/api/auth/web/Provider.html)
+继承自 [Provider](/auth/Web/api/Provider.html)
 
 </br>
 
@@ -47,7 +47,7 @@ credential(arg1, arg2)
 
 **返回值**
 
-[wilddog.auth.Credential](/api/auth/web/Credential.html)
+[wilddog.auth.Credential](/auth/Web/api/Credential.html)
 
 </br>
 

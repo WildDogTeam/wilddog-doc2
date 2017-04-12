@@ -19,7 +19,7 @@ ConnectOptions（LocalStream localStream,String userData）
 
 | 参数名 | 描述 |
 |---|---|
-|localStream|[LocalStream](/api/video/android/local-stream.html),本地参与者通过 `Video.createLocalStream` 获取的本地视频流。|
+|localStream|[LocalStream](/video/Android/api/local-stream.html),本地参与者通过 `Video.createLocalStream` 获取的本地视频流。|
 |userData|用户自定义数据，用户在加入视频通话和视频会议时，可以传递一个自定义字符串数据，其他参与者收到用户加入信息时可以解析此参数。|
 
 </br>
@@ -69,7 +69,7 @@ LocalStream getLocalStream()
 
 **返回值**
 
-[LocalStream](/api/video/android/local-stream.html)
+[LocalStream](/video/Android/api/local-stream.html)
 
 **示例**
 

@@ -43,11 +43,11 @@ client()
 
 **说明**
 
-获取 [wilddog.video.Client](/api/video/web/wilddogVideoClient.html) 实例。
+获取 [wilddog.video.Client](/video/Web/api/wilddogVideoClient.html) 实例。
 
 **返回**
 
-[wilddog.video.Client](/api/video/web/wilddogVideoClient.html)
+[wilddog.video.Client](/video/Web/api/wilddogVideoClient.html)
 
 **示例**
 
@@ -80,11 +80,11 @@ createStream(options)
 
 | 参数名 | 说明 |
 |---|---|
-| options | [StreamConstraints](/api/video/web/wilddogVideo.html#StreamConstraints) 类型，设置将要创建的本地媒体流属性。 |
+| options | [StreamConstraints](/video/Web/api/wilddogVideo.html#StreamConstraints) 类型，设置将要创建的本地媒体流属性。 |
 
 **返回**
 
-Promise.<[wilddog.video.LocalStream](/api/video/web/localStream.html)>
+Promise.<[wilddog.video.LocalStream](/video/Web/api/localStream.html)>
 
 **示例**
 

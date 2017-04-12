@@ -56,7 +56,7 @@ Participant 的媒体流。
 
 | 参数名 | 说明 |
 |---|---|
-| stream | [remoteStream](/api/video/web/remoteStream.html) 类型。|
+| stream | [remoteStream](/video/Web/api/remoteStream.html) 类型。|
 
 **示例**
 

@@ -1,7 +1,7 @@
 title: WDGVideoClientOptions
 ---
 
-初始化 [WDGVideoClient](../Classes/WDGVideoClient.html) 对象时使用的配置选项。
+初始化 [WDGVideoClient](/video/iOS/api/WDGVideoClient.html) 对象时使用的配置选项。
 
 ## 属性
 

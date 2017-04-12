@@ -82,7 +82,7 @@ title: API 参考
 
 ```
 
-.indexOn 规则的值类型是字符串，或者是字符串数组。 节点的名称key和优先级priority默认建立索引，不需要额外设置。 关于 .indexOn 规则更多介绍，请参考规则表达式文档 [数据索引](/guide/微信小程序/rules/guide.html##数据索引) 部分。
+.indexOn 规则的值类型是字符串，或者是字符串数组。 节点的名称key和优先级priority默认建立索引，不需要额外设置。 关于 .indexOn 规则更多介绍，请参考规则表达式文档 [数据索引](/sync/微信小程序/guide/微信小程序/rules/guide.html##数据索引) 部分。
 
 ------
 

@@ -94,7 +94,9 @@ wilddog.auth().signInWithEmailAndPassword("12345678@wilddog.com", "1234567").the
 
 ## 更多使用
 
-- 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [管理用户](/guide/auth/web/manageuser.html)。
+- 通过 `Wilddog.auth().currentUser()` 获取当前用户并管理用户。详情请参考 [用户管理](/auth/Web/guide/manageuser.html)。
 
 
-- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/overview/sync.html) 无缝集成：使用邮箱登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/guide/auth/core/concept.html#Wilddog-ID)。Wilddog ID 结合 [规则表达式](/guide/sync/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
+- Wilddog Auth 可以将你的应用与 [Wilddog Sync](/sync/Web/index.html) 无缝集成：使用邮箱登录后，Wilddog Auth 将给用户生成 [Wilddog ID](/auth/Web/guide/concept.html)。Wilddog ID 结合 [规则表达式](/sync/Web/rules/introduce.html)，可以控制 Wilddog Sync 的用户访问权限。
+
+

@@ -40,4 +40,4 @@ RemoteStream getRemoteStream()
 
 **返回值**
 
-[RemoteStream](/api/video/android/remote-stream.html)
+[RemoteStream](/video/Android/api/remote-stream.html)

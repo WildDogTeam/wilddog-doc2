@@ -88,7 +88,7 @@ Object
 
 **说明**
 
-[meetingCast](/api/video/web/meetingCast.html) 为直播推流功能的接口，拥有 start/switchParticipant/stop 三个方法。
+[meetingCast](/video/Web/api/meetingCast.html) 为直播推流功能的接口，拥有 start/switchParticipant/stop 三个方法。
 
 ## 方法
 
@@ -192,7 +192,7 @@ conference.on('disconnected', function(conferenceId){
 
 | 参数名 | 说明 |
 |---|---|
-| participant | [wilddog.video.Participant](/api/video/web/participant.html) 类型。加入房间的 Participant 对象。|
+| participant | [wilddog.video.Participant](/video/Web/api/participant.html) 类型。加入房间的 Participant 对象。|
 
 **示例**
 
@@ -213,7 +213,7 @@ conference.on('participant_connected', function(participant){
 
 | 参数名 | 说明 |
 |---|---|
-| participant | [wilddog.video.Participant](/api/video/web/participant.html) 类型。离开房间的 Participant 对象。|
+| participant | [wilddog.video.Participant](/video/Web/api/participant.html) 类型。离开房间的 Participant 对象。|
 
 **示例**
 

@@ -130,8 +130,8 @@ void accpet(LocalStream localStream,ConversationCallback callback)
 
 | 参数名 | 描述 |
 |---|---|
-|localStream|[LocalStream](/api/video/android/local-stream.html),被邀请者通过 `Video.createLocalStream` 获取的本地视频流|
-|callback|[ConversationCallback](/api/video/android/conversation-callback.html),视频通话回调函数,接受时可在 `callBack.onConversation()` 方法中获取到 `conversation` 对象|
+|localStream|[LocalStream](/video/Android/api/local-stream.html),被邀请者通过 `Video.createLocalStream` 获取的本地视频流|
+|callback|[ConversationCallback](/video/Android/api/conversation-callback.html),视频通话回调函数,接受时可在 `callBack.onConversation()` 方法中获取到 `conversation` 对象|
 
 
 **示例**

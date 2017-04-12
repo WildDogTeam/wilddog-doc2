@@ -80,7 +80,7 @@ accept(localStream)
 
 | 参数名 | 说明 |
 |---|---|
-| localStream | [wilddog.video.LocalStream](/api/video/web/localStream.html#wilddog-video-LocalStream) 类型。本地视频流。|
+| localStream | [wilddog.video.LocalStream](/video/Web/api/localStream.html) 类型。本地视频流。|
 
 **示例**
 

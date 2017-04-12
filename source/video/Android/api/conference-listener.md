@@ -21,7 +21,7 @@ void onConnected(Conference conference)
 
 | 参数名 | 描述 |
 |---|---|
-|conference|[Conference](/api/video/android/conference.html),连接建立成功后创建的会议对象|
+|conference|[Conference](/video/Android/api/conference.html),连接建立成功后创建的会议对象|
 
 </br>
 
@@ -43,8 +43,8 @@ void onConnectFailed(Conference conference, VideoException exception)
 
 | 参数名 | 描述 |
 |---|---|
-|conference|[Conference](/api/video/android/conference.html),调用 `WilddogVideoClient.connectToConference()` 方法时创建的会议对象|
-|exception|[VideoException](/api/video/android/video-exception.html),会议建立连接失败信息|
+|conference|[Conference](/video/Android/api/conference.html),调用 `WilddogVideoClient.connectToConference()` 方法时创建的会议对象|
+|exception|[VideoException](/video/Android/api/video-exception.html),会议建立连接失败信息|
 
 </br>
 
@@ -67,8 +67,8 @@ void onDisconnected(Conference conference, VideoException exception)
 
 | 参数名 | 描述 |
 |---|---|
-|conference|[Conference](/api/video/android/conference.html),调用 `WilddogVideoClient.connectToConference()` 方法时创建的会议对象|
-|exception|[VideoException](/api/video/android/video-exception.html),会议建立连接失败信息|
+|conference|[Conference](/video/Android/api/conference.html),调用 `WilddogVideoClient.connectToConference()` 方法时创建的会议对象|
+|exception|[VideoException](/video/Android/api/video-exception.html),会议建立连接失败信息|
 
 </br>
 
@@ -90,8 +90,8 @@ void onParticipantConnected(Conference conference, Participant participant)
 
 | 参数名 | 描述 |
 |---|---|
-|conference|[Conference](/api/video/android/conference.html),调用 `WilddogVideoClient.connectToConference()` 方法时创建的会议对象|
-|participant|[Participant](/api/video/android/participant.html),加入会议的远端参与者|
+|conference|[Conference](/video/Android/api/conference.html),调用 `WilddogVideoClient.connectToConference()` 方法时创建的会议对象|
+|participant|[Participant](/video/Android/api/participant.html),加入会议的远端参与者|
 
 </br>
 
@@ -113,8 +113,8 @@ void onParticipantDisconnected(Conference conference, Participant participant)
 
 | 参数名 | 描述 |
 |---|---|
-|conference|[Conference](/api/video/android/conference.html),调用 `WilddogVideoClient.connectToConference()` 方法时创建的会议对象|
-|participant|[Participant](/api/video/android/participant.html),会议的远端参与者|
+|conference|[Conference](/video/Android/api/conference.html),调用 `WilddogVideoClient.connectToConference()` 方法时创建的会议对象|
+|participant|[Participant](/video/Android/api/participant.html),会议的远端参与者|
 
 </br>
 

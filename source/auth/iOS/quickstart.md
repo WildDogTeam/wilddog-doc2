@@ -188,4 +188,4 @@ try! WDGAuth.auth()!.signOut()
 </div>
 </div>
 
-Auth 更多使用方式，请参考 [完整指南](/guide/auth/core/concept.html) 和  [API 文档](/api/auth/ios/WDGAuth.html)。
+Auth 更多使用方式，请参考 [完整指南](/auth/iOS/guide/concept.html) 和  [API 文档](/auth/iOS/api/WDGAuth.html)。
