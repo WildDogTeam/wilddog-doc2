@@ -4,8 +4,13 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.4 - 2017.03.30
 
-### V2.5.1 - 2017.02.08
+<span class="changelog fix">修复</span>
+
+- 修复了 onAuthStateChanged 在使用 redirect（OAuth） 登录成功后，多触发一次 onAuth 事件且 user 为 null 的问题。
+
+### V2.5.2 - 2017.02.08
 
 <span class="changelog fix">修复</span>
 

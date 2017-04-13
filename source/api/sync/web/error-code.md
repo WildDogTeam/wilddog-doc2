@@ -16,6 +16,7 @@ title:  错误码
 | 26202 |	User code called from the SyncReference runloop threw an exception:\n | 客户端异常。 |
 | 26203 | The transaction had too many retries | 事务操作重试次数超过限制。 |
 | 26204 | The transaction was overridden by a subsequent set | 事务操作被随后的写操作覆盖。 |
+| 26301 | Could not set priority on non-existent node|不能给不存在的节点设置 priority| 
 | 26801 | The supplied auth token has expired   | token 过期。 |
 | 26802 | The supplied auth token was invalid  | token 无效。 |
 | 29999 |Unknown error 	 | 未知错误。 |
