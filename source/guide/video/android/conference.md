@@ -14,6 +14,7 @@ title: 多人视频会议
 例如，创建一个只有视频且分辨率为 320X240 的流，并展示到 `WilddogVideoView` 上：
 
 ```java
+	// 如果没有获得摄像头权限或无摄像头，则无法展示。
     LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
 
     LocalStreamOptions options = builder.height(240).width(320).build();
