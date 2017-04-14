@@ -19,7 +19,7 @@ hexo.extend.helper.register('page_nav', function() {
     var list = {};
     var prefix = 'sidebar.' + type + '.';
     for (var i in sidebar) {
-        
+
         for (var j in sidebar[i]) {
             if (typeof sidebar[i][j] === 'string') {
                 list[sidebar[i][j]] = j;

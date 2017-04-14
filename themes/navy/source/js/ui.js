@@ -32,7 +32,8 @@ $(function() {
     // 侧边栏收起
     var sidebarTitle = getClass('sidebar-title');
     sidebarTitle.forEach(function(ele) {
-        ele.addEventListener('click', function() {
+        ele.addEventListener('mouseup', function(event) {
+            // event.stopPropagation();
             toggleClass(ele, 'select');
             if (getSiblings(ele)[0]) {
                 toggleClass(getSiblings(ele)[0], 'current');
@@ -232,7 +233,6 @@ $(function() {
 
     if ($('#sidebar .outer').find('input').val()) {
         platformsArr = $('#sidebar .outer').find('input').val().split(',');
-
         //动态生成目录
         $('#sidebar .inner .sidebar-nav .sidebar-nav-item').each(function(index, el) {
             var href = $(el).children('.sublist').find('.sublist-item').eq(0).children('a').attr('href');
@@ -242,6 +242,7 @@ $(function() {
         platformsArr.forEach(function(ele, index) {
             var aEle = '<a class="platform-links" href=' + platformsLink[index] + '>' + ele + '</a>'
             var liEle = '<li class="item"> ' + aEle + '</li>';
+
             $('#sidebar .outer .platforms').append(liEle);
         });
 
