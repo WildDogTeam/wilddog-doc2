@@ -16,16 +16,15 @@
     removeClass(mask, 'fadeHide');
     getClass('search-input')[0].focus();
   });
-  closeSearch.addEventListener('click', function (e) {
-    e.stopPropagation();
-    removeClass(searchInput, 'searchShow');
-    removeClass(mainNav, 'fadeHide');
-    removeClass(userProfile, 'fadeHide');
-    removeClass(loginTab, 'fadeHide');
-    removeClass(searchbar, 'fadeHide');
-    addClass(mask, 'fadeHide');
-  })
-
+    closeSearch.addEventListener('click', function (e) {
+      e.stopPropagation();
+      removeClass(searchInput, 'searchShow');
+      removeClass(mainNav, 'fadeHide');
+      removeClass(userProfile, 'fadeHide');
+      removeClass(loginTab, 'fadeHide');
+      removeClass(searchbar, 'fadeHide');
+      addClass(mask, 'fadeHide');
+    })
   getClass('search-input')[0].addEventListener('keydown', function (e) {
     if (e.keyCode === 13 && this.value.trim() !== '') {
       window.location.href = '/result/index.html?keyword=' + encodeURIComponent(this.value.split('').slice(0, 19).join(''));
