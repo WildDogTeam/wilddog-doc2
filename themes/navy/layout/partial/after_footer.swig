@@ -2,7 +2,7 @@
 <!-- build:js build/js/main.js -->
 {{ js('js/jquery.min') }}
 {{ js('js/public') }}
-{{ js('js/localstorage') }}
+{# {{ js('js/localstorage') }} #}
 {{ js('js/toc') }}
 {{ js('js/mobile_nav') }}
 {{ js('js/ui') }}

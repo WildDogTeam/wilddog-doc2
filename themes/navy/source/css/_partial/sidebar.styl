@@ -19,7 +19,57 @@
     padding-bottom: 20px
     height: 100%
     overflow: auto
+  .outer
+    position: relative
+    margin-bottom: 25px
+    width: 150px
+    height: 30px
+    .selected
+      border: 1px solid #999
+      height: 34px
+      line-height: 34px
+      width: 150px
+      padding-left: 10px
+      border-radius: 3px
+      letter-spacing: 1px
+      position: relative
+      color: #333
+      cursor: pointer
+      &.ui
+        border: 1px solid rgb(230,80,30)
+        border-radius: 3px 3px 0 0
+      &:after
+        content: ''
+        position: absolute
+        top: 14px
+        right: 6px
+        width: 0
+        height: 3px
+        border: 5px solid transparent
+        border-top-color: #ccc
+    ul.platforms
+        display: none
+        position: absolute
+        width: 150px
+        background: #fff
+        z-index: 100
+        border:1px solid rgba(230,80,30,.6)
+        border-top:none
+        padding-top: 5px
+        padding-bottom: 5px
+        border-radius: 0 0 3px 3px;
+        li
+          line-height: 2
+          padding-left: 10px
+          a
+           color: #666
+           text-decoration:none
+           width: 100%
+           display:inline-block
+           &:hover
+            color: #e6501e
 
+  
 .sidebar-title
   font-size: 14px
   color: #333
@@ -33,7 +83,7 @@
 .sidebar-nav .sidebar-title
   display: inline-block
   padding-right: 12px
-  margin-bottom: 6px
+  // margin-bottom: 6px
   position: relative
   cursor: pointer
   font-weight: 500
@@ -62,7 +112,10 @@
 
 .sidebar-nav-item 
   padding-bottom: 16px
-
+  display:none;
+  &.sidebar-nav-item-show
+    display: list-item
+  
 .sidebar-link
   font-weight: 500
   display: block
@@ -89,7 +142,19 @@
   border-left: 2px solid #eee
   &.current
     display: block
-
+  .sublist-item
+    // &:first-child
+    //   margin-top: 6px
+    .subsublist
+      display: none
+      border-left: 2px solid #eee
+      &.current
+        display: block
+      .subsublist-item
+        padding-top: 7px;
+        padding-bottom: 7px;
+        padding-left: 1em;
+        
 .sublist-item
   padding-top: 7px
   padding-bottom: 7px
@@ -98,7 +163,7 @@
     line-height: 1
   .sublist
     .sidebar-link
-      line-height: 1.5
+      line-height: 1
       
 .sidebar-link-text,
 .icon-new
@@ -115,21 +180,43 @@
   top: -8px
   border-radius: 0
 
-.old-doc
+.console
   margin-top: 20px
   padding-top: 30px
   padding-right: 18px
   border-top: 1px solid #e5e5e5
+  padding-left: 1em
 
-.old-doc-link
+.console-link
   display: block
   color: #333
   text-decoration: none
   &:hover
     color: #e6501e
-    path
-      stroke: #e6501e
-  .back-icon
-    float: right
-    img
-      box-shadow: none
+      
+//左侧导航栏hacker
+.sidebar-nav
+  .sidebar-nav-item
+    > .sidebar-title:first-child
+      display:none
+    > .sublist
+      border-left: none
+ 
+.show-title
+  padding-bottom: 16px
+  .sidebar-nav-item
+    display: list-item
+    padding-top: 7px
+    padding-bottom: 7px
+    padding-left: 1em
+    line-height: 1
+    .sidebar-title
+      &:first-child
+        display:inline-block
+      .sidebar-link
+        line-height: 1
+    > .sublist
+      border-left: 2px solid #eee
+      margin-top: 6px
+  
+    

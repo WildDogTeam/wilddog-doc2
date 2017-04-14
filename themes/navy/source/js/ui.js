@@ -1,36 +1,36 @@
 getClass('line').forEach(function(ele) {
     ele.style.opacity = '0';
 })
-window.onload = function() {
 
+$(function() {
     //右侧目录判断是否显示
     var airticleContent = document.querySelector('.article .inner');
     var toc = getClass('toc-content')[0];
-
+    var platformsArr = [];
+    var platformsLink = []
     if (getClass('toc-item').length < 1 && airticleContent) {
         airticleContent.removeChild(toc)
     }
 
     //  切换头部选中状态
-    var type = window.location.pathname.split('/')[1];
+    var type = window.location.pathname.split('/')[1]
+        // var type = type.split('.')[0]
     var headerNavs = getClass('main-nav-link');
     if (type === 'overview') {
         addClass(headerNavs[0], 'current')
-    } else if (type === 'quickstart') {
+    } else if (type === 'sync') {
         addClass(headerNavs[1], 'current')
-    } else if (type === 'guide') {
+    } else if (type === 'video') {
         addClass(headerNavs[2], 'current')
-    } else if (type === 'api') {
+    } else if (type === 'im') {
         addClass(headerNavs[3], 'current')
-    } else if (type === 'resources') {
+    } else if (type === 'sms') {
         addClass(headerNavs[4], 'current')
-    } else if (type === 'console') {
+    } else if (type === 'auth') {
         addClass(headerNavs[5], 'current')
     }
-
     // 侧边栏收起
     var sidebarTitle = getClass('sidebar-title');
-
     sidebarTitle.forEach(function(ele) {
         ele.addEventListener('click', function() {
             toggleClass(ele, 'select');
@@ -47,8 +47,6 @@ window.onload = function() {
             })
         })
     });
-
-
 
     //滚屏时右侧边栏根据当前标题高亮对应目录项
     var headings = getClass('article-heading');
@@ -221,25 +219,6 @@ window.onload = function() {
     });
 
 
-    /*    var slides = getClass('slide');
-        slides.forEach(function (ele) {
-          var tabs = Array.prototype.slice.call(ele.getElementsByClassName('slide-tab'), 0);
-          var contents = Array.prototype.slice.call(ele.getElementsByClassName('slide-content'), 0);
-          tabs.forEach(function (tab) {
-            tab.addEventListener('click', function () {
-              getSiblings(tab).forEach(function (sibling) {
-                removeClass(sibling, 'tab-current')
-              });
-              var index = tabs.indexOf(this);
-              addClass(this, 'tab-current');
-              contents.forEach(function (content) {
-                removeClass(content, 'slide-content-show')
-              });
-              addClass(contents[index], 'slide-content-show');
-            })
-          })
-        })*/
-
     $('.slide').each(function(index, el) {
         $(el).find('.slide-tab').click(function(event) {
             var index = $(this).index()
@@ -251,5 +230,34 @@ window.onload = function() {
         });
     });
 
+    if ($('#sidebar .outer').find('input').val()) {
+        platformsArr = $('#sidebar .outer').find('input').val().split(',');
 
-};
+        //动态生成目录
+        $('#sidebar .inner .sidebar-nav .sidebar-nav-item').each(function(index, el) {
+            var href = $(el).children('.sublist').find('.sublist-item').eq(0).children('a').attr('href');
+            platformsLink.push(href)
+        })
+
+        platformsArr.forEach(function(ele, index) {
+            var aEle = '<a class="platform-links" href=' + platformsLink[index] + '>' + ele + '</a>'
+            var liEle = '<li class="item"> ' + aEle + '</li>';
+            $('#sidebar .outer .platforms').append(liEle);
+        });
+
+        $('#sidebar .outer .selected').click(function(event) {
+            event.stopPropagation();
+            $(this).siblings('.platforms').slideToggle(100);
+            $(this).toggleClass('ui');
+        });
+
+        $(document).click(function(e) {
+            var _con = $('.platforms');
+            if (!_con.is(e.target) && _con.has(e.target).length === 0) {
+                _con.slideUp(100)
+                $('#sidebar .outer .selected').removeClass('ui')
+            }
+
+        });
+    }
+})
