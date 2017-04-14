@@ -25,7 +25,7 @@ var localElement = document.getElementById('local');
 wilddog.video().createStream({audio:true,video:true})
     .then(function(localStream){
         // 获取到localStream,将媒体流绑定到页面的video类型的标签上
-		// 如果没有获得摄像头权限或无摄像头，则无法展示。
+        // 如果没有获得摄像头权限或无摄像头，则无法展示。
         localStream.attach(localElement);
     });
 ```
@@ -48,7 +48,7 @@ var remoteVideoElement = document.getElementById('remote');
 // 邀请他人加入通话
 // 设置对方 Wilddog ID （需开发者在应用层自己实现获取方式，Wilddog ID 请参考 ClientInviteConstraints）;
 // 并传入本地媒体流（localStream ，之前创建的本地流）;
-client.inviteToConversation('wilddogId',{
+client.inviteToConversation("Remote User's Wilddog ID",{
         'stream':localStream,
         'userData':'somethings'
     })

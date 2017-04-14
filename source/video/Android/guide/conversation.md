@@ -16,7 +16,7 @@ title: 视频通话
 例如，创建一个同时有音频和视频的本地媒体流并展示出来：
 
 ```java
-	// 如果没有获得摄像头权限或无摄像头，则无法展示。
+    // 如果没有获得摄像头权限或无摄像头，则无法展示。
     LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
     LocalStreamOptions options = builder.height(240).width(320).build();
     localStream = video.createLocalStream(options, new CompleteListener() {
