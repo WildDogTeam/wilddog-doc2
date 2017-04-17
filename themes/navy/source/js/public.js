@@ -260,6 +260,7 @@ $('.mask').click(function() {
     $('.close-search').click();
 });
 
+
 $('.searchbar-inputting .search-tips').click(function() {
     window.location.href = '/result/index.html?keyword=' + encodeURIComponent(getClass('search-input')[0].value.split('').slice(0, 19).join(''));
 })
