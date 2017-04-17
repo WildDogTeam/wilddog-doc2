@@ -171,14 +171,15 @@ function media() {
     if (width < 767) {
         $('.sublist').removeClass('current');
         //判断是否为短信或概述页面
-        console.log(issidebar)
-        if (issidebar == 'sms' || issidebar == 'overview' || issidebar == 'result') {
-            $('.searchbar').width('100%');
+        // console.log(issidebar)
+        if (issidebar == 'overview' || issidebar == 'result') {
+            // $('.searchbar').width('100%');
             $('.search-tips').css({
                 'borderLeft': 'none',
                 'height': 70,
                 'border-bottom': 0
             });
+            $('.article').css('margin-top', 0)
             $('#sidebar').addClass('issidebar').width(width);
 
             var overviewheight = sidebar_item.height() + sublistheight.height();
@@ -188,15 +189,27 @@ function media() {
             } else {
 
             }
-            $('.sidebar-title').each(function(i,v){
+            $('.sidebar-title').each(function(i, v) {
                 $(this).eq(i).removeClass('select')
             })
+        } else if (issidebar == 'sms') {
+            var dv = $('<div class="dv" id="dv">');
+            var article = $('.article');
+            var colog = $('.console')
+            var sublist = $('.sidebar-nav-item').children('.sublist');
+            article.prepend(dv).css('margin-top', 0);
+            dv.prepend(colog);
+            dv.prepend(sublist);
+            dv.children().show();
+            dv.children('.console').width($(window).width());
+            $('#sidebar').empty().height(0);
+            $('.sidebar-title').removeClass('select')
         } else {
             wh();
             articledv();
             $('#sidebar').height(72);
         }
-    } else {}
+    }
 }
 
 //没有平台设备dom操作
@@ -222,11 +235,11 @@ function articledv() {
             dv.prepend(colog);
             dv.prepend(sublist);
             dv.children().show();
-            dv.children('.console').width(375);
+            dv.children('.console').width($(window).width());
         } else {
             dv.children().show()
         }
-        if(!$('.sidebar-title').hasClass('select')){
+        if (!$('.sidebar-title').hasClass('select')) {
             dv.children().hide()
         }
     }).siblings('.sidebar-nav-item').children('.sublist.current').hide();

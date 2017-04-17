@@ -37,6 +37,18 @@ hexo.extend.helper.register('page_nav', function() {
     // console.log(keys)
 
     if (type != 'sms') {
+
+        if (index > 0) {
+            result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(list[keys[index - 1]]) + '">' +
+                '<img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'><div class=\'page-title\'><div>上一节：</div>' + this.__(list[keys[index - 1]]) + ' </div></a>';
+        }
+
+        if (index < keys.length - 1) {
+
+            result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(list[keys[index + 1]]) + '">' +
+                '<div class=\'page-title\'><div class=\'text-right\'>下一节：</div>' + this.__(list[keys[index + 1]]) + '</div><img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></a>';
+        }
+    }else{
         if (index > 0) {
             result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(list[keys[index - 1]]) + '">' +
                 '<img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'><div class=\'page-title\'><div>上一节：</div>' + this.__(list[keys[index - 1]]) + ' </div></a>';
@@ -47,9 +59,7 @@ hexo.extend.helper.register('page_nav', function() {
                 '<div class=\'page-title\'><div class=\'text-right\'>下一节：</div>' + this.__(list[keys[index + 1]]) + '</div><img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></a>';
         }
     }
-
     return result;
-
 });
 hexo.extend.helper.register('doc_sidebar', function(className) {
     var type = this.page.canonical_path.split('/')[0];

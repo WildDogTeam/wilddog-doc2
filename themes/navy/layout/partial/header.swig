@@ -27,8 +27,8 @@
       <div class="search-tips">
         <img src="/images/search-icon.svg" alt="" width="15" height="15" class="search-icon">
       </div>
-      <form accept-charset="utf-8">
-        <input type="search" class="search-input" placeholder="搜索">
+      <form accept-charset="utf-8" action="/result/index.html">
+        <input type="search" class="search-input" placeholder="搜索" name="keyword">
       </form>
       <span class="close-search"><img src="/images/close.svg" alt=""></span>
     </div>
