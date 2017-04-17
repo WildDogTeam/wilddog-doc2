@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.17 - 2017.04.17
+
+<span class="changelog optimize">优化</span>
+
+- 优化 gateway 协议，提高套餐使用量统计准确性。
+
 ### v0.5.15 - 2017.04.14
 
 <span class="changelog optimize">优化</span>
