@@ -22,7 +22,7 @@ before_install:
 - git config --global user.name 'stackOverMind'
 - git config --global user.email 'rzxgy@163.com'
 install:
-- 
+-
 - npm install hexo-cli -g
 - npm install
 
