@@ -444,7 +444,7 @@ sms:
       发送通知类短信: /sms/api/send.html
       校验验证码: /sms/api/checkcode.html
       查询发送状态: /sms/api/status.html
-      查询账户余额: /sms/api/belance.html
+      查询账户余额: /sms/api/balance.html
       错误码: /sms/api/error-code.html
     示例代码:
       示例库: /sms/resources/resources.html
