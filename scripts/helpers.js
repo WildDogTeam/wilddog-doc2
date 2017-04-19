@@ -195,8 +195,8 @@ hexo.extend.helper.register('url_for_lang', function(path) {
 });
 
 hexo.extend.helper.register('raw_link', function(path) {
-    //return 'https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/' + path;
-    return 'https://github.com/WildDogTeam/wilddog-doc2/blob/master-tab/source/' + path;
+    return 'https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/' + path;
+    // return 'https://github.com/WildDogTeam/wilddog-doc2/blob/master-tab/source/' + path;
 });
 
 hexo.extend.helper.register('page_anchor', function(str) {
