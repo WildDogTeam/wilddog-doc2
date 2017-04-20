@@ -23,22 +23,22 @@ title: 接口验证机制
 ```   
 templateId: 100001
 mobile: "['13500000000']"
-timestamp:'1482301296'
+timestamp:'1492675740231'
 
 ```
 
-2.将参数以字母升序(A-Z)排列，再以 `key=value’ + ‘&’ + ‘key=value`的方式连接所有参数,得到字符串 `param_str`。
+2.将参数以字母升序(A-Z)排列，再以 `'key=value'+ '&' + 'key=value'`的方式连接所有参数,得到字符串 `param_str`。
 
 
 ```   
-param_str="mobile=130xxxxxxxx&templateId=100001&timestamp=1482301296"
+param_str="mobile=130xxxxxxxx&templateId=100001&timestamp=1492675740231"
 
 ```
 
 3.以 `param_str + ‘&’ + SMS_KEY` 的方式得到字符串 `sign_str`。
 
 ```   
-sign_str="mobile=130xxxxxxxx&templateId=100001&timestamp=1482301296&$SMS_KEY"
+sign_str="mobile=130xxxxxxxx&templateId=100001&timestamp=1492675740231&$SMS_KEY"
 
 ```
 

@@ -436,7 +436,7 @@ sms:
     概览: /sms/index.html
     快速入门: /sms/quickstart.html
     完整指南:
-      验证码短信: /sms/guide/vertification.html
+      验证码短信: /sms/guide/verification.html
       通知类短信: /sms/guide/notify.html
       接口校验机制: /sms/guide/signature.html
     API 文档:
