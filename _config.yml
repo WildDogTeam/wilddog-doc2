@@ -70,10 +70,6 @@ deploy:
 - type: git
   repo: git@github.com:WildDogTeam/WildDogTeam.github.io.git
 
-- type: git
-  repo: git@github.com:liujie3612/liujie3612.github.io.git
-
-
 search:
   path: search.xml
   field: post
