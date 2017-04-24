@@ -1,0 +1,513 @@
+note-tip = hsl(40, 100%, 50%)
+note-info = hsl(200, 100%, 50%)
+note-warn = hsl(0, 100%, 50%)
+
+hr
+  opacity: 0.2
+
+#content
+  clearfix()
+  position: relative
+  padding-top: 72px
+
+#content-inner
+  clearfix()
+  @media mq-normal
+    margin-left: 200px
+
+.article-container
+  position: relative
+  @media mq-normal
+    float: right
+    width: 100%
+
+.article-inner
+  clearfix()
+  @media mq-normal
+    margin-right: sidebar-width
+
+.article
+  float: left
+  width: 100%
+  padding: 70px 0 140px
+  @media print
+    padding: 0
+
+.toc-content
+  position: absolute
+  top: 0
+  right: 0;
+  width: 200px
+
+#article-toc
+  position: fixed
+  top: 0
+  z-index: 9
+  padding-top: 142px
+  background-color: #fff
+  height: 100%
+  display: none
+  @media mq-normal
+    display: block
+  .sidebar-title
+    position: absolute
+    top: 0
+    left: 0
+    z-index: 9
+    padding-left: 7px
+    font-weight: 700
+
+.toc-inner
+  position: relative
+  width: 179px
+
+.toc-scroll-content
+  min-height: 130px
+  max-height: 80%
+  overflow-x: hidden
+  overflow-y: auto
+
+.toc-link-title
+  position: fixed
+  z-index: 9
+  padding: 8px 10px
+  white-space: nowrap
+  background-color: #666
+  border-radius: 3px
+  color: #fff
+  transform: translateX(-50%)
+  display: none
+  &:after
+    content: '';
+    position: absolute
+    left: 50%
+    top: 100%
+    margin-top: -5px
+    margin-left: -5px
+    width: 10px
+    height: 10px
+    background-color: #666
+    transform-origin: 50% 50%
+    transform: rotate(45deg)
+
+#article-toc-inner
+  @extend .inner
+  padding-left: 7px
+  border-left: 4px solid #e5e5e5
+  @media mq-normal
+    display: block
+
+.slide-dot
+  position: absolute
+  left: 0
+  top: 0
+  z-index: 99
+  width: 4px
+  height: 14px
+  background-color: #e6501e
+
+.toc
+  padding-top: 28px
+
+.toc-link
+  display: block
+  color: color-default
+  text-decoration: none
+  padding-bottom: 10px
+  line-height: 1.5
+  font-size: 13px
+  position: relative
+  padding-right: 10px
+  width: 100%
+  &.current
+    color: #e6501e
+  &:hover
+    color: #e6501e
+
+.toc-text
+  display:block
+  width: 100%
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  word-wrap: break-word;
+
+.toc-child
+  padding-left: 1em
+  font-size: 0.9em
+
+#article-toc-top
+  margin-top: 2em
+  font-size: 0.9em
+  text-decoration: none
+  color: color-default
+  display: block
+  margin-bottom: 40px
+  &:hover
+    color: color-link-hover
+
+.article-header
+  clearfix()
+  padding-bottom: 20px
+
+.article-title
+  float: left
+  padding-bottom: 12px
+  margin-bottom: 36px
+  color: #333
+  text-decoration: none
+  line-height: 1
+  font-weight: 300
+  transition: 0.2s
+  @media mq-normal
+    width: 100%
+    border-bottom: 1px solid #e5e5e5
+  a&:hover
+    color: color-link-hover
+  .post &
+    float: none
+
+.article-date
+  color: color-gray
+  text-decoration: none
+  display: inline-block
+  margin-top: 1em
+  &:hover
+    color: color-link-hover
+
+.edit-doc-source
+  float: right
+  position: relative
+  top: 5px
+  &:hover
+    .article-edit-link
+      color: #212121
+      border-color: #212121
+    .github
+      fill: #212121
+
+.article-edit-link
+  display: inline-block
+  position: relative
+  top: 2px
+  margin-left: 4px
+  font-size: 12px
+  vertical-align: middle
+  color: #bbb
+  border-bottom: 1px solid #ccc
+
+.article-anchor
+  margin-left: 10px
+  display: none
+  &:before
+    content: "#"
+  @media print
+    display: none !important
+  .article-heading:hover &
+    display: inline-block
+
+.article-heading
+  &:before
+    content: ''
+    display: block
+    padding-top: 100px
+    margin-top: -100px
+    visibility: hidden
+
+.article-content
+  line-height: line-height
+  letter-spacing: 1px
+  color: #000
+  &:before, &:after
+    content: " "
+    display: table
+    clear: both
+  @media print
+    font-size: 12pt
+  ol, ul, dl, table, iframe
+    margin: 1em 0
+  a
+    color: color-link
+    text-decoration: none
+    &:hover
+      color: color-link-hover
+      text-decoration: underline
+    @media print
+      color: color-default
+      text-decoration: underline
+      &:after
+        content: " (" attr(href) ")"
+        font-size: 80%
+  strong
+    font-weight: bold
+  em
+    font-style: italic
+  ul, ol, dl
+    margin: 0
+    padding: 0
+    margin-left: 20px
+    li
+      padding-top: 7px
+      padding-bottom: 7px
+  ul
+    list-style: disc
+  ol
+    list-style: decimal
+  dl
+    list-style: square
+  li
+    p
+      margin: 0
+    table, blockquote, iframe, .highlight
+      margin: 1em 0
+  img, video
+    max-width: 100%
+  blockquote
+    margin-top: 20px
+    margin-bottom: 30px
+    padding: 14px 20px
+    position: relative
+    font-size: 14px
+    color: #666
+    border: 1px solid transparent
+    background-color: rgba(232, 77, 30, .03)
+    border-left: 3px solid rgba(232, 77, 30, .8)
+    &.notice
+      background-color: rgba(60, 150, 230, 0.03)
+      border-left-color: rgba(60, 150, 230, 0.8)
+    &.warning
+      background-color: rgba(232, 77, 30, .06)
+      border-left-color: 3px solid rgba(232, 77, 30, .8)
+    br
+        display: none
+
+    p
+      margin: 0
+    strong
+      display: block
+      padding-bottom: 4px
+      font-size: 16px
+      color: #333
+    footer
+      margin: 1em 0
+      font-style: italic
+      cite
+        &:before
+          content: "¡ª"
+          padding: 0 0.3em
+        a
+          color: color-grey
+  .note
+    &.tip
+      border-left-color: note-tip
+    &.info
+      border-left-color: note-info
+    &.warn
+      border-left-color: note-warn
+  .note-title
+    margin: 1em 0
+    display: block
+    font-size: 1.3em
+    font-weight: bold
+  table
+    th
+      font-weight: bold
+
+.article-footer
+  clearfix()
+  margin: 1em 0
+  border-top: 1px solid color-border
+  color: color-gray
+  line-height: 1em
+  padding-top: 1em
+  position: relative
+  @media print
+    display: none
+
+$article-footer-link
+  color: color-link
+  text-decoration: none
+  font-weight: bold
+  text-transform: none
+  position: absolute
+  &:hover
+    color: color-link-hover
+  @media print
+    display: none
+  span
+    padding: 0 6px
+    font-weight: 500
+
+.article-footer-prev
+  @extend $article-footer-link
+  font-weight: 500
+  left: 0
+  .arr-icon
+    margin-right: 4px
+    box-shadow: none
+
+.article-footer-next
+  @extend $article-footer-link
+  font-weight: 500
+  right: 0
+  .arr-icon
+    margin-left: 4px
+    box-shadow: none
+
+.article-footer-updated
+  display: inline-block
+  padding-top: 20px
+  padding-bottom: 40px
+  line-height: 1
+  font-size: 12px
+  color: #999
+  font-style: italic
+
+#comments
+  @media print
+    display: none
+
+.back-top-content
+  float: right
+
+.back-top
+  position: fixed;
+  bottom: 126px;
+  width: 40px;
+  height: 40px;
+  background-color: #999;
+  text-align: center;
+  color: #fff;
+  line-height: 40px;
+  font-size: 22px;
+  cursor: pointer;
+  border-radius: 50%;
+  cursor: pointer
+  opacity: 0
+  transition: 0.2s
+  &:after
+    content: ''
+    position: absolute
+    top: 50%
+    left: 50%
+    margin-top: -3px
+    margin-left: -5px
+    width: 10px
+    height: 10px
+    border-top: 2px solid #fff
+    border-right: 2px solid #fff
+    transform: rotate(-45deg)
+
+.back-top-show
+  opacity: 1
+
+.article-footer-next
+  margin-top: 10px
+  .page-title
+    padding-right: 20px
+    display: block
+    line-height: 1.2
+    text-align: right
+  .arr-icon
+    position: absolute
+    top: 14px
+    right: 0
+    border: 0
+    box-shadow: none
+
+.article-footer-prev
+  margin-top: 10px
+  .page-title
+    padding-left: 20px
+    display: block
+    line-height: 1.2
+  .arr-icon
+    position: absolute
+    top: 14px
+    left: 0
+    border: 0
+    box-shadow: none
+
+.toc, .toc-item
+  list-style: none
+
+.top-heading
+  margin-top: 0
+
+p:nth-child(1)
+  margin-top: 0
+  
+.feed-back
+  position: fixed
+  bottom: 0
+  left: 0
+  z-index: 1000
+  padding-top: 15px
+  padding-bottom: 15px
+  width: 100%
+  height: 79px
+  background-color: #fff
+  border-top: 1px solid #ffd2c3
+  transition: 0.3s
+  img
+    border: 0
+    box-shadow: none
+  .feed-bg
+    position: absolute
+    left: 0
+    top: 9px
+    width: 100%
+  .feed-content
+    position: relative
+    z-index: 1
+    margin-left: auto
+    margin-right: auto
+    width: 678px
+    .feed-text-content
+      img
+        float: left
+      .feed-text
+        float: left
+        margin-top: 16px
+        margin-left: 18px
+        line-height: 1
+        font-size: 18px
+        color: #333
+    .feed-link
+      float: right
+      margin-top: 8px
+      margin-right: 30px
+      width: 120px
+      height: 36px
+      color: #fff
+      text-decoration: none
+      background-color: #e6501e
+      text-align: center
+      line-height: 36px
+      border-radius: 3px
+      &:hover
+        background-color: #eb734b;
+  .close-feed
+    position: absolute
+    top: 30px
+    right: 100px
+    width: 20px
+    height: 20px
+    cursor: pointer
+
+.scrollHide
+  bottom: -80px
+  
+
+.toc-level-3
+    padding-left: 1em;
+    font-size: 0.9em;
+    .toc-child
+        display:none
+
+.toc-level-2
+  .toc-level-3
+     padding-left: 0;
+     
+.toc-level-5
+  display:none

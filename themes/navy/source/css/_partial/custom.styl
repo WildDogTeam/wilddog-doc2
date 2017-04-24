@@ -1,0 +1,219 @@
+.article-content table
+	width: calc(100% - 10px)
+	width: -webkit-calc(100% - 10px)
+	border: 1px solid #d9d9d9
+	border-bottom: 0
+	border-collapse: collapse
+	word-break: break-all
+	// margin-left: 10px !important
+	th
+		padding-top: 11px
+		padding-bottom: 11px
+		padding-left: 20px
+		border-right: 1px solid #ededed
+		&:last-child
+			border: 0
+	tr
+		border-bottom: 1px solid #d9d9d9
+	td
+		padding-top:10px
+		padding-bottom: 10px
+		padding-left: 20px
+		border-right: 1px solid #f5f5f5
+		word-break: break-word
+		&:last-child
+			border: 0
+
+.highlight table
+	border: 0 !important
+	background: #f6f6f6
+	// margin-left: 10px !important
+	th,
+	tr,
+	td
+		border:0
+		padding-left: 30px
+
+.slide
+	margin-top: 14px
+	margin-bottom: 14px
+	border: 1px solid #ebebeb
+	background-color: #f7f7f7
+	letter-spacing: 0
+	.slide-title
+		background-color: #fff
+		border-bottom: 1px solid #ebebeb
+		letter-spacing: 0
+		overflow: hidden
+	.slide-tab
+		float: left
+		padding-left: 24px
+		padding-right: 24px
+		height: 48px
+		line-height: 48px
+		cursor: pointer
+		border-bottom: 2px solid #fff
+		transition: 0.2s
+		&.tab-current
+			color: #039be5
+			border-color: #039be5
+	.highlight
+		margin-top: 0
+		margin-bottom: 0
+		padding-left: 0
+		padding-right: 0
+	.slide-content
+		display: none
+		&.slide-content-show
+			display: block
+
+.slide br 
+	display: none
+
+.env
+	margin-top: 25px
+	padding-bottom: 30px
+	width: 100%
+	background-color: #fff
+	border: 1px solid #e5e5e5
+	border-radius: 3px
+	ul
+		padding-left: 20px
+	li
+		padding-top: 10px
+	br
+		display: none
+	.env-title
+		margin: 0 0 17px
+		padding-left: 20px
+		height: 40px
+		line-height: 40px
+		background-color: #f5f5f5
+		font-weight: 700
+		color: #333
+		font-size: 16px
+		border-bottom: 1px solid #e5e5e5
+
+.novice
+	position: relative
+	margin-top: 80px
+	padding-top: 30px
+	padding-bottom: 40px
+	background-color: #f9f9f9
+	border-radius: 3px
+	border: 1px dashed #e5e5e5
+	display: none
+
+.light
+	box-shadow: none
+	border: 0
+
+.novice-title
+	padding-top: 20px
+	padding-left: 10px
+	font-size: 20px
+	color: #333
+
+.register-text
+	padding-top: 16px
+	font-size: 16px
+
+.btn-group
+	padding-top: 30px
+	
+.register-link,
+.question-link,
+.service-link
+	width: 120px
+	height: 36px
+	line-height: 34px
+
+.close-novice
+	position: absolute
+	top: 14px
+	right: 14px
+	width: 20px
+	height: 20px
+	cursor: pointer
+	&:before,
+	&:after
+		content: ''
+		position: absolute
+		top: 50%
+		left: 1px
+		width: 18px
+		height: 1px
+		background-color: #888
+	&:before
+		transform: rotate(45deg)
+	&:after
+		transform: rotate(-45deg)
+	
+.question-link
+	margin-left: 18px
+	
+.changelog
+	margin-top: 30px
+	display: block
+	width: 47px
+	height: 26px
+	border-width: 1px 
+	border-style: solid
+	line-height: 24px
+	font-size: 12px
+	text-align: center
+	border-radius: 13px
+	font-weight: 700
+	&.add
+		border-color: #32af5a
+		color: #32af5a
+		background-color: #f5fbf7
+	&.fix
+		border-color: #3c96e6
+		color: #3c96e6
+		background-color: #f5fafe
+	&.optimize
+		border-color: #e69628
+		color: #e69628
+		background-color: #fefaf4
+	&.deprecated
+		border-color: #eb3232
+		color: #eb3232
+		background-color: #fef5f5
+	&.feature
+		border-color: #e6501e
+		color: #e6501e
+		background-color: #fef6f4
+	&.describe
+		border-color: #8c9ba5
+		color: #8c9ba5
+		background-color: #f9fafa
+		
+.swift-lan + .swift
+	border-left:4px solid #c4dff7
+	padding-bottom:20px
+	table
+		margin-left:10px !important
+		
+.objectivec-lan + .objectivec 
+	border-left:4px solid #c1e7cd
+	padding-bottom:20px
+	table
+		margin-left:10px !important
+		
+.swift-lan
+	color:#3c96e6
+	border-left:4px solid #c4dff7
+	font-weight:600
+	padding-left:10px
+	padding-bottom:20px
+	padding-top:10px
+
+.objectivec-lan
+	color:#32af52
+	border-left:4px solid #c1e7cd
+	font-weight:600
+	padding-left:10px
+	padding-bottom:20px
+	padding-top:10px
+	
