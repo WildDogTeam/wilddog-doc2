@@ -191,8 +191,27 @@ ref.observeSingleEvent(of: .value, with: {
 </div>
 
 
-## 6.更多使用
-- 了解 Sync 数据访问控制，请参考 [安全性与规则](/sync/iOS/rules/introduce.html)
-- 了解 Wilddog Sync 更多使用方式，请参考 [完整指南](/sync/iOS/guide/save-data.html) 和 [API 文档](/sync/iOS/api/WDGOptions.html)。
 
+## 6.数据安全
+
+你可以在 Sync 中使用规则表达式进行数据访问权限的控制。规则表达式可以实现以下功能：
+
+- 数据访问权限控制
+- 用户访问权限控制
+- 数据格式校验
+- 数据索引
+
+规则表达式的具体使用，请参考 [安全性与规则](/sync/iOS/rules/introduce.html)。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+
+初始配置下，所有人都能读写你的应用数据，请及时在 实时通信引擎-读写权限 中更改规则表达式。
+
+</blockquote>
+
+## 7.更多使用
+
+- 了解 Sync 更多使用方式，请参考 [完整指南](/sync/iOS/guide/save-data.html) 和 [API 文档](/sync/iOS/api/WDGOptions.html)。
+- 了解如何设计数据结构，请参考 [组织数据](/sync/iOS/guide/bestpractice/structure-data.html)。
 

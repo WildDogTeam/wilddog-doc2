@@ -19,7 +19,7 @@ hexo.extend.helper.register('page_nav', function() {
     var list = {};
     var prefix = 'sidebar.' + type + '.';
     for (var i in sidebar) {
-        
+
         for (var j in sidebar[i]) {
             if (typeof sidebar[i][j] === 'string') {
                 list[sidebar[i][j]] = j;
@@ -36,7 +36,18 @@ hexo.extend.helper.register('page_nav', function() {
 
     // console.log(keys)
 
-    if (type != 'sms') {
+    if (type !== 'sms') {
+
+        if (index > 0) {
+            result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(list[keys[index - 1]]) + '">' +
+                '<img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'><div class=\'page-title\'><div>上一节：</div>' + this.__(list[keys[index - 1]]) + ' </div></a>';
+        }
+        if (index < keys.length - 1) {
+
+            result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(list[keys[index + 1]]) + '">' +
+                '<div class=\'page-title\'><div class=\'text-right\'>下一节：</div>' + this.__(list[keys[index + 1]]) + '</div><img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></a>';
+        }
+    }else{
         if (index > 0) {
             result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(list[keys[index - 1]]) + '">' +
                 '<img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'><div class=\'page-title\'><div>上一节：</div>' + this.__(list[keys[index - 1]]) + ' </div></a>';
@@ -47,9 +58,7 @@ hexo.extend.helper.register('page_nav', function() {
                 '<div class=\'page-title\'><div class=\'text-right\'>下一节：</div>' + this.__(list[keys[index + 1]]) + '</div><img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></a>';
         }
     }
-
     return result;
-
 });
 hexo.extend.helper.register('doc_sidebar', function(className) {
     var type = this.page.canonical_path.split('/')[0];
@@ -156,18 +165,20 @@ hexo.extend.helper.register('doc_platform', function() {
     var sidebar = this.site.data.sidebar[type];
     var path = "/" + this.path;
     var platformName = path.split('/')[2];
-    var result
+    var result;
 
-    if (type == 'sms' || type == 'overview' || type == 'console') {
+    if (type == 'overview' || type == 'sms' || type == 'console') {
         result = ''
     } else {
-        var sidebarKeys = Object.keys(sidebar);
-        result = '<input type=\'hidden\' value=' + sidebarKeys + '>'
-        result += '<div class=\'selected\'>' + platformName + '</div>';
-        result += '<ul class=\'platforms\'>' + '</ul>'
+        if (sidebar !== null && sidebar !== undefined) {
+            var sidebarKeys = Object.keys(sidebar);
+            result = '<input type=\'hidden\' value=' + sidebarKeys + '>'
+            result += '<div class=\'selected\'>' + platformName + '</div>';
+            result += '<ul class=\'platforms\'>' + '</ul>'
+        }
+
     }
     return result
-
 });
 
 
@@ -185,8 +196,7 @@ hexo.extend.helper.register('url_for_lang', function(path) {
 });
 
 hexo.extend.helper.register('raw_link', function(path) {
-    //return 'https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/' + path;
-    return 'https://github.com/WildDogTeam/wilddog-doc2/blob/master-tab/source/' + path;
+    return 'https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/' + path;
 });
 
 hexo.extend.helper.register('page_anchor', function(str) {

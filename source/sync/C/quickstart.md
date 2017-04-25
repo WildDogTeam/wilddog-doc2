@@ -21,14 +21,14 @@ title: 快速入门
 
 Wilddog C/嵌入式 SDK 分为 C/RTOS、OpenWRT、Arduino 三种，具体支持的平台如下：
 
-名称 | 支持的平台
----- | ----
- | Linux : 支持POSIX标准的平台，例如 Ubuntu、树莓派。
-C / RTOS SDK | Broadcom WICED : 例如 Broadcom 的 BCM943362WCD4、AMPAK 的 WSDB733、WSDB750。
- | 乐鑫 Espressif：例如 ESP8266。
- | 庆科 MICO：例如 EMW3162。
-OpenWRT SDK | ar71xx 系列。
-Arduino SDK | Arduino Yun。
+| 名称           | 支持的平台                                    |
+| ------------ | ---------------------------------------- |
+|              | Linux : 支持POSIX标准的平台，例如 Ubuntu、树莓派。      |
+| C / RTOS SDK | Broadcom WICED : 例如 Broadcom 的 BCM943362WCD4、AMPAK 的 WSDB733、WSDB750。 |
+|              | 乐鑫 Espressif：例如 ESP8266。                 |
+|              | 庆科 MICO：例如 EMW3162。                      |
+| OpenWRT SDK  | ar71xx 系列。                               |
+| Arduino SDK  | Arduino Yun。                             |
 
 在大部分平台下 C/嵌入式 SDK 的 API 接口是一致（Arduino 平台除外），因此下面我们以 Linux 平台为例，快速了解 SDK 的基本 API，其他平台可以参考 SDK 中的 docs 目录和 README。
 
@@ -129,7 +129,26 @@ int main(){
 ```
 回调函数中的 `p_snapshot` 会一直和云端保持同步。如果只想监听一次，请使用 [wilddog_getValue()](/sync/C/api/sync-with-server.html#wilddog-getValue) 方法。
 
-## 5.更多使用
-- 了解 Sync 数据访问控制，请参考 [安全性与规则](/sync/C/rules/introduce.html)
+## 6.数据安全
+
+你可以在 Sync 中使用规则表达式进行数据访问权限的控制。规则表达式可以实现以下功能：
+
+- 数据访问权限控制
+- 用户访问权限控制
+- 数据格式校验
+- 数据索引
+
+规则表达式的具体使用，请参考 [安全性与规则](/sync/C/rules/introduce.html)。
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+
+初始配置下，所有人都能读写你的应用数据，请及时在 实时通信引擎-读写权限 中更改规则表达式。
+
+</blockquote>
+
+## 7.更多使用
+
 - 了解 Sync 更多使用方式，请参考 [完整指南](/sync/C/guide/save-data.html) 和 [API 文档](/sync/C/api/reference.html)。
+- 了解如何设计数据结构，请参考 [组织数据](/sync/C/guide/bestpractice/structure-data.html)。
 

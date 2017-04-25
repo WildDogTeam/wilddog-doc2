@@ -30,6 +30,7 @@ videoInstance.createStream({
     .then(function(stream){
         localStream = stream;
         // 获取到localStream,将媒体流绑定到页面的video类型的标签上
+        // 如果没有获得摄像头权限或无摄像头，则无法展示。
         localStream.attach(localVideoElement);
     })
     .catch(function(err){

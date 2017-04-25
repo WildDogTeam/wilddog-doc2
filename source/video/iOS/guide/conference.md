@@ -21,6 +21,7 @@ localStreamOptions.videoOption = WDGVideoConstraintsStandard;
 // 创建本地媒体流
 self.localStream = [[WDGVideoLocalStream alloc] initWithOptions:localStreamOptions];
 // 预览本地媒体流
+// 如果没有获得摄像头权限或无摄像头，则无法展示。
 [self.localStream attach:self.localVideoView];
 ```
 

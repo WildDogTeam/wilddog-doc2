@@ -3,6 +3,11 @@
     <h1 id="logo-wrap">
       <a href="https://www.wilddog.com" id="logo"></a>
     </h1>
+    <div class="menu-ctrl" style="display: none;">
+      <span class="menu-ctrl-line menu-ctrl-line-t"></span>
+      <span class="menu-ctrl-line menu-ctrl-line-m"></span>
+      <span class="menu-ctrl-line menu-ctrl-line-b"></span>
+    </div>
     <nav id="main-nav">
       <a href="/overview/index.html" class="main-nav-link">概览</a>
       <a href="/sync/Web/index.html" class="main-nav-link">实时通信引擎</a>
@@ -22,7 +27,9 @@
       <div class="search-tips">
         <img src="/images/search-icon.svg" alt="" width="15" height="15" class="search-icon">
       </div>
-      <input type="text" class="search-input" placeholder="搜索">
+      <form accept-charset="utf-8" action="/result/index.html">
+        <input type="search" class="search-input" placeholder="搜索" name="keyword">
+      </form>
       <span class="close-search"><img src="/images/close.svg" alt=""></span>
     </div>
     <div class="header-info pull-right">

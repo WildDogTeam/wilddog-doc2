@@ -33,5 +33,3 @@
 4. $ npm install 
 5. $ hexo server   (或自行指定端口: hexo server -p 3003)
 6. 浏览器访问：  http://localhost:4000/ (默认端口为 4000)
-
-
