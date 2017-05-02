@@ -14,6 +14,8 @@ title: 多人视频会议
 例如，创建一个只有视频且分辨率为 320X240 的流，并展示到 `WilddogVideoView` 上：
 
 ```java
+    //获取视频播放控件
+    WilddogVideoView localView = (WilddogVideoView) findViewById(R.id.local_video_view);
     // 如果没有获得摄像头权限或无摄像头，则无法展示。
     LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
 
@@ -32,7 +34,7 @@ title: 多人视频会议
 
 ```java
     //为视频流绑定播放控件
-    localStream.attach(localCallbacks);
+    localStream.attach(localView);
 ```
 
 ### 发起/加入视频会议
@@ -119,9 +121,9 @@ Conference.Listener listener = new Conference.Listener() {
         localStream.detach();
         localStream.close();
 
-        if (local_video_view != null) {
-            local_video_view.release();
-            local_video_view = null;
+        if (localView != null) {
+            localView.release();
+            localView = null;
         }
         if (mConference != null) {
             mConference.disconnect();

@@ -64,13 +64,20 @@ public void onCreate() {
         public void onComplete(Task<AuthResult> task) {
             if (task.isSuccessful()) {
                 //...
-                //完成身份认证
+                //完成身份认证后初始化 Video SDK，如身份认证失败则会引起初始化失败或应用崩溃
+                 initVideoSDK();
+
             }else {
                  throw  new RuntimeException("auth 失败"+task.getException().getMessage());
             }
         }
     });
 
+    
+    //....
+}
+
+private void initVideoSDK(){
     String path = mRef.getRoot().toString();
     int startIndex = path.indexOf("https://") == 0 ? 8 : 7;
     //获取AppId
@@ -81,7 +88,6 @@ public void onCreate() {
     WilddogVideo video＝WilddogVideo.getInstance();
     //获取client对象
     WilddogVideoClient client = video.getClient();
-    //....
 }
 
 ```
