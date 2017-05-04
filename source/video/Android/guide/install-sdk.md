@@ -91,3 +91,30 @@ private void initVideoSDK(){
 }
 
 ```
+
+### 代码混淆
+
+在生成 apk 进行代码混淆时进行如下配置：
+
+```
+-keep class com.wilddog.client.**{*;} 
+-keep class com.wilddog.**{*;} 
+
+-keep class com.fasterxml.jackson.**{*;} 
+-keep class com.fasterxml.jackson.databind.**{*;} 
+-keep class com.fasterxml.jackson.core.**{*;} 
+```
+
+### 其余问题
+在 Android Studio 进行 Sync Project 时会提示如下警告：
+```
+Warning:WARNING: Dependency org.json:json:20090211 is ignored for debug as it may be conflicting with the internal version provided by Android.
+```
+
+消除警告请进行如下配置，在模块级 build.gradle 文件的 android {} 中添加：
+
+```
+	configurations {
+		compile.exclude group: "org.json", module: "json"
+	}
+```

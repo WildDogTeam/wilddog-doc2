@@ -46,8 +46,9 @@ title: 视频通话
 ```java
     //创建连接参数对象
     //localStream 为video.createLocalStream()获取的本地视频流
-    //第二个参数为用户自定义的数据，类型为字符串
-    ConnectOptions options = new ConnectOptions(localStream, "chaih");
+    //第二个参数为用户自定义的数据，类型为字符串,可以在邀请时传递自定义信息，例如传递邀请者姓名、会议主题等
+    //对方在 IncomingInvite 回调中可以获取该数据
+    ConnectOptions options = new ConnectOptions(localStream, <Your-Data>);
     //inviteToConversation 方法会返回一个OutgoingInvite对象，
     //通过OutgoingInvite对象可以进行取消邀请操作
     outgoingInvite = client.inviteToConversation(participant,options, new ConversationCallback() {
@@ -133,6 +134,8 @@ title: 视频通话
     this.client.setInviteListener(new WilddogVideoClient.Listener() {
         @Override
         public void onIncomingInvite(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
+            //获取邀请者发送的自定义信息
+            String userData = incomingInvite.getUserData();            
             //收到邀请，接受视频通话发起者的邀请
             ConnectOptions connectOptions = new ConnectOptions(localStream, "");
             incomingInvite.accept(connectOptions, new ConversationCallback() {
