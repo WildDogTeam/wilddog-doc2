@@ -64,13 +64,20 @@ public void onCreate() {
         public void onComplete(Task<AuthResult> task) {
             if (task.isSuccessful()) {
                 //...
-                //完成身份认证
+                //完成身份认证后初始化 Video SDK，如身份认证失败则会引起初始化失败或应用崩溃
+                 initVideoSDK();
+
             }else {
                  throw  new RuntimeException("auth 失败"+task.getException().getMessage());
             }
         }
     });
 
+    
+    //....
+}
+
+private void initVideoSDK(){
     String path = mRef.getRoot().toString();
     int startIndex = path.indexOf("https://") == 0 ? 8 : 7;
     //获取AppId
@@ -81,7 +88,33 @@ public void onCreate() {
     WilddogVideo video＝WilddogVideo.getInstance();
     //获取client对象
     WilddogVideoClient client = video.getClient();
-    //....
 }
 
+```
+
+### 代码混淆
+
+在生成 apk 进行代码混淆时进行如下配置：
+
+```
+-keep class com.wilddog.client.**{*;} 
+-keep class com.wilddog.**{*;} 
+
+-keep class com.fasterxml.jackson.**{*;} 
+-keep class com.fasterxml.jackson.databind.**{*;} 
+-keep class com.fasterxml.jackson.core.**{*;} 
+```
+
+### 其余问题
+在 Android Studio 进行 Sync Project 时会提示如下警告：
+```
+Warning:WARNING: Dependency org.json:json:20090211 is ignored for debug as it may be conflicting with the internal version provided by Android.
+```
+
+消除警告请进行如下配置，在模块级 build.gradle 文件的 android {} 中添加：
+
+```
+	configurations {
+		compile.exclude group: "org.json", module: "json"
+	}
 ```

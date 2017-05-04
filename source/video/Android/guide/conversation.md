@@ -16,6 +16,8 @@ title: 视频通话
 例如，创建一个同时有音频和视频的本地媒体流并展示出来：
 
 ```java
+    //获取视频播放控件
+    WilddogVideoView localView = (WilddogVideoView) findViewById(R.id.local_video_view);
     // 如果没有获得摄像头权限或无摄像头，则无法展示。
     LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
     LocalStreamOptions options = builder.height(240).width(320).build();
@@ -28,7 +30,7 @@ title: 视频通话
     //为视频流绑定播放控件
     localStream.attach(localView);
 ```
-
+展示视频流需要使用 [WilddogVideoView](../api/wilddog-video-view.html) 和 [WilddogVideoViewLayout](../api/wilddog-video-view-layout.html) 两个控件，详细使用方法参见 API 文档。
 ### 发起视频通话
 
 只有另一个 [Client](/video/Android/guide/core.html#Client) 接受了一方的邀请，通话才能建立成功。
@@ -44,8 +46,9 @@ title: 视频通话
 ```java
     //创建连接参数对象
     //localStream 为video.createLocalStream()获取的本地视频流
-    //第二个参数为用户自定义的数据，类型为字符串
-    ConnectOptions options = new ConnectOptions(localStream, "chaih");
+    //第二个参数为用户自定义的数据，类型为字符串,可以在邀请时传递自定义信息，例如传递邀请者姓名、会议主题等
+    //对方在 IncomingInvite 回调中可以获取该数据
+    ConnectOptions options = new ConnectOptions(localStream, <Your-Data>);
     //inviteToConversation 方法会返回一个OutgoingInvite对象，
     //通过OutgoingInvite对象可以进行取消邀请操作
     outgoingInvite = client.inviteToConversation(participant,options, new ConversationCallback() {
@@ -131,6 +134,8 @@ title: 视频通话
     this.client.setInviteListener(new WilddogVideoClient.Listener() {
         @Override
         public void onIncomingInvite(WilddogVideoClient wilddogVideoClient, IncomingInvite incomingInvite) {
+            //获取邀请者发送的自定义信息
+            String userData = incomingInvite.getUserData();            
             //收到邀请，接受视频通话发起者的邀请
             ConnectOptions connectOptions = new ConnectOptions(localStream, "");
             incomingInvite.accept(connectOptions, new ConversationCallback() {
