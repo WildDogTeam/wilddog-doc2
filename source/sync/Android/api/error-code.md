@@ -13,9 +13,10 @@ title:  错误码
 | 26105 |Size of the leaf node exceeds the limitation (1M bytes)  | 单个叶子节点的数据大小不能大于 1M。 |
 | 26106 | 1. Path specified exceeds the maximum length that can be written (768 bytes) 2. Path specified exceeds the maximum depth that can be written (32) | 路径长度不能大于 768 个字节，路径深度不能大于 32 |
 | 26201 | Transaction hash does not match | 事务操作时数据已被其他客户端修改。 |
-| 26202 |	User code called from the SyncReference runloop threw an exception:\n | 客户端异常。 |
+| 26202 | User code called from the SyncReference runloop threw an exception:\n | 客户端异常。 |
 | 26203 | The transaction had too many retries | 事务操作重试次数超过限制。 |
 | 26204 | The transaction was overridden by a subsequent set | 事务操作被随后的写操作覆盖。 |
+| 26301 | Could not set priority on non-existent node | 不能给不存在的节点设置优先级。 |
 | 26801 | The supplied auth token has expired   | token 过期。 |
 | 26802 | The supplied auth token was invalid  | token 无效。 |
 | 29999 |Unknown error 	 | 未知错误。 |

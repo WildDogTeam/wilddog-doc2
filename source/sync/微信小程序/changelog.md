@@ -4,6 +4,14 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.6 - 2017.04.25
+
+<span class="changelog feature">修复</span>
+
+- 修复 websocket 建连前 set() 特殊字符失败的问题。
+- 修复部分情况下重连失败的问题。
+- 修改 typescript 中对 user.getToken() 返回值的描述。
+
 ### V2.5.2 - 2017.02.06
 
 <span class="changelog feature">修复</span>
@@ -116,4 +124,3 @@ title: 更新日志
 - 移除原有 Wilddog SDK 中 Auth 功能。
 
 - Wilddog SDK 提供 Sync 与 Auth 两个模块。
-
