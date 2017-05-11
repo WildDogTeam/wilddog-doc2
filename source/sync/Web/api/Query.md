@@ -444,7 +444,7 @@ ref.limitToFirst(10).on("child_added",function(snapshot){
 
 ##### 说明
 
-创建一个新 [wilddog.sync.Query](Query.html) 对象，获取当前排序下从第一个节点开始的最多 (limit) 条数据。详细使用请参考：[完整指南-根据数据筛选结果监听](/sync/Web/guide/retrieve-data.html#根据数据筛选结果监听)。
+创建一个新 [wilddog.sync.Query](Query.html) 对象，获取当前排序下从最后一个节点开始的最多 (limit) 条数据。详细使用请参考：[完整指南-根据数据筛选结果监听](/sync/Web/guide/retrieve-data.html#根据数据筛选结果监听)。
 
 ##### 参数
 
