@@ -19,13 +19,18 @@ hexo.extend.helper.register('page_nav', function() {
     var list = {};
     var prefix = 'sidebar.' + type + '.';
     for (var i in sidebar) {
-
         for (var j in sidebar[i]) {
             if (typeof sidebar[i][j] === 'string') {
                 list[sidebar[i][j]] = j;
             } else {
                 for (var k in sidebar[i][j]) {
-                    list[sidebar[i][j][k]] = k;
+                    if (typeof sidebar[i][j][k] === 'string') {
+                        list[sidebar[i][j][k]] = k;
+                    } else {
+                        for (var l in sidebar[i][j][k]) {
+                            list[sidebar[i][j][k][l]] = l;
+                        }
+                    }
                 }
             }
         }
@@ -35,6 +40,7 @@ hexo.extend.helper.register('page_nav', function() {
     var result = '';
 
     // console.log(keys)
+    // console.log(list)
 
     if (type !== 'sms') {
 
@@ -47,7 +53,7 @@ hexo.extend.helper.register('page_nav', function() {
             result += '<a href="' + keys[index + 1] + '" class="article-footer-next" title="' + this.__(list[keys[index + 1]]) + '">' +
                 '<div class=\'page-title\'><div class=\'text-right\'>下一节：</div>' + this.__(list[keys[index + 1]]) + '</div><img src=\'\/images\/arr-right.svg\' class=\'arr-icon\'></a>';
         }
-    }else{
+    } else {
         if (index > 0) {
             result += '<a href="' + keys[index - 1] + '" class="article-footer-prev" title="' + this.__(list[keys[index - 1]]) + '">' +
                 '<img src=\'\/images\/arr-left.svg\' class=\'arr-icon\'><div class=\'page-title\'><div>上一节：</div>' + this.__(list[keys[index - 1]]) + ' </div></a>';
