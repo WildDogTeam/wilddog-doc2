@@ -76,7 +76,7 @@ sync:
       WDGMutableData: /sync/iOS/api/WDGMutableData.html
       WDGTransactionResult: /sync/iOS/api/WDGTransactionResult.html
       WDGServerValue: /sync/iOS/api/WDGServerValue.html
-      WDGDataEventType: /sync/iOS/api/WDGServerValue.html
+      WDGDataEventType: /sync/iOS/api/WDGDataEventType.html
       错误码: /sync/iOS/api/error-code.html
     示例代码:
       示例库: /sync/iOS/resources/resources.html
