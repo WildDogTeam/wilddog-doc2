@@ -85,4 +85,4 @@ curl -X POST https://api.wilddog.com/sms/v1/yourtestapp/notify/send -d "signatur
 此处规则详情请参考 [完整指南](/sms/guide/signature.html#生成数字签名的方法)。
 ## 获取示例源码
 
-点此获取完整的 [示例源码](https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/resources/sms/nitifydemo.md)。
+点此获取完整的 [示例源码](https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/sms/resources/nitifydemo.md)。
