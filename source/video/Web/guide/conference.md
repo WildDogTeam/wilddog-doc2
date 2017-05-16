@@ -60,8 +60,8 @@ conference.on('connected', function(){
 conference.on('participant_connected', function(participant){
     console.log('New participant connected: ', participant.Id);
       var remoteEl = document.getElementById('remote');
-      // 监听 streamAdded事件，将收到的stream展示到页面
-    participant.on('streamAdded', function(stream){
+      // 监听 stream_added事件，将收到的stream展示到页面
+    participant.on('stream_added', function(stream){
             console.log('Receive stream!');
         stream.attach(remoteEl);
     });
@@ -116,8 +116,8 @@ conference.on('participant_connected', function(participant){
       //复制一个 video 标签，用来展示新参与者的视频画面
 	  var newRemote = remoteEl.cloneNode(true);
 	  videosEl.appendChild(newRemote);
-      //监听 streamAdded事件，将收到的stream展示到页面
-    participant.on('streamAdded', function(stream){
+      //监听 stream_added事件，将收到的stream展示到页面
+    participant.on('stream_added', function(stream){
         console.log('Receive stream!');
         stream.attach(newRemote);
     });

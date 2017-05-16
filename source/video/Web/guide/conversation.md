@@ -57,8 +57,8 @@ client.inviteToConversation("Remote User's Wilddog ID",{
         // 建立对'participant_connected'事件的监听，触发时在回调函数中拿到参与者(Participant对象)
         conversation.on('participant_connected', function(participant){
             console.log('A remote Participant connected: ' + participant.participantId);
-            // 监听参与者的 streamAdded 事件，将参与者携带的媒体流绑定到页面的video类型的标签上
-            participant.on('streamAdded', function(stream){
+            // 监听参与者的 stream_added 事件，将参与者携带的媒体流绑定到页面的video类型的标签上
+            participant.on('stream_added', function(stream){
                 console.log('Receive stream!');
                 stream.attach(remoteEl);
             });
@@ -96,7 +96,7 @@ conversation.on('participant_disconnected', function(participant){
 
 ```javascript
 var remoteEl = document.getElementById('remote');
-participant.on('streamAdded', function(stream){
+participant.on('stream_added', function(stream){
     console.log('Receive stream!');
     stream.attach(remoteEl);
 });

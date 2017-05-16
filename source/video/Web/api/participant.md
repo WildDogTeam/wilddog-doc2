@@ -43,14 +43,14 @@ Participant 的媒体流。
 
 | 事件类型 | 说明                                     |
 | -------- | ---------------------------------------- |
-| streamAdded | 收到参与者的媒体流后触发。 |
+| stream_added | 收到参与者的媒体流后触发。 |
 | error | 参与者发送媒体流失败时触发。 |
 
 </br>
 
 ---
 
-#### streamAdded
+#### stream_added
 
 **参数**
 
@@ -62,7 +62,7 @@ Participant 的媒体流。
 
 ```js
 //监听邀请事件
-participant.on('streamAdded', function(stream){
+participant.on('stream_added', function(stream){
     //收到媒体流
     console.log('Accepted an invite from ' + incomingInvite.from);
 });

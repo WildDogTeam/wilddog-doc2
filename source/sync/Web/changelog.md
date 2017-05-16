@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.7 - 2017.05.16
+
+<span class="changelog feature">修复</span>
+
+- 修复移动端挂起恢复时延迟很久才尝试重连的问题。
+
 ### V2.5.6 - 2017.04.25
 
 <span class="changelog feature">修复</span>

@@ -125,4 +125,4 @@ Object
 | 参数名 | 说明 |
 |---|---|
 | audio | `Boolean` 类型。<br>如果为 `true`，则媒体流中包含声音。<br>如果为 `false`，则媒体流中不包含声音。|
-| video | `Boolean` 或 `String` 类型。<br>如果为 `String` 类型，可以设置的值及对应分辨率如下：<br>`low` - 320X240<br>`low-16:9` - 320X180<br>`standard` - 640X480<br>`standard-16:9` - 640X360<br>`high-16:9` - 1280X720<br>如果为 `true`，则媒体流中包含视频且为 `standard` 格式。<br>如果为 `false`，则媒体流中不包含视频。 |
+| video | `Boolean` 或 `String` 类型。<br>如果为 `String` 类型，可以设置的值及对应分辨率如下：<br>`360p` - 480X360<br>`480p` - 640X480<br>`720p` - 1280X720<br>`1080p` - 1920X1080<br>如果为 `true`，则媒体流中包含视频且为 `720p` 格式。<br>如果为 `false`，则媒体流中不包含视频。 |

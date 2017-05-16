@@ -172,7 +172,7 @@ query.once("value")
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       // key will be "Alan" the first time and "Jim" the second time
-      var key = childSnapshot.key;
+      var key = childSnapshot.key();
       // childData will be the actual contents of the child
       var childData = childSnapshot.val();
   });
@@ -186,7 +186,7 @@ var query = wilddog.sync().ref("users").orderByKey();
 query.once("value")
   .then(function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
-      var key = childSnapshot.key; // "Jim"
+      var key = childSnapshot.key(); // "Jim"
       // 取消遍历
       return true;
   });

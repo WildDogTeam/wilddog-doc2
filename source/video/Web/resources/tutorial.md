@@ -154,8 +154,8 @@ var reject = function() {
 ```js
 //监听 conversation 的 participant_connected 事件，回调的参数中携带对方的视频流。
 conversation.on('participant_connected', (participant) => {
-    // 监听参与者的 streamAdded 事件，将参与者携带的媒体流绑定到页面的remote元素中
-    participant.on('streamAdded', function(stream){
+    // 监听参与者的 stream_added 事件，将参与者携带的媒体流绑定到页面的remote元素中
+    participant.on('stream_added', function(stream){
         stream.attach(remoteEl);
 });
 ```
