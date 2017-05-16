@@ -15,7 +15,7 @@ title:  QQ 登录
 ## 实现 QQ 登录
 1.安装 Wilddog Auth SDK：
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.5</span>&apos;</span></div></pre></td></tr></tbody></table></figure>
 
 
 2.创建 Wilddog Auth 实例：

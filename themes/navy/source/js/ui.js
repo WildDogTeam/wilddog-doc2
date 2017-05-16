@@ -1,6 +1,6 @@
-getClass('line').forEach(function(ele) {
-    ele.style.opacity = '0';
-})
+// getClass('line').forEach(function(ele) {
+//     ele.style.opacity = '0';
+// })
 
 $(function() {
     //右侧目录判断是否显示
@@ -144,82 +144,6 @@ $(function() {
         window.scrollTo(0, 0);
     });
 
-    var jsVersionContent = getClass('js-version');
-    var androidSyncVersionContent = getClass('android-sync-version');
-    var androidAuthVersionContent = getClass('android-auth-version');
-    var iosDownLoadSync = getClass('ios-download-sync');
-    var iosDownLoadAuth = getClass('ios-download-auth');
-    var iosDownLoadCore = getClass('ios-download-core');
-    var videoWebVersionContent = getClass('video-web-version');
-    var videoAndroidVersionContent = getClass('video-android-version');
-    var videoIosVersionContent = getClass('video-ios-version');
-    var videoAndroidDownloadSrc = getClass('video-android-download');
-    var videoIosDownloadSrc = getClass('video-ios-download');
-    var imAndroidDownloadSrc = getClass('im-android-download');
-    var imIosDownloadSrc = getClass('im-ios-download');
-    var config = {
-        authDomain: "wd-download.wilddog.com",
-        syncURL: "https://wd-download.wilddogio.com"
-    };
-
-    wilddog.initializeApp(config);
-    var ref = wilddog.sync().ref();
-    ref.once('value', function(snap) {
-        var jsVersion = snap.val().WilddogJavaScript.version;
-        var iosAuthVersion = snap.val().WilddogAuthiOS.version;
-        var iosSyncVersion = snap.val().WilddogSynciOS.version;
-        var androidSyncVersion = snap.val().WilddogSyncAndroid.version;
-        var androidAuthVersion = snap.val().WilddogAuthAndroid.version;
-        var videoWebVersion = snap.val().WilddogVideoWeb.version;
-        var videoAndroidVersion = snap.val().WilddogVideoAndroid.version;
-        var videoIosVersion = snap.val().WilddogVideoiOS.version;
-        var imAndroidDownload = snap.val().WilddogIMAndroid.cdn;
-        var imIosDownload = snap.val().WilddogIMiOS.cdn;
-        jsVersionContent.forEach(function(ele) {
-            ele.textContent = jsVersion;
-        });
-        androidSyncVersionContent.forEach(function(ele) {
-            ele.textContent = androidSyncVersion;
-        });
-        androidAuthVersionContent.forEach(function(ele) {
-            ele.textContent = androidAuthVersion;
-        });
-        videoWebVersionContent.forEach(function(ele) {
-            ele.textContent = videoWebVersion;
-        });
-        videoAndroidVersionContent.forEach(function(ele) {
-            ele.textContent = videoAndroidVersion;
-        });
-        videoIosVersionContent.forEach(function(ele) {
-            ele.textContent = videoIosVersion;
-        });
-        iosDownLoadSync.forEach(function(ele) {
-            ele.setAttribute('href', snap.val().WilddogSynciOS.cdn);
-        });
-        iosDownLoadAuth.forEach(function(ele) {
-            ele.setAttribute('href', snap.val().WilddogAuthiOS.cdn);
-        });
-        iosDownLoadCore.forEach(function(ele) {
-            ele.setAttribute('href', snap.val().WilddogCoreiOS.cdn);
-        });
-        videoAndroidDownloadSrc.forEach(function(ele) {
-            ele.setAttribute('href', videoAndroidDownload);
-        });
-        videoIosDownloadSrc.forEach(function(ele) {
-            ele.setAttribute('href', videoIosDownload);
-        });
-        getClass('line').forEach(function(ele) {
-            ele.style.opacity = '1';
-        })
-        imAndroidDownloadSrc.forEach(function(ele) {
-            ele.setAttribute('href', imAndroidDownload);
-        });
-        imIosDownloadSrc.forEach(function(ele) {
-            ele.setAttribute('href', imIosDownload);
-        });
-    });
-
-
     $('.slide').each(function(index, el) {
         $(el).find('.slide-tab').click(function(event) {
             var index = $(this).index()
@@ -261,4 +185,118 @@ $(function() {
 
         });
     }
+
+    //wilddog部分
+    var config = {
+        syncURL: "https://wd-download.wilddogio.com" //输入节点 URL
+    };
+    wilddog.initializeApp(config);
+    var ref = wilddog.sync().ref();
+
+    ref.on('value', function(snap) {
+        //获取节点
+        //auth
+        var auth_web = snap.val().wilddog.auth.web;
+        var auth_ios = snap.val().wilddog.auth.ios;
+        var auth_android = snap.val().wilddog.auth.android;
+        var auth_java = snap.val().wilddog.auth.java;
+        //im
+        var im_ios = snap.val().wilddog.im.ios;
+        var im_android = snap.val().wilddog.im.android;
+        //media
+        var media_web = snap.val().wilddog.media.web;
+        var media_ios = snap.val().wilddog.media.ios;
+        var media_android = snap.val().wilddog.media.android;
+        //sync
+        var sync_web = snap.val().wilddog.sync.web;
+        var sync_ios = snap.val().wilddog.sync.ios;
+        var sync_android = snap.val().wilddog.sync.android;
+        var sync_c = snap.val().wilddog.sync.c;
+        var sync_embedded = snap.val().wilddog.sync.embedded;
+        var sync_core = snap.val().wilddog.sync.core;
+
+        //赋值
+        //auth_start
+        $('.auth_web_v').text(auth_web.version);
+        $('.auth_ios_v').text(auth_ios.version);
+        $('.auth_android_v').text(auth_android.version);
+        $('.auth_java_v').text(auth_java.version);
+
+        $("#auth_android_d").attr("href", 'https://cdn.wilddog.com/sdk/android/' + auth_android.version + '/wilddogAuth' + auth_android.version + '.zip');
+
+        $("#auth_ios_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + auth_ios.version + '/WilddogAuth.framework-' + auth_ios.version + '.zip');
+
+        $("#auth_java_d").attr("href", 'https://cdn.wilddog.com/sdk/java/' + auth_java.version + '/wilddog-auth-sdk-' + auth_java.version + '.jar');
+
+        $("#auth_android-md5").text(auth_android.checksum.md5sum);
+        $("#auth_android-sha1").text(auth_android.checksum.sha1sum);
+        $("#auth_android-sha256").text(auth_android.checksum.sha256sum);
+
+        $("#auth_ios-md5").text(auth_ios.checksum.md5sum);
+        $("#auth_ios-sha1").text(auth_ios.checksum.sha1sum);
+        $("#auth_ios-sha256").text(auth_ios.checksum.sha256sum);
+
+        $("#auth_java-md5").text(auth_java.checksum.md5sum);
+        $("#auth_java-sha1").text(auth_java.checksum.sha1sum);
+        $("#auth_java-sha256").text(auth_java.checksum.sha256sum);
+        //auth_end
+
+        //im_start
+        $("#im_ios_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + im_ios.version + '/WilddogIM.framework-' + im_ios.version + '.zip');
+
+        $("#im_android_d").attr("href", 'https://cdn.wilddog.com/sdk/android/' + im_android.version + '/wilddog-im-' + im_ios.version + '.zip');
+
+        $('.im_ios_v').text(im_ios.version);
+        $('.im_android_v').text(im_android.version);
+
+        $("#im_ios-md5").text(im_ios.checksum.md5sum);
+        $("#im_ios-sha1").text(im_ios.checksum.sha1sum);
+        $("#im_ios-sha256").text(im_ios.checksum.sha256sum);
+        //im_end
+
+        //media_start
+        $('.media_web_v').text(media_web.version);
+        $('.media_ios_v').text(media_ios.version);
+        $('.media_android_v').text(media_android.version);
+        //
+        //media_end
+
+        //sync_start
+        $('.sync_web_v').text(sync_web.version);
+        $('.sync_ios_v').text(sync_ios.version);
+        $('.sync_android_v').text(sync_android.version);
+        $('.sync_c_v').text(sync_c.version);
+        $('.sync_embedded_v').text(sync_embedded.version);
+        $('.sync_core_v').text(sync_core.version);
+
+        $("#sync_android_d").attr("href", 'https://cdn.wilddog.com/sdk/android/' + sync_android.version + '/Wilddog_Sync_Android_' + sync_android.version + '_All.zip');
+
+        $("#sync_ios_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + sync_ios.version + '/WilddogVideo-' + sync_ios.version + '.zip');
+
+        $("#sync_core_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + sync_core.version + '/WilddogCore.framework-' + sync_core.version + '.zip');
+
+        $("#sync_android-md5").text(sync_android.checksum.md5sum);
+        $("#sync_android-sha1").text(sync_android.checksum.sha1sum);
+        $("#sync_android-sha256").text(sync_android.checksum.sha256sum);
+
+        $("#sync_c-md5").text(sync_c.checksum.md5sum);
+        $("#sync_c-sha1").text(sync_c.checksum.sha1sum);
+        $("#sync_c-sha256").text(sync_c.checksum.sha256sum);
+
+        $("#sync_embedded-md5").text(sync_embedded.checksum.md5sum);
+        $("#sync_embedded-sha1").text(sync_embedded.checksum.sha1sum);
+        $("#sync_embedded-sha256").text(sync_embedded.checksum.sha256sum);
+
+        $("#sync_ios-md5").text(sync_ios.checksum.md5sum);
+        $("#sync_ios-sha1").text(sync_ios.checksum.sha1sum);
+        $("#sync_ios-sha256").text(sync_ios.checksum.sha256sum);
+
+        $("#sync_core-md5").text(sync_core.checksum.md5sum);
+        $("#sync_core-sha1").text(sync_core.checksum.sha1sum);
+        $("#sync_core-sha256").text(sync_core.checksum.sha256sum);
+        //sync_end
+    });
+
+
+
 })

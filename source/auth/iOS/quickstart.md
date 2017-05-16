@@ -43,8 +43,8 @@ SDK 的安装方式有两种，你可以任选其一：
 </br>
 * **手动集成**
   </br>
-1. 下载 Auth SDK <a href="#" class="ios-download-auth">点此下载</a>。 
-2. 下载 Core SDK <a href="#" class="ios-download-core">点此下载</a>。  
+1. 下载 Auth SDK <a href="#" id="auth_ios_d">点此下载</a>。 
+2. 下载 Core SDK <a href="#" id="sync_core_v">点此下载</a>。  
 3. 把 WilddogAuth.framework 和 WilddogCore.framework 拖到工程目录中。  
 4. 选中 Copy items if needed 、Create Groups，点击 Finish。 
 5. 点击工程文件 -> TARGETS -> Build Settings，在 Other Linker Flags 中添加 -ObjC。

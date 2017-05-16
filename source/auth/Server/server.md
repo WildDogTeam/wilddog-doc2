@@ -62,11 +62,11 @@ Custom Token payload：
 
 你可以通过下表的字段来生成 Custom Token ：
 
-| 必填字段 | 描述                                   |
-| ---- | ------------------------------------ |
-| v    | token 的版本，默认为 1                      |
-| iat  | token 的颁发时间，Unix 时间秒数                |
-| uid  | 用户的 ID，在 Wilddog Auth 中作为 Wilddog ID |
+| 必填字段 |                     描述                     |
+|----------|----------------------------------------------|
+| v        | token 的版本，默认为 1                       |
+| iat      | token 的颁发时间，Unix 时间秒数              |
+| uid      | 用户的 ID，在 Wilddog Auth 中作为 Wilddog ID |
 
 其中 uid 为不超过64位的字符串，字符串中只允许数字、大小写字母以及"-"。
 

@@ -16,7 +16,7 @@ title:  手机登录
 
 1.安装 Wilddog Auth SDK：
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.5</span>&apos;</span></div></pre></td></tr></tbody></table></figure>
 
 2.初始化 Wilddog Auth 实例：
 
@@ -59,7 +59,7 @@ mAuth = WilddogAuth.getInstance();
 
 1.安装 Wilddog Auth SDK：
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="android-auth-version"></span>&apos;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.5</span>&apos;</span></div></pre></td></tr></tbody></table></figure>
 
 
 2.初始化 Wilddog Auth 实例：
