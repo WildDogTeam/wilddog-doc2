@@ -17,7 +17,7 @@ title: 快速入门
 
 **1.获取 SDK**
 
-从该网页下载 SDK [点此下载](https://www.wilddog.com/download/)
+从该网页下载 SDK [点此下载](https://www.wilddog.com/download/sync-c-sdk)
 
 Wilddog C/嵌入式 SDK 分为 C/RTOS、OpenWRT、Arduino 三种，具体支持的平台如下：
 
