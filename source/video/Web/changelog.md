@@ -4,6 +4,25 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.19 - 2017.04.28
+
+<span class="changelog add">新增</span>
+
+- 增加本地统计。
+
+### v0.5.18 - 2017.04.21
+
+<span class="changelog optimize">优化</span>
+
+- 优化 gateway 协议，离开时先发送统计信息，后发 bye
+- 更新 ie safari 适用插件。
+- 优化在 sync 服务器不稳定时造成数据残留的问题。
+
+<span class="changelog fix">修复</span>
+
+- 忽略对 peerconnection disconnected状态的关注。
+- 修复在 ie safari 等插件环境下无法获取统计的问题。
+
 ### v0.5.17 - 2017.04.17
 
 <span class="changelog optimize">优化</span>

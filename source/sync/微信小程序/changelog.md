@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.8 - 2017.05.18
+
+<span class="changelog feature">修复</span>
+
+- 修复 websocket reset 命令无效的问题。
+
 ### V2.5.7 - 2017.05.16
 
 <span class="changelog feature">修复</span>
