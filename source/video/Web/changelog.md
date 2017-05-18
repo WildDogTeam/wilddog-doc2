@@ -4,6 +4,18 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v0.5.20 - 2017.05.09
+
+<span class="changelog optimize">优化</span>
+
+- 优化创建媒体流的参数，参数选项由 low、low-16:9、standard、standard-16:9、high-16:9、true 更新为：360p、480p、720p、1280p、true。原有参数提示废弃，不影响使用。
+- 废弃 participant 中的 streamAdded 事件，增加 stream_added 事件。
+- 默认视频帧率改为 15。
+
+<span class="changelog fix">修复</span>
+
+- 修复因多点登录造成同时处理视频通话邀请时可能出现的未知 bug。。
+
 ### v0.5.19 - 2017.04.28
 
 <span class="changelog add">新增</span>
