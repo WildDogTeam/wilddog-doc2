@@ -9,6 +9,7 @@ title: 使用 Server SDK
 ## 安装 Server SDK
 
 首先，你需要在服务器中安装 Server SDK，请参考 [Server SDK(Java) 下载安装](https://www.wilddog.com/download/download-java-auth)。
+其中 Server SDK 运行环境为 JDK1.8 以上
 
 
 
