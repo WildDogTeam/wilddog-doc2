@@ -271,7 +271,7 @@ $(function() {
 
         $("#sync_android_d").attr("href", 'https://cdn.wilddog.com/sdk/android/' + sync_android.version + '/Wilddog_Sync_Android_' + sync_android.version + '_All.zip');
 
-        $("#sync_ios_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + sync_ios.version + '/WilddogVideo-' + sync_ios.version + '.zip');
+        $("#sync_ios_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + sync_ios.version + '/WilddogSync-' + sync_ios.version + '.zip');
 
         $("#sync_core_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + sync_core.version + '/WilddogCore.framework-' + sync_core.version + '.zip');
 
