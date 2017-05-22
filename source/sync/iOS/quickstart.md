@@ -42,7 +42,7 @@ SDK 的安装方式有两种，你可以任选其一：
 </br>
 - **手动集成** 
   </br>   
-1. 下载 Sync SDK <a href="https://cdn.wilddog.com/sdk/ios/0.5.17/WilddogVideo-0.5.17.zip" id="sync_ios_d">点此下载</a>。   
+1. 下载 Sync SDK <a href="https://cdn.wilddog.com/sdk/ios/2.3.3/WilddogSync-2.3.3.zip" id="sync_ios_d">点此下载</a>。    
 2. 下载 Core SDK <a href="https://cdn.wilddog.com/sdk/ios/2.0.8/WilddogCore.framework-2.0.8.zip" id="sync_core_d">点此下载</a>。    
 3. 把 WilddogSync.framework 和 WilddogCore.framework 拖到工程目录中。  
 4. 选中 Copy items if needed 、Create Groups，点击 Finish。  
