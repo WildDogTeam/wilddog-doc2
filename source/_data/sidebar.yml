@@ -308,26 +308,30 @@ video:
       视频通话: /video/iOS/guide/conversation.html
       多人视频会议: /video/iOS/guide/conference.html
     API 文档:
-      WDGVideoClient: /video/iOS/api/WDGVideoClient.html
-      WDGVideoClientDelegate: /video/iOS/api/WDGVideoClientDelegate.html
-      WDGVideoConversation: /video/iOS/api/WDGVideoConversation.html
-      WDGVideoConversationDelegate: /video/iOS/api/WDGVideoConversationDelegate.html
-      WDGVideoConference: /video/iOS/api/WDGVideoConference.html
-      WDGVideoConferenceDelegate: /video/iOS/api/WDGVideoConferenceDelegate.html
-      WDGVideoLocalParticipant: /video/iOS/api/WDGVideoLocalParticipant.html
-      WDGVideoParticipant: /video/iOS/api/WDGVideoParticipant.html
-      WDGVideoParticipantDelegate: /video/iOS/api/WDGVideoParticipantDelegate.html
-      WDGVideoIncomingInvite: /video/iOS/api/WDGVideoIncomingInvite.html
-      WDGVideoOutgoingInvite: /video/iOS/api/WDGVideoOutgoingInvite.html
-      WDGVideoStream: /video/iOS/api/WDGVideoStream.html
-      WDGVideoLocalStream: /video/iOS/api/WDGVideoLocalStream.html
-      WDGVideoRemoteStream: /video/iOS/api/WDGVideoRemoteStream.html
-      WDGVideoView: /video/iOS/api/WDGVideoView.html
-      WDGVideoMeetingCast: /video/iOS/api/WDGVideoMeetingCast.html
-      WDGVideoMeetingCastDelegate: /video/iOS/api/WDGVideoMeetingCastDelegate.html
-      WDGVideoClientOptions: /video/iOS/api/WDGVideoClientOptions.html
-      WDGVideoConnectOptions: /video/iOS/api/WDGVideoConnectOptions.html
-      WDGVideoLocalStreamOptions: /video/iOS/api/WDGVideoLocalStreamOptions.html
+      Client: /video/iOS/api/WDGVideoClient.html
+      ClientDelegate: /video/iOS/api/WDGVideoClientDelegate.html
+      Conversation: /video/iOS/api/WDGVideoConversation.html
+      ConversationDelegate: /video/iOS/api/WDGVideoConversationDelegate.html
+      ConversationStatsDelegate: /video/iOS/api/WDGVideoConversationStatsDelegate.html
+      Conference: /video/iOS/api/WDGVideoConference.html
+      ConferenceDelegate: /video/iOS/api/WDGVideoConferenceDelegate.html
+      LocalParticipant: /video/iOS/api/WDGVideoLocalParticipant.html
+      Participant: /video/iOS/api/WDGVideoParticipant.html
+      ParticipantDelegate: /video/iOS/api/WDGVideoParticipantDelegate.html
+      IncomingInvite: /video/iOS/api/WDGVideoIncomingInvite.html
+      OutgoingInvite: /video/iOS/api/WDGVideoOutgoingInvite.html
+      Stream: /video/iOS/api/WDGVideoStream.html
+      LocalStream: /video/iOS/api/WDGVideoLocalStream.html
+      LocalStreamDelegate: /video/iOS/api/WDGVideoLocalStreamDelegate.html
+      LocalStreamOptions: /video/iOS/api/WDGVideoLocalStreamOptions.html
+      LocalStreamStatsReport: /video/iOS/api/WDGVideoLocalStreamStatsReport.html
+      RemoteStream: /video/iOS/api/WDGVideoRemoteStream.html
+      RemoteStreamStatsReport: /video/iOS/api/WDGVideoRemoteStreamStatsReport.html
+      View: /video/iOS/api/WDGVideoView.html
+      MeetingCast: /video/iOS/api/WDGVideoMeetingCast.html
+      MeetingCastDelegate: /video/iOS/api/WDGVideoMeetingCastDelegate.html
+      ClientOptions: /video/iOS/api/WDGVideoClientOptions.html
+      ConnectOptions: /video/iOS/api/WDGVideoConnectOptions.html
       错误码: /video/iOS/api/error-code.html
     示例代码:
       示例库: /video/iOS/resources/resources.html
