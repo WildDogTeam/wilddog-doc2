@@ -183,23 +183,40 @@ title: 视频通话
     }
 ```
 
-## 数据安全性
+### 使用美颜接口
 
-### 保护信令交互的安全
-
-视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置 [规则表达式](/sync/Android/rules/introduce.html) 。
-
-规则表达式设置页面如下：
-
-<img src="/images/video_guide_rule.png" alt="video_guide_rule">
-
-例如，配置规则表达式，`wilddogVideo` 节点只允许信令交互双方读写，其他节点允许所有人读写：
-
+在 `LocalStream` 中可以通过调用 `setOnFrameListener()` 方法来获取原始的视频流帧数据。
+在回调方法 `onByteFrame` 中获取的帧数据为 NY21 格式的 byte 数组。
+注意，此数组为原始帧数据的引用，修改此数组会对视频流的数据产生影响（展示和传输的数据会被同时修改）。
+```java
+localStream.setOnFrameListener(new WilddogVideo.CameraFrameListener() {
+    @Override
+    public void onByteFrame(byte[] bytes, int width, int height) {
+        //Log.e(TAG, "onByteFrame ");
+    }
+});
 ```
-{
-  "rules": {
-    "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
-    "$others":{ ".read": true，".write": true}
-  }
-}
+
+### 使用统计接口
+
+`Conversation` 对象提供了视频通话统计功能，可以在通话过程中获取到通话的统计信息。
+主要统计信息请查看 `LocalStats` 和 `RemoteStats` 说明。
+通过在的 `Converstion` 实例中调用 `setRTCStatsListener()` 方法，在 `onLocalStats` 方法中返回本地的统计信息，在 `onRemoteStats` 方法中返回对端参与者的统计信息。
+统计信息的获取需要等待连接正式建立完毕，会有一定时间的延迟（秒级），开始统计后，会以 2 秒为周期不间断回调上述方法。
+
+```java
+mConversation.setRTCStatsListener(new RTCStatsListener() {
+    @Override
+    public void onLocalStats(LocalStats localStats) {
+        //返回本地统计信息
+    }
+
+    @Override
+    public void onRemoteStats(RemoteStats remoteStats) {
+        //返回对端参与者统计信息
+    }
+});
 ```
+
+
+
