@@ -183,7 +183,7 @@ title: 视频通话
     }
 ```
 
-### 使用美颜接口
+### 使用获取原始视频流接口
 
 在 `LocalStream` 中可以通过调用 `setOnFrameListener()` 方法来获取原始的视频流帧数据。
 在回调方法 `onByteFrame` 中获取的帧数据为 NY21 格式的 byte 数组。

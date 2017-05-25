@@ -138,6 +138,45 @@ void setConversationListener(Conversation.Listener listener)
 </br>
 
 ---
+### setRTCStatsListener(RTCStatsListener)
+
+**定义**   
+
+```java
+void setRTCStatsListener(RTCStatsListener listener)
+```
+
+**说明**
+
+设置视频通话统计监听，用于获取视频流统计数据。
+当视频通话生成统计信息后通过回调通知用户当前通话的统计信息，在连接成功后会生成统计信息（通常有 2-5 秒左右延迟），随后会以 2 秒为间隔不间断的触发回调方法返回统计信息。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+|listener|[RTCStatsListener](/video/Android/api/rtc-stats-listener.html)，视频通话统计监听|
+
+
+**示例**
+
+```java
+mConversation.setRTCStatsListener(new RTCStatsListener() {
+    @Override
+    public void onLocalStats(LocalStats localStats) {
+        //获取本地视频流统计信息，包括视频的宽、高、帧率、发送接收总大小、比特率、延迟等
+    }
+
+    @Override
+    public void onRemoteStats(RemoteStats remoteStats) {
+        //获取远程视频流统计信息，包括视频的宽、高、帧率、发送接收总大小、比特率、延迟等
+    }
+});
+```
+
+</br>
+
+---
 
 ### disconnect()
 
@@ -157,3 +196,4 @@ void disconnect()
 	//需要离开视频通话时调用此方法，释放视频通话持有的相关资源
 	mConversation.disconnect();
 ```
+
