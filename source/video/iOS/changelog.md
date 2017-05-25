@@ -8,19 +8,19 @@ title: 更新日志
 
 **由于数据结构变更，自该版本起，将无法与 `v1.0.0 Beta` 之前的版本互通，为保证您的业务正常运行，建议选用新版本。**
 
-**新增**
+<span class="changelog add">新增</span>
 
 - 新增获取原始视频流接口，可用于自定义美颜滤镜等(例如使用Camera360、TuSDK等第三方滤镜库)视频预处理业务。
 - 视频通话新增视频流统计接口，可用于实时获取帧率、比特率、延迟、流量等信息。
 - 视频通话新增`WDGVideoInviteStatusBusy`状态，表示对方正在通话。
 
-**优化**
+<span class="changelog optimize">优化</span>
 
 - 优化`WDGVideoConstraints`类型，改用清晰度表示更直观，包括360p、480p、720p、1080p。
 - 默认帧率更改为16fps，节省电量和流量。
 - 视频通话CPU占用降低，性能提升20%。
 
-**修复**
+<span class="changelog fix">修复</span>
 
 - 视频会议偶现画面连接失败，已修复。
 - 快速重复开关摄像头导致再次开启困难，已修复。
