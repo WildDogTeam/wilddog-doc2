@@ -67,8 +67,7 @@ title: WDGVideoLocalStreamOptions
 
 视频质量选项。
 
-- WDGVideoConstraintsOff: 关闭视频
 - WDGVideoConstraints360p: 视频尺寸 352x288
 - WDGVideoConstraints480p: 视频尺寸 640x480
 - WDGVideoConstraints720p: 视频尺寸 1280x720
-- WDGVideoConstraints1080p: 暂不支持，设置为此项视频尺寸为 1280x720
+- WDGVideoConstraints1080p: 暂未支持，若设置为此项，视频尺寸将使用 1280x720

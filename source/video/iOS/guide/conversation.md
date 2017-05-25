@@ -141,7 +141,7 @@ self.videoConversation = nil;
 
 ## 处理视频流
 
-### 美颜滤镜
+### 获取原始视频流接口
 
 设置 `WDGVideoLocalStream` 的 `delegate` 来获取本地视频流，可以对视频流做美颜处理再返回给野狗 SDK。
 
@@ -161,7 +161,7 @@ localStream.delegate = self;
 设置代理：
 
 ```objectivec
-// videoConversation 为要请成功活着接收邀请成功返回的参数。
+// VideoConversation 是邀请成功或者接受邀请成功时返回的参数。
 self.videoConversation = self;
 ```
 
@@ -181,7 +181,7 @@ self.videoConversation = self;
 
 ### 统计远程视频数据
 
-实现远程视频数据接口。
+实现远程视频数据统计接口。
 
 ```objectivec
 - (void)conversation:(WDGVideoConversation *)conversation didUpdateRemoteStreamStatsReport:(WDGVideoRemoteStreamStatsReport *)report {
