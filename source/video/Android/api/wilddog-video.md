@@ -96,17 +96,16 @@ WilddogVideoClient getClient()
 **定义**   
 
 ```java
-public LocalStream createLocalStream(LocalStreamOptions options, CompleteListener listener)
+public LocalStream createLocalStream(LocalStreamOptions options)
 ```
 
 **说明**
 
 通过本方法获取本地视频流对象。
-
+**参数**
 | 参数名 | 描述 |
 |---|---|
 |options|LocalStreamOptions 对象，视频流参数|
-|listener|CompleteListener 对象|
 
 **返回值**
 
@@ -115,12 +114,7 @@ public LocalStream createLocalStream(LocalStreamOptions options, CompleteListene
 **示例**
 
 ```java
-localStream = video.createLocalStream(LocalStreamOptions.DEFAULT_OPTIONS, new CompleteListener() {
-    @Override
-    public void onCompleted(VideoException s) {
-
-    }
-});
+localStream = video.createLocalStream(LocalStreamOptions.DEFAULT_OPTIONS);
 ```
 
 ---
