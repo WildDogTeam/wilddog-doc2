@@ -3,6 +3,23 @@ title: WDGVideoLocalStream
 
 `WDGVideoLocalStream` 继承自 [WDGVideoStream](/video/iOS/api/WDGVideoStream.html) ，具有 [WDGVideoStream](/video/iOS/api/WDGVideoStream.html) 所有的方法。
 
+## 属性
+
+### delegate
+
+**定义**
+
+```objectivec
+@property (weak, nonatomic, nullable) id<WDGVideoLocalStreamDelegate> delegate;
+```
+
+**说明**
+
+符合 [WDGVideoLocalStreamDelegate](/video/iOS/api/WDGVideoClientDelegate.html) 协议的代理，用于处理本地视频流。
+
+</br>
+
+---
 ## 方法
 
 ### -initWithOptions:

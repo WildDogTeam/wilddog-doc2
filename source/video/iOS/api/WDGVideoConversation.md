@@ -85,6 +85,22 @@ title: WDGVideoConversation
 
 ---
 
+### statsDelegate
+
+**定义**
+
+```objectivec
+@property (nonatomic, weak, nullable) id<WDGVideoConversationStatsDelegate> statsDelegate;
+```
+
+**说明**
+
+符合 [WDGVideoConversationStatsDelegate](/video/iOS/api/WDGVideoClientStatsDelegate.html) 协议的代理。用于获取视频流统计数据。
+
+</br>
+
+---
+
 ## 方法
 
 ### -disconnect

@@ -17,7 +17,7 @@ title: 视频通话
 // 设置本地媒体流选项
 WDGVideoLocalStreamOptions *localStreamOptions = [[WDGVideoLocalStreamOptions alloc] init];
 localStreamOptions.audioOn = YES;
-localStreamOptions.videoOption = WDGVideoConstraintsHigh;
+localStreamOptions.videoOption = WDGVideoConstraints720p;
 // 创建本地媒体流
 self.localStream = [[WDGVideoLocalStream alloc] initWithOptions:localStreamOptions];
 // 预览本地媒体流
@@ -139,22 +139,57 @@ self.remoteStream = nil;
 self.videoConversation = nil;
 ```
 
-## 数据安全性
+## 处理视频流
 
-### 保护信令交互的安全
+### 获取原始视频流接口
 
-视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置 [规则表达式](/sync/iOS/rules/introduce.html) 。
+设置 `WDGVideoLocalStream` 的 `delegate` 来获取本地视频流，可以对视频流做美颜处理再返回给野狗 SDK。
 
-规则表达式设置页面如下：
+```objectivec
+WDGVideoLocalStream *localStream = [[WDGVideoLocalStream alloc] initWithOptions:localStreamOptions];
+localStream.delegate = self;
 
-<img src="/images/video_guide_rule.png" alt="video_guide_rule">
-
-例如，配置规则表达式，`wilddogVideo` 节点只允许信令交互双方读写，其他节点允许所有人读写：
-
+- (CVPixelBufferRef)processPixelBuffer:(CVPixelBufferRef)pixelBuffer {
+    // 使用第三方 SDK 处理当前图片。
+    return [BeautySDK process:pixelBuffer];
+}
 ```
-{
-  "rules": {
-    "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
-    "$others":{ ".read": true，".write": true}
-  }
-}```
+## 统计视频数据
+
+使用 `WDGVideoConversation` 中的 `statsDelegate` 属性可以实时获取视频的宽、高、帧率、发送接收总大小、比特率、延迟等。
+
+设置代理：
+
+```objectivec
+// VideoConversation 是邀请成功或者接受邀请成功时返回的参数。
+self.videoConversation = self;
+```
+
+### 统计本地视频数据
+
+实现本地视频数据统计接口。
+
+```objectivec
+- (void)conversation:(WDGVideoConversation *)conversation didUpdateLocalStreamStatsReport:(WDGVideoLocalStreamStatsReport *)report {
+    // report.width
+    // report.height
+    // report.FPS
+    // report.bytesSent
+    // report.bitsSentRate
+}
+```
+
+### 统计远程视频数据
+
+实现远程视频数据统计接口。
+
+```objectivec
+- (void)conversation:(WDGVideoConversation *)conversation didUpdateRemoteStreamStatsReport:(WDGVideoRemoteStreamStatsReport *)report {
+    // report.width
+    // report.height
+    // report.FPS
+    // report.bytesReceived
+    // report.bitsReceivedRate
+    // report.delay
+}
+```
