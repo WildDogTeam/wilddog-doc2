@@ -375,6 +375,10 @@ video:
       MeetingCastStatus: /video/Android/api/meeting-cast-status.html
       WilddogVideoView: /video/Android/api/wilddog-video-view.html
       WilddogVideoViewLayout: /video/Android/api/wilddog-video-view-layout.html
+      RTCStatsListener: /video/Android/api/rtc-stats-listener.html
+      LocalStats: /video/Android/api/local-stats.html
+      RemoteStats: /video/Android/api/remote-stats.html
+      CameraFrameListener: /video/Android/api/camera-frame-listener.html
       错误码: /video/Android/api/error-code.html
     示例代码:
       示例库: /video/Android/resources/resources.html
