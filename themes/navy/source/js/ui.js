@@ -222,11 +222,9 @@ $(function() {
         $('.auth_android_v').text(auth_android.version);
         $('.auth_java_v').text(auth_java.version);
 
-        $("#auth_android_d").attr("href", 'https://cdn.wilddog.com/sdk/android/' + auth_android.version + '/wilddogAuth' + auth_android.version + '.zip');
-
-        $("#auth_ios_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + auth_ios.version + '/WilddogAuth.framework-' + auth_ios.version + '.zip');
-
-        $("#auth_java_d").attr("href", 'https://cdn.wilddog.com/sdk/java/' + auth_java.version + '/wilddog-auth-sdk-' + auth_java.version + '.jar');
+        $("#auth_android_d").attr("href", auth_android.cdn);
+        $("#auth_ios_d").attr("href", auth_ios.cdn);
+        $("#auth_java_d").attr("href", auth_java.cdn);
 
         $("#auth_android-md5").text(auth_android.checksum.md5sum);
         $("#auth_android-sha1").text(auth_android.checksum.sha1sum);
@@ -242,9 +240,8 @@ $(function() {
         //auth_end
 
         //im_start
-        $("#im_ios_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + im_ios.version + '/WilddogIM.framework-' + im_ios.version + '.zip');
-
-        $("#im_android_d").attr("href", 'https://cdn.wilddog.com/sdk/android/' + im_android.version + '/wilddog-im-' + im_ios.version + '.zip');
+        $("#im_ios_d").attr("href", im_ios.cdn);
+        $("#im_android_d").attr("href", im_android.cdn);
 
         $('.im_ios_v').text(im_ios.version);
         $('.im_android_v').text(im_android.version);
@@ -269,11 +266,12 @@ $(function() {
         $('.sync_embedded_v').text(sync_embedded.version);
         $('.sync_core_v').text(sync_core.version);
 
-        $("#sync_android_d").attr("href", 'https://cdn.wilddog.com/sdk/android/' + sync_android.version + '/Wilddog_Sync_Android_' + sync_android.version + '_All.zip');
-
-        $("#sync_ios_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + sync_ios.version + '/WilddogSync-' + sync_ios.version + '.zip');
-
-        $("#sync_core_d").attr("href", 'https://cdn.wilddog.com/sdk/ios/' + sync_core.version + '/WilddogCore.framework-' + sync_core.version + '.zip');
+        $("#sync_android_d").attr("href", sync_android.cdn);
+        $("#sync_ios_d").attr("href", sync_ios.cdn);
+        $("#sync_core_d").attr("href", sync_core.cdn);
+        $("#sync_embed_rtos_d").attr("href", sync_embed_rtos.cdn);
+        $("#sync_embed_arduino_d").attr("href", sync_embed_arduino.cdn);
+        $("#sync_embed_openwrt_d").attr("href", sync_embed_openwrt.cdn);
 
         $("#sync_android-md5").text(sync_android.checksum.md5sum);
         $("#sync_android-sha1").text(sync_android.checksum.sha1sum);
