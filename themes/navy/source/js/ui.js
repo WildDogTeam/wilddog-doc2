@@ -212,7 +212,9 @@ $(function() {
         var sync_ios = snap.val().wilddog.sync.ios;
         var sync_android = snap.val().wilddog.sync.android;
         var sync_c = snap.val().wilddog.sync.c;
-        var sync_embedded = snap.val().wilddog.sync.embedded;
+        var sync_embed_rtos = snap.val().wilddog.sync.embed_rtos;
+        var sync_embed_arduino = snap.val().wilddog.sync.embed_arduino;
+        var sync_embed_openwrt = snap.val().wilddog.sync.embed_openwrt;
         var sync_core = snap.val().wilddog.sync.core;
 
         //赋值
