@@ -4,6 +4,16 @@ title: 更新日志
 
 ## Android SDK
 
+### v1.0.1-beta - 2017.06.02
+
+<span class="changelog optimize">优化</span>
+
+- 提高视频连接的可靠性。
+
+<span class="changelog fix">修复</span>
+
+- 修复 WilddogVideoClient 内部空指针问题。
+
 ### v1.0.0-beta - 2017.05.25
 
 **由于数据结构变更，自该版本起，将无法与`v1.0.0 Beta`之前的版本互通，为保证您的业务正常运行，建议选用新版本。**
