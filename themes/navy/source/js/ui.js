@@ -265,7 +265,6 @@ $(function() {
         $('.sync_ios_v').text(sync_ios.version);
         $('.sync_android_v').text(sync_android.version);
         $('.sync_c_v').text(sync_c.version);
-        $('.sync_embedded_v').text(sync_embedded.version);
         $('.sync_core_v').text(sync_core.version);
 
         $("#sync_android_d").attr("href", sync_android.cdn);
@@ -282,10 +281,6 @@ $(function() {
         $("#sync_c-md5").text(sync_c.checksum.md5sum);
         $("#sync_c-sha1").text(sync_c.checksum.sha1sum);
         $("#sync_c-sha256").text(sync_c.checksum.sha256sum);
-
-        $("#sync_embedded-md5").text(sync_embedded.checksum.md5sum);
-        $("#sync_embedded-sha1").text(sync_embedded.checksum.sha1sum);
-        $("#sync_embedded-sha256").text(sync_embedded.checksum.sha256sum);
 
         $("#sync_ios-md5").text(sync_ios.checksum.md5sum);
         $("#sync_ios-sha1").text(sync_ios.checksum.sha1sum);
