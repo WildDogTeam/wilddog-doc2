@@ -103,6 +103,7 @@ public LocalStream createLocalStream(LocalStreamOptions options)
 
 通过本方法获取本地视频流对象。
 **参数**
+
 | 参数名 | 描述 |
 |---|---|
 |options|LocalStreamOptions 对象，视频流参数|
