@@ -283,7 +283,7 @@ ksort($sign_data);
 var_dump($sign_data);
 $sign_str = http_build_query($sign_data) . '&' . $sign_key;
 //DEBUG
-//生成数字签名的方法 https://docs.wilddog.com/guide/sms/signature.html#生成数字签名的方法
+//生成数字签名的方法 https://docs.wilddog.com/sms/guide/signature.html#生成数字签名的方法
 $signature = hash("sha256", urldecode($sign_str));
 $url = "https://api.wilddog.com/sms/v1/${appId}/code/send";
 // 不同接口参数不同， 详细参数请参见 https://docs.wilddog.com
