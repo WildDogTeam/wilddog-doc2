@@ -8,6 +8,12 @@ title: 更新日志
 
 <span class="changelog fix">修复</span>
 
+- 修复部分 Android 7.0 系统上出现网络状态无法获取问题。
+
+### V2.3.1 - 2017.05.27
+
+<span class="changelog fix">修复</span>
+
 - 修复并发请求出现的 CurrentModificationException 问题。
 - 修复部分用户使用 okhttp 库导致的 ws 库冲突问题。
 
