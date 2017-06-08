@@ -208,14 +208,20 @@ $(function() {
         var media_ios = snap.val().wilddog.media.ios;
         var media_android = snap.val().wilddog.media.android;
         //sync
-        var sync_web = snap.val().wilddog.sync.web;
-        var sync_ios = snap.val().wilddog.sync.ios;
         var sync_android = snap.val().wilddog.sync.android;
         var sync_c = snap.val().wilddog.sync.c;
-        var sync_embed_rtos = snap.val().wilddog.sync.embed_rtos;
+        var sync_core = snap.val().wilddog.sync.core;
         var sync_embed_arduino = snap.val().wilddog.sync.embed_arduino;
         var sync_embed_openwrt = snap.val().wilddog.sync.embed_openwrt;
-        var sync_core = snap.val().wilddog.sync.core;
+        var sync_embed_rtos = snap.val().wilddog.sync.embed_rtos;
+        var sync_embedded = snap.val().wilddog.sync.embedded;
+        var sync_ios = snap.val().wilddog.sync.ios;
+        var sync_web = snap.val().wilddog.sync.web;
+
+        //location
+        var location_ios = snap.val().wilddog.location.ios;
+        var location_android = snap.val().wilddog.location.android;
+        var location_web = snap.val().wilddog.location.web;
 
         //赋值
         //auth_start
@@ -265,7 +271,11 @@ $(function() {
         $('.sync_ios_v').text(sync_ios.version);
         $('.sync_android_v').text(sync_android.version);
         $('.sync_c_v').text(sync_c.version);
+        $('.sync_embedded_v').text(sync_embed_rtos.version);
         $('.sync_core_v').text(sync_core.version);
+        $(".sync_embed_rtos_v").text(sync_embed_rtos.version);
+        $(".sync_embed_arduino_v").text(sync_embed_arduino.version);
+        $(".sync_embed_openwrt_v").text(sync_embed_openwrt.version);
 
         $("#sync_android_d").attr("href", sync_android.cdn);
         $("#sync_ios_d").attr("href", sync_ios.cdn);
@@ -282,6 +292,18 @@ $(function() {
         $("#sync_c-sha1").text(sync_c.checksum.sha1sum);
         $("#sync_c-sha256").text(sync_c.checksum.sha256sum);
 
+        $("#sync_rtos-md5").text(sync_embed_rtos.checksum.md5sum);
+        $("#sync_rtos-sha1").text(sync_embed_rtos.checksum.sha1sum);
+        $("#sync_rtos-sha256").text(sync_embed_rtos.checksum.sha256sum);
+
+        $("#sync_arduino-md5").text(sync_embed_arduino.checksum.md5sum);
+        $("#sync_arduino-sha1").text(sync_embed_arduino.checksum.sha1sum);
+        $("#sync_arduino-sha256").text(sync_embed_arduino.checksum.sha256sum);
+
+        $("#sync_openwrt-md5").text(sync_embed_openwrt.checksum.md5sum);
+        $("#sync_openwrt-sha1").text(sync_embed_openwrt.checksum.sha1sum);
+        $("#sync_openwrt-sha256").text(sync_embed_openwrt.checksum.sha256sum);
+
         $("#sync_ios-md5").text(sync_ios.checksum.md5sum);
         $("#sync_ios-sha1").text(sync_ios.checksum.sha1sum);
         $("#sync_ios-sha256").text(sync_ios.checksum.sha256sum);
@@ -290,6 +312,20 @@ $(function() {
         $("#sync_core-sha1").text(sync_core.checksum.sha1sum);
         $("#sync_core-sha256").text(sync_core.checksum.sha256sum);
         //sync_end
+
+        //location_start
+        $("#location_ios_d").attr("href", location_ios.cdn);
+        $("#location_android_d").attr("href", location_android.cdn);
+        $("#location_web_d").attr("href", location_web.cdn);
+
+        $('.location_ios_v').text(location_ios.version);
+        $('.location_android_v').text(location_android.version);
+        $('.location_web_v').text(location_web.version);
+
+        $("#location_ios-md5").text(location_ios.checksum.md5sum);
+        $("#location_ios-sha1").text(location_ios.checksum.sha1sum);
+        $("#location_ios-sha256").text(location_ios.checksum.sha256sum);
+        //location_end
     });
 
 
