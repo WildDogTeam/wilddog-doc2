@@ -54,7 +54,7 @@ wildLocation.set('myPosition', myPosition);
 
 ### 停止上传
 
- xxxx用于取消指定 Key 的位置上传。
+`stopTracing()` 用于取消指定 Key 的位置上传。
 
 ```javascript
 wildLocation.stopTracing(key);
@@ -64,7 +64,7 @@ wildLocation.stopTracing(key);
 
 ###  单次上传
 
- 方法可以根据 Key 向云端上传一次位置信息，如果 Key 不存在，云端会自动创建。
+`set()`方法可以根据 Key 向云端上传一次位置信息，如果 Key 不存在，云端会自动创建。
 
 ```javascript
 wildLocation.set('myPosition', myPosition);
@@ -88,7 +88,7 @@ var cancelCallback = wildLocation.on(key, function(position) {
 
 ### 取消监听
 
-用于取消指定 Key 的位置监听。
+`cancelCallback()` 用于取消指定 Key 的位置监听。
 
 ```javascript
 cancelCallback();
@@ -104,7 +104,7 @@ wildLocation.off();
 
 ### 单次监听
 
-`once()`  用于获取一次指定 Key 的最新位置信息。
+`once()` 用于获取一次指定 Key 的最新位置信息。
 
 ```javascript
 wildLocation.once(key, function(position) {
@@ -116,7 +116,7 @@ wildLocation.once(key, function(position) {
 
 ## 3. 距离计算
 
- 方法用于计算两个坐标点的距离。
+`wilddog.Location.distance()` 方法用于计算两个坐标点的距离。
 
 ```javascript
 var distance = wilddog.Location.distance(position1, position2);
