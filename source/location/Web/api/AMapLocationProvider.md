@@ -18,7 +18,7 @@ title: AMapLocationProvider
 
 ##### 返回值
 
-`String`, AMapLocationProvider 的地理位置采集类型。
+String
 
 </br>
 
@@ -36,7 +36,7 @@ title: AMapLocationProvider
 
 ##### 返回值
 
-`Int`, AMapLocationProvider 更新地理位置的时间间隔。
+Int
 
 </br>
 
@@ -54,7 +54,7 @@ title: AMapLocationProvider
 
 ##### 返回值
 
-`Float`, AMapLocationProvider 更新地理位置的距离间隔。
+Float
 
 </br>
 
@@ -72,7 +72,7 @@ title: AMapLocationProvider
 
 ##### 返回值
 
-Promise<Position> ，当前的地理位置。
+Promise<[Position](Position.html)>
 
 </br>
 

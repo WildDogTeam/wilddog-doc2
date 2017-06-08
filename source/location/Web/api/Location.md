@@ -256,7 +256,7 @@ PathQuery
 
 ##### 返回值
 
-AMapLocationProvider
+[AMapLocationProvider](AMapLocationProvider.html)
 
 </br>
 
@@ -389,7 +389,7 @@ AMapLocationProvider
 
 ##### 说明
 
-计算两个点之间的距离 。
+计算两个点之间的距离, 单位 m。
 
 ##### 参数
 
@@ -399,7 +399,7 @@ AMapLocationProvider
 
 ##### 返回值
 
-Number  距离，单位为 m 。
+Number
 
 </br>
 
