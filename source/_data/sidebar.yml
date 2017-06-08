@@ -388,7 +388,7 @@ video:
 location:
   Web:
     概览: /location/Web/index.html
-    快速入门: /location/Web/quickstart.html
+    快速入门: /location/Web/quickstart/quickstart.html
     完整指南:
       安装和初始化 SDK: /location/Web/guide/install-sdk.html
       位置同步: /location/Web/guide/position.html
