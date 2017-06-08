@@ -17,7 +17,7 @@ title: PathQuery
 
 ##### 返回值
 
-Int, PathQuery 查询条件的 startTime 。
+Int
 
 </br>
 
@@ -35,7 +35,7 @@ Int, PathQuery 查询条件的 startTime 。
 
 ##### 返回值
 
-Int, PathQuery 查询条件的 endTime 。
+Int
 
 </br>
 
@@ -53,7 +53,7 @@ Int, PathQuery 查询条件的 endTime 。
 
 ##### 返回值
 
-String, PathQuery 查询条件的 key 。
+String
 
 </br>
 
@@ -88,6 +88,7 @@ String, PathQuery 查询条件的 key 。
 ##### 说明
 
 监听轨迹的变化，每当复合查询条件的轨迹发生变化时都会触发回调。
+返回 [CallbackRegistration](CallbackRegistration.html) 用于取消回调。
 
 ##### 参数
 
@@ -97,7 +98,7 @@ String, PathQuery 查询条件的 key 。
 
 ##### 返回值
 
-[CallbackRegistration](CallbackRegistration.html) , 用于取消 callback 回调。
+[CallbackRegistration](CallbackRegistration.html)
 
 <br>
 ---
@@ -120,7 +121,7 @@ String, PathQuery 查询条件的 key 。
 
 ##### 返回值
 
-[CallbackRegistration](CallbackRegistration.html) , 用于取消 callback 回调。
+Promise<[PathSnapshot](PathSnapshot.html)>
 
 <br>
 ---

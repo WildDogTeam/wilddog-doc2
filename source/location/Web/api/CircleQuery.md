@@ -17,7 +17,7 @@ title: GeoCircleQuery
 
 ##### 返回值
 
-[Position](Position.html), CircleQuery 的中心点。
+[Position](Position.html)
 
 </br>
 
@@ -35,7 +35,7 @@ title: GeoCircleQuery
 
 ##### 返回值
 
-`Float`, CircleQuery 半径。
+Float
 
 </br>
 
@@ -70,7 +70,8 @@ title: GeoCircleQuery
 ##### 说明
 
 为查询附加某事件类型触发的回调。可用的事件包括： "ready", "key_entered", "key_exited", 和 "key_moved"。
-"ready"事件回调不传递参数。其他的回调将传递三个参数：(1)位置的key， (2) 地理位置，Position ，(3)位置到查询圆心的距离，单位是m 。
+"ready"事件回调不传递参数。其他的回调将传递三个参数：(1)位置的key， (2) 地理位置，Position ，(3)位置到查询圆心的距离，单位是 m 。
+返回 [CallbackRegistration](CallbackRegistration.html) 用于取消回调。
 
 ##### 参数
 
@@ -81,7 +82,7 @@ title: GeoCircleQuery
 
 ##### 返回值
 
-[CallbackRegistration](CallbackRegistration.html) , 用于取消 callback 回调。
+[CallbackRegistration](CallbackRegistration.html)
 
 ---
 
