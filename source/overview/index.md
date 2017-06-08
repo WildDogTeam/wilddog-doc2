@@ -22,7 +22,7 @@ title:  野狗简介
 
 ---
 
-实时定位 API(Realtime Location)是基于野狗实时通信引擎架构的位置同步服务，能够你实现地理位置的同步、分发、存储、计算等功能。
+实时定位 (Realtime Location) 是基于野狗实时通信引擎架构的位置同步服务，能够你实现地理位置的同步、分发、存储、计算等功能。
 
 ![](/images/wilddoglocation.png)
 ---
@@ -37,6 +37,6 @@ title:  野狗简介
 
 ![](/images/wilddogauth.jpg)
 
-我们即将推出实时推送的 SDK 和场景化 API。
+
 
 
