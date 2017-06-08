@@ -12,7 +12,7 @@
       <a href="/overview/index.html" class="main-nav-link">概览</a>
       <a href="/sync/Web/index.html" class="main-nav-link">实时通信引擎</a>
       <a href="/video/Web/index.html" class="main-nav-link">实时视频通话</a>
-      <a href="/im/Android/index.html" class="main-nav-link">即时通讯</a>
+      <a href="/location/Web/index.html" class="main-nav-link">实时定位API</a>
       <a href="/sms/index.html" class="main-nav-link">短信</a>
       <a href="/auth/Web/index.html" class="main-nav-link">身份认证</a>
       {# <a href="/console/creat.html" class="main-nav-link">控制面板指南</a> #}
