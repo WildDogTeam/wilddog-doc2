@@ -10,7 +10,7 @@ title: IncomingInvite
 **定义**
 
 ```java
-String getFromParticpantId()
+String getFromParticipantId()
 ```
 
 **说明**
@@ -26,7 +26,7 @@ String getFromParticpantId()
 
 ```java
 	//获取邀请者的 Wilddog ID 。
-	String fromParticpantId = incomingInvite.getFromParticpantId();
+	String fromParticpantId = incomingInvite.getFromParticipantId();
 ```
 
 </br>
