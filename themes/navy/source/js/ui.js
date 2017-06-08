@@ -22,7 +22,7 @@ $(function() {
         addClass(headerNavs[1], 'current')
     } else if (type === 'video') {
         addClass(headerNavs[2], 'current')
-    } else if (type === 'im') {
+    } else if (type === 'location') {
         addClass(headerNavs[3], 'current')
     } else if (type === 'sms') {
         addClass(headerNavs[4], 'current')

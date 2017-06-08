@@ -79,7 +79,7 @@ var srcs = [{
     overview: '/overview/index.html',
     sync: '/sync/Web/index.html',
     video: '/video/Web/index.html',
-    im: '/im/Android/index.html',
+    location: '/location/Web/index.html',
     sms: '/sms/index.html',
     auth: '/auth/Web/index.html',
     console: '/console/creat.html'
@@ -89,7 +89,7 @@ var currentUrls = {
     overview: '',
     sync: '',
     video: '',
-    im: '',
+    location: '',
     sms: '',
     auth: '',
     console: ''
@@ -98,7 +98,7 @@ var currentUrls = {
 currentUrls = JSON.parse(sessionStorage.getItem('navsrc')) || currentUrls;
 console.log(currentUrls)
 
-var navlinks = ['overview', 'sync', 'video', 'im', 'sms', 'auth', 'console'];
+var navlinks = ['overview', 'sync', 'video', 'location', 'sms', 'auth', 'console'];
 
 //左侧每个链接单元
 var links = [].slice.call(document.getElementsByClassName('sidebar-link'));
