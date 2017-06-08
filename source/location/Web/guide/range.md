@@ -1,15 +1,17 @@
 title: 范围监听
 ---
 
-## 创建监听范围
-`CircleQuery.on`  根据位置与半径创建监听范围。
+
+### 创建监听范围
+`CircleQuery.on()`  根据位置与半径创建监听范围。
+
 
 ```javascript
 CircleQuery.on();
 ```
 ## 开始监听
 
-创建监听范围之后可以开始监听范围内的设备。
+`circleQuery` 创建监听范围之后可以开始监听范围内的设备。
 
 例如，监听范围内的设备，如果有新设备进入将会不断更新。
 
@@ -29,7 +31,7 @@ circleQuery.on('key_entered', function (key, position, distance) {
 
 ## 监听范围事件
 
-每当设备进入或者离开监听范围的时候，都可以设置触发。
+`CircleQuery` 每当设备进入或者离开监听范围的时候，都可以设置触发。
 
 `key_exited` 在设备离开范围时触发
 
@@ -66,7 +68,7 @@ circleQuery.cancel();
 
 ## 实时变更监听范围
 
-范围监听过程中，可以随时变更监听的位置与半径。每次变更都将会同步一次最新数据。
+`updateCriteria()` 范围监听过程中，可以随时变更监听的位置与半径。每次变更都将会同步一次最新数据。
 
 ```javascript
 var newQueryCriteria = {
