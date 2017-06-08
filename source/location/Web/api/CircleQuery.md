@@ -17,7 +17,7 @@ title: GeoCircleQuery
 
 ##### 返回值
 
-Position, CircleQuery 的中心点。
+[Position](Position.html), CircleQuery 的中心点。
 
 </br>
 
@@ -55,7 +55,7 @@ Position, CircleQuery 的中心点。
 
 | 参数名 | 说明 |
 |---|---|
-| CircleQueryCriteria | object 类型，范围查询的条件 Map。 |
+| [CircleQueryCriteria](Location.html#CircleQueryCriteria) | object 类型，范围查询的条件 Map。 |
 
 </br>
 
@@ -81,13 +81,13 @@ Position, CircleQuery 的中心点。
 
 ##### 返回值
 
-CallbackRegistration , 用于取消 callback 回调。
+[CallbackRegistration](CallbackRegistration.html) , 用于取消 callback 回调。
 
 ---
 
 #### EventType
 
-Query [on](Query.html#on) 和 [once](Query.html#once) 所支持的事件列表。详细使用请参考：[完整指南-设置事件](/sync/Web/guide/retrieve-data.html#设置事件)。
+GeoCircleQuery [on](GeoCircleQuery.html#on) 和 [once](GeoCircleQuery.html#once) 所支持的事件列表。
 
 | 名称            | 说明                  |
 | ------------- | ------------------- |
@@ -113,7 +113,7 @@ Query [on](Query.html#on) 和 [once](Query.html#once) 所支持的事件列表�
 | 参数名      | 说明                                       |
 | -------- | ---------------------------------------- |
 | key      | String(non-null)类型<br> 地理位置单位的唯一标识。    |
-| position     | Position(non-null) 类型 <br> key 的最新地理位置。 |
+| position     | [Position](Position.html)(non-null) 类型 <br> key 的最新地理位置。 |
 | distance     | Float(non-null) 类型 <br> 当前位置到查询圆心的距离。 |
 
 ##### 返回值

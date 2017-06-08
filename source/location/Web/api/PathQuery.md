@@ -73,7 +73,7 @@ String, PathQuery 查询条件的 key 。
 
 | 参数名 | 说明 |
 |---|---|
-| PathQueryCriteria | object 类型，范围查询的条件 Map。 |
+| PathQueryCriteria | [PathQueryCriteria](Location.html#PathQueryCriteria) 类型，范围查询的条件 Map。 |
 
 </br>
 
@@ -97,7 +97,7 @@ String, PathQuery 查询条件的 key 。
 
 ##### 返回值
 
-CallbackRegistration , 用于取消 callback 回调。
+[CallbackRegistration](CallbackRegistration.html) , 用于取消 callback 回调。
 
 <br>
 ---
@@ -120,7 +120,7 @@ CallbackRegistration , 用于取消 callback 回调。
 
 ##### 返回值
 
-CallbackRegistration , 用于取消 callback 回调。
+[CallbackRegistration](CallbackRegistration.html) , 用于取消 callback 回调。
 
 <br>
 ---

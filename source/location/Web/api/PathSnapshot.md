@@ -14,11 +14,11 @@ title: PathSnapshot
 
 ##### 说明
 
-获取当前轨迹快照中的所有 Position 对象。
+获取当前轨迹快照中的所有 [Position](Position.html) 对象。
 
 ##### 返回值
 
-Array<Position> 包含所有 position 的数组 。
+Array<[Position](Position.html)> 包含所有 position 的数组 。
 
 </br>
 
@@ -54,7 +54,7 @@ Float ，轨迹的路程长度。
 
 ##### 返回值
 
-Position
+[Position](Position.html)
 
 </br>
 

@@ -20,7 +20,7 @@ title: Location
 
 | 参数名 | 说明 |
 |---|---|
-| PositionOptions | [PositionOptions](/location/Web/api/location.html#PositionOptions) 类型，设置将要创建的本地媒体流属性。 |
+| PositionOptions | [PositionOptions](/location/Web/api/Location.html#PositionOptions) 类型，设置将要创建的本地媒体流属性。 |
 
 ##### 返回值
 
@@ -46,8 +46,8 @@ title: Location
 
 | 参数名 | 说明 |
 |---|---|
-| keyOrPositions | String 或 Object 类型，如果类型为 String ，只有一个位置信息会保存，保存到这个 key 节点下。也可以是个包含 key 值和 [Position](/location/Web/api/position.html) 对象的 Map ，一次写入多个位置。 |
-| position | [Position](/location/Web/api/position.html) 类型，当 keyOrPositions 为 String 时需要传这个 Position 参数。|
+| keyOrPositions | String 或 Object 类型，如果类型为 String ，只有一个位置信息会保存，保存到这个 key 节点下。也可以是个包含 key 值和 [Position](Position.html) 对象的 Map ，一次写入多个位置。 |
+| position | [Position](Position.html) 类型，当 keyOrPositions 为 String 时需要传这个 Position 参数。|
 
 ##### 返回值
 
@@ -78,7 +78,7 @@ Promise
 
 ##### 返回值
 
-CallbackRegistration
+[CallbackRegistration](CallbackRegistration.html)
 
 </br>
 
@@ -126,7 +126,7 @@ CallbackRegistration
 
 ##### 返回值
 
-Promise<Position>
+Promise<[Position](Position.html)>
 
 </br>
 
@@ -200,11 +200,11 @@ Promise
 
 | 参数名 | 说明 |
 |---|---|
-| CircleQueryCriteria | object 类型，范围查询的条件 Map。 |
+| CircleQueryCriteria | [CircleQueryCriteria](Location.html#CircleQueryCriteria) 类型，范围查询的条件 Map。 |
 
 ##### 返回值
 
-CircleQuery
+[CircleQuery](CircleQuery.html)
 
 </br>
 
@@ -226,7 +226,7 @@ CircleQuery
 
 | 参数名 | 说明 |
 |---|---|
-| PathQueryCriteria | object 类型，范围查询的条件 Map。 |
+| PathQueryCriteria | [PathQueryCriteria](Location.html#PathQueryCriteria) 类型，范围查询的条件 Map。 |
 
 ##### 返回值
 
@@ -282,7 +282,7 @@ AMapLocationProvider
 
 ##### 返回值
 
-AMapLocationProvider
+[AMapLocationProvider](AMapLocationProvider.html)
 
 </br>
 
@@ -298,14 +298,14 @@ AMapLocationProvider
 
 ##### 说明
 
-开启位置持续更新，用户可以传入 AMapLocationProvider 对象，默认以时间间隔为一秒的 AMapLocationProvider 进行更新。
+开启位置持续更新，用户可以传入 [AMapLocationProvider](AMapLocationProvider.html) 对象，默认以时间间隔为一秒的 [AMapLocationProvider](AMapLocationProvider.html) 进行更新。
 
 ##### 参数
 
 | 参数名 | 说明 |
 |---|---|
 | key | `String` 类型，对应一个记录地理位置单位的唯一标识。 |
-| AMapLocationProvider | AMapLocationProvider 类型，提供地理位置。 |
+| AMapLocationProvider | [AMapLocationProvider](AMapLocationProvider.html) 类型，提供地理位置。 |
 
 </br>
 
@@ -343,14 +343,14 @@ AMapLocationProvider
 
 ##### 说明
 
-开启轨迹持续更新，用户可以传入 AMapLocationProvider 对象，默认以时间间隔为一秒的 AMapLocationProvider 进行更新。
+开启轨迹持续更新，用户可以传入 [AMapLocationProvider](AMapLocationProvider.html) 对象，默认以时间间隔为一秒的 [AMapLocationProvider](AMapLocationProvider.html) 进行更新。
 
 ##### 参数
 
 | 参数名 | 说明 |
 |---|---|
 | key | `String` 类型，对应一个记录地理位置单位的唯一标识。 |
-| AMapLocationProvider | AMapLocationProvider 类型，提供地理位置。 |
+| AMapLocationProvider | [AMapLocationProvider](AMapLocationProvider.html) 类型，提供地理位置。 |
 
 </br>
 
@@ -395,7 +395,7 @@ AMapLocationProvider
 
 | 参数名 | 说明 |
 |---|---|
-| Position | Position 类型，一个地理位置对象。 |
+| Position | [Position](Position.html) 类型，一个地理位置对象。 |
 
 ##### 返回值
 
@@ -444,7 +444,7 @@ Object
 
 | 参数名 | 说明 |
 |---|---|
-| center | Position 类型。<br>一个 Position 对象，将作为范围查询的中心。|
+| center | [Position](Position.html) 类型。<br>一个 Position 对象，将作为范围查询的中心。|
 | radius | `Int` 类型。<br>范围查询的半径，单位是 m 。 |
 
 ### PathQueryCriteria
