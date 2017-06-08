@@ -385,59 +385,25 @@ video:
       实战教程: /video/Android/resources/tutorial.html
     更新日志: /video/Android/changelog.html
 
-im:
-  iOS:
-    概览: /im/iOS/index.html
-    快速入门: /im/iOS/quickstart.html
+location:
+  Web:
+    概览: /location/Web/index.html
+    快速入门: /location/Web/quickstart.html
     完整指南:
-      初始化: /im/iOS/guide/intialize.html
-      用户集成: /im/iOS/guide/users.html
-      消息收发: /im/iOS/guide/message.html
-      未读消息计数: /im/iOS/guide/unread.html
-      讨论组管理: /im/iOS/guide/group.html
-      离线推送: /im/iOS/guide/push.html
-    API 文档:
-      WDGIM: /im/iOS/api/WDGIM.html
-      WDGIMConversation: /im/iOS/api/WDGIMConversation.html
-      WDGIMMessage: /im/iOS/api/WDGIMMessage.html
-      WDGIMMessageGroupTip: /im/iOS/api/WDGIMMessageGroupTip.html
-      WDGIMMessageImage: /im/iOS/api/WDGIMMessageImage.html
-      WDGIMMessageText: /im/iOS/api/WDGIMMessageText.html
-      WDGIMMessageVoice: /im/iOS/api/WDGIMMessageVoice.html
-      WDGIMNotify: /im/iOS/api/WDGIMNotify.html
-      WDGIMUser: /im/iOS/api/WDGIMUser.html
-      错误码: /im/iOS/api/error-code.html
-    示例代码:
-      示例库: /im/iOS/resources.html
-    更新日志: /im/iOS/changelog.html
+      安装和初始化 SDK: /location/Web/guide/install-sdk.html
+      位置同步: /location/Web/guide/position.html
+      范围监听: /location/Web/guide/range.html
+      实时轨迹: /location/Web/guide/trace.html
 
-  Android:
-    概览: /im/Android/index.html
-    快速入门: /im/Android/quickstart.html
-    完整指南:
-      初始化: /im/Android/guide/intialize.html
-      用户集成: /im/Android/guide/users.html
-      消息收发: /im/Android/guide/message.html
-      未读消息计数: /im/Android/guide/unread.html
-      讨论组管理: /im/Android/guide/group.html
-      离线推送: /im/Android/guide/push.html
     API 文档:
-      WilddogIM: /im/Android/api/WilddogIM.html
-      WilddogIM.CompletionListener: /im/Android/api/WilddogIM.CompletionListener.html
-      WilddogIM.WilddogIMConnectionListene: /im/Android/api/WilddogIM.WilddogIMConnectionListener.html
-      WilddogIM.WilddogIMGroupChangeListener: /im/Android/api/WilddogIM.WilddogIMGroupChangeListener.html
-      WilddogIM.WilddogIMMessageListener: /im/Android/api/WilddogIM.WilddogIMMessageListener.html
-      WilddogIMNotification: /im/Android/api/WilddogIMNotification.html
-      Conversation: /im/Android/api/Conversation.html
-      Message: /im/Android/api/Message.html
-      GroupTipMessage: /im/Android/api/GroupTipMessage.html
-      ImageMessage: /im/Android/api/ImageMessage.html
-      TextMessage: /im/Android/api/TextMessage.html
-      VoiceMessage: /im/Android/api/VoiceMessage.html
-      错误码: /im/Android/api/error-code.html
-    示例代码:
-      示例库: /im/Android/resources.html
-    更新日志: /im/Android/changelog.html
+      AMapLocationProvider: /location/Web/api/AMapLocationProvider.html
+      CallbackRegistration: /location/Web/api/CallbackRegistration.html
+      CircleQuery: /location/Web/api/CircleQuery.html
+      Location: /location/Web/api/Location.html
+      PathQuery: /location/Web/api/PathQuery.html
+      PathSnapshot: /location/Web/api/PathSnapshot.html
+      Position: /location/Web/api/Position.html
+      #错误码: /location/Web/api/error-code.html
 
 sms:
   短信:
