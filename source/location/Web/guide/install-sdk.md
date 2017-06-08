@@ -16,7 +16,7 @@ title: 安装与初始化
 
 > 引入高德定位 SDK 的时候，需要填入你高德应用的 AMapKey。如果没有，请在[高德开放平台](http://lbs.amap.com/)中获取。
 
-### 初始化 Location SDK
+### 初始化 SDK
 
 使用 Wilddog Location SDK 之前，需要先创建实例。
 

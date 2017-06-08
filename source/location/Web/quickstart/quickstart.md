@@ -16,7 +16,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-实时定位 API 依赖于高德定位 SDK，因此需要按顺序引入：
+Realtime Location 依赖于高德定位 SDK，因此需要按顺序引入：
 
 **通过标签引用**
 
@@ -26,7 +26,7 @@ title: 快速入门
 
 ## 3. 初始化 SDK
 
-使用 Wilddog Location SDK 之前，需要先创建实例。
+使用 Realtime Location SDK 之前，需要先创建实例。
 
 ```javascript
 var config = {
@@ -58,4 +58,4 @@ var cancelCallback = wildLocation.on(key, function(position) {
 ```
 
 
-Location 更多使用方式，请参考 [完整指南](/location/Web/guide/install-sdk.html) 和  [API 文档](/location/Web/api/AMapLocationProvider.html)。
+Realtime Location 更多使用方式，请参考 [完整指南](/location/Web/guide/install-sdk.html) 和  [API 文档](/location/Web/api/AMapLocationProvider.html)。

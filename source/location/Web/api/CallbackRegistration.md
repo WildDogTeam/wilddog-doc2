@@ -1,7 +1,7 @@
 title: CallbackRegistration
 ---
 
-用于取消回调的对象
+用于取消回调的对象。
 
 ## 方法
 
