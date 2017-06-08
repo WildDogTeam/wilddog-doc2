@@ -22,12 +22,6 @@ title:  野狗简介
 
 ---
 
-即时通讯(IM) 是基于野狗实时通信架构的即时通讯服务，能够为你的应用轻松接入安全可靠的实时通信功能。
-
-![](/images/wilddogim.jpg)
-
----
-
 实时定位 API(Realtime Location)是基于野狗实时通信引擎架构的位置同步服务，能够你实现地理位置的同步、分发、存储、计算等功能。
 
 ![](/images/wilddoglocation.png)

@@ -32,7 +32,6 @@ title: Location
 
 ### set
 
-##### 定义
 
 ##### 定义
 
@@ -59,7 +58,6 @@ Promise
 
 ### on
 
-##### 定义
 
 ##### 定义
 
@@ -86,7 +84,6 @@ Promise
 
 ### off
 
-##### 定义
 
 ##### 定义
 
@@ -108,7 +105,6 @@ Promise
 
 ### once
 
-##### 定义
 
 ##### 定义
 
@@ -136,7 +132,6 @@ Promise<[Position](Position.html)>
 
 ##### 定义
 
-##### 定义
 
 `removePosition(key)`
 
@@ -162,7 +157,6 @@ Promise
 
 ##### 定义
 
-##### 定义
 
 `removePath(key)`
 
@@ -188,7 +182,6 @@ Promise
 
 ##### 定义
 
-##### 定义
 
 `circleQuery(circleQueryCriteria)`
 
@@ -212,7 +205,6 @@ Promise
 
 ### pathQuery
 
-##### 定义
 
 ##### 定义
 
@@ -238,7 +230,6 @@ PathQuery
 
 ### initAMapLocationProviderWithTime
 
-##### 定义
 
 ##### 定义
 
@@ -264,7 +255,6 @@ PathQuery
 
 ### initAMapLocationProviderWithDistance
 
-##### 定义
 
 ##### 定义
 
@@ -290,7 +280,6 @@ PathQuery
 
 ### startTracing
 
-##### 定义
 
 ##### 定义
 
@@ -313,7 +302,6 @@ PathQuery
 
 ### stopTracing
 
-##### 定义
 
 ##### 定义
 
@@ -335,7 +323,6 @@ PathQuery
 
 ### startRecordingPath
 
-##### 定义
 
 ##### 定义
 
@@ -358,7 +345,6 @@ PathQuery
 
 ### stopRecordingPath
 
-##### 定义
 
 ##### 定义
 
@@ -381,7 +367,6 @@ PathQuery
 
 ### wilddog.Location.distance
 
-##### 定义
 
 ##### 定义
 

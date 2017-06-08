@@ -14,7 +14,7 @@ title: AMapLocationProvider
 
 ##### 说明
 
-获取 AMapLocationProvider 的地理位置采集类型，"timeInterval"和"distaneInterval"两种类型。
+获取 `AMapLocationProvider` 的地理位置采集类型，`"timeInterval"`和`"distaneInterval"`两种类型。
 
 ##### 返回值
 
@@ -32,7 +32,7 @@ String
 
 ##### 说明
 
-获取 AMapLocationProvider 按照时间间隔采集时的时间频率，单位为 ms。
+获取 `AMapLocationProvider` 按照时间间隔采集时的时间频率，单位为秒。
 
 ##### 返回值
 
@@ -50,7 +50,7 @@ Int
 
 ##### 说明
 
-获取 AMapLocationProvider 按照距离间隔采集时的距离界限，单位为 m 。
+获取 `AMapLocationProvider` 按照距离间隔采集时的距离界限，单位为米 。
 
 ##### 返回值
 
@@ -68,7 +68,7 @@ Float
 
 ##### 说明
 
-获取当前的地理位置信息，数据的采集不受 timeInterval 和 distaneInterval 的限制。
+获取当前的地理位置信息，数据的采集不受 `timeInterval` 和 `distaneInterval` 的限制。
 
 ##### 返回值
 

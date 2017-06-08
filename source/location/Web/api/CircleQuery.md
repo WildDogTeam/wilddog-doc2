@@ -13,7 +13,7 @@ title: GeoCircleQuery
 
 ##### 说明
 
-获取 CircleQuery 的中心点。
+获取 `CircleQuery`的中心点。
 
 ##### 返回值
 
@@ -31,7 +31,7 @@ title: GeoCircleQuery
 
 ##### 说明
 
-获取 CircleQuery 的半径。
+获取 `CircleQuery` 的半径。
 
 ##### 返回值
 
@@ -49,7 +49,7 @@ Float
 
 ##### 说明
 
-更新 CircleQuery 的查询条件，动态修改，不影响现有监听的使用。
+更新 `CircleQuery` 的查询条件，动态修改，不影响现有监听的使用。
 
 ##### 参数
 
@@ -69,8 +69,8 @@ Float
 
 ##### 说明
 
-为查询附加某事件类型触发的回调。可用的事件包括： "ready", "key_entered", "key_exited", 和 "key_moved"。
-"ready"事件回调不传递参数。其他的回调将传递三个参数：(1)位置的key， (2) 地理位置，Position ，(3)位置到查询圆心的距离，单位是 m 。
+为查询附加某事件类型触发的回调。可用的事件包括： `"ready"`, `"key_entered"`, `"key_exited"`, 和 `"key_moved"`。
+`"ready"`事件回调不传递参数。其他的回调将传递三个参数：(1)位置的`key`， (2) 地理位置，`Position` ，(3)位置到查询圆心的距离，单位是米 。
 返回 [CallbackRegistration](CallbackRegistration.html) 用于取消回调。
 
 ##### 参数
@@ -78,7 +78,7 @@ Float
 | 参数名            | 说明                                       |
 | -------------- | ---------------------------------------- |
 | eventType      | String 类型(non-null)<br>事件类型参见 [EventType](CircleQuery.html#EventType)。 |
-| onEvent        | [onEvent](CircleQuery.html#onEvent)(non-null)类型<br>事件发生时的回调函数 。    
+| onEvent        | [onEvent](CircleQuery.html#onEvent)(non-null)类型<br>事件发生时的回调函数 。
 
 ##### 返回值
 
@@ -132,7 +132,7 @@ Void
 
 ##### 说明
 
-终止这个查询，所有通过on()附加的回调都会被取消，这个查询在未来都不会再被使用了。
+终止这个查询，所有通过`on()`附加的回调都会被取消，这个查询在未来都不会再被使用了。
 
 <br>
 ---
