@@ -118,7 +118,7 @@ GeoCircleQuery [on](GeoCircleQuery.html#on) 和 [once](GeoCircleQuery.html#once)
 
 ##### 返回值
 
-[Void](Void.html)
+Void
 
 ---
 
