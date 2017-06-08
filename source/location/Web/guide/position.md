@@ -14,6 +14,14 @@ var locationProvider = wildLocation.initAMapLocationProviderWithTime(5000);
 wildLocation.startTracing(key, locationProvider);
 ```
 
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+ 上传时的 Key 由用户自己创建，是云端位置数据的唯一标识。你可以使用已有的 ID 作为 Key，例如用户 ID，设备 ID 等。
+
+</blockquote>
+
+
 ### 设置上传频率
 
 你可以根据时间或距离设置上传频率：

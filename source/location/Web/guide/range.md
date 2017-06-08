@@ -25,10 +25,6 @@ circleQuery.on('key_entered', function (key, position, distance) {
 
 
 
-> 获取新进入范围或者离开范围的设备，可以参考 [API 文档]()。
-
-
-
 ## 监听范围事件
 
 `CircleQuery` 每当设备进入或者离开监听范围的时候，都可以设置触发。

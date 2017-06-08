@@ -54,8 +54,13 @@ pathQuery.on(function (pathSnapshot) {
     var latestPosition = pathSnapshot.latestPoint();
 });
 ```
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
 
-> 如果你想绘制一条实时的轨迹，可以利用 latest point 实时绘制新的轨迹点。
+如果你想绘制一条实时的轨迹，可以利用 latest point 实时绘制新的轨迹点。
+
+</blockquote>
+
 
 **根据时间范围查询轨迹。**
 
@@ -96,8 +101,13 @@ pathQuery.once(function (pathSnapshot) {
     var latestPosition = pathSnapshot.latestPoint();
 });
 ```
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
 
-> 如果查询时间范围超过轨迹时间范围，将只会返回轨迹时间范围内的点。
+如果查询时间范围超过轨迹时间范围，将只会返回轨迹时间范围内的轨迹点。
+
+</blockquote>
+
 
 
 
