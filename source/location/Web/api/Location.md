@@ -1,7 +1,7 @@
 title: Location
 ---
 
-使用 `Location` 实例对 Sync 进行读写地理位置数据和查询。
+使用 `Location` 实例进行读写地理位置数据和查询。
 
 
 ## 方法
