@@ -68,11 +68,12 @@ var readyCb = circleQuery.on('ready', function (key, position, distance) {
 
 ## 取消监听
 
-`CallbackRegistration.cancel()` 用于取消指定范围的监听
+`CallbackRegistration.cancel()` 用于取消指定范围的监听。
+例如，取消 `enterCb` 的监听。
 
 ```javascript
-enterCb();
-exitCb();
+enterCb.cancel();
+
 ```
 
 `circleQuery.cancel()` 用于取消所有的范围监听。
