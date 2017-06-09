@@ -88,14 +88,14 @@ Float
 
 #### EventType
 
-GeoCircleQuery [on](GeoCircleQuery.html#on) 和 [once](GeoCircleQuery.html#once) 所支持的事件列表。
+GeoCircleQuery [on](CircleQuery.html#on) 方法所支持的事件列表。
 
 | 名称            | 说明                  |
 | ------------- | ------------------- |
-| ready         | 当查询从服务器中初始化的时候就会触发一次ready事件。当所有其他的加载数据的事件触发后ready事件会触发。 每次用 updateQuery() 的时候ready事件将被立即触发一次，当所有的数据被加载并且其他所有的事件都被触发后也会引发ready事件。 |
-| key_entered   | 当一个key进入了查询范围内时触发key_entered事件。当一个key从查询范围外进入查询范围内或者一个key被写入数据正好落入查询范围内时会触发key_entered事件。 |
-| key_exited | 当一个Key从查询范围内移出查询范围时，会触发key_exited事件。如果这个key被彻底从GeoDo中删除的话，被传递给回调函数的位置信息和距离信息将为null。 |
-| key_moved | 当一个key已经在查询范围内部，当它在内部发生移动的时候，会触发key_moved事件。  |
+| key_entered   | 设备进入了查询范围内时触发 key_entered 事件。初始化时所有范围内的设备都会触发一次 key_entered 事件。 |
+| key_exited | 设备从查询范围内离开查询范围时，会触发 key_exited 事件。如果这个 key 在云端被删除的话，被传递给回调函数的位置信息和距离信息将为null。 |
+| key_moved | 设备已经在查询范围内部，当它在内部发生移动的时候，会触发 key_moved 事件。  |
+| ready         | 当初始化或者更新范围条件后，数据都将会重新加载。加载完毕的时候将会触发 ready事件。|
 
 ---
 

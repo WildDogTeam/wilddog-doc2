@@ -178,12 +178,12 @@ Promise
 
 ---
 
-### circleQuery
+### initCircleQuery
 
 ##### 定义
 
 
-`circleQuery(circleQueryCriteria)`
+`initCircleQuery(circleQueryCriteria)`
 
 ##### 说明
 
@@ -203,12 +203,12 @@ Promise
 
 ---
 
-### pathQuery
+### initPathQuery
 
 
 ##### 定义
 
-`pathQuery(pathQueryCriteria)`
+`initPathQuery(pathQueryCriteria)`
 
 ##### 说明
 
