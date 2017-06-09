@@ -7,7 +7,7 @@ title: 位置同步
 
 ### 持续上传
 
-`initAMapLocationProviderWith*()`方法可以根据 Key 向云端持续上传设备位置，如果云端不存在该 Key，将会自动创建。默认为 5s 上传一次数据。
+`initAMapLocationProviderWith*()`方法可以根据 Key 向云端持续上传设备位置，如果云端不存在该 Key，将会自动创建。默认为 5 秒 上传一次数据。
 
 ```javascript
 var locationProvider = wildLocation.initAMapLocationProviderWithTime(5000);
@@ -26,7 +26,7 @@ wildLocation.startTracing(key, locationProvider);
 
 你可以根据时间或距离设置上传频率：
 
-- 根据时间间隔上传，最小间隔 1s, 最大间隔 300s。
+- 根据时间间隔上传，最小间隔 1 秒, 最大间隔 300 秒。
 
 例如，每 60 秒上传一次位置信息：
 
@@ -35,9 +35,9 @@ var locationProvider = wildLocation.initAMapLocationProviderWithTime(60000);
 wildLocation.startTracing(key, locationProvider);
 ```
 
-- 根据距离间隔上传，最小间隔 0m (1s判断一次)，最大间隔 500m。
+- 根据距离间隔上传，最小间隔 0 米 (1 秒判断一次)，最大间隔 500 米。
 
-例如，每 20 m 上传一次位置信息：
+例如，每 20 米 上传一次位置信息：
 
 ```javascript
 var locationProvider = wildLocation.initAMapLocationProviderWithDistance(20);
