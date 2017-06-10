@@ -116,10 +116,10 @@ wildLocation.once(key, function(position) {
 
 ## 3. 距离计算
 
-`wilddog.Location.distance()` 方法用于计算两个坐标点的距离。
+`Location.distance()` 方法用于计算两个坐标点的距离。
 
 ```javascript
-var distance = wilddog.Location.distance(position1, position2);
+var distance = Location.distance(position1, position2);
 ```
 
 通过该方法可以实现实时距离的计算。
@@ -130,12 +130,12 @@ var distance = wilddog.Location.distance(position1, position2);
 var position1, position2, distance;
 wildLocation.on(key1, function(position) {
     position1 = position;
-    distance = wilddog.Location.distance(position1, position2);
+    distance = Location.distance(position1, position2);
     console.log('最新的距离为： ', distance, 'm');
 });
 wildLocation.on(key2, function(position) {
     position2 = position;
-    distance = wilddog.Location.distance(position1, position2);
+    distance = Location.distance(position1, position2);
     console.log('最新的距离为： ', distance, 'm');
 });
 

@@ -47,7 +47,7 @@ wildLocation.stopRecordingPath(key);
 `PathQurey.on()` 用于查询实时轨迹，轨迹一旦发生变化，将会实时更新。
 
 ```javascript
-var pathQuery = wildLocation.pathQuery({key: key});
+var pathQuery = wildLocation.initPathQuery({key: key});
 pathQuery.on(function (pathSnapshot) {
     console.log('轨迹的路程长度为： ', pathSnapshot.length());
     var positions = pathSnapshot.points();
@@ -62,7 +62,7 @@ pathQuery.on(function (pathSnapshot) {
 起始时间 QueryStartAtTime
 
 ```javascript
-var pathQuery = wildLocation.pathQuery({key: key, startTime: QueryStartAtTime});
+var pathQuery = wildLocation.initPathQuery({key: key, startTime: QueryStartAtTime});
 pathQuery.on(function (pathSnapshot) {
     console.log('轨迹的路程长度为： ', pathSnapshot.length());
     var positions = pathSnapshot.points();
@@ -73,7 +73,7 @@ pathQuery.on(function (pathSnapshot) {
 结束时间 QueryEndAtTime
 
 ```javascript
-var pathQuery = wildLocation.pathQuery({key: key, endTime: QueryEndAtTime});
+var pathQuery = wildLocation.initPathQuery({key: key, endTime: QueryEndAtTime});
 pathQuery.on(function (pathSnapshot) {
     console.log('轨迹的路程长度为： ', pathSnapshot.length());
     var positions = pathSnapshot.points();
@@ -89,7 +89,7 @@ pathQuery.on(function (pathSnapshot) {
 `PathQurey.once()` 用于查询指定时间范围内的轨迹记录。
 
 ```javascript
-var pathQuery = wildLocation.pathQuery({key: key});
+var pathQuery = wildLocation.initPathQuery({key: key});
 pathQuery.once(function (pathSnapshot) {
     console.log('轨迹的路程长度为： ', pathSnapshot.length());
     var positions = pathSnapshot.points();

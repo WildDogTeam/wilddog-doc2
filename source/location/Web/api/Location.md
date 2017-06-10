@@ -184,13 +184,13 @@ Promise
 
 ---
 
-### circleQuery
+### initCircleQuery
 
 ##### 定义
 
 ##### 定义
 
-`circleQuery(circleQueryCriteria)`
+`initCircleQuery(circleQueryCriteria)`
 
 ##### 说明
 
@@ -210,13 +210,13 @@ Promise
 
 ---
 
-### pathQuery
+### initPathQuery
 
 ##### 定义
 
 ##### 定义
 
-`pathQuery(pathQueryCriteria)`
+`initPathQuery(pathQueryCriteria)`
 
 ##### 说明
 
@@ -379,13 +379,13 @@ PathQuery
 ---
 
 
-### wilddog.Location.distance
+### Location.distance
 
 ##### 定义
 
 ##### 定义
 
-`wilddog.Location.distance(position1, position2)`
+`Location.distance(position1, position2)`
 
 ##### 说明
 
