@@ -1,11 +1,11 @@
-title:  实时定位 API
+title:  实时定位 Realtime Location
 ---
 
 <h2 id='简介' class="article-heading top-heading">简介</h2>
 
-实时定位 API 将定位信息通过 Sync 与云端进行同步，为你提供地理位置的同步、分发、存储、计算服务。
+Realtime Location 将定位信息向云端实时同步，为你提供地理位置的同步、分发、存储、计算服务。
 
-## Location 能做什么？
+## Realtime Location 能做什么？
 
 ### 位置同步
 
@@ -13,7 +13,7 @@ title:  实时定位 API
 
 ### 实时轨迹
 
-记录设备实时轨迹并上传，进行存储计算
+记录设备实时轨迹并上传，进行存储计算。
 
 ### 范围监听
 
@@ -23,7 +23,7 @@ title:  实时定位 API
 
 实时监测设备是否进入某个区域。
 
-## Location 用于什么场景？
+## Realtime Location 用于什么场景？
 
 ### 网约车
 

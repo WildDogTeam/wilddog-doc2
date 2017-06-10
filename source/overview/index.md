@@ -7,13 +7,12 @@ title:  野狗简介
 
 
 ## 野狗的产品
-目前野狗的产品有 [实时通信引擎（Sync）](/sync/Web/index.html) ， [实时视频通话（Video）](/video/Web/index.html) ，[即时通信（IM）](/im/iOS/index.html)，[短信（SMS）](/sms/index.html) 和 [身份认证（Auth）](/auth/Web/index.html)。
+目前野狗的产品有 [实时通信引擎（Sync）](/sync/Web/index.html) ， [实时视频通话（Video）](/video/Web/index.html) ，[实时定位 (Realtime Location)](/location/Web/index.html)，[短信（SMS）](/sms/index.html) 和 [身份认证（Auth）](/auth/Web/index.html)。
 
 
 实时通信引擎（Sync）是野狗的核心实时通信引擎。它帮助企业和开发者快速实现三大功能：基础实时通信、实时数据分发和实时数据持久化。
 
 ![](/images/introduction.jpg)
-
 ---
 
 实时视频通话 (Video) 是基于 WebRTC 的实时视频通话服务，支持视频通话、多人视频会议、视频会议直播功能，为你的业务提供高清流畅的通话体验。
@@ -22,15 +21,10 @@ title:  野狗简介
 
 ---
 
-即时通讯(IM) 是基于野狗实时通信架构的即时通讯服务，能够为你的应用轻松接入安全可靠的实时通信功能。
-
-![](/images/wilddogim.jpg)
-
----
-
-实时定位 API(Realtime Location)是基于野狗实时通信引擎架构的位置同步服务，能够你实现地理位置的同步、分发、存储、计算等功能。
+实时定位 (Realtime Location) 是基于野狗实时通信引擎架构的位置同步服务，能够帮你实现地理位置的同步、分发、存储、计算等功能。
 
 ![](/images/wilddoglocation.png)
+
 ---
 
 短信（SMS）提供短信验证码和短信通知的发送能力，可用于登录/注册、帐号安全、系统消息、消费提醒等场景。
@@ -43,6 +37,6 @@ title:  野狗简介
 
 ![](/images/wilddogauth.jpg)
 
-我们即将推出实时推送的 SDK 和场景化 API。
+
 
 

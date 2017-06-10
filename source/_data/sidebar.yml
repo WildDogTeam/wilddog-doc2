@@ -392,7 +392,7 @@ location:
     完整指南:
       初始化: /location/Web/guide/install-sdk.html
       位置同步: /location/Web/guide/position.html
-      范围监听: /location/Web/guide/range.html
+      范围监听: /location/Web/guide/circleQuery.html
       实时轨迹: /location/Web/guide/trace.html
 
     API 文档:

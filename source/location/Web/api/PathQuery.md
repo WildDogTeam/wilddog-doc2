@@ -13,7 +13,7 @@ title: PathQuery
 
 ##### 说明
 
-获取 PathQuery 查询条件的 startTime 。
+获取 PathQuery 查询条件的起始时间。
 
 ##### 返回值
 
@@ -31,7 +31,7 @@ Int
 
 ##### 说明
 
-获取 PathQuery 查询条件的 endTime 。
+获取 PathQuery 查询条件的结束时间 。
 
 ##### 返回值
 
