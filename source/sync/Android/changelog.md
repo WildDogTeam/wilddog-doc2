@@ -4,7 +4,7 @@ title: 更新日志
 
 ## Android SDK
 
-### V2.3.1 - 2017.05.27
+### V2.3.2- 2017.06.07
 
 <span class="changelog fix">修复</span>
 
