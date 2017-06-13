@@ -404,6 +404,7 @@ location:
       PathSnapshot: /location/Web/api/PathSnapshot.html
       Position: /location/Web/api/Position.html
       #错误码: /location/Web/api/error-code.html
+    更新日志: /location/Web/changelog.html
 
 sms:
   短信:
