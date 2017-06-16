@@ -14,6 +14,26 @@ title: 安装与初始化
 
 <figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tp://webapi.amap.com/maps?v=1.3&key=&lt;AMapKey&gt;&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="sync_web_v">2.5.6</span>/wilddog.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre><br><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="location_web_v">0.1.0</span>/wilddog-location.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
+**通过 npm 下载**
+
+1.安装依赖
+
+    npm install wilddog wilddog-location
+
+2.在代码中注册 Realtime Location 服务
+
+```js
+var wilddog = require('wilddog');
+var RealtimeLocation = require('wilddog-video');
+
+wilddog.regService('location', function(app) {
+  if (app == null) {
+    throw new Error('application not initialized!Please call wilddog.initializeApp first');
+    return;
+  };
+  return new RealtimeLocation(app);
+});
+
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
 
@@ -32,6 +52,7 @@ var config = {
   syncURL: "https://<appId>.wilddogio.com" //输入AppID
 };
 wilddog.initializeApp(config);
+// 注意类名不要覆盖全局的变量，如：location 和 Location
 var wildLocation = wilddog.location();
 ```
 

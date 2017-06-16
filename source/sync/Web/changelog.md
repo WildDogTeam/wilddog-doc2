@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Javascript SDK
 
+### V2.5.10 - 2017.06.13
+
+<span class="changelog feature">修复</span>
+
+- 修复了 node 版在无法判断网络环境时重连失败的问题。
+
 ### V2.5.8 - 2017.05.18
 
 <span class="changelog feature">修复</span>
