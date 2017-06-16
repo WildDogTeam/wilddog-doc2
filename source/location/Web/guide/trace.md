@@ -16,7 +16,7 @@ title: 实时轨迹
 
 ```javascript
 var locationProvider = wildLocation.initAMapLocationProviderWithTime(60000);
-wildLocation.startTracing(key, locationProvider);
+wildLocation.startRecordingPath(key, locationProvider);
 ```
 
 - 根据距离间隔上传，最小间隔 0 米 (1 秒判断一次)，最大间隔 500 米。
@@ -25,7 +25,7 @@ wildLocation.startTracing(key, locationProvider);
 
 ```javascript
 var locationProvider = wildLocation.initAMapLocationProviderWithDistance(20);
-wildLocation.startTracing(key, locationProvider);
+wildLocation.startRecordingPath(key, locationProvider);
 ```
 
 
