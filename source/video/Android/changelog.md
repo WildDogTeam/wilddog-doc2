@@ -4,6 +4,21 @@ title: 更新日志
 
 ## Android SDK
 
+
+### v1.0.2-beta - 2017.06.20
+
+<span class="changelog optimize">优化</span>
+
+- 优化接口以及内部逻辑控制，提升 SDK 稳定性。
+- 升级网络通信库为 OKHttp 3.5.0 。
+
+<span class="changelog fix">修复</span>
+
+- 修复多次调用邀请加入会话导致重复建立连接问题。
+- 修复连接成功后正常通话中回调用户离线 bug。
+- 修复邀请时对端无法接收到邀请信息 bug。
+- 修复退出会话时崩溃以及资源释放问题。
+
 ### v1.0.1-beta - 2017.06.02
 
 <span class="changelog optimize">优化</span>
