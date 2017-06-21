@@ -3,15 +3,15 @@ title: 位置同步
 
 本篇文档介绍如何实现实时位置同步。
 
-## 1.上传位置
+## 1. 上传位置
 
-### 单次上传
+###  单次上传
 
 `- setLocation:forKey:` 方法可以根据 Key 向云端上传一次位置信息，如果 Key 不存在，云端会自动创建。
 
 ```objectivec
-WDGGeoLocation *location = [[WDGGeoLocation alloc] initWithLatitude:42.0 longitude:100.0];
-[wilddogGeo setLocation:location forKey:@"key"];
+WDGPosition *position = [[WDGPosition alloc] initWithLatitude:42.0 longitude:100.0];
+[locationService setLocation:position forKey:@"key"];
 ```
 
 ### 持续上传
@@ -58,9 +58,16 @@ WDGAMapLocationProvider *locationProvider = [[WDGAMapLocationProvider alloc] ini
 
 除了位置之外，你还可以在上传时附带 JSON 形式的自定义属性。
 
-可以在单次上传中附带属性
+可以在单次上传中附带属性：
 
-也可以实现`WilddogLocationDelegate`中的`- `
+```objectivec
+NSDate *timestamp = [NSDate date];
+NSDictionary *attr = @{@"foo": @"bar"};
+WDGPosition *customPosition = [[WDGPosition alloc] initWithLatitude:latitude longitude:longitude timestamp:timestamp customAttributes:attr];
+[locationService setLocation:customPosition forKey:@"key"];
+```
+
+也可以实现 `WilddogLocationDelegate` 协议中的 `- wilddogLocation:willUpdateLocation:ForKey:` 方法：
 
 ```objectivec
 -(WDGPosition *)wilddogLocation:(WDGLocation *)wilddogLocation willUpdateLocation:(WDGPosition *)location ForKey:(NSString *)key {
@@ -77,7 +84,7 @@ WDGAMapLocationProvider *locationProvider = [[WDGAMapLocationProvider alloc] ini
 ## 2. 监听位置
 
 ### 持续监听
-`- observeLocationForKey:withBlock:`  用于实时获取指定 Key 的最新位置信息。
+`- observeLocationForKey:withBlock:` 用于实时获取指定 Key 的最新位置信息。
 
 ```objectivec
 WilddogHandle handle = [locationService observeLocationForKey:@"key" withBlock:^(WDGPosition * _Nullable position, NSError * _Nullable error) {
@@ -113,7 +120,7 @@ WilddogHandle handle = [locationService observeLocationForKey:@"key" withBlock:^
 }];
 ```
 
-
+###
 
 ## 3. 计算距离
 
@@ -130,7 +137,7 @@ double distance = [WDGLocation distanceBetweenLocation:position1 andLocation:pos
 例如：持续监听两个 key 的位置，每当它们的位置更新后，计算二者的距离。
 
 ```objectivec
-WilddogHandle handle1 = [_geo observeLocationForKey:@"key1" withBlock:^(WDGPosition * _Nullable position, NSError * _Nullable error) {
+WilddogHandle handle1 = [locationService observeLocationForKey:@"key1" withBlock:^(WDGPosition * _Nullable position, NSError * _Nullable error) {
     if (error) {
         // Handle error here
         return;
@@ -139,7 +146,7 @@ WilddogHandle handle1 = [_geo observeLocationForKey:@"key1" withBlock:^(WDGPosit
     [self updateDistance];
 }];
 
-WilddogHandle handle2 = [_geo observeLocationForKey:@"key2" withBlock:^(WDGPosition * _Nullable position, NSError * _Nullable error) {
+WilddogHandle handle2 = [locationService observeLocationForKey:@"key2" withBlock:^(WDGPosition * _Nullable position, NSError * _Nullable error) {
     if (error) {
         // Handle error here
         return;

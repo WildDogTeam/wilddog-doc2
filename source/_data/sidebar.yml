@@ -415,13 +415,16 @@ location:
       实时轨迹: /location/iOS/guide/trace.html
 
     API 文档:
-      AMapLocationProvider: /location/iOS/api/AMapLocationProvider.html
-      CallbackRegistration: /location/iOS/api/CallbackRegistration.html
-      CircleQuery: /location/iOS/api/CircleQuery.html
-      Location: /location/iOS/api/Location.html
-      PathQuery: /location/iOS/api/PathQuery.html
-      PathSnapshot: /location/iOS/api/PathSnapshot.html
-      Position: /location/iOS/api/Position.html
+      WDGAMapLocationProvider: /location/iOS/api/WDGAMapLocationProvider.html
+      WDGCircleQuery: /location/iOS/api/WDGCircleQuery.html
+      WDGLocation: /location/iOS/api/WDGLocation.html
+      WDGLocationDelegate: /location/iOS/api/WDGLocationDelegate.html
+      WDGPathQuery: /location/iOS/api/WDGPathQuery.html
+      WDGPathSnapshot: /location/iOS/api/WDGPathSnapshot.html
+      WDGPosition: /location/iOS/api/WDGPosition.html
+      WDGQuery: /location/iOS/api/WDGQuery.html
+      WDGQueryEventType: /location/iOS/api/WDGQueryEventType.html
+
       #错误码: /location/Web/api/error-code.html
     更新日志: /location/iOS/changelog.html
 

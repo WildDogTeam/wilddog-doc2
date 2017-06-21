@@ -38,14 +38,14 @@ end
 
 **方法1:**
 
-WilddogLocation SDK 提供了快捷的初始化方法，只需输入AppID即可创建WilddogLocatiob服务：
+WilddogLocation SDK 提供了快捷的初始化方法，只需输入AppID即可创建WilddogLocation服务：
 
 ```objectivec
 WDGLocation *locationService = [[WDGLocation alloc] initWithWilddogAppID:@"YourAppID"];
 ```
 **方法2:**
 
-WilddogLocation SDK依赖于Wilddog Sync实时通信引擎，所以也可以先初始化Sync的App，再用Sync App的Reference来创建WilddogLocatiob服务：
+WilddogLocation SDK依赖于Wilddog Sync实时通信引擎，所以也可以先初始化Sync的App，再用Sync App的Reference来创建WilddogLocation服务：
 
 ```objectivec
 // 初始化Wilddog Sync
