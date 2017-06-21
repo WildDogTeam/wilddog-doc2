@@ -1,7 +1,7 @@
 title: 安装与初始化
 ---
 
-本篇文档介绍如何安装和初始化 WilddogLocation SDK。
+本篇文档介绍如何安装和初始化 SDK。
 
 
 ## 1. 使用 CocoaPods 安装 SDK
@@ -45,7 +45,7 @@ WDGLocation *locationService = [[WDGLocation alloc] initWithWilddogAppID:@"YourA
 ```
 **方法2:**
 
-WilddogLocation SDK依赖于Wilddog Sync实时通信引擎，所以也可以先初始化Sync的App，再用Sync App的Reference来创建WilddogLocation服务：
+WilddogLocation SDK 依赖于 Wilddog Sync，所以也可以先初始化 Sync 的 App，再用 Sync App 的 Reference 来创建 WilddogLocation 服务：
 
 ```objectivec
 // 初始化Wilddog Sync

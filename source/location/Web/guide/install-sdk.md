@@ -6,7 +6,7 @@ title: 安装与初始化
 
 
 
-### 安装 SDK
+## 1. 安装 SDK
 
 Realtime Location SDK 提供标签引用和 npm 下载两种方式安装。
 
@@ -48,7 +48,7 @@ wilddog.regService('location', function(app) {
 
 
 
-### 初始化 SDK
+## 2. 初始化 SDK
 
 使用 Wilddog Location SDK 之前，需要先创建实例。
 

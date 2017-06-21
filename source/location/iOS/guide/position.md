@@ -5,15 +5,6 @@ title: 位置同步
 
 ## 1. 上传位置
 
-###  单次上传
-
-`- setLocation:forKey:` 方法可以根据 Key 向云端上传一次位置信息，如果 Key 不存在，云端会自动创建。
-
-```objectivec
-WDGPosition *position = [[WDGPosition alloc] initWithLatitude:42.0 longitude:100.0];
-[locationService setLocation:position forKey:@"key"];
-```
-
 ### 持续上传
 
 `- startTracingLocationForKey:`方法可以根据 Key 向云端持续上传设备的位置，如果 Key 不存在，云端会自动创建。默认为 5s 上传一次位置数据。
@@ -22,30 +13,22 @@ WDGPosition *position = [[WDGPosition alloc] initWithLatitude:42.0 longitude:100
 [locationService startTracingLocationForKey:@"key"];
 ```
 
-### 停止上传
-
-`- stopTracingLocationForKey: ` 方法可以停止指定 Key 的位置上传。
-
-```objectivec
-[locationService stopTracingLocationForKey:@"key"];
-```
-
 ### 设置上传频率
 
 你可以根据时间或距离设置上传频率，这种方式需要传入一个`WDGAmapLocationProvider`实例：
 
-- 根据时间间隔上传，最小间隔 1s, 最大间隔 300s。
+- 根据时间间隔上传，最小间隔 1秒, 最大间隔 300 秒。
 
-例如，每 2.0s 上传一次位置信息：
+例如，每 2 秒 上传一次位置信息：
 
 ```objectivec
 WDGAMapLocationProvider *locationProvider = [[WDGAMapLocationProvider alloc] initWithTimeInterval:2.0];
 [locationService startTracingLocationForKey:@"key" withLocationProvider:locationProvider];
 ```
 
-- 根据距离间隔上传，最小间隔 0m (1s判断一次)，最大间隔 100m。
+- 根据距离间隔上传，最小间隔 0 米 (1秒判断一次)，最大间隔 100 米。
 
-例如，每移动 10 m 上传一次位置信息：
+例如，每移动 10 米 上传一次位置信息：
 
 ```objectivec
 WDGAMapLocationProvider *locationProvider = [[WDGAMapLocationProvider alloc] initWithDistance:10.0];
@@ -79,6 +62,28 @@ WDGPosition *customPosition = [[WDGPosition alloc] initWithLatitude:latitude lon
     return customLocation;
 }
 ```
+
+### 停止上传
+
+`- stopTracingLocationForKey: ` 方法可以停止指定 Key 的位置上传。
+
+```objectivec
+[locationService stopTracingLocationForKey:@"key"];
+```
+
+
+
+### 单次上传
+
+`- setLocation:forKey:` 方法可以根据 Key 向云端上传一次位置信息，如果 Key 不存在，云端会自动创建。
+
+```objectivec
+WDGPosition *position = [[WDGPosition alloc] initWithLatitude:42.0 longitude:100.0];
+[locationService setLocation:position forKey:@"key"];
+```
+
+
+
 
 
 ## 2. 监听位置
@@ -120,7 +125,7 @@ WilddogHandle handle = [locationService observeLocationForKey:@"key" withBlock:^
 }];
 ```
 
-###
+
 
 ## 3. 计算距离
 

@@ -3,7 +3,7 @@ title: 更新日志
 
 ## iOS SDK
 
-### V0.1.0 - 2017.06.21
+### V0.2.0 - 2017.06.21
 
 <span class="changelog add">新增</span>
 

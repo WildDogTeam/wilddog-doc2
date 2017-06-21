@@ -3,9 +3,7 @@ title: 实时轨迹
 
 ## 1. 轨迹记录
 
-### 开始记录轨迹
-
-`- startRecordingPathForKey`方法用于记录指定 Key 的轨迹，并实时上传至云端，默认为 5s 上传一次。
+`- startRecordingPathForKey`方法用于记录指定 Key 的轨迹，并实时上传至云端，默认为 5 秒 上传一次。
 
 ```objectivec
 [locationService startRecordingPathForKey:@"key"];
@@ -15,18 +13,18 @@ title: 实时轨迹
 
 和位置同步一样，你可以根据时间或距离设置上传频率，这种方式需要传入一个`WDGAmapLocationProvider`实例：
 
-- 根据时间间隔上传，最小间隔 1s, 最大间隔 300s。
+- 根据时间间隔上传，最小间隔 1秒, 最大间隔 300 秒。
 
-例如，每 2.0s 记录一个轨迹点：
+例如，每 2 秒 记录一个轨迹点：
 
 ```objectivec
 WDGAMapLocationProvider *locationProvider = [[WDGAMapLocationProvider alloc] initWithTimeInterval:2.0];
 [locationService startRecordingPathForKey:@"key" withLocationProvider:locationProvider];
 ```
 
-- 根据距离间隔上传，最小间隔 0m (1s判断一次)，最大间隔 100m。
+- 根据距离间隔上传，最小间隔 0 米 (1 秒判断一次)，最大间隔 100 米。
 
-例如，每移动 10 m 记录一个轨迹点：
+例如，每移动 10 米记录一个轨迹点：
 
 ```objectivec
 WDGAMapLocationProvider *locationProvider = [[WDGAMapLocationProvider alloc] initWithDistance:10.0];
@@ -55,24 +53,19 @@ NSDate *end = [NSDate date];
 WDGPathQuery *pathQuery = [_geo pathQueryForKey:@"key" startTime:start endTime:end];
 ```
 
-> 如果endTime传入了nil或者是未来的事件，查询将会一直返回最新的轨迹记录，直到到达设置时间为止。
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+如果 endTime 传入了 nil 或者是未来的事件，查询将会一直返回最新的轨迹记录，直到到达设置时间为止。
+</blockquote>
 
-WilddogLocation SDK还提供了不同参数版本的轨迹查询创建方法：
+
+WilddogLocation SDK 还提供了不同参数版本的轨迹查询创建方法：
 
 - `pathQueryForKey:`为全量查询，默认查询全部的记录。
 - `pathQueryForKey:startTime:`只设置查询开始时间，一直查询最新的记录。
 - `pathQueryForKey:endTime:`只设置查询结束时间，从最早的记录开始。
 
 
-### 单次轨迹查询
-
-`- observeSingleEventWithBlock:` 用于查询指定时间范围内的轨迹记录。
-
-```objectivec
-[pathQuery observeSingleEventWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
-    NSLog(@"Path: %@", snapshot.points);
-}];
-```
 
 ### 实时轨迹监听
 
@@ -100,9 +93,19 @@ WilddogHandle handle = [_pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull
 }];
 ```
 
+### 单次轨迹查询
+
+`- observeSingleEventWithBlock:` 用于查询指定时间范围内的轨迹记录。
+
+```objectivec
+[pathQuery observeSingleEventWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
+    NSLog(@"Path: %@", snapshot.points);
+}];
+```
+
 ### 轨迹长度
 
-`WDGPathSnapshot` 的属性 `length` 用于记录轨迹的长度，单位为 m。
+`WDGPathSnapshot` 的属性 `length` 用于记录轨迹的长度，单位为米。
 
 ```objectivec
 WilddogHandle handle = [_pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
