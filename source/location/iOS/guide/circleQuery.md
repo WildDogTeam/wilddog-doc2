@@ -11,18 +11,26 @@ WDGCircleQuery *circleQuery = [_geo queryAtLocation:[[CLLocation alloc] initWith
 
 范围监听通过事件的方式实时获取设备的变化信息。
 
-事件包括以下四种:
+事件包括以下三种:
 
-| 名称          | 说明                                       |
-| ----------- | ---------------------------------------- |
-| key_entered | 设备进入了查询范围内时触发 key_entered 事件。初始化时所有范围内的设备都会触发一次 key_entered 事件。 |
-| key_exited  | 设备从查询范围内离开查询范围时，会触发 key_exited 事件。如果这个 key 在云端被删除的话，被传递给回调函数的位置信息和距离信息将为null。 |
-| key_moved   | 设备已经在查询范围内部，当它在内部发生移动的时候，会触发 key_moved 事件。 |
-| ready       | 当初始化或者更新范围条件后，数据都将会重新加载。加载完毕的时候将会触发 ready事件。 |
+| 名称                      | 说明                                       |
+| ------------------------ | ------------------------------------------ |
+| `WDGQueryEventTypeEntered` | 设备进入了查询范围内时触发 `WDGQueryEventTypeEntered` 事件。初始化时所有范围内的设备都会触发一次该事件。 |
+| `WDGQueryEventTypeExited`  | 设备从查询范围内离开查询范围时，会触发 `WDGQueryEventTypeExited` 事件。如果这个 key 在云端被删除的话，被传递给回调函数的位置信息和距离信息将为null。 |
+| `WDGQueryEventTypeMoved`   | 设备已经在查询范围内部，当它在内部发生移动的时候，会触发 `WDGQueryEventTypeMoved` 事件。 |
 
 
 
 ## 监听范围事件
+
+`- observeReadyWithBlock:`方法在`WDGCircleQuery`实例初始化完成或者查询被更新时触发，可以在该方法内设置更新UI的操作。
+
+```objectivec
+[circleQuery observeReadyWithBlock:^{
+    NSLog(@"Observe ready!");
+    // Update UI.
+}];
+```
 
 `- observeEventType:withBlock:`方法用于与事件配合，监听范围内的设备数据。
 
@@ -45,7 +53,7 @@ WDGCircleQuery *circleQuery = [_geo queryAtLocation:[[CLLocation alloc] initWith
 - `WDGQueryEventTypeMoved` 事件在监听范围内的设备移动时触发。
 
 ```objectivec
-[_circleQuery observeEventType:WDGQueryEventTypeMoved withBlock:^(NSString * _Nonnull key, WDGPosition * _Nonnull location) {
+[circleQuery observeEventType:WDGQueryEventTypeMoved withBlock:^(NSString * _Nonnull key, WDGPosition * _Nonnull location) {
     NSLog(@"%@ Moved: (%g, %g)", key, location.latitude, location.longitude);
 }];
 ```
@@ -53,10 +61,9 @@ WDGCircleQuery *circleQuery = [_geo queryAtLocation:[[CLLocation alloc] initWith
 
 
 
-
 ## 取消监听
 
-`- removeObserverWithWilddogHandle:` 用于取消指定范围的监听。
+`- removeObserverWithWilddogHandle:` 用于取消指定的范围监听。
 
 ```objectivec
 [circleQuery removeObserverWithWilddogHandle:handle];

@@ -27,14 +27,19 @@ end
 * 高德 App Key 在[高德开放平台](https://lbs.amap.com/)中创建应用获取。
 * 野狗 AppID [野狗控制面板](https://www.wilddog.com/dashboard/)中创建应用获取。
 
-### 1. 设置高德 API Key：
+### 1. 引入头文件：
+```objectivec
+#import <WilddogLocation/WilddogLocation.h>
+```
+
+### 2. 设置高德 API Key：
 在`AppDelegate.m`中的`-application:didFinishLaunchingWithOptions:`中添加：
 
 ```objectivec
 [AMapServices sharedServices].apiKey = @"Your-AMap-API-Key";
 ```
 
-### 2. 初始化 WilddogLocation 服务：
+### 3. 初始化 WilddogLocation 服务：
 
 **方法1:**
 

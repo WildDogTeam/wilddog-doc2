@@ -50,12 +50,12 @@ WDGAMapLocationProvider *locationProvider = [[WDGAMapLocationProvider alloc] ini
 ```objectivec
 NSDate *start = [NSDate dateWithTimeIntervalSince1970:1497863758];
 NSDate *end = [NSDate date];
-WDGPathQuery *pathQuery = [_geo pathQueryForKey:@"key" startTime:start endTime:end];
+WDGPathQuery *pathQuery = [locationService pathQueryForKey:@"key" startTime:start endTime:end];
 ```
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-如果 endTime 传入了 nil 或者是未来的事件，查询将会一直返回最新的轨迹记录，直到到达设置时间为止。
+如果 endTime 传入了 nil 或者是未来的事件，查询将会一直返回最新的轨迹记录，直到到达设置时间或监听被取消为止。
 </blockquote>
 
 
@@ -72,7 +72,7 @@ WilddogLocation SDK 还提供了不同参数版本的轨迹查询创建方法：
 `- observeSingleEventWithBlock:` 用于持续监听指定时间范围内的轨迹记录，知道设定结束时间到达为止。
 
 ```objectivec
-WilddogHandle handle = [_pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
+WilddogHandle handle = [pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
     NSLog(@"Path: %@", snapshot.points);
 }];
 ```
@@ -88,7 +88,7 @@ WilddogHandle handle = [_pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull
 如果你想绘制一条实时的轨迹，可以利用 `latestPoint` 实时绘制新的轨迹点。
 
 ```objectivec
-WilddogHandle handle = [_pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
+WilddogHandle handle = [pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
     NSLog(@"Latest Point: %@", snapshot.latestPoint);
 }];
 ```
@@ -108,7 +108,7 @@ WilddogHandle handle = [_pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull
 `WDGPathSnapshot` 的属性 `length` 用于记录轨迹的长度，单位为米。
 
 ```objectivec
-WilddogHandle handle = [_pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
+WilddogHandle handle = [pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
     NSLog(@"Path length: %d", snapshot.length);
 }];
 ```
