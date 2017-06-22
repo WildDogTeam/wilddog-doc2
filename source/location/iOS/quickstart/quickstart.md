@@ -31,6 +31,13 @@ pod 'WilddogLocation'
 ## 3. 初始化SDK
 
 #### 1. 引入头文件
+
+在`AppDelegate.h`中，引入：
+```objectivec
+#import <AMapFoundationKit/AMapFoundationKit.h>
+```
+
+在`ViewController.h`中，引入:
 ```objectivec
 #import <WilddogLocation/WilddogLocation.h>
 ```

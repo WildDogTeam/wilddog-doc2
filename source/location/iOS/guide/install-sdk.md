@@ -28,6 +28,12 @@ end
 * 野狗 AppID [野狗控制面板](https://www.wilddog.com/dashboard/)中创建应用获取。
 
 ### 1. 引入头文件：
+在`AppDelegate.h`中，引入：
+```objectivec
+#import <AMapFoundationKit/AMapFoundationKit.h>
+```
+
+在需要使用WilddogLocation的地方引入：
 ```objectivec
 #import <WilddogLocation/WilddogLocation.h>
 ```
