@@ -192,7 +192,7 @@ outgoing.on('canceled', function(){
 
 ```js
 //监听对方处于通话中事件
-outgoing.on('canceled', function(){
+outgoing.on('busy', function(){
     //处于通话中
     console.log('An invite to ' + outgoing.to + ' busy.');
 });
