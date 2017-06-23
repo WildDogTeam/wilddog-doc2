@@ -16,7 +16,7 @@ String
 
 **说明**
 
-邀请的状态，包括 "accepted", "rejected", "canceled", "failed", 和 "pending"。
+邀请的状态，包括 "accepted", "rejected", "canceled", "failed", "pending" 和 "busy"。
 
 | 状态 | 说明 |
 |---|---|
@@ -25,6 +25,7 @@ String
 | canceled | 邀请被取消。 |
 | failed | 邀请失败。 |
 | pending | 邀请中。 |
+| busy | 被邀请方处于通话中。 |
 
 </br>
 
@@ -115,6 +116,7 @@ outgoing.cancel();
 | rejected | 对方已拒绝邀请后触发。 |
 | failed | 邀请失败后触发。 |
 | canceled | 邀请已被取消后触发。 |
+| busy | 对方处于通话中时触发。 |
 
 </br>
 
@@ -177,5 +179,21 @@ outgoing.on('failed', function(){
 outgoing.on('canceled', function(){
     //取消邀请
     console.log('An invite to ' + outgoing.to + ' canceled.');
+});
+```
+
+</br>
+
+---
+
+**busy**
+
+**示例**
+
+```js
+//监听对方处于通话中事件
+outgoing.on('canceled', function(){
+    //处于通话中
+    console.log('An invite to ' + outgoing.to + ' busy.');
 });
 ```
