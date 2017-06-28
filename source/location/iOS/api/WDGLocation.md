@@ -426,7 +426,7 @@ radius        | 范围查询的半径。
 
 ---
 
-### - distanceBetweenLocation:andLocation:
+### + distanceBetweenLocation:andLocation:
 
 ##### 定义
 

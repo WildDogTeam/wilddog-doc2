@@ -1,4 +1,4 @@
-title: WDGQueryEventtype
+title: WDGQueryEventType
 ---
 
 枚举类型，主要用于监听设备位置的变化。

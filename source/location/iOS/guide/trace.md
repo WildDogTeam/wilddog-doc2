@@ -69,7 +69,7 @@ WilddogLocation SDK 还提供了不同参数版本的轨迹查询创建方法：
 
 ### 实时轨迹监听
 
-`- observeSingleEventWithBlock:` 用于持续监听指定时间范围内的轨迹记录，知道设定结束时间到达为止。
+`- observeSingleEventWithBlock:` 用于持续监听指定时间范围内的轨迹记录，直到设定结束时间到达为止。
 
 ```objectivec
 WilddogHandle handle = [pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
