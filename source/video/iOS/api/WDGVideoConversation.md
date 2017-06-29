@@ -115,6 +115,39 @@ title: WDGVideoConversation
 
 断开当前视频通话的连接。
 
+### -startVideoRecording:
+
+**定义**
+
+```objectivec
+- (BOOL)startVideoRecording:(NSString *)filePath;
+```
+
+**说明**
+
+录制视频并保存到本地filePath目录下。
+
+**参数**
+
+参数名 | 说明 
+---|---
+filePath|视频录制文件保存路径。
+
+**返回值**
+开启录制操作是否成功
+
+### -stopVideoRecording
+
+**定义**
+
+```objectivec
+- (void)stopVideoRecording;
+```
+
+**说明**
+
+停止视频的录制。
+
 </br>
 
 ---
