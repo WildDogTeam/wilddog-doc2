@@ -50,20 +50,20 @@ var wildLocation = wilddog.location();
 
 ## 4. 位置上传
 
-`initAMapLocationProviderWith*() `方法可以根据 Key 向云端持续上传设备位置，如果云端不存在该 Key，将会自动创建。
+`startTracingPosition() `方法可以根据 Key 向云端持续上传设备位置，如果云端不存在该 Key，将会自动创建。
 
 ```javascript
-var locationProvider = wildLocation.initAMapLocationProviderWithTime(5000);
-wildLocation.startTracing(key, locationProvider);
+var locationProvider = wildLocation.AMapLocationProvider("timeInterval", 5000);
+wildLocation.startTracingPosition(key, locationProvider);
 ```
 ## 5. 位置监听
 
 开启位置上传之后，你可以通过上传的 Key 监听位置的变化。
 
-`on()`  用于实时获取指定 Key 的最新位置信息。
+`onPosition()`  用于实时获取指定 Key 的最新位置信息。
 
 ```javascript
-var cancelCallback = wildLocation.on(key, function(position) {
+var cancelCallback = wildLocation.onPosition(key, function(position) {
     console.log('最新位置的经纬度为： ', position.latitude(), ',' , position.longitude());
 })
 ```

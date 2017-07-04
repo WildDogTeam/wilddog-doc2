@@ -15,8 +15,8 @@ title: 实时轨迹
 例如，每 60 秒上传一次轨迹点：
 
 ```javascript
-var locationProvider = wildLocation.initAMapLocationProviderWithTime(60000);
-wildLocation.startTracing(key, locationProvider);
+var locationProvider = wildLocation.AMapLocationProvider("timeInterval", 60000);
+wildLocation.startTracingPosition(key, locationProvider);
 ```
 
 - 根据距离间隔上传，最小间隔 0 米 (1 秒判断一次)，最大间隔 500 米。
@@ -24,8 +24,8 @@ wildLocation.startTracing(key, locationProvider);
 例如，每 20 米 上传一次轨迹点：
 
 ```javascript
-var locationProvider = wildLocation.initAMapLocationProviderWithDistance(20);
-wildLocation.startTracing(key, locationProvider);
+var locationProvider = wildLocation.AMapLocationProvider("distanceInterval", 20);
+wildLocation.startTracingPosition(key, locationProvider);
 ```
 
 
@@ -47,7 +47,7 @@ wildLocation.stopRecordingPath(key);
 `PathQurey.on()` 用于查询实时轨迹，轨迹一旦发生变化，将会实时更新。
 
 ```javascript
-var pathQuery = wildLocation.initPathQuery({key: key});
+var pathQuery = wildLocation.pathQuery(key);
 pathQuery.on(function (pathSnapshot) {
     console.log('轨迹的路程长度为： ', pathSnapshot.length());
     var positions = pathSnapshot.points();
@@ -67,7 +67,7 @@ pathQuery.on(function (pathSnapshot) {
 起始时间 QueryStartAtTime
 
 ```javascript
-var pathQuery = wildLocation.initPathQuery({key: key, startTime: QueryStartAtTime});
+var pathQuery = wildLocation.pathQuery(key, {startTime: QueryStartAtTime});
 pathQuery.on(function (pathSnapshot) {
     console.log('轨迹的路程长度为： ', pathSnapshot.length());
     var positions = pathSnapshot.points();
@@ -78,7 +78,7 @@ pathQuery.on(function (pathSnapshot) {
 结束时间 QueryEndAtTime
 
 ```javascript
-var pathQuery = wildLocation.initPathQuery({key: key, endTime: QueryEndAtTime});
+var pathQuery = wildLocation.pathQuery(key, {endTime: QueryEndAtTime});
 pathQuery.on(function (pathSnapshot) {
     console.log('轨迹的路程长度为： ', pathSnapshot.length());
     var positions = pathSnapshot.points();
@@ -94,7 +94,7 @@ pathQuery.on(function (pathSnapshot) {
 `PathQurey.once()` 用于查询指定时间范围内的轨迹记录。
 
 ```javascript
-var pathQuery = wildLocation.initPathQuery({key: key});
+var pathQuery = wildLocation.pathQuery(key);
 pathQuery.once(function (pathSnapshot) {
     console.log('轨迹的路程长度为： ', pathSnapshot.length());
     var positions = pathSnapshot.points();

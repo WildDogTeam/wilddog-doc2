@@ -3,11 +3,11 @@ title: 范围监听
 
 
 ## 创建监听范围
-`initCircleQuery()`  方法根据位置与半径创建监听范围。
+`circleQuery()`  方法根据位置与半径创建监听范围。
 
 例如，创建一个半径为 500 米的监听范围。
 ```javascript
-var circleQuery = wildLocation.initCircleQuery({center:position, radius:500});
+var circleQuery = wildLocation.circleQuery({center:position, radius:500});
 ```
 
 ## 事件
@@ -96,7 +96,7 @@ circleQuery.updateCriteria(newQueryCriteria);
 例如，根据设备的实时位置不断更新监听范围。
 
 ```javascript
-wildLocation.on(myPositionKey, function (position) {
+wildLocation.onPosition(myPositionKey, function (position) {
     circleQuery.updateCriteria({
         center: position,
     });
