@@ -4,7 +4,20 @@ title: 更新日志
 
 ## Android SDK
 
-### V2.3.2- 2017.06.07
+
+### V2.3.4 - 2017.06.30
+
+<span class="changelog fix">修复</span>
+
+- 修复goOnline和goOffline失效问题。
+
+### V2.3.3 - 2017.06.16
+
+<span class="changelog fix">修复</span>
+
+- 修复离线事件导致的偶发性空指针问题。
+
+### V2.3.2 - 2017.06.07
 
 <span class="changelog fix">修复</span>
 

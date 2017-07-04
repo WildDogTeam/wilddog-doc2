@@ -5,6 +5,29 @@ title: WilddogVideoClient
 
 ## 方法
 
+### start()
+
+**定义**   
+
+```java
+void start()
+```
+
+**说明**
+
+开始使用 `WilddogVideoClient` 对象，在每次调用 `WilddogVideo.getClient()` 方法获取到 `WilddogVideoClient` 对象后，需要调用 `start()` 方法。
+
+**示例**
+
+```java
+    //获取client对象
+    client = video.getClient();
+    client.start();
+```
+
+</br>
+
+---
 
 ### setInviteListener(WilddogVideoClient.Listener)
 
@@ -165,7 +188,7 @@ public void dispose()
 
 **说明**
 
-释放WilddogVideoClient 持有的资源。
+释放 WilddogVideoClient 持有的资源。
 
 
 **示例**

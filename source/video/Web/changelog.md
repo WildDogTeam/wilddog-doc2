@@ -4,6 +4,14 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v1.0.0 - 2017.06.22
+
+**由于数据结构变更，自该版本起，将无法与 `v1.0.0` 之前的版本互通，为保证您的业务正常运行，建议选用新版本。**
+
+<span class="changelog add">新增</span>
+
+- 视频通话新增 `busy` 状态，表示对方正在通话。
+
 ### v0.5.20 - 2017.05.09
 
 <span class="changelog optimize">优化</span>

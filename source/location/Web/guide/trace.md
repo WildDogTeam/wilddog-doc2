@@ -1,8 +1,7 @@
 title: 实时轨迹
 ---
 
-## 1. 上传轨迹
-### 记录轨迹
+## 1. 轨迹记录
 
 `startRecordingPath()`  用于记录指定 Key 的轨迹，并实时上传至云端，默认为 5 秒 上传一次。
 
@@ -16,7 +15,7 @@ title: 实时轨迹
 
 ```javascript
 var locationProvider = wildLocation.AMapLocationProvider("timeInterval", 60000);
-wildLocation.startTracingPosition(key, locationProvider);
+wildLocation.startRecordingPath(key, locationProvider);
 ```
 
 - 根据距离间隔上传，最小间隔 0 米 (1 秒判断一次)，最大间隔 500 米。
@@ -25,7 +24,7 @@ wildLocation.startTracingPosition(key, locationProvider);
 
 ```javascript
 var locationProvider = wildLocation.AMapLocationProvider("distanceInterval", 20);
-wildLocation.startTracingPosition(key, locationProvider);
+wildLocation.startRecordingPath(key, locationProvider);
 ```
 
 

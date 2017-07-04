@@ -405,6 +405,28 @@ location:
       Position: /location/Web/api/Position.html
       #错误码: /location/Web/api/error-code.html
     更新日志: /location/Web/changelog.html
+  iOS:
+    概览: /location/iOS/index.html
+    快速入门: /location/iOS/quickstart/quickstart.html
+    完整指南:
+      初始化: /location/iOS/guide/install-sdk.html
+      位置同步: /location/iOS/guide/position.html
+      范围监听: /location/iOS/guide/circleQuery.html
+      实时轨迹: /location/iOS/guide/trace.html
+
+    API 文档:
+      WDGAMapLocationProvider: /location/iOS/api/WDGAMapLocationProvider.html
+      WDGCircleQuery: /location/iOS/api/WDGCircleQuery.html
+      WDGLocation: /location/iOS/api/WDGLocation.html
+      WDGLocationDelegate: /location/iOS/api/WDGLocationDelegate.html
+      WDGPathQuery: /location/iOS/api/WDGPathQuery.html
+      WDGPathSnapshot: /location/iOS/api/WDGPathSnapshot.html
+      WDGPosition: /location/iOS/api/WDGPosition.html
+      WDGQuery: /location/iOS/api/WDGQuery.html
+      WDGQueryEventType: /location/iOS/api/WDGQueryEventType.html
+
+      #错误码: /location/Web/api/error-code.html
+    更新日志: /location/iOS/changelog.html
 
 sms:
   短信:
