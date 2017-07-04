@@ -2,10 +2,10 @@ title: 范围监听
 ---
 
 ## 创建监听范围
-`- queryAtLocation:withRadius:`  根据位置与半径创建监听范围，单位为米。
+`- circleQueryAtPosition:withRadius:`  根据位置与半径创建监听范围，单位为米。
 
 ```objectivec
-WDGCircleQuery *circleQuery = [_geo queryAtLocation:[[CLLocation alloc] initWithLatitude:37.33617167 longitude:-122.08165962] withRadius:500.0];
+WDGCircleQuery *circleQuery = [_geo circleQueryAtPosition:[[CLLocation alloc] initWithLatitude:37.33617167 longitude:-122.08165962] withRadius:500.0];
 ```
 ## 事件
 
@@ -63,10 +63,10 @@ WDGCircleQuery *circleQuery = [_geo queryAtLocation:[[CLLocation alloc] initWith
 
 ## 取消监听
 
-`- removeObserverWithWilddogHandle:` 用于取消指定的范围监听。
+`- removeObserverWithHandle:` 用于取消指定的范围监听。
 
 ```objectivec
-[circleQuery removeObserverWithWilddogHandle:handle];
+[circleQuery removeObserverWithHandle:handle];
 ```
 
 `- removeAllObservers` 用于取消所有的范围监听。

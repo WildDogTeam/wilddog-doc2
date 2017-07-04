@@ -35,28 +35,6 @@ WilddogLocation的主入口，使用`WDGLocation`实例进行位置同步、范�
 
 ## 方法
 
-### - initWithWilddogAppID:
-
-##### 定义
-
-```objectivec
-- (instancetype)initWithWilddogAppID:(NSString *)appID;
-```
-
-##### 说明
-通过Wilddog的AppID来初始化`WDGLocation`实例。
-
-##### 参数
-
-参数名         | 说明
-------------- | -------------
-appID         | 在Wilddog控制台申请的AppID
-
-##### 返回值
-初始化成功的`WDGLocation`实例。
-
----
-
 ### - initWithSyncReference:
 
 ##### 定义
@@ -79,12 +57,12 @@ syncReference | 一个`WDGSyncReference`实例，后续的数据读写都在这�
 
 ---
 
-### - startTracingLocationForKey:
+### - startTracingPositionForKey:
 
 ##### 定义
 
 ```objectivec
-- (void)startTracingLocationForKey:(NSString *)key;
+- (void)startTracingPositionForKey:(NSString *)key;
 ```
 
 ##### 说明
@@ -98,12 +76,53 @@ key           | 位置数据将上传到这个 key 名下。
 
 ---
 
-### - startTracingLocationForKey:withLocationProvider:
+### - startTracingPositionForKey:withCompletionBlock:
 
 ##### 定义
 
 ```objectivec
-- (void)startTracingLocationForKey:(NSString *)key withLocationProvider:(WDGLocationProvider *)locationProvider;
+- (void)startTracingPositionForKey:(NSString *)key withCompletionBlock:(WDGLocationCompletionBlock _Nullable)block;
+```
+
+##### 说明
+开启自动位置同步，SDK 自动将 locationProvider 提供的位置数据上传到 key 名下，使用默认的LocationProvider，采样间隔为5s。
+
+##### 参数
+
+参数名         | 说明
+------------- | -------------
+key           | 位置数据将上传到这个 key 名下。
+block         | 完成后执行的回调。
+
+---
+
+### - startTracingPositionForKey:withLocationProvider:
+
+##### 定义
+
+```objectivec
+- (void)startTracingPositionForKey:(NSString *)key withLocationProvider:(WDGAMapLocationProvider *)locationProvider;
+```
+
+##### 说明
+开启自动位置同步，SDK 自动将 locationProvider 提供的位置数据上传到 key 名下。
+
+##### 参数
+
+参数名            | 说明
+---------------- | -------------
+key              | 位置数据将上传到这个 key 名下。
+locationProvider | `WDGLocationProvider`实例，位置数据的提供者
+block            | 完成后执行的回调。
+
+---
+
+### - startTracingPositionForKey:withLocationProvider:withCompletionBlock:
+
+##### 定义
+
+```objectivec
+- (void)startTracingPositionForKey:(NSString *)key withLocationProvider:(WDGAMapLocationProvider *)locationProvider withCompletionBlock:(WDGLocationCompletionBlock _Nullable)block;
 ```
 
 ##### 说明
@@ -118,12 +137,12 @@ locationProvider | `WDGLocationProvider`实例，位置数据的提供者
 
 ---
 
-### - stopTracingLocationForKey:
+### - stopTracingPositionForKey:
 
 ##### 定义
 
 ```objectivec
-- (void)stopTracingLocationForKey:(NSString *)key;
+- (void)stopTracingPositionForKey:(NSString *)key;
 ```
 
 ##### 说明
@@ -137,12 +156,32 @@ key           | 要终止自动位置同步的 key。
 
 ---
 
-### - setLocation:forKey:
+### - stopTracingPositionForKey:withCompletionBlock:
 
 ##### 定义
 
 ```objectivec
-- (void)setLocation:(WDGPosition *)position forKey:(NSString *)key;
+- (void)stopTracingPositionForKey:(NSString *)key withCompletionBlock:(WDGLocationCompletionBlock _Nullable)block;
+```
+
+##### 说明
+终止针对 key 的自动位置同步。
+
+##### 参数
+
+参数名         | 说明
+------------- | -------------
+key           | 要终止自动位置同步的 key。
+block         | 完成后执行的回调。
+
+---
+
+### - setPosition:forKey:
+
+##### 定义
+
+```objectivec
+- (void)setPosition:(WDGPosition *)position forKey:(NSString *)key;
 ```
 
 ##### 说明
@@ -157,12 +196,12 @@ key           | 位置数据将写入 key 名下。
 
 ---
 
-### - setLocation:forKey:withCompletionBlock:
+### - setPosition:forKey:withCompletionBlock:
 
 ##### 定义
 
 ```objectivec
-- (void)setLocation:(WDGPosition *)position forKey:(NSString *)key withCompletionBlock:(WDGLocationCompletionBlock)block;
+- (void)setPosition:(WDGPosition *)position forKey:(NSString *)key withCompletionBlock:(WDGLocationCompletionBlock _Nullable)block;
 ```
 
 ##### 说明
@@ -178,12 +217,12 @@ block         | 写入操作的回调函数。
 
 ---
 
-### - getLocationForKey:withBlock:
+### - getPositionForKey:withBlock:
 
 ##### 定义
 
 ```objectivec
-- (void)getLocationForKey:(NSString *)key withBlock:(WDGLocationCallbackBlock)block;
+- (void)getPositionForKey:(NSString *)key withBlock:(WDGLocationCallbackBlock)block;
 ```
 
 ##### 说明
@@ -198,12 +237,12 @@ block         | 包含位置信息或错误信息的回调函数。
 
 ---
 
-### - observeLocationForKey:withBlock:
+### - observePositionForKey:withBlock:
 
 ##### 定义
 
 ```objectivec
-- (WilddogHandle)observeLocationForKey:(NSString *)key withBlock:(WDGLocationCallbackBlock)block;
+- (WilddogHandle)observePositionForKey:(NSString *)key withBlock:(WDGLocationCallbackBlock)block;
 ```
 
 ##### 说明
@@ -221,12 +260,12 @@ block         | 包含位置信息或错误信息的回调函数。
 
 ---
 
-### - removeObserverWithWilddogHandle:
+### - removeObserverWithHandle:
 
 ##### 定义
 
 ```objectivec
-- (void)removeObserverWithWilddogHandle:(WilddogHandle)handle;
+- (void)removeObserverWithHandle:(WilddogHandle)handle;
 ```
 
 ##### 说明
@@ -240,6 +279,25 @@ handle        | 要取消的监听的编号。
 
 ---
 
+### - removeAllObserversForKey:
+
+##### 定义
+
+```objectivec
+- (void)removeAllObserversForKey:(NSString *)key;
+```
+
+##### 说明
+取消对指定key的位置监听。
+
+##### 参数
+
+参数名         | 说明
+------------- | -------------
+key           | 要取消监听的key。
+
+---
+
 ### - removeAllObservers
 
 ##### 定义
@@ -250,6 +308,45 @@ handle        | 要取消的监听的编号。
 
 ##### 说明
 取消所有位置监听。
+
+---
+
+### - removePositionForKey:
+
+##### 定义
+
+```objectivec
+- (void)removePositionForKey:(NSString *)key;
+```
+
+##### 说明
+移除指定key下的位置数据。
+
+##### 参数
+
+参数名         | 说明
+------------- | -------------
+key           | 需要移除的节点。
+
+---
+
+### - removePositionForKey:withCompletionBlock:
+
+##### 定义
+
+```objectivec
+- (void)removePositionForKey:(NSString *)key withCompletionBlock:(WDGLocationCompletionBlock _Nullable)block;
+```
+
+##### 说明
+移除指定key下的位置数据。
+
+##### 参数
+
+参数名         | 说明
+------------- | -------------
+key           | 需要移除的节点。
+block         | 删除操作的回调函数。
 
 ---
 
@@ -269,6 +366,26 @@ handle        | 要取消的监听的编号。
 参数名            | 说明
 ---------------- | -------------
 key              | 要记录轨迹的 key。
+
+---
+
+### - startRecordingPathForKey:withCompletionBlock
+
+##### 定义
+
+```objectivec
+- (void)startRecordingPathForKey:(NSString *)key withCompletionBlock:(WDGLocationCompletionBlock _Nullable)block;
+```
+
+##### 说明
+开始记录 key 的轨迹。开启成功后每次 key 的位置同步数据更新时，都将存一份副本到实时轨迹数据库中。使用默认的LocationProvider，采样间隔为5s。
+
+##### 参数
+
+参数名            | 说明
+---------------- | -------------
+key              | 要记录轨迹的 key。
+block            | 完成后执行的回调。
 
 ---
 
@@ -292,6 +409,27 @@ locationProvider | `WDGLocationProvider`实例，位置数据的提供者
 
 ---
 
+### - startRecordingPathForKey:withLocationProvider:withCompletionBlock:
+
+##### 定义
+
+```objectivec
+- (void)startRecordingPathForKey:(NSString *)key withLocationProvider:(WDGAMapLocationProvider *)locationProvider withCompletionBlock:(WDGLocationCompletionBlock _Nullable)block;
+```
+
+##### 说明
+开始记录 key 的轨迹。开启成功后每次 key 的位置同步数据更新时，都将存一份副本到实时轨迹数据库中。
+
+##### 参数
+
+参数名            | 说明
+---------------- | -------------
+key              | 要记录轨迹的 key。
+locationProvider | `WDGLocationProvider`实例，位置数据的提供者
+block            | 完成后执行的回调。
+
+---
+
 ### - stopRecordingPathForKey:
 
 ##### 定义
@@ -308,6 +446,26 @@ locationProvider | `WDGLocationProvider`实例，位置数据的提供者
 参数名            | 说明
 ---------------- | -------------
 key              | 要终止记录轨迹的 key。
+
+---
+
+### - stopRecordingPathForKey:withCompletionBlock:
+
+##### 定义
+
+```objectivec
+- (void)stopRecordingPathForKey:(NSString *)key withCompletionBlock:(WDGLocationCompletionBlock _Nullable)block;
+```
+
+##### 说明
+终止 key 的轨迹记录。
+
+##### 参数
+
+参数名            | 说明
+---------------- | -------------
+key              | 要终止记录轨迹的 key。
+block            | 完成后执行的回调。
 
 ---
 
@@ -403,12 +561,51 @@ endTime       | 要查询的时间段的结束时间。
 
 ---
 
-### - queryAtLocation:withRadius:
+### - removePathForKey:
 
 ##### 定义
 
 ```objectivec
-- (WDGCircleQuery *)queryAtLocation:(CLLocation *)location withRadius:(double)radius;
+- (void)removePathForKey:(NSString *)key;
+```
+
+##### 说明
+移除指定key下的轨迹记录。
+
+##### 参数
+
+参数名         | 说明
+------------- | -------------
+key           | 需要移除的节点。
+
+---
+
+### - removePathForKey:withCompletionBlock:
+
+##### 定义
+
+```objectivec
+- (void)removePathForKey:(NSString *)key withCompletionBlock:(WDGLocationCompletionBlock _Nullable)block;
+```
+
+##### 说明
+移除指定key下的轨迹记录。
+
+##### 参数
+
+参数名         | 说明
+------------- | -------------
+key           | 需要移除的节点。
+block         | 删除操作的回调函数。
+
+---
+
+### - circleQueryAtPosition:withRadius:
+
+##### 定义
+
+```objectivec
+- (WDGCircleQuery *)circleQueryAtPosition:(WDGPosition *)position withRadius:(double)radius;
 ```
 
 ##### 说明
@@ -418,7 +615,7 @@ endTime       | 要查询的时间段的结束时间。
 
 参数名         | 说明
 ------------- | -------------
-location      | 范围查询的中心。
+position      | 范围查询的圆心。
 radius        | 范围查询的半径。
 
 ##### 返回值
@@ -426,12 +623,12 @@ radius        | 范围查询的半径。
 
 ---
 
-### + distanceBetweenLocation:andLocation:
+### + distanceBetweenPosition:andPosition:
 
 ##### 定义
 
 ```objectivec
-+ (double)distanceBetweenLocation:(WDGPosition *)location1 andLocation:(WDGPosition *)location2;
++ (double)distanceBetweenPosition:(WDGPosition *)position1 andPosition:(WDGPosition *)position2;
 ```
 
 ##### 说明
@@ -441,8 +638,8 @@ radius        | 范围查询的半径。
 
 参数名         | 说明
 ------------- | -------------
-location1     | 第一个位置点。
-location2     | 第二个位置点。
+position1     | 第一个位置点。
+position2     | 第二个位置点。
 
 ##### 返回值
 以米为单位的距离。

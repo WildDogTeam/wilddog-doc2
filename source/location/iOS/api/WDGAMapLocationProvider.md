@@ -10,7 +10,7 @@ title: WDGAMapLocationProvider
 ##### 定义
 
 ```objectivec
-@property (nonatomic, assign) WDGLocationSampleType sampleType;
+@property (nonatomic, assign, readonly) WDGLocationSampleType sampleType;
 ```
 
 ##### 说明
@@ -23,7 +23,7 @@ title: WDGAMapLocationProvider
 ##### 定义
 
 ```objectivec
-@property (nonatomic, assign) NSTimeInterval timeInterval;
+@property (nonatomic, assign, readonly) NSTimeInterval timeInterval;
 ```
 
 ##### 说明
@@ -36,11 +36,24 @@ title: WDGAMapLocationProvider
 ##### 定义
 
 ```objectivec
-@property (nonatomic, assign) double distance;
+@property (nonatomic, assign, readonly) double distanceInterval;
 ```
 
 ##### 说明
-若当前采样方式为距离，通过这个属性控制距离的大小。单位为米，范围为 0 到 100 米。
+若当前采样方式为距离，通过这个属性控制距离的大小。单位为米，范围为 0 到 500 米。
+
+---
+
+### currentPosition
+
+##### 定义
+
+```objectivec
+@property (nonatomic, strong, readonly, nullable) WDGPosition *currentPosition;
+```
+
+##### 说明
+从这个位置数据源获得当前位置。
 
 
 ---
@@ -57,7 +70,7 @@ title: WDGAMapLocationProvider
 ```
 
 ##### 说明
-将采样方式设置为基于时间间隔采样并设置间隔时间。
+将采样方式设置为基于时间间隔采样并设置间隔时间，单位为秒。
 
 ##### 参数
 
@@ -75,33 +88,19 @@ timeInterval  | 采样的间隔时间。单位为秒，范围为 1 到 300 秒�
 ##### 定义
 
 ```objectivec
-- (instancetype)initWithDistance:(double)distance;
+- (instancetype)initWithDistanceInterval:(double)distanceInterval;
 ```
 
 ##### 说明
-将采样方式设置为基于时间间隔采样并设置间隔时间。
+将采样方式设置为基于移动距离采样并设置两次采样之间的最小距离。
 
 ##### 参数
 
-参数名         | 说明
-------------- | -------------
-timeInterval  | 采样的间隔时间。单位为秒，范围为 1 到 300 秒。
+参数名             | 说明
+----------------- | -------------
+distanceInterval  | 两次采样之间的最小距离。单位为米，范围为 0 到 500 米。
 
 ##### 返回值
 `WDGAMapLocationProvider` 实例。
 
 ---
-
-### + defaultLocationProvider
-
-##### 定义
-
-```objectivec
-+ (instancetype)defaultLocationProvider;
-```
-
-##### 说明
-采用默认的采样方式，按时间间隔采样，间隔为5s。
-
-##### 返回值
-`WDGAMapLocationProvider` 实例。

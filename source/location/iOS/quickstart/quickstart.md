@@ -55,25 +55,30 @@ pod 'WilddogLocation'
 使用在第一步中创建的野狗应用ID，即可初始化服务。
 
 ```objectivec
-WDGLocation *locationService = [[WDGLocation alloc] initWithWilddogAppID:@"YourAppID"];
+// 初始化Wilddog Sync
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://YourAppID.wilddogio.com"];
+[WDGApp configureWithOptions:option];
+WDGSyncReference *ref = [[WDGSync sync] reference];
+// 使用Sync Reference初始化Wilddog Location
+WDGLocation *locationService = [[WDGLocation alloc] initWithSyncReference:ref];
 ```
 
 ## 4. 位置上传
 
-`- startTracingLocationForKey:`方法可以根据 Key 向云端持续上传设备的位置，如果 Key 不存在，云端会自动创建。默认为 5s 上传一次位置数据。
+`- startTracingPositionForKey:`方法可以根据 Key 向云端持续上传设备的位置，如果 Key 不存在，云端会自动创建。默认为 5s 上传一次位置数据。
 
 ```objectivec
-[locationService startTracingLocationForKey:@"key"];
+[locationService startTracingPositionForKey:@"key"];
 ```
 
 ## 5. 位置监听
 
 开启位置上传之后，你可以监听的 Key 的位置变化。
 
-`- observeLocationForKey:withBlock:` 用于实时获取指定 Key 的最新位置信息。
+`- observePositionForKey:withBlock:` 用于实时获取指定 Key 的最新位置信息。
 
 ```objectivec
-WilddogHandle handle = [locationService observeLocationForKey:@"key" withBlock:^(WDGPosition * _Nullable position, NSError * _Nullable error) {
+WilddogHandle handle = [locationService observePositionForKey:@"key" withBlock:^(WDGPosition * _Nullable position, NSError * _Nullable error) {
     NSLog(@"Current Position: %@", position);
 }];
 ```
