@@ -422,11 +422,32 @@ location:
       WDGPathQuery: /location/iOS/api/WDGPathQuery.html
       WDGPathSnapshot: /location/iOS/api/WDGPathSnapshot.html
       WDGPosition: /location/iOS/api/WDGPosition.html
-      WDGQuery: /location/iOS/api/WDGQuery.html
       WDGQueryEventType: /location/iOS/api/WDGQueryEventType.html
 
       #错误码: /location/Web/api/error-code.html
     更新日志: /location/iOS/changelog.html
+
+  Android:
+    概览: /location/Android/index.html
+    快速入门: /location/Android/quickstart/quickstart.html
+    完整指南:
+      初始化: /location/Android/guide/install-sdk.html
+      位置同步: /location/Android/guide/position.html
+      范围监听: /location/Android/guide/circleQuery.html
+      实时轨迹: /location/Android/guide/pathQuery.html
+
+    API 文档:
+      AMapLocationProvider: /location/Android/api/AMapLocationProvider.html
+      CircleQuery: /location/Android/api/CircleQuery.html
+      Location: /location/Android/api/Location.html
+      PathQuery: /location/Android/api/PathQuery.html
+      PathSnapshot: /location/Android/api/PathSnapshot.html
+      Position: /location/Android/api/Position.html
+      ProviderType: /location/Android/api/ProviderType.html
+
+      #错误码: /location/Web/api/error-code.html
+    更新日志: /location/iOS/changelog.html
+
 
 sms:
   短信:
