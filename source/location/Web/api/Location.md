@@ -88,11 +88,11 @@ Promise
 
 ##### 定义
 
-`offPosition(key)`
+`offPosition([key])`
 
 ##### 说明
 
-取消所有监听key的位置信息。
+取消所有监听 key 的位置信息，如果 key 为 null 则取消所有对 Position 的监听。
 
 ##### 参数
 
