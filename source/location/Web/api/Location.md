@@ -343,12 +343,12 @@ PathQuery
 ---
 
 
-### Location.distance
+### wilddog.Location.distance
 
 
 ##### 定义
 
-`Location.distance(position1, position2)`
+`wilddog.Location.distance(position1, position2)`
 
 ##### 说明
 

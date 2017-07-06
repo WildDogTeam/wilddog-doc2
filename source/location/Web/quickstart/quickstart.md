@@ -29,6 +29,37 @@ Realtime Location 依赖于高德定位 SDK，因此需要按顺序引入：
 
 </blockquote>
 
+**通过 npm 下载**
+
+1.安装依赖。
+
+    npm install wilddog wilddog-location
+
+2.在代码中注册 Realtime Location 服务。
+
+```javascript
+var wilddog = require('wilddog');
+var RealtimeLocation = require('wilddog-video');
+
+wilddog.regService('location', function(app) {
+  if (app == null) {
+    throw new Error('application not initialized!Please call wilddog.initializeApp first');
+    return;
+  };
+  return new RealtimeLocation(app);
+});
+wilddog.Location = RealtimeLocation;
+```
+3.在 html 中引用高德 api。
+<figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tp://webapi.amap.com/maps?v=1.3&key=&lt;AMapKey&gt;&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+
+<blockquote class="warning">
+  <p><strong>注意：</strong></p>
+
+引入高德定位 SDK 的时候，需要填入你高德应用的 AMapKey。如果没有，请在[高德开放平台](http://lbs.amap.com/)中获取。
+
+</blockquote>
+
 ## 3. 初始化 SDK
 
 使用 Realtime Location SDK 之前，需要先创建实例。

@@ -35,6 +35,7 @@ wilddog.regService('location', function(app) {
   };
   return new RealtimeLocation(app);
 });
+wilddog.Location = RealtimeLocation;
 ```
 3.在 html 中引用高德 api。
 <figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tp://webapi.amap.com/maps?v=1.3&key=&lt;AMapKey&gt;&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
