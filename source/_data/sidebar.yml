@@ -446,7 +446,7 @@ location:
       ProviderType: /location/Android/api/ProviderType.html
 
       #错误码: /location/Web/api/error-code.html
-    更新日志: /location/iOS/changelog.html
+    更新日志: /location/Android/changelog.html
 
 
 sms:
