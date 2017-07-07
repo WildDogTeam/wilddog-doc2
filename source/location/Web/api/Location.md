@@ -6,11 +6,11 @@ title: Location
 
 ## 方法
 
-### initCustomPosition
+### customPosition
 
 ##### 定义
 
-`initCustomPosition(PositionOptions)`
+`customPosition(locationArray, PositionOptions)`
 
 ##### 说明
 
@@ -20,6 +20,7 @@ title: Location
 
 | 参数名 | 说明 |
 |---|---|
+| locationArray |  `Array` 类型。<br>一个包含经纬度的数组，数组的第一个数据为 float 型的纬度，第二个数据为 float 型的经度。 |
 | PositionOptions | [PositionOptions](/location/Web/api/Location.html#PositionOptions) 类型，设置将要创建的本地媒体流属性。 |
 
 ##### 返回值
@@ -30,12 +31,12 @@ title: Location
 
 ---
 
-### set
+### setPosition
 
 
 ##### 定义
 
-`set(keyOrPositions[, position])`
+`setPosition(keyOrPositions[, position])`
 
 ##### 说明
 
@@ -56,12 +57,12 @@ Promise
 
 ---
 
-### on
+### onPosition
 
 
 ##### 定义
 
-`on(key, callback)`
+`onPosition(key, callback)`
 
 ##### 说明
 
@@ -82,16 +83,16 @@ Promise
 
 ---
 
-### off
+### offPosition
 
 
 ##### 定义
 
-`off(key)`
+`offPosition([key])`
 
 ##### 说明
 
-取消所有监听key的位置信息。
+取消所有监听 key 的位置信息，如果 key 为 null 则取消所有对 Position 的监听。
 
 ##### 参数
 
@@ -103,12 +104,12 @@ Promise
 
 ---
 
-### once
+### getPosition
 
 
 ##### 定义
 
-`once(key)`
+`getPosition(key)`
 
 ##### 说明
 
@@ -178,12 +179,12 @@ Promise
 
 ---
 
-### initCircleQuery
+### circleQuery
 
 ##### 定义
 
 
-`initCircleQuery(circleQueryCriteria)`
+`circleQuery(circleQueryCriteria)`
 
 ##### 说明
 
@@ -203,12 +204,12 @@ Promise
 
 ---
 
-### initPathQuery
+### pathQuery
 
 
 ##### 定义
 
-`initPathQuery(pathQueryCriteria)`
+`pathQuery(key, PathQueryOptions)`
 
 ##### 说明
 
@@ -218,7 +219,8 @@ Promise
 
 | 参数名 | 说明 |
 |---|---|
-| PathQueryCriteria | [PathQueryCriteria](Location.html#PathQueryCriteria) 类型，范围查询的条件 Map。 |
+| key | `String` 类型。<br>一个轨迹的唯一标识符。|
+| PathQueryOptions | [PathQueryOptions](Location.html#PathQueryOptions) 类型，范围查询的条件 Map。 |
 
 ##### 返回值
 
@@ -228,12 +230,12 @@ PathQuery
 
 ---
 
-### initAMapLocationProviderWithTime
+### AMapLocationProvider
 
 
 ##### 定义
 
-`initAMapLocationProviderWithTime(number)`
+`AMapLocationProvider(type, number)`
 
 ##### 说明
 
@@ -243,7 +245,8 @@ PathQuery
 
 | 参数名 | 说明 |
 |---|---|
-| number | `Int` 类型，间隔时间，单位为 ms。 |
+| type | `String` 类型，采集地理位置的间隔类型，包括"timeInterval"和"distanceInterval"。 |
+| number | `Int` 类型，时间间隔（ms）或 距离间隔（m）。 |
 
 ##### 返回值
 
@@ -253,41 +256,16 @@ PathQuery
 
 ---
 
-### initAMapLocationProviderWithDistance
+### startTracingPosition
 
 
 ##### 定义
 
-`initAMapLocationProviderWithDistance(number)`
+`startTracingPosition(key[, AMapLocationProvider])`
 
 ##### 说明
 
-初始化一个根据间隔距离更新地理位置的 AMapLocationProvider 。
-
-##### 参数
-
-| 参数名 | 说明 |
-|---|---|
-| number | `Float` 类型，间隔时间，单位为 m。 |
-
-##### 返回值
-
-[AMapLocationProvider](AMapLocationProvider.html)
-
-</br>
-
----
-
-### startTracing
-
-
-##### 定义
-
-`startTracing(key[, AMapLocationProvider])`
-
-##### 说明
-
-开启位置持续更新，用户可以传入 [AMapLocationProvider](AMapLocationProvider.html) 对象，默认以时间间隔为一秒的 [AMapLocationProvider](AMapLocationProvider.html) 进行更新。
+开启位置持续更新，用户可以传入 [AMapLocationProvider](AMapLocationProvider.html) 对象。如果没有提供 [AMapLocationProvider](AMapLocationProvider.html) ，默认以时间间隔为5秒的 [AMapLocationProvider](AMapLocationProvider.html) 进行更新。
 
 ##### 参数
 
@@ -300,12 +278,12 @@ PathQuery
 
 ---
 
-### stopTracing
+### stopTracingPosition
 
 
 ##### 定义
 
-`stopTracing(key)`
+`stopTracingPosition(key)`
 
 ##### 说明
 
@@ -330,7 +308,7 @@ PathQuery
 
 ##### 说明
 
-开启轨迹持续更新，用户可以传入 [AMapLocationProvider](AMapLocationProvider.html) 对象，默认以时间间隔为一秒的 [AMapLocationProvider](AMapLocationProvider.html) 进行更新。
+开启轨迹持续更新，用户可以传入 [AMapLocationProvider](AMapLocationProvider.html) 对象。如果没有提供 [AMapLocationProvider](AMapLocationProvider.html) ，默认以时间间隔为5秒的 [AMapLocationProvider](AMapLocationProvider.html) 进行更新。
 
 ##### 参数
 
@@ -365,12 +343,12 @@ PathQuery
 ---
 
 
-### Location.distance
+### wilddog.Location.distance
 
 
 ##### 定义
 
-`Location.distance(position1, position2)`
+`wilddog.Location.distance(position1, position2)`
 
 ##### 说明
 
@@ -409,7 +387,6 @@ Object
 
 | 参数名 | 说明 |
 |---|---|
-| location | `Array` 类型。<br>一个包含经纬度的数组，数组的第一个数据为 float 型的纬度，第二个数据为 float 型的经度。|
 | timestamp | `Int` 类型。<br>时间戳。 |
 | customAttributes | `String` 类型。<br>用户自定义属性，如果是 Object 类型需转换成 String 后进行保存。 |
 
@@ -432,7 +409,7 @@ Object
 | center | [Position](Position.html) 类型。<br>一个 Position 对象，将作为范围查询的中心。|
 | radius | `Int` 类型。<br>范围查询的半径，单位是 m 。 |
 
-### PathQueryCriteria
+### PathQueryOptions
 
 **类型**
 
@@ -448,6 +425,5 @@ Object
 
 | 参数名 | 说明 |
 |---|---|
-| key | `String` 类型。<br>一个轨迹的唯一标识符。|
 | startTime | `Int` 类型。<br>查询轨迹的开始时间，一个时间戳。 |
 | endTime | `Int` 类型。<br>查询轨迹的结束时间，一个时间戳。 |

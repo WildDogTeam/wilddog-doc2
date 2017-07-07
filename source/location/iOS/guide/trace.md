@@ -9,6 +9,14 @@ title: 实时轨迹
 [locationService startRecordingPathForKey:@"key"];
 ```
 
+`- startRecordingPathForKey:withCompletionBlock:`方法可以在上传开始后执行一次回调。
+
+```objectivec
+[locationService startRecordingPathForKey:@"key" withCompletionBlock:^(NSError * _Nullable error) {
+    NSLog(@"Recording started!");
+}];
+```
+
 ### 设置上传频率
 
 和位置同步一样，你可以根据时间或距离设置上传频率，这种方式需要传入一个`WDGAmapLocationProvider`实例：
@@ -31,12 +39,29 @@ WDGAMapLocationProvider *locationProvider = [[WDGAMapLocationProvider alloc] ini
 [locationService startRecordingPathForKey:@"key" withLocationProvider:locationProvider];
 ```
 
+`- startTracingPositionForKey:withLocationProvider:withCompletionBlock:`方法可以在上传开始后执行一次回调。
+
+```objectivec
+[locationService startRecordingPathForKey:@"key" withLocationProvider:locationProvider withCompletionBlock:^(NSError * _Nullable error) {
+    NSLog(@"Recording started!");
+}];
+```
+
+
 ### 停止记录轨迹
 
 `- stopRecordingPathForKey:`用于停止记录指定 Key 的轨迹。
 
 ```objectivec
 [locationService stopRecordingPathForKey:@"key"];
+```
+
+`- stopRecordingPathForKey:withCompletionBlock:`方法可以在上传开始后执行一次回调。
+
+```objectivec
+[locationService stopRecordingPathForKey:@"key" withCompletionBlock:^(NSError * _Nullable error) {
+    NSLog(@"Recording stopped!");
+}];
 ```
 
 
@@ -69,7 +94,7 @@ WilddogLocation SDK 还提供了不同参数版本的轨迹查询创建方法：
 
 ### 实时轨迹监听
 
-`- observeSingleEventWithBlock:` 用于持续监听指定时间范围内的轨迹记录，知道设定结束时间到达为止。
+`- observeSingleEventWithBlock:` 用于持续监听指定时间范围内的轨迹记录，直到设定结束时间到达为止。
 
 ```objectivec
 WilddogHandle handle = [pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
@@ -80,7 +105,7 @@ WilddogHandle handle = [pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull 
 
 ```objectivec
 // 使用handle移除单个监听
-[pathQuery removeObserverWithWilddogHandle:handle];
+[pathQuery removeObserverWithHandle:handle];
 // 移除所有监听
 [pathQuery removeAllObservers];
 ```
@@ -110,5 +135,22 @@ WilddogHandle handle = [pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull 
 ```objectivec
 WilddogHandle handle = [pathQuery observeWithBlock:^(WDGPathSnapshot * _Nonnull snapshot) {
     NSLog(@"Path length: %d", snapshot.length);
+}];
+```
+
+
+## 3. 移除轨迹
+
+`- removePathForKey:` 用于删除服务器存储的指定 `key` 的轨迹记录。
+
+```objectivec
+[locationService removePathForKey:@"key"];
+```
+
+`- removePathForKey:withCompletionBlock:` 可以在删除操作完成后执行一次回调。
+
+```objectivec
+[locationService removePathForKey:@"key" withCompletionBlock:^(NSError * _Nullable error) {
+    NSLog(@"Path deleted!");
 }];
 ```

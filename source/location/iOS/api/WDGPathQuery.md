@@ -89,12 +89,12 @@ block         | 查询操作的回调，每当路径有变化，将会触发回�
 
 ---
 
-### - removeObserverWithWilddogHandle:
+### - removeObserverWithHandle:
 
 ##### 定义
 
 ```objectivec
-- (void)removeObserverWithWilddogHandle:(WilddogHandle)handle;
+- (void)removeObserverWithHandle:(WilddogHandle)handle;
 ```
 
 ##### 说明

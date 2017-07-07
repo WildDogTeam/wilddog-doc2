@@ -47,15 +47,6 @@ end
 
 ### 3. 初始化 WilddogLocation 服务：
 
-**方法1:**
-
-WilddogLocation SDK 提供了快捷的初始化方法，只需输入AppID即可创建WilddogLocation服务：
-
-```objectivec
-WDGLocation *locationService = [[WDGLocation alloc] initWithWilddogAppID:@"YourAppID"];
-```
-**方法2:**
-
 WilddogLocation SDK 依赖于 Wilddog Sync，所以也可以先初始化 Sync 的 App，再用 Sync App 的 Reference 来创建 WilddogLocation 服务：
 
 ```objectivec

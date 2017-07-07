@@ -7,11 +7,11 @@ title: 位置同步
 
 ### 持续上传
 
-`initAMapLocationProviderWith*()`方法可以根据 Key 向云端持续上传设备位置，如果云端不存在该 Key，将会自动创建。默认为 5 秒 上传一次数据。
+`AMapLocationProvider()`方法可以根据 Key 向云端持续上传设备位置，如果云端不存在该 Key，将会自动创建。如果不提供[AMapLocationProvider](AMapLocationProvider.html), 默认创建以时间间隔 5 秒采样的[AMapLocationProvider](AMapLocationProvider.html)上传数据。
 
 ```javascript
-var locationProvider = wildLocation.initAMapLocationProviderWithTime(5000);
-wildLocation.startTracing(key, locationProvider);
+var locationProvider = wildLocation.AMapLocationProvider("timeInterval", 5000);
+wildLocation.startTracingPosition(key[, locationProvider]);
 ```
 
 <blockquote class="notice">
@@ -31,8 +31,8 @@ wildLocation.startTracing(key, locationProvider);
 例如，每 60 秒上传一次位置信息：
 
 ```javascript
-var locationProvider = wildLocation.initAMapLocationProviderWithTime(60000);
-wildLocation.startTracing(key, locationProvider);
+var locationProvider = wildLocation.AMapLocationProvider("timeInterval", 60000);
+wildLocation.startTracingPosition(key, locationProvider);
 ```
 
 - 根据距离间隔上传，最小间隔 0 米 (1 秒判断一次)，最大间隔 500 米。
@@ -40,8 +40,8 @@ wildLocation.startTracing(key, locationProvider);
 例如，每 20 米 上传一次位置信息：
 
 ```javascript
-var locationProvider = wildLocation.initAMapLocationProviderWithDistance(20);
-wildLocation.startTracing(key, locationProvider);
+var locationProvider = wildLocation.AMapLocationProvider("distanceInterval", 20);
+wildLocation.startTracingPosition(key, locationProvider);
 ```
 
 
@@ -55,27 +55,27 @@ var options = {
     timestamp = Date.now(),
     customAttributes = 'my firest customPosition!'
 }
-var myPosition = wildLocation.initCustomPosition(options);
+var myPosition = wildLocation.customPosition(options);
 
-wildLocation.set('myPosition', myPosition);
+wildLocation.setPosition('myPosition', myPosition);
 ```
 
 ### 停止上传
 
-`stopTracing()` 用于取消指定 Key 的位置上传。
+`stopTracingPosition()` 用于取消指定 Key 的位置上传。
 
 ```javascript
-wildLocation.stopTracing(key);
+wildLocation.stopTracingPosition(key);
 ```
 
 
 
 ###  单次上传
 
-`set()`方法可以根据 Key 向云端上传一次位置信息，如果 Key 不存在，云端会自动创建。
+`setPosition()`方法可以根据 Key 向云端上传一次位置信息，如果 Key 不存在，云端会自动创建。
 
 ```javascript
-wildLocation.set('myPosition', myPosition);
+wildLocation.setPosition('myPosition', myPosition);
 ```
 
 
@@ -83,10 +83,10 @@ wildLocation.set('myPosition', myPosition);
 ## 2. 位置监听
 
 ### 持续监听
-`on()`  用于实时获取指定 Key 的最新位置信息。
+`onPosition()`  用于实时获取指定 Key 的最新位置信息。
 
 ```javascript
-var cancelCallback = wildLocation.on(key, function(position) {
+var cancelCallback = wildLocation.onPosition(key, function(position) {
     console.log('最新位置的经纬度为： ', position.latitude(), ',' , position.longitude());
 })
 
@@ -99,23 +99,23 @@ var cancelCallback = wildLocation.on(key, function(position) {
 `cancelCallback()` 用于取消指定 Key 的位置监听。
 
 ```javascript
-cancelCallback();
+CallbackRegistration.cancelCallback();
 ```
 
-`off()` 用于取消所有的位置监听。
+`offPosition()` 用于取消所有的位置监听。
 
 ```javascript
-wildLocation.off();
+wildLocation.offPosition();
 ```
 
 
 
 ### 单次监听
 
-`once()` 用于获取一次指定 Key 的最新位置信息。
+`getPosition()` 用于获取一次指定 Key 的最新位置信息。
 
 ```javascript
-wildLocation.once(key, function(position) {
+wildLocation.getPosition(key).then(function(position) {
     console.log('最新位置的经纬度为： ', position.latitude(), ',' , position.longitude());
 })
 
@@ -136,12 +136,12 @@ var distance = Location.distance(position1, position2);
 
 ```javascript
 var position1, position2, distance;
-wildLocation.on(key1, function(position) {
+wildLocation.onPosition(key1, function(position) {
     position1 = position;
     distance = Location.distance(position1, position2);
     console.log('最新的距离为： ', distance, 'm');
 });
-wildLocation.on(key2, function(position) {
+wildLocation.onPosition(key2, function(position) {
     position2 = position;
     distance = Location.distance(position1, position2);
     console.log('最新的距离为： ', distance, 'm');
