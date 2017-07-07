@@ -111,7 +111,7 @@ android {
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
 WilddogApp.initializeApp(this, options);
 SyncReference ref = WilddogSync.getInstance().getReference();
-Location location = new Location(ref);
+WilddogLocation location = new WilddogLocation(ref);
 ```
 
 ## 5. 位置上传
