@@ -25,7 +25,7 @@ SDK 的安装方式有两种，你可以任选其一：
 * 高德 App Key 在[高德开放平台](https://lbs.amap.com/)中创建应用获取。
 * 野狗 AppID [野狗控制面板](https://www.wilddog.com/dashboard/)中创建应用获取。
 
-### 1. 引入高德api：
+### 1. 引入高德 API
 在`build.gradle`中，引入：
 ```android
  compile 'com.amap.api:map2d:latest.integration'
