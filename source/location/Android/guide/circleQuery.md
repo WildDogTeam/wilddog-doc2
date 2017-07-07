@@ -26,6 +26,7 @@ CircleQuery query = location.getCircleQuery(new Position(39.7, -122.4), 100);
 ## 监听范围事件
 
 `addCircleQueryEventListener(listener)`方法用于与事件配合，监听范围内的设备数据。
+```
 query.addCircleQueryEventListener(new CircleQueryListener() {
             @Override
             public void onKeyEntered(String key, Position location) {

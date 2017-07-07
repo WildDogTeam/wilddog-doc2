@@ -41,6 +41,6 @@ WilddogLocation SDK 依赖于 Wilddog Sync，所以也可以先初始化 Sync �
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
 WilddogApp.initializeApp(this, options);
 SyncReference ref = WilddogSync.getInstance().getReference();
-Location location = new Location(ref);
+WilddogLocation location = new WilddogLocation(ref);
 ```
 
