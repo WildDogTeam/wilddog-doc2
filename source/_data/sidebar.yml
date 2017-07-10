@@ -439,7 +439,7 @@ location:
     API 文档:
       AMapLocationProvider: /location/Android/api/AMapLocationProvider.html
       CircleQuery: /location/Android/api/CircleQuery.html
-      Location: /location/Android/api/Location.html
+      WilddogLocation: /location/Android/api/WilddogLocation.html
       PathQuery: /location/Android/api/PathQuery.html
       PathSnapshot: /location/Android/api/PathSnapshot.html
       Position: /location/Android/api/Position.html
