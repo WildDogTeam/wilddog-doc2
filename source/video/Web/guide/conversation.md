@@ -137,23 +137,3 @@ conversation.on('disconnected', function(){
 })
 ```
 
-## 数据安全性
-
-### 保护信令交互的安全
-
-视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为保护数据安全，可以针对该节点配置 [规则表达式](/sync/Web/rules/introduce.html) 。
-
-规则表达式设置页面如下：
-
-<img src="/images/video_guide_rule.png" alt="video_guide_rule">
-
-例如，配置规则表达式，`wilddogVideo` 节点只允许信令交互双方读写，其他节点允许所有人读写：
-
-```
-{
-  "rules": {
-    "wilddogVideo": {"conversations": {"$cid": {"users": {".read": "auth != null","$user": {".write": "$user == auth.uid"}},"messages": {"$signalMail": {".write": "$signalMail.startsWith(auth.uid)",".read": "$signalMail.endsWith(auth.uid)"}}}},"invitations": {"$user": {".read": "auth.uid == $user","$invite": {".write": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)",".read": "$invite.startsWith(auth.uid)||$invite.endsWith(auth.uid)"}}}},
-    "$others":{ ".read": true,".write": true}
-  }
-}
-```

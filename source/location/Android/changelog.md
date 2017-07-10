@@ -1,9 +1,9 @@
 title: 更新日志
 ---
 
-## iOS SDK
+## Android SDK
 
-### V0.2.0 - 2017.06.21
+### V0.1.0 - 2017.07.07
 
 <span class="changelog add">新增</span>
 
