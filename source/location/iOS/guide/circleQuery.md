@@ -2,10 +2,10 @@ title: 范围监听
 ---
 
 ## 创建监听范围
-`- circleQueryAtPosition:withRadius:`  根据位置与半径创建监听范围，单位为米。
+`- circleQueryAtPosition:withRadius:`  根据位置与半径创建监听范围，单位为千米。
 
 ```objectivec
-WDGCircleQuery *circleQuery = [_geo circleQueryAtPosition:[[CLLocation alloc] initWithLatitude:37.33617167 longitude:-122.08165962] withRadius:500.0];
+WDGCircleQuery *circleQuery = [locationService circleQueryAtPosition:[[WDGPosition alloc] initWithLatitude:37.33617167 longitude:-122.08165962] withRadius:0.5];
 ```
 ## 事件
 
