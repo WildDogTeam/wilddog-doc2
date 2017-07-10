@@ -45,7 +45,7 @@ title: 位置同步
 可以在单次上传中附带属性：
 
 ```android
-Position position=location.initCustomPosition(37.7853889,-122.4056973,1498024197565L,"my firest customPosition!");
+Position position=new Position(37.7853889,-122.4056973,1498024197565L,1499310852388L,"my firest customPosition!");
 location.setLocation("key", position);
 ```
 
