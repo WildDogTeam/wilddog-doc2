@@ -39,6 +39,8 @@ pod 'WilddogLocation'
 
 在`ViewController.h`中，引入:
 ```objectivec
+#import <WilddogCore/WilddogCore.h>
+#import <WilddogSync/WilddogSync.h>
 #import <WilddogLocation/WilddogLocation.h>
 ```
 
