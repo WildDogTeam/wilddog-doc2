@@ -5,13 +5,13 @@ title: WDGLocationDelegate
 
 ## 方法
 
-### - wilddogLocation:willUpdateLocation:ForKey:
+### - wilddogLocation: willUpdatePosition:ForKey:
 
 ##### 定义
 
 ```objectivec
 @optional
-- (WDGPosition *_Nullable)wilddogLocation:(WDGLocation *)wilddogLocation willUpdateLocation:(WDGPosition *)location ForKey:(NSString *)key;
+- (WDGPosition *_Nullable)wilddogLocation:(WDGLocation *)wilddogLocation willUpdatePosition:(WDGPosition *)position ForKey:(NSString *)key;
 ```
 
 ##### 说明
@@ -30,13 +30,13 @@ location        | 原始位置数据。
 
 ---
 
-### - wilddogLocation:didStartedTracingLocationForKey:
+### - wilddogLocation: didStartedTracingPositionForKey:
 
 ##### 定义
 
 ```objectivec
 @optional
-- (void)wilddogLocation:(WDGLocation *)wilddogLocation didStartedTracingLocationForKey:(NSString *)key;
+- (void)wilddogLocation:(WDGLocation *)wilddogLocation didStartedTracingPositionForKey:(NSString *)key;
 ```
 
 ##### 说明
@@ -51,13 +51,13 @@ key             | 位置同步数据将写在这个key名下。
 
 ---
 
-### - wilddogLocation:didStoppedTracingLocationForKey:
+### - wilddogLocation: didStoppedTracingPositionForKey:
 
 ##### 定义
 
 ```objectivec
 @optional
-- (void)wilddogLocation:(WDGLocation *)wilddogLocation didStoppedTracingLocationForKey:(NSString *)key;
+- (void)wilddogLocation:(WDGLocation *)wilddogLocation didStoppedTracingPositionForKey:(NSString *)key;
 ```
 
 ##### 说明
@@ -72,13 +72,13 @@ key             | 位置同步数据将写在这个key名下。
 
 ---
 
-### - wilddogLocation:didFailedTracingLocationForKey:
+### - wilddogLocation: didFailedTracingPositionForKey:
 
 ##### 定义
 
 ```objectivec
 @optional
-- (void)wilddogLocation:(WDGLocation *)wilddogLocation didFailedTracingLocationForKey:(NSString *)key withError:(NSError *)error;
+- (void)wilddogLocation:(WDGLocation *)wilddogLocation didFailedTracingPositionForKey:(NSString *)key withError:(NSError *)error;
 ```
 
 ##### 说明

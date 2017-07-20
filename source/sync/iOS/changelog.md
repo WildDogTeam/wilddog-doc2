@@ -4,7 +4,104 @@ title: 更新日志
 
 ## iOS SDK
 
-### V2.2.0 - 2016.02.06
+### V2.3.6 - 2017.07.13
+
+<span class="changelog fix">修复</span>
+
+- 修复同一节点下，多个不同条件的singleEvent数据错误问题。
+- 修复key为纯数字，并且是在开始监听之前就存在的数据，监听不到remove事件的问题。
+- 修复setValue时值为double或float类型，本地监听的block可能会响应2次的问题。
+
+### V2.3.5 - 2017.06.02
+
+<span class="changelog feature">改进</span>
+
+- 优化日志系统，修复部分错乱日志。
+
+### V2.3.4 - 2017.06.01
+
+<span class="changelog fix">修复</span>
+
+- 修复当多次调用 `[WDGSync reference]` 时，`-[WDGSyncReference removeAllObserves]` 失效。
+
+### V2.3.3 - 2017.05.13
+
+<span class="changelog fix">修复</span>
+
+- 设备断网后再恢复时重连失败的问题。
+
+
+### V2.3.2 - 2017.04.18
+
+<span class="changelog feature">改进</span>
+
+- 线程安全优化。
+
+### V2.3.1 - 2017.04.14
+
+<span class="changelog fix">修复</span>
+
+- 修复监听浮点型数据有可能造成回调中数据不变化的问题。
+
+### V2.3.0 - 2017.04.11
+
+<span class="changelog add">新增</span>
+
+- 新增 WDGSyncErrorNonExistentNode = 26301 错误码，在空节点上设置 priority 时报此错误。
+
+<span class="changelog feature">改进</span>
+
+- 优化 WilddogSync 响应速度和内存占用，响应速度提高 25%。
+- 优化 WilddogSync 建连策略，使得服务不可用时能快速切换服务。
+- 优化 WilddogSync 重连策略，实现更合理的快速重连。
+
+<span class="changelog fix">修复</span>
+
+- 允许 `[WDGServerValue timestamp]` 作为优先级。
+- 部分 `WDGSyncReference` 的 `sync` 和 `URL` 方法返回 nil 的问题。
+- 监听数据时，如果只修改了优先级，在监听回调中数据不对的问题。
+- 同时监听同一路径，但条件不同时，第二次监听先返回一次空数据的问题。
+- 通过 `orderByChild` 等排序方法建立的监听，当数据对应值多次变动时出现排序错误。
+- 监听节点时，当返回 `null` 节点导致 SDK Crash 问题。
+- 在 32 位设备中 `[WDGServerValue timestamp]` 的数值溢出问题。
+- 监听 `.info/serverTimeOffset` 结果始终为 0 的问题。
+- 极个别情况下 `snapshot.children` 中缺少一条数据的问题。
+
+### V2.2.4 - 2017.03.09
+
+<span class="changelog add">新增</span>
+
+- 
+<span class="changelog feature">改进</span>
+
+- 优化无网络情况下的重连策略。
+- 更新头文件中的文档注释。
+
+<span class="changelog fix">修复</span>
+
+- [WDGSync referenceWithPath:]` 方法不能正确处理中文的问题。
+- 允许 `updateChildValues:` 参数字典的 key 中包含字符 。
+- 同一节点已进行过 `queryLimitedToFirst:` 监听，再建立 `queryLimitedToLast:` 监听返回相同的结果的问题。
+
+### V2.2.3 - 2017.02.20
+
+<span class="changelog fix">修复</span>
+
+- 集成 bitcode
+
+### V2.2.2 - 2017.02.16
+
+<span class="changelog fix">修复</span>
+
+- 监听 `.info/serverTimeOffset` 无效果的问题。
+
+### V2.2.1 - 2017.02.13
+
+<span class="changelog fix">修复</span>
+
+- 事务操作始终写入成功的问题。
+
+### V2.2.0 - 2017.02.06
 
 <span class="changelog add">新增</span>
 
@@ -18,13 +115,13 @@ title: 更新日志
 
 - 断线重连后未重发未完成的 setValue 请求。
 
-### V2.1.2 - 2016.01.16
+### V2.1.2 - 2017.01.16
 
 <span class="changelog fix">修复</span>
 
 - 事务操作在处理数组时失败的问题。
 
-### V2.1.1 - 2016.01.06
+### V2.1.1 - 2017.01.06
 
 <span class="changelog feature">改进</span>
 
@@ -114,5 +211,7 @@ title: 更新日志
 
 - 移除原有 Wilddog SDK 中 Auth 功能。
 - 将 Wilddog SDK 改名为 WilddogSync SDK。
+
+
 
 

@@ -35,6 +35,8 @@ end
 
 在需要使用WilddogLocation的地方引入：
 ```objectivec
+#import <WilddogCore/WilddogCore.h>
+#import <WilddogSync/WilddogSync.h>
 #import <WilddogLocation/WilddogLocation.h>
 ```
 
