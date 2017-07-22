@@ -3,6 +3,20 @@ title: 更新日志
 
 ## Android SDK
 
+### v1.2.1 Beta - 2017.07.22
+
+<span class="changelog add">新增</span>
+
+- 新增音频录制功能。
+
+<span class="changelog optimize">优化</span>
+
+- 优化本地视频流录制功能，增强录制功能兼容性。
+
+<span class="changelog fix">修复</span>
+
+- 修复邀请加入会话时视频通话开关判断bug。
+
 
 ### v1.2.0 Beta - 2017.07.14
 
