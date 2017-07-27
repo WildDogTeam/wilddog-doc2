@@ -3,6 +3,25 @@ title: 更新日志
 
 ## Android SDK
 
+### v1.2.3 Beta - 2017.07.27
+
+
+<span class="changelog optimize">优化</span>
+
+- 优化邀请逻辑，增加了邀请状态判断，防止出现多次连接的情况。
+- 优化网络请求接口，减少网络请求流量。
+
+<span class="changelog fix">修复</span>
+
+- 修复断网等情况对方无法收到离线通知bug。
+
+
+### v1.2.2 Beta - 2017.07.25
+
+<span class="changelog fix">修复</span>
+
+- 修复信令交换过程中一方退出导致的 NPE 问题。
+
 ### v1.2.1 Beta - 2017.07.22
 
 <span class="changelog add">新增</span>
