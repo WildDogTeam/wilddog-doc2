@@ -640,9 +640,9 @@ auth:
     简介: /auth/Server/introduction.html
     使用 Server SDK 进行认证: /auth/Server/server.html
 
-console:
-  控制面板:
-    创建应用: /console/creat.html
-    管理应用: /console/administer.html
+##console:
+  ##控制面板:
+    ##创建应用: /console/creat.html
+    ##管理应用: /console/administer.html
 
 

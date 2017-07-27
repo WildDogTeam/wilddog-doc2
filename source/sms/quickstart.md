@@ -38,12 +38,3 @@ title: 快速入门
 - 了解验证码短信和通知类短信详细使用方法，请参考 [完整指南](/sms/guide/verification.html) 。
 
 
-
-
-
-
-
-
-
-
-

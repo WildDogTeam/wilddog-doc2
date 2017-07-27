@@ -11,7 +11,7 @@ https://github.com/WildDogTeam/wilddog-weapp/blob/master/wilddog-weapp-all.js
 
 ## 2.前期准备
 
-1.在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html#创建一个野狗应用)。
+1.在控制面板中创建应用。
 
 2.在 [微信公众开放平台管理中心](http://mp.weixin.qq.com/)   设置—开发设置—服务器配置，配置域名白名单。为了简化配置，你需要增加以下 2 个域名到白名单：
 
