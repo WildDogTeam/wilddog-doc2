@@ -13,10 +13,11 @@ title: 视频会议
 </div>
 
 
-## 1. 创建应用并充值
+## 1. 创建应用
 
-- 首先，在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
-- 为防止恶意使用，使用Video 前用户需保证帐户余额大于 20元。充值请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
+首先，在控制面板中创建应用。
+
+<img src='/images/video_quickstart_create.png' alt="video_quickstart_create">
 
 ## 2. 开启匿名登录认证方式
 
@@ -26,7 +27,7 @@ title: 视频会议
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，填写表单，开启多人视频会议功能。
+进入 管理应用-实时视频通话，开启视频通话功能。此处注意记下配置页面的`VideoAppID`
 
 <img src='/images/video_quickstart_open_conference.jpg' alt="video_quickstart_open_conference">
 
@@ -47,13 +48,13 @@ Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 `
 
 ### 5.2 登录快速入门
 
-快速入门运行成功后，输入应用 ID。
+快速入门运行成功后，输入`VideoAppID`。
 
 <img src='/images/video_quickstart_android_conference_login.jpg' alt="video_quickstart_android_conference_login" width="300" >
 
-应用 ID 为下图 `wilddogio` 之前的字段，然后点击匿名登录。
+`VideoAppID`为下图所示，然后点击匿名登录。
 
-<img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp" width="300" >
+<img src='/images/video_quickstart_videoappid.png' alt="video_quickstart_videoappid">
 
 登录成功后，输入会议 ID。会议 ID 可以是别人创建后提供的 ID ，如果当前没有会议，可自己创建一个会议 ID 。
 
