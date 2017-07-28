@@ -42,7 +42,7 @@ wilddog.regService('video', function(app) {
 
 初始化 Client 之前，要先经过 [野狗身份认证](/auth/Web/index.html)。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式进行身份认证。
 
-例如，以匿名方式登录后初始化 Client ：
+如仅使用Video SDK，以匿名方式登录后初始化 Client（推荐使用非匿名登录方式登录），示例代码如下 ：
 
 ```javascript
 var config = {
@@ -63,3 +63,33 @@ wilddog.auth().signInAnonymously()
         console.log(error);
     });
 ```
+
+如在使用Video SDK 同时使用Sync SDK，开发者需要同时初始化Wildddog Video和Wilddog Sync，示例代码如下 ：
+
+```javascript
+var syncConfig = {
+    authDomain: "<syncAppId>.wilddog.com",
+    syncURL: "https://<syncAppId>.wilddogio.com"
+};
+// 初始化Wilddog Sync
+var syncApp = wilddog.initializeApp(syncConfig, 'syncApp');
+
+var videoConfig = {
+    authDomain: "<videoAppId>.wilddog.com",
+    syncURL: "https://<videoAppId>.wilddogio.com"
+};
+// 初始化Wilddog Video
+var videoApp = wilddog.initializeApp(videoConfig, 'videoApp');
+var videoInstance = videoApp.video();
+var client;
+// 初始化 Video Client 之前，要先经过身份认证。这里采用匿名登录的方式。
+videoApp.auth().signInAnonymously()
+    .then(function(user){
+        //认证成功后，初始化 Client
+        client = videoApp.video().client()
+    }).catch(function (error) {
+        // Handle Errors here.
+        console.log(error);
+    });
+```
+
