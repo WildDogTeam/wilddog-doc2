@@ -50,12 +50,12 @@ wildLocation.startTracingPosition(key, locationProvider);
 
 除了位置之外，你还可以在上传时附带 JSON 形式的自定义属性。
 ```javascript
+var location = [40,116]// 纬度和经度
 var options = {
-    location = [40,116], // 纬度和经度
     timestamp = Date.now(),
     customAttributes = 'my firest customPosition!'
 }
-var myPosition = wildLocation.customPosition(options);
+var myPosition = wildLocation.customPosition(location[,options]);
 
 wildLocation.setPosition('myPosition', myPosition);
 ```
@@ -127,7 +127,7 @@ wildLocation.getPosition(key).then(function(position) {
 `Location.distance()` 方法用于计算两个坐标点的距离。
 
 ```javascript
-var distance = Location.distance(position1, position2);
+var distance = wilddog.Location.distance(position1, position2);
 ```
 
 通过该方法可以实现实时距离的计算。
@@ -138,12 +138,12 @@ var distance = Location.distance(position1, position2);
 var position1, position2, distance;
 wildLocation.onPosition(key1, function(position) {
     position1 = position;
-    distance = Location.distance(position1, position2);
+    distance = wilddog.Location.distance(position1, position2);
     console.log('最新的距离为： ', distance, 'm');
 });
 wildLocation.onPosition(key2, function(position) {
     position2 = position;
-    distance = Location.distance(position1, position2);
+    distance = wilddog.Location.distance(position1, position2);
     console.log('最新的距离为： ', distance, 'm');
 });
 
