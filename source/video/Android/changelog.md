@@ -3,6 +3,18 @@ title: 更新日志
 
 ## Android SDK
 
+### v1.2.4 - 2017.07.31
+
+
+<span class="changelog add">新增</span>
+
+- 使用WilddogSync AppId初始化Video产生的错误码。
+
+<span class="changelog fix">修复</span>
+
+- 修复统计接口导致崩溃问题
+
+
 ### v1.2.3 Beta - 2017.07.27
 
 
