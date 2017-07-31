@@ -49,13 +49,17 @@ node https_channel_server.js
 
 本地 Web 服务启动后，访问 [https://127.0.0.1:8080](https://127.0.0.1:8080) 就会看到快速入门页面。
 
-<img src='/images/video_quickstart_js_login.png' alt="video_quickstart_js_login">
+<img src='/images/video_quickstart_js_login1.png' alt="video_quickstart_js_login">
 
 ### 5.2 登录
 
-输入应用 ID（下图 `wilddogio` 之前的字段），然后点击匿名登录。
+输入video AppID
 
-<img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp">
+<img src='/images/video_quickstart_js_videoAppId.png' alt="video_quickstart_js_videoAppId">
+
+输入sync AppID，（ 地址栏 `wilddogio` 之前的字段），然后点击匿名登录（推荐使用非匿名登录方式）
+
+<img src='/images/video_quickstart_js_syncAppId.png' alt="video_quickstart_js_syncAppId">
 
 ### 5.3 邀请他人加入视频通话
 
