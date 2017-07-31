@@ -4,6 +4,16 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v1.0.2 - 2016.07.27
+
+<span class="changelog fix">修复</span>
+
+- 修复邀请方取消邀请时导致的bug
+
+<span class="changelog optimize">优化</span>
+
+- 优化视频通话处理逻辑
+
 ### v1.0.1 - 2016.06.30
 
 <span class="changelog fix">修复</span>
