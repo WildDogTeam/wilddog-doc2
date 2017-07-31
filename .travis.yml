@@ -7,6 +7,7 @@ node_js:
 branches:
   only:
   - master
+  - master-tab
 
 #cache:
 #  directories:
@@ -20,10 +21,10 @@ before_install:
 - cp ssh_config ~/.ssh/config
 - git config --global user.name 'stackOverMind'
 - git config --global user.email 'rzxgy@163.com'
-
-# install:
-# - npm install hexo-cli -g
-# - npm install
+install:
+-
+- npm install hexo-cli -g
+- npm install
 
 script: hexo generate
 after_success:

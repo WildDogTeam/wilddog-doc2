@@ -1,28 +1,59 @@
 var gulp = require('gulp');
-var cssmin = require('gulp-cssmin');
 var uglify = require('gulp-uglify');
-var rev = require('gulp-rev');
+var cssmin = require('gulp-cssmin');
 var imagemin = require('gulp-imagemin');
-var revCollector = require('gulp-rev-collector');
+var rev = require('gulp-rev');
 var del = require('del');
-var gulpsync = require('gulp-sync')(gulp);
-require('events').EventEmitter.prototype._maxListeners = 100;
+const revReplace = require("gulp-rev-replace");
+const runSequence = require('run-sequence');
 
 gulp.task('clean', function() {
-    del.sync(['dist/**/*', 'rev/**/*'])
+    return del(['dist', 'rev']);
+});
+
+gulp.task('copy', function() {
+    return gulp.src(['public/**/*.html', 'public/**/*.xml', 'public/**/*.{jpg,png,svg,gif}'], {
+            base: 'public'
+        })
+        .pipe(gulp.dest('dist/'))
+});
+
+gulp.task('uglify', function() {
+    return gulp.src('public/js/**/*')
+        .pipe(uglify())
+        .pipe(gulp.dest('dist/js'))
 })
 
-gulp.task('imagerev', function() {
-    gulp.src('public/images/*')
-        // .pipe(imagemin())
-        .pipe(rev())
-        .pipe(gulp.dest('dist/images'))
-        .pipe(rev.manifest())
-        .pipe(gulp.dest('rev/images'))
-        .on('end', function() {
-            gulp.start('rev')
-        })
+gulp.task('cssmin', function() {
+    return gulp.src('public/css/*')
+        .pipe(cssmin())
+        .pipe(gulp.dest('dist/css'))
 })
+
+gulp.task("rev", function() {
+    return gulp.src(['dist/css/**/*.css', 'dist/js/**/*.js', 'dist/images/**/*.{jpg,png,svg,gif}'], {
+            base: "dist"
+        })
+        .pipe(rev())
+        .pipe(gulp.dest("dist"))
+        .pipe(rev.manifest())
+        .pipe(gulp.dest("rev"))
+})
+
+gulp.task("revreplace", function() {
+    var manifest = gulp.src("rev/**/*.json");
+    return gulp.src(["dist/js/**/*.js", "dist/css/**/*.css", "dist/**/*.html"], {
+            base: "dist"
+        })
+        .pipe(revReplace({
+            manifest: manifest
+        }))
+        .pipe(gulp.dest("dist"));
+});
+
+gulp.task('build', function(cb) {
+    runSequence('clean', 'copy', ['uglify', 'cssmin'], 'rev', 'revreplace');
+});
 
 gulp.task('imagesMin', function() {
     return gulp.src('themes/navy/source/images/**/*.{jpg,png,svg,gif}', {
@@ -37,37 +68,3 @@ gulp.task('imagesMin', function() {
         }))
         .pipe(gulp.dest('themes'))
 })
-
-gulp.task('uglify', function() {
-    gulp.src('public/js/*')
-        .pipe(uglify())
-        .pipe(rev())
-        .pipe(gulp.dest('dist/js'))
-        .pipe(rev.manifest())
-        .pipe(gulp.dest('rev/js'))
-        .on('end', function() {
-            setTimeout(function() {
-                gulp.start('cssmin')
-            }, 500)
-        })
-})
-
-gulp.task('cssmin', function() {
-    gulp.src('public/css/*')
-        .pipe(cssmin())
-        .pipe(rev())
-        .pipe(gulp.dest('dist/css'))
-        .pipe(rev.manifest())
-        .pipe(gulp.dest('rev/css'))
-        .on('end', function() {
-            gulp.start('imagerev')
-        })
-})
-
-gulp.task('rev', function() {
-    gulp.src(['rev/**/*.json', 'public/**/*.html', 'dist/**/*.css'])
-        .pipe(revCollector())
-        .pipe(gulp.dest('dist'))
-})
-
-gulp.task('build', gulpsync.sync(['clean', ['uglify']]));

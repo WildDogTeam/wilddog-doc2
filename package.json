@@ -10,7 +10,6 @@
     "gulp": "^3.9.1",
     "gulp-cssmin": "^0.1.7",
     "gulp-imagemin": "^3.1.1",
-    "gulp-rev": "^7.1.2",
     "gulp-rev-collector": "^1.0.5",
     "gulp-sync": "^0.1.4",
     "gulp-uglify": "^2.0.0",
@@ -30,6 +29,7 @@
     "pump": "^1.0.1"
   },
   "devDependencies": {
-    "del": "^2.2.2"
+    "del": "^2.2.2",
+    "gulp-rev": "^8.0.0"
   }
 }
