@@ -3,6 +3,17 @@ title: 更新日志
 
 ## Android SDK
 
+### v1.2.5 - 2017.08.04
+
+<span class="changelog optimize">优化</span>
+
+- 优化视频通话初始化错误处理。
+
+<span class="changelog fix">修复</span>
+
+- 修复特殊情况下视频录制导致崩溃问题
+
+
 ### v1.2.4 - 2017.07.31
 
 <span class="changelog optimize">优化</span>
