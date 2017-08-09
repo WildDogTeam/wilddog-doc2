@@ -4,6 +4,23 @@ title: 更新日志
 
 ## iOS SDK
 
+### V2.3.9 - 2017.08.09
+
+<span class="changelog feature">改进</span>
+
+- 优化创建监听时的流量与传输消耗。
+
+<span class="changelog feature">修复</span>
+
+- 修复在某些情况下，对“先移除监听，再添加监听”的处理顺序错误，的问题。
+
+### V2.3.8 - 2017.07.25
+
+<span class="changelog feature">修复</span>
+
+- 修复可能会导致闪退的一些问题。
+
+
 ### V2.3.7 - 2017.07.21
 
 <span class="changelog feature">改进</span>
