@@ -26,7 +26,7 @@ Realtime Location SDK 提供标签引用和 npm 下载两种方式安装。
 
 ```javascript
 var wilddog = require('wilddog');
-var RealtimeLocation = require('wilddog-video');
+var RealtimeLocation = require('wilddog-location');
 
 wilddog.regService('location', function(app) {
   if (app == null) {

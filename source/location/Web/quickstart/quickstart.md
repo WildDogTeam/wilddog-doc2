@@ -39,7 +39,7 @@ Realtime Location 依赖于高德定位 SDK，因此需要按顺序引入：
 
 ```javascript
 var wilddog = require('wilddog');
-var RealtimeLocation = require('wilddog-video');
+var RealtimeLocation = require('wilddog-location');
 
 wilddog.regService('location', function(app) {
   if (app == null) {
