@@ -20,14 +20,16 @@ $(function() {
         addClass(headerNavs[0], 'current')
     } else if (type === 'sync') {
         addClass(headerNavs[1], 'current')
-    } else if (type === 'video') {
+    } else if (type === 'Conversation') {
         addClass(headerNavs[2], 'current')
-    } else if (type === 'location') {
+    } else if (type === 'Conference') {
         addClass(headerNavs[3], 'current')
-    } else if (type === 'sms') {
+    } else if (type === 'location') {
         addClass(headerNavs[4], 'current')
-    } else if (type === 'auth') {
+    } else if (type === 'sms') {
         addClass(headerNavs[5], 'current')
+    } else if (type === 'auth') {
+        addClass(headerNavs[6], 'current')
     }
     // 侧边栏收起
     var sidebarTitle = getClass('sidebar-title');
