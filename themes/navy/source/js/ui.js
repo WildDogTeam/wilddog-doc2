@@ -20,9 +20,9 @@ $(function() {
         addClass(headerNavs[0], 'current')
     } else if (type === 'sync') {
         addClass(headerNavs[1], 'current')
-    } else if (type === 'Conversation') {
+    } else if (type === 'conversation') {
         addClass(headerNavs[2], 'current')
-    } else if (type === 'Conference') {
+    } else if (type === 'conference') {
         addClass(headerNavs[3], 'current')
     } else if (type === 'location') {
         addClass(headerNavs[4], 'current')
