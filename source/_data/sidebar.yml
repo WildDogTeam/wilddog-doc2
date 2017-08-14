@@ -268,122 +268,175 @@ sync:
     更新日志: /sync/Egret/changelog.html
 
 
-video:
+conversation:
   Web:
-    概览: /video/Web/index.html
-    快速入门:
-      视频通话: /video/Web/quickstart/web-conversation.html
-      视频会议: /video/Web/quickstart/web-conference.html
+    概览: /conversation/Web/index.html
+    快速入门: /conversation/Web/quickstart.html
     完整指南:
-      基础概念: /video/Web/guide/core.html
-      安装和初始化 SDK: /video/Web/guide/install-sdk.html
-      视频通话: /video/Web/guide/conversation.html
-      多人视频会议: /video/Web/guide/conference.html
+      基础概念: /conversation/Web/guide/core.html
+      安装和初始化 SDK: /conversation/Web/guide/install-sdk.html
+      视频通话: /conversation/Web/guide/conversation.html
     API 文档:
-      Video: /video/Web/api/wilddogVideo.html
-      Client: /video/Web/api/wilddogVideoClient.html
-      Conference: /video/Web/api/conference.html
-      Conversation: /video/Web/api/conversation.html
-      LocalParticipant: /video/Web/api/localParticipant.html
-      Participant: /video/Web/api/participant.html
-      LocalStream: /video/Web/api/localStream.html
-      RemoteStream: /video/Web/api/remoteStream.html
-      MeetingCast: /video/Web/api/meetingCast.html
-      OutgoingInvite: /video/Web/api/outgoingInvite.html
-      IncomingInvite: /video/Web/api/incomingInvite.html
-      错误码: /video/Web/api/error-code.html
-    示例代码:
-      示例库: /video/Web/resources/resources.html
-      实战教程: /video/Web/resources/tutorial.html
-    更新日志: /video/Web/changelog.html
+      Video: /conversation/Web/api/wilddogVideo.html
+      Client: /conversation/Web/api/wilddogVideoClient.html
+      Conversation: /conversation/Web/api/conversation.html
+      LocalParticipant: /conversation/Web/api/localParticipant.html
+      Participant: /conversation/Web/api/participant.html
+      LocalStream: /conversation/Web/api/localStream.html
+      RemoteStream: /conversation/Web/api/remoteStream.html
+      OutgoingInvite: /conversation/Web/api/outgoingInvite.html
+      IncomingInvite: /conversation/Web/api/incomingInvite.html
+      错误码: /conversation/Web/api/error-code.html
+    更新日志: /conversation/Web/changelog.html
 
   iOS:
-    概览: /video/iOS/index.html
-    快速入门:
-      视频通话: /video/iOS/quickstart/ios-conversation.html
-      视频会议: /video/iOS/quickstart/ios-conference.html
+    概览: /conversation/iOS/index.html
+    快速入门: /conversation/iOS/quickstart.html
     完整指南:
-      基础概念: /video/iOS/guide/core.html
-      安装和初始化 SDK: /video/iOS/guide/install-sdk.html
-      视频通话: /video/iOS/guide/conversation.html
-      多人视频会议: /video/iOS/guide/conference.html
+      基础概念: /conversation/iOS/guide/0-concepts.html
+      安装和初始化 SDK: /conversation/iOS/guide/1-install.html
+      媒体流: /conversation/iOS/guide/2-mediaStream.html
+      管理视频通话: /conversation/iOS/guide/3-conversationManagement.html
+      美颜滤镜: /conversation/iOS/guide/4-videoFilter.html
+      本地视频录制: /conversation/iOS/guide/5-recording.html
+      媒体流统计: /conversation/iOS/guide/6-statistics.html
     API 文档:
-      Client: /video/iOS/api/WDGVideoClient.html
-      ClientDelegate: /video/iOS/api/WDGVideoClientDelegate.html
-      Conversation: /video/iOS/api/WDGVideoConversation.html
-      ConversationDelegate: /video/iOS/api/WDGVideoConversationDelegate.html
-      ConversationStatsDelegate: /video/iOS/api/WDGVideoConversationStatsDelegate.html
-      Conference: /video/iOS/api/WDGVideoConference.html
-      ConferenceDelegate: /video/iOS/api/WDGVideoConferenceDelegate.html
-      LocalParticipant: /video/iOS/api/WDGVideoLocalParticipant.html
-      Participant: /video/iOS/api/WDGVideoParticipant.html
-      ParticipantDelegate: /video/iOS/api/WDGVideoParticipantDelegate.html
-      IncomingInvite: /video/iOS/api/WDGVideoIncomingInvite.html
-      OutgoingInvite: /video/iOS/api/WDGVideoOutgoingInvite.html
-      Stream: /video/iOS/api/WDGVideoStream.html
-      LocalStream: /video/iOS/api/WDGVideoLocalStream.html
-      LocalStreamDelegate: /video/iOS/api/WDGVideoLocalStreamDelegate.html
-      LocalStreamOptions: /video/iOS/api/WDGVideoLocalStreamOptions.html
-      LocalStreamStatsReport: /video/iOS/api/WDGVideoLocalStreamStatsReport.html
-      RemoteStream: /video/iOS/api/WDGVideoRemoteStream.html
-      RemoteStreamStatsReport: /video/iOS/api/WDGVideoRemoteStreamStatsReport.html
-      View: /video/iOS/api/WDGVideoView.html
-      MeetingCast: /video/iOS/api/WDGVideoMeetingCast.html
-      MeetingCastDelegate: /video/iOS/api/WDGVideoMeetingCastDelegate.html
-      ClientOptions: /video/iOS/api/WDGVideoClientOptions.html
-      ConnectOptions: /video/iOS/api/WDGVideoConnectOptions.html
-      错误码: /video/iOS/api/error-code.html
-    示例代码:
-      示例库: /video/iOS/resources/resources.html
-      实战教程: /video/iOS/resources/tutorial.html
-    更新日志: /video/iOS/changelog.html
+      Video: /conversation/iOS/api/WDGVideo.html
+      VideoDelegate: /conversation/iOS/api/WDGVideoDelegate.html
+      VideoView: /conversation/iOS/api/WDGVideoView.html
+      Conversation: /conversation/iOS/api/WDGConversation.html
+      ConversationDelegate: /conversation/iOS/api/WDGConversationDelegate.html
+      ConversationStatsDelegate: /conversation/iOS/api/WDGConversationStatsDelegate.html
+      LocalStream: /conversation/iOS/api/WDGLocalStream.html
+      LocalStreamDelegate: /conversation/iOS/api/WDGLocalStreamDelegate.html
+      LocalStreamOptions: /conversation/iOS/api/WDGLocalStreamOptions.html
+      LocalStreamStatsReport: /conversation/iOS/api/WDGLocalStreamStatsReport.html
+      RemoteStream: /conversation/iOS/api/WDGRemoteStream.html
+      RemoteStreamStatsReport: /conversation/iOS/api/WDGRemoteStreamStatsReport.html
+      CallStatus: /conversation/iOS/api/WDGCallStatus.html
+      错误码: /conversation/iOS/api/error-code.html
+    更新日志: /conversation/iOS/changelog.html
+
+  Android:
+    概览: /conversation/Android/index.html
+    快速入门: /conversation/Android/quickstart.html
+    完整指南:
+      基础概念: /conversation/Android/guide/0-concepts.html
+      安装和初始化 SDK: /conversation/Android/guide/1-install-sdk.html
+      媒体流: /conversation/Android/guide/2-mediaStream.html
+      管理视频通话: /conversation/Android/guide/3-conversationManagement.html
+      美颜滤镜: /conversation/Android/guide/4-beauty.html
+      本地视频录制: /conversation/Android/guide/5-recording.html
+      媒体流统计: /conversation/Android/guide/6-statistics.html
+    API 文档:
+      WilddogVideo: /conversation/Android/api/wilddog-video.html
+      WilddogVideo.Listener: /conversation/Android/api/wilddog-video-listener.html
+      WilddogVideoError: /conversation/Android/api/wilddog-video-error.html
+      WilddogVideoView: /conversation/Android/api/wilddog-video-view.html
+      WilddogVideoViewLayout: /conversation/Android/api/wilddog-video-view-layout.html
+      Conversation: /conversation/Android/api/conversation.html
+      Conversation.Listener: /conversation/Android/api/conversation-listener.html
+      Stream: /conversation/Android/api/stream.html
+      LocalStream: /conversation/Android/api/local-stream.html
+      LocalStreamStatsReport: /conversation/Android/api/local-stream-stats-report.html
+      LocalStream.CameraFrameListener: /conversation/Android/api/camera-frame-listener.html
+      LocalStreamOptions: /conversation/Android/api/local-stream-options.html
+      LocalStreamOptions.Dimension: /conversation/Android/api/local-stream-options-demension.html
+      LocalStreamOptions.Builder: /conversation/Android/api/local-stream-options-builder.html
+      RemoteStream: /conversation/Android/api/remote-stream.html
+      RemoteStreamStatsReport: /conversation/Android/api/remote-stream-stats-report.html  
+      StatsListener: /conversation/Android/api/stats-listener.html
+      ScalingType: /conversation/Android/api/scaling-type.html
+      CallStatus: /conversation/Android/api/call-status.html
+      错误码: /conversation/Android/api/error-code.html
+    更新日志: /conversation/Android/changelog.html
+
+conference:
+  Web:
+    概览: /conference/Web/index.html
+    快速入门: /conference/Web/quickstart.html  
+    完整指南:
+      基础概念: /conference/Web/guide/core.html
+      安装和初始化 SDK: /conference/Web/guide/install-sdk.html
+      多人视频会议: /conference/Web/guide/conference.html
+    API 文档:
+      Video: /conference/Web/api/wilddogVideo.html
+      Client: /conference/Web/api/wilddogVideoClient.html
+      Conference: /conference/Web/api/conference.html
+      LocalParticipant: /conference/Web/api/localParticipant.html
+      Participant: /conference/Web/api/participant.html
+      LocalStream: /conference/Web/api/localStream.html
+      RemoteStream: /conference/Web/api/remoteStream.html
+      MeetingCast: /conference/Web/api/meetingCast.html
+      错误码: /conference/Web/api/error-code.html
+    更新日志: /conference/Web/changelog.html
+
+  iOS:
+    概览: /conference/iOS/index.html
+    快速入门: /conference/iOS/quickstart.html
+    完整指南:
+      基础概念: /conference/iOS/guide/0-concepts.html
+      安装和初始化 SDK: /conference/iOS/guide/1-install.html
+      创建视频会议: /conference/iOS/guide/2-conference.html
+      管理其他参与者: /conference/iOS/guide/3-participants.html
+      视频会议相关: /conference/iOS/guide/4-conference.html
+    API 文档:
+      Client: /conference/iOS/api/WDGVideoClient.html
+      ClientDelegate: /conference/iOS/api/WDGVideoClientDelegate.html
+      Conference: /conference/iOS/api/WDGVideoConference.html
+      ConferenceDelegate: /conference/iOS/api/WDGVideoConferenceDelegate.html
+      LocalParticipant: /conference/iOS/api/WDGVideoLocalParticipant.html
+      Participant: /conference/iOS/api/WDGVideoParticipant.html
+      ParticipantDelegate: /conference/iOS/api/WDGVideoParticipantDelegate.html
+      Stream: /conference/iOS/api/WDGVideoStream.html
+      LocalStream: /conference/iOS/api/WDGVideoLocalStream.html
+      LocalStreamDelegate: /conference/iOS/api/WDGVideoLocalStreamDelegate.html
+      LocalStreamOptions: /conference/iOS/api/WDGVideoLocalStreamOptions.html
+      LocalStreamStatsReport: /conference/iOS/api/WDGVideoLocalStreamStatsReport.html
+      RemoteStream: /conference/iOS/api/WDGVideoRemoteStream.html
+      RemoteStreamStatsReport: /conference/iOS/api/WDGVideoRemoteStreamStatsReport.html
+      View: /conference/iOS/api/WDGVideoView.html
+      MeetingCast: /conference/iOS/api/WDGVideoMeetingCast.html
+      MeetingCastDelegate: /conference/iOS/api/WDGVideoMeetingCastDelegate.html
+      ClientOptions: /conference/iOS/api/WDGVideoClientOptions.html
+      ConnectOptions: /conference/iOS/api/WDGVideoConnectOptions.html
+      错误码: /conference/iOS/api/error-code.html
+    更新日志: /conference/iOS/changelog.html
 
 
   Android:
-    概览: /video/Android/index.html
-    快速入门:
-      视频通话: /video/Android/quickstart/android-conversation.html
-      视频会议: /video/Android/quickstart/android-conference.html
+    概览: /conference/Android/index.html
+    快速入门: /conference/Android/quickstart.html
     完整指南:
-      基础概念: /video/Android/guide/core.html
-      安装和初始化 SDK: /video/Android/guide/install-sdk.html
-      视频通话: /video/Android/guide/conversation.html
-      多人视频会议: /video/Android/guide/conference.html
+      基础概念: /conference/Android/guide/core.html
+      安装和初始化 SDK: /conference/Android/guide/install-sdk.html
+      多人视频会议: /conference/Android/guide/conference.html
     API 文档:
-      WilddogVideo: /video/Android/api/wilddog-video.html
-      WilddogVideoClient: /video/Android/api/wilddog-video-client.html
-      WilddogVideoClient.Listener: /video/Android/api/wilddog-video-client-listener.html
-      Conversation: /video/Android/api/conversation.html
-      Conversation.Listener: /video/Android/api/conversation-listener.html
-      ConversationCallback: /video/Android/api/conversation-callback.html
-      Conference: /video/Android/api/conference.html
-      Conference.Listener: /video/Android/api/conference-listener.html
-      ConnectOptions: /video/Android/api/connect-options.html
-      ConnectStatus: /video/Android/api/connect-status.html
-      IncomingInvite: /video/Android/api/incoming-invite.html
-      OutgoingInvite: /video/Android/api/outgoing-invite.html
-      Stream: /video/Android/api/stream.html
-      LocalStream: /video/Android/api/local-stream.html
-      RemoteStream: /video/Android/api/remote-stream.html
-      Participant: /video/Android/api/participant.html
-      Participant.Listener: /video/Android/api/participant-listener.html
-      LocalParticipant: /video/Android/api/local-participant.html
-      VideoException: /video/Android/api/video-exception.html
-      MeetingCast: /video/Android/api/meeting-cast.html
-      CompleteListener: /video/Android/api/complete-listener.html
-      MeetingCastStateListener: /video/Android/api/meeting-cast-listener.html
-      MeetingCastStatus: /video/Android/api/meeting-cast-status.html
-      WilddogVideoView: /video/Android/api/wilddog-video-view.html
-      WilddogVideoViewLayout: /video/Android/api/wilddog-video-view-layout.html
-      RTCStatsListener: /video/Android/api/rtc-stats-listener.html
-      LocalStats: /video/Android/api/local-stats.html
-      RemoteStats: /video/Android/api/remote-stats.html
-      CameraFrameListener: /video/Android/api/camera-frame-listener.html
-      错误码: /video/Android/api/error-code.html
-    示例代码:
-      示例库: /video/Android/resources/resources.html
-      实战教程: /video/Android/resources/tutorial.html
-    更新日志: /video/Android/changelog.html
+      WilddogVideo: /conference/Android/api/wilddog-video.html
+      WilddogVideoClient: /conference/Android/api/wilddog-video-client.html
+      Conference: /conference/Android/api/conference.html
+      Conference.Listener: /conference/Android/api/conference-listener.html
+      ConnectOptions: /conference/Android/api/connect-options.html
+      ConnectStatus: /conference/Android/api/connect-status.html
+      Stream: /conference/Android/api/stream.html
+      LocalStream: /conference/Android/api/local-stream.html
+      RemoteStream: /conference/Android/api/remote-stream.html
+      Participant: /conference/Android/api/participant.html
+      Participant.Listener: /conference/Android/api/participant-listener.html
+      LocalParticipant: /conference/Android/api/local-participant.html
+      VideoException: /conference/Android/api/video-exception.html
+      MeetingCast: /conference/Android/api/meeting-cast.html
+      CompleteListener: /conference/Android/api/complete-listener.html
+      MeetingCastStateListener: /conference/Android/api/meeting-cast-listener.html
+      MeetingCastStatus: /conference/Android/api/meeting-cast-status.html
+      WilddogVideoView: /conference/Android/api/wilddog-video-view.html
+      WilddogVideoViewLayout: /conference/Android/api/wilddog-video-view-layout.html
+      RTCStatsListener: /conference/Android/api/rtc-stats-listener.html
+      LocalStats: /conference/Android/api/local-stats.html
+      RemoteStats: /conference/Android/api/remote-stats.html
+      CameraFrameListener: /conference/Android/api/camera-frame-listener.html
+      错误码: /conference/Android/api/error-code.html
+    更新日志: /conference/Android/changelog.html
 
 location:
   Web:
