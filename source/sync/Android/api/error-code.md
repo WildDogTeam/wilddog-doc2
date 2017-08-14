@@ -12,6 +12,8 @@ title:  错误码
 | 26104 | Data requested exceeds the maximum size that can be accessed with a single request | 单次请求数据量过大。请参考 [数据限制](/sync/Android/guide/datalimit.html) ) |
 | 26105 |Size of the leaf node exceeds the limitation (1M bytes)  | 单个叶子节点的数据大小不能大于 1M。 |
 | 26106 | 1. Path specified exceeds the maximum length that can be written (768 bytes) 2. Path specified exceeds the maximum depth that can be written (32) | 路径长度不能大于 768 个字节，路径深度不能大于 32 |
+| 26107 | Connection refused (too many connections) | 独立设备数超限 |
+| 26108 | App has been frozen | App 停止服务，余额不足开通下个月套餐 |
 | 26201 | Transaction hash does not match | 事务操作时数据已被其他客户端修改。 |
 | 26202 | User code called from the SyncReference runloop threw an exception:\n | 客户端异常。 |
 | 26203 | The transaction had too many retries | 事务操作重试次数超过限制。 |
