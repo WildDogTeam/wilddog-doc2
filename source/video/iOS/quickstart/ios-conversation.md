@@ -12,10 +12,11 @@ title: 视频通话
 </div>
 
 
-## 1. 创建应用并充值
+## 1. 创建应用
 
-- 首先，在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
-- 为防止恶意使用，使用Video 前用户需保证帐户余额大于 20元。充值请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
+首先，在控制面板中创建应用。
+
+<img src='/images/video_quickstart_create.png' alt="video_quickstart_create">
 
 ## 2. 开启匿名登录认证方式
 
@@ -25,7 +26,7 @@ title: 视频通话
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，填写表单，开启视频通话功能。
+进入 管理应用-实时视频通话，开启视频通话功能。此处注意记下配置页面的`VideoAppID`
 
 <img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
 
@@ -59,13 +60,13 @@ title: 视频通话
 
 ### 5.2 登录快速入门
 
-快速入门运行成功后，输入应用 ID。
+快速入门运行成功后，输入`VideoAppID`。
 
 <img src='/images/video_quickstart_ios_login.png' alt="video_quickstart_ios_mainUI" width="300">
 
-应用 ID 为下图 `wilddogio` 之前的字段，然后点击匿名登录。
+`VideoAppID`为下图所示，然后点击匿名登录。
 
-<img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp" width="300">
+<img src='/images/video_quickstart_videoappid.png' alt="video_quickstart_videoappid">
 
 登录成功后，页面会显示本地视频画面、你的 Wilddog ID 和用户列表按钮。
 
@@ -73,7 +74,7 @@ title: 视频通话
 
 ### 5.3 邀请他人加入视频通话
 
-在其他 iPhone 上使用同一应用 ID 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入视频通话。
+在其他 iPhone 上使用同一`VideoAppID` 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入视频通话。
 
 <img src='/images/video_quickstart_ios_userList.png' alt="video_quickstart_ios_userList" width="300">
 

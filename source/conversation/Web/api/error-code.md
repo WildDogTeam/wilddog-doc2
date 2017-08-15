@@ -1,0 +1,26 @@
+
+title: 错误码
+---
+
+| 错误码 | 错误信息 |描述 |
+| --- | ----- | ------ |
+| 40000 | VIDEO_UNKNOWN_ERROR | 未知错误。 |
+| 40001 | VIDEO_INVALID_ARGUMENT | 参数错误。 |
+| 40002 | VIDEO_DEVICE_NOT_AVAILABLE | 获取设备失败。 |
+| 40003 | VIDEO_CONNECT_FAILED | 视频通话或视频会议连接建立失败。 |
+| 40004 | VIDEO_CONNECTION_DISOCONNECTED | 本地与服务器连接断开。 |
+| 40005 | VIDEO_TOO_MANY_ACTIVE_CONNECTIONS | 太多的连接。 |
+| 40101 | VIDEO_CLIENT_REGISTRATION_FAILED | Client初始化失败，video功能未开启、服务已停用或认证失败。 |
+| 40102 | VIDEO_INVALID_AUTH_ARGUMENT | Client初始化失败，Auth token 过期。 |
+| 40201 | VIDEO_CONVERSATION_REGISTRATION_FAILED | 未在控制面板中开启功能。 |
+| 40202 | VIDEO_CONVERSATION_INVITATION_FAILED | 视频通话邀请失败。 |
+| 40203 | VIDEO_CONVERSATION_INVITATION_REJECTED | 视频通话邀请被拒绝。 |
+| 40204 | VIDEO_CONVERSATION_INVITATION_IGNORED | 视频通话邀请被忽略。 |
+| 40301 | VIDEO_CONFERENCE_REGISTRATION_FAILED | 视频会议连接失败，未在控制面板中开启功能。 |
+| 40302 | VIDEO_CONFERENCE_TOO_MANY_PARTICIPANTS | 视频会议人数超过上限。 |
+| 40311 | VIDEO_MEETINGCAST_REGISTRATION_FAILED | MeetingCast 初始化失败，未在控制面板中开启功能。 |
+| 40312 | VIDEO_MEETINGCAST_START_FAILED | MeetingCast 操作冲突，当前已经开启 MeetingCast 。 |
+| 40313 | VIDEO_MEETINGCAST_SWITCH_FAILED | MeetingCast 切换参与者失败，未开启 MeetingCast 或切换失败。 |
+| 40314 | VIDEO_MEETINGCAST_STOP_FAILED | MeetingCast 关闭直播失败，未开启 MeetingCast 或关闭失败。 |
+| 40401 | VIDEO_PARTICIPANT_CONNECT_FAILED | 无法与参与者建立连接。 |
+| 40402 | VIDEO_PARTICIPANT_CONNECTION_DISOCONNECTED | 参与者断开连接。 |

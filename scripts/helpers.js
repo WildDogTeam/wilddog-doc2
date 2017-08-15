@@ -158,9 +158,9 @@ hexo.extend.helper.register('doc_sidebar', function(className) {
     });
     result += '<\/ul>'
 
-    if (type !== 'overview' && type !== 'console') {
-        result += '<div class=\'console\'><a href=\'/console/creat.html\' class=\'console-link\'>控制面板指南</a></div>'
-    }
+    // if (type !== 'overview' && type !== 'console') {
+    //     result += '<div class=\'console\'><a href=\'/console/creat.html\' class=\'console-link\'>控制面板指南</a></div>'
+    // }
     return result;
 
 });

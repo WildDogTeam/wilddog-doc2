@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Android SDK
 
+### V2.3.5 - 2017.07.20
+<span class="changelog fix">修复</span>
+
+- 修复多app切换连接不上问题。
+- 修复读写数据出现的并发问题.
+- 修复token过期报错问题。
 
 ### V2.3.5 - 2017.07.20
 <span class="changelog fix">修复</span>

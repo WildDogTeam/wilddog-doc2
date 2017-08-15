@@ -4,6 +4,12 @@ title: 更新日志
 
 ## iOS SDK
 
+### V2.3.7 - 2017.07.21
+
+<span class="changelog feature">改进</span>
+
+- 内部优化。
+
 ### V2.3.6 - 2017.07.13
 
 <span class="changelog fix">修复</span>

@@ -1,4 +1,4 @@
-﻿
+
 title: 快速入门
 ---
 
@@ -11,10 +11,11 @@ title: 快速入门
     </ul>
 </div>
 
-## 1. 创建应用并充值
+## 1. 创建应用
 
-- 首先，在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
-- 为防止恶意使用，使用Video 前用户需保证帐户余额大于 20元。充值请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
+首先，在控制面板中创建应用。
+
+<img src='/images/video_quickstart_create.png' alt="video_quickstart_create">
 
 ## 2. 开启匿名登录认证方式
 
@@ -24,7 +25,7 @@ title: 快速入门
 
 ## 3. 开启实时视频通话服务
 
-进入 管理应用-实时视频通话，填写表单，开启视频通话功能。
+进入 管理应用-实时视频通话，开启视频通话功能。此处注意记下配置页面的`VideoAppID`
 
 <img src='/images/video_quickstart_openConversation.png' alt="video_quickstart_openConversation">
 
@@ -49,13 +50,17 @@ node https_channel_server.js
 
 本地 Web 服务启动后，访问 [https://127.0.0.1:8080](https://127.0.0.1:8080) 就会看到快速入门页面。
 
-<img src='/images/video_quickstart_js_login.png' alt="video_quickstart_js_login">
+<img src='/images/video_quickstart_js_login1.png' alt="video_quickstart_js_login">
 
 ### 5.2 登录
 
-输入应用 ID（下图 `wilddogio` 之前的字段），然后点击匿名登录。
+输入`VideoAppID`
 
-<img src='/images/video_quickstart_createApp.png' alt="video_quickstart_createApp">
+<img src='/images/video_quickstart_videoappid.png' alt="video_quickstart_videoappid">
+
+输入`SyncAppID`，（ 地址栏 `wilddogio` 之前的字段），然后点击匿名登录（推荐使用非匿名登录方式）
+
+<img src='/images/video_quickstart_js_syncAppId.png' alt="video_quickstart_js_syncAppId">
 
 ### 5.3 邀请他人加入视频通话
 

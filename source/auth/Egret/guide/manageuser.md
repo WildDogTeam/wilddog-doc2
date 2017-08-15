@@ -66,7 +66,7 @@ var user = wilddog.auth().currentUser;
 if (user != null) {
     var name = user.displayName;
     var email = user.email;
-    var phone = user.phone
+    var phone = user.phone;
     var photoUrl = user.photoURL;
     var uid = user.uid; 
 } else {

@@ -78,7 +78,8 @@ var currentL = window.location.pathname.split('/')[1];
 var srcs = [{
     overview: '/overview/index.html',
     sync: '/sync/Web/index.html',
-    video: '/video/Web/index.html',
+    conversation: '/conversation/Web/index.html',
+    conference: '/conference/Web/index.html',
     location: '/location/Web/index.html',
     sms: '/sms/index.html',
     auth: '/auth/Web/index.html',
@@ -88,7 +89,8 @@ var srcs = [{
 var currentUrls = {
     overview: '',
     sync: '',
-    video: '',
+    conversation: '',
+    conference: '',
     location: '',
     sms: '',
     auth: '',
@@ -98,7 +100,7 @@ var currentUrls = {
 currentUrls = JSON.parse(sessionStorage.getItem('navsrc')) || currentUrls;
 console.log(currentUrls)
 
-var navlinks = ['overview', 'sync', 'video', 'location', 'sms', 'auth', 'console'];
+var navlinks = ['overview', 'sync', 'conversation', 'conference', 'location', 'sms', 'auth', 'console'];
 
 //左侧每个链接单元
 var links = [].slice.call(document.getElementsByClassName('sidebar-link'));
