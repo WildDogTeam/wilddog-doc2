@@ -183,8 +183,8 @@ boolean startLocalRecording(File file,WilddogVideoView local, WilddogVideoView r
 | 参数名 | 描述 |
 |---|---|
 |file|录制多媒体存储的文件对象|
-|local|录制多媒体本地视频流对象|
-|remote|录制多媒体远程视频流对象|
+|local|本地视频流显示控件|
+|remote|远程视频流显示控件|
 
 **示例**
 

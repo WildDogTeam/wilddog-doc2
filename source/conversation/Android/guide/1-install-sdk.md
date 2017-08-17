@@ -34,6 +34,18 @@ android {
 
 初始化 `WilddogVideo` 之前，要先经过 [野狗身份认证](/auth/Android/index.html)。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式进行身份认证。
 
+参考以下代码可以安装WilddogAuth SDK。
+
+- **使用 Maven **
+
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-auth-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="auth_android_v">2.0.5</span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+
+- **使用 Gradle **
+
+在build.gradle中添加：
+
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.5</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+
 成功通过身份认证后，用户将获得 `uid` 以及 `token`。以匿名方式登录后初始化 [WilddogVideo](/conversation/Android/api/wilddog-video.html) 为例：
 
 
@@ -137,10 +149,11 @@ Warning:WARNING: Dependency org.json:json:20090211 is ignored for debug as it ma
      }
 ```
 
-实现代理方法 `-[WDGVideoDelegate wilddogVideo:didFailWithTokenError:]`，当 `token` 错误或过期时，会触发该方法：
+实现代理方法 `onTokenError(WilddogVideoError wilddogVideoError)`，当 `token` 错误或过期时，会触发该方法：
 
 ```java
      public void onTokenError(WilddogVideoError wilddogVideoError) {
          // 处理 token 错误。
      }
 ```
+

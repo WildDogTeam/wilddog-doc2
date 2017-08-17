@@ -10,7 +10,7 @@ title: 本地视频录制
 
 ```java
 File file = getYourFile();
-mConversation.startLocalRecording(file,localStream,remoteStream);
+mConversation.startLocalRecording(file,local,remote);
 ```
 
 ## 停止录制媒体流
