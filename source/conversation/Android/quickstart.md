@@ -1,7 +1,7 @@
 
 title: 快速入门
 ---
-我们通过一个简单的一对一视频通话示例来说明 Video SDK 的用法。[前往快速入门](https://github.com/WildDogTeam/video-demo-android-conversation)
+我们通过一个简单的一对一视频通话示例来说明 Video SDK 的用法。[前往demo源码](https://github.com/WildDogTeam/video-demo-android-conversation)
 
 <div class="env">
     <p class="env-title">环境准备</p>

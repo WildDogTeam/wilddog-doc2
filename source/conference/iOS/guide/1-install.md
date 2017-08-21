@@ -11,7 +11,7 @@ title: 安装和初始化 SDK
 在 Podfile 文件中添加以下语句，同时添加 Sync, Auth 和 Video SDK。
 
 ```ruby
-pod 'WilddogVideo'
+pod 'WilddogVideo', '1.2.9'
 ```
 
 然后运行 `pod install` 将上述依赖安装到你的工程。
