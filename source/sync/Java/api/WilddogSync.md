@@ -34,13 +34,13 @@ static synchronized WilddogSync getInstance(WilddogApp wilddogApp)
 
 ##### 说明
 
-使用指定的 [WilddogApp](/sync/Android/api/WilddogApp.html) 实例获取 `WilddogSync` 实例。
+使用指定的 [WilddogApp](/sync/java/api/WilddogApp.html) 实例获取 `WilddogSync` 实例。
 
 ##### 参数
 
 参数名 | 说明
 --- | ---
-wilddogApp |[WilddogApp](/sync/Android/api/WilddogApp.html) 对象。
+wilddogApp |[WilddogApp](/sync/java/api/WilddogApp.html) 对象。
 
 ##### 返回值
 
@@ -59,11 +59,11 @@ SyncReference getReference()
 
 ##### 说明
 
-返回当前野狗应用根节点的 [SyncReference](/sync/Android/api/SyncReference.html) 实例。
+返回当前野狗应用根节点的 [SyncReference](/sync/java/api/SyncReference.html) 实例。
 
 ##### 返回值
 
-[SyncReference](/sync/Android/api/SyncReference.html) 实例。
+[SyncReference](/sync/java/api/SyncReference.html) 实例。
 </br>
 
 ---
@@ -77,7 +77,7 @@ SyncReference getReference(String path)
 
 ##### 说明
 
-返回以 path 为相对路径的 [SyncReference](/sync/Android/api/SyncReference.html) 实例。
+返回以 path 为相对路径的 [SyncReference](/sync/java/api/SyncReference.html) 实例。
 
 ##### 参数
 
@@ -87,7 +87,7 @@ path | 从根节点起指定的节点路径。
 
 ##### 返回值
 
-[SyncReference](/sync/Android/api/SyncReference.html) 实例。
+[SyncReference](/sync/java/api/SyncReference.html) 实例。
 </br>
 
 ---
@@ -101,7 +101,7 @@ SyncReference getReferenceFromUrl(String url)
 
 ##### 说明
 
-用一个有效的 URL 获取 [SyncReference](/sync/Android/api/SyncReference.html) 实例。
+用一个有效的 URL 获取 [SyncReference](/sync/java/api/SyncReference.html) 实例。
 这个 URL 必须是指向默认 Wilddog Sync 完整路径（例如：`https://examples.wilddogio.com/web/saving-data/wildblog/posts`）。
 
 ##### 参数
@@ -112,7 +112,7 @@ url | 指定节点的 url。
 
 ##### 返回值
 
-[SyncReference](/sync/Android/api/SyncReference.html) 实例。
+[SyncReference](/sync/java/api/SyncReference.html) 实例。
 </br>
 
 ---

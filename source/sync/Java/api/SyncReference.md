@@ -1,7 +1,7 @@
 title:  SyncReference
 ---
 `SyncReference` 实例表示要操作的特定数据节点，可以通过 `SyncReference` 实例操作和读取数据。
-`SyncReference` 是 [Query](/sync/Android/api/Query.html) 的子类。
+`SyncReference` 是 [Query](/sync/java/api/Query.html) 的子类。
 
 ## 方法
 
@@ -62,7 +62,7 @@ SyncReference ref4 = ref.child("a").child("b");
 
 ##### 说明
 
-向指定节点写入数据。此方法会先清空指定节点，再写入数据。详细使用请参考：[setValue() 完整指南](../../../sync/Android/guide/save-data.html#写入数据)。
+向指定节点写入数据。此方法会先清空指定节点，再写入数据。详细使用请参考：[setValue() 完整指南](../../../sync/java/guide/save-data.html#写入数据)。
 
 支持的数据类型：
  - String、 Number、 Boolean 等基本数据类型;
@@ -128,7 +128,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 
 ##### 说明
 
-向指定节点写入数据并设置操作完成监听。此方法会先清空指定节点，再写入数据。详细使用请参考：[setValue() 完整指南](../../../sync/Android/guide/save-data.html#写入数据)。
+向指定节点写入数据并设置操作完成监听。此方法会先清空指定节点，再写入数据。详细使用请参考：[setValue() 完整指南](../../../sync/java/guide/save-data.html#写入数据)。
 `setValue()` 操作执行完成后将触发操作完成监听 listener 的 `onComplete()` 方法。
 
 支持写入的数据类型：
@@ -155,7 +155,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
  参数名 | 说明
  --- | ---
  value |value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。
- listener | [CompletionListener](/sync/Android/api/SyncReference.CompletionListener.html) 类型。`setValue()` 操作完成回调。`setValue(value, null)` 等价于 `setValue(value)`。
+ listener | [CompletionListener](/sync/java/api/SyncReference.CompletionListener.html) 类型。`setValue()` 操作完成回调。`setValue(value, null)` 等价于 `setValue(value)`。
 
 
 ##### 示例
@@ -220,7 +220,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
 ##### 说明
 
 
-向指定节点写入数据和 [数据优先级](/sync/Android/api/SyncReference.html#setPriority)，并设置操作完成监听。此方法会先清空指定节点，再写入数据。详细使用请参考：[setValue() 完整指南](../../../sync/Android/guide/save-data.html#写入数据)。
+向指定节点写入数据和 [数据优先级](/sync/java/api/SyncReference.html#setPriority)，并设置操作完成监听。此方法会先清空指定节点，再写入数据。详细使用请参考：[setValue() 完整指南](../../../sync/java/guide/save-data.html#写入数据)。
 `setValue()` 操作执行完成后将触发 listener 的 `onComplete()` 方法。
 
 支持写入的数据类型：
@@ -249,7 +249,7 @@ Wliddog Sync 没有对数组的原生支持，但是支持以数组下标作为 
  --- | ---
  value |value 的类型可以为 null、String、Number、Boolean、List、Map 或满足 JavaBean 规范的实体。
 priority |`Object` 指定节点的优先级，类型可以为 Boolean、Number 或 String。
-listener |[CompletionListener](/sync/Android/api/SyncReference.CompletionListener.html) 类型。`setValue()` 操作完成回调。`setValue(value, null)` 等价于 `setValue(value)`。
+listener |[CompletionListener](/sync/java/api/SyncReference.CompletionListener.html) 类型。`setValue()` 操作完成回调。`setValue(value, null)` 等价于 `setValue(value)`。
 
 
 
@@ -315,7 +315,7 @@ SyncReference push()
 
 ##### 说明
 向当前节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如："-KdzI7I-AsBST9NlasJM"）。 
-key 值基于时间戳和随机算法生成，并可以按照时间先后进行排序。详细使用请参考：[push() 完整指南](../../../sync/Android/guide/save-data.html#追加子节点)。
+key 值基于时间戳和随机算法生成，并可以按照时间先后进行排序。详细使用请参考：[push() 完整指南](../../../sync/java/guide/save-data.html#追加子节点)。
 
 ##### 返回值
 
@@ -352,7 +352,7 @@ ref.child("heros").push().setValue(hero);
 
 ##### 说明
 
-对当前节点进行数据合并操作，更新当前节点下的数据。详细使用请参考：[updateChildren() 完整指南](../../../sync/Android/guide/save-data.html#更新数据)。
+对当前节点进行数据合并操作，更新当前节点下的数据。详细使用请参考：[updateChildren() 完整指南](../../../sync/java/guide/save-data.html#更新数据)。
 与 `setValue()` 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildren()` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
 使用此方法可以对同一节点的子节点同时进行更新和删除操作。
 
@@ -386,7 +386,7 @@ void updateChildren(Map<String, Object> value, SyncReference.CompletionListener 
 
 ##### 说明
 
-对当前节点进行数据合并操作，更新当前节点下的数据，并设置数据完成监听。详细使用请参考：[updateChildren() 完整指南](../../../sync/Android/guide/save-data.html#更新数据)。
+对当前节点进行数据合并操作，更新当前节点下的数据，并设置数据完成监听。详细使用请参考：[updateChildren() 完整指南](../../../sync/java/guide/save-data.html#更新数据)。
 与 `setValue()` 方法覆盖当前节点下所有数据的方式不同，使用 `updateChildren()` 方法，不存在的子节点将会被新增，存在的子节点将会被更新。
 使用此方法可以对同一节点的子节点同时进行更新和删除操作。
 
@@ -395,7 +395,7 @@ void updateChildren(Map<String, Object> value, SyncReference.CompletionListener 
  参数名 | 说明
  --- | ---
   value | `Map<String, Object>` 当 value 为 null 时，等价于 `removeValue` 操作。
-listener | [CompletionListener](/sync/Android/api/SyncReference.CompletionListener.html) 类型。`setValue()` 操作完成回调。`setValue(value, null)` 等价于 `setValue(value)`。
+listener | [CompletionListener](/sync/java/api/SyncReference.CompletionListener.html) 类型。`setValue()` 操作完成回调。`setValue(value, null)` 等价于 `setValue(value)`。
 
 
 ##### 示例
@@ -433,7 +433,7 @@ void setPriority(Object priority)
 
 ##### 说明
 
-设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。详细使用请参考：[setPriority() 完整指南](../../../sync/Android/guide/save-data.html#设置节点优先级)。
+设置当前节点的优先级，支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。详细使用请参考：[setPriority() 完整指南](../../../sync/java/guide/save-data.html#设置节点优先级)。
 不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority(priority)`。
 
    节点按照如下优先级规则升序排列：null < Number < String。
@@ -469,7 +469,7 @@ void setPriority(Object object, SyncReference.CompletionListener listener)
 
 ##### 说明
 
-设置当前节点的优先级并设置优先级操作完成监听。支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。详细使用请参考：[setPriority() 完整指南](../../../sync/Android/guide/save-data.html#设置节点优先级)。
+设置当前节点的优先级并设置优先级操作完成监听。支持为每个节点设置优先级 (priority)，用于实现节点按优先级排序。优先级是节点的隐藏属性，默认为 null。详细使用请参考：[setPriority() 完整指南](../../../sync/java/guide/save-data.html#设置节点优先级)。
 不能为不存在的节点设置优先级。因此，新增数据需要设置优先级时，请使用 `setValue(data, priority)`；为已存在的数据设置优先级的时，使用 `setPriority(priority)`。
 
    节点按照如下优先级规则升序排列：null < Number < String。
@@ -488,7 +488,7 @@ void setPriority(Object object, SyncReference.CompletionListener listener)
 参数名 | 说明
 --- | ---
 priority |`Object` 指定节点的优先级。
-listener |[CompletionListener](/sync/Android/api/SyncReference.CompletionListener.html) 类型。
+listener |[CompletionListener](/sync/java/api/SyncReference.CompletionListener.html) 类型。
 
 </br>
 
@@ -504,7 +504,7 @@ void removeValue()
 
 ##### 说明
 
-删除当前节点，等价于在当前节点下调用 `setValue(null)` 方法。详细使用请参考：[removeValue() 完整指南](../../../sync/Android/guide/save-data.html#删除数据)。
+删除当前节点，等价于在当前节点下调用 `setValue(null)` 方法。详细使用请参考：[removeValue() 完整指南](../../../sync/java/guide/save-data.html#删除数据)。
 
 
 ##### 示例
@@ -528,13 +528,13 @@ void removeValue(SyncReference.CompletionListener listener)
 
 ##### 说明
 
-删除当前节点，并设置数据移除完成监听。等价于在当前节点下调用 `setValue(null, listener)` 方法。详细使用请参考：[removeValue() 完整指南](../../../sync/Android/guide/save-data.html#删除数据)。
+删除当前节点，并设置数据移除完成监听。等价于在当前节点下调用 `setValue(null, listener)` 方法。详细使用请参考：[removeValue() 完整指南](../../../sync/java/guide/save-data.html#删除数据)。
 
 ##### 参数
 
 参数名 | 说明
 --- | ---
-listener |[CompletionListener](/sync/Android/api/SyncReference.CompletionListener.html) 类型。`removeValue()` 操作完成回调。
+listener |[CompletionListener](/sync/java/api/SyncReference.CompletionListener.html) 类型。`removeValue()` 操作完成回调。
 
 
 
@@ -567,7 +567,7 @@ void runTransaction(Transaction.Handler handler)
 
 ##### 说明
 
-用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。详细使用请参考：[runTransaction() 完整指南](../../../sync/Android/guide/save-data.html#事务处理)。
+用于多客户端并发写入操作时保证数据一致性，可以避免并发修改当前节点时的数据冲突。详细使用请参考：[runTransaction() 完整指南](../../../sync/java/guide/save-data.html#事务处理)。
 与 `setValue()` 直接覆盖以前的数据不同，在不同客户端并发修改时，`runTransaction()` 不会单纯覆盖节点数据。
 客户端提交事务至服务器，如果数据已被其他客户端修改，那么服务器会拒绝当前操作，并将新值返回到客户端，客户端使用新值再次运行事务处理。
 在 `runTransaction()` 的执行过程中客户端可能会重复写入直到成功，也可以在执行过程中调用 `Transaction.abort()` 手动中止事务。
@@ -575,14 +575,14 @@ void runTransaction(Transaction.Handler handler)
 
 参数名 | 说明
 --- | ---
-handler |[Transaction.Handler](/sync/Android/api/Transaction.Handler.html) 类型。
+handler |[Transaction.Handler](/sync/java/api/Transaction.Handler.html) 类型。
 
 
 
 ##### 示例
 
 ```java
-SyncReference ref = WilddogSync.getInstance().getReference("/android/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes");
+SyncReference ref = WilddogSync.getInstance().getReference("/java/saving-data/wildblog/posts/-JRHTHaIs-jNPLXOQivY/upvotes");
 
 upvotesRef.runTransaction(new Transaction.Handler() {
     Transaction.Result doTransaction(MutableData currentData) {
@@ -615,13 +615,13 @@ upvotesRef.runTransaction(new Transaction.Handler() {
 
 ##### 说明
 
-获取一个 [OnDisconnect](/sync/Android/api/OnDisconnect.html) 的实例。详细使用请参考：[onDisconnect() 完整指南](../../../sync/Android/guide/save-data.html#离线事件 )。
-云端与客户端断开连接后，将在当前 [OnDisconnect](/sync/Android/api/OnDisconnect.html) 实例上自动触发离线事件。
+获取一个 [OnDisconnect](/sync/java/api/OnDisconnect.html) 的实例。详细使用请参考：[onDisconnect() 完整指南](../../../sync/java/guide/save-data.html#离线事件 )。
+云端与客户端断开连接后，将在当前 [OnDisconnect](/sync/java/api/OnDisconnect.html) 实例上自动触发离线事件。
 断开连接包括客户端主动断开连接，或者意外的网络中断。离线事件即执行特定的数据操作，支持离线写入、更新和删除数据。
 
 ##### 返回值
 
-[OnDisconnect](/sync/Android/api/OnDisconnect.html) 实例。
+[OnDisconnect](/sync/java/api/OnDisconnect.html) 实例。
 
 ##### 示例
 
@@ -650,12 +650,12 @@ ref.onDisconnect().setValue("onDisconnected.");
 
 ##### 说明
 
-通过当前 `SyncReference` 实例获取相关的 [WilddogSync](/sync/Android/api/WilddogSync.html)  实例。
+通过当前 `SyncReference` 实例获取相关的 [WilddogSync](/sync/java/api/WilddogSync.html)  实例。
 
 
 ##### 返回值
 
-[WilddogSync](/sync/Android/api/WilddogSync.html) 实例。
+[WilddogSync](/sync/java/api/WilddogSync.html) 实例。
 </br>
 
 ---
@@ -756,12 +756,12 @@ static void goOffline()
 
 ##### 说明
 
-手动断开与云端的连接。详细使用请参考：[goOffline() 完整指南](../../../sync/Android/guide/save-data.html#手动建立或断开连接 )。
+手动断开与云端的连接。详细使用请参考：[goOffline() 完整指南](../../../sync/java/guide/save-data.html#手动建立或断开连接 )。
 执行 `goOffline()` 操作后，会关闭自动重连机制，所有数据操作都在本地执行，不会影响到网络数据。
 同时不会接收任何网络数据变化，直到恢复连接。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  调用此方法会影响到所有 [WilddogApp](/sync/Android/api/WilddogApp.html) 的 [WilddogSync](/sync/Android/api/WilddogSync.html) 连接。
+  调用此方法会影响到所有 [WilddogApp](/sync/java/api/WilddogApp.html) 的 [WilddogSync](/sync/java/api/WilddogSync.html) 连接。
 </blockquote>
 
 </br>
@@ -777,11 +777,11 @@ static void goOnline()
 
 ##### 说明
 
-手动恢复与云端的连接，开启自动重连机制。详细使用请参考：[goOnline() 完整指南](../../../sync/Android/guide/save-data.html#手动建立或断开连接 )。
+手动恢复与云端的连接，开启自动重连机制。详细使用请参考：[goOnline() 完整指南](../../../sync/java/guide/save-data.html#手动建立或断开连接 )。
 在关闭连接期间发生的所有本地数据变化，都将在网络连接恢复后与网络数据比对，进行数据合并。
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  调用此方法会影响到所有 [WilddogApp](/sync/Android/api/WilddogApp.html) 的 [WilddogSync](/sync/Android/api/WilddogSync.html) 连接。
+  调用此方法会影响到所有 [WilddogApp](/sync/java/api/WilddogApp.html) 的 [WilddogSync](/sync/java/api/WilddogSync.html) 连接。
 </blockquote>
 
 </br>

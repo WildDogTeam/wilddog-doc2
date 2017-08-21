@@ -6,7 +6,7 @@ title: 高级特性
 
 ## 云端时间戳
 
-`WilddogSync.getInstance().getReference().getRepo().getServerTime()` 用于记录当前 [云端时间戳](/sync/Android/api/ServerValue.html)。
+`WilddogSync.getInstance().getReference().getRepo().getServerTime()` 用于记录当前 [云端时间戳](/sync/java/api/ServerValue.html)。
 
 例如，在`servertimestamp` 节点下记录当前云端时间：
 

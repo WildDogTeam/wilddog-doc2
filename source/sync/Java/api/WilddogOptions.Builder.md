@@ -1,6 +1,6 @@
 title: WilddogOptions.Builder
 ----
-用于创建 [WilddogOptions](/sync/Android/api/WilddogOptions.html) 实例的构造器。
+用于创建 [WilddogOptions](/sync/java/api/WilddogOptions.html) 实例的构造器。
 
 ## 方法
 
@@ -39,11 +39,11 @@ WilddogOptions build()
 
 ##### 说明
 
-使用设置的 syncUrl 参数，创建 [WilddogOptions](/sync/Android/api/WilddogOptions.html) 实例。
+使用设置的 syncUrl 参数，创建 [WilddogOptions](/sync/java/api/WilddogOptions.html) 实例。
 
 ##### 返回值
 
-[WilddogOptions](/sync/Android/api/WilddogOptions.html) 实例。
+[WilddogOptions](/sync/java/api/WilddogOptions.html) 实例。
 </br>
 
 
