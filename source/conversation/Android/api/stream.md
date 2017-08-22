@@ -107,24 +107,4 @@ void enableVideo(boolean isEnable)
 </br>
 
 ---
-### close()
 
-**定义**
-
-```java
-void close()
-```
-
-**说明**
-
-关闭当前流，当前流被关闭后不能继续使用。
-
-**示例**
-
-```java
-	//关闭当前流
-	stream.close();
-```
-</br>
-
----
