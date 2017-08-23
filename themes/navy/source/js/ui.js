@@ -14,7 +14,7 @@ $(function() {
 
     //  切换头部选中状态
     var type = window.location.pathname.split('/')[1]
-        // var type = type.split('.')[0]
+    // var type = type.split('.')[0]
     var headerNavs = getClass('main-nav-link');
     if (type === 'overview') {
         addClass(headerNavs[0], 'current')
@@ -212,6 +212,11 @@ $(function() {
         //sync
         var sync_android = snap.val().wilddog.sync.android;
         var sync_c = snap.val().wilddog.sync.c;
+
+        var sync_embed_rtos = snap.val().wilddog.sync.embed_rtos;
+        var sync_embed_arduino = snap.val().wilddog.sync.embed_arduino;
+        var sync_embed_openwrt = snap.val().wilddog.sync.embed_openwrt;
+
         var sync_core = snap.val().wilddog.sync.core;
         var sync_embed_arduino = snap.val().wilddog.sync.embed_arduino;
         var sync_embed_openwrt = snap.val().wilddog.sync.embed_openwrt;
@@ -219,6 +224,7 @@ $(function() {
         var sync_embedded = snap.val().wilddog.sync.embedded;
         var sync_ios = snap.val().wilddog.sync.ios;
         var sync_web = snap.val().wilddog.sync.web;
+        var sync_java = snap.val().wilddog.sync.java;
 
         //location
         var location_ios = snap.val().wilddog.location.ios;
@@ -273,6 +279,7 @@ $(function() {
         $('.sync_ios_v').text(sync_ios.version);
         $('.sync_android_v').text(sync_android.version);
         $('.sync_c_v').text(sync_c.version);
+        $('.sync_java_v').text(sync_java.version);
         $('.sync_embedded_v').text(sync_embed_rtos.version);
         $('.sync_core_v').text(sync_core.version);
         $(".sync_embed_rtos_v").text(sync_embed_rtos.version);
@@ -282,6 +289,7 @@ $(function() {
         $("#sync_android_d").attr("href", sync_android.cdn);
         $("#sync_ios_d").attr("href", sync_ios.cdn);
         $("#sync_core_d").attr("href", sync_core.cdn);
+        $("#sync_java_d").attr("href", sync_java.cdn);
         $("#sync_embed_rtos_d").attr("href", sync_embed_rtos.cdn);
         $("#sync_embed_arduino_d").attr("href", sync_embed_arduino.cdn);
         $("#sync_embed_openwrt_d").attr("href", sync_embed_openwrt.cdn);
@@ -294,6 +302,10 @@ $(function() {
         $("#sync_c-sha1").text(sync_c.checksum.sha1sum);
         $("#sync_c-sha256").text(sync_c.checksum.sha256sum);
 
+        $("#sync_java-md5").text(sync_java.checksum.md5sum);
+        $("#sync_java-sha1").text(sync_java.checksum.sha1sum);
+        $("#sync_java-sha256").text(sync_java.checksum.sha256sum);
+
         $("#sync_rtos-md5").text(sync_embed_rtos.checksum.md5sum);
         $("#sync_rtos-sha1").text(sync_embed_rtos.checksum.sha1sum);
         $("#sync_rtos-sha256").text(sync_embed_rtos.checksum.sha256sum);
@@ -305,6 +317,7 @@ $(function() {
         $("#sync_openwrt-md5").text(sync_embed_openwrt.checksum.md5sum);
         $("#sync_openwrt-sha1").text(sync_embed_openwrt.checksum.sha1sum);
         $("#sync_openwrt-sha256").text(sync_embed_openwrt.checksum.sha256sum);
+
 
         $("#sync_ios-md5").text(sync_ios.checksum.md5sum);
         $("#sync_ios-sha1").text(sync_ios.checksum.sha1sum);
