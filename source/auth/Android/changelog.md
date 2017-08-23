@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Android SDK
 
+### V2.0.6 - 2017.8.22
+
+<span class="changelog fix">修复</span>
+
+- 修复使用手机AuthCredential reauth失败的bug。
+
 ### V2.0.5 - 2016.12.22
 
 <span class="changelog feature">改进</span>
