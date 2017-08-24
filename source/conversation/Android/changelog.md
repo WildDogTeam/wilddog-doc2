@@ -3,6 +3,12 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.0.2 - 2017.08.23
+
+<span class="changelog fix">修复</span>
+
+- 修复被叫方获取主叫方携带信息一直为null的bug
+
 ### v2.0.1 - 2017.08.22
 
 <span class="changelog fix">修复</span>
