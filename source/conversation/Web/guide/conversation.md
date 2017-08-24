@@ -1,7 +1,7 @@
 title: 视频通话
 ---
 
-本篇文档介绍开发视频通话的主要环节，包括 [创建视频通话](/video/Web/guide/conversation.html)、[管理其他参与者](/video/Web/guide/conversation.html#管理其他参与者)、[加入视频通话相关](/video/Web/guide/conversation.html#加入视频通话相关) 和 [数据安全性](/video/Web/guide/conversation.html#数据安全性)。
+本篇文档介绍如何建立视频通话。在主叫的一方，这个过程包括发起通话请求，收到回应，关闭通话；在被叫的一方，这个过程包括收到视频通话请求，接受／拒绝通话请求，关闭通话。
 
 ## 创建视频通话
 
@@ -9,20 +9,33 @@ title: 视频通话
 
 ### 配置和预览本地媒体流
 
-本地媒体流( [Local Stream](/video/Web/guide/core.html#Local-Stream) )包括音频和视频，发起或加入会议前需要进行配置，成功加入一个会议后，该媒体流会发送给其他参与者。
+本地媒体流( [Local Stream](/conversation/Web/guide/core.html#Local-Stream) )包括音频和视频，发起或加入通话前需要进行配置，成功加入一个通话后，该媒体流会发送给其他参与者。
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   只有通过 HTTPS 服务加载的页面才可以成功获取本地摄像头和麦克风等资源。
 </blockquote>
 
+创建媒体流时需要传入4个参数，包括：
+* captureAudio / captureVideo 为音／视频采集的开关，设置为 false 表示关闭音／视频采集，默认为 true；
+* dimension 表示分辨率，默认为480p；
+* maxFPS 用来设置视频的最大帧率，默认为 15 帧／秒。
+
 例如，创建一个同时有音频和视频的本地媒体流并展示出来：
 
 ```javascript
 // 获取html中id为'local'的video元素;
 var localElement = document.getElementById('local');
+//获取wilddogVideo对象并初始化，在初始化之前需要通过auth获取的用户的token
+var video = wilddogVideo.getInstance().initialize(videoAppId,token);
 //创建一个同时有音频和视频的媒体流
-wilddog.video().createStream({audio:true,video:true})
+video.createLocalStream(
+    {
+        captureAudio:true,
+        captureVideo:true,
+        dimension:'480p',
+        maxFPS: 15
+    })
     .then(function(localStream){
         // 获取到localStream,将媒体流绑定到页面的video类型的标签上
         // 如果没有获得摄像头权限或无摄像头，则无法展示。
@@ -30,109 +43,96 @@ wilddog.video().createStream({audio:true,video:true})
     });
 ```
 
-### 发起视频通话
+### 发起通话请求
 
-只有另一个 [Client](/video/Web/guide/core.html#Client) 接受了一方的邀请，通话才能建立成功。
+使用 `call(remoteUid,localStream,data)` 来发起通话请求，该方法需要传递三个参数：
 
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  视频通话使用实时数据库中的 `/wilddogVideo` 节点进行信令交互，为避免影响视频通话功能的使用，请勿操作该节点。
-</blockquote>
+* remoteUid: 通话接收方的 `uid`，`uid` 是 WilddogAuth 为认证用户分配的唯一身份标识；
+* localStream: 通话发起方的本地媒体流；
+* data: 用户自定义信息，可以为空。
 
-
-例如，发起一对一视频通话：
+调用该方法返回 [Conversation](/conversation/web/api/conversation.html) 实例，用于控制本次视频通话。
 
 ```javascript
-// 获取html中id为'remote'的video元素;
-var remoteVideoElement = document.getElementById('remote');
-// 邀请他人加入通话
-// 设置对方 Wilddog ID （需开发者在应用层自己实现获取方式，Wilddog ID 请参考 ClientInviteConstraints）;
-// 并传入本地媒体流（localStream ，之前创建的本地流）;
-client.inviteToConversation("Remote User's Wilddog ID",{
-        'stream':localStream,
-        'userData':'somethings'
-    })
-    // 对方接受邀请后，成功拿到 Conversation 对象
-    .then(function(conversation){
-        // 建立对'participant_connected'事件的监听，触发时在回调函数中拿到参与者(Participant对象)
-        conversation.on('participant_connected', function(participant){
-            console.log('A remote Participant connected: ' + participant.participantId);
-            // 监听参与者的 stream_added 事件，将参与者携带的媒体流绑定到页面的video类型的标签上
-            participant.on('stream_added', function(stream){
-                console.log('Receive stream!');
-                stream.attach(remoteEl);
-            });
-        });
-    });
+mConversation = video.call(remoteUid,localStream,"userData");
+//监听参与者的stream_received事件，将对端的流媒体绑定到页面的video中
+mConversation.on('stream_received',function(stream){
+    console.log('Receive stream' + stream);
+})
 ```
 
-## 管理其他参与者
+> 注：每个客户端同一时间只能存在一个通话。发起电话请求时，默认会挂断前一次通话。
 
-管理其他参与者包括处理其他参与者的连接事件和播放其他参与者的媒体流。
+### 收到通话请求
 
+其他用户发来通话请求时，监听邀请时间接受另一个Video 发起的邀请：
 
-### 处理其他参与者的连接事件
-
-通过监听其他参与者加入或离开的事件，来获得其状态通知。
-
-例如，打印加入、离开的日志：
+例如，收到邀请后接受邀请
 
 ```javascript
-//监听参与者加入事件
-conversation.on('participant_connected', function(participant){
-    console.log('New participant connected: ', participant.Id);
-});
-//监听参与者离开事件
-conversation.on('participant_disconnected', function(participant){
-    console.log('A participant disconnected: ', participant.Id);
-});
-```
 
-### 播放其他参与者的媒体流
-
-通过展示其他参与者的视频流来观看其视频画面。
-
-例如，当监听到参与者加入视频通话时展示参与者的媒体流：
-
-```javascript
-var remoteEl = document.getElementById('remote');
-participant.on('stream_added', function(stream){
-    console.log('Receive stream!');
-    stream.attach(remoteEl);
-});
-```
-
-## 加入视频通话相关
-
-视频通话相关操作包括接受或拒绝邀请、离开视频通话。
-
-### 接受或拒绝邀请
-
-初始化 Client 之后，监听邀请事件接收另一个 Client 发起的邀请，收到邀请后可以选择接受或拒绝邀请。
-
-例如，收到邀请后，接受邀请：
-
-```javascript
-var client = wilddog.video().client();
-//监听邀请事件
-client.on('invite', function(incomingInvite){
-    //收到邀请，接受邀请
-    incomingInvite.accept(localStream)
+var remoteVideo = wilddogVideo.getInstance().initialize(videoAppId,token);
+remoteVideo.on('called',function(incomingConversation){
+    incomingConversation.accept(localStream)
         .then(function(conversation){
             //接受邀请成功，加入视频通话
         });
-});
+})
 ```
 
-### 离开视频通话
+## 接受／拒绝通话请求
 
-离开一个正在进行的视频通话并释放媒体资源。可以直接释放媒体资源或通过监听离开通话事件在成功离开通话后释放媒体资源。
-
-例如，断开视频通话并释放不使用的资源：
+使用 `accept(localStream)` 来接受通话请求，该方法需要传入本地媒体流
 
 ```javascript
-conversation.disconnect();
-conversation.on('disconnected', function(){
+mConversation.accept(localStream);
+```
+
+使用 `reject()` 来拒绝通话请求：
+
+```javascript
+mConversation.reject();
+```
+
+接受／拒绝对方的通话请求后，对方会通过 `mConversation.on('response',callback)` 收到 ACCEPT / REJECT 状态的通知：
+
+```javascript
+
+mConversation.on('response',function(callStatus) {
+    switch (callStatus){
+        case ACCEPTED:
+            Log.d("log","通话被接受");
+            break;
+        case REJECTED:
+            Log.d("log","通话被拒绝");
+            break;
+        case BUSY:
+            Log.d("log","正忙");
+            break;
+        case TIMEOUT:
+            Log.d("log","超时");
+            break;
+        default:
+            Log.d("log","状态未识别");
+            break;
+    }
+})
+```
+
+### 关闭视频通话
+
+使用 `close()` 来取消呼叫或者结束通话。
+
+```javascript
+mConversation.close();
+mConversation=null;
+```
+
+通话被关闭后，对方会通过 `mConversation.on('closed',called)` 收到通话结束的通知：
+
+```javascript
+
+mConversation.on('closed',function(){
     //释放资源
 })
 ```

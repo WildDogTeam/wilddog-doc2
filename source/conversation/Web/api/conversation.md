@@ -1,78 +1,16 @@
 ﻿
-title: wilddog.video.Conversation
+title: Conversation
 ---
 
 正在进行的视频通话。
 
 ## 属性
 
-### localParticipant
-
-**类型**
-
-```js
-wilddog.video.LocalParticipant
-```
+### remoteUid
 
 **说明**
 
-Conversation 中的本地参与者。
-
-</br>
-
----
-
-### participant
-
-**类型**
-
-```js
-Map.<Participant.Id, Participant>
-```
-
-**说明**
-
-当前 Conversation 中远端的参与者。
-
-</br>
-
----
-
-### Id
-
-**类型**
-
-```js
-String
-```
-
-**说明**
-
-当前 Conversation 的唯一标识 ID。
-
-</br>
-
----
-
-### status
-
-**类型**
-
-```js
-String
-```
-
-**说明**
-
-当前 Conversation 的状态。
-
-**状态类型**
-
-| 状态 | 说明 |
-|---|---|
-| connecting | String 类型，连接野狗实时视频服务器中。|
-| connected | String 类型，连接野狗实时视频服务器成功。|
-| disconnected | String 类型，与野狗实时视频服务器断开连接。|
+获取当前视频通话远端UID，此ID为不重复的字符串。
 
 </br>
 
@@ -80,23 +18,75 @@ String
 
 ## 方法
 
-### disconnect
+### accept
 
 **定义**
 
 ```js
-disconnect()
+accept(localStream)
 ```
 
 **说明**
 
-离开当前的 Conversation，会触发 `disconnected` 事件。
+被叫方接受主叫方的呼叫
+
+**参数**
+
+| 参数名          | 描述                      |
+| ----------------| ------------------------- |
+| localStream        | 接受邀请时携带的本地媒体流对象。|
 
 **示例**
 
 ```js
-//离开会议
-conversation.disconnect();
+//接受邀请
+conversation.accept(localStream);
+```
+
+</br>
+
+---
+
+### reject
+
+**定义**
+
+```js
+reject()
+```
+
+**说明**
+
+拒绝邀请
+
+**示例**
+
+```js
+//拒绝邀请
+conversation.reject();
+```
+
+</br>
+
+---
+
+### close
+
+**定义**
+
+```js
+close()
+```
+
+**说明**
+
+挂断当前视频通话
+
+**示例**
+
+```js
+//离开视频通话
+conversation.close();
 ```
 
 </br>
@@ -107,66 +97,77 @@ conversation.disconnect();
 
 ### 事件
 
-| 事件类型 | 说明                            |
-| -------- | ------------------------------- |
-| connected | Client 与 Conversation 连接成功触发。 |
-| connect_failed | Client 与 Conversation 连接失败触发。|
-| disconnected | Client 与 Conversation 断开连接触发。 |
-| participant_connected | 有新的参与者加入触发。 |
-| participant_disconnected | 有参与者离开触发。 |
+| 事件类型          | 说明                      |
+| ----------------| ------------------------- |
+| response        | 视频通话状态变化触发。        |
+| stream_received | 收到远端媒体流触发。         |
+| closed          | Conversation 断开连接触发。 |
+| error           | Conversation 连接失败触发。 |
+| local_stats     | 获取本地媒体流统计信息。      |
+| remote_stats    | 获取远端媒体流统计信息。    |
 
 </br>
 
 ---
 
-#### connected
+#### response
 
 **参数**
 
 | 参数名 | 说明 |
 |---|---|
-| conversationId | String 类型。Conversation 的唯一标识 ID。|
+| callStatus | String 类型。表示视频通话的状态，包括已接受(ACCEPTED)、已拒绝(REJECTED)、对方忙碌(BUSY)、请求超时(TIMEOUT)。|
 
 **示例**
 
 ```js
 //监听参与者加入失败事件
-conversation.on('connected', function(conversationId){
-    console.log('Conversation connect success, conversationId is :', conversationId);
+conversation.on('response', function(callStatus){
+    switch (callStatus) {
+        case 'ACCEPTED':
+            console.log('accepted');
+            break;
+        case 'REJECTED':
+            console.log('rejected');
+            break;
+        case 'BUSY':
+            console.log('busy');
+            break;
+        case 'TIMEOUT':
+            console.log('timeout');
+            break;
+        default:
+            console.log('状态未识别');
+            break;
+    }
 });
 ```
 
-#### connect_failed
+#### stream_received
 
 **参数**
 
 | 参数名 | 说明 |
 |---|---|
-| conversationId | String 类型。Conversation 的唯一标识 ID。|
+| stream | [RemoteStream](/conversation/Web/api/RemoteStream.html) 类型远端参与者发送的媒体流|
 
 **示例**
 
 ```js
-//监听参与者加入失败事件
-conversation.on('connect_failed', function(conversationId){
-    console.log('Conversation connect failed, conversationId is :', conversationId);
+//监听远端参与者媒体流
+conversation.on('stream_received', function(stream){
+    console.log('remoteStream is :', stream);
 });
 ```
 
-#### disconnected
-
-**参数**
-
-| 参数名 | 说明 |
-|---|---|
-| conversationId | `String` 类型。断开的 Conversation 的 ID。|
+#### closed
 
 **示例**
 
 ```js
 //监听断开事件
-conversation.on('disconnected', function(conversationId){
-    console.log('Conversation ' + conversationId + ' disconnected.');
+conversation.on('closed', function(){
+    console.log('Conversation disconnected.');
 });
 ```
 
@@ -174,20 +175,35 @@ conversation.on('disconnected', function(conversationId){
 
 ---
 
-#### participant_connected
+#### error
+
+**示例**
+
+```js
+//错误信息回调
+conversation.on('error', function(error){
+    console.log('Conversation error is' + error);
+});
+```
+
+</br>
+
+---
+
+#### local_stats
 
 **参数**
 
 | 参数名 | 说明 |
 |---|---|
-| participant | [wilddog.video.Participant](/video/Web/api/participant.html) 类型。加入房间的 Participant 对象。|
+| statistic | 本地视频流统计信息，包括视频的宽、高、帧率、发送接收总大小、比特率等。|
 
 **示例**
 
 ```js
 //监听参与者加入事件
-conversation.on('participant_connected', function(participant){
-    console.log('Participant ' + participant.Id + ' connected.');
+conversation.on('local_stats', function(statistic){
+    console.log('local_stats is ' + statistic );
 });
 ```
 
@@ -195,20 +211,20 @@ conversation.on('participant_connected', function(participant){
 
 ---
 
-#### participant_disconnected
+#### remote_stats
 
 **参数**
 
 | 参数名 | 说明 |
 |---|---|
-| participant | [wilddog.video.Participant](/video/Web/api/participant.html) 类型。离开房间的 Participant 对象。|
+| statistic | 对端视频流统计信息，包括视频的宽、高、帧率、发送接收总大小、比特率、延迟等|
 
 **示例**
 
 ```js
 //监听参与者的断开事件
-conversation.on('participant_disconnected', function(conversationId){
-    console.log('Participant ' + participant.Id + ' connected.');
+conversation.on('remote_stats', function(statistic){
+    console.log('remote_stats is ' + statistic );
 });
 ```
 
