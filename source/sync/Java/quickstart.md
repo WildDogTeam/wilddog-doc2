@@ -38,7 +38,7 @@ SyncReference ref = WilddogSync.getInstance().getReference();
 
 </blockquote>
 
-## 5. 写入数据
+## 4. 写入数据
 
 `setValue()` 用于向指定节点写入数据。Sync 的数据存储格式采用 [JSON](http://json.org/json-zh.html)。
 
@@ -56,7 +56,7 @@ ref.child("messageboard").child("message1").setValue(comment
 
 
 
-## 6. 监听数据
+## 5. 监听数据
  `addValueEventListener()`或 `addListenerForSingleValueEvent()` 方法用于监听 [节点](/guide/reference/term.html#节点) 的数据。
 
 例如，从应用中获得评论数据：
@@ -95,7 +95,7 @@ myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 ```
 
 
-## 7.数据安全
+## 6.数据安全
 
 你可以在 Sync 中使用规则表达式进行数据访问权限的控制。规则表达式可以实现以下功能：
 
@@ -113,7 +113,7 @@ myRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
 </blockquote>
 
-## 8.更多使用
+## 7.更多使用
 
 - 了解 Sync 更多使用方式，请参考 [完整指南](/sync/Android/guide/save-data.html) 和 [API 文档](/sync/Android/api/WilddogOptions.html)。
 - 了解如何设计数据结构，请参考 [组织数据](/sync/Android/guide/bestpractice/structure-data.html)。
