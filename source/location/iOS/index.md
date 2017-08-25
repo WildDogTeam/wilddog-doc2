@@ -59,10 +59,6 @@ Realtime Location 将定位信息向云端实时同步，为你提供地理位�
 
 ## Priview 版注意
 
-- Realtime Location Preview 版本目前只有 JS SDK，近期将会推出 iOS，Android SDK。
-
-- Realtime Location Preview 目前不收取任何费用。
-
 - Realtime Location Preview 版本处于不断完善的阶段，我们欢迎你的任何反馈和建议。你可以提交工单或者联系 zhongyifan@wilddog.com 进行反馈。任何有价值的建议我们都将会给予一定奖励。
 
   ​
