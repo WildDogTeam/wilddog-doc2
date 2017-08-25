@@ -12,7 +12,7 @@ wilddogVideo是访问Wilddog Video SDK的入口。wilddogVideo 对象的实例�
 
 ## 方法
 
-getInstance
+### getInstance
 
 **定义**
 
@@ -32,7 +32,7 @@ var video = wilddogVideo.getInstance();
 
 </br>
 
---
+---
 
 ### initialize
 
@@ -132,6 +132,8 @@ start()
 **说明**
 
 与服务器建立连接，会进行token验证，常在调用stop()之后调用，默认初始化会自动调用。
+
+**示例**
 
 ```js
 video.start();
