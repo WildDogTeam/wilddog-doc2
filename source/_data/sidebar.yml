@@ -139,6 +139,7 @@ sync:
       基础概念: /sync/Java/guide/concept.html
       数据操作: /sync/Java/guide/save-data.html
       事件监听: /sync/Java/guide/retrieve-data.html
+      自定义身份认证: /sync/Java/guide/custom.html
       离线功能: /sync/Java/guide/offline-capabilities.html
       高级特性: /sync/Java/guide/advance-feature.html
       Webhook: /sync/Java/guide/webhook.html
@@ -156,10 +157,13 @@ sync:
       数据索引: /sync/Java/rules/index.html
       API 参考: /sync/Java/rules/ruleapi.html
     API 文档:
+      AuthResult: /sync/Java/api/AuthResult.html
       WilddogOptions: /sync/Java/api/WilddogOptions.html
       WilddogOptions.Builder: /sync/Java/api/WilddogOptions.Builder.html
       WilddogApp: /sync/Java/api/WilddogApp.html
+      WilddogAuth: /sync/Java/api/WilddogAuth.html
       WilddogSync: /sync/Java/api/WilddogSync.html
+      WilddogUser: /sync/Java/api/WilddogUser.html
       SyncReference: /sync/Java/api/SyncReference.html
       SyncReference.CompletionListener: /sync/Java/api/SyncReference.CompletionListener.html
       ChildEventListener: /sync/Java/api/ChildEventListener.html
