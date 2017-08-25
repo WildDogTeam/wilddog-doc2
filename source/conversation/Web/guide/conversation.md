@@ -100,16 +100,16 @@ mConversation.reject();
 
 mConversation.on('response',function(callStatus) {
     switch (callStatus){
-        case ACCEPTED:
+        case 'ACCEPTED':
             Log.d("log","通话被接受");
             break;
-        case REJECTED:
+        case 'REJECTED':
             Log.d("log","通话被拒绝");
             break;
-        case BUSY:
+        case 'BUSY':
             Log.d("log","正忙");
             break;
-        case TIMEOUT:
+        case 'TIMEOUT':
             Log.d("log","超时");
             break;
         default:
@@ -128,7 +128,7 @@ mConversation.close();
 mConversation=null;
 ```
 
-通话被关闭后，对方会通过 `mConversation.on('closed',called)` 收到通话结束的通知：
+通话被关闭后，对方会通过 `mConversation.on('closed',callback)` 收到通话结束的通知：
 
 ```javascript
 
