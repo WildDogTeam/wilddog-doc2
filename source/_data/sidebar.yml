@@ -329,16 +329,12 @@ conversation:
       基础概念: /conversation/Web/guide/core.html
       安装和初始化 SDK: /conversation/Web/guide/install-sdk.html
       视频通话: /conversation/Web/guide/conversation.html
+      媒体流统计: /conversation/Web/guide/statistics.html
     API 文档:
       Video: /conversation/Web/api/wilddogVideo.html
-      Client: /conversation/Web/api/wilddogVideoClient.html
       Conversation: /conversation/Web/api/conversation.html
-      LocalParticipant: /conversation/Web/api/localParticipant.html
-      Participant: /conversation/Web/api/participant.html
       LocalStream: /conversation/Web/api/localStream.html
       RemoteStream: /conversation/Web/api/remoteStream.html
-      OutgoingInvite: /conversation/Web/api/outgoingInvite.html
-      IncomingInvite: /conversation/Web/api/incomingInvite.html
       错误码: /conversation/Web/api/error-code.html
     更新日志: /conversation/Web/changelog.html
 
