@@ -2,7 +2,7 @@
 title: Conversation
 ---
 
-正在进行的视频通话。
+视频通话，实现一对一视频通话功能
 
 ## 属性
 
@@ -149,7 +149,7 @@ conversation.on('response', function(callStatus){
 
 | 参数名 | 说明 |
 |---|---|
-| stream | [RemoteStream](/conversation/Web/api/RemoteStream.html) 类型远端参与者发送的媒体流|
+| stream | [RemoteStream](/conversation/Web/api/remoteStream.html) 类型远端参与者发送的媒体流|
 
 **示例**
 
@@ -196,7 +196,7 @@ conversation.on('error', function(error){
 
 | 参数名 | 说明 |
 |---|---|
-| statistic | 本地视频流统计信息，包括视频的宽、高、帧率、发送接收总大小、比特率等。|
+| statistic | 本地视频流统计信息，包括视频的宽、高、帧率、发送接收总大小、比特率等|
 
 **示例**
 
