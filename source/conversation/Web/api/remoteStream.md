@@ -3,42 +3,6 @@
 title: wilddog.video.RemoteStream
 ---
 
-远端媒体流。
-
-## 属性
-
-### isAudioEnabled
-
-**类型**
-
-```js
-Boolean
-```
-
-**说明**
-
-远端媒体流音频是否启用。
-
-</br>
-
----
-
-### isVideoEnabled
-
-**类型**
-
-```js
-Boolean
-```
-
-**说明**
-
-远端媒体流视频是否启用。
-
-</br>
-
----
-
 ## 方法
 
 ### attach
@@ -145,4 +109,27 @@ enableVideo(enabled)
 ```js
 //开启参与者的视频
 remoteStream.enableVideo(true);
+```
+
+</br>
+
+---
+
+### close
+
+**定义**
+
+```js
+close()
+```
+
+**说明**
+
+关闭媒体流，关闭后不能继续使用。
+
+**示例**
+
+```js
+//开启参与者的视频
+remoteStream.close();
 ```

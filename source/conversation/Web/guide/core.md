@@ -2,17 +2,13 @@
 title: 基础概念
 ---
 
-### Client
+### Video
 
-Client 即客户端代理（User Agent, UA），通过 Client，客户端可以建立视频通话。
+Video 即客户端代理（User Agent, UA），通过 Video实例，客户端可以建立视频通话。
 
 ### Conversation
 
 Conversation 即一对一视频通话，使用点对点的传输方式，音视频数据直接在客户端之间传输，在支持超高清设备的同时还能极大的节约带宽成本，并保证通话的隐私安全。
-
-### Participant
-
-Participant，即视频通话中的参与者。同一个视频通话的参与者间可以互相分享音频和视频。
 
 ### Local Stream
 
