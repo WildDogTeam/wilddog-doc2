@@ -3,6 +3,12 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.0.3 - 2017.08.28
+
+<span class="changelog fix">修复</span>
+
+- 修复呼叫方超时接口不触发的bug
+
 ### v2.0.2 - 2017.08.23
 
 <span class="changelog fix">修复</span>
