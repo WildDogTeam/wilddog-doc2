@@ -102,9 +102,9 @@ mAuth.signInWithPhoneAndPassword(phone, password)
 ```java
 WilddogUser user = mAuth.getCurrentUser();
 user.sendPhoneVerification()
-     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+     .addOnCompleteListener(this, new OnCompleteListener<Void>() {
              @Override
-             public void onComplete( Task<AuthResult> task) {
+             public void onComplete( Task<Void> task) {
                  Log.d(TAG, "sendPhoneVerification:onComplete:" + task.isSuccessful());
                  if (!task.isSuccessful()) {
                    Log.e(TAG, "sendPhoneVerification", task.getException());
