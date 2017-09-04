@@ -11,7 +11,7 @@ title: 更新日志
 
 <span class="changelog fix">修复</span>
 
-- 修复切换用户后重新初始化SDK无法收到邀请的bug。
+- 修复切换用户后重新初始化SDK无法收到呼叫的bug。
 
 ### v2.0.3 - 2017.08.28
 
