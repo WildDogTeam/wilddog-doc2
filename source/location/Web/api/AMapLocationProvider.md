@@ -32,7 +32,7 @@ String
 
 ##### 说明
 
-获取 `AMapLocationProvider` 按照时间间隔采集时的时间频率，单位为秒。
+获取 `AMapLocationProvider` 按照时间间隔采集时的时间频率，单位为毫秒。
 
 ##### 返回值
 
