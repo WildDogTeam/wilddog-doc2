@@ -3,23 +3,33 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.0.8 - 2017.09.04
+
+<span class="changelog add">新增</span>
+
+- 新增arm64-v8a,x86,x86_64的video so库文件,以支持不同cpu架构的安卓系统。
+
+<span class="changelog fix">修复</span>
+
+- 修复切换用户后重新初始化SDK无法收到邀请的bug。
+
 ### v2.0.3 - 2017.08.28
 
 <span class="changelog fix">修复</span>
 
-- 修复呼叫方超时接口不触发的bug
+- 修复呼叫方超时接口不触发的bug。
 
 ### v2.0.2 - 2017.08.23
 
 <span class="changelog fix">修复</span>
 
-- 修复被叫方获取主叫方携带信息一直为null的bug
+- 修复被叫方获取主叫方携带信息一直为null的bug。
 
 ### v2.0.1 - 2017.08.22
 
 <span class="changelog fix">修复</span>
 
-- 修复特殊情况下取消视频导致崩溃问题
+- 修复特殊情况下取消视频导致崩溃问题。
 
 
 ### v2.0.0 - 2017.08.14
