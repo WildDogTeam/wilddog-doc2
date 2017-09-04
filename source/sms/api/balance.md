@@ -2,7 +2,7 @@
 title: 查询账户余额
 ---
 
-用于查询账户当前余额，分为现金余额和代金券余额，调用时需要计算 [数字签名](/sms/guide/signature.html#生成数字签名的方法) 。。
+用于查询账户当前余额，分为现金余额和代金券余额，调用时需要计算 [数字签名](/sms/guide/signature.html#生成数字签名的方法) 。
 
 **URL**
 
@@ -31,7 +31,7 @@ GET
  
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  <li>生成签名时不要使用 urlencode，在调用 API 时，才需要对参数做 urlencode<li/>
+  <li>生成数字签名时不要使用 urlencode，在调用 API 时，才需要对参数做 urlencode<li/>
   返回账户余额单位为厘，1 元 = 1000 厘。
 </blockquote>
  

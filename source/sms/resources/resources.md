@@ -57,7 +57,7 @@ public class Example {
         });
         // 请求参数排序
         sortedMap.putAll(params);
-        // 计算签名
+        // 计算数字签名
         StringBuilder sb = new StringBuilder();
         FormBody.Builder formBody = new FormBody.Builder();
         for (String s : sortedMap.keySet()) {
@@ -67,7 +67,7 @@ public class Example {
         }
         sb.append(APP_KEY);
         String sig = DigestUtils.sha256Hex(sb.toString());
-        // 追加签名参数
+        // 追加数字签名参数
         RequestBody body = formBody.add("signature", sig).build();
         Request request = new Request.Builder().url(SENDCODE_URL).post(body).build();
         try {
@@ -98,7 +98,7 @@ public class Example {
         });
         // 请求参数排序
         sortedMap.putAll(params);
-        // 计算签名
+        // 计算数字签名
         StringBuilder sb = new StringBuilder();
         FormBody.Builder formBody = new FormBody.Builder();
         for (String s : sortedMap.keySet()) {
@@ -138,7 +138,7 @@ public class Example {
         });
         // 请求参数排序
         sortedMap.putAll(params);
-        // 计算签名
+        // 计算数字签名
         StringBuilder sb = new StringBuilder();
         FormBody.Builder formBody = new FormBody.Builder();
         for (String s : sortedMap.keySet()) {
@@ -148,7 +148,7 @@ public class Example {
         }
         sb.append(APP_KEY);
         String sig = DigestUtils.sha256Hex(sb.toString());
-        // 追加签名参数
+        // 追加数字签名参数
         RequestBody body = formBody.add("signature", sig).build();
         Request request = new Request.Builder().url(CHECKCODE_URL).post(body).build();
         try {
@@ -173,7 +173,7 @@ public class Example {
             }
         });
         sortedMap.putAll(params);
-        // 计算签名
+        // 计算数字签名
         StringBuilder sb = new StringBuilder();
         for (String s : sortedMap.keySet()) {
             sb.append(String.format("%s=%s&", s, sortedMap.get(s)));
@@ -247,10 +247,10 @@ for i in signParam:
 
 # 拼接短信秘钥
 str = str + APP_KEY;
-# 计算签名
+# 计算数字签名
 sign = hashlib.sha256(str).hexdigest();
 
-# 设置签名
+# 设置数字签名
 requestBody['signature'] = sign;
 
 # 发送请求

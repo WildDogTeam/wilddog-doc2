@@ -35,7 +35,7 @@ POST
 
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  生成签名时, 参数不要使用 `urlencode`. 在调用 api 时, 才需要对参数做 `urlencode`
+  生成数字签名时, 参数不要使用 `urlencode`. 在调用 api 时, 才需要对参数做 `urlencode`
 </blockquote>
 
 

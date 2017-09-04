@@ -49,7 +49,7 @@ public class Example {
         });
         // 请求参数排序
         sortedMap.putAll(params);
-        // 计算签名
+        // 计算数字签名
         StringBuilder sb = new StringBuilder();
         FormBody.Builder formBody = new FormBody.Builder();
         for (String s : sortedMap.keySet()) {
@@ -60,7 +60,7 @@ public class Example {
         // 拼接短信秘钥
         sb.append(SECRET);
         String sig = DigestUtils.sha256Hex(sb.toString());
-        // 追加签名参数
+        // 追加数字签名参数
         RequestBody body = formBody.add("signature", sig).build();
         Request request = new Request.Builder().url(SEND_URL).post(body).build();
         try {

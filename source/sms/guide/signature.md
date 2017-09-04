@@ -7,7 +7,7 @@ title: 接口验证机制
 
 ## 数字签名验证模式
 
-调用接口时, 用户不需要把签名密钥 (SMS_KEY)作为参数明文传输, 而是将数字签名 (signature)作为参数传输给服务器，服务器端会验证此数字签名(signature)的正确性。
+调用接口时, 用户不需要把签名密钥 (SMS_KEY) 作为参数明文传输, 而是将数字签名 (signature) 作为参数传输给服务器，服务器端会验证此数字签名 (signature) 的正确性。
 
 ## 生成数字签名的方法
 
@@ -76,7 +76,7 @@ Java 示例如下（其他语言规则一致）：
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-  <li>生成签名时, 参数不要使用`urlencode`。在调用 api 时, 才需要对参数做 `urlencode`</li>
+  <li>生成数字签名时, 参数不要使用`urlencode`。在调用 api 时, 才需要对参数做 `urlencode`</li>
   <li>`&`是代码中使用的连接符, `+`是文档显示之用。</li>
 </blockquote>
 

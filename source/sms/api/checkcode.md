@@ -34,7 +34,7 @@ POST
     
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  <li>生成签名时, 参数不要使用 `urlencode`. 在调用 api 时, 才需要对参数做 `urlencode`</li>
+  <li>生成数字签名时, 参数不要使用 `urlencode`. 在调用 api 时, 才需要对参数做 `urlencode`</li>
   <li>校验验证码接口不能校验自定义验证码模板发送的接口.</li>
 </blockquote>
 

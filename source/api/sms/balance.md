@@ -2,7 +2,7 @@
 title: 查询账户余额
 ---
 
-用于查询账户当前余额，分为现金余额和代金券余额。
+用于查询账户当前余额，分为现金余额和代金券余额，调用时需要计算 [数字签名](/sms/guide/signature.html#生成数字签名的方法) 。
 
 **URL**
 
@@ -26,12 +26,12 @@ GET
     
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
-|signature      |string         |是         |[数字签名](/guide/sms/signature.html#生成数字签名的方法) ，合法性验证，其中参与签名加密的参数包括`timestamp`|
-|timestamp      |string         |是         | UNIX 时间戳|
+|signature      |string         |是         |[数字签名](/sms/guide/signature.html#数字签名验证模式) ，合法性验证，其中参与数字签名计算的参数包括`timestamp`|
+|timestamp      |string         |是         | UNIX 时间戳，精度为毫秒|
  
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
-  <li>生成签名时不要使用 urlencode，在调用 API 时，才需要对参数做 urlencode<li/>
+  <li>生成数字签名时不要使用 urlencode，在调用 API 时，才需要对参数做 urlencode<li/>
   返回账户余额单位为厘，1 元 = 1000 厘。
 </blockquote>
  
@@ -58,7 +58,7 @@ GET
   "message": "xxxxxx"
 }
 ```
-其中 `errcode` 对应信息在此处查询 [短信错误码](/api/sms/error-code.html)。
+其中 `errcode` 对应信息在此处查询 [短信错误码](/sms/api/error-code.html)。
 
 **示例代码**
 
