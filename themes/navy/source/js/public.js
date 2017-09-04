@@ -1,6 +1,6 @@
 var creatIframe = function(cb) {
     var iframe = document.createElement('iframe');
-    iframe.src = 'https://www.wilddog.com/iframe/dociframe';
+    iframe.src = 'https://www.wilddog.com/wwwapi/iframe/dociframe';
     iframe.style.opacity = 0;
     iframe.width = 1;
     iframe.height = 1;
@@ -72,7 +72,7 @@ var currentPath = window.location.href;
 getClass('register')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
 getClass('register-link')[0].setAttribute('href', 'https://www.wilddog.com/my-account/signup?next=' + currentPath);
 getClass('login')[0].setAttribute('href', 'https://www.wilddog.com/my-account/login?next=' + currentPath);
-getClass('logout-btn')[0].setAttribute('href', 'https://www.wilddog.com/account/logout?next=' + currentPath);
+getClass('logout-btn')[0].setAttribute('href', 'https://www.wilddog.com/wwwapi/account/logout?next=' + currentPath);
 
 //是否显示底部注册入口
 var novice = getClass('novice');
