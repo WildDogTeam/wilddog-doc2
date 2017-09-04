@@ -11,7 +11,7 @@ title: 接口验证机制
 
 ## 生成数字签名的方法
 
-1.将实际调用 API([发送验证码短信](/sms/api/sendcode.html)、[发送通知类短信](/sms/api/send.html)、[校验验证码](/sms/api/checkcode.html)、[查询发送状态](/sms/api/status.html) 的参数以字母升序(A-Z)排列，除去其中的 `signature`字段。
+1.将实际调用 API( [发送验证码短信](/sms/api/sendcode.html)、[发送通知类短信](/sms/api/send.html)、[校验验证码](/sms/api/checkcode.html)、[查询发送状态](/sms/api/status.html) ）的参数以字母升序(A-Z)排列，除去其中的 `signature`字段。
 
 特别注意以下规则：
 
@@ -42,7 +42,7 @@ sign_str="mobile=130xxxxxxxx&templateId=100001&timestamp=1492675740231&$SMS_KEY"
 
 ```
 
-SMS_KEY (短信 API 密钥)SMS_KEY 在 控制面板-短信-模板 中获取，操作如下：
+SMS_KEY (短信 API 密钥) 在 控制面板-短信-配置 中获取，操作如下：
 
 ![](/images/smssecretkey.png)
 

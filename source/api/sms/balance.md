@@ -7,7 +7,7 @@ title: 查询账户余额
 **URL**
 
 ```
-https://api.wilddog.com/sms/v1/{:appId}/getBalance
+https://sms.wilddog.com/api/v1/{:appId}/getBalance
 ```
 
 **返回数据格式**
@@ -64,6 +64,6 @@ GET
 
 
 ```
-curl -X GET https://api.wilddog.com/sms/v1/{appId}/getBalance -d "signature=$signature&timestamp=$timestamp"
+curl -X GET https://sms.wilddog.com/api/v1/{appId}/getBalance -d "signature=$signature&timestamp=$timestamp"
 ```
 

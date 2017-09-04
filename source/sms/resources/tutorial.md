@@ -19,18 +19,19 @@ title: 实战教程
 
 首先在控制面板中创建应用。如下：
 
-![](/images/tutorialsmsapp.jpg)
+![](/images/tutorialsmsapp01.png)
+![](/images/tutorialsmsapp02.png)
 
 
 ### 2. 账户充值
 
-为防止滥用，短信服务需帐户余额大于 5 元才能使用。如余额不足，请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
+短信服务需帐户余额大于 5 元才能使用。如余额不足，请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
 
 ### 3. 配置短信
 #### （1）配置签名
 该签名会出现在下发短信的开头，建议写上你的品牌或产品名称。此处我们以【野狗实时】为例。在`控制面板-短信-签名`配置如下，签名提交后，需管理员审核。
 
-![](/images/tutorialsmssign.jpg)
+![](/images/tutorialsmssign.png)
 
 
 #### （2）创建模版
@@ -80,9 +81,10 @@ sign_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templa
 ### 5. 发送本条通知短信
 
 ```
-curl -X POST https://api.wilddog.com/sms/v1/yourtestapp/notify/send -d "signature =4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E&templateId =100001& timestamp =13452366225&mobiles=1482301296&params=["王小豆","个人版套版套餐"]"
+curl -X POST https://sms.wilddog.com/api/v1/yourtestapp/notify/send -d "signature =4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E&templateId =100001& timestamp =13452366225&mobiles=1482301296&params=["王小豆","个人版套版套餐"]"
 ```
 此处规则详情请参考 [完整指南](/sms/guide/signature.html#生成数字签名的方法)。
 ## 获取示例源码
 
 点此获取完整的 [示例源码](https://github.com/WildDogTeam/wilddog-doc2/blob/master/source/sms/resources/nitifydemo.md)。
+

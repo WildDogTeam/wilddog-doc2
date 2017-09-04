@@ -2,12 +2,12 @@
 title: 查询账户余额
 ---
 
-用于查询账户当前余额，分为现金余额和代金券余额。
+用于查询账户当前余额，分为现金余额和代金券余额，调用时需要计算 [数字签名](/sms/guide/signature.html#生成数字签名的方法) 。。
 
 **URL**
 
 ```
-https://api.wilddog.com/sms/v1/{:appId}/getBalance
+https://sms.wilddog.com/api/v1/{:appId}/getBalance
 ```
 
 **返回数据格式**
@@ -26,8 +26,8 @@ GET
     
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
-|signature      |string         |是         |[数字签名](/sms/guide/signature.html#数字签名验证模式) ，合法性验证，其中参与签名加密的参数包括`timestamp`|
-|timestamp      |string         |是         | UNIX 时间戳|
+|signature      |string         |是         |[数字签名](/sms/guide/signature.html#数字签名验证模式) ，合法性验证，其中参与数字签名计算的参数包括`timestamp`|
+|timestamp      |string         |是         | UNIX 时间戳，精度为毫秒|
  
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
@@ -64,6 +64,6 @@ GET
 
 
 ```
-curl -X GET https://api.wilddog.com/sms/v1/{appId}/getBalance -d "signature=$signature&timestamp=$timestamp"
+curl -X GET https://sms.wilddog.com/api/v1/{appId}/getBalance -d "signature=$signature&timestamp=$timestamp"
 ```
 

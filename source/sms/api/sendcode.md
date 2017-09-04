@@ -2,12 +2,12 @@
 title: 发送验证码短信
 ---
 
-用于查询发送验证码短信，需配合 [数字签名](/sms/guide/signature.html#数字签名验证模式) 使用。该接口限制每秒最多可调用 40 次。
+用于查询发送验证码短信，调用时需要计算 [数字签名](/sms/guide/signature.html#生成数字签名的方法) 。该接口限制每秒最多可调用 40 次。
 
 **URL**
 
 ```
-https://api.wilddog.com/sms/v1/{:appId}/code/send
+https://sms.wilddog.com/api/v1/{:appId}/code/send
 ```
 
 **返回数据格式**
@@ -27,10 +27,10 @@ POST
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
 |templateId     |long            |是         |模板 ID|
-|mobile          |string         |是         |收信人手机号，如1xxxxxxxxxx 格式必须为11位|
-|signature      |string         |是         |[数字签名](/sms/guide/signature.html#数字签名验证模式)，合法性验证 其中参与签名加密的参数包括 `templateId`， `mobile`，`timestamp`， 若使用的是自定义验证码模板，还需要`params`参数 |
-|timestamp      |string         |是         |UNIX 时间戳单位是毫秒|
-|params           |string         |否         |短信参数列表，用于依次填充模板，JSONArray格式，如["xxx","yyy"];对于不包含变量的模板，表示模板即短信全文内容， 若使用自定义验证码模板，则参数必选|
+|mobile          |string         |是         |收信人手机号，如1xxxxxxxxxx，格式必须为11位|
+|signature      |string         |是         |[数字签名](/sms/guide/signature.html#数字签名验证模式)，合法性验证，其中参与数字签名计算的参数包括 `templateId`， `mobile`，`timestamp`， 若使用的是自定义验证码模板，还需要`params`参数 |
+|timestamp      |string         |是         |UNIX 时间戳，精度是毫秒|
+|params           |string         |否         |短信参数列表，用于依次填充模板，若使用自定义验证码模板，则此参数必填，JSONArray格式，如["xxx","yyy"]|
 
 
 <blockquote class="warning">
@@ -67,5 +67,7 @@ POST
 **示例代码**
 
 ```
-curl -X POST https://api.wilddog.com/sms/v1/{appId}/code/send -d"signature=$signature&mobile=$mobile&timestamp=$timestamp&templateId=$templateId"
+curl -X POST https://sms.wilddog.com/api/v1/{appId}/code/send -d"signature=$signature&mobile=$mobile&timestamp=$timestamp&templateId=$templateId"
 ```
+
+

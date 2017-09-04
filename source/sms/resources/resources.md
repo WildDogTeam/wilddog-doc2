@@ -26,7 +26,7 @@ public class Example {
     private static final String APPID = "XXXXX";
     private static final String APP_KEY = "<YOUR_SECRET>";
 
-    private static final String BASE_URL = "https://api.wilddog.com/sms/v1/" + APPID;
+    private static final String BASE_URL = "https://sms.wilddog.com/api/v1/" + APPID;
     private static final String SENDCODE_URL = BASE_URL + "/code/send";
     private static final String SEND_URL = BASE_URL + "/notify/send";
     private static final String CHECKCODE_URL = BASE_URL + "/code/check";
@@ -228,7 +228,7 @@ import hashlib
 # appId
 appId = 'xxxxx';
 # init PATH
-baseURL = "https://api.wilddog.com/sms/v1/" + appId;
+baseURL = "https://sms.wilddog.com/api/v1/" + appId;
 sendURL = baseURL + "/code/send";
 
 # 短信秘钥
@@ -285,7 +285,7 @@ $sign_str = http_build_query($sign_data) . '&' . $sign_key;
 //DEBUG
 //生成数字签名的方法 https://docs.wilddog.com/sms/guide/signature.html#生成数字签名的方法
 $signature = hash("sha256", urldecode($sign_str));
-$url = "https://api.wilddog.com/sms/v1/${appId}/code/send";
+$url = "https://sms.wilddog.com/api/v1/${appId}/code/send";
 // 不同接口参数不同， 详细参数请参见 https://docs.wilddog.com
 $post_data = array('signature' => $signature, "mobile" => $mobile, "timestamp" => $time, "templateId" => $templateId);
 $form_string = http_build_query($post_data);
@@ -318,3 +318,5 @@ var_dump($output);
 ?>
 
 ```
+
+

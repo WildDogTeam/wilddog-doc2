@@ -2,12 +2,12 @@
 title: 查询发送状态
 ---
 
-用于查询短信发送状态，需配合 [数字签名](/sms/guide/signature.html#数字签名验证模式) 使用。
+用于查询短信发送状态，调用时需要计算 [数字签名](/sms/guide/signature.html#生成数字签名的方法) 。
 
 **URL**
 
 ```
-https://api.wilddog.com/sms/v1/{:appId}/status
+https://sms.wilddog.com/api/v1/{:appId}/status
 ```
 
 **返回数据格式**
@@ -27,7 +27,7 @@ GET
 |参数           |类型           |必选       |说明|
 |--------------|--------------|----------|---|
 |rrid          |string         |是         |rrid|
-|signature      |string         |是         |[数字签名](/sms/guide/signature.html#数字签名验证模式) ，合法性验证 ，其中参与签名加密的参数包括 `rrid` |
+|signature      |string         |是         |[数字签名](/sms/guide/signature.html#数字签名验证模式) ，合法性验证 ，其中参与数字签名计算的参数包括 `rrid` |
  
  
 **返回说明**
@@ -50,11 +50,12 @@ data中返回JSONArray,格式如下(其中status取值:0-未发送,1-发送中,2
 
 
 ```
-curl -X POST https://api.wilddog.com/sms/v1/myoffice1/send 
+curl -X POST https://sms.wilddog.com/api/v1/myoffice1/send 
 -d "signature=$signature&rrid=$rrid"
 ```
 
 **状态码**
+部分运营商状态码如下：
 
 |状态码|详状态码情|
 |-----|---------|
@@ -89,3 +90,4 @@ curl -X POST https://api.wilddog.com/sms/v1/myoffice1/send
 |MY:9999|系统内部错误|
 |DB:Black|黑名单|
 |DB:Back|审核退回|
+

@@ -21,7 +21,7 @@ public class Example {
     // 用户的secret
     private static final String SECRET = "<YOUR_SECRET>";
     
-    private static final String BASE_URL = "https://api.wilddog.com/sms/v1/" + APPID;
+    private static final String BASE_URL = "https://sms.wilddog.com/api/v1/" + APPID;
     private static final String SEND_URL = BASE_URL + "/notify/send";
     private static OkHttpClient client = null;
     static{
@@ -86,3 +86,5 @@ public class Example {
 }
 
 ```
+
+
