@@ -24,7 +24,7 @@ if (path === '/') {
                     <div class="novice-title">没找到需要的文档？</div>
                     <div class="register-text">你可以提交工单反馈 或 阅读常见问题</div>
                     <div class="btn-group">
-                        <a href="https://www.wilddog.com/account/kf5" target="_blank" class="btn btn-org-empty service-link">客服工单</a><a href="https://wilddog.kf5.com/hc" target="_blank" class="btn btn-gray question-link">常见问题</a>
+                        <a href="https://www.wilddog.com/wwwapi/account/kf5" target="_blank" class="btn btn-org-empty service-link">客服工单</a><a href="https://wilddog.kf5.com/hc" target="_blank" class="btn btn-gray question-link">常见问题</a>
                     </div>
                 </div>
             </div>
