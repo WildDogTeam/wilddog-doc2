@@ -108,7 +108,7 @@ public class Example {
         }
         sb.append(APP_KEY);
         String sig = DigestUtils.sha256Hex(sb.toString());
-        // 追加签名参数
+        // 追加数字签名参数
         RequestBody body = formBody.add("signature", sig).build();
         Request request = new Request.Builder().url(SEND_URL).post(body).build();
         try {
