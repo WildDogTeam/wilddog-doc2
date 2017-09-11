@@ -3,7 +3,7 @@ title: 更新日志
 
 ## Android SDK
 
-### v2.0.8 - 2017.09.04
+### v2.0.4 - 2017.09.04
 
 <span class="changelog add">新增</span>
 
