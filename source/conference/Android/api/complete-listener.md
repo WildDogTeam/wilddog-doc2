@@ -1,32 +1,27 @@
-
 title: CompleteListener
 ---
 
-直播事件完成的回调。
+WilddogRoom API 调用完成回调。
 
 ## 方法
 
-### onCompleted(VideoException)
+### onComplete(videoError)
 
 **定义**   
 
 ```java
-void onCompleted(VideoException exception)
+	void onComplete(WilddogVideoError videoError)
 ```
 
 **说明**
 
-直播事件完成时会触发 `onCompleted` 方法，如回调方法的 `VideoException` 参数不为空，则表示事件操作失败，详细错误信息在 `VideoException` 中给出。
+方法调用完成后触发 `onComplete()` 方法。调用成功 videoError 对象为 `null`，否则通过 videoError 对象传递错误信息。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|exception|事件失败的异常信息。|
+| videoError |API 调用错误信息。|
 
-
-<span id="onStarted" />
-
-</br>
 
 
