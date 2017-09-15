@@ -1,4 +1,4 @@
-title: CameraFrameListener
+title: LocalStream.CameraFrameListener
 ---
 
 相机帧数据获取接口，当开启摄像头进行预览时，相机生成的帧数据会触发 `onByteFrame` 方法将视频帧数据传递给调用者。

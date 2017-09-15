@@ -1,8 +1,31 @@
-﻿
-title: LocalStream
+title: RoomStream
 ---
-表示用户设备采集的本地媒体流。
+远端流媒体描述信息及媒体流数据
 
+## 属性
+
+### streamId
+**定义**
+```
+roomStream.streamId
+```
+
+**说明**
+
+远端媒体流的唯一标识
+
+---
+
+### streamOwners
+**定义**
+```
+roomStream.streamOwners
+```
+
+**说明**
+远端媒体流的发布者。
+
+---
 ## 方法
 
 ### attach
@@ -10,12 +33,12 @@ title: LocalStream
 **定义**
 
 ```js
-attach(element)
+roomStream.attach(element)
 ```
 
 **说明**
 
-将本地媒体流绑定到页面中的元素上。
+将远端媒体流绑定到页面中的元素上。
 
 **参数** 
 
@@ -26,8 +49,8 @@ attach(element)
 **示例**
 
 ```js
-//将本地的媒体流绑定到id为'localStream'的页面元素上
-localStream.attach(document.getElementById('localStream'));
+//将远端的媒体流绑定到id为'remoteStream'的页面元素上
+remoteStream.attach(document.getElementById('remoteStream'));
 ```
 
 </br>
@@ -44,13 +67,13 @@ detach()
 
 **说明**
 
-将本地媒体流从页面中的元素上解绑。
+将远端媒体流从页面中的元素上解绑。
 
 **示例**
 
 ```js
-//将本地媒体流从页面中的元素上解绑
-localStream.detach();
+//将远端媒体流从页面中的元素上解绑
+remoteStream.detach();
 ```
 
 </br>
@@ -78,8 +101,8 @@ enableAudio(enabled)
 **示例**
 
 ```js
-//开启本地音频
-localStream.enableAudio(true);
+//开启远端音频
+remoteStream.enableAudio(true);
 ```
 
 </br>
@@ -107,10 +130,7 @@ enableVideo(enabled)
 **示例**
 
 ```js
-//开启本地视频
-localStream.enableVideo(true);
+//开启远端视频
+remoteStream.enableVideo(true);
 ```
-
 </br>
-
----

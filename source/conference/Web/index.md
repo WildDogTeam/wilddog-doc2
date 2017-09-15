@@ -5,7 +5,7 @@ title: 视频会议
 
 ## 简介
 
-野狗通信云视频会议，是基于 `WebRTC` 的多人视频会议方案，目前可支持6路，同时可通过野狗通信云独有的 `MeetingCast` 技术实现会议的直播，扩大受众群体。
+野狗通信云视频会议，是基于 `WebRTC` 的多人视频会议方案，提供Web、iOS、Android版SDK供开发者使用，目前单房间可容纳6路音视频。
 
 ## 视频会议的应用
 
@@ -50,7 +50,7 @@ Video 提供了 Web、Android、iOS 三端的 SDK，不仅支持三端同时开�
 5. iOS Native Objective-C Compatible
 6. Android Native Java Compatible
 
-或者，点击查看 [WebRTC支持状态](http://iswebrtcreadyyet.com/) 。
+或者，点击查看 [WebRTC支持状态](https://caniuse.com/#search=webrtc) 。
 
 
 ## 帮助与支持

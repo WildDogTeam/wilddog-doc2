@@ -1,23 +1,27 @@
-
 title: 基础概念
 ---
 
-### Client
+## Room
 
-Client 即客户端代理（User Agent, UA），通过 Client，客户端可以建立视频通话或者加入多人视频会议。
+表示视频会议，以 roomId 为唯一标识。加入视频会议后，可以发布／订阅媒体流。
 
-### Conference
 
-Conference 即多人视频会议，使用服务器中转的传输方式，音视频数据通过服务器中转进行传输，保证了更稳定的音视频能力。多人视频会议能支持更多终端设备同时视频，以及多种编解码格式间的转换。独有的 MeetingCast 技术能将视频会议内容直播，扩大受众范围。
+## Stream
 
-### Participant
+WilddogRoom SDK 用 `Stream` 来表示视频会议的参与者。包含 `LocalStream` 和 `RoomStream`:
 
-Participant，即视频通话/视频会议中的参与者。同一个视频通话/视频会议的参与者间可以互相分享音频和视频。
+- LocalStream: 本地媒体流。包括音频流和视频流，需要在加入视频会议前进行配置。
+- RoomStream: 远端媒体流。其他用户发布的媒体流，从 Room 中获取。
 
-### Local Stream
 
-本地媒体流，包括本地音频流和视频流，需要在发起视频通话/创建视频会议前进行配置。
+## VideoView
 
-### Remote Stream
+使用 VideoView 播放本地／远端视频流，LocalStream 和 RoomStream 只能与 VideoView 绑定来播放。
 
-其他客户端的媒体流。本地可以控制其他客户端音/视频流在本地的展示效果。例如，本地可以静音其他客户端的媒体流，但这并不会影响其他客户端音视频数据的传输。
+
+## Publish & Subscribe
+
+视频会议采用了发布／订阅机制：
+
+- Publish: 用户将本地媒体流发布到 Room 中，发布成功后其他用户将收到通知。
+- Subscribe: 用户从 Room 中获取远端媒体流的信息，需要订阅后，才能接收到媒体数据。

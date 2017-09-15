@@ -1,84 +1,156 @@
+
 title: 快速入门
 ---
-我们通过一个简单的 4 人视频会议示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-ios-conference/archive/master.zip)
+
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-ios-conference) 来快速了解 WilddogRoom SDK 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li> Xcode 7.0 及以上版本 </li>
-        <li> iOS 8.0 及以上版本 </li>
+        <li>支持 Xcode 7.0 及以上版本</li>
+        <li>支持 iOS 8.0 及以上版本</li>
     </ul>
 </div>
 
 
 ## 1. 创建应用
 
-首先，在控制面板中创建应用。
+### 1.1 创建野狗应用
+在控制面板中创建野狗应用。
 
-<img src='/images/video_quickstart_create.png' alt="video_quickstart_create">
+### 1.2 配置应用
 
-## 2. 开启匿名登录
+- 1 在 `身份认证` 标签页中，选择 `登陆方式` 标签，开启 `匿名登录` 功能（或者选择其他登录方式，例如：`QQ登录`、`邮箱登录` 等）；
+- 2 在 `实时视频通话` 标签页中，点击 `开启视频通话` 按钮。
 
-应用创建成功后，进入 管理应用-身份认证-登录方式，开启匿名登录。
 
-<img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
+## 2. 使用 CocoaPods 安装 SDK
 
-## 3. 开启实时视频通话
+通过 [Cocoapods](https://cocoapods.org/) 安装 WilddogRoom SDK 以及其依赖的 WilddogAuth SDK。
 
-进入 管理应用-实时视频通话，开启视频通话功能。此处注意记下配置页面的`VideoAppID`
+* 在 Xcode 中创建一个工程，并在 Terminal 中用 `cd` 命令进入到工程所在文件夹内，执行 `pod init` 命令；
+* 打开生成的 `Podfile` 文件，在第一行声明开发平台和版本（如 iOS 8.0），并在随后写入要引入的库：
 
-<img src='/images/video_quickstart_openVideo.png' alt="video_quickstart_openVideo">
-
-## 4. 安装快速入门
-
-使用 Cocoapods 管理快速入门包。进入工程目录，执行以下命令，自动下载依赖并更新到最新版。
-
-```shell
-
- $ pod install
- $ pod setup
- $ pod update
-
+```ruby
+platform :ios, '8.0'
+target 'your-target-name' do
+  pod 'WilddogRoom', '2.0.0-beta'
+end
 ```
 
-下载完毕后会自动创建 `ManyToManyDemo.xcworkspace` ，打开：
+* 保存 `Podfile`，并执行 `pod install` 命令，将上述依赖安装到你的工程。
+* 双击生成的 `your-project-name.xcworkspace` 文件打开工程。
 
-```shell
 
- $ open ManyToManyDemo.xcworkspace
+## 3. 配置 iOS 权限
 
+在 `info.plist` 文件中添加两个字段以获取相机和麦克风的访问权限：
+
+Key                                    | Type   | Value
+---------------------------------------|--------|-----------------
+Privacy - Camera Usage Description     | String | Your Description
+Privacy - Microphone Usage Description | String | Your Description
+
+
+## 4. 初始化 SDK
+
+### 4.1 初始化 WilddogAuth SDK
+
+```objectivec
+    //初始化 Auth SDK
+    NSString *appID = @"your-appid";
+    WDGOptions *options = [[WDGOptions alloc] initWithSyncURL:[NSString stringWithFormat:@"https://%@.wilddogio.com", appID]];
+    [WDGApp configureWithOptions:options];
 ```
 
-在 Xcode 中编译运行视频会议示例，把快速入门安装到 iPhone 中。
+### 4.2 初始化 WilddogRoom SDK
+
+使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogRoom SDK。
+
+```objectivec
+[[WDGAuth auth] signOut:nil];
+[[WDGAuth auth] signInAnonymouslyWithCompletion:^(WDGUser *user, NSError *error) {
+    if (!error) {
+        // 获取 token
+        [user getTokenWithCompletion:^(NSString * _Nullable idToken, NSError * _Nullable error) {
+            // 配置 Video Initializer
+            [[WDGVideoInitializer sharedInstance] configureWithVideoAppId:appID token:idToken];
+        }];
+    }
+}];
+```
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+ VideoAppId 为应用 `实时视频通话-配置` 标签页中的 VideoAppID 字段值，请勿与应用的 AppID 混淆。
+ VideoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
+</blockquote>
 
 
-## 5. 运行快速入门
+## 5. 加入 Room
 
-连接 iPhone，运行快速入门。
+使用 `-[WDGRoom initWithRoomId:delegate:]` 方法创建 [WDGRoom](/conference/iOS/api/WDGRoom.html) 实例并加入到 Room 中。
 
-## 6. 登录快速入门
+```objectivec
+self.room = [[WDGRoom alloc] initWithRoomId:_roomId delegate:self];
+[self.room connect]
+```
 
-快速入门运行成功后，输入`VideoAppID`。
-
-<img src='/images/video_quickstart_ios_conference_0.jpg' alt="video_quickstart_ios_mainUI" width="300">
-
-`VideoAppID`为下图所示，然后点击匿名登录。
-
-<img src='/images/video_quickstart_videoappid.png' alt="video_quickstart_videoappid">
-
-登录成功后，输入会议 ID。会议 ID 可以是别人创建后提供的 ID ，如果当前没有会议，可自己创建一个会议 ID 。
-
-<img src='/images/video_quickstart_ios_conference_1.jpg' alt="video_quickstart_android_conference_join" width="300" >
-
-加入会议后，页面会显示本地视频画面、你的会议 ID 和操作按钮。
-
-<img src='/images/video_quickstart_ios_conference_2.jpg' alt="video_quickstart_android_conference_mainUI" width="300" >
-
-## 7. 其他人加入会议
-
-重复上述步骤，在其他手机端登录后，输入同一会议 ID， 加入会议。
-
-<img src='/images/video_quickstart_ios_conference_3.jpg' alt="video_quickstart_android_conference_multi" width="300" >
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+在发布／订阅媒体流之前必须先连接到某个 Room。
+</blockquote>
 
 
-更多详细功能请见 [完整指南](/conference/iOS/guide/0-concepts.html) 和  [API 文档](/conference/iOS/api/WDGVideoClient.html)。
+## 6. 发布／订阅媒体流
+
+本地客户端会触发 `-[WDGRoomDelegate wilddogRoomDidConnect:]` 事件通知用户已成功加入 Room 。
+加入后即可发布或订阅当前 Room 中的媒体流。
+
+### 6.1 发布本地媒体流
+
+使用 `+[WDGLocalStream localStreamWithOptions:]` 方法创建本地媒体流。
+
+```objectivec
+WDGLocalStreamOptions *localStreamOptions = [[WDGLocalStreamOptions alloc] init];
+localStreamOptions.shouldCaptureAudio = YES;
+localStreamOptions.dimension = WDGVideoDimensions360p;
+self.localStream = [WDGLocalStream localStreamWithOptions:localStreamOptions];
+```
+
+使用 `-[WDGRoom publishLocalStream:]` 方法发布本地媒体流。
+
+```objectivec
+[self.room publishLocalStream:self.localStream];
+```
+
+### 6.2 订阅远端媒体流
+
+SDK 通过 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]` 事件通知用户当前 Room 中已发布的媒体流，可以根据需要订阅感兴趣的媒体流。
+
+```objectivec
+- (void)wilddogRoom:(WDGRoom *)wilddogRoom didStreamAdded:(WDGRoomStream *)roomStream {
+    [self subscribeRoomStream:roomStream];
+    [self.room subscribeRoomStream:roomStream];
+}
+```
+订阅成功后会触发本地客户端 `-[WDGRoomDelegate wilddogRoom:didStreamReceived:]` 事件返回远端媒体流。
+
+使用 `-[WDGRoomStream attach:]` 方法播放远端媒体流
+
+```objectivec
+- (void)wilddogRoom:(WDGRoom *)wilddogRoom didStreamReceived:(WDGRoomStream *)roomStream {
+    [roomStream attach:self.roomVideoView];
+}
+```
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+ 发布媒体流需要在 WDGRoomDelegate 的 wilddogRoomDidConnect: 回调方法被触发后进行。
+ </blockquote>
+
+
+## 7. 更多使用
+
+- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/iOS/guide/0-concepts.html) 和 [API 文档](/conference/iOS/api/WDGVideoInitializer.html)。
+
