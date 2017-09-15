@@ -95,7 +95,7 @@ __weak __typeof__(self) weakSelf = self;
 
 ## 5. 加入 Room
 
-创建 `WilddogRoom` 实例并加入到 Room 中。
+使用 `-[WDGRoom initWithRoomId:delegate:]` 方法创建 [WDGRoom](/conference/iOS/api/WDGRoom.html) 实例并加入到 Room 中。
 
 ```objectivec
 self.room = [[WDGRoom alloc] initWithRoomId:_roomId delegate:self];
@@ -142,7 +142,7 @@ SDK 通过 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]` 事件通知用户�
 ```
 订阅成功后会触发本地客户端 `-[WDGRoomDelegate wilddogRoom:didStreamReceived:]` 事件返回远端媒体流。
 
-使用 `-[WDGStream attach:]` 方法播放远端媒体流
+使用 `-[WDGRoomStream attach:]` 方法播放远端媒体流
 
 ```objectivec
 - (void)wilddogRoom:(WDGRoom *)wilddogRoom didStreamReceived:(WDGRoomStream *)roomStream {
@@ -158,5 +158,5 @@ SDK 通过 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]` 事件通知用户�
 
 ## 7. 更多使用
 
-- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/room/iOS/guide/0-concepts.html) 和 [API 文档](placeholder)。
+- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/iOS/guide/0-concepts.html) 和 [API 文档](/conference/iOS/api/WDGRoom.html)。
 
