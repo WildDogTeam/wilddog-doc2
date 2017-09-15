@@ -24,13 +24,13 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-#### 2.1 Video SDK
+#### 2.1 WilddogRoom SDK
 
-Web SDK 有直接引用和 npm 安装两种方式可供选择。直接引用时任选以下两种方式之一：
+Web SDK 可以通过标签直接引用：
 
 **通过标签引用**
 
-<figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/2.0.0/wilddog-video.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/2.0.0.beta/wilddog-room.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 #### 2.2 安装 Auth SDK
 
@@ -46,11 +46,11 @@ WilddogRoom SDK 使用 Auth SDK 获取合法的 TOKEN。
 ### 3.1 初始化 WilddogAuth SDK
 
 ```javascript
-    //初始化 Wilddog Auth
-    var config = {
-        authDomain: "<appId>.wilddog.com"
-	};
-	wilddog.initializeApp(config);
+//初始化 Wilddog Auth
+var config = {
+    authDomain: "<appId>.wilddog.com"
+};
+wilddog.initializeApp(config);
 ```
 
 ### 3.2 初始化 WilddogRoom SDK
@@ -74,9 +74,9 @@ wilddog.auth().signInAnonymously()
 创建 `WilddogRoom` 实例并加入到 Room 中。
 
 ```javascript
-	 //room_id 由客户端生成一个随机字符串
-	 roomInstance = wilddogVideo.room(room_id);
-	 roomInstance.connect();
+//room_id 由客户端生成一个随机字符串
+roomInstance = wilddogVideo.room(room_id);
+roomInstance.connect();
 ```
 
 ## 5. 发布／订阅媒体流
@@ -105,32 +105,32 @@ wilddogVideo.createLocalStream(
 使用`roomInstance.publish(localStream)` 方法发布本地媒体流。
 
 ```javascript
-	roomInstance.on('connected',function(){
-    	console.log('connected success');
-        roomInstance.publish(localStream);
-    });
+roomInstance.on('connected',function(){
+    console.log('connected success');
+    roomInstance.publish(localStream);
+});
 ```
 ### 订阅媒体流
 SDK 通过 `roomInstance.on('stream_added',callback) ` 事件通知用户当前 Room 中已发布的媒体流，可以根据需要订阅感兴趣的媒体流。
 
 ```javascript
-    roomInstance.on('stream_added',function(roomStream){
-    	roomInstance.subscribe(roomStream,function(err){
-        	if(err == null){
-            	console.log('subscribe success');
-            }
-        })
+roomInstance.on('stream_added',function(roomStream){
+    roomInstance.subscribe(roomStream,function(err){
+        if(err == null){
+            console.log('subscribe success');
+        }
     })
+})
 ```
 订阅成功后会触发客户端 `roomInstance.on('stream_received',callback)` 事件,事件返回远端媒体流。
 
 使用 `attach()` 方法播放远端媒体流
 
 ```javascript
-	roomInstance.on('stream_received',function(roomStream){
-    	//将远端流放入相应的远端video标签上
-    	roomStream.attach(remoteRemote);
-    });
+roomInstance.on('stream_received',function(roomStream){
+    //将远端流放入相应的远端video标签上
+    roomStream.attach(remoteRemote);
+});
 ```
 
 <blockquote class="notice">
@@ -141,4 +141,4 @@ SDK 通过 `roomInstance.on('stream_added',callback) ` 事件通知用户当前 
 
 ## 7. 更多使用
 
-- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/Web/guide/1-install-sdk.html) 和 [API 文档](/conference/Web/api/wilddogVideoInitializer.html)。
+- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/Web/guide/1-installSDK.html) 和 [API 文档](/conference/Web/api/wilddogVideoInitializer.html)。

@@ -1,7 +1,7 @@
 title: wilddogVideo
 ---
 
-`wilddogVideo.room` 是WilddogRoom SDK 的主入口，不能直接创建WilddogRoom实例，必须要通过wilddogVideo.room(roomId)方式获取。
+`wilddogVideo.room` 是WilddogRoom SDK 的主入口，通过wilddogVideo可以初始化，创建 `WilddogRoom` 实例及创建本地媒体流等操作。
 
 ## 方法
 

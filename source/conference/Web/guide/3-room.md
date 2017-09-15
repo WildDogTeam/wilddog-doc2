@@ -1,12 +1,12 @@
-title：创建 Room
+title： 创建 Room
 ---
 
 Room 表示一个多人的视频会话。多个用户可以加入同一个 Room 进行音视频通话。
 
 ### 加入 Room
-加入 Room 前需要使用唯一的 roomId 创建 [WilddogRoom](/conference/Web/api/localStream.html) 对象实例。
-使用 [connect()](/conference/Web/api/wilddog-stream.html#connect) 方法加入 Room。
-成功加入到 Room 后可以使用 [publish](/conference/Web/api/wilddogRoom.html#publish(localStream))或 [`subscribe()`](/conference/Web/api/wilddogRoom.html#subscribe(roomStream)) 方法发布或订阅媒体流。
+加入 Room 前需要使用唯一的 roomId 创建 [WilddogRoom](/conference/Web/api/wilddogRoom.html) 对象实例。
+使用 [connect()](/conference/Web/api/wilddogRoom.html#connect) 方法加入 Room。
+成功加入到 Room 后可以使用 [publish](/conference/Web/api/wilddogRoom.html#publish)或 [subscribe](/conference/Web/api/wilddogRoom.html#subscribe) 方法发布或订阅媒体流。
 
 ```javascript
 roomInstance=wilddogRoom.room(roomId);
@@ -14,7 +14,7 @@ roomInstance.connect();
 ```
 ### 离开 WilddogRoom
 
-使用 [disconnect()](/conference/Web/api/wilddog-stream.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。
+使用 [disconnect()](/conference/Web/api/wilddogRoom.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。
 
 ```javascript
 roomInstance.disconnect();

@@ -1,6 +1,6 @@
 title: RoomStream
 ---
-远端流媒体描述信息及媒体流书剧
+远端流媒体描述信息及媒体流数据
 
 ## 属性
 
@@ -101,7 +101,7 @@ enableAudio(enabled)
 **示例**
 
 ```js
-//开启参与者的音频
+//开启远端音频
 remoteStream.enableAudio(true);
 ```
 
@@ -130,7 +130,7 @@ enableVideo(enabled)
 **示例**
 
 ```js
-//开启参与者的视频
+//开启远端视频
 remoteStream.enableVideo(true);
 ```
 </br>

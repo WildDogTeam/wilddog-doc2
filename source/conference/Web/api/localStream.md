@@ -1,6 +1,7 @@
 ﻿
 title: LocalStream
 ---
+表示用户设备采集的本地媒体流。
 
 ## 方法
 
@@ -77,7 +78,7 @@ enableAudio(enabled)
 **示例**
 
 ```js
-//开启参与者的音频
+//开启本地音频
 localStream.enableAudio(true);
 ```
 
@@ -106,29 +107,10 @@ enableVideo(enabled)
 **示例**
 
 ```js
-//开启参与者的视频
+//开启本地视频
 localStream.enableVideo(true);
 ```
 
 </br>
 
 ---
-
-### close
-
-**定义**
-
-```js
-close()
-```
-
-**说明**
-
-关闭媒体流，关闭后不能继续使用。
-
-**示例**
-
-```js
-//开启参与者的视频
-localStream.close();
-```

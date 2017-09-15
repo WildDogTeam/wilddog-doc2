@@ -7,11 +7,11 @@ title: 媒体流
 ### 1.创建本地媒体流
 
 本地媒体流包含了本地设备所采集的音频、视频信息，是视频通话所需要的基本数据。
-使用 [`wilddogVideo.createLocalStream(options)``](/conference/Web/api/wilddogVideoInitialze.html#createLocalStream(options)) 方法创建本地媒体流:
+使用 [wilddogVideo.createLocalStream(options)](/conference/Web/api/wilddogVideoInitialze.html#createLocalStream) 方法创建本地媒体流:
 
 ```javascript
 wilddogVideo.createLocalStream({
-	 captureAudio:true,
+captureAudio:true,
      captureVideo:true,
      dimension:'480p',
      maxFPS: 15
@@ -44,7 +44,7 @@ wilddogVideo.createLocalStream(
 
 本地媒体流包括音频和视频。
 
-使用 `[localStream.attach()]` 方法将媒体流放入video标签：
+使用 `localStream.attach()` 方法将媒体流放入video标签：
 
 ```javascript
 localStream.attach(local);
@@ -76,7 +76,7 @@ localStream.enableAudio(false);
 
 远端媒体流包括音频和视频。
 
-使用 `[roomStream.attach()]` 方法将远端媒体流放入video标签：
+使用 `roomStream.attach()` 方法将远端媒体流放入video标签：
 
 ```javascript
 roomStream.attach(remote);
