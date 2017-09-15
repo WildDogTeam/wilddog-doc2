@@ -407,15 +407,15 @@ conference:
     快速入门: /conference/Web/quickstart.html
     完整指南:
       基础概念: /conference/Web/guide/0-concepts.html
-      安装和初始化 SDK: /conference/Web/guide/1-installSDK.html
+      安装和初始化: /conference/Web/guide/1-installSDK.html
       媒体流: /conference/Web/guide/2-mediaStream.html
-      创建Room: /conference/Web/guide/3-room.html
-      发布/订阅: /conference/Web/guide/4-pubAndSub.html
+      管理视频会议: /conference/Web/guide/3-room.html
+      发布和订阅: /conference/Web/guide/4-pubAndSub.html
     API 文档:    
-      LocalStream: /conference/Web/api/localStream.html
-      WilddogRoom: /conference/Web/api/wilddogRoom.html
-      RoomStream: /conference/Web/api/roomStream.html
       WilddogVideoInitializer: /conference/Web/api/wilddogVideoInitializer.html
+      LocalStream: /conference/Web/api/localStream.html
+      RoomStream: /conference/Web/api/roomStream.html
+      WilddogRoom: /conference/Web/api/wilddogRoom.html
     更新日志: /conference/Web/changelog.html
 
 
@@ -424,20 +424,20 @@ conference:
     快速入门: /conference/iOS/quickstart.html
     完整指南:
       基础概念: /conference/iOS/guide/0-concepts.html
-      安装和初始化 SDK: /conference/iOS/guide/1-installSDK.html
+      安装和初始化: /conference/iOS/guide/1-installSDK.html
       媒体流: /conference/iOS/guide/2-mediaStream.html
-      创建Room: /conference/iOS/guide/3-room.html
-      发布/订阅: /conference/iOS/guide/4-pubAndSub.html
+      管理视频会议: /conference/iOS/guide/3-room.html
+      发布和订阅: /conference/iOS/guide/4-pubAndSub.html
     API 文档:
+      VideoInitializer: /conference/iOS/api/WDGVideoInitializer.html
+      Stream: /conference/iOS/api/WDGStream.html
       LocalStream: /conference/iOS/api/WDGLocalStream.html
-      LocalStreamDelegate: /conference/iOS/api/WDGLocalStreamDelegate.html
       LocalStreamOptions: /conference/iOS/api/WDGLocalStreamOptions.html
+      LocalStreamDelegate: /conference/iOS/api/WDGLocalStreamDelegate.html
+      RoomStream: /conference/iOS/api/WDGRoomStream.html
+      VideoView: /conference/iOS/api/WDGVideoView.html
       Room: /conference/iOS/api/WDGRoom.html
       RoomDelegate: /conference/iOS/api/WDGRoomDelegate.html
-      RoomStream: /conference/iOS/api/WDGRoomStream.html
-      Stream: /conference/iOS/api/WDGStream.html
-      VideoInitializer: /conference/iOS/api/WDGVideoInitializer.html
-      VideoView: /conference/iOS/api/WDGVideoView.html
     更新日志: /conference/iOS/changelog.html
 
 
@@ -446,24 +446,24 @@ conference:
     快速入门: /conference/Android/quickstart.html
     完整指南:
       基础概念: /conference/Android/guide/0-concepts.html
-      安装和初始化 SDK: /conference/Android/guide/1-installSDK.html
+      安装和初始化: /conference/Android/guide/1-installSDK.html
       媒体流: /conference/Android/guide/2-mediaStream.html
-      创建Room: /conference/Android/guide/3-room.html
-      发布/订阅: /conference/Android/guide/4-pubAndSub.html
+      管理视频会议: /conference/Android/guide/3-room.html
+      发布和订阅: /conference/Android/guide/4-pubAndSub.html
     API 文档:
-      LocalStream.CameraFrameListener: /conference/Android/api/camera-frame-listener.html
-      CompleteListener: /conference/Android/api/complete-listener.html
-      LocalStreamOptions: /conference/Android/api/local-stream-options.html
-      LocalStream: /conference/Android/api/local-stream.html
-      RoomStream.Listener: /conference/Android/api/room-stream-listener.html
-      RoomStream: /conference/Android/api/room-stream.html
-      ScalingType: /conference/Android/api/scaling-type.html
-      WilddogRoom.Listener: /conference/Android/api/wilddog-room-listener.html
-      WilddogRoom: /conference/Android/api/wilddog-room.html
-      WilddogVideoError: /conference/Android/api/wilddog-video-error.html
       WilddogVideoInitializer: /conference/Android/api/wilddog-video-initializer.html
-      WilddogVideoViewLayout: /conference/Android/api/wilddog-video-view-layout.html
+      LocalStream: /conference/Android/api/local-stream.html
+      LocalStreamOptions: /conference/Android/api/local-stream-options.html
+      LocalStream.CameraFrameListener: /conference/Android/api/camera-frame-listener.html
+      ScalingType: /conference/Android/api/scaling-type.html
+      RoomStream: /conference/Android/api/room-stream.html
+      RoomStream.Listener: /conference/Android/api/room-stream-listener.html
       WilddogVideoView: /conference/Android/api/wilddog-video-view.html
+      WilddogVideoViewLayout: /conference/Android/api/wilddog-video-view-layout.html
+      CompleteListener: /conference/Android/api/complete-listener.html
+      WilddogRoom: /conference/Android/api/wilddog-room.html
+      WilddogRoom.Listener: /conference/Android/api/wilddog-room-listener.html
+      WilddogVideoError: /conference/Android/api/wilddog-video-error.html
     更新日志: /conference/Android/changelog.html
 
 location:
