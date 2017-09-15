@@ -21,7 +21,7 @@ title: WDGRoomDelegate
 
 参数名             | 说明 
 ------------------|------------------
-wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](placeholder)。
+wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](/conference/iOS/api/WDGRoom.html)。
 
 </br>
 
@@ -43,7 +43,7 @@ wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](pl
 
 参数名             | 说明 
 ------------------|------------------
-wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](placeholder)。
+wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](/conference/iOS/api/WDGRoom.html)。
 
 </br>
 
@@ -65,8 +65,8 @@ Room 中有远端媒体流加入。回调中的 `WDGRoomStream` 对象只包含�
 
 参数名             | 说明 
 ------------------|------------------
-wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](placeholder)。
-roomStream        | Room 中新加入的远端媒体流，只包含描述流的基本信息，不包含媒体数据。请参考 [WDGRoomStream](placeholder)。
+wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](/conference/iOS/api/WDGRoom.html)。
+roomStream        | Room 中新加入的远端媒体流，只包含描述流的基本信息，不包含媒体数据。请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
 
 </br>
 
@@ -88,8 +88,8 @@ Room 中有远端媒体流停止发布。
 
 参数名             | 说明 
 ------------------|------------------
-wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](placeholder)。
-roomStream        | Room 中停止发布的远端媒体流。请参考 [WDGRoomStream](placeholder)。
+wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](/conference/iOS/api/WDGRoom.html)。
+roomStream        | Room 中停止发布的远端媒体流。请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
 
 </br>
 
@@ -105,14 +105,14 @@ roomStream        | Room 中停止发布的远端媒体流。请参考 [WDGRoomS
 
 **说明**
 
-收到远端媒体流数据。调用 `-[WDGRoomStream attach:]` 方法在 [VideoView](placeholder) 中预览媒体流。
+收到远端媒体流数据。调用 `-[WDGRoomStream attach:]` 方法在 [VideoView](/conference/iOS/api/WDGVideoView.html) 中预览媒体流。
 
 **参数**
 
 参数名             | 说明 
 ------------------|------------------
-wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](placeholder)。
-roomStream        | 收到数据的远端媒体流。请参考 [WDGRoomStream](placeholder)。
+wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](/conference/iOS/api/WDGRoom.html)。
+roomStream        | 收到数据的远端媒体流。请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
 
 </br>
 
@@ -134,8 +134,8 @@ Room 中发生错误。
 
 参数名             | 说明 
 ------------------|------------------
-wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](placeholder)。
-error             | 错误信息，通过错误码区分错误类型。请参考 [error-code](placeholder)。
+wilddogRoom       | 调用该方法的 `WDGRoom` 实例。请参考 [WDGRoom](/conference/iOS/api/WDGRoom.html)。
+error             | 错误信息，通过错误码区分错误类型。请参考 [error-code](/conference/iOS/api/error-code.html)。
 
 </br>
 

@@ -8,7 +8,7 @@ Room 表示一个多人的视频会议。多个用户可以加入同一个 Room 
 
 ## 加入 Room
 
-加入 Room 前需要使用唯一的 roomId 创建 [`WDGRoom`](placeholder) 对象实例，并使用 `-[WDGRoom connect]` 方法加入 Room。
+加入 Room 前需要使用唯一的 roomId 创建 [`WDGRoom`](/conference/iOS/api/WDGRoom.html) 对象实例，并使用 `-[WDGRoom connect]` 方法加入 Room。
 成功加入到 Room 后可以使用 `-[WDGRoom publishLocalstream:]` 或 `-[WDGRoom subscribeRoomStream:]` 方法发布或订阅媒体流。
 
 ```objectivec
@@ -27,7 +27,7 @@ WDGRoom *room = [[WDGRoom alloc] initWithRoomId:@"your-roomId"];
 
 ## 处理 Room 事件
 
-设置 [WDGRoom](placeholder) 的代理 <[WDGRoomDelegate](placeholder)> 用于处理 Room 的事件：
+设置 [WDGRoom](/conference/iOS/api/WDGRoom.html) 的代理 <[WDGRoomDelegate](/conference/iOS/api/WDGRoomDelegate.html)> 用于处理 Room 的事件：
 
 ```objectivec
 room.delegate = self;

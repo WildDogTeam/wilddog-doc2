@@ -1,7 +1,7 @@
 title: WDGRoomStream
 ---
 
-远端媒体流描述信息及媒体流数据。
+表示远端媒体流描述信息及媒体流数据。继承自 [WDGStream](/conference/iOS/api/WDGStream.html) ，具有父类所有的属性和方法。
 
 ## 属性
 

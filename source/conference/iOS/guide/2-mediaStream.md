@@ -9,7 +9,7 @@ WilddogRoom SDK 使用 `Stream` 来表示视频会议的参与者。每个参与
 
 ### 1. 创建本地媒体流
 
-本地媒体流包含了本地设备所采集的音频、视频信息，是视频会议所需要的基本数据。在加入视频会议之前，需要创建 [WDGLocalStream](placeholder) 实例：
+本地媒体流包含了本地设备所采集的音频、视频信息，是视频会议所需要的基本数据。在加入视频会议之前，需要创建 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html) 实例：
 
 ```objectivec
 WDGLocalStream *localStream = [[WDGLocalStream alloc] initWithOptions:options];
@@ -17,7 +17,7 @@ WDGLocalStream *localStream = [[WDGLocalStream alloc] initWithOptions:options];
 
 ### 2. 配置本地媒体流
 
-创建本地媒体流需传入 [WDGLocalStreamOptions](placeholder) 对象，用于确定本地视频流的音频、视频开关、最大尺寸和最大帧率：
+创建本地媒体流需传入 [WDGLocalStreamOptions](/conference/iOS/api/WDGLocalStreamOptions.html) 对象，用于确定本地视频流的音频、视频开关、最大尺寸和最大帧率：
 * shouldCaptureAudio / shouldCaptureVideo 为音／视频采集的开关，设置为 NO 表示关闭音／视频采集，默认为 YES；
 * dimension 用来设置视频的最大尺寸，默认为 480p，如果网络条件较差，会自动降低尺寸大小；
 * maxFPS 用来设置视频的最大帧率，默认为 16 帧／秒，如果网络条件较差，会自动降低帧率。
@@ -32,7 +32,7 @@ localStreamOptions.maxFPS = 20;
 
 ### 3. 播放本地媒体流
 
-本地媒体流包括音频和视频。默认不播放音频，使用 [WDGVideoView](placeholder) 播放视频。
+本地媒体流包括音频和视频。默认不播放音频，使用 [WDGVideoView](/conference/iOS/api/WDGVideoView.html) 播放视频。
 
 使用 `-[WDGLocalStream attach:]` 方法播放本地视频流：
 
@@ -67,7 +67,7 @@ localStream.videoEnabled = NO;
 
 ### 2. 播放远端媒体流
 
-远端媒体流包括音频和视频。默认播放音频，使用 [WDGVideoView](placeholder) 播放视频。
+远端媒体流包括音频和视频。默认播放音频，使用 [WDGVideoView](/conference/iOS/api/WDGVideoView.html) 播放视频。
 
 使用 `-[WDGRoomStream attach:]` 方法播放远端视频流：
 

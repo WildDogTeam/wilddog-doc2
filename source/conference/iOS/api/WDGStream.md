@@ -1,7 +1,7 @@
 title: WDGLocalStream
 ---
 
-媒体流的基类，不能直接创建。请参考 [WDGLocalStream](placeholder) 和 [WDGRoomStream](placeholder)。
+表示可通过 [WDGRoom](/conference/iOS/api/WDGRoom.html) 传输的媒体流。请参考子类 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html) 和 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
 
 ## 属性
 
@@ -65,13 +65,13 @@ title: WDGLocalStream
 
 **说明**
 
-绑定媒体流与视图，使媒体流的视频在指定的 [WDGVideoView](/conversation/iOS/api/WDGVideoView.html) 中显示。
+绑定媒体流与视图，使媒体流的视频在指定的 [WDGVideoView](/conference/iOS/api/WDGVideoView.html) 中显示。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-view | [WDGVideoView](/conversation/iOS/api/WDGVideoView.html) 实例，媒体流在该视图中播放。
+view | [WDGVideoView](/conference/iOS/api/WDGVideoView.html) 实例，媒体流在该视图中播放。
 
 </br>
 
@@ -87,13 +87,13 @@ view | [WDGVideoView](/conversation/iOS/api/WDGVideoView.html) 实例，媒体�
 
 **说明**
 
-解除媒体流与指定的 [WDGVideoView](/conversation/iOS/api/WDGVideoView.html) 的绑定，停止播放。
+解除媒体流与指定的 [WDGVideoView](/conference/iOS/api/WDGVideoView.html) 的绑定，停止播放。
 
 **参数**
 
  参数名 | 说明 
 ---|---
-view | [WDGVideoView](/conversation/iOS/api/WDGVideoView.html) 实例，流在该视图中播放。
+view | [WDGVideoView](/conference/iOS/api/WDGVideoView.html) 实例，流在该视图中播放。
 
 </br>
 

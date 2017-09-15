@@ -25,7 +25,7 @@ end
 
 ## 初始化
 
-[WDGVideoInitializer](placeholder) 是 WilddogRoom 和 WilddogVideo 共享的初始化类，在使用视频通话或者视频会议之前，需要先初始化 [WDGVideoInitializer](placeholder) 实例。
+[WDGVideoInitializer](/conference/iOS/api/WDGVideoInitializer.html) 是 WilddogRoom 和 WilddogVideo 共享的初始化类，在使用视频通话或者视频会议之前，需要先初始化 [WDGVideoInitializer](/conference/iOS/api/WDGVideoInitializer.html) 实例。
 
 [WDGVideoInitializer](placeholder) 的初始化需要 VideoAppId 和 token：
 
@@ -34,7 +34,7 @@ end
 
 用户需要通过 [野狗身份认证](/auth/iOS/index.html) 服务来认证身份并登录服务器。开发者可以根据需要选择匿名登录、手机登录、邮箱密码、第三方或自定义认证等多种方式进行身份认证。
 
-成功通过身份认证后，用户将获得 `uid` 以及 `token`。以匿名方式登录后初始化 [WDGVideoInitializer](placeholder) 为例：
+成功通过身份认证后，用户将获得 `uid` 以及 `token`。以匿名方式登录后初始化 [WDGVideoInitializer](/conference/iOS/api/WDGVideoInitializer.html) 为例：
 
 ```objectivec
 [WDGApp configureWithOptions:[[WDGOptions alloc] initWithSyncURL:@"https://your-video-appid.wilddogio.com"]];

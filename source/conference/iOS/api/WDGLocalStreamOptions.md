@@ -1,7 +1,7 @@
 title: WDGLocalStreamOptions
 ---
 
-`WDGLocalStreamOption` 中包含了音／视频开关、视频尺寸、最大帧率等选项，用于配置本地媒体流。
+`WDGLocalStreamOptions` 中包含了音／视频开关、视频尺寸、最大帧率等选项，用于配置本地媒体流。
 
 ## 属性
 

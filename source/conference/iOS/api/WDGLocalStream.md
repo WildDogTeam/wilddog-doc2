@@ -1,7 +1,7 @@
 title: WDGLocalStream
 ---
 
-表示用户设备采集的本地媒体流。
+表示用户设备采集的本地媒体流。继承自 [WDGStream](/conference/iOS/api/WDGStream.html) ，具有父类所有的属性和方法。
 
 ## 属性
 
@@ -15,7 +15,7 @@ title: WDGLocalStream
 
 **说明**
 
-符合 [WDGLocalStreamDelegate](/conversation/iOS/api/WDGLocalStreamDelegate.html) 协议的代理，可以对本地视频流进行处理。
+符合 [WDGLocalStreamDelegate](/conference/iOS/api/WDGLocalStreamDelegate.html) 协议的代理，可以对本地视频流进行处理。
 
 </br>
 

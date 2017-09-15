@@ -1,7 +1,7 @@
 title: WDGLocalStreamDelegate
 ---
 
-[WDGLocalStream](/conversation/iOS/api/WDGLocalStream.html) 的代理方法，用于获取并处理视频流。
+[WDGLocalStream](/conference/iOS/api/WDGLocalStream.html) 的代理方法，用于获取并处理视频流。
 
 ## 方法
 
