@@ -1,10 +1,10 @@
-title：发布 / 订阅
+title: 发布和订阅
 ---
 
 使用发布 / 订阅 API 能够实现向 Room 发布媒体流 / 取消发布 / 订阅媒体流 / 停止订阅等操作。
 
 
-注意：只有在 [roomInstance.on('connected',callback)](/conference/Web/api/wilddogRoom.html#connected) 事件被触发后才能调用发布 / 订阅相关的 API 。
+注意：只有在 [roomInstance.on('connected',callback)](/conference/Web/api/wilddogRoom.html#connected) 事件被触发后才能调用发布 / 订阅相关的 API
 
 ### 发布本地媒体流
 使用 [publish](/conference/Web/api/wilddogRoom.html#publish) 方法向 Room 发布本地媒体流，本地媒体流的创建与配置参考[本地媒体流](/conference/Web/guide/2-mediaStream.html)。
@@ -38,17 +38,25 @@ roomInstance.unpublish(localStream,function(error){
 注意：[`stream_added`](/conference/Web/api/wilddogRoom.html#stream_added)  事件会被触发多次，每次只返回一个远端媒体流。
 
 ```javascript
-roomInstance.on('stream_added', function(roomStream)	{
-	room.subscribe(roomStream);
-}
+roomInstance.on('stream_added', function(roomStream){
+	room.subscribe(roomStream,function(error){
+	    if(error == null){
+	        console.log('subscribe success');
+	    }
+	});
+});
 
 ```
  
 
 ### 取消订阅
 
-使用 [subscribe)](/conference/Web/api/wilddogRoom.html#unsubscribe) 方法取消订阅远端媒体流。
+使用 [subscribe](/conference/Web/api/wilddogRoom.html#unsubscribe) 方法取消订阅远端媒体流。
 
 ```javascript
-roomInstance.unsubscribe(roomStream);
+roomInstance.unsubscribe(roomStream,function(error){
+    if(error == null){
+        console.log('unsubscribe success');
+    }
+});
 ```

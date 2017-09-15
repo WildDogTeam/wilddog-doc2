@@ -15,7 +15,7 @@ title: wilddogVideo
 
 **说明**
 
-初始化wilddogVideo。
+初始化 `wilddogVideo`。
 
 **参数**
 
@@ -24,6 +24,27 @@ title: wilddogVideo
 | appId | 在野狗控制面板创建 App 后分配的 Video AppID。 |
 | token | 通过 `WilddogAuth` 验证登录后获取的 [Wilddog ID token](/auth/Web/guide/concept.html#身份认证令牌)。 |
 
+</br>
+
+---
+
+### room
+
+**定义**
+
+```javascript
+	wilddogVideo.room(roomId);
+```
+
+**说明**
+
+创建 `WilddogRoom`实例对象
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+| roomId | Room的唯一标识。 |
 </br>
 
 ---
@@ -72,7 +93,7 @@ wilddogVideo.createLocalStream({
 
 ---
 
-### setToken(token)
+### setToken
 
 **定义**
 
