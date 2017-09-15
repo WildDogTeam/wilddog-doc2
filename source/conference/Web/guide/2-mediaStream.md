@@ -3,11 +3,11 @@ title: 媒体流
 
 本篇文档介绍如何创建、配置和播放媒体流（包括摄像头采集的视频流和麦克风采集的音频流以及接收到的远端媒体流）。
 
-### 本地媒体流(LocalStream)
-#### 创建本地媒体流
+## 本地媒体流(LocalStream)
+### 1.创建本地媒体流
 
 本地媒体流包含了本地设备所采集的音频、视频信息，是视频通话所需要的基本数据。
-使用 [wilddogVideo.createLocalStream(options)](/conference/Web/api/local-stream.html#create(options)) 方法创建本地媒体流:
+使用 [`wilddogVideo.createLocalStream(options)``](/conference/Web/api/wilddogVideoInitialze.html#createLocalStream(options)) 方法创建本地媒体流:
 
 ```javascript
 wilddogVideo.createLocalStream({
@@ -18,7 +18,7 @@ wilddogVideo.createLocalStream({
 })
 ```
 
-#### 配置本地媒体流
+### 2.配置本地媒体流
 
 创建本地媒体流需传入参数用于确定本地视频流的音频、视频开关、最大尺寸和最大帧率：
 * captureAudio / captureVideo 为音 / 视频采集的开关，设置为 false 表示关闭音 / 视频采集，默认为 true；
@@ -40,11 +40,11 @@ wilddogVideo.createLocalStream(
         localStream.attach(localElement);
     });
 ```
-#### 播放本地媒体流
+### 3.播放本地媒体流
 
 本地媒体流包括音频和视频。
 
-将本地媒体流放入video标签：
+使用 `[localStream.attach()]` 方法将媒体流放入video标签：
 
 ```javascript
 localStream.attach(local);
@@ -62,16 +62,27 @@ localStream.detach();
 // 设置不播放媒体流的音频。
 localStream.enableAudio(false);
 ```
-### 远端媒体流（RoomStream）
-#### 获取远端媒体流
-通过 [`roomInstance.on('stream_received')`]
-将远端媒体流放入video标签：
+## 远端媒体流（RoomStream）
+
+```objectivec
+// 远端媒体流需要从服务器获取。在视频会议中，远端媒体流有 MCU 和 SFU 两种模式。在 MCU 模式下，服务器会将收到的所有远端媒体流进行混流处理，并作为一个媒体流发给客户端。在 SFU 模式下，服务器将远端媒体流转发给客户端，客户端可能收到多个独立的媒体流。
+```
+
+### 1.获取远端媒体流
+
+通过 [`roomInstance.on('stream_received')`] 回调事件获取远端媒体流
+
+### 2. 播放远端媒体流
+
+远端媒体流包括音频和视频。
+
+使用 `[roomStream.attach()]` 方法将远端媒体流放入video标签：
 
 ```javascript
 roomStream.attach(remote);
 ```
 
-停止播放视频流：
+移出video标签：：
 
 ```javascript
 roomStream.detach();

@@ -1,4 +1,5 @@
 title：安装与初始化
+---
 
 本篇文档介绍如何安装 SDK 并初始化 WilddogVideo。
 
@@ -17,7 +18,7 @@ Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标�
 
 ### 初始化 SDK
 
-使用 [wilddogVideo.initialize(options)](/conference/Web/guide/0-install-sdk.html) 方法初始化 WilddogRoom SDK。
+使用 [wilddogVideo.initialize(options)](/conference/Web/api/wilddogVideoInitializer.html) 方法初始化 WilddogRoom SDK。
 
 ```javascript
 // 初始化 Video 之前，要先经过身份认证。这里采用匿名登录的方式。

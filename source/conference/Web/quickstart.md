@@ -27,15 +27,10 @@ title: 快速入门
 #### 2.1 Video SDK
 
 Web SDK 有直接引用和 npm 安装两种方式可供选择。直接引用时任选以下两种方式之一：
+
 **通过标签引用**
 
 <figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/2.0.0/wilddog-video.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
-
-**通过npm下载** 
-
-安装依赖
-
-	npm install wilddog-room
 
 #### 2.2 安装 Auth SDK
 
@@ -53,7 +48,7 @@ WilddogRoom SDK 使用 Auth SDK 获取合法的 TOKEN。
 ```javascript
     //初始化 Wilddog Auth
     var config = {
-    	authDomain: "<appId>.wilddog.com"
+        authDomain: "<appId>.wilddog.com"
 	};
 	wilddog.initializeApp(config);
 ```
@@ -63,11 +58,11 @@ WilddogRoom SDK 使用 Auth SDK 获取合法的 TOKEN。
 使用 WilddogAuth SDK 进行身份认证，身份认证成功后，在使用 WilddogRoom SDK前，必须对wilddogVideo进行初始化。
 
 ```javascripte
-   // 初始化 WilddogRoom 之前，要先经过身份认证。这里采用匿名登录的方式。
+// 初始化 WilddogRoom 之前，要先经过身份认证。这里采用匿名登录的方式。
 wilddog.auth().signInAnonymously()
     .then(function(user){
         //认证成功后，初始化 wilddogVideo
-        wilddogVideo.initialize({appId:<appId>,token:<token>})
+        wilddogVideo.initialize({appId:<videoAppId>,token:<token>})
     }).catch(function (error) {
         // Handle Errors here.
         console.log(error);
@@ -92,7 +87,7 @@ wilddog.auth().signInAnonymously()
 使用 `wilddogVideo.createLocalStream(options)` 方法创建本地媒体流。
 
 ```javascript
-	//创建一个同时有音频和视频的媒体流
+//创建一个同时有音频和视频的媒体流
 wilddogVideo.createLocalStream(
     {
         captureAudio:true,
@@ -146,4 +141,4 @@ SDK 通过 `roomInstance.on('stream_added',callback) ` 事件通知用户当前 
 
 ## 7. 更多使用
 
-- 了解 WilddogRoom 更多使用方式，请参考 [完整指南]([/conference/Web/guide/0-install-sdk.html]) 和 [API 文档]([/conference/Web/api/WilddogRoom])。
+- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/Web/guide/1-install-sdk.html) 和 [API 文档](/conference/Web/api/wilddogVideoInitializer.html)。

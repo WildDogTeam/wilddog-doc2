@@ -1,7 +1,7 @@
 title: wilddogVideo
 ---
 
-`wilddogVideo.room` 是WilddogRoom SDK 和 WilddogVideo SDK的入口，不能直接创建WilddogRoom实例，必须要通过wilddogVideo.room(roomId)方式获取，表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
+`wilddogVideo.room` 是WilddogRoom SDK 的主入口，不能直接创建WilddogRoom实例，必须要通过wilddogVideo.room(roomId)方式获取。
 
 ## 方法
 

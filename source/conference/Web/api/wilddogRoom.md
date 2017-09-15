@@ -1,7 +1,8 @@
 title: WilddogRoom
 ---
 
-`wilddogVideo.room` 是WilddogRoom SDK 的主入口，不能直接创建WilddogRoom实例，必须要通过wilddogVideo.room(roomId)方式获取，表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
+`wilddogVideo` 是WilddogRoom SDK 的主入口，不能直接创建WilddogRoom实例，必须要通过wilddogVideo.room(roomId)方式获取，
+WilddogRoom 表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
 
 ## 属性
 
@@ -76,7 +77,7 @@ roomInstance.publish(localStream,function(error){
 
 参数名             | 说明 
 ------------------|-------------
-localStream       | 本地媒体流。
+localStream       | 本地媒体流。[LocalStream](/conference/Web/api/localStream.html)
 
 </br>
 
@@ -89,20 +90,20 @@ localStream       | 本地媒体流。
 ```javascript
 roomInstance.unsubscribe(roomStream,function (error) {
      if(error == null){
-          console.log('unsubscribe success');
+          console.log('unpublish success');
      }
 })
 ```
 
 **说明**
 
-取消发布本地媒体流。取消发布成功会触发其他客户端的 `stream_received` 事件。
+取消发布本地媒体流。取消发布成功会触发其他客户端的 `stream_removed` 事件。
 
 **参数**
 
 参数名             | 说明 
 ------------------|------------------
-localStream       | 本地媒体流
+roomStream       | 远端媒体流。 [RoomStream](/conference/Web/api/roomStream.html)
 
 </br>
 
@@ -128,7 +129,7 @@ roomInstance.subscribe(roomStream,function (error) {
 
 参数名             | 说明 
 ------------------|------------------
-roomStream        | 远端媒体流
+roomStream        | 远端媒体流 [RoomStream](/conference/Web/api/roomStream.html)
 
 </br>
 
@@ -154,7 +155,7 @@ roomInstance.unsubscribe(roomStream,function (error) {
 
 参数名             | 说明 
 ------------------|------------------
-roomStream        | 远端媒体流
+roomStream        | 远端媒体流 [RoomStream](/conference/Web/api/roomStream.html)
 
 </br>
 
@@ -171,7 +172,7 @@ WilddogRoom 事件用于监听 Room 连接状态以及媒体流变化。
 |媒体流事件|stream_added|有远端流加入到 Room，此时的RoomStream 中不包含真正的媒体流，需要使用 subscribe 方法进行订阅方可获取真正的媒体流。|
 |媒体流事件|stream_removed|有远端流停止发布。|
 |媒体流事件|stream_received|成功订阅远端流，此时获取到真正的媒体流对象，可以进行播放。|
-|错误事件|error|成功订阅远端流。|
+|错误事件|error|错误事件。|
 
 ---
 ### connected
