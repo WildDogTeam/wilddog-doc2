@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-web-conference/archive/master.zip) 来快速了解 WilddogRoom SDK 的用法。
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-web-conference) 来快速了解 WilddogRoom SDK 的用法。
 
 
 <div class="env">
