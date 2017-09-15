@@ -39,10 +39,10 @@ Room 的唯一标识。
 
 **参数**
 
-参数名             | 说明 
-------------------|------------------
-roomId            | 字符串类型，代表一个 Room 的唯一标识。
-roomEvents          | 接收 Room 事件的监听，请参考 [WilddogRoom.Listener](/conference/Android/api/wilddog-room-listener.html)。
+|参数名             | 说明 |
+|------------------|------------------|
+|roomId            | 字符串类型，代表一个 Room 的唯一标识。|
+|roomEvents          | 接收 Room 事件的监听，请参考 [WilddogRoom.Listener](/conference/Android/api/wilddog-room-listener.html)。|
 
 **返回值**
 
@@ -62,13 +62,13 @@ roomEvents          | 接收 Room 事件的监听，请参考 [WilddogRoom.Liste
 
 **说明**
 
-加入 Room。成功加入 Room 会触发本地 [`onConnected`](/conference/Android/api/wilddog-room-listener.html#onConnected(room)) 事件，否则触发 [`onError()`](/conference/Android/api/wilddog-room-listener.html#onError(room,error)) 事件。
+加入 Room。成功加入 Room 会触发本地 [onConnected](/conference/Android/api/wilddog-room-listener.html#onConnected-room) 事件，否则触发 [`onError()`](/conference/Android/api/wilddog-room-listener.html#onError(room,error)) 事件。
 
 </br>
 
 ---
 
-### - disconnect(）
+### disconnect()
 
 **定义**
 
@@ -78,7 +78,7 @@ roomEvents          | 接收 Room 事件的监听，请参考 [WilddogRoom.Liste
 
 **说明**
 
-离开 Room。调用后触发本地 [`onDisconnected`](/conference/Android/api/wilddog-room-listener.html#onDisconnected(room)) 事件。
+离开 Room。调用后触发本地 [onDisconnected](/conference/Android/api/wilddog-room-listener.html#onDisconnected-room) 事件。
 
 </br>
 
@@ -94,13 +94,13 @@ roomEvents          | 接收 Room 事件的监听，请参考 [WilddogRoom.Liste
 
 **说明**
 
-发布本地媒体流。发布成功后会触发其他客户端的 [`onStreamAdded`](/conference/Android/api/wilddog-room-listener.html#onStreamAdded(room,roomStream)) 事件。
+发布本地媒体流。发布成功后会触发其他客户端的 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件。
 
 **参数**
 
-参数名             | 说明 
-------------------|------------------
-localStream       | 本地媒体流，请参考 [LocalStream](/conference/Android/api/local-stream.html)。
+|参数名             | 说明 |
+|------------------|------------------|
+|localStream       | 本地媒体流，请参考 [LocalStream](/conference/Android/api/local-stream.html)。|
 
 </br>
 
@@ -116,14 +116,14 @@ localStream       | 本地媒体流，请参考 [LocalStream](/conference/Androi
 
 **说明**
 
-发布本地媒体流，操作完成执行完成回调。发布成功后会触发其他客户端的 [`onStreamAdded`](/conference/Android/api/wilddog-room-listener.html#onStreamAdded(room,roomStream)) 事件。
+发布本地媒体流，操作完成执行完成回调。发布成功后会触发其他客户端的 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件。
 
 **参数**
 
-参数名             | 说明 
-------------------|------------------
-localStream       | 本地媒体流，请参考 [LocalStream](/conference/Android/api/local-stream.html)。
-listener          | 发布操作完成执行的回调监听。
+|参数名             | 说明 |
+|------------------|------------------|
+|localStream       | 本地媒体流，请参考 [LocalStream](/conference/Android/api/local-stream.html)。|
+|listener          | 发布操作完成执行的回调监听。|
 
 </br>
 
@@ -139,7 +139,7 @@ listener          | 发布操作完成执行的回调监听。
 
 **说明**
 
-取消发布本地媒体流。取消发布成功会触发其他客户端的 [`onStreamRemoved`](/conference/Android/api/wilddog-room-listener.html#onStreamRemoved(room,roomStream)) 事件。
+取消发布本地媒体流。取消发布成功会触发其他客户端的 [onStreamRemoved](/conference/Android/api/wilddog-room-listener.html#onStreamRemoved-room-roomStream) 事件。
 
 
 </br>
@@ -156,13 +156,13 @@ listener          | 发布操作完成执行的回调监听。
 
 **说明**
 
-取消发布本地媒体流，操作完成执行完成回调并触发其他客户端的 [`onStreamRemoved`](/conference/Android/api/wilddog-room-listener.html#onStreamRemoved(room,roomStream))  事件。
+取消发布本地媒体流，操作完成执行完成回调并触发其他客户端的 [onStreamRemoved](/conference/Android/api/wilddog-room-listener.html#onStreamRemoved-room-roomStream)  事件。
 
 **参数**
 
-参数名             | 说明 
-------------------|------------------
-block             | 取消发布操作完成执行的回调监听。
+|参数名             | 说明 |
+|------------------|------------------|
+|block             | 取消发布操作完成执行的回调监听。|
 
 </br>
 
@@ -178,13 +178,13 @@ block             | 取消发布操作完成执行的回调监听。
 
 **说明**
 
-订阅在 [`onStreamAdded`](/conference/Android/api/wilddog-room-listener.html#onStreamAdded(room,roomStream)) 事件中获取的远端媒体流。订阅成功会触发本地的 [`onStreamReceived`](/conference/Android/api/wilddog-room-listener.html#onStreamReceived(room,roomStream)) 事件。
+订阅在 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件中获取的远端媒体流。订阅成功会触发本地的 [`onStreamReceived`](/conference/Android/api/wilddog-room-listener.html#onStreamReceived(room,roomStream)) 事件。
 
 **参数**
 
-参数名             | 说明 
-------------------|------------------
-roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android/api/room-stream.html)。
+|参数名             | 说明 |
+|------------------|------------------|
+|roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
 
 </br>
 
@@ -200,14 +200,14 @@ roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android
 
 **说明**
 
-订阅在 [`onStreamAdded`](/conference/Android/api/wilddog-room-listener.html#onStreamAdded(room,roomStream)) 事件中获取的远端媒体流，操作完成执行完成回调。订阅成功会触发本地的 [`onStreamReceived`](/conference/Android/api/wilddog-room-listener.html#onStreamReceived(room,roomStream)) 事件。
+订阅在 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件中获取的远端媒体流，操作完成执行完成回调。订阅成功会触发本地的 [`onStreamReceived`](/conference/Android/api/wilddog-room-listener.html#onStreamReceived(room,roomStream)) 事件。
 
 **参数**
 
-参数名             | 说明 
-------------------|------------------
-roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android/api/room-stream.html)。
-block             | 订阅操作完成执行的回调监听。
+|参数名             | 说明 |
+|------------------|------------------|
+|roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
+|listener             | 订阅操作完成执行的回调监听。|
 
 </br>
 
@@ -227,9 +227,9 @@ block             | 订阅操作完成执行的回调监听。
 
 **参数**
 
-参数名             | 说明 
-------------------|------------------
-roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android/api/room-stream.html)。
+|参数名             | 说明 |
+|------------------|------------------|
+|roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
 
 </br>
 
@@ -249,10 +249,10 @@ roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android
 
 **参数**
 
-参数名             | 说明 
-------------------|------------------
-roomStream        | 远端媒体流，请参考 [`RoomStream`](/conference/Android/api/room-stream.html)。
-listener             | 取消订阅操作完成执行的完成回调。
+|参数名             | 说明 |
+|------------------|------------------|
+|roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
+|listener             | 取消订阅操作完成执行的完成回调。|
 
 </br>
 

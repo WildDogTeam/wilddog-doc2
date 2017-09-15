@@ -175,5 +175,5 @@ SDK 通过 `onStreamAdded ` 事件通知用户当前 Room 中已发布的媒体�
 
 ## 7. 更多使用
 
-- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/Android/guide/0-install-sdk.html) 和 [API 文档](/conference/Android/api/wilddog-video-initializer.html)。
+- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/Android/guide/0-concepts.html) 和 [API 文档](/conference/Android/api/wilddog-video-initializer.html)。
 

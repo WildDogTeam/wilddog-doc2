@@ -1,4 +1,4 @@
-title:WilddogVideoInitializer
+title: WilddogVideoInitializer
 ---
 WilddogVideo SDK 和 WilddogRoom SDK 初始化器。
 

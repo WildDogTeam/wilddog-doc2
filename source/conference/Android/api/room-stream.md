@@ -46,13 +46,13 @@ public void attach(WilddogVideoView videoView)
 ```
 **说明**
 
-在指定的 [`WilddogVideoView`](conference/Android/api/wilddog-video-view.html) 中显示媒体流。
+在指定的 [WilddogVideoView](/conference/Android/api/wilddog-video-view.html) 中显示媒体流。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-| videoView | 请参考：[WilddogVideoView]()。|
+| videoView | 请参考：[WilddogVideoView](/conference/Android/api/wilddog-video-view.html)。|
 
 </br>
 
@@ -67,13 +67,13 @@ public void detach()
 ```
 **说明**
 
-解除媒体流与 [`WilddogVideoView`](conference/Android/api/wilddog-video-view.html) 的绑定，停止播放。
+解除媒体流与 [WilddogVideoView](/conference/Android/api/wilddog-video-view.html) 的绑定，停止播放。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-| videoView | 请参考：[WilddogVideoView]()。|
+| videoView | 请参考：[WilddogVideoView](/conference/Android/api/wilddog-video-view.html)。|
 
 </br>
 
