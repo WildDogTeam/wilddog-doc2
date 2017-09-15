@@ -26,7 +26,7 @@ title: 快速入门
 
 ## 2. 使用 CocoaPods 安装 SDK
 
-通过 [Cocoapods](https://cocoapods.org/) 安装 Room SDK 以及其依赖的 Auth SDK。
+通过 [Cocoapods](https://cocoapods.org/) 安装 WilddogRoom SDK 以及其依赖的 WilddogAuth SDK。
 
 * 在 Xcode 中创建一个工程，并在 Terminal 中用 `cd` 命令进入到工程所在文件夹内，执行 `pod init` 命令；
 * 打开生成的 `Podfile` 文件，在第一行声明开发平台和版本（如 iOS 8.0），并在随后写入要引入的库：
@@ -34,8 +34,7 @@ title: 快速入门
 ```ruby
 platform :ios, '8.0'
 target 'your-target-name' do
-  pod 'WilddogRoom'
-  pod 'WilddogVideoBase'
+  pod 'WilddogRoom', '2.0.0-beta'
 end
 ```
 
@@ -47,8 +46,10 @@ end
 
 在 `info.plist` 文件中添加两个字段以获取相机和麦克风的访问权限：
 
-- `Privacy - Camera Usage Description` 
-- `Privacy - Microphone Usage Description`
+Key                                    | Type   | Value
+---------------------------------------|--------|-----------------
+Privacy - Camera Usage Description     | String | Your Description
+Privacy - Microphone Usage Description | String | Your Description
 
 
 ## 4. 初始化 SDK
@@ -68,27 +69,20 @@ end
 
 ```objectivec
 [[WDGAuth auth] signOut:nil];
-__weak __typeof__(self) weakSelf = self;
 [[WDGAuth auth] signInAnonymouslyWithCompletion:^(WDGUser *user, NSError *error) {
-    __strong __typeof__(self) strongSelf = weakSelf;
-    if (strongSelf == nil) {
-        return;
+    if (!error) {
+        // 获取 token
+        [user getTokenWithCompletion:^(NSString * _Nullable idToken, NSError * _Nullable error) {
+            // 配置 Video Initializer
+            [[WDGVideoInitializer sharedInstance] configureWithVideoAppId:appID token:idToken];
+        }];
     }
-    if (error) {
-        NSLog(@"请在控制台为您的AppID开启匿名登录功能，错误信息: %@", error);
-        return;
-    }
-    // 获取 token
-    [user getTokenWithCompletion:^(NSString * _Nullable idToken, NSError * _Nullable error) {
-        // 配置 Video Initializer
-        [[WDGVideoInitializer sharedInstance] configureWithVideoAppId:appID token:idToken];
-    }];
 }];
 ```
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
- VIDEO_APP_ID 为应用实时视频通话标签页中的 VideoAppID 字段值，请勿与实时通信引擎 AppID 混淆。
+ VideoAppId 为应用 `实时视频通话-配置` 标签页中的 VideoAppID 字段值，请勿与应用的 AppID 混淆。
  VideoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
 </blockquote>
 
@@ -113,7 +107,7 @@ self.room = [[WDGRoom alloc] initWithRoomId:_roomId delegate:self];
 本地客户端会触发 `-[WDGRoomDelegate wilddogRoomDidConnect:]` 事件通知用户已成功加入 Room 。
 加入后即可发布或订阅当前 Room 中的媒体流。
 
-### 发布本地媒体流
+### 6.1 发布本地媒体流
 
 使用 `+[WDGLocalStream localStreamWithOptions:]` 方法创建本地媒体流。
 
@@ -130,7 +124,7 @@ self.localStream = [WDGLocalStream localStreamWithOptions:localStreamOptions];
 [self.room publishLocalStream:self.localStream];
 ```
 
-### 订阅远端媒体流
+### 6.2 订阅远端媒体流
 
 SDK 通过 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]` 事件通知用户当前 Room 中已发布的媒体流，可以根据需要订阅感兴趣的媒体流。
 
@@ -158,5 +152,5 @@ SDK 通过 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]` 事件通知用户�
 
 ## 7. 更多使用
 
-- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/iOS/guide/0-concepts.html) 和 [API 文档](/conference/iOS/api/WDGRoom.html)。
+- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/iOS/guide/0-concepts.html) 和 [API 文档](/conference/iOS/api/WDGVideoInitializer.html)。
 

@@ -15,7 +15,7 @@ title: WDGVideoInitializer
 
 **说明**
 
-获取 `WDGVideoInitializer` 的单例。
+获取 `WDGVideoInitializer` 单例。
 
 **返回值**
 

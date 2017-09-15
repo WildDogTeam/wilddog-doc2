@@ -1,4 +1,4 @@
-title: 视频会议
+title: 管理视频会议
 ---
 
 本篇文档介绍如何创建或加入视频会议。
@@ -33,7 +33,7 @@ WDGRoom *room = [[WDGRoom alloc] initWithRoomId:@"your-roomId"];
 room.delegate = self;
 ```
 
-### 1. 连接事件
+### 连接事件
 
 实现代理方法 `-[WDGRoomDelegate wilddogRoomDidConnect:]`，当客户端与服务器成功连接时，会触发该方法：
 
@@ -51,7 +51,7 @@ room.delegate = self;
 }
 ```
 
-### 2. 媒体流通知事件
+### 媒体流通知事件
 
 实现代理方法 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]`，当房间中有远端媒体流加入时，会触发该方法：
 
@@ -69,7 +69,7 @@ room.delegate = self;
 }
 ```
 
-### 3. 媒体流接收事件
+### 媒体流接收事件
 
 实现代理方法 `-[WDGRoomDelegate wilddogRoom:didStreamReceived:]`，当收到远端流的媒体数据时，会触发该方法：
 
@@ -79,7 +79,7 @@ room.delegate = self;
 }
 ```
 
-### 4. 错误事件
+### 错误事件
 
 实现代理方法 `-[WDGRoomDelegate wilddogRoom:didFailWithError:]`，当视频会议发生错误时，会触发该方法：
 

@@ -3,20 +3,25 @@ title: 基础概念
 
 ## Room
 
-视频会议的房间，包含了发布在房间中的所有媒体流，创建或加入房间后，可以发布／接收媒体流。
+表示视频会议，以 roomId 为唯一标识。加入视频会议后，可以发布／订阅媒体流。
 
-## Local Stream
 
-本地媒体流，包括本地音频流和视频流，需要在发起视频通话／接受视频通话邀请前进行配置。
+## Stream
 
-## Room Stream
+WilddogRoom SDK 用 `Stream` 来表示视频会议的参与者。包含 `LocalStream` 和 `RoomStream`:
 
-视频会议房间中的远端媒体流。有 MCU 和 SFU 两种模式。在 MCU 模式下，所有的远端媒体流在经过服务器混流后，作为一条媒体流传给客户端；在 SFU 模式下，被订阅的媒体流被服务器直接转发给客户端。
+- LocalStream: 本地媒体流。包括音频流和视频流，需要在加入视频会议前进行配置。
+- RoomStream: 远端媒体流。其他用户发布的媒体流，从 Room 中获取。
 
-## Video View
+
+## VideoView
 
 使用 VideoView 播放本地／远端视频流，LocalStream 和 RoomStream 只能与 VideoView 绑定来播放。
 
+
 ## Publish & Subscribe
 
-视频会议采用了发布／订阅机制，客户端将自己的媒体流发布到视频会议的房间中，并从房间中获取远端媒体流的列表，然后选择订阅远端媒体流。
+视频会议采用了发布／订阅机制：
+
+- Publish: 用户将本地媒体流发布到 Room 中，发布成功后其他用户将收到通知。
+- Subscribe: 用户从 Room 中获取远端媒体流的信息，需要订阅后，才能接收到媒体数据。
