@@ -1,5 +1,6 @@
-title：发布／订阅
+title: 发布和订阅
 ---
+
 使用发布／订阅 API 能够实现向 Room 发布媒体流	、取消发布／订阅媒体流、停止订阅等操作。
 
 只有在 [onConnected()](/conference/Android/api/wilddog-room-listener.html#onConnected-room) 事件被触发后才能调用发布／订阅相关的 API 。

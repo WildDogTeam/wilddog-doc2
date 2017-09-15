@@ -1,4 +1,4 @@
-title: 安装与初始化
+title: 安装和初始化
 ---
 
 本篇文档介绍如何安装 SDK 并使用 `WilddogVideoInitializer` 初始化 WilddogRoom SDK。
