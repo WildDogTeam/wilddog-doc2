@@ -327,10 +327,11 @@ conversation:
     快速入门: /conversation/Web/quickstart.html
     完整指南:
       基础概念: /conversation/Web/guide/core.html
-      安装和初始化 SDK: /conversation/Web/guide/install-sdk.html
+      安装和初始化: /conversation/Web/guide/install-sdk.html
       视频通话: /conversation/Web/guide/conversation.html
       媒体流统计: /conversation/Web/guide/statistics.html
     API 文档:
+      WilddogVideoInitializer: /conversation/Web/api/wilddogVideoInitializer.html
       Video: /conversation/Web/api/wilddogVideo.html
       Conversation: /conversation/Web/api/conversation.html
       LocalStream: /conversation/Web/api/localStream.html
@@ -343,24 +344,26 @@ conversation:
     快速入门: /conversation/iOS/quickstart.html
     完整指南:
       基础概念: /conversation/iOS/guide/0-concepts.html
-      安装和初始化 SDK: /conversation/iOS/guide/1-install.html
+      安装和初始化: /conversation/iOS/guide/1-install.html
       媒体流: /conversation/iOS/guide/2-mediaStream.html
       管理视频通话: /conversation/iOS/guide/3-conversationManagement.html
       美颜滤镜: /conversation/iOS/guide/4-videoFilter.html
       本地视频录制: /conversation/iOS/guide/5-recording.html
       媒体流统计: /conversation/iOS/guide/6-statistics.html
     API 文档:
+      VideoInitializer: /conversation/iOS/api/WDGVideoInitializer.html
       Video: /conversation/iOS/api/WDGVideo.html
       VideoDelegate: /conversation/iOS/api/WDGVideoDelegate.html
-      VideoView: /conversation/iOS/api/WDGVideoView.html
       Conversation: /conversation/iOS/api/WDGConversation.html
       ConversationDelegate: /conversation/iOS/api/WDGConversationDelegate.html
       ConversationStatsDelegate: /conversation/iOS/api/WDGConversationStatsDelegate.html
+      Stream: /conversation/iOS/api/WDGStream.html
       LocalStream: /conversation/iOS/api/WDGLocalStream.html
-      LocalStreamDelegate: /conversation/iOS/api/WDGLocalStreamDelegate.html
       LocalStreamOptions: /conversation/iOS/api/WDGLocalStreamOptions.html
-      LocalStreamStatsReport: /conversation/iOS/api/WDGLocalStreamStatsReport.html
+      LocalStreamDelegate: /conversation/iOS/api/WDGLocalStreamDelegate.html
       RemoteStream: /conversation/iOS/api/WDGRemoteStream.html
+      VideoView: /conversation/iOS/api/WDGVideoView.html
+      LocalStreamStatsReport: /conversation/iOS/api/WDGLocalStreamStatsReport.html
       RemoteStreamStatsReport: /conversation/iOS/api/WDGRemoteStreamStatsReport.html
       CallStatus: /conversation/iOS/api/WDGCallStatus.html
       错误码: /conversation/iOS/api/error-code.html
@@ -371,13 +374,14 @@ conversation:
     快速入门: /conversation/Android/quickstart.html
     完整指南:
       基础概念: /conversation/Android/guide/0-concepts.html
-      安装和初始化 SDK: /conversation/Android/guide/1-install-sdk.html
+      安装和初始化: /conversation/Android/guide/1-install-sdk.html
       媒体流: /conversation/Android/guide/2-mediaStream.html
       管理视频通话: /conversation/Android/guide/3-conversationManagement.html
       美颜滤镜: /conversation/Android/guide/4-beauty.html
       本地视频录制: /conversation/Android/guide/5-recording.html
       媒体流统计: /conversation/Android/guide/6-statistics.html
     API 文档:
+      WilddogVideoInitializer: /conversation/Android/api/wilddog-video-initializer.html
       WilddogVideo: /conversation/Android/api/wilddog-video.html
       WilddogVideo.Listener: /conversation/Android/api/wilddog-video-listener.html
       WilddogVideoError: /conversation/Android/api/wilddog-video-error.html
@@ -411,13 +415,12 @@ conference:
       媒体流: /conference/Web/guide/2-mediaStream.html
       管理视频会议: /conference/Web/guide/3-room.html
       发布和订阅: /conference/Web/guide/4-pubAndSub.html
-    API 文档:    
+    API 文档:
       WilddogVideoInitializer: /conference/Web/api/wilddogVideoInitializer.html
+      WilddogRoom: /conference/Web/api/wilddogRoom.html
       LocalStream: /conference/Web/api/localStream.html
       RoomStream: /conference/Web/api/roomStream.html
-      WilddogRoom: /conference/Web/api/wilddogRoom.html
     更新日志: /conference/Web/changelog.html
-
 
   iOS:
     概览: /conference/iOS/index.html
@@ -430,16 +433,15 @@ conference:
       发布和订阅: /conference/iOS/guide/4-pubAndSub.html
     API 文档:
       VideoInitializer: /conference/iOS/api/WDGVideoInitializer.html
+      Room: /conference/iOS/api/WDGRoom.html
+      RoomDelegate: /conference/iOS/api/WDGRoomDelegate.html
       Stream: /conference/iOS/api/WDGStream.html
       LocalStream: /conference/iOS/api/WDGLocalStream.html
       LocalStreamOptions: /conference/iOS/api/WDGLocalStreamOptions.html
       LocalStreamDelegate: /conference/iOS/api/WDGLocalStreamDelegate.html
       RoomStream: /conference/iOS/api/WDGRoomStream.html
       VideoView: /conference/iOS/api/WDGVideoView.html
-      Room: /conference/iOS/api/WDGRoom.html
-      RoomDelegate: /conference/iOS/api/WDGRoomDelegate.html
     更新日志: /conference/iOS/changelog.html
-
 
   Android:
     概览: /conference/Android/index.html
@@ -452,6 +454,8 @@ conference:
       发布和订阅: /conference/Android/guide/4-pubAndSub.html
     API 文档:
       WilddogVideoInitializer: /conference/Android/api/wilddog-video-initializer.html
+      WilddogRoom: /conference/Android/api/wilddog-room.html
+      WilddogRoom.Listener: /conference/Android/api/wilddog-room-listener.html
       LocalStream: /conference/Android/api/local-stream.html
       LocalStreamOptions: /conference/Android/api/local-stream-options.html
       LocalStream.CameraFrameListener: /conference/Android/api/camera-frame-listener.html
@@ -461,10 +465,9 @@ conference:
       WilddogVideoView: /conference/Android/api/wilddog-video-view.html
       WilddogVideoViewLayout: /conference/Android/api/wilddog-video-view-layout.html
       CompleteListener: /conference/Android/api/complete-listener.html
-      WilddogRoom: /conference/Android/api/wilddog-room.html
-      WilddogRoom.Listener: /conference/Android/api/wilddog-room-listener.html
       WilddogVideoError: /conference/Android/api/wilddog-video-error.html
     更新日志: /conference/Android/changelog.html
+
 
 location:
   Web:
@@ -720,6 +723,3 @@ auth:
   Server:
     简介: /auth/Server/introduction.html
     使用 Server SDK 进行认证: /auth/Server/server.html
-
-
-
