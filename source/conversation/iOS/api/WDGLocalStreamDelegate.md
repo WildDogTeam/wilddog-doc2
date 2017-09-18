@@ -19,9 +19,9 @@ title: WDGLocalStreamDelegate
 
 **参数**
 
- 参数名 | 说明 
----|---
-pixelBuffer | 当前视频帧。
+参数名             | 说明
+------------------|------------------
+pixelBuffer       | 当前视频帧。
 
 </br>
 

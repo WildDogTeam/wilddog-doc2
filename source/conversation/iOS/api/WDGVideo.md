@@ -43,51 +43,6 @@ title: WDGVideo
 
 ---
 
-### - configureWithVideoAppId: token: 
-
-**定义**
-
-```objectivec
-- (void)configureWithVideoAppId:(NSString *)videoAppId token:(NSString *)token;
-```
-
-**说明**
-
-用于配置 `WDGVideo` 单例。配置前需要通过 [WilddogAuth](https://docs.wilddog.com/auth/iOS/index.html) 登录以获取 token。
-
-**参数**
-
- 参数名 | 说明 
----|---
-videoAppId | 在野狗控制面板创建App后分配的 Video AppID。
-token      | 通过 [WilddogAuth](https://docs.wilddog.com/auth/iOS/index.html) 验证登录后获取的 Wilddog ID token。
-
-</br>
-
----
-
-### - setToken:
-
-**定义**
-
-```objectivec
-- (void)setToken:(NSString *)token;
-```
-
-**说明**
-
-设置 `WDGVideo` 单例的 token。配置完成后，仍然可以调用该方法来更改 token。
-
-**参数**
-
- 参数名 | 说明 
----|---
-token | 通过 [WilddogAuth](https://docs.wilddog.com/auth/iOS/index.html) 登录的用户的 Wilddog ID token。
-
-</br>
-
----
-
 ### - start
 
 **定义**
@@ -120,32 +75,6 @@ token | 通过 [WilddogAuth](https://docs.wilddog.com/auth/iOS/index.html) 登�
 
 ---
 
-### - localStreamWithOptions: options:
-
-**定义**
-
-```objectivec
-- (WDGLocalStream *)localStreamWithOptions:(WDGLocalStreamOptions *)options;
-```
-
-**说明**
-
-创建本地的媒体流，通过传入一个 [WDGLocalStreamOptions](/conversation/iOS/api/WDGLocalStreamOptions.html) 实例配置媒体流。
-
-**参数**
-
- 参数名 | 说明 
----|---
-options | [WDGLocalStreamOptions](/conversation/iOS/api/WDGLocalStreamOptions.html) 实例，用于配置本地视频和音频。
-
-**返回值**
-
-[WDGLocalStream](/conversation/iOS/api/WDGLocalStream.html) 实例。
-
-</br>
-
----
-
 ### - callWithUid: localStream: data:
 
 **定义**
@@ -160,11 +89,11 @@ options | [WDGLocalStreamOptions](/conversation/iOS/api/WDGLocalStreamOptions.ht
 
 **参数**
 
- 参数名 | 说明 
----|---
-uid         | 被叫方的 User ID。
-localStream | [WDGLocalStream](/conversation/iOS/api/WDGLocalStream.html) 实例，代表主叫方的本地媒体流。
-data        | 随邀请传递的字符串类型的数据，可以为空。
+参数名             | 说明
+------------------|------------------
+uid               | 被叫方的 [User ID](/auth/iOS/api/WDGUserInfo.html#uid)。
+localStream       | 代表主叫方的本地媒体流。请参考 [WDGLocalStream](/conversation/iOS/api/WDGLocalStream.html)。
+data              | 随邀请传递的字符串类型的数据，可以为空。
 
 **返回值**
 

@@ -19,10 +19,10 @@ title: WDGConversationStatsDelegate
 
 **参数**
 
- 参数名 | 说明 
----|---
-conversation | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
-report       | 包含本地媒体流统计信息的 [WDGLocalStreamStatsReport](/conversation/iOS/api/WDGLocalStreamStatsReport.html) 实例。
+参数名             | 说明
+------------------|------------------
+conversation      | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
+report            | 包含本地媒体流统计信息的 [WDGLocalStreamStatsReport](/conversation/iOS/api/WDGLocalStreamStatsReport.html) 实例。
 
 </br>
 
@@ -42,10 +42,10 @@ report       | 包含本地媒体流统计信息的 [WDGLocalStreamStatsReport](
 
 **参数**
 
- 参数名 | 说明 
----|---
-conversation | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
-report       | 包含远端媒体流统计信息的 [WDGRemoteStreamStatsReport](/conversation/iOS/api/WDGRemoteStreamStatsReport.html) 实例。
+参数名             | 说明
+------------------|------------------
+conversation      | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
+report            | 包含远端媒体流统计信息的 [WDGRemoteStreamStatsReport](/conversation/iOS/api/WDGRemoteStreamStatsReport.html) 实例。
 
 </br>
 

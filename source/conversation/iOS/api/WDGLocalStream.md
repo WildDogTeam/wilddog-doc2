@@ -1,7 +1,7 @@
 title: WDGLocalStream
 ---
 
-表示用户设备采集的本地媒体流。
+表示用户设备采集的本地媒体流。继承自 [WDGStream](/conversation/iOS/api/WDGStream.html) ，具有父类所有的属性和方法。
 
 ## 属性
 
@@ -21,39 +21,34 @@ title: WDGLocalStream
 
 ---
 
-### videoEnabled
-
-**定义**
-
-```objectivec
-@property (nonatomic, assign) BOOL videoEnabled;
-```
-
-**说明**
-
-表示是否播放本地媒体流的视频，默认为 YES。
-
-</br>
-
----
-
-### audioEnabled
-
-**定义**
-
-```objectivec
-@property (nonatomic, assign) BOOL audioEnabled;
-```
-
-**说明**
-
-表示是否播放本地媒体流的音频，默认为 YES。
-
-</br>
-
----
-
 ## 方法
+
+### + localStreamWithOptions:
+
+**定义**
+
+```objectivec
++ (instancetype)localStreamWithOptions:(WDGLocalStreamOptions *)options;
+```
+
+**说明**
+
+创建 `WDGLocalStream` 实例。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+options           | `WDGLocalStream` 的配置选项。请参考 [WDGLocalStreamOptions](/conference/iOS/api/WDGLocalStreamOptions.html)。
+
+</br>
+
+**返回值**
+
+`WDGLocalStream` 实例。
+
+---
+
 
 ### - close
 
@@ -65,51 +60,7 @@ title: WDGLocalStream
 
 **说明**
 
-关闭媒体流，媒体流被关闭后不能继续使用。
-
-</br>
-
----
-
-### - attach:
-
-**定义**
-
-```objectivec
-- (void)attach:(WDGVideoView *)view;
-```
-
-**说明**
-
-绑定媒体流与视图，使媒体流的视频在指定的 [WDGVideoView](/conversation/iOS/api/WDGVideoView.html) 中显示。
-
-**参数**
-
- 参数名 | 说明 
----|---
-view | [WDGVideoView](/conversation/iOS/api/WDGVideoView.html) 实例，媒体流在该视图中播放。
-
-</br>
-
----
-
-### - detach:
-
-**定义**
-
-```objectivec
-- (void)detach:(WDGVideoView *)view;
-```
-
-**说明**
-
-解除媒体流与指定的 [WDGVideoView](/conversation/iOS/api/WDGVideoView.html) 的绑定，停止播放。
-
-**参数**
-
- 参数名 | 说明 
----|---
-view | [WDGVideoView](/conversation/iOS/api/WDGVideoView.html) 实例，流在该视图中播放。
+关闭媒体流采集，媒体流被关闭后不能继续使用。
 
 </br>
 
