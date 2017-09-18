@@ -21,7 +21,7 @@ title: 快速入门
 
 ### 1.2 配置应用
 
-- 1 在 `身份认证` 标签页中，选择 `登陆方式` 标签，开启 `匿名登录` 功能（或者选择其他登录方式，例如：`QQ登录`、`邮箱登录` 等）；
+- 1 在 `身份认证` 标签页中，选择 `登录方式` 标签，开启 `匿名登录` 功能（或者选择其他登录方式，例如：`QQ登录`、`邮箱登录` 等）；
 - 2 在 `实时视频通话` 标签页中，点击 `开启视频通话` 按钮。
 
 ## 2. 安装 SDK
@@ -69,7 +69,7 @@ android {
 <!--麦克风权限-->
 <uses-permission android:name="android.permission.RECORD_AUDIO" />
 <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-	
+
 ```
 
 
@@ -176,4 +176,3 @@ SDK 通过 `onStreamAdded ` 事件通知用户当前 Room 中已发布的媒体�
 ## 7. 更多使用
 
 - 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/Android/guide/0-concepts.html) 和 [API 文档](/conference/Android/api/wilddog-video-initializer.html)。
-
