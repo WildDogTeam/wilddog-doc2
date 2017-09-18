@@ -24,7 +24,7 @@ end
 
 ## 初始化
 
-在使用视频会议之前，需要使用 VideoAppId 和 token 初始化 [WDGVideoInitializer](/conference/iOS/api/WDGVideoInitializer.html) 实例。
+在使用 WilddogRoom SDK 之前，需要用 VideoAppId 和 token 初始化 [WDGVideoInitializer](/conference/iOS/api/WDGVideoInitializer.html) 实例。
 
 - VideoAppId 是用户在野狗控制台创建的应用的唯一标识。
 - Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。

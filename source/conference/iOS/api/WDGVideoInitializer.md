@@ -39,10 +39,10 @@ title: WDGVideoInitializer
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
 videoAppId        | 在野狗控制面板创建 App 后分配的 Video AppID。
-token             | 通过 `WilddogAuth` 验证登录后获取的 [Wilddog ID token](/auth/iOS/index.html)。
+token             | 通过 [WilddogAuth](/auth/iOS/index.html) 验证登录后获取的 [Wilddog ID token](/auth/iOS/api/WDGUser.html#getTokenWithCompletion)。
 
 </br>
 
@@ -62,9 +62,9 @@ token             | 通过 `WilddogAuth` 验证登录后获取的 [Wilddog ID to
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-token             | 通过 `WilddogAuth` 验证登录后获取的 [Wilddog ID token](/auth/iOS/index.html)。
+token             | 通过 [WilddogAuth](/auth/iOS/index.html) 验证登录后获取的 [Wilddog ID token](/auth/iOS/api/WDGUser.html#getTokenWithCompletion)。
 
 </br>
 

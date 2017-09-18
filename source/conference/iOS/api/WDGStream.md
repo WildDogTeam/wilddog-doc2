@@ -1,4 +1,4 @@
-title: WDGLocalStream
+title: WDGStream
 ---
 
 表示可通过 [WDGRoom](/conference/iOS/api/WDGRoom.html) 传输的媒体流。请参考子类 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html) 和 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
@@ -69,9 +69,9 @@ title: WDGLocalStream
 
 **参数**
 
- 参数名 | 说明 
----|---
-view | [WDGVideoView](/conference/iOS/api/WDGVideoView.html) 实例，媒体流在该视图中播放。
+参数名             | 说明
+------------------|------------------
+view              | 播放媒体流的 UI 控件。请参考 [WDGVideoView](/conference/iOS/api/WDGVideoView.html)。
 
 </br>
 
@@ -91,9 +91,9 @@ view | [WDGVideoView](/conference/iOS/api/WDGVideoView.html) 实例，媒体流�
 
 **参数**
 
- 参数名 | 说明 
----|---
-view | [WDGVideoView](/conference/iOS/api/WDGVideoView.html) 实例，流在该视图中播放。
+参数名             | 说明
+------------------|------------------
+view              | 播放媒体流的 UI 控件。请参考 [WDGVideoView](/conference/iOS/api/WDGVideoView.html)。
 
 </br>
 

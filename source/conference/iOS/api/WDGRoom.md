@@ -37,10 +37,10 @@ Room 的唯一标识。
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
 roomId            | 字符串类型，代表一个 Room 的唯一标识。
-delegate          | 接收 Room 事件的代理，请参考 [WDGRoomDelegate](/conference/iOS/api/WDGRoomDelegate.html)。
+delegate          | 接收 Room 事件的代理。请参考 [WDGRoomDelegate](/conference/iOS/api/WDGRoomDelegate.html)。
 
 **返回值**
 
@@ -96,9 +96,9 @@ delegate          | 接收 Room 事件的代理，请参考 [WDGRoomDelegate](/c
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-localStream       | 本地媒体流，请参考 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html)。
+localStream       | 本地媒体流。请参考 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html)。
 
 </br>
 
@@ -118,9 +118,9 @@ localStream       | 本地媒体流，请参考 [WDGLocalStream](/conference/iOS
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-localStream       | 本地媒体流，请参考 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html)。
+localStream       | 本地媒体流。请参考 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html)。
 block             | 发布操作完成执行的 block。
 
 </br>
@@ -141,9 +141,9 @@ block             | 发布操作完成执行的 block。
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-localStream       | 本地媒体流，请参考 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html)。
+localStream       | 本地媒体流。请参考 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html)。
 
 </br>
 
@@ -163,9 +163,9 @@ localStream       | 本地媒体流，请参考 [WDGLocalStream](/conference/iOS
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-localStream       | 本地媒体流，请参考 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html)。
+localStream       | 本地媒体流。请参考 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html)。
 block             | 取消发布操作完成执行的 block。
 
 </br>
@@ -186,9 +186,9 @@ block             | 取消发布操作完成执行的 block。
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-roomStream        | 远端媒体流，请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
+roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
 
 </br>
 
@@ -208,9 +208,9 @@ roomStream        | 远端媒体流，请参考 [WDGRoomStream](/conference/iOS/
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-roomStream        | 远端媒体流，请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
+roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
 block             | 订阅操作完成执行的 block。
 
 </br>
@@ -231,9 +231,9 @@ block             | 订阅操作完成执行的 block。
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-roomStream        | 远端媒体流，请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
+roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
 
 </br>
 
@@ -253,9 +253,9 @@ roomStream        | 远端媒体流，请参考 [WDGRoomStream](/conference/iOS/
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-roomStream        | 远端媒体流，请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
+roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
 block             | 取消订阅操作完成执行的 block。
 
 </br>

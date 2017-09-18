@@ -1,4 +1,3 @@
-
 title: 快速入门
 ---
 
@@ -16,6 +15,7 @@ title: 快速入门
 ## 1. 创建应用
 
 ### 1.1 创建野狗应用
+
 在控制面板中创建野狗应用。
 
 ### 1.2 配置应用
@@ -153,4 +153,3 @@ SDK 通过 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]` 事件通知用户�
 ## 7. 更多使用
 
 - 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/iOS/guide/0-concepts.html) 和 [API 文档](/conference/iOS/api/WDGVideoInitializer.html)。
-

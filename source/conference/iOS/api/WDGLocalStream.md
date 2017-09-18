@@ -28,7 +28,7 @@ title: WDGLocalStream
 **定义**
 
 ```objectivec
-+ (void)localStreamWithOptions:(WDGLocalStreamOptions *)options;
++ (instancetype)localStreamWithOptions:(WDGLocalStreamOptions *)options;
 ```
 
 **说明**
@@ -37,11 +37,15 @@ title: WDGLocalStream
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
-options           | `WDGLocalStream` 的配置选项。
+options           | `WDGLocalStream` 的配置选项。请参考 [WDGLocalStreamOptions](/conference/iOS/api/WDGLocalStreamOptions.html)
 
 </br>
+
+**返回值**
+
+`WDGLocalStream` 实例。
 
 ---
 
