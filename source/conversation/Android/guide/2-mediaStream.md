@@ -11,7 +11,7 @@ title: 媒体流
 ```java
 LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
 LocalStreamOptions options = builder.build();
-LocalStream localStream = video.createLocalStream(options);
+LocalStream localStream = LocalStream.create(options);
 ```
 
 ### 配置媒体流

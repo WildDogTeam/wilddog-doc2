@@ -5,12 +5,12 @@ title : 安装和初始化
 
 ### 安装 SDK
 
-- **使用 Maven 安装 Wilddog Video SDK**
+- **使用 Maven 安装 WilddogVideo SDK**
 
 <figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-video-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="media_android_v">1.0.0-beta</span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>aar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 
-- **使用 Gradle 安装 Wilddog Video SDK**
+- **使用 Gradle 安装 WilddogVideo SDK**
 
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-android:<span class="media_android_v">1.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
@@ -89,7 +89,7 @@ public void onCreate() {
 private void initVideoSDK(){
     String token = WilddogAuth.getInstance().getCurrentUser().getToken(false).getResult().getToken();
     //初始化 WilddogVideo SDK
-    WilddogVideo.initializeWilddogVideo(getApplicationContext(), mAppId,token);
+    WilddogVideoInitializer.initialize(context,videoAppId,token);
     //获取 WilddogVideo对象
     WilddogVideo video＝WilddogVideo.getInstance();
 }
