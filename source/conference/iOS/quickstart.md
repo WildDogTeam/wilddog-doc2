@@ -18,10 +18,17 @@ title: 快速入门
 
 在控制面板中创建野狗应用。
 
+<img src='/images/video_quickstart_create.png' alt="video_quickstart_create">
+
 ### 1.2 配置应用
 
-- 1 在 `身份认证` 标签页中，选择 `登录方式` 标签，开启 `匿名登录` 功能（或者选择其他登录方式，例如：`QQ登录`、`邮箱登录` 等）；
+- 在 `身份认证` 标签页中，选择 `登录方式` 标签，开启 `匿名登录` 功能（或者选择其他登录方式，例如：`QQ登录`、`邮箱登录` 等）；
+
+<img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
+
 - 2 在 `实时视频通话` 标签页中，点击 `开启视频通话` 按钮。
+
+<img src='/images/video_quickstart_openVideo.png' alt="video_quickstart_openVideo">
 
 
 ## 2. 使用 CocoaPods 安装 SDK
