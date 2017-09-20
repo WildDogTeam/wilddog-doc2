@@ -3,6 +3,16 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.1.0 - 2017.09.19
+
+<span class="changelog add">新增</span>
+
+- 新增WilddogVideoInitializer类用来初始化SDK和设置token。
+
+<span class="changelog optimize">优化</span>
+
+- 优化LocalStream创建方式。
+
 ### v2.0.4 - 2017.09.04
 
 <span class="changelog add">新增</span>
