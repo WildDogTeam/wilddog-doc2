@@ -331,7 +331,7 @@ conversation:
       视频通话: /conversation/Web/guide/conversation.html
       媒体流统计: /conversation/Web/guide/statistics.html
     API 文档:
-      WilddogVideoInitializer: /conversation/Web/api/wilddogVideoInitializer.html
+      # WilddogVideoInitializer: /conversation/Web/api/wilddogVideoInitializer.html
       Video: /conversation/Web/api/wilddogVideo.html
       Conversation: /conversation/Web/api/conversation.html
       LocalStream: /conversation/Web/api/localStream.html
