@@ -19,11 +19,11 @@ title: WDGVideoDelegate
 
 **参数**
 
- 参数名 | 说明 
----|---
-video        | 调用该方法的 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 实例。
-conversation | 代表收到邀请的视频通话的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
-data         | 随通话邀请传递的字符串类型的数据。
+参数名             | 说明
+------------------|------------------
+video             | 调用该方法的 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 实例。
+conversation      | 代表收到邀请的视频通话的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
+data              | 随通话邀请传递的字符串类型的数据。
 
 </br>
 

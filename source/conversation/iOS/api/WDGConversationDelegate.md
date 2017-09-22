@@ -19,10 +19,10 @@ title: WDGConversationDelegate
 
 **参数**
 
- 参数名 | 说明 
----|---
-conversation | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
-callStatus   | [WDGCallStatus](/conversation/iOS/api/WDGCallStatus.html) 类型常量，表示视频通话的状态，包括已接受、已拒绝、对方忙碌、请求超时。
+参数名             | 说明
+------------------|------------------
+conversation      | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
+callStatus        | 表示视频通话的状态，包括已接受、已拒绝、对方忙碌、请求超时。请参考 [WDGCallStatus](/conversation/iOS/api/WDGCallStatus.html)。
 
 </br>
 
@@ -42,10 +42,10 @@ callStatus   | [WDGCallStatus](/conversation/iOS/api/WDGCallStatus.html) 类型�
 
 **参数**
 
- 参数名 | 说明 
----|---
-conversation | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
-remoteStream | [WDGRemoteStream](/conversation/iOS/api/WDGRemoteStream.html) 实例，表示对方传来的媒体流。
+参数名             | 说明
+------------------|------------------
+conversation      | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
+remoteStream      | 表示对方传来的媒体流。请参考 [WDGRemoteStream](/conversation/iOS/api/WDGRemoteStream.html)。
 
 </br>
 
@@ -65,10 +65,10 @@ remoteStream | [WDGRemoteStream](/conversation/iOS/api/WDGRemoteStream.html) 实
 
 **参数**
 
- 参数名 | 说明 
----|---
-conversation | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
-error | 错误信息，描述未能建立连接的原因。
+参数名             | 说明
+------------------|------------------
+conversation      | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
+error             | 错误信息，描述未能建立连接的原因。请参考 [错误码](/conversation/iOS/api/error-code.html)。
 
 </br>
 
@@ -88,9 +88,9 @@ error | 错误信息，描述未能建立连接的原因。
 
 **参数**
 
- 参数名 | 说明 
----|---
-conversation | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
+参数名             | 说明
+------------------|------------------
+conversation      | 调用该方法的 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例。
 
 </br>
 

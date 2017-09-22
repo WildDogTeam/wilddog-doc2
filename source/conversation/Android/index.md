@@ -55,9 +55,10 @@ Video 提供了 Web、Android、iOS 三端的 SDK，不仅支持三端同时开�
 1. Chrome 49及以后
 2. Firefox 47及以后
 3. Opera 39及以后
-4. Chrome for Android 5.1
-5. iOS Native Objective-C Compatible
-6. Android Native Java Compatible
+4. Safari 11及以后
+5. Chrome for Android 5.1
+6. iOS Native Objective-C Compatible
+7. Android Native Java Compatible
 
 或者，点击查看 [WebRTC支持状态](http://iswebrtcreadyyet.com/) 。
 

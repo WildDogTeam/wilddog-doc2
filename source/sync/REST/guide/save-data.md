@@ -65,6 +65,12 @@ curl -X POST -d '{
 {"name":"-JRHTHaKuITFIhnj02kE"}
 
 ```
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+POST 请求可能默认的 `Content-Type` 为 `application/x-www-form-urlencoded`，为防止解析数据失败，需要指定 `Content-Type` 为 `application/json`。
+
+</blockquote>
 
 
 ## 更新数据
@@ -124,7 +130,7 @@ curl -X PATCH -d '{
 curl -X PATCH -d '{"b/d":"updateD", "x/z":"updateZ"}' \
  'https://samplechat.wilddogio.com/a/.json'
 ```
- 
+
 更新后数据如下：
 
 ```
@@ -149,7 +155,7 @@ curl -X PATCH -d '{"b/d":"updateD", "x/z":"updateZ"}' \
 // 错误的多路径更新写法，会覆盖原有数据
 curl -X PATCH -d '{"b":{"d":"updateD"}, "x":{"z":"updateZ"}}' \
  'https://samplechat.wilddogio.com/a/.json'
- 
+
 ```
 
 更新后数据如下

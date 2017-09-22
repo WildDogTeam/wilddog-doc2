@@ -60,6 +60,7 @@ curl -X PUT -d '{ "first": "Jack", "last": "Sparrow" }' \
 向指定节点添加子节点。新增子节点的 key 自动生成并保证唯一（例如：-INOQPH-aV_psbk3ZXEX）。新增子节点的 key 基于时间戳和随机算法生成，并可以按照时间先后进行排序。
 详细使用可参考：[完整指南－数据操作](/sync/REST/guide/save-data.html#追加子节点)
 
+
 ##### 示例
 
 ```
@@ -74,6 +75,12 @@ curl -X POST -d '{"user_id" : "jack", "text" : "Ahoy!"}' \
 { "name": "-INOQPH-aV_psbk3ZXEX" }
 
 ```
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+POST 请求可能默认的 `Content-Type` 为 `application/x-www-form-urlencoded`，为防止解析数据失败，需要指定 `Content-Type` 为 `application/json`。
+
+</blockquote>
 
 ---
 

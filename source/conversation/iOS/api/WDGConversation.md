@@ -69,9 +69,9 @@ title: WDGConversation
 
 **参数**
 
-参数名 | 说明 
----|---
-localStream | [WDGLocalStream](/conversation/iOS/api/WDGLocalStream.html) 实例，表示本地媒体流。
+参数名             | 说明
+------------------|------------------
+localStream       | 表示本地媒体流。请参考 [WDGLocalStream](/conversation/iOS/api/WDGLocalStream.html)。
 
 </br>
 
@@ -123,15 +123,15 @@ localStream | [WDGLocalStream](/conversation/iOS/api/WDGLocalStream.html) 实例
 
 **参数**
 
-参数名 | 说明 
----|---
-filePath | 视频文件保存路径。
+参数名             | 说明
+------------------|------------------
+filePath          | 视频文件保存路径。
 
 **返回值**
 
 视频录制是否成功开启。
 
-### -stopLocalRecording
+### - stopLocalRecording
 
 **定义**
 

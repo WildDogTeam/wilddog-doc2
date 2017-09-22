@@ -4,7 +4,7 @@ title: WilddogVideoView
 视频流展示控件。
 ## 方法
 
-### setMirror(boolean)
+### setMirror(mirror)
 
 **定义**   
 
@@ -17,6 +17,11 @@ public void setMirror(boolean mirror)
 设置当前媒体流展示控件是否以镜像方式展示媒体流（视频流），默认不镜像展示。
 
 **参数**
+<style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
 
 | 参数名 | 描述 |
 |---|---|
@@ -32,12 +37,12 @@ public void setMirror(boolean mirror)
 
 ---
 
-### setVideoScaleType(VideoScaleType)
+### setVideoScaleType(scalingType)
 
 **定义**   
 
 ```java
-public void setVideoScaleType(VideoScaleType videoScaleType)
+void setVideoScaleType(ScalingType videoScaleType)
 ```
 
 **说明**
@@ -48,7 +53,7 @@ public void setVideoScaleType(VideoScaleType videoScaleType)
 
 | 参数名 | 描述 |
 |---|---|
-|videoScaleType|默认为`SCALE_ASPECT_FIT`。 |
+|videoScaleType|[ScalingType](/conference/Android/api/scaling-type.html),默认为 `SCALE_ASPECT_FIT`。 |
 
 </br>
 

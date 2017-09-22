@@ -14,7 +14,7 @@ title: 安装和初始化
 ```ruby
 platform :ios, '8.0'
 target 'your-target-name' do
-  pod 'WilddogVideo', '~> 2.0.0'
+  pod 'WilddogVideo', '~> 2.1.0'
 end
 ```
 * 保存 `Podfile`，并执行 `pod install` 命令，将上述依赖安装到你的工程。
@@ -23,32 +23,46 @@ end
 
 ## 初始化
 
-[WDGVideo](/conversation/iOS/api/WDGVideo.html) 是 WilddogVideo SDK 功能的主入口。用户在使用 SDK 之前，要初始化 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 实例，以连接野狗服务器。
+在使用 WilddogVideo SDK 之前，需要用 VideoAppId 和 token 初始化 [WDGVideoInitializer](/conversation/iOS/api/WDGVideoInitializer.html) 实例。
 
-初始化之前，打开控制面板 - 应用 - 视频通话 - 配置，获取 VideoAppID。
+- VideoAppId 是用户在野狗控制台创建的应用的唯一标识。
+- Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
 
-用户需要通过 [野狗身份认证](/auth/iOS/index.html) 服务来认证身份并登录服务器。开发者可以根据需要选择匿名登录、手机登录、邮箱密码、第三方或自定义认证等多种方式进行身份认证。
+### 获取 VideoAppId
 
-成功通过身份认证后，用户将获得 `uid` 以及 `token`。以匿名方式登录后初始化 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 为例：
+打开 `控制面板 - 应用 - 实时视频通话 - 配置` 标签页，获取 VideoAppID。
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+ VideoAppId 为 `应用 - 实时视频通话 - 配置` 标签页中的 VideoAppID 字段值，请勿与应用的 AppID 混淆。
+ VideoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
+</blockquote>
+
+### 获取 Token
+
+用户需要通过 [野狗身份认证](/auth/iOS/index.html) 服务来认证身份并登录服务器。开发者可以根据需要选择匿名登录、手机登录、邮箱密码、第三方或自定义认证等多种方式进行身份认证。成功通过身份认证后，使用 `-[WDGUser getTokenWithCompletion:]` 方法获取 `token`。
+
+以匿名方式登录后初始化 [WDGVideoInitializer](/conversation/iOS/api/WDGVideoInitializer.html) 为例：
 
 ```objectivec
-[WDGApp configureWithOptions:[[WDGOptions alloc] initWithSyncURL:@"https://<#VideoAppID#>.wilddogio.com"]];
+[WDGApp configureWithOptions:[[WDGOptions alloc] initWithSyncURL:@"https://your-video-appid.wilddogio.com"]];
 [[WDGAuth auth] signOut:nil];
-
+// 匿名登录
 [[WDGAuth auth] signInAnonymouslyWithCompletion:^(WDGUser * _Nullable user, NSError * _Nullable error) {
     if (!error) {
+        // 获取 Token
         [user getTokenWithCompletion:^(NSString * _Nullable idToken, NSError * _Nullable error) {
-            self.uid = user.uid;
-            // 配置 WDGvideo。
-            [[WDGVideo sharedVideo] configureWithVideoAppId:@"your-video-appid" token:idToken];
+            // 初始化 WDGVideoInitializer
+            [[WDGVideoInitializer sharedInstancce] configureWithVideoAppId:@"your-video-appid" token:idToken];
         }];
     }
 }];
 ```
 
-## 设置代理
 
-设置 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 的代理 <[WDGVideoDelegate](/conversation/iOS/api/WDGVideoDelegate.html)> 用于监听通话请求：
+## 创建 Video 客户端
+
+使用 `+[WDGVideo sharedVideo]` 方法获取 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 单例，设置代理 <[WDGVideoDelegate](/conversation/iOS/api/WDGVideoDelegate.html)> 用于监听通话请求：
 
 ```objectivec
 [[WDGVideo sharedVideo].delegate = self;

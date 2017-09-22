@@ -8,37 +8,6 @@ title: WilddogVideo
 
 ## 方法
 
-### initialize(Context, String, String) 
-
-**定义**   
-
-```java
-static void initialize(Context context, String videoAppId, String token)
-```
-
-**说明**
-
-使用 `WilddogVideo` 类之前需要对其进行初始化操作,调用 `initialize` 方法初始化 `WilddogVideo`。若使用前未调用初始化则抛出 `IllegalArgumentException`。
-
-**参数**
-
-| 参数名 | 描述 |
-|---|---|
-|context|Android 应用 `Application Context`,通常使用 `getApplicationContext()` 方法获取|
-|appId|野狗应用 ID|
-|token|野狗用户认证的token|
-
-
-**示例**
-
-```java
-	WilddogVideo.initialize(getApplicationContext(),YourVideoAPPId,YourAuthToken);
-```
-
-</br>
-
----
-
 ### getInstance()
 
 **定义**   
@@ -65,29 +34,6 @@ static WilddogVideo getInstance()
 
 ---
 
-### setToken(String)
-
-**定义**   
-
-```java
-void setToken(String token)
-```
-
-**说明**
-
-用于token过期之后,重新获取并且设置token进行与服务器建立连接.
-
-
-**示例**
-
-```java
-	WilddogVideo video = WilddogVideo.getInstance();
-	video.setToken(YourNewToken);
-```
-
-</br>
-
----
 ### setListener(Listener)
 
 **定义**   
@@ -114,38 +60,6 @@ void setListener(Listener listener)
 ```
 
 </br>
-
----
-
-
-### createLocalStream(LocalStreamOptions)
-
-**定义**   
-
-```java
-LocalStream createLocalStream(LocalStreamOptions options)
-```
-
-**说明**
-
-通过本方法获取本地视频流对象。
-
-**参数**
-
-| 参数名 | 描述 |
-|---|---|
-|options|LocalStreamOptions 对象，视频流参数|
-
-**返回值**
-
-[LocalStream](/conversation/Android/api/local-stream.html)
-
-**示例**
-
-```java
-LocalStreamOptions options = new LocalStreamOptions.Builder().build();
-localStream = video.createLocalStream(options);
-```
 
 ---
 

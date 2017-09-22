@@ -1,76 +1,205 @@
-
 title: 快速入门
 ---
-我们通过一个简单的一对一视频通话示例来说明 Video SDK 的用法。[前往demo源码](https://github.com/WildDogTeam/video-demo-android-conversation)
+
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-android-conversation) 来快速了解 WilddogVideo SDK 的用法。
+
 
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li> Android Studio 1.5 以上版本 </li>
-        <li> JDK 7.0 及以上版本 </li>
-        <li> Android 手机系统 4.1 以上版本， 即 Android SDK 16 以上版本 </li>
+        <li>支持 Android Studio 1.4 以上</li>
+        <li>支持 JDK 7.0 以上版本</li>
+        <li>支持 Android 手机系统 4.4 以上，即 Android SDK 19 以上版本</li>
     </ul>
 </div>
 
-
 ## 1. 创建应用
 
-首先，在控制面板中创建应用。
+### 1.1 创建野狗应用
+在控制面板中创建野狗应用。
 
 <img src='/images/video_quickstart_create.png' alt="video_quickstart_create">
 
-## 2. 开启匿名登录
+### 1.2 配置应用
 
-应用创建成功后，进入 管理应用-身份认证-登录方式，开启匿名登录。
+- 1 在 `身份认证` 标签页中，选择 `登录方式` 标签，开启 `匿名登录` 功能（或者选择其他登录方式，例如：`QQ登录`、`邮箱登录` 等）；
+- 2 在 `实时视频通话` 标签页中，点击 `开启视频通话` 按钮。
 
 <img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
 
-## 3. 开启实时视频通话
+## 2. 安装 SDK
 
-进入 管理应用-实时视频通话，开启视频通话功能。此处注意记下配置页面的`VideoAppID`
+### 2.1 安装 WilddogVideo SDK
 
-<img src='/images/video_quickstart_openVideo.png' alt="video_quickstart_openVideo">
+**使用 Gradle 安装 WilddogVideo SDK**
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-android:<span class="media_android_v">2.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
-## 4. 导入快速入门
+### 2.2 安装 WilddogAuth SDK
 
-Android 快速入门是使用 Android Studio 创建的 Android 工程，使用 `Android Studio File --> New --> Import Project` 导入快速入门。
+Token（身份认证令牌）是用户在 WilddogVideo SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
+WilddogVideo SDK 使用 WilddogAuth SDK 获取合法的 TOKEN。
+
+**使用 Gradle 安装 WilddogAuth SDK**
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.6</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+
+如果出现文件重复导致的编译错误，可以选择在build.grade中添加packagingOptions：
+
+```java
+android {
+    ...
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/notice'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license'
+        exclude 'META-INF/license.txt'
+    }
+}
+```
+
+
+## 3. 配置 Android 权限
+
+在 AndroidMainfest.xml 文件中添加：
+
+```xml
+<!--网络请求权限-->
+<uses-permission android:name="android.permission.INTERNET"/>
+<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+<!--相机权限-->
+<uses-permission android:name="android.permission.CAMERA" />
+<!--麦克风权限-->
+<uses-permission android:name="android.permission.RECORD_AUDIO" />
+<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+```
+
+
+## 4. 初始化 SDK
+
+### 4.1 初始化 WilddogAuth SDK
+
+```java
+    //初始化 Auth SDK
+    WilddogOptions.Builder builder = new WilddogOptions.Builder().setSyncUrl("http://" + APP_ID + ".wilddogio.com");
+    WilddogOptions options = builder.build();
+    WilddogApp.initializeApp(LoginActivity.this, options);
+```
+### 4.2 初始化 WilddogVideo SDK
+使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogVideo SDK。
+
+```java
+    //使用匿名登录方式进行身份认证
+    WilddogAuth.getInstance().signInAnonymously().addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        @Override
+        public void onComplete(Task<AuthResult> task) {
+            if (task.isSuccessful()) {
+                WilddogUser user = task.getResult().getWilddogUser();
+                String token = user.getToken(false).getResult().getToken();
+                //初始化 Room SDK
+                WilddogVideoInitializer.initialize(this.getApplicationContext(),VIDEO_APP_ID,token);
+            } else {
+                Toast.makeText(context, "登录失败", Toast.LENGTH_SHORT).show();
+            }
+        }
+    });
+```
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
-  使用 Android Studio 导入安卓项目时，可能会在 Gradle build 时卡顿在 Building gradle project info 界面上，原因及解决方案请<a href='https://github.com/WildDogTeam/wilddog-doc2/blob/master/Android%20Studio%20Gradle%20%E9%85%8D%E7%BD%AE%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88.md'> 参考该文档 </a>。
+ VIDEO_APP_ID 为应用实时视频通话标签页中的 VideoAppID 字段值，请勿与实时通信引擎 AppID 混淆。
+ VideoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
+
 </blockquote>
 
+## 5. 配置视频通话
 
-## 5. 运行快速入门
+使用 `WilddogVideo.getInstance()` 方法获取 [WilddogVideo](/conversation/Android/api/wilddog-video.html) 单例，设置代理 <[WilddogVideo.Listener](/conversation/Android/api/wilddog-video-listener.html)> 用于监听通话请求：
 
-连接安卓手机（4.1 以上版本），运行快速入门。
+```java
+     video.setListener(new WilddogVideo.Listener() {
+                @Override
+                public void onCalled(Conversation conversation, String s) {
+                    
+                }
+    
+                @Override
+                public void onTokenError(WilddogVideoError wilddogVideoError) {
+    
+                }
+            });
+```
 
-## 6. 登录快速入门
+开始视频通话之前，使用 `LocalStream.create()` 方法创建本地媒体流。
 
-快速入门运行成功后，输入`VideoAppID`。
+```java
+LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
+LocalStreamOptions options = builder.build();
+LocalStream localStream = LocalStream.create(options);
+```
 
-<img src='/images/video_quickstart_android_login.jpg' alt="video_quickstart_android_login" width="300" >
+## 6. 开始视频通话
 
-`VideoAppID`为下图所示，然后点击匿名登录。
+使用 WilddogAuth 登录成功后，用户会获得唯一的 `uid`，在 WilddogVideo SDK 中，使用 `uid` 作为用户的身份标识。
 
-<img src='/images/video_quickstart_videoappid.png' alt="video_quickstart_videoappid">
+### 6.1 邀请视频通话
 
-登录成功后，页面会显示本地视频画面、你的 Wilddog ID 和用户列表按钮。
+使用 `call()` 来发起通话请求：
 
-<img src='/images/video_quickstart_android_mainUI.jpg' alt="video_quickstart_createApp" width="300" >
+```java
+mConversation = video.call(remoteUid,localStream,"conversationDemo");
+```
 
-## 7. 邀请他人加入
+### 6.2 接受视频通话
 
-在其他安卓手机上使用同一个`VideoAppID` 匿名登录，然后点击用户列表按钮，点击邀请按钮邀请对方加入视频通话。
+被邀请的用户通过 [WilddogVideo.Listener](/conversation/Android/api/wilddog-video-listener.html) 的 `onCalled(Conversation conversation, String s)` 方法收到 [Conversation](/conversation/Android/api/conversation.html) 实例，使用 `accept()` 接收视频通话：
 
-<img src='/images/video_quickstart_android_userList.jpg' alt="video_quickstart_android_userList" width="300" >
+```java
+     video.setListener(new WilddogVideo.Listener() {
+                @Override
+                public void onCalled(Conversation conversation, String s) {
+                    mConversation = conversation;
+                    mConversation.accept();
+                }
+    
+                @Override
+                public void onTokenError(WilddogVideoError wilddogVideoError) {
+    
+                }
+            });
+```
 
-## 8. 接受邀请
+### 6.3 播放媒体流
 
-被邀请人会受到邀请提示，点击确认加入，视频通话建立。
+视频通话链接成功后，通话双方会通过 [Conversation](/conversation/Android/api/conversation.html) 代理的 `onStreamReceived(RemoteStream remoteStream)` 方法收到 [RemoteStream](/conversation/Android/api/remote-stream.html) 实例，使用 `attach()` 方法播放远端媒体流：
 
-<img src='/images/video_quickstart_android_conversation.jpg' alt="video_quickstart_android_conversation" width="300" >
+```java
+conversation.setConversationListener(new Conversation.Listener() {
+    @Override
+    public void onCallResponse(CallStatus callStatus) {
+                       
+    }
 
+    @Override
+    public void onStreamReceived(RemoteStream remoteStream) {
+      WilddogVideView remoteView = (WilddogVideView)findViewById(R.id.wvv_remote);
+      remoteStream.attach(remoteView);
+    }
+
+    @Override
+    public void onClosed() {
+
+    }
+
+    @Override
+    public void onError(WilddogVideoError wilddogVideoError) {
+
+    }
+});
+```
+
+## 7. 更多应用
 
 更多详细信息请见 [完整指南](/conversation/Android/guide/0-concepts.html) 和  [API 文档](/conversation/Android/api/wilddog-video.html)。
 

@@ -2,70 +2,143 @@
 title: 快速入门
 ---
 
-我们通过一个简单的 4 人视频会议示例来说明 Video SDK 的用法。[下载快速入门](https://github.com/WildDogTeam/video-demo-web-conference/archive/master.zip)
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-web-conference) 来快速了解 WilddogRoom SDK 的用法。
+
 
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li> Chrome 49及以后、Firefox 47及以后、Safari 7及以后浏览器 </li>
+        <li>最低支持 Chrome 22、Firefox 23、Safari 11、Edge 15 等主流浏览器环境</li>
     </ul>
 </div>
 
 ## 1. 创建应用
 
-首先，在控制面板中创建应用。
+### 1.1 创建野狗应用
+在控制面板中创建野狗应用。
 
-<img src='/images/video_quickstart_create.png' alt="video_quickstart_create">
+### 1.2 配置应用
 
-## 2. 开启匿名登录
+- 1 在 `身份认证` 标签页中，选择 `登录方式` 标签，开启 `匿名登录` 功能（或者选择其他登录方式，例如：`QQ登录`、`邮箱登录` 等）；
+- 2 在 `实时视频通话` 标签页中，点击 `开启视频通话` 按钮。
 
-应用创建成功后，进入 管理应用-身份认证-登录方式，开启匿名登录。
+## 2. 安装 SDK
 
-<img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
+#### 2.1 WilddogRoom SDK
 
-## 3. 开启实时视频通话
+Web SDK 可以通过标签直接引用：
 
-进入 管理应用-实时视频通话，开启多人视频会议功能。此处注意记下配置页面的`VideoAppID`
+**通过标签引用**
 
-<img src='/images/video_quickstart_openVideo.png' alt="video_quickstart_openVideo">
+<figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="room_web_v">2.0.0.beta</span>/wilddog-video-room.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
-## 4. 启动本地 Web 服务
+#### 2.2 安装 Auth SDK
 
-启动本地 Web 服务，建立 HTTPS 环境。快速入门中采用 Node.js 搭建本地服务，用户**也可以使用其他方式**启动本地 Web 服务。
+Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
+WilddogRoom SDK 使用 Auth SDK 获取合法的 TOKEN。
 
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  只有通过 HTTPS 服务加载的页面才可以成功获取本地摄像头和麦克风等资源，正常运行快速入门。
-</blockquote>
+**使用标签引用 Wilddog Auth SDK**
+<figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="sync_web_v">2.5.6</span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre><br></td></tr></tbody></table></figure>
 
-使用 Node.js 开启本地 Web 服务：
+
+## 3. 初始化 SDK
+
+### 3.1 初始化 WilddogAuth SDK
 
 ```javascript
-node https_channel_server.js
+//初始化 Wilddog Auth
+var config = {
+    authDomain: "<appId>.wilddog.com"
+};
+wilddog.initializeApp(config);
 ```
 
-## 5. 运行快速入门
+### 3.2 初始化 WilddogRoom SDK
 
-本地 Web 服务启动后，访问 [https://127.0.0.1:8080](https://127.0.0.1:8080) 就会看到快速入门页面。
+使用 WilddogAuth SDK 进行身份认证，身份认证成功后，在使用 WilddogRoom SDK前，必须对wilddogVideo进行初始化。
 
-<img src='/images/video_quickstart_js_conference_login.png' alt="video_quickstart_js_conference_login">
+```javascripte
+// 初始化 WilddogRoom 之前，要先经过身份认证。这里采用匿名登录的方式。
+wilddog.auth().signInAnonymously()
+    .then(function(user){
+        //认证成功后，初始化 wilddogVideo
+        wilddogVideo.initialize({appId:<videoAppId>,token:user.getToken()})
+    }).catch(function (error) {
+        // Handle Errors here.
+        console.log(error);
+    });
+```
 
-## 6. 登录
+## 4. 加入 Room
 
-输入`VideoAppID`，然后点击匿名登录。
+创建 `WilddogRoom` 实例并加入到 Room 中。
 
-<img src='/images/video_quickstart_videoappid.png' alt="video_quickstart_videoappid">
+```javascript
+//room_id 由客户端生成一个随机字符串
+roomInstance = wilddogVideo.room(room_id);
+roomInstance.connect();
+```
 
-## 7. 输入房间号并加入
+## 5. 发布／订阅媒体流
+本地客户端会触发 `roomInstance.on('connected',callback)` 事件通知用户已成功加入 Room 。
+加入后即可发布或订阅当前 Room 中的媒体流。
 
-匿名登录成功后，输入房间号，点击加入。
+### 发布本地媒体流
+使用 `wilddogVideo.createLocalStream(options)` 方法创建本地媒体流。
 
-<img src='/images/video_quickstart_web_join_conference.png' alt="video_quickstart_web_join_conference">
+```javascript
+//创建一个同时有音频和视频的媒体流
+wilddogVideo.createLocalStream(
+    {
+        captureAudio:true,
+        captureVideo:true,
+        dimension:'480p',
+        maxFPS: 15
+    })
+    .then(function(localStream){
+        // 获取到localStream,将媒体流绑定到页面的video类型的标签上
+        // 如果没有获得摄像头权限或无摄像头，则无法展示。
+        localStream.attach(localElement);
+    });
+```
 
-## 8. 加入视频会议
+使用`roomInstance.publish(localStream)` 方法发布本地媒体流。
 
-进入房间后，等待视频会议建立成功。
+```javascript
+roomInstance.on('connected',function(){
+    console.log('connected success');
+    roomInstance.publish(localStream);
+});
+```
+### 订阅媒体流
+SDK 通过 `roomInstance.on('stream_added',callback) ` 事件通知用户当前 Room 中已发布的媒体流，可以根据需要订阅感兴趣的媒体流。
 
-<img src='/images/video_quickstart_wen_conference.png' alt="video_quickstart_createApp">
+```javascript
+roomInstance.on('stream_added',function(roomStream){
+    roomInstance.subscribe(roomStream,function(err){
+        if(err == null){
+            console.log('subscribe success');
+        }
+    })
+})
+```
+订阅成功后会触发客户端 `roomInstance.on('stream_received',callback)` 事件,事件返回远端媒体流。
 
-更多详细信息请见 [完整指南](/conference/Web/guide/core.html) 和  [API 文档](/conference/Web/api/wilddogVideo.html)。
+使用 `attach()` 方法播放远端媒体流
+
+```javascript
+roomInstance.on('stream_received',function(roomStream){
+    //将远端流放入相应的远端video标签上
+    roomStream.attach(remoteRemote);
+});
+```
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+ 发布媒体流需要在 `roomInstance.on('connected',callback)` 回调方法被触发后进行。
+</blockquote>
+
+
+## 7. 更多使用
+
+- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/Web/guide/1-installSDK.html) 和 [API 文档](/conference/Web/api/wilddogVideoInitializer.html)。

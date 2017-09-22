@@ -200,36 +200,44 @@ $(function() {
         //auth
         var auth_web = snap.val().wilddog.auth.web;
         var auth_ios = snap.val().wilddog.auth.ios;
-        var auth_android = snap.val().wilddog.auth.android;
         var auth_java = snap.val().wilddog.auth.java;
-        //im
-        var im_ios = snap.val().wilddog.im.ios;
-        var im_android = snap.val().wilddog.im.android;
+        var auth_android = snap.val().wilddog.auth.android;
+
         //media
         var media_web = snap.val().wilddog.media.web;
         var media_ios = snap.val().wilddog.media.ios;
         var media_android = snap.val().wilddog.media.android;
+
+        //room
+        var room_web = snap.val().wilddog.room.web;
+        var room_ios = snap.val().wilddog.room.ios;
+        var room_android = snap.val().wilddog.room.android;
+
         //sync
-        var sync_android = snap.val().wilddog.sync.android;
         var sync_c = snap.val().wilddog.sync.c;
+        var sync_android = snap.val().wilddog.sync.android;
 
-        var sync_embed_rtos = snap.val().wilddog.sync.embed_rtos;
-        var sync_embed_arduino = snap.val().wilddog.sync.embed_arduino;
-        var sync_embed_openwrt = snap.val().wilddog.sync.embed_openwrt;
-
-        var sync_core = snap.val().wilddog.sync.core;
-        var sync_embed_arduino = snap.val().wilddog.sync.embed_arduino;
-        var sync_embed_openwrt = snap.val().wilddog.sync.embed_openwrt;
-        var sync_embed_rtos = snap.val().wilddog.sync.embed_rtos;
-        var sync_embedded = snap.val().wilddog.sync.embedded;
-        var sync_ios = snap.val().wilddog.sync.ios;
         var sync_web = snap.val().wilddog.sync.web;
+        var sync_ios = snap.val().wilddog.sync.ios;
         var sync_java = snap.val().wilddog.sync.java;
+        var sync_core = snap.val().wilddog.sync.core;
+        var sync_embedded = snap.val().wilddog.sync.embedded;
+        var sync_embed_rtos = snap.val().wilddog.sync.embed_rtos;
+        var sync_embed_arduino = snap.val().wilddog.sync.embed_arduino;
+        var sync_embed_openwrt = snap.val().wilddog.sync.embed_openwrt;
 
         //location
         var location_ios = snap.val().wilddog.location.ios;
         var location_android = snap.val().wilddog.location.android;
         var location_web = snap.val().wilddog.location.web;
+
+        //sms
+        var sms_java = snap.val().wilddog.sms.java;
+        var sms_nodejs = snap.val().wilddog.sms.node;
+        var sms_net = snap.val().wilddog.sms.net;
+        var sms_php = snap.val().wilddog.sms.php;
+        var sms_python = snap.val().wilddog.sms.python;
+
 
         //赋值
         //auth_start
@@ -255,24 +263,17 @@ $(function() {
         $("#auth_java-sha256").text(auth_java.checksum.sha256sum);
         //auth_end
 
-        //im_start
-        $("#im_ios_d").attr("href", im_ios.cdn);
-        $("#im_android_d").attr("href", im_android.cdn);
-
-        $('.im_ios_v').text(im_ios.version);
-        $('.im_android_v').text(im_android.version);
-
-        $("#im_ios-md5").text(im_ios.checksum.md5sum);
-        $("#im_ios-sha1").text(im_ios.checksum.sha1sum);
-        $("#im_ios-sha256").text(im_ios.checksum.sha256sum);
-        //im_end
-
         //media_start
         $('.media_web_v').text(media_web.version);
         $('.media_ios_v').text(media_ios.version);
         $('.media_android_v').text(media_android.version);
-        //
         //media_end
+
+        //room_start
+        $('.room_web_v').text(room_web.version);
+        $('.room_ios_v').text(room_ios.version);
+        $('.room_android_v').text(room_android.version);
+        //room_end
 
         //sync_start
         $('.sync_web_v').text(sync_web.version);
@@ -341,8 +342,13 @@ $(function() {
         $("#location_ios-sha1").text(location_ios.checksum.sha1sum);
         $("#location_ios-sha256").text(location_ios.checksum.sha256sum);
         //location_end
+
+        //sms_start
+        $('.sms_java_v').text(sms_java.version);
+        $('.sms_nodejs_v').text(sms_nodejs.version);
+        $('.sms_net_v').text(sms_net.version);
+        $('.sms_php_v').text(sms_php.version);
+        $('.sms_python_v').text(sms_python.version);
+        //sms_end
     });
-
-
-
 })
