@@ -49,21 +49,21 @@ title: 实战教程
 
 ```
 templateId：100001
-mobiles：["13452366225"]
+mobiles：["13800138000"]
 params：["王小豆","个人版套版套餐"]
-timestamp：1482995211000
+timestamp：1506065665377
 ```
 
 （2）将参数以字母升序(A-Z)排列，以 key=value’ + ‘&’ + ‘key=value的方式连接所有参数,得到字符串 param_str。
 
 ```
-param_str="mobiles=13452366225&params=["王小豆","个人版套版套餐"]&templateId=100001&timestamp=1482301296"
+param_str="mobiles=["13800138000"]&params=["王小豆","个人版套版套餐"]&templateId=100001&timestamp=1506065665377"
 ```
 
 （3）以 param_str + ‘&’ + SMS_KEY 的方式得到字符串 `sign_str`
 
 ```
-sign_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templateId=100001&timestamp=1482301296&kYVAi9tXAbPOURnkWiiWADRuNi6DJy7JmSg02myB"
+sign_str="mobiles=["13800138000"]&params=["王小豆","个人版套版套餐"]&templateId=100001&timestamp=1506065665377&kYVAi9tXAbPOURnkWiiWADRuNi6DJy7JmSg02myB"
 ```
 其中 SMS_KEY 在控制面板获取：
 
@@ -75,13 +75,13 @@ sign_str="mobile=13452366225&params=["王小豆","个人版套版套餐"]&templa
 本例中字符串计算后的值如下：
 
 ```
-4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E
+01bbc7fb885d1d383b1c82c77c30ee151b590193c6b4f7208c966d5df867e7c7
 ```
 
 ### 5. 发送本条通知短信
 
 ```
-curl -X POST https://sms.wilddog.com/api/v1/yourtestapp/notify/send -d "signature =4E0461B0EA1E3E22E32F62B84D7D6BBFC9A111BBEA7BF9030E962D29989A5F9E&templateId =100001& timestamp =13452366225&mobiles=1482301296&params=["王小豆","个人版套版套餐"]"
+curl -X POST https://sms.wilddog.com/api/v1/yourtestapp/notify/send -d "signature =01bbc7fb885d1d383b1c82c77c30ee151b590193c6b4f7208c966d5df867e7c7&templateId=100001&timestamp =1506065665377&mobiles=["13800138000"]&params=["王小豆","个人版套版套餐"]"
 ```
 此处规则详情请参考 [完整指南](/sms/guide/signature.html#生成数字签名的方法)。
 ## 获取示例源码
