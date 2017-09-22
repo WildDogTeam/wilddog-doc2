@@ -4,6 +4,10 @@ title: 更新日志
 
 ## Android SDK
 
+### V2.3.7 - 2017.09.22
+<span class="changelog fix">修复</span>
+
+- 修复重连解析异常。
 ### V2.3.6 - 2017.09.05
 <span class="changelog fix">修复</span>
 
