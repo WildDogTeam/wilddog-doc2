@@ -64,7 +64,7 @@ WDGPosition *customPosition = [[WDGPosition alloc] initWithLatitude:37.0327 long
 [locationService setPosition:customPosition forKey:@"key"];
 ```
 
-也可以实现 `WilddogLocationDelegate` 协议中的 `- wilddogLocation:willUpdatePosition:ForKey:` 方法：
+也可以实现 `WDGLocationDelegate` 协议中的 `- wilddogLocation:willUpdatePosition:ForKey:` 方法：
 
 ```objectivec
 -(WDGPosition *)wilddogLocation:(WDGLocation *)wilddogLocation willUpdatePosition:(WDGPosition *)position ForKey:(NSString *)key {

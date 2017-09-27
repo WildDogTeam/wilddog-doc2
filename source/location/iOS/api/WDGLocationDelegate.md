@@ -23,7 +23,7 @@ title: WDGLocationDelegate
 --------------- | -----------------------------------
 wilddogLocation | 调用这个代理方法的 `WDGLocation` 实例。
 key             | 位置同步和实时轨迹数据将写在这个key名下。
-location        | 原始位置数据。
+position        | 原始位置数据。
 
 ##### 返回值
 实际上传的位置数据。
