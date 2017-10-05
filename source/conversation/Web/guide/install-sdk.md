@@ -38,7 +38,7 @@ var videoInstance = wilddogVideo.getInstance()
 wilddog.auth().signInAnonymously()
     .then(function(user){
         //认证成功后，初始化 Video
-        video = videoInstance.initialize('<appId>',user.getToken());
+        video = videoInstance.initialize('<VideoAppID>',user.getToken());
     }).catch(function (error) {
         // Handle Errors here.
         console.log(error);
