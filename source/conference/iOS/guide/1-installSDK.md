@@ -1,12 +1,12 @@
 title: 安装和初始化
 ---
 
-本篇文档介绍如何安装并初始化 WilddogRoom SDK。
+本篇文档介绍如何安装并初始化 WilddogVideoRoom SDK。
 
 
 ## 使用 CocoaPods 安装 SDK
 
-通过 [Cocoapods](https://cocoapods.org/) 安装 WilddogRoom SDK 以及其依赖的 WilddogAuth SDK。
+通过 [Cocoapods](https://cocoapods.org/) 安装 WilddogVideoRoom SDK 以及其依赖的 WilddogAuth SDK。
 
 * 在 Xcode 中创建一个工程，并在 Terminal 中用 `cd` 命令进入到工程所在文件夹内，执行 `pod init` 命令；
 * 打开生成的 `Podfile` 文件，在第一行声明开发平台和版本（如 iOS 8.0），并在随后写入要引入的库：
@@ -24,10 +24,10 @@ end
 
 ## 初始化
 
-在使用 WilddogRoom SDK 之前，需要用 VideoAppId 和 token 初始化 [WDGVideoInitializer](/conference/iOS/api/WDGVideoInitializer.html) 实例。
+在使用 WilddogVideoRoom SDK 之前，需要用 VideoAppId 和 token 初始化 [WDGVideoInitializer](/conference/iOS/api/WDGVideoInitializer.html) 实例。
 
 - VideoAppId 是用户在野狗控制台创建的应用的唯一标识。
-- Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
+- Token（身份认证令牌）是用户在 WilddogVideoRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
 
 ### 获取 VideoAppId
 

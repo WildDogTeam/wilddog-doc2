@@ -6,7 +6,7 @@ title: 管理视频通话
 
 ## 发起通话请求
 
-使用 `-[WDGVideo callWithUid:localStream:data:]` 来发起通话请求，该方法需要传递三个参数：
+使用 `-[WDGVideoCall callWithUid:localStream:data:]` 来发起通话请求，该方法需要传递三个参数：
 
 * remoteUid: 通话接收方的 `uid`，`uid` 是 WilddogAuth 为认证用户分配的唯一身份标识；
 * localStream: 通话发起方的本地媒体流；
@@ -23,10 +23,10 @@ self.conversation.delegate = self;
 
 ## 收到通话请求
 
-其他用户发来通话请求时，用户可以从 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 的代理得到通知，并获得 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例：
+其他用户发来通话请求时，用户可以从 [WDGVideoCall](/conversation/iOS/api/WDGVideoCall.html) 的代理得到通知，并获得 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例：
 
 ```objectivec
-- (void)wilddogVideo:(WDGVideo *)video didReceiveCallWithConversation:(WDGConversation *)conversation data:(NSString *)data {
+- (void)wilddogVideoCall:(WDGVideoCall *)videoCall didReceiveCallWithConversation:(WDGConversation *)conversation data:(NSString *)data {
     self.conversation = conversation;
     self.conversation.delegate = self;
     NSLog("%@", data);

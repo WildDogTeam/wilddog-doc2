@@ -352,8 +352,8 @@ conversation:
       媒体流统计: /conversation/iOS/guide/6-statistics.html
     API 文档:
       VideoInitializer: /conversation/iOS/api/WDGVideoInitializer.html
-      Video: /conversation/iOS/api/WDGVideo.html
-      VideoDelegate: /conversation/iOS/api/WDGVideoDelegate.html
+      VideoCall: /conversation/iOS/api/WDGVideoCall.html
+      VideoCallDelegate: /conversation/iOS/api/WDGVideoCallDelegate.html
       Conversation: /conversation/iOS/api/WDGConversation.html
       ConversationDelegate: /conversation/iOS/api/WDGConversationDelegate.html
       ConversationStatsDelegate: /conversation/iOS/api/WDGConversationStatsDelegate.html

@@ -1,7 +1,7 @@
 title: 快速入门
 ---
 
-你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-ios-conference) 来快速了解 WilddogRoom SDK 的用法。
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-ios-conference) 来快速了解 WilddogVideoRoom SDK 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -33,7 +33,7 @@ title: 快速入门
 
 ## 2. 使用 CocoaPods 安装 SDK
 
-通过 [Cocoapods](https://cocoapods.org/) 安装 WilddogRoom SDK 以及其依赖的 WilddogAuth SDK。
+通过 [Cocoapods](https://cocoapods.org/) 安装 WilddogVideoRoom SDK 以及其依赖的 WilddogAuth SDK。
 
 * 在 Xcode 中创建一个工程，并在 Terminal 中用 `cd` 命令进入到工程所在文件夹内，执行 `pod init` 命令；
 * 打开生成的 `Podfile` 文件，在第一行声明开发平台和版本（如 iOS 8.0），并在随后写入要引入的库：
@@ -70,9 +70,9 @@ Privacy - Microphone Usage Description | String | Your Description
     [WDGApp configureWithOptions:options];
 ```
 
-### 4.2 初始化 WilddogRoom SDK
+### 4.2 初始化 WilddogVideoRoom SDK
 
-使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogRoom SDK。
+使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogVideoRoom SDK。
 
 ```objectivec
 [[WDGAuth auth] signOut:nil];
@@ -159,4 +159,4 @@ SDK 通过 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]` 事件通知用户�
 
 ## 7. 更多使用
 
-- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/iOS/guide/0-concepts.html) 和 [API 文档](/conference/iOS/api/WDGVideoInitializer.html)。
+- 了解 WilddogVideoRoom 更多使用方式，请参考 [完整指南](/conference/iOS/guide/0-concepts.html) 和 [API 文档](/conference/iOS/api/WDGVideoInitializer.html)。

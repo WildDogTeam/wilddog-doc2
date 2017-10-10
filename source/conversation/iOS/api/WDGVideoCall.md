@@ -1,7 +1,7 @@
-title: WDGVideo
+title: WDGVideoCall
 ---
 
-`WDGVideo` 是程序的主入口，用于创建并配置本地媒体流，发起视频通话。
+`WDGVideoCall` 是程序的主入口，用于创建并配置本地媒体流，发起视频通话。
 
 ## 属性
 
@@ -10,12 +10,12 @@ title: WDGVideo
 **定义**
 
 ```objectivec
-@property (nonatomic, weak) id<WDGVideoDelegate> delegate;
+@property (nonatomic, weak) id<WDGVideoCallDelegate> delegate;
 ```
 
 **说明**
 
-符合 [WDGVideoDelegate](/conversation/iOS/api/WDGVideoDelegate.html) 协议的代理，用于接收视频通话邀请、在 token 错误时接收错误信息。
+符合 [WDGVideoCallDelegate](/conversation/iOS/api/WDGVideoCallDelegate.html) 协议的代理，用于接收视频通话邀请、在 token 错误时接收错误信息。
 
 </br>
 
@@ -23,21 +23,21 @@ title: WDGVideo
 
 ## 方法
 
-### + sharedVideo
+### + sharedInstance
 
 **定义**
 
 ```objectivec
-+ (instancetype)sharedVideo;
++ (instancetype)sharedInstance;
 ```
 
 **说明**
 
-用于获取 `WDGVideo`的单例。
+用于获取 `WDGVideoCall`的单例。
 
 **返回值**
 
-`WDGVideo`实例。
+`WDGVideoCall`实例。
 
 </br>
 
