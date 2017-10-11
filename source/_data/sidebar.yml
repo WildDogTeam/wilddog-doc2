@@ -431,6 +431,7 @@ conference:
       媒体流: /conference/iOS/guide/2-mediaStream.html
       管理视频会议: /conference/iOS/guide/3-room.html
       发布和订阅: /conference/iOS/guide/4-pubAndSub.html
+      媒体流录制: /conference/iOS/guide/5-recording.html
     API 文档:
       VideoInitializer: /conference/iOS/api/WDGVideoInitializer.html
       Room: /conference/iOS/api/WDGRoom.html

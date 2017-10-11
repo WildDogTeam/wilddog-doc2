@@ -50,6 +50,34 @@ delegate          | 接收 Room 事件的代理。请参考 [WDGRoomDelegate](/c
 
 ---
 
+### - initWithRoomId: domain: delegate:
+
+**定义**
+
+```objectivec
+- (instancetype)initWithRoomId:(NSString *)roomId domain:(NSString *)domain delegate:(id<WDGRoomDelegate>)delegate;
+```
+
+**说明**
+
+使用 roomId 初始化 Room，同时指定服务器地址和接收 Room 事件的代理。如果 Room 不存在，则服务端创建新 Room；否则加入已有 Room。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+roomId            | 字符串类型，代表一个 Room 的唯一标识。
+domain            | 指定服务器的 URL。
+delegate          | 接收 Room 事件的代理。请参考 [WDGRoomDelegate](/conference/iOS/api/WDGRoomDelegate.html)。
+
+**返回值**
+
+`WDGRoom` 实例。
+
+</br>
+
+---
+
 ### - connect
 
 **定义**
@@ -257,6 +285,73 @@ roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/iOS/
 ------------------|------------------
 roomStream        | 远端媒体流。请参考 [WDGRoomStream](/conference/iOS/api/WDGRoomStream.html)。
 block             | 取消订阅操作完成执行的 block。
+
+</br>
+
+---
+
+### - startRecordingWithCompletionBlock:
+
+**定义**
+
+```objectivec
+- (void)startRecordingWithCompletionBlock:(void(^)(NSString *url, NSError *error))block;
+```
+
+**说明**
+
+开始录制房间中的媒体流，操作完成执行 block。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+block             | 开始录制操作完成执行的 block。
+
+</br>
+
+---
+
+### - startRecordingWithOptions: completionBlock:
+
+**定义**
+
+```objectivec
+- (void)startRecordingWithOptions:(NSDictionary *)options completionBlock:(void(^)(NSString *url, NSError *error))block;
+```
+
+**说明**
+
+开始录制房间中的媒体流，使用用户自定义选项，操作完成执行 block。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+options           | 控制视频录制的可选项，字典类型。
+block             | 开始录制操作完成执行的 block。
+
+</br>
+
+---
+
+### - stopRecordingWithCompletionBlock:
+
+**定义**
+
+```objectivec
+- (void)stopRecordingWithCompletionBlock:(void(^)(NSError *error))block;
+```
+
+**说明**
+
+结束录制房间中的媒体流，操作完成执行 block。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+block             | 结束录制操作完成执行的 block。
 
 </br>
 

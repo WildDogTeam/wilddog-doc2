@@ -9,12 +9,25 @@ Room 表示一个多人的视频会议。多个用户可以加入同一个 Room 
 ## 加入 Room
 
 加入 Room 前需要使用唯一的 roomId 创建 [`WDGRoom`](/conference/iOS/api/WDGRoom.html) 对象实例，并使用 `-[WDGRoom connect]` 方法加入 Room。
-成功加入到 Room 后可以使用 `-[WDGRoom publishLocalstream:]` 或 `-[WDGRoom subscribeRoomStream:]` 方法发布或订阅媒体流。
 
 ```objectivec
-WDGRoom *room = [[WDGRoom alloc] initWithRoomId:@"your-roomId"];
+WDGRoom *room = [[WDGRoom alloc] initWithRoomId:@"your-roomId" delegate:self];
 [room connect];
 ```
+
+WilddogVideoRoom 提供了海外服务器节点，使用 `- [WDGRoom initWithRoomId:domain:delegate:]` 方法在初始化时指定服务器地址：
+
+```objectivec
+WDGRoom *room = [WDGRoom alloc] initWithRoomId:@"your-roomId" domain:@"placeholder.wilddog.com" delegate:self];
+[room connect];
+```
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+ 如需使用海外节点，请联系客服 400-616-0980。
+</blockquote>
+
+成功加入到 Room 后可以使用 `-[WDGRoom publishLocalstream:]` 或 `-[WDGRoom subscribeRoomStream:]` 方法发布或订阅媒体流。
 
 ## 离开 Room
 
