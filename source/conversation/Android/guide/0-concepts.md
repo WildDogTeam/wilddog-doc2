@@ -1,9 +1,9 @@
 title: 基础概念
 ---
 
-### Video
+### VideoCall
 
-Video 即野狗视频的客户端代理（User Agent, UA），通过创建 Video 实例，用户可以建立视频通话。
+VideoCall 即野狗视频的客户端代理（User Agent, UA），通过创建 WilddogVideoCall 实例，用户可以建立视频通话。
 
 ### Conversation
 

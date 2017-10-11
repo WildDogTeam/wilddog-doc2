@@ -4,16 +4,17 @@ title: 管理视频会议
 Room 表示一个多人的视频会话。多个用户可以加入同一个 Room 进行音视频通话。
 
 ## 加入 Room
-加入 Room 前需要使用唯一的 roomId 创建 [WilddogRoom](/conference/Android/api/wilddog-room.html) 对象实例，并使用 [connect()](/conference/Android/api/wilddog-room.html#connect) 方法加入 Room。
-成功加入到 Room 后可以使用 [publish()](/conference/Android/api/wilddog-room.html#publish-localStream) 或 [subscribe()](/conference/Android/api/wilddog-room.html#subscribe-roomStream) 方法发布或订阅媒体流。
+加入 Room 前需要使用唯一的 roomId 创建 [WilddogVideoRoom](/conference/Android/api/wilddog-video-room.html) 对象实例，并使用 [connect()](/conference/Android/api/wilddog-video-room.html#connect) 方法加入 Room。
+成功加入到 Room 后可以使用 [publish()](/conference/Android/api/wilddog-video-room.html#publish-localStream) 或 [subscribe()](/conference/Android/api/wilddog-video-room.html#subscribe-roomStream) 方法发布或订阅媒体流。
+
 
 ```java
-	WilddogRoom room=new WilddogRoom(roomId,listener);
+	WilddogVideoRoom room=new WilddogVideoRoom(roomId,listener);
 	room.connect();
 ```
 ## 离开 WilddogRoom
 
-使用 [disconnect()](/conference/Android/api/wilddog-room.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。
+使用 [disconnect()](/conference/Android/api/wilddog-video-room.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。
 
 ```java
 	room.disconnect();
@@ -21,7 +22,7 @@ Room 表示一个多人的视频会话。多个用户可以加入同一个 Room 
 
 ## 处理 WilddogRoom 事件
 
-[WilddogRoom.Listener](/conference/Android/api/wilddog-room-listener.html) 事件用于监听 Room 连接状态以及媒体流变化。
+[WilddogVideoRoom.Listener](/conference/Android/api/wilddog-video-room-listener.html) 事件用于监听 Room 连接状态以及媒体流变化。
 
 
 

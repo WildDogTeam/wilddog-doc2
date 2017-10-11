@@ -1,18 +1,18 @@
 title : 安装和初始化
 --------------
 
-本篇文档介绍如何安装 SDK 并初始化 WilddogVideo。
+本篇文档介绍如何安装 SDK 并初始化 WilddogVideoCall。
 
 ### 安装 SDK
 
-- **使用 Maven 安装 WilddogVideo SDK**
+- **使用 Maven 安装 WilddogVideoCall SDK**
 
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-video-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="media_android_v">1.0.0-beta</span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>aar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-video-call-android<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="media_android_v">1.0.0-beta</span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div>    <span class="tag">&lt;<span class="name">type</span>&gt;</span>aar<span class="tag">&lt;/<span class="name">type</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
 
-- **使用 Gradle 安装 WilddogVideo SDK**
+- **使用 Gradle 安装 WilddogVideoCall SDK**
 
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-android:<span class="media_android_v">1.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-call-android:<span class="media_android_v">1.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 如果出现由于文件重复导致的编译错误，可以在 build.gradle 中添加 packingOptions:
 
@@ -28,11 +28,11 @@ android {
 
 ### 初始化 Video SDK
 
-[WilddogVideo](/conversation/Android/api/wilddog-video.html) 是 WilddogVideo SDK 功能的主入口。用户在使用 SDK 之前，要初始化 `WilddogVideo` 实例，以连接野狗服务器。
+[WilddogVideoCall](/conversation/Android/api/wilddog-video-call.html) 是 WilddogVideoCall SDK 功能的主入口。用户在使用 SDK 之前，要初始化 `WilddogVideoCall` 实例，以连接野狗服务器。
 
 初始化之前，打开控制面板 - 应用 - 视频通话 - 配置，获取 VideoAppID。
 
-初始化 `WilddogVideo` 之前，要先经过 [野狗身份认证](/auth/Android/index.html)。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式进行身份认证。
+初始化 `WilddogVideoCall` 之前，要先经过 [野狗身份认证](/auth/Android/index.html)。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式进行身份认证。
 
 参考以下代码可以安装WilddogAuth SDK。
 
@@ -91,7 +91,7 @@ private void initVideoSDK(){
     //初始化 WilddogVideo SDK
     WilddogVideoInitializer.initialize(context,videoAppId,token);
     //获取 WilddogVideo对象
-    WilddogVideo video＝WilddogVideo.getInstance();
+    WilddogVideoCall video＝WilddogVideoCall.getInstance();
 }
 
 ```
@@ -125,10 +125,10 @@ Warning:WARNING: Dependency org.json:json:20090211 is ignored for debug as it ma
 
 ### 设置代理
 
-设置 [WilddogVideo](/conversation/Android/api/wilddog-video.html) 的代理[WilddogVideo.Listener](/conversation/Android/api/wilddog-video-listener.html) 用于监听通话请求：
+设置 [WilddogVideoCall](/conversation/Android/api/wilddog-video-call.html) 的代理[WilddogVideoCall.Listener](/conversation/Android/api/wilddog-video-call-listener.html) 用于监听通话请求：
 
 ```java
-     video.setListener(new WilddogVideo.Listener() {
+     video.setListener(new WilddogVideoCall.Listener() {
                 @Override
                 public void onCalled(Conversation conversation, String s) {
                     

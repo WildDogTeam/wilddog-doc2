@@ -9,7 +9,6 @@ title: 媒体流统计
 使用 [Conversation](/conversation/Android/api/conversation.html) 中的 [StatsListener](/conversation/Android/api/stats-listener.html) 接口可以实时获取视频的宽、高、帧率、发送接收总大小、比特率、延迟等。
 
 ```java
-// VideoConversation 是邀请成功或者接受邀请成功时返回的参数。
 mConversation.setStatsListener(rtcStatsListener);
 ```
 
