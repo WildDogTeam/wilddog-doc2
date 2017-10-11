@@ -1,10 +1,10 @@
 ﻿
-title: wilddog.Video
+title: wilddogVideo
 ---
 
-wilddogVideo是访问Wilddog Video SDK的入口。wilddogVideo 对象的实例是我们访问野狗实时视频通话的接口，是Wilddog Video SDK 的核心，负责创建Conversation对象和本地视频流。
-
-每次通过getInstance()方法返回一实例对象。在使用Wilddog Video SDK前，需要对wilddogVideo对象进行初始化。
+wilddogVideo是访问WilddogVideoCall SDK的入口。不能直接创建`WilddogVideoCall`实例，必须通过`wilddogVideo.call()`方式获取。
+wilddogVideo是 WilddogVideoCall SDK 的核心，负责创建Conversation对象和本地视频流。
+在使用 WilddogVideoCall SDK前，需要对 WilddogVideoCall 进行初始化。
 
 </br>
 
@@ -12,77 +12,32 @@ wilddogVideo是访问Wilddog Video SDK的入口。wilddogVideo 对象的实例�
 
 ## 方法
 
-### getInstance
-
-**定义**
-
-```js
-wilddogVideo.getInstance()
-```
-**说明**
-
-获取 `WilddogVideo` 实例。
-
-**示例**
-
-```js
-//获取当前 video 实例
-var video = wilddogVideo.getInstance();
-```
-
-</br>
-
----
-
 ### initialize
 
 **定义**
 
 ```js
-initialize(appId,token)
+initialize({'appId':'<videoAppId>','token':'token'})
 ```
 
 **说明**
 
-初始化 wilddogVideo 。
+初始化 WilddogVideoCall 。
 
 **返回**
 
-[WilddogVideo](/conversation/Web/api/wilddogVideo.html)
+[WilddogVideoCall](/conversation/Web/api/wilddogVideoCall.html)
 
 **示例**
 
 ```js
 //初始化wilddogVideo
-var video = wilddogVideo.getInstance().initialize(appId,token);
+var video = wilddogVideo.initialize('appId':<videoAppId>,'token':token);
 ```
 
 **注意**
 
 wilddogVideo 对象的使用需要依赖野狗的 Auth，初始化时必须配置 authDomain ，并且 Auth 认证完成后才能获取！
-
-</br>
-
----
-
-### setToken
-
-**定义**
-
-```js
-setToken(token)
-```
-
-**说明**
-
-用于token过期后，重新获取并设置token进行与服务器建立连接 。
-
-**示例**
-
-```js
-var video = wilddogvideo.getInstance().initialize(appId,token);
-video.setToken(YourNewToken);
-```
 
 </br>
 
@@ -181,11 +136,11 @@ createLocalStream(options)
 
 | 参数名 | 说明 |
 |---|---|
-| options | [StreamConstraints](/conversation/Web/api/wilddogVideo.html#StreamConstraints) 类型，设置将要创建的本地媒体流属性。 |
+| options | [StreamConstraints](/conversation/Web/api/wilddogVideoCall.html#StreamConstraints) 类型，设置将要创建的本地媒体流属性。 |
 
 **返回**
 
-Promise.<[wildVideo.LocalStream](/conversation/Web/api/localStream.html)>
+Promise.<[wilddogVideo.LocalStream](/conversation/Web/api/localStream.html)>
 
 **示例**
 
@@ -195,6 +150,7 @@ videoInstance.createLocalStream({
         captureAudio: true,
         captureVideo: true,
         dimension: '480p',
+        maxFPS: 15
     })
     .then(function(localStream){
         //获取到localStream

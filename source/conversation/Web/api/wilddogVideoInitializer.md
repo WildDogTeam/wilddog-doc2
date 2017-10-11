@@ -1,11 +1,11 @@
-title: WilddogVideoRoom
+title: wilddogVideo
 ---
 
-`wilddogVideo.room` 是 WilddogVideoRoom SDK 的主入口，通过wilddogVideo可以初始化，创建 `WilddogVideoRoom` 实例及创建本地媒体流等操作。
+`wilddogVideo.call()` 是WilddogVideoCall SDK 的主入口，通过wilddogVideo可以初始化，创建 `WilddogVideoCall` 实例及创建本地媒体流等操作。
 
 ## 方法
 
-### initialize
+### initialize({'appId':<videoAppId>,'token': <token>})
 
 **定义**
 
@@ -28,58 +28,17 @@ title: WilddogVideoRoom
 
 ---
 
-### room(roomId)
+### call()
 
 **定义**
 
 ```javascript
-	wilddogVideo.room(roomId);
+	wilddogVideo.call();
 ```
 
 **说明**
 
-使用 roomId 初始化 Room，同时指定接收 Room 事件的监听。
-
-如果 Room 不存在，则服务端创建新 Room；否则加入已有 Room。
-
-**参数**
-
-| 参数名 | 描述 |
-|---|---|
-| roomId | Room的唯一标识。 |
-
-**返回值**
-
-`WilddogVideoRoom`实例
-
-</br>
-
----
-
-### room(roomId,domain)
-
-**定义**
-
-```javascript
-	wilddogVideo.room(roomId,domain);
-```
-
-**说明**
-
-使用 roomId 初始化 Room，同时指定接收 Room 事件的监听。
-
-如果 Room 不存在，则服务端创建新 Room；否则加入已有 Room。
-
-**参数**
-
-| 参数名 | 描述 |
-|---|---|
-| roomId | Room的唯一标识。 |
-| domain | 字符串类型，代表连接的服务器海内外节点地址。|
-
-**返回值**
-
-`WilddogVideoRoom`实例
+创建 `WilddogVideoCall`实例对象
 
 </br>
 
@@ -115,7 +74,7 @@ createLocalStream(options)
 wilddogVideo.createLocalStream({
         captureAudio: true,
         captureVideo: true,
-        dimension: '480p',
+        dimension: '480p'
     })
     .then(function(localStream){
         //获取到localStream
@@ -124,6 +83,32 @@ wilddogVideo.createLocalStream({
         console.log("Catch error! Error code is " + err);
     })
 ```
+
+</br>
+
+---
+
+### setToken(token)
+
+**定义**
+
+```java
+    wilddogVideo.setToken(token)
+```
+**说明**
+
+重新设置 token 。
+
+**参数**
+<style>
+table th:first-of-type {
+    width: 100px;
+}
+</style>
+
+| 参数名 | 描述 |
+|---|---|
+| token | 通过 `WilddogAuth` 验证登录后获取的 [Wilddog ID token](/auth/Web/guide/concept.html#身份认证令牌)。 |
 
 </br>
 

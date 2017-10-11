@@ -1,8 +1,8 @@
-title: WilddogRoom
+title: WilddogVideoRoom
 ---
 
-`wilddogVideo` 是WilddogRoom SDK 的主入口，不能直接创建WilddogRoom实例，必须要通过wilddogVideo.room(roomId)方式获取。
-WilddogRoom 表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
+`wilddogVideo` 是 WilddogVideoRoom SDK 的主入口，不能直接创建 WilddogVideoRoom 实例，必须要通过 `wilddogVideo.room(roomId)` 方式获取。
+WilddogVideoRoom 表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
 
 ## 属性
 
@@ -163,7 +163,7 @@ roomStream        | 远端媒体流 [RoomStream](/conference/Web/api/roomStream.
 
 ## 事件
 
-WilddogRoom 事件用于监听 Room 连接状态以及媒体流变化。
+WilddogVideoRoom 事件用于监听 Room 连接状态以及媒体流变化。
 
 |事件类型|事件|说明|
 |--|--|--|
@@ -235,7 +235,7 @@ WilddogRoom 事件用于监听 Room 连接状态以及媒体流变化。
     })
 ```
 
-### stream_received
+### error
 **示例**
 
 ```javascript
