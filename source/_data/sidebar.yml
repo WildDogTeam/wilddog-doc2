@@ -326,13 +326,14 @@ conversation:
     概览: /conversation/Web/index.html
     快速入门: /conversation/Web/quickstart.html
     完整指南:
-      基础概念: /conversation/Web/guide/core.html
-      安装和初始化: /conversation/Web/guide/install-sdk.html
-      视频通话: /conversation/Web/guide/conversation.html
-      媒体流统计: /conversation/Web/guide/statistics.html
+      基础概念: /conversation/Web/guide/0-concepts.html
+      安装和初始化: /conversation/Web/guide/1-install.html
+      媒体流: /conversation/Web/guide/2-mediaStream.html
+      管理视频通话: /conversation/Web/guide/3-conversation.html
+      媒体流统计: /conversation/Web/guide/4-statistics.html
     API 文档:
-      # WilddogVideoInitializer: /conversation/Web/api/wilddogVideoInitializer.html
-      Video: /conversation/Web/api/wilddogVideo.html
+      WilddogVideoInitializer: /conversation/Web/api/wilddogVideoInitializer.html
+      WilddogVideoCall: /conversation/Web/api/wilddogVideoCall.html
       Conversation: /conversation/Web/api/conversation.html
       LocalStream: /conversation/Web/api/localStream.html
       RemoteStream: /conversation/Web/api/remoteStream.html
@@ -415,9 +416,10 @@ conference:
       媒体流: /conference/Web/guide/2-mediaStream.html
       管理视频会议: /conference/Web/guide/3-room.html
       发布和订阅: /conference/Web/guide/4-pubAndSub.html
+      媒体流录制: /conference/Web/guide/5-recording.html
     API 文档:
       WilddogVideoInitializer: /conference/Web/api/wilddogVideoInitializer.html
-      WilddogRoom: /conference/Web/api/wilddogRoom.html
+      WilddogVideoRoom: /conference/Web/api/wilddogRoom.html
       LocalStream: /conference/Web/api/localStream.html
       RoomStream: /conference/Web/api/roomStream.html
     更新日志: /conference/Web/changelog.html

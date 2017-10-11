@@ -1,6 +1,6 @@
 ﻿
 
-title: wilddog.video.RemoteStream
+title: RemoteStream
 ---
 
 ## 方法
