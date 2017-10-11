@@ -29,15 +29,15 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-### 2.1 安装 WilddogVideo SDK
+### 2.1 安装 WilddogVideoCall SDK
 
-**使用 Gradle 安装 WilddogVideo SDK**
+**使用 Gradle 安装 WilddogVideoCall SDK**
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-call-android:<span class="media_android_v">2.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 ### 2.2 安装 WilddogAuth SDK
 
 Token（身份认证令牌）是用户在 WilddogVideo SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
-WilddogVideo SDK 使用 WilddogAuth SDK 获取合法的 TOKEN。
+WilddogVideoCall SDK 使用 WilddogAuth SDK 获取合法的 TOKEN。
 
 **使用 Gradle 安装 WilddogAuth SDK**
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.6</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
@@ -141,7 +141,7 @@ LocalStream localStream = LocalStream.create(options);
 
 ## 6. 开始视频通话
 
-使用 WilddogAuth 登录成功后，用户会获得唯一的 `uid`，在 WilddogVideo SDK 中，使用 `uid` 作为用户的身份标识。
+使用 WilddogAuth 登录成功后，用户会获得唯一的 `uid`，在 WilddogVideoCall SDK 中，使用 `uid` 作为用户的身份标识。
 
 ### 6.1 邀请视频通话
 

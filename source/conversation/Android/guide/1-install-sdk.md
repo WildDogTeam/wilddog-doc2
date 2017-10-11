@@ -46,7 +46,7 @@ android {
 
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.5</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
-成功通过身份认证后，用户将获得 `uid` 以及 `token`。以匿名方式登录后初始化 [WilddogVideo](/conversation/Android/api/wilddog-video.html) 为例：
+成功通过身份认证后，用户将获得 `uid` 以及 `token`。以匿名方式登录后初始化 [WilddogVideoCall](/conversation/Android/api/wilddog-video-call.html) 为例：
 
 
 ```java
@@ -88,7 +88,7 @@ public void onCreate() {
 
 private void initVideoSDK(){
     String token = WilddogAuth.getInstance().getCurrentUser().getToken(false).getResult().getToken();
-    //初始化 WilddogVideo SDK
+    //初始化 WilddogVideoCall SDK
     WilddogVideoInitializer.initialize(context,videoAppId,token);
     //获取 WilddogVideo对象
     WilddogVideoCall video＝WilddogVideoCall.getInstance();

@@ -26,7 +26,7 @@ WilddogVideoRoom 提供了海外服务器节点，使用携带url参数的构造
 </blockquote>
 
 成功加入到 Room 后可以使用 `-[WDGRoom publishLocalstream:]` 或 `-[WDGRoom subscribeRoomStream:]` 方法发布或订阅媒体流。
-## 离开 WilddogRoom
+## 离开 WilddogVideoRoom
 
 使用 [disconnect()](/conference/Android/api/wilddog-video-room.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。
 
@@ -34,7 +34,7 @@ WilddogVideoRoom 提供了海外服务器节点，使用携带url参数的构造
 	room.disconnect();
 ```
 
-## 处理 WilddogRoom 事件
+## 处理 WilddogVideoRoom 事件
 
 [WilddogVideoRoom.Listener](/conference/Android/api/wilddog-video-room-listener.html) 事件用于监听 Room 连接状态以及媒体流变化。
 
