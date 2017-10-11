@@ -382,8 +382,8 @@ conversation:
       媒体流统计: /conversation/Android/guide/6-statistics.html
     API 文档:
       WilddogVideoInitializer: /conversation/Android/api/wilddog-video-initializer.html
-      WilddogVideo: /conversation/Android/api/wilddog-video.html
-      WilddogVideo.Listener: /conversation/Android/api/wilddog-video-listener.html
+      WilddogVideoCall: /conversation/Android/api/wilddog-video-call.html
+      WilddogVideoCall.Listener: /conversation/Android/api/wilddog-video-call-listener.html
       WilddogVideoError: /conversation/Android/api/wilddog-video-error.html
       WilddogVideoView: /conversation/Android/api/wilddog-video-view.html
       WilddogVideoViewLayout: /conversation/Android/api/wilddog-video-view-layout.html
@@ -454,8 +454,8 @@ conference:
       发布和订阅: /conference/Android/guide/4-pubAndSub.html
     API 文档:
       WilddogVideoInitializer: /conference/Android/api/wilddog-video-initializer.html
-      WilddogRoom: /conference/Android/api/wilddog-room.html
-      WilddogRoom.Listener: /conference/Android/api/wilddog-room-listener.html
+      WilddogVideoRoom: /conference/Android/api/wilddog-video-room.html
+      WilddogVideoRoom.Listener: /conference/Android/api/wilddog-video-room-listener.html
       LocalStream: /conference/Android/api/local-stream.html
       LocalStreamOptions: /conference/Android/api/local-stream-options.html
       LocalStream.CameraFrameListener: /conference/Android/api/camera-frame-listener.html
