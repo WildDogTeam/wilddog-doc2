@@ -1,6 +1,7 @@
-title: WilddogVideoRoom
+title: wilddogVideo
 ---
 
+用于初始化 WilddogVideoCall SDK 和 WilddogVideoRoom SDK。
 `wilddogVideo.room` 是 WilddogVideoRoom SDK 的主入口，通过wilddogVideo可以初始化，创建 `WilddogVideoRoom` 实例及创建本地媒体流等操作。
 
 ## 方法
@@ -15,7 +16,7 @@ title: WilddogVideoRoom
 
 **说明**
 
-初始化 `wilddogVideo`。
+初始化 `WilddogVideoRoom`。
 
 **参数**
 

@@ -14,7 +14,7 @@ title: 安装和初始化
 ```ruby
 platform :ios, '8.0'
 target 'your-target-name' do
-  pod 'WilddogRoom', '2.0.1-beta'
+  pod 'WilddogVideoRoom', '~> 2.1.0-beta'
 end
 ```
 
