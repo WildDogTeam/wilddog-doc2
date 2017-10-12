@@ -173,6 +173,10 @@ roomInstance.stopRecording(callback);
 
 使用默认录制布局并且开始服务端录制功能。
 
+</br>
+
+---
+
 ### startRecording(options)
 
 **定义**
@@ -205,6 +209,9 @@ canvasHeight      | Integer         | 视频高度 (<=1080) | 640
 bgColor           | Integer         | 背景颜色 (十六进制) | xffffff
 streams           | Object          | 媒体流布局         | { "627620748239984100": {"left": 0 , "top": 100, "width": 100, "height": 100, "zOrder": 0-255}
 
+</br>
+
+---
 
 ### stopRecording
 
@@ -217,6 +224,10 @@ room.stopRecording(callback);
 **说明**
 
 结束服务端录制功能。
+
+</br>
+
+---
 
 ## 事件
 
