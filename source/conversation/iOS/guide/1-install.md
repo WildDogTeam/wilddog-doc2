@@ -14,7 +14,7 @@ title: 安装和初始化
 ```ruby
 platform :ios, '8.0'
 target 'your-target-name' do
-  pod 'WilddogVideo', '~> 2.1.0'
+  pod 'WilddogVideoCall', '~> 2.2.0'
 end
 ```
 * 保存 `Podfile`，并执行 `pod install` 命令，将上述依赖安装到你的工程。

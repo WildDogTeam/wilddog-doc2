@@ -1,7 +1,7 @@
 title：视频录制
 ---
 
-WilddogRoom SDK 提供服务端视频录制功能。使用视频录制 API 保存通话内容为 .mp4 格式文件。
+WilddogVideoRoom SDK 提供服务端视频录制功能。使用视频录制 API 保存通话内容为 .mp4 格式文件。
 ### 开启视频录制
 使用 [startRecording](/conference/Android/api/wilddog-room.html#startRecording-localStream) 方法开启视频录制。
 
@@ -53,7 +53,7 @@ WilddogRoom SDK 提供服务端视频录制功能。使用视频录制 API 保�
 |RecordOptionValuePairKeys.RECORD_BACKGROUD_COLOR   | int    |背景颜色的十六进制码(argb)|0x00ffffff   |
 |RecordOptionValuePairKeys.RECORD_STREAMS           | Map    |媒体流布局               |示例         |
 
-录制每个流的参数配置
+录制每个流的参数配置:
 
 |选项                                             | 类型 |说明                                |示例|
 |-------------------------------------------------|-----|------------------------------------|---|
