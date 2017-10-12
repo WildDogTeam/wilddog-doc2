@@ -4,6 +4,21 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.1.0 Beta - 2017.10.12
+
+<span class="changelog add">新增</span>
+
+- 支持设置海外节点域名。
+- 新增会议录制功能。
+
+<span class="changelog optimize">优化</span>
+
+- 支持会议恢复功能,网络断开恢复后一定时间内能回复视频。
+
+<span class="changelog fix">修复</span>
+
+- 修复ICE状态变化导致断开连接回调频繁bug。
+
 ### v2.0.0 Beta - 2017.09.15
 
 野狗音视频业务原有的视频通话、视频会议两大功能在 `v2.0.0` 版本进行了分拆，以优化逻辑、提升集成效率。
