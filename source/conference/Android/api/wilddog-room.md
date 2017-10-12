@@ -1,7 +1,7 @@
-title: WilddogVideoRoom
+title: WilddogRoom
 ---
 
-`WilddogVideoRoom` 是视频会议的主入口，表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
+`WilddogRoom` 是视频会议的主入口，表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
 
 ## 属性
 
@@ -23,12 +23,12 @@ Room 的唯一标识。
 
 ## 方法
 
-### WilddogVideoRoom(roomId,roomEvents)
+### WilddogRoom(roomId,roomEvents)
 
 **定义**
 
 ```java
-	WilddogVideoRoom(String roomId, Listener roomEvents)
+	WilddogRoom(String roomId, Listener roomEvents)
 ```
 
 **说明**
@@ -42,22 +42,22 @@ Room 的唯一标识。
 |参数名             | 说明 |
 |------------------|------------------|
 |roomId            | 字符串类型，代表一个 Room 的唯一标识。|
-|roomEvents          | 接收 Room 事件的监听，请参考 [WilddogVideoRoom.Listener](/conference/Android/api/wilddog-video-room-listener.html)。|
+|roomEvents          | 接收 Room 事件的监听，请参考 [WilddogRoom.Listener](/conference/Android/api/wilddog-room-listener.html)。|
 
 **返回值**
 
-`WilddogVideoRoom` 实例。
+`WilddogRoom` 实例。
 
 </br>
 
 ---
 
-### WilddogVideoRoom(roomId,url,roomEvents)
+### WilddogRoom(roomId,url,roomEvents)
 
 **定义**
 
 ```java
-	WilddogVideoRoom(String roomId, String url, Listener roomEvents)
+	WilddogRoom(String roomId, String url, Listener roomEvents)
 ```
 
 **说明**
@@ -72,11 +72,11 @@ Room 的唯一标识。
 |------------------|------------------|
 |roomId            | 字符串类型，代表一个 Room 的唯一标识。|
 |url            | 字符串类型，代表连接的服务器海内外节点地址。|
-|roomEvents          | 接收 Room 事件的监听，请参考 [WilddogVideoRoom.Listener](/conference/Android/api/wilddog-video-room-listener.html)。|
+|roomEvents          | 接收 Room 事件的监听，请参考 [WilddogRoom.Listener](/conference/Android/api/wilddog-room-listener.html)。|
 
 **返回值**
 
-`WilddogVideoRoom` 实例。
+`WilddogRoom` 实例。
 
 </br>
 
@@ -92,7 +92,7 @@ Room 的唯一标识。
 
 **说明**
 
-加入 Room。成功加入 Room 会触发本地 [onConnected](/conference/Android/api/wilddog-video-room-listener.html#onConnected-room) 事件，否则触发 [`onError()`](/conference/Android/api/wilddog-video-room-listener.html#onError(room,error)) 事件。
+加入 Room。成功加入 Room 会触发本地 [onConnected](/conference/Android/api/wilddog-room-listener.html#onConnected-room) 事件，否则触发 [`onError()`](/conference/Android/api/wilddog-room-listener.html#onError(room,error)) 事件。
 
 </br>
 
@@ -108,7 +108,7 @@ Room 的唯一标识。
 
 **说明**
 
-离开 Room。调用后触发本地 [onDisconnected](/conference/Android/api/wilddog-video-room-listener.html#onDisconnected-room) 事件。
+离开 Room。调用后触发本地 [onDisconnected](/conference/Android/api/wilddog-room-listener.html#onDisconnected-room) 事件。
 
 </br>
 
@@ -124,7 +124,7 @@ Room 的唯一标识。
 
 **说明**
 
-发布本地媒体流。发布成功后会触发其他客户端的 [onStreamAdded](/conference/Android/api/wilddog-video-room-listener.html#onStreamAdded-room-roomStream) 事件。
+发布本地媒体流。发布成功后会触发其他客户端的 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件。
 
 **参数**
 
@@ -146,7 +146,7 @@ Room 的唯一标识。
 
 **说明**
 
-发布本地媒体流，操作完成执行完成回调。发布成功后会触发其他客户端的 [onStreamAdded](/conference/Android/api/wilddog-video-room-listener.html#onStreamAdded-room-roomStream) 事件。
+发布本地媒体流，操作完成执行完成回调。发布成功后会触发其他客户端的 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件。
 
 **参数**
 
@@ -186,7 +186,7 @@ Room 的唯一标识。
 
 **说明**
 
-取消发布本地媒体流，操作完成执行完成回调并触发其他客户端的 [onStreamRemoved](/conference/Android/api/wilddog-video-room-listener.html#onStreamRemoved-room-roomStream)  事件。
+取消发布本地媒体流，操作完成执行完成回调并触发其他客户端的 [onStreamRemoved](/conference/Android/api/wilddog-room-listener.html#onStreamRemoved-room-roomStream)  事件。
 
 **参数**
 
@@ -208,7 +208,7 @@ Room 的唯一标识。
 
 **说明**
 
-订阅在 [onStreamAdded](/conference/Android/api/wilddog-video-room-listener.html#onStreamAdded-room-roomStream) 事件中获取的远端媒体流。订阅成功会触发本地的 [`onStreamReceived`](/conference/Android/api/wilddog-video-room-listener.html#onStreamReceived(room,roomStream)) 事件。
+订阅在 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件中获取的远端媒体流。订阅成功会触发本地的 [`onStreamReceived`](/conference/Android/api/wilddog-room-listener.html#onStreamReceived(room,roomStream)) 事件。
 
 **参数**
 
@@ -230,7 +230,7 @@ Room 的唯一标识。
 
 **说明**
 
-订阅在 [onStreamAdded](/conference/Android/api/wilddog-video-room-listener.html#onStreamAdded-room-roomStream) 事件中获取的远端媒体流，操作完成执行完成回调。订阅成功会触发本地的 [`onStreamReceived`](/conference/Android/api/wilddog-video-room-listener.html#onStreamReceived(room,roomStream)) 事件。
+订阅在 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件中获取的远端媒体流，操作完成执行完成回调。订阅成功会触发本地的 [`onStreamReceived`](/conference/Android/api/wilddog-room-listener.html#onStreamReceived(room,roomStream)) 事件。
 
 **参数**
 
