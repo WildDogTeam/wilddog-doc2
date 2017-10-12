@@ -8,12 +8,12 @@ title: 更新日志
 
 <span class="changelog add">新增</span>
 
-- 支持设置海外节点域名。
-- 新增会议录制功能。
+- 新增服务端混流录制功能，录制布局可自定义。
+- 新增海外节点，支持国内与海外互通。
 
 <span class="changelog optimize">优化</span>
 
-- 支持会议恢复功能,网络断开恢复后一定时间内能回复视频。
+- 支持会议恢复功能,网络断开恢复后一定时间内能恢复视频。
 
 <span class="changelog fix">修复</span>
 

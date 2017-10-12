@@ -11,7 +11,7 @@ title: 更新日志
 
 <span class="changelog fix">修复</span>
 
-- 修复ICE状态变化导致断开连接回调频繁bug。
+- 修复ICE状态变化导致的断开连接回调频繁bug。
 
 ### v2.1.1 - 2017.09.27
 

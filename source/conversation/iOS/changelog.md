@@ -4,6 +4,11 @@ title: 更新日志
 
 ## iOS SDK
 
+### v2.2.0 - 2017.10.12
+
+<span class="changelog optimize">优化</span>
+
+- 产品名称修改为WilddogVideoCall
 
 ### v2.0.0 - 2017.08.14
 

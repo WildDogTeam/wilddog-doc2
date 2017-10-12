@@ -15,7 +15,7 @@ WilddogRom SDK 提供服务端视频录制功能。使用视频录制 API 保存
 
 ## 录制布局
 
-使用 `-[WDGRoom startRecordingWithOptions:completionBlock:]` 方法结束视频录制：
+使用 `-[WDGRoom startRecordingWithOptions:completionBlock:]` 方法使用自定义布局开始视频录制：
 
 ```objectivec
 NSDictionary *options = @{@"fps":@10, @"canvasWidth":@1000, @"canvasHeight":@1000, @"streams":{ 

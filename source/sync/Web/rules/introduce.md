@@ -37,7 +37,7 @@ title: 规则表达式简介
 
 规则表达式可以控制每个用户对数据的访问权限。
 
-例如，授权用户在 `/users/<uid>` 写入数据，使用 [内置对象](/sync/Web/rules/access.html#内置对象)) 中的 `auth` 获取用户：
+例如，授权用户在 `/users/<uid>` 写入数据，使用 [内置对象](/sync/Web/rules/access.html#内置对象) 中的 `auth` 获取用户：
 
 ```javascript
 {
