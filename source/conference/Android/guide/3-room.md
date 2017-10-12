@@ -4,19 +4,19 @@ title: 管理视频会议
 Room 表示一个多人的视频会话。多个用户可以加入同一个 Room 进行音视频通话。
 
 ## 加入 Room
-加入 Room 前需要使用唯一的 roomId 创建 [WilddogVideoRoom](/conference/Android/api/wilddog-video-room.html) 对象实例，并使用 [connect()](/conference/Android/api/wilddog-video-room.html#connect) 方法加入 Room。
-成功加入到 Room 后可以使用 [publish()](/conference/Android/api/wilddog-video-room.html#publish-localStream) 或 [subscribe()](/conference/Android/api/wilddog-video-room.html#subscribe-roomStream) 方法发布或订阅媒体流。
+加入 Room 前需要使用唯一的 roomId 创建 [WilddogRoom](/conference/Android/api/wilddog-room.html) 对象实例，并使用 [connect()](/conference/Android/api/wilddog-room.html#connect) 方法加入 Room。
+成功加入到 Room 后可以使用 [publish()](/conference/Android/api/wilddog-room.html#publish-localStream) 或 [subscribe()](/conference/Android/api/wilddog-room.html#subscribe-roomStream) 方法发布或订阅媒体流。
 
 
 ```java
-	WilddogVideoRoom room=new WilddogVideoRoom(roomId,listener);
+	WilddogRoom room=new WilddogRoom(roomId,listener);
 	room.connect();
 ```
 
 WilddogVideoRoom 提供了海外服务器节点，使用携带url参数的构造方法在初始化时指定服务器地址：
 
 ```java
-    WilddogVideoRoom room=new WilddogVideoRoom(roomId,<YOUR SERVER URL>,listener);
+    WilddogRoom room=new WilddogRoom(roomId,<YOUR SERVER URL>,listener);
 	room.connect();
 ```
 
@@ -26,17 +26,17 @@ WilddogVideoRoom 提供了海外服务器节点，使用携带url参数的构造
 </blockquote>
 
 成功加入到 Room 后可以使用 `-[WDGRoom publishLocalstream:]` 或 `-[WDGRoom subscribeRoomStream:]` 方法发布或订阅媒体流。
-## 离开 WilddogVideoRoom
+## 离开 WilddogRoom
 
-使用 [disconnect()](/conference/Android/api/wilddog-video-room.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。
+使用 [disconnect()](/conference/Android/api/wilddog-room.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。
 
 ```java
 	room.disconnect();
 ```
 
-## 处理 WilddogVideoRoom 事件
+## 处理 WilddogRoom 事件
 
-[WilddogVideoRoom.Listener](/conference/Android/api/wilddog-video-room-listener.html) 事件用于监听 Room 连接状态以及媒体流变化。
+[WilddogRoom.Listener](/conference/Android/api/wilddog-room-listener.html) 事件用于监听 Room 连接状态以及媒体流变化。
 
 
 

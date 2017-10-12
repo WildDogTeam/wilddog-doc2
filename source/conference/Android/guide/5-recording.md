@@ -1,7 +1,7 @@
 title：视频录制
 ---
 
-WilddogVideoRoom SDK 提供服务端视频录制功能。使用视频录制 API 保存通话内容为 .mp4 格式文件。
+WilddogRoom SDK 提供服务端视频录制功能。使用视频录制 API 保存通话内容为 .mp4 格式文件。
 ### 开启视频录制
 使用 [startRecording](/conference/Android/api/wilddog-room.html#startRecording-localStream) 方法开启视频录制。
 
@@ -20,27 +20,27 @@ WilddogVideoRoom SDK 提供服务端视频录制功能。使用视频录制 API 
 ```java
     Map options = new HashMap();
     // 设置总画布大小 录制帧率 录制码率和背景颜色
-        options.put(RecordOptionValuePairKeys.RECORD_FPS,10);
-        options.put(RecordOptionValuePairKeys.RECORD_BITRATE,100);
-        options.put(RecordOptionValuePairKeys.RECORD_CANVAS_WIDTH,1000);
-        options.put(RecordOptionValuePairKeys.RECORD_CANVAS_HEIGHT,1000);
-        options.put(RecordOptionValuePairKeys.RECORD_BACKGROUD_COLOR,0x00ffffff);
+        options.put(RecordOptionKeys.FPS,10);
+        options.put(RecordOptionKeys.BITRATE,100);
+        options.put(RecordOptionKeys.CANVAS_WIDTH,1000);
+        options.put(RecordOptionKeys.CANVAS_HEIGHT,1000);
+        options.put(RecordOptionKeys.BACKGROUD_COLOR,16725815);
     Map streams = new HashMap();
     Map stream = new HashMap();
     //设置每个流的位置和 层级
-        stream.put(RecordOptionValuePairKeys.RECORD_STREAMS_LEFT,0);
-        stream.put(RecordOptionValuePairKeys.RECORD_STREAMS_TOP,0);
-        stream.put(RecordOptionValuePairKeys.RECORD_STREAMS_WIDTH,100);
-        stream.put(RecordOptionValuePairKeys.RECORD_STREAMS_HEIGHT,100);
-        stream.put(RecordOptionValuePairKeys.RECORD_STREAMS_ZORDER,254);
+        stream.put(RecordOptionKeys.STREAM_LEFT,0);
+        stream.put(RecordOptionKeys.STREAM_TOP,0);
+        stream.put(RecordOptionKeys.STREAM_WIDTH,100);
+        stream.put(RecordOptionKeys.STREAM_HEIGHT,100);
+        stream.put(RecordOptionKeys.STREAM_ZORDER,254);
         streams.put(localStream.getStreamId(),stream);
 
-        options.put(RecordOptionValuePairKeys.RECORD_STREAMS,streams);
-        room.startRecording(options,new RecordingListener() {
-        @Override
-        public void onComplete(String s, WilddogVideoError wilddogVideoError) {
+    options.put(RecordOptionValuePairKeys.RECORD_STREAMS,streams);
+    room.startRecording(options,new RecordingListener() {
+       @Override
+       public void onComplete(String s, WilddogVideoError wilddogVideoError) {
 
-        }
+       }
     });
 ```
 

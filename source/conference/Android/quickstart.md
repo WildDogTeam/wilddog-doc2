@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-android-conference) 来快速了解 wilddogVideoRoom SDK 的用法。
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-android-conference) 来快速了解 WilddogVideoRoom SDK 的用法。
 
 
 <div class="env">
@@ -111,15 +111,15 @@ android {
 </blockquote>
 
 ## 5. 加入 Room
-创建 `WilddogVideoRoom` 实例并加入到 Room 中。
+创建 `WilddogRoom` 实例并加入到 Room 中。
 
 
 ```java
-	 WilddogVideoRoom.Listener listener = new WilddogVideoRoom.Listener() {
+	 WilddogRoom.Listener listener = new WilddogRoom.Listener() {
 	     //Room 回调方法...
 	 }
 	 //room_id 由客户端生成的随机字符串
-	 room = new WilddogVideoRoom(room_id, listener);
+	 room = new WilddogRoom(room_id, listener);
 	 room.connect();
 ```
 
@@ -143,7 +143,7 @@ android {
 
 ```java
 	@Override
-	public void onConnected(WilddogVideoRoom wilddogRoom) {
+	public void onConnected(WilddogRoom wilddogRoom) {
 	   wilddogRoom.publish(localStream);
 	}
 ```
@@ -152,7 +152,7 @@ SDK 通过 `onStreamAdded ` 事件通知用户当前 Room 中已发布的媒体�
 
 ```java
     @Override
-    public void onStreamAdded(WilddogVideoRoom wilddogRoom, RoomStream roomStream) {
+    public void onStreamAdded(WilddogRoom wilddogRoom, RoomStream roomStream) {
         long streamId = roomStream.getStreamId();
         wilddogRoom.subscribe(roomStream);
     }
@@ -163,14 +163,14 @@ SDK 通过 `onStreamAdded ` 事件通知用户当前 Room 中已发布的媒体�
 
 ```java
 	@Override
-	public void onStreamReceived(WilddogVideoRoom wilddogRoom, RoomStream roomStream) {
+	public void onStreamReceived(WilddogRoom wilddogRoom, RoomStream roomStream) {
 	    roomStream.attach(wvvBig);
 	}
 ```
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
- 发布媒体流需要在 WilddogVideoRoom.Listener 的 onConnected 回调方法被触发后进行。
+ 发布媒体流需要在 WilddogRoom.Listener 的 onConnected 回调方法被触发后进行。
  </blockquote>
 
 ## 7. 更多使用

@@ -1,7 +1,7 @@
-title: WilddogVideoRoom.Listener
+title: WilddogRoom.Listener
 ---
 
-[WilddogVideoRoom](/conference/Android/api/wilddog-video-room.html) 的回调，用于通知 Room 相关的事件。
+[WilddogRoom](/conference/Android/api/wilddog-room.html) 的回调，用于通知 Room 相关的事件。
 
 ## 方法 
 
@@ -10,7 +10,7 @@ title: WilddogVideoRoom.Listener
 **定义**
 
 ```java
-	void onConnected(WilddogVideoRoom room)
+	void onConnected(WilddogRoom room)
 ```
 
 **说明**
@@ -21,7 +21,7 @@ title: WilddogVideoRoom.Listener
 
 |参数名             | 说明 |
 |------------------|------------------|
-|room       | 调用该方法的 `WilddogVideoRoom` 实例。请参考 [WilddogVideoRoom](/conference/Android/api/wilddog-video-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 
 </br>
 
@@ -32,7 +32,7 @@ title: WilddogVideoRoom.Listener
 **定义**
 
 ```java
-	void onDisconnected(WilddogVideoRoom room)
+	void onDisconnected(WilddogRoom room)
 ```
 
 **说明**
@@ -43,7 +43,7 @@ title: WilddogVideoRoom.Listener
 
 |参数名             | 说明 |
 |------------------|------------------|
-|room       | 调用该方法的 `WilddogVideoRoom` 实例。请参考 [WilddogVideoRoom](/conference/Android/api/wilddog-video-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 
 </br>
 
@@ -54,7 +54,7 @@ title: WilddogVideoRoom.Listener
 **定义**
 
 ```java
-	void onStreamAdded(WilddogVideoRoom room, RoomStream roomStream)
+	void onStreamAdded(WilddogRoom room, RoomStream roomStream)
 ```
 
 **说明**
@@ -65,7 +65,7 @@ Room 中有远端媒体流加入。回调中的 `RoomStream` 对象只包含描�
 
 |参数名             | 说明 |
 |------------------|------------------|
-|room       | 调用该方法的 `WilddogVideoRoom` 实例。请参考 [WilddogVideoRoom](/conference/Android/api/wilddog-video-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 |roomStream        | Room 中新加入的远端媒体流，只包含描述流的基本信息，不包含媒体数据。请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
 
 </br>
@@ -77,7 +77,7 @@ Room 中有远端媒体流加入。回调中的 `RoomStream` 对象只包含描�
 **定义**
 
 ```java
-	void onStreamRemoved(WilddogVideoRoom room, RoomStream roomStream)
+	void onStreamRemoved(WilddogRoom room, RoomStream roomStream)
 ```
 
 **说明**
@@ -88,7 +88,7 @@ Room 中有远端媒体流停止发布。
 
 |参数名             | 说明 |
 |------------------|------------------|
-|room       | 调用该方法的 `WilddogVideoRoom` 实例。请参考 [WilddogVideoRoom](/conference/Android/api/wilddog-video-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 |roomStream        | Room 中停止发布的远端媒体流。请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
 
 </br>
@@ -100,7 +100,7 @@ Room 中有远端媒体流停止发布。
 **定义**
 
 ```java
-	void onStreamReceived(WilddogVideoRoom room, RoomStream roomStream)
+	void onStreamReceived(WilddogRoom room, RoomStream roomStream)
 ```
 
 **说明**
@@ -111,7 +111,7 @@ Room 中有远端媒体流停止发布。
 
 |参数名             | 说明 |
 |------------------|------------------|
-|room       | 调用该方法的 `WilddogVideoRoom` 实例。请参考 [WilddogVideoRoom](/conference/Android/api/wilddog-video-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 |roomStream        | 收到数据的远端媒体流。请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
 
 </br>
@@ -123,7 +123,7 @@ Room 中有远端媒体流停止发布。
 **定义**
 
 ```java
-	void onError(WilddogVideoRoom room, WilddogVideoError error)
+	void onError(WilddogRoom room, WilddogVideoError error)
 ```
 
 **说明**
@@ -134,7 +134,7 @@ Room 中发生错误。
 
 |参数名             | 说明 |
 |------------------|------------------|
-|room       | 调用该方法的 `WilddogVideoRoom` 实例。请参考 [WilddogVideoRoom](/conference/Android/api/wilddog-video-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 |error             | 错误信息，通过错误码区分错误类型。请参考 [ErrorCode](/conference/Android/api/error-code.html)。|
 
 </br>

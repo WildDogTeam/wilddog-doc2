@@ -1,7 +1,7 @@
 title: CompleteListener
 ---
 
-WilddogVideoRoom API 调用完成回调。
+WilddogRoom API 调用完成回调。
 
 ## 方法
 
