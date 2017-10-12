@@ -1,4 +1,4 @@
-title：视频录制
+title: 视频录制
 ---
 
 WilddogRoom SDK 提供服务端视频录制功能。使用视频录制 API 保存通话内容为 .mp4 格式文件。
@@ -7,11 +7,11 @@ WilddogRoom SDK 提供服务端视频录制功能。使用视频录制 API 保�
 
 ```java
    room.startRecording(new RecordingListener() {
-                               @Override
-                               public void onComplete(String s, WilddogVideoError wilddogVideoError) {
-                       
-                               }
-                           });
+           @Override
+           public void onComplete(String s, WilddogVideoError wilddogVideoError) {
+           // 录制开启后，服务端返回文件地址，如发生错误，error不为空。           
+           }
+   });
 ```
 ### 录制布局
 
@@ -35,33 +35,33 @@ WilddogRoom SDK 提供服务端视频录制功能。使用视频录制 API 保�
         stream.put(RecordOptionKeys.STREAM_ZORDER,254);
         streams.put(localStream.getStreamId(),stream);
 
-    options.put(RecordOptionValuePairKeys.RECORD_STREAMS,streams);
+    options.put(RecordOptionKeys.STREAMS,streams);
     room.startRecording(options,new RecordingListener() {
        @Override
        public void onComplete(String s, WilddogVideoError wilddogVideoError) {
-
+       // 录制开启后，服务端返回文件地址，如发生错误，error不为空。
        }
     });
 ```
 
 |选项                                                | 类型   | 说明                   |示例         |
 |---------------------------------------------------|--------|------------------------|------------|
-|RecordOptionValuePairKeys.RECORD_FPS               | int    |视频帧率(fps)            |15          |
-|RecordOptionValuePairKeys.RECORD_BITRATE           | int    |比特率(bps)              |100         |
-|RecordOptionValuePairKeys.RECORD_CANVAS_WIDTH      | int    |视频宽度(<=1920)         |960         |
-|RecordOptionValuePairKeys.RECORD_CANVAS_HEIGHT     | int    |视频高度(<=1080)         |640         |
-|RecordOptionValuePairKeys.RECORD_BACKGROUD_COLOR   | int    |背景颜色的十六进制码(argb)|0x00ffffff   |
-|RecordOptionValuePairKeys.RECORD_STREAMS           | Map    |媒体流布局               |示例         |
+|RecordOptionKeys.FPS               | int    |视频帧率(fps)            |15          |
+|RecordOptionKeys.BITRATE           | int    |比特率(bps)              |100         |
+|RecordOptionKeys.CANVAS_WIDTH      | int    |视频宽度(<=1920)         |960         |
+|RecordOptionKeys.CANVAS_HEIGHT     | int    |视频高度(<=1080)         |640         |
+|RecordOptionKeys.BACKGROUD_COLOR   | int    |背景颜色的十六进制码(argb)|0x00ffffff   |
+|RecordOptionKeys.STREAMS           | Map    |媒体流布局               |streams         |
 
 录制每个流的参数配置:
 
 |选项                                             | 类型 |说明                                |示例|
 |-------------------------------------------------|-----|------------------------------------|---|
-|RecordOptionValuePairKeys.RECORD_STREAMS_LEFT    | int |此路视频流相对左侧坐标                 |0  |
-|RRecordOptionValuePairKeys.RECORD_STREAMS_TOP    | int |此路视频流相对顶部坐标                 |0  |
-|RecordOptionValuePairKeys.RECORD_STREAMS_WIDTH   | int |此路视频宽度                          |100|
-|RecordOptionValuePairKeys.RECORD_STREAMS_HEIGHT  | int |此路视频高度                          |150|
-|RecordOptionValuePairKeys.RECORD_STREAMS_ZORDER  | int |此路视频流绘制优先级,从小到大绘制(0-255) |8  |
+|RecordOptionKeys.STREAM_LEFT    | int |此路视频流相对左侧坐标                 |0  |
+|RRecordOptionKeys.STREAM_TOP    | int |此路视频流相对顶部坐标                 |0  |
+|RecordOptionKeys.STREAM_WIDTH   | int |此路视频宽度                          |100|
+|RecordOptionKeys.STREAM_HEIGHT  | int |此路视频高度                          |150|
+|RecordOptionKeys.STREAM_ZORDER  | int |此路视频流绘制优先级,从小到大绘制(0-255) |8  |
 
 
 ### 结束视频录制
@@ -72,7 +72,7 @@ WilddogRoom SDK 提供服务端视频录制功能。使用视频录制 API 保�
   room.stopRecording(new RecordingListener() {
        @Override
        public void onComplete(String s, WilddogVideoError wilddogVideoError) {
-                
+       // 录制结束后，如发生错误，error不为空。         
        }
   });
 ```
