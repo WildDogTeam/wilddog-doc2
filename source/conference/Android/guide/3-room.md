@@ -25,7 +25,7 @@ WilddogVideoRoom 提供了海外服务器节点，使用携带url参数的构造
  如需使用海外节点，请联系客服 400-616-0980。
 </blockquote>
 
-成功加入到 Room 后可以使用 `-[WDGRoom publishLocalstream:]` 或 `-[WDGRoom subscribeRoomStream:]` 方法发布或订阅媒体流。
+成功加入到 Room 后可以使用 `publish(localStream)` 或 `subscribe(roomStream)` 方法发布或订阅媒体流。
 ## 离开 WilddogRoom
 
 使用 [disconnect()](/conference/Android/api/wilddog-room.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。

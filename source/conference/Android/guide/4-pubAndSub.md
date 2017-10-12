@@ -7,7 +7,7 @@ title: 发布和订阅
 
 
 ### 发布本地媒体流
-使用 [publish()](/conference/Android/api/wilddog-room.html#publish-localStream) 方法向 Room 发布本地媒体流，本地媒体流的创建与配置参考[媒体流](/conference/Android/guide/1-media-stream.html))。
+使用 [publish()](/conference/Android/api/wilddog-room.html#publish-localStream) 方法向 Room 发布本地媒体流，本地媒体流的创建与配置参考[媒体流](/conference/Android/guide/2-mediaStream.html)。
 发布成功后会触发其他客户端的 `onStreamAdded` 事件。
 
 ```java

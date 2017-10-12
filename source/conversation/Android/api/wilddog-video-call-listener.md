@@ -1,4 +1,4 @@
-title: WilddogVideoCallCall.Listener
+title: WilddogVideoCall.Listener
 ----------------------------
 
 `WilddogVideoCall` 呼叫状态回调,当 `WilddogVideoCall` 收到呼叫会触发相应的方法。
