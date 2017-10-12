@@ -7,10 +7,25 @@ Room 表示一个多人的视频会话。多个用户可以加入同一个 Room 
 加入 Room 前需要使用唯一的 roomId 创建 [WilddogRoom](/conference/Android/api/wilddog-room.html) 对象实例，并使用 [connect()](/conference/Android/api/wilddog-room.html#connect) 方法加入 Room。
 成功加入到 Room 后可以使用 [publish()](/conference/Android/api/wilddog-room.html#publish-localStream) 或 [subscribe()](/conference/Android/api/wilddog-room.html#subscribe-roomStream) 方法发布或订阅媒体流。
 
+
 ```java
 	WilddogRoom room=new WilddogRoom(roomId,listener);
 	room.connect();
 ```
+
+WilddogVideoRoom 提供了海外服务器节点，使用携带url参数的构造方法在初始化时指定服务器地址：
+
+```java
+    WilddogRoom room=new WilddogRoom(roomId,<YOUR SERVER URL>,listener);
+	room.connect();
+```
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+ 如需使用海外节点，请联系客服 400-616-0980。
+</blockquote>
+
+成功加入到 Room 后可以使用 `publish(localStream)` 或 `subscribe(roomStream)` 方法发布或订阅媒体流。
 ## 离开 WilddogRoom
 
 使用 [disconnect()](/conference/Android/api/wilddog-room.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。

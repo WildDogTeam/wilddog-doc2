@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-web-conference) 来快速了解 WilddogRoom SDK 的用法。
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-web-conference) 来快速了解 WilddogVideoRoom SDK 的用法。
 
 
 <div class="env">
@@ -24,7 +24,7 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-#### 2.1 WilddogRoom SDK
+#### 2.1 WilddogVideoRoom SDK
 
 Web SDK 可以通过标签直接引用：
 
@@ -34,8 +34,8 @@ Web SDK 可以通过标签直接引用：
 
 #### 2.2 安装 Auth SDK
 
-Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
-WilddogRoom SDK 使用 Auth SDK 获取合法的 TOKEN。
+Token（身份认证令牌）是用户在 WilddogVideoRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
+WilddogVideoRoom SDK 使用 Auth SDK 获取合法的 TOKEN。
 
 **使用标签引用 Wilddog Auth SDK**
 <figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="sync_web_v">2.5.6</span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre><br></td></tr></tbody></table></figure>
@@ -48,17 +48,17 @@ WilddogRoom SDK 使用 Auth SDK 获取合法的 TOKEN。
 ```javascript
 //初始化 Wilddog Auth
 var config = {
-    authDomain: "<appId>.wilddog.com"
+    authDomain: "<videoAppId>.wilddog.com"
 };
 wilddog.initializeApp(config);
 ```
 
-### 3.2 初始化 WilddogRoom SDK
+### 3.2 初始化 WilddogVideoRoom SDK
 
-使用 WilddogAuth SDK 进行身份认证，身份认证成功后，在使用 WilddogRoom SDK前，必须对wilddogVideo进行初始化。
+使用 WilddogAuth SDK 进行身份认证，身份认证成功后，在使用 WilddogVideoRoom SDK前，必须对wilddogVideo进行初始化。
 
 ```javascripte
-// 初始化 WilddogRoom 之前，要先经过身份认证。这里采用匿名登录的方式。
+// 初始化 WilddogVideoRoom 之前，要先经过身份认证。这里采用匿名登录的方式。
 wilddog.auth().signInAnonymously()
     .then(function(user){
         //认证成功后，初始化 wilddogVideo
@@ -71,7 +71,7 @@ wilddog.auth().signInAnonymously()
 
 ## 4. 加入 Room
 
-创建 `WilddogRoom` 实例并加入到 Room 中。
+创建 `WilddogVideoRoom` 实例并加入到 Room 中。
 
 ```javascript
 //room_id 由客户端生成一个随机字符串
@@ -141,4 +141,4 @@ roomInstance.on('stream_received',function(roomStream){
 
 ## 7. 更多使用
 
-- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/Web/guide/1-installSDK.html) 和 [API 文档](/conference/Web/api/wilddogVideoInitializer.html)。
+- 了解 WilddogVideoRoom 更多使用方式，请参考 [完整指南](/conference/Web/guide/0-concepts.html) 和 [API 文档](/conference/Web/api/wilddogVideoInitializer.html)。

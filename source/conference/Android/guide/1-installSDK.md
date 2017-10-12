@@ -1,17 +1,17 @@
 title: 安装和初始化
 ---
 
-本篇文档介绍如何安装 SDK 并使用 `WilddogVideoInitializer` 初始化 WilddogRoom SDK。
+本篇文档介绍如何安装 SDK 并使用 `WilddogVideoInitializer` 初始化 WilddogVideoRoom SDK。
 
 
 ## 安装 SDK
 ### 安装 Video SDK
 
-- **使用 Gradle 安装 WilddogRoom SDK**
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-room-android:<span class="room_android_v">2.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+- **使用 Gradle 安装 WilddogVideoRoom SDK**
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies { </div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-room-android:<span class="room_android_v">2.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 ### 获取 Token
-Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
+Token（身份认证令牌）是用户在 WilddogVideoRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
 
 野狗提供了两种方式获取 Token ：
 1. 在客户端通过 WilddogAuth SDK 获取。请参考：[WilddogAuth 快速入门](/auth/Android/quickstart.html)，
@@ -42,7 +42,7 @@ Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标�
 
 ### 初始化 SDK
 
-使用 [initialize](/conference/Android/api/wilddog-video-initializer.html#initialize-context-videoAppId-token) 方法初始化 WilddogRoom SDK。
+使用 [initialize](/conference/Android/api/wilddog-video-initializer.html#initialize-context-videoAppId-token) 方法初始化 WilddogVideoRoom SDK。
 
 ```java
 	WilddogVideoInitializer.initialize(context,videoAppId,token);

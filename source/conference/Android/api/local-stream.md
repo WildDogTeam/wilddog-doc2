@@ -125,7 +125,7 @@ LocalStream 实例对象。
 **示例**
 
 ```java
-	localStream.setOnFrameListener(new WilddogVideo.CameraFrameListener() {
+	localStream.setOnFrameListener(new LocalStream.CameraFrameListener() {
 	    @Override
 	    public void onByteFrame(byte[] bytes, int width, int height) {
 	        //处理帧数据的方法

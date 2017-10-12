@@ -7,7 +7,7 @@ title: 媒体流
 ### 创建本地媒体流
 
 本地媒体流包含了本地设备所采集的音频、视频信息，是视频通话所需要的基本数据。
-使用 [wilddogVideo.createLocalStream(options)](/conference/Web/api/wilddogVideoInitializer.html#createLocalStream) 方法创建本地媒体流:
+使用 [wilddogVideo.createLocalStream(options)](/conversation/Web/api/wilddogVideoInitializer.html#createLocalStream) 方法创建本地媒体流:
 
 ```javascript
 wilddogVideo.createLocalStream({
@@ -62,31 +62,31 @@ localStream.detach();
 // 设置不播放媒体流的音频。
 localStream.enableAudio(false);
 ```
-## 远端媒体流（RoomStream）
+## 远端媒体流（RemoteStream）
 
 ### 获取远端媒体流
 
-通过 [`roomInstance.on('stream_received')`] 回调事件获取远端媒体流
+通过 [`mConversation.on('stream_received')`] 回调事件获取远端媒体流
 
 ### 播放远端媒体流
 
 远端媒体流包括音频和视频。
 
-使用 `roomStream.attach()` 方法将远端媒体流放入video标签：
+使用 `remoteStream.attach()` 方法将远端媒体流放入video标签：
 
 ```javascript
-roomStream.attach(remote);
+remoteStream.attach(remote);
 ```
 
 移出video标签：：
 
 ```javascript
-roomStream.detach();
+remoteStream.detach();
 ```
 
 可以设置 `enableAudio(enable)` 和 `enableVideo(enable)` 两个方法来控制是否播放音频、视频，默认都为开启。
 
 ```javascript
 // 设置不播放媒体流的音频。
-roomStream.enableAudio(false);
+remoteStream.enableAudio(false);
 ```

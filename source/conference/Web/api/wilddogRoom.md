@@ -1,8 +1,8 @@
-title: WilddogRoom
+title: WilddogVideoRoom
 ---
 
-`wilddogVideo` 是WilddogRoom SDK 的主入口，不能直接创建WilddogRoom实例，必须要通过wilddogVideo.room(roomId)方式获取。
-WilddogRoom 表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
+`wilddogVideo` 是 WilddogVideoRoom SDK 的主入口，不能直接创建 WilddogVideoRoom 实例，必须要通过 `wilddogVideo.room(roomId)` 方式获取。
+WilddogVideoRoom 表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
 
 ## 属性
 
@@ -161,9 +161,77 @@ roomStream        | 远端媒体流 [RoomStream](/conference/Web/api/roomStream.
 
 ---
 
+### startRecording()
+
+**定义**
+
+```javascript
+roomInstance.stopRecording(callback);
+```
+
+**说明**
+
+使用默认录制布局并且开始服务端录制功能。
+
+</br>
+
+---
+
+### startRecording(options)
+
+**定义**
+
+```javascript
+var options = {
+    "fps":10,
+    "canvasWidth":1000,
+    "canvasHeight":1000,
+    "streams":{
+        "627620748239984100":{"left":0,"top":100,"width":100,"height":100,"zOrder":1},
+        "627620748239984101":{"left":0,"top":100,"width":100,"height":100,"zOrder":2}
+    }
+}
+roomInstance.startRecording(options,callback);
+```
+
+**说明**
+
+设置录制布局并且开始服务端录制功能。
+
+**参数**
+
+选项               | 类型              | 说明                    | 示例
+------------------|------------------|------------------|------------------
+fps               | Integer         | 视频帧率 (fps)    | 15
+bitrate           | Integer         | 比特率 (bps)      | 300
+canvasWidth       | Integer         | 视频宽度 (<=1920) | 960
+canvasHeight      | Integer         | 视频高度 (<=1080) | 640
+bgColor           | Integer         | 背景颜色 (十六进制) | xffffff
+streams           | Object          | 媒体流布局         | { "627620748239984100": {"left": 0 , "top": 100, "width": 100, "height": 100, "zOrder": 0-255}
+
+</br>
+
+---
+
+### stopRecording
+
+**定义**
+
+```javascript
+room.stopRecording(callback);
+```
+
+**说明**
+
+结束服务端录制功能。
+
+</br>
+
+---
+
 ## 事件
 
-WilddogRoom 事件用于监听 Room 连接状态以及媒体流变化。
+WilddogVideoRoom 事件用于监听 Room 连接状态以及媒体流变化。
 
 |事件类型|事件|说明|
 |--|--|--|
@@ -235,7 +303,7 @@ WilddogRoom 事件用于监听 Room 连接状态以及媒体流变化。
     })
 ```
 
-### stream_received
+### error
 **示例**
 
 ```javascript

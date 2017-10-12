@@ -21,7 +21,7 @@ title: WilddogRoom.Listener
 
 |参数名             | 说明 |
 |------------------|------------------|
-|wilddogRoom       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 
 </br>
 
@@ -43,7 +43,7 @@ title: WilddogRoom.Listener
 
 |参数名             | 说明 |
 |------------------|------------------|
-|wilddogRoom       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 
 </br>
 
@@ -65,7 +65,7 @@ Room 中有远端媒体流加入。回调中的 `RoomStream` 对象只包含描�
 
 |参数名             | 说明 |
 |------------------|------------------|
-|wilddogRoom       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 |roomStream        | Room 中新加入的远端媒体流，只包含描述流的基本信息，不包含媒体数据。请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
 
 </br>
@@ -88,7 +88,7 @@ Room 中有远端媒体流停止发布。
 
 |参数名             | 说明 |
 |------------------|------------------|
-|wilddogRoom       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 |roomStream        | Room 中停止发布的远端媒体流。请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
 
 </br>
@@ -111,7 +111,7 @@ Room 中有远端媒体流停止发布。
 
 |参数名             | 说明 |
 |------------------|------------------|
-|wilddogRoom       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 |roomStream        | 收到数据的远端媒体流。请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
 
 </br>
@@ -134,7 +134,7 @@ Room 中发生错误。
 
 |参数名             | 说明 |
 |------------------|------------------|
-|wilddogRoom       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
+|room       | 调用该方法的 `WilddogRoom` 实例。请参考 [WilddogRoom](/conference/Android/api/wilddog-room.html)。|
 |error             | 错误信息，通过错误码区分错误类型。请参考 [ErrorCode](/conference/Android/api/error-code.html)。|
 
 </br>

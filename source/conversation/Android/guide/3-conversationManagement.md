@@ -22,7 +22,7 @@ mConversation = video.call(remoteUid,localStream,"conversationDemo");
 
 ## 收到通话请求
 
-其他用户发来通话请求时，用户可以从 [WilddogVideo](/conversation/Android/api/wilddog-video.html) 的listener得到通知，并获得 [Conversation](/conversation/Android/api/conversation.html) 实例：
+其他用户发来通话请求时，用户可以从 [WilddogVideoCall](/conversation/Android/api/wilddog-video-call.html) 的listener得到通知，并获得 [Conversation](/conversation/Android/api/conversation.html) 实例：
 
 ```java
 

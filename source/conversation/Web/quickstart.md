@@ -2,73 +2,136 @@
 title: 快速入门
 ---
 
-我们通过一个简单的一对一视频通话示例来说明 Video SDK 的用法。[前往快速入门](https://github.com/WildDogTeam/video-demo-web-conversation)
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-web-conversation) 来快速了解 WilddogVideoCall SDK 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li> Chrome 49及以后、Firefox 47及以后、Safari 7及以后浏览器 </li>
+        <li> Chrome 49及以后、Firefox 47及以后、Safari 11及以后浏览器 </li>
     </ul>
 </div>
 
 ## 1. 创建应用
 
-首先，在控制面板中创建应用。
+### 1.1 创建野狗应用
+
+在控制面板中创建野狗应用。
 
 <img src='/images/video_quickstart_create.png' alt="video_quickstart_create">
 
-## 2. 开启匿名登录
+### 1.2 配置应用
 
-应用创建成功后，进入 管理应用-身份认证-登录方式，开启匿名登录。
+- 在 `身份认证` 标签页中，选择 `登录方式` 标签，开启 `匿名登录` 功能（或者选择其他登录方式，例如：`QQ登录`、`邮箱登录` 等）；
 
 <img src='/images/openanonymous.png' alt="video_quickstart_openanonymous">
 
-## 3. 开启实时视频通话
-
-进入 管理应用-实时视频通话，开启视频通话功能。此处注意记下配置页面的`VideoAppID`
+- 在 `实时视频通话` 标签页中，点击 `开启视频通话` 按钮。
 
 <img src='/images/video_quickstart_openVideo.png' alt="video_quickstart_openVideo">
 
-## 4. 启动本地 Web 服务
+## 2. 安装 SDK
 
-启动本地 Web 服务，建立 HTTPS 环境。快速入门中采用 Node.js 搭建本地服务，用户**也可以使用其他方式**启动本地 Web 服务。
+### 2.1 WilddogVideoCall SDK
 
-<blockquote class="warning">
-  <p><strong>注意：</strong></p>
-  只有通过 HTTPS 服务加载的页面才可以成功获取本地摄像头和麦克风等资源，正常运行快速入门。
-</blockquote>
+Web SDK 可以通过标签直接引用：
 
-使用 Node.js 开启本地 Web 服务：
+**通过标签引用**
+
+<figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="media_web_v">2.0.0</span>/wilddog-video-call.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+
+### 2.2 初始化 WilddogAuth SDK
+
+Token（身份认证令牌）是用户在 WilddogVideoCall SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
+WilddogVideoCall SDK 使用 Auth SDK 获取合法的 TOKEN。
+
+**使用标签引用 Wilddog Auth SDK**
+
+<figure class="highlight html"><table style='line-height:0.1'><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">&quot;<span>ht</span>tps://cdn.wilddog.com/sdk/js/<span class="sync_web_v">2.5.6</span>/wilddog-auth.js&quot;</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre><br></td></tr></tbody></table></figure>
+
+## 3. 初始化 SDK
+
+### 3.1 初始化WilddogAuth SDK
 
 ```javascript
-node https_channel_server.js
+//初始化 Wilddog Auth
+var config = {
+    authDomain: "<videaAppId>.wilddog.com"
+};
+wilddog.initializeApp(config);
 ```
 
-## 5. 运行快速入门
+### 3.2 初始化WilddogVideoCall SDK
 
-本地 Web 服务启动后，访问 [https://127.0.0.1:8080](https://127.0.0.1:8080) 就会看到快速入门页面。
+使用 WilddogAuth SDK 进行身份认证，身份认证成功后，在使用 WilddogVideoCall SDK前，必须对wilddogVideoCall进行初始化。
 
-<img src='/images/video_quickstart_js_login.png' alt="video_quickstart_js_login">
+```javascripte
+// 初始化 WilddogVideoCall 之前，要先经过身份认证。这里采用匿名登录的方式。推荐使用其他登录方式。
+wilddog.auth().signInAnonymously()
+    .then(function(user){
+        //认证成功后，初始化 wilddogVideoCall
+        wilddogVideo.initialize({'appId':<videoAppId>,'token':user.getToken()})
+        //获取 `WilddogVideoCall` 实例
+        videoInstance = wilddogVideo.call();
+    }).catch(function (error) {
+        // Handle Errors here.
+        console.log(error);
+    });
+```
 
-## 6. 登录
 
-输入`VideoAppID`
+## 4. 配置视频通话
+初始化 `WilddogVideoCall SDK` 后，通过 `wilddogVideo.call()` 获取 `WilddogVideoCall` 对象，设置监听用于监听通话请求：
+ 
+```javascript
+//监听收到的邀请
+videoInstance.on('called',function(conversation) {
+  console.log(conversation);
+})
+videoInstance.on('token_error',function() {
+  console.log('token不合法或过期');
+})
 
-<img src='/images/video_quickstart_videoappid.png' alt="video_quickstart_videoappid">
+```
 
-## 7. 邀请他人加入
+## 5. 开始视频通话
 
-在其它 PC 端（或在同一 PC 中打开当前浏览器的隐身窗口，注意：同一 PC 端的不同浏览器不能共用摄像头和麦克资源）再次访问[https://127.0.0.1:8080](https://127.0.0.1:8080)，输入同一应用 ID 并登录，然后邀请列表中的用户。
-<img src='/images/video_quickstart_web_userList.png' alt="video_quickstart_createApp">
+使用 WilddogAuth 登录成功后，用户会获得唯一的 uid，在 WilddogVideoCall SDK 中，使用 uid 作为用户的身份标识。
 
-## 8. 接受邀请
+### 5.1 邀请视频通话
 
-被邀请人会受到邀请提示，点击确认加入，视频通话建立。
+使用 `call()` 来发起视频通话请求
 
-<img src='/images/video_quickstart_web_invite.png' alt="video_quickstart_createApp">
+```javascript
 
-接受邀请后，等待视频通话建立成功。
+mConversation = videoInstance.call(remoteUid,localStream,'conversationDemo');
+```
 
-<img src='/images/video_quickstart_wen_conversation.png' alt="video_quickstart_createApp">
+### 5.2 接受视频通话
 
-更多详细信息请见 [完整指南](/video/Web/guide/core.html) 和  [API 文档](/video/Web/api/wilddogVideo.html)。
+被邀请的用户通过 `videoInstance.on('called',callback)` 事件收到 `Conversation` 实例，使用 `accept（）` 方法接收视频通话：
+
+```javascript
+
+videoInstance.on('called',function(conversation){
+    mConversation = conversation;
+    mConversation.accept();
+})
+
+```
+
+### 5.3 播放媒体流 
+
+视频通话链接成功后，通话双方会通过 `mConversation.on('stream_received',callback)` 事件收到 RemoteStream 实例，使用 attach() 方法将远端媒体流放入 `video` 标签中播放：
+
+```javascript
+
+mConversation.on('stream_received',function(remoteStream) {
+    //将远端流放入video标签中
+    remoteStream.attach(remoteEl);
+})
+
+```
+
+## 6. 更多应用
+
+- 了解 WilddogVideoCall 更多使用方式，请参考 [完整指南](/conversation/Web/guide/0-concepts.html) 和 [API 文档](/conversation/Web/api/wilddogVideoInitializer.html)。

@@ -1,7 +1,7 @@
 title: 安装和初始化
 ---
 
-本篇文档介绍如何安装 SDK 并初始化 WilddogVideo。
+本篇文档介绍如何安装 SDK 并初始化 WilddogVideoCall。
 
 
 ## 使用 CocoaPods 安装 SDK
@@ -14,7 +14,7 @@ title: 安装和初始化
 ```ruby
 platform :ios, '8.0'
 target 'your-target-name' do
-  pod 'WilddogVideo', '~> 2.1.0'
+  pod 'WilddogVideoCall', '~> 2.2.0'
 end
 ```
 * 保存 `Podfile`，并执行 `pod install` 命令，将上述依赖安装到你的工程。
@@ -23,7 +23,7 @@ end
 
 ## 初始化
 
-在使用 WilddogVideo SDK 之前，需要用 VideoAppId 和 token 初始化 [WDGVideoInitializer](/conversation/iOS/api/WDGVideoInitializer.html) 实例。
+在使用 WilddogVideoCall SDK 之前，需要用 VideoAppId 和 token 初始化 [WDGVideoInitializer](/conversation/iOS/api/WDGVideoInitializer.html) 实例。
 
 - VideoAppId 是用户在野狗控制台创建的应用的唯一标识。
 - Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
@@ -62,24 +62,24 @@ end
 
 ## 创建 Video 客户端
 
-使用 `+[WDGVideo sharedVideo]` 方法获取 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 单例，设置代理 <[WDGVideoDelegate](/conversation/iOS/api/WDGVideoDelegate.html)> 用于监听通话请求：
+使用 `+[WDGVideoCall sharedInstance]` 方法获取 [WDGVideoCall](/conversation/iOS/api/WDGVideoCall.html) 单例，设置代理 <[WDGVideoCallDelegate](/conversation/iOS/api/WDGVideoCallDelegate.html)> 用于监听通话请求：
 
 ```objectivec
-[[WDGVideo sharedVideo].delegate = self;
+[[WDGVideoCall sharedInstance].delegate = self;
 ```
 
-实现代理方法 `-[WDGVideoDelegate wilddogVideo:didReceiveCallWithConversation:data:]`，当收到远端通话请求时，会触发该方法：
+实现代理方法 `-[WDGVideoCallDelegate wilddogVideoCall:didReceiveCallWithConversation:data:]`，当收到远端通话请求时，会触发该方法：
 
 ```objectivec
-- (void)wilddogVideo:(WDGVideo *)video didReceiveCallWithConversation:(WDGConversation *)conversation data:(NSString *)data {
+- (void)wilddogVideoCall:(WDGVideoCall *)videoCall didReceiveCallWithConversation:(WDGConversation *)conversation data:(NSString *)data {
     // 处理通话请求。
 }
 ```
 
-实现代理方法 `-[WDGVideoDelegate wilddogVideo:didFailWithTokenError:]`，当 `token` 错误或过期时，会触发该方法：
+实现代理方法 `-[WDGVideoCallDelegate wilddogVideoCall:didFailWithTokenError:]`，当 `token` 错误或过期时，会触发该方法：
 
 ```objectivec
-- (void)wilddogVideo:(WDGVideo *)video didFailWithTokenError:(NSError *)error {
+- (void)wilddogVideoCall:(WDGVideoCall *)videoCall didFailWithTokenError:(NSError *)error {
     // 处理 token 错误。
 }
 ```

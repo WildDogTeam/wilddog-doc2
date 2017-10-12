@@ -2,7 +2,7 @@
 title: 快速入门
 ---
 
-你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-android-conference) 来快速了解 WilddogRoom SDK 的用法。
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-android-conference) 来快速了解 WilddogVideoRoom SDK 的用法。
 
 
 <div class="env">
@@ -26,15 +26,15 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-### 2.1 安装 WilddogRoom SDK
+### 2.1 安装 WilddogVideoRoom SDK
 
-**使用 Gradle 安装 WilddogRoom SDK**
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-room-android:<span class="room_android_v">2.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+**使用 Gradle 安装 WilddogVideoRoom SDK**
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-room-android:<span class="room_android_v">2.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 ### 2.2 安装 WilddogAuth SDK
 
-Token（身份认证令牌）是用户在 WilddogRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
-WilddogRoom SDK 使用 WilddogAuth SDK 获取合法的 TOKEN。
+Token（身份认证令牌）是用户在 WilddogVideoRoom SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
+WilddogVideoRoom SDK 使用 WilddogAuth SDK 获取合法的 TOKEN。
 
 **使用 Gradle 安装 WilddogAuth SDK**
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.6</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
@@ -83,8 +83,8 @@ android {
     WilddogOptions options = builder.build();
     WilddogApp.initializeApp(LoginActivity.this, options);
 ```
-### 4.2 初始化 WilddogRoom SDK
-使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogRoom SDK。
+### 4.2 初始化 WilddogVideoRoom SDK
+使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogVideoRoom SDK。
 
 ```java
     //使用匿名登录方式进行身份认证
@@ -175,4 +175,4 @@ SDK 通过 `onStreamAdded ` 事件通知用户当前 Room 中已发布的媒体�
 
 ## 7. 更多使用
 
-- 了解 WilddogRoom 更多使用方式，请参考 [完整指南](/conference/Android/guide/0-concepts.html) 和 [API 文档](/conference/Android/api/wilddog-video-initializer.html)。
+- 了解 WilddogVideoRoom 更多使用方式，请参考 [完整指南](/conference/Android/guide/0-concepts.html) 和 [API 文档](/conference/Android/api/wilddog-video-initializer.html)。

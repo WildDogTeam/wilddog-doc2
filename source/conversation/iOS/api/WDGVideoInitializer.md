@@ -1,7 +1,7 @@
 title: WDGVideoInitializer
 ---
 
-用于初始化 WilddogVideo SDK 和 WilddogRoom SDK。
+用于初始化 WilddogVideoCall SDK 和 WilddogVideoRoom SDK。
 
 ## 方法
 

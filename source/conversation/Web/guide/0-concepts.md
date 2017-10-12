@@ -3,7 +3,7 @@ title: 基础概念
 
 ### VideoCall
 
-VideoCall 即野狗视频的客户端代理（User Agent, UA），通过创建 VideoCall 实例，用户可以建立视频通话。
+Video 即野狗视频的客户端代理（User Agent, UA），通过创建 VideoCall 实例，用户可以建立视频通话。
 
 ### Conversation
 
@@ -16,10 +16,6 @@ Video 本地媒体流，包括本地音频流和视频流，需要在发起视�
 ### Remote Stream
 
 视频通话对方客户端的媒体流。本地可以控制其他客户端音／视频流在本地的展示效果。例如，本地可以静音其他客户端的媒体流，但这并不会影响其他客户端音视频数据的传输。
-
-### Video View
-
-Video View 用来显示本地／远端媒体流，Local Stream 和 Remote Stream 只能与 Video View 绑定来显示。
 
 ### Stats Report
 

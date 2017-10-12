@@ -1,7 +1,7 @@
-title: WilddogVideo.Listener
+title: WilddogVideoCall.Listener
 ----------------------------
 
-`WilddogVideo` 呼叫状态回调,当 `WilddogVideo` 收到呼叫会触发相应的方法。
+`WilddogVideoCall` 呼叫状态回调,当 `WilddogVideoCall` 收到呼叫会触发相应的方法。
 
 ## 方法
 
@@ -15,7 +15,7 @@ void onCalled(Conversation conversation, String data);
 
 **说明**
 
-`WilddogVideo` 接收到视频通话呼叫时触发此方法。
+`WilddogVideoCall` 接收到视频通话呼叫时触发此方法。
 
 **参数**
 

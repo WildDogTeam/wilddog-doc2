@@ -4,6 +4,21 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v2.2.0 - 2017.10.12
+
+<span class="changelog add">新增</span>
+- 支持safari 11
+
+<span class="changelog optimize">优化</span>
+
+- 产品名称修改为WilddogVideoCall
+
+<span class="changelog fix">修复</span>
+
+- 修复wilddogvideocall Sdk初始化代码
+- 修复火狐和IE浏览器视频通话的bug
+- 修复chrome浏览器下媒体流统计错误的bug
+
 ### v2.0.0 - 2017.08.24
 
 自 `v2.0.0` 版本起，视频通话、视频会议两大功能完成分拆。视频通话主要应用于一对一视频，采用 `P2P + NAT穿透`的混合方案；视频会议主要应用于多人视频、连麦直播等场景。

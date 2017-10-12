@@ -52,6 +52,36 @@ Room 的唯一标识。
 
 ---
 
+### WilddogRoom(roomId,url,roomEvents)
+
+**定义**
+
+```java
+	WilddogRoom(String roomId, String url, Listener roomEvents)
+```
+
+**说明**
+
+使用 roomId 初始化 Room，同时指定接收 Room 事件的监听。
+
+如果 Room 不存在，则服务端创建新 Room；否则加入已有 Room。
+
+**参数**
+
+|参数名             | 说明 |
+|------------------|------------------|
+|roomId            | 字符串类型，代表一个 Room 的唯一标识。|
+|url            | 字符串类型，代表连接的服务器海内外节点地址。|
+|roomEvents          | 接收 Room 事件的监听，请参考 [WilddogRoom.Listener](/conference/Android/api/wilddog-room-listener.html)。|
+
+**返回值**
+
+`WilddogRoom` 实例。
+
+</br>
+
+---
+
 ### connect()
 
 **定义**
@@ -139,7 +169,7 @@ Room 的唯一标识。
 
 **说明**
 
-取消发布本地媒体流。取消发布成功会触发其他客户端的 [onStreamRemoved](/conference/Android/api/wilddog-room-listener.html#onStreamRemoved-room-roomStream) 事件。
+取消发布本地媒体流。取消发布成功会触发其他客户端的 [onStreamRemoved](/conference/Android/api/wilddog-vide0-room-listener.html#onStreamRemoved-room-roomStream) 事件。
 
 
 </br>
@@ -252,7 +282,74 @@ Room 的唯一标识。
 |参数名             | 说明 |
 |------------------|------------------|
 |roomStream        | 远端媒体流，请参考 [RoomStream](/conference/Android/api/room-stream.html)。|
-|listener             | 取消订阅操作完成执行的完成回调。|
+|listener             | 取消订阅操作完成执行的回调监听。|
+
+</br>
+
+---
+
+### startRecording(listener)
+
+**定义**
+
+```java
+	public void startRecording(RecordingListener listener)
+```
+
+**说明**
+
+使用默认录制布局并且开始服务端录制功能。
+
+**参数**
+
+|参数名             | 说明 |
+|------------------|------------------|
+|listener             | 开始录制操作完成执行的回调监听。|
+
+</br>
+
+---
+
+### startRecording(options,listener)
+
+**定义**
+
+```java
+	public void startRecording(Map<String,Object> options,RecordingListener listener)
+```
+
+**说明**
+
+设置录制布局并且开始服务端录制功能。
+
+**参数**
+
+|参数名             | 说明 |
+|------------------|------------------|
+|options        | 设置录制布局的集合对象。|
+|listener             | 开始录制操作完成执行的回调监听。|
+
+</br>
+
+---
+
+### stopRecording(listener)
+
+**定义**
+
+```java
+	public void stopRecording(RecordingListener listener)
+```
+
+**说明**
+
+结束服务端录制功能。
+
+**参数**
+
+|参数名             | 说明 |
+|------------------|------------------|
+|listener             | 结束录制操作完成执行的回调监听。|
 
 </br>
 

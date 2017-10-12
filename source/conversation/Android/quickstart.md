@@ -1,7 +1,7 @@
 title: 快速入门
 ---
 
-你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-android-conversation) 来快速了解 WilddogVideo SDK 的用法。
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-android-conversation) 来快速了解 WilddogVideoCall SDK 的用法。
 
 
 <div class="env">
@@ -29,15 +29,15 @@ title: 快速入门
 
 ## 2. 安装 SDK
 
-### 2.1 安装 WilddogVideo SDK
+### 2.1 安装 WilddogVideoCall SDK
 
-**使用 Gradle 安装 WilddogVideo SDK**
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-android:<span class="media_android_v">2.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+**使用 Gradle 安装 WilddogVideoCall SDK**
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-call-android:<span class="media_android_v">2.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 ### 2.2 安装 WilddogAuth SDK
 
 Token（身份认证令牌）是用户在 WilddogVideo SDK 中的唯一身份标识，用于识别用户身份并控制访问权限。
-WilddogVideo SDK 使用 WilddogAuth SDK 获取合法的 TOKEN。
+WilddogVideoCall SDK 使用 WilddogAuth SDK 获取合法的 TOKEN。
 
 **使用 Gradle 安装 WilddogAuth SDK**
 <figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.6</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
@@ -86,8 +86,8 @@ android {
     WilddogOptions options = builder.build();
     WilddogApp.initializeApp(LoginActivity.this, options);
 ```
-### 4.2 初始化 WilddogVideo SDK
-使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogVideo SDK。
+### 4.2 初始化 WilddogVideoCall SDK
+使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogVideoCall SDK。
 
 ```java
     //使用匿名登录方式进行身份认证
@@ -115,10 +115,10 @@ android {
 
 ## 5. 配置视频通话
 
-使用 `WilddogVideo.getInstance()` 方法获取 [WilddogVideo](/conversation/Android/api/wilddog-video.html) 单例，设置代理 <[WilddogVideo.Listener](/conversation/Android/api/wilddog-video-listener.html)> 用于监听通话请求：
+使用 `WilddogVideoCall.getInstance()` 方法获取 [WilddogVideoCall](/conversation/Android/api/wilddog-video-call.html) 单例，设置代理 <[WilddogVideoCall.Listener](/conversation/Android/api/wilddog-video-call-listener.html)> 用于监听通话请求：
 
 ```java
-     video.setListener(new WilddogVideo.Listener() {
+     video.setListener(new WilddogVideoCall.Listener() {
                 @Override
                 public void onCalled(Conversation conversation, String s) {
                     
@@ -141,7 +141,7 @@ LocalStream localStream = LocalStream.create(options);
 
 ## 6. 开始视频通话
 
-使用 WilddogAuth 登录成功后，用户会获得唯一的 `uid`，在 WilddogVideo SDK 中，使用 `uid` 作为用户的身份标识。
+使用 WilddogAuth 登录成功后，用户会获得唯一的 `uid`，在 WilddogVideoCall SDK 中，使用 `uid` 作为用户的身份标识。
 
 ### 6.1 邀请视频通话
 
@@ -153,10 +153,10 @@ mConversation = video.call(remoteUid,localStream,"conversationDemo");
 
 ### 6.2 接受视频通话
 
-被邀请的用户通过 [WilddogVideo.Listener](/conversation/Android/api/wilddog-video-listener.html) 的 `onCalled(Conversation conversation, String s)` 方法收到 [Conversation](/conversation/Android/api/conversation.html) 实例，使用 `accept()` 接收视频通话：
+被邀请的用户通过 [WilddogVideoCall.Listener](/conversation/Android/api/wilddog-video-call-listener.html) 的 `onCalled(Conversation conversation, String s)` 方法收到 [Conversation](/conversation/Android/api/conversation.html) 实例，使用 `accept()` 接收视频通话：
 
 ```java
-     video.setListener(new WilddogVideo.Listener() {
+     video.setListener(new WilddogVideoCall.Listener() {
                 @Override
                 public void onCalled(Conversation conversation, String s) {
                     mConversation = conversation;
@@ -183,7 +183,7 @@ conversation.setConversationListener(new Conversation.Listener() {
 
     @Override
     public void onStreamReceived(RemoteStream remoteStream) {
-      WilddogVideView remoteView = (WilddogVideView)findViewById(R.id.wvv_remote);
+      WilddogVideoView remoteView = (WilddogVideoView)findViewById(R.id.wvv_remote);
       remoteStream.attach(remoteView);
     }
 

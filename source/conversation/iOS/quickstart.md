@@ -1,7 +1,7 @@
 title: 快速入门
 ---
 
-你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-ios-conversation) 来快速了解 WilddogVideo SDK 的用法。
+你可以通过一个简单的 [示例](https://github.com/WildDogTeam/video-demo-ios-conversation) 来快速了解 WilddogVideoCall SDK 的用法。
 
 <div class="env">
     <p class="env-title">环境准备</p>
@@ -33,7 +33,7 @@ title: 快速入门
 
 ## 2. 使用 CocoaPods 安装 SDK
 
-通过 [Cocoapods](https://cocoapods.org/) 安装 WilddogVideo SDK 以及其依赖的 WilddogAuth SDK。
+通过 [Cocoapods](https://cocoapods.org/) 安装 WilddogVideoCall SDK 以及其依赖的 WilddogAuth SDK。
 
 * 在 Xcode 中创建一个工程，并在 Terminal 中用 `cd` 命令进入到工程所在文件夹内，执行 `pod init` 命令；
 * 打开生成的 `Podfile` 文件，在第一行声明开发平台和版本（如 iOS 8.0），并在随后写入要引入的库：
@@ -41,7 +41,7 @@ title: 快速入门
 ```ruby
 platform :ios, '8.0'
 target 'your-target-name' do
-  pod 'WilddogVideo', '~> 2.1.0'
+  pod 'WilddogVideoCall', '~> 2.2.0'
 end
 ```
 
@@ -70,9 +70,9 @@ Privacy - Microphone Usage Description | String | Your Description
     [WDGApp configureWithOptions:options];
 ```
 
-### 4.2 初始化 WilddogVideo SDK
+### 4.2 初始化 WilddogVideoCall SDK
 
-使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogVideo SDK。
+使用 WilddogAuth SDK 进行身份认证，身份认证成功后，初始化 WilddogVideoCall SDK。
 
 ```objectivec
 [[WDGAuth auth] signOut:nil];
@@ -96,10 +96,10 @@ Privacy - Microphone Usage Description | String | Your Description
 
 ## 5. 配置视频通话
 
-使用 `+[WDGVideo sharedVideo]` 方法获取 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 单例，设置代理 <[WDGVideoDelegate](/conversation/iOS/api/WDGVideoDelegate.html)> 用于监听通话请求：
+使用 `+[WDGVideoCall sharedInstance]` 方法获取 [WDGVideoCall](/conversation/iOS/api/WDGVideoCall.html) 单例，设置代理 <[WDGVideoCallDelegate](/conversation/iOS/api/WDGVideoCallDelegate.html)> 用于监听通话请求：
 
 ```objectivec
-[[WDGVideo sharedVideo].delegate = self;
+[[WDGVideoCall sharedInstance].delegate = self;
 ```
 
 开始视频通话之前，使用 `+[WDGLocalStream localStreamWithOptions:]` 方法创建本地媒体流。
@@ -113,11 +113,11 @@ self.localStream = [WDGLocalStream localStreamWithOptions:localStreamOptions];
 
 ## 6. 开始视频通话
 
-使用 WilddogAuth 登录成功后，用户会获得唯一的 `uid`，在 WilddogVideo SDK 中，使用 `uid` 作为用户的身份标识。
+使用 WilddogAuth 登录成功后，用户会获得唯一的 `uid`，在 WilddogVideoCall SDK 中，使用 `uid` 作为用户的身份标识。
 
 ### 6.1 邀请视频通话
 
-使用 `-[WDGVideo callWithUid:localStream:data:]` 来发起通话请求：
+使用 `-[WDGVideoCall callWithUid:localStream:data:]` 来发起通话请求：
 
 ```objectivec
 self.conversation = [self.video callWithUid:@"remote-uid" localStream:self.localStream data:@"custom-data";
@@ -126,10 +126,10 @@ self.conversation.delegate = self;
 
 ### 6.2 接受视频通话
 
-被邀请的用户通过 [WDGVideo](/conversation/iOS/api/WDGVideo.html) 代理的 `-[WDGVideoDelegate wilddogVideo:didReceiveCallWithConversation:data:]` 方法收到 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例，使用 `-[WDGConversation acceptWithLocalStream:]` 接收视频通话：
+被邀请的用户通过 [WDGVideoCall](/conversation/iOS/api/WDGVideoCall.html) 代理的 `-[WDGVideoCallDelegate wilddogVideoCall:didReceiveCallWithConversation:data:]` 方法收到 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例，使用 `-[WDGConversation acceptWithLocalStream:]` 接收视频通话：
 
 ```objectivec
-- (void)wilddogVideo:(WDGVideo *)video didReceiveCallWithConversation:(WDGConversation *)conversation data:(NSString *)data {
+- (void)wilddogVideoCall:(WDGVideoCall *)videoCall didReceiveCallWithConversation:(WDGConversation *)conversation data:(NSString *)data {
     [conversation acceptWithLocalStream:self.localStream];
     conversation.delegate = self;
 }
@@ -147,4 +147,4 @@ self.conversation.delegate = self;
 
 ## 7. 更多应用
 
-- 了解 WilddogVideo 更多使用方式，请参考 [完整指南](/conversation/iOS/guide/0-concepts.html) 和 [API 文档](/conversation/iOS/api/WDGVideoInitializer.html)。
+- 了解 WilddogVideoCall 更多使用方式，请参考 [完整指南](/conversation/iOS/guide/0-concepts.html) 和 [API 文档](/conversation/iOS/api/WDGVideoInitializer.html)。

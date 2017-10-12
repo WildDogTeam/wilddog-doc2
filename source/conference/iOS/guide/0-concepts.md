@@ -8,7 +8,7 @@ title: 基础概念
 
 ## Stream
 
-WilddogRoom SDK 用 `Stream` 来表示视频会议的参与者。包含 `LocalStream` 和 `RoomStream`:
+WilddogVideoRoom SDK 用 `Stream` 来表示视频会议的参与者。包含 `LocalStream` 和 `RoomStream`:
 
 - LocalStream: 本地媒体流。包括音频流和视频流，需要在加入视频会议前进行配置。
 - RoomStream: 远端媒体流。其他用户发布的媒体流，从 Room 中获取。
