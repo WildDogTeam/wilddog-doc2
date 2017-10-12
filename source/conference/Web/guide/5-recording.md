@@ -3,17 +3,17 @@ title: 视频录制
 
 WilddogVideoRoom SDK 提供服务端视频录制功能。使用视频录制 API 保存通话内容为 .mp4 格式文件。
 ### 开启视频录制
-使用 [`startRecording`](/conference/Web/api/wilddogRoom.html#startRecording()) 方法开启视频录制。
+使用 [startRecording](/conference/Web/api/wilddogRoom.html#startRecording) 方法开启视频录制。
 ```javascript
-room.stopRecording(function(file,error){
+room.stopRecording(function(url,error){
 	if(error == null){
-    	console.log('开始录制，录制的文件地址：'+ file);
+    	console.log('开始录制，录制的文件地址：'+ url);
     }
 });
 ```
 
 ### 录制布局
-使用 [`startRecording`](/conference/Web/api/wilddogRoom.html#startRecording(options)) 方法开启视频录制。
+使用 [startRecording](/conference/Web/api/wilddogRoom.html#startRecording) 方法开启视频录制。
 ```javascript
 var options = {
     "fps":10,
@@ -24,9 +24,9 @@ var options = {
         "627620748239984101":{"left":0,"top":100,"width":100,"height":100,"zOrder":2}
     }
 }
-room.stopRecording(options,function(file,error){
+room.startRecording(options,function(url,error){
 	if(error == null){
-    	console.log('开始录制，录制的文件地址：'+ file);
+    	console.log('开始录制，录制的文件地址：'+ url);
     }
 });
 ```
@@ -44,11 +44,11 @@ streams           | NSDictionary     | 媒体流布局         | { "627620748239
 
 ### 结束视频录制
 
-使用 [`stopRecording`](/conference/Android/api/wilddogRoom.html#stopRecording()) 方法结束视频录制。
+使用 [stopRecording](/conference/Android/api/wilddogRoom.html#stopRecording) 方法结束视频录制。
 ```javascript
-room.stopRecording(function(file,error){
+room.stopRecording(function(url,error){
 	if(error == null){
-    	console.log('停止录制，录制的文件地址：'+ file);
+    	console.log('停止录制，录制的文件地址：'+ url);
     }
 });
 ```

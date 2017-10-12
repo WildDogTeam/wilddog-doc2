@@ -18,7 +18,6 @@ WilddogVideoCall SDK 提供标签引用。
 初始化 WilddogVideoCall 之前，要先经过 [野狗身份认证](/auth/Web/index.html)。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式进行身份认证。
 
 如仅使用WilddogVideoCall SDK，以匿名方式登录后初始化 WilddogVideoCall（推荐使用非匿名登录方式登录），示例代码如下 ：
-如仅使用WilddogVideoCall SDK，以匿名方式登录后初始化 WilddogVideoCall（推荐使用非匿名登录方式登录），示例代码如下 ：
 
 ```javascript
 var config = {

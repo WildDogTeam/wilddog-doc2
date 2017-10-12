@@ -1,11 +1,12 @@
 title: wilddogVideo
 ---
 
+用于初始化 WilddogVideoCall SDK 和 WilddogVideoRoom SDK。
 `wilddogVideo.call()` 是WilddogVideoCall SDK 的主入口，通过wilddogVideo可以初始化，创建 `WilddogVideoCall` 实例及创建本地媒体流等操作。
 
 ## 方法
 
-### initialize({'appId':<videoAppId>,'token': <token>})
+### initialize(options)
 
 **定义**
 
@@ -15,7 +16,7 @@ title: wilddogVideo
 
 **说明**
 
-初始化 `wilddogVideo`。
+初始化 `wilddogVideoCall`。
 
 **参数**
 
@@ -23,6 +24,10 @@ title: wilddogVideo
 |---|---|
 | appId | 在野狗控制面板创建 App 后分配的 Video AppID。 |
 | token | 通过 `WilddogAuth` 验证登录后获取的 [Wilddog ID token](/auth/Web/guide/concept.html#身份认证令牌)。 |
+
+**注意**
+
+`WilddogVideoCall` 对象的使用需要依赖野狗的 Auth，初始化时必须配置 authDomain ，并且 Auth 认证完成后才能获取！
 
 </br>
 
