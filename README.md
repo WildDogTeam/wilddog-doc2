@@ -17,7 +17,7 @@
 1.	原实时数据库 Database 更名为实时数据同步 Sync。这更能表达 Sync 的原理和作用。
 2.	Auth 与 Sync 分离。逐渐 Sync 将成为野狗的核心实时通信引擎。Auth 独立后将会增加例如短信验证码等功能。
 
-如有意见和建议，可以联系 xudanyang@wilddog.com，或者直接提交 issues。
+如有意见和建议，可以联系 wangruixin@wilddog.com，或者直接提交 issues。
 
 ## 本地使用
 
