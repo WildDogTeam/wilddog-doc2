@@ -455,6 +455,7 @@ conference:
       媒体流: /conference/Android/guide/2-mediaStream.html
       管理视频会议: /conference/Android/guide/3-room.html
       发布和订阅: /conference/Android/guide/4-pubAndSub.html
+      媒体流录制: /conference/Android/guide/5-recording.html
     API 文档:
       WilddogVideoInitializer: /conference/Android/api/wilddog-video-initializer.html
       WilddogRoom: /conference/Android/api/wilddog-room.html
