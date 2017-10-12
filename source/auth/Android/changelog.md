@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Android SDK
 
+### V2.0.7 - 2017.10.12
+
+<span class="changelog fix">改进</span>
+
+- 升级socketio应用版本。
+
 ### V2.0.6 - 2017.8.22
 
 <span class="changelog fix">修复</span>
