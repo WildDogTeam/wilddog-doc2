@@ -48,7 +48,7 @@ WilddogVideoRoom SDK 使用 Auth SDK 获取合法的 TOKEN。
 ```javascript
 //初始化 Wilddog Auth
 var config = {
-    authDomain: "<videoAppId>.wilddog.com"
+    authDomain: "<appId>.wilddog.com"
 };
 wilddog.initializeApp(config);
 ```
@@ -61,13 +61,22 @@ wilddog.initializeApp(config);
 // 初始化 WilddogVideoRoom 之前，要先经过身份认证。这里采用匿名登录的方式。
 wilddog.auth().signInAnonymously()
     .then(function(user){
-        //认证成功后，初始化 wilddogVideo
+        //认证成功后，初始化 WilddogVideoRoom
         wilddogVideo.initialize({appId:<videoAppId>,token:user.getToken()})
+        //获取WilddogVideoRoom实例
+        var roomInstance = wilddogVideo.room(roomId);
     }).catch(function (error) {
         // Handle Errors here.
         console.log(error);
     });
 ```
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+ videoAppId 为应用实时视频通话标签页中的 VideoAppID 字段值，请勿与实时通信引擎 AppID 混淆。
+ videoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
+
+</blockquote>
 
 ## 4. 加入 Room
 
