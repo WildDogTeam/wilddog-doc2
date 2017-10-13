@@ -21,7 +21,7 @@ WilddogVideoCall SDK 提供标签引用。
 
 ```javascript
 var config = {
-    authDomain: "<videoAppId>.wilddog.com"
+    authDomain: "<appId>.wilddog.com"
 };
 // 初始化Wilddog auth
 wilddog.initializeApp(config);
