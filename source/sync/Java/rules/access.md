@@ -44,13 +44,13 @@ title: 读写权限控制
 | 内置对象     | 描述                                       |
 | ---------- | ---------------------------------------- |
 | now        | 代表云端的时间戳，以毫秒为单位。                           |
-| root       | [RuleDataSnapshot](/sync/java/rules/ruleapi.html#RuleDataSnapshot-Methods)类型的对象，代表根节点`/`的数据引用。 |
-| newData    | [RuleDataSnapshot](/sync/java/rules/ruleapi.html#RuleDataSnapshot-Methods)类型的对象，代表数据操作之后的新数据引用。 |
-| data       | [RuleDataSnapshot](/sync/java/rules/ruleapi.html#RuleDataSnapshot-Methods)类型的对象，代表数据操作前的原始数据引用。  |
+| root       | [RuleDataSnapshot](/sync/Java/rules/ruleapi.html#RuleDataSnapshot-Methods)类型的对象，代表根节点`/`的数据引用。 |
+| newData    | [RuleDataSnapshot](/sync/Java/rules/ruleapi.html#RuleDataSnapshot-Methods)类型的对象，代表数据操作之后的新数据引用。 |
+| data       | [RuleDataSnapshot](/sync/Java/rules/ruleapi.html#RuleDataSnapshot-Methods)类型的对象，代表数据操作前的原始数据引用。  |
 | $variables | 通配变量。代表节点列表下某个相同的键 (key) 。                       |
 | auth       | 代表已登录用户对象。                   |
 
-内置对象的使用，请参考 [规则表达式 API 参考](/sync/java/rules/ruleapi.html)。
+内置对象的使用，请参考 [规则表达式 API 参考](/sync/Java/rules/ruleapi.html)。
 
 ## $ 通配符
 

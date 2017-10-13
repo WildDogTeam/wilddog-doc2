@@ -9,7 +9,7 @@ title:  错误码
 | 26101 | This client does not have permission to perform this operation | 客户端没有权限执行此操作 |
 | 26102 | Quota limit exceeded. Please contact support@wilddog.com  | 超出套餐限制，请续费或者联系 support@wilddog.com。 |
 | 26103 | QPS speeding, please reduce qps  | 操作数据超过 5 秒 120 次的限制（ 读操作不受此限制）。 |
-| 26104 | Data requested exceeds the maximum size that can be accessed with a single request | 单次请求数据量过大。请参考 [数据限制](/sync/Android/guide/datalimit.html) ) |
+| 26104 | Data requested exceeds the maximum size that can be accessed with a single request | 单次请求数据量过大。请参考 [数据限制](/sync/Java/guide/datalimit.html) ) |
 | 26105 |Size of the leaf node exceeds the limitation (1M bytes)  | 单个叶子节点的数据大小不能大于 1M。 |
 | 26106 | 1. Path specified exceeds the maximum length that can be written (768 bytes) 2. Path specified exceeds the maximum depth that can be written (32) | 路径长度不能大于 768 个字节，路径深度不能大于 32 |
 | 26107 | Connection refused (too many connections) | 独立设备数超限 |

@@ -20,7 +20,7 @@ Transaction.Result doTransaction(MutableData currentData)
 
 参数名 | 说明
 --- | ---
-currentData |[MutableData](/sync/java/api/MutableData.html) 实例。
+currentData |[MutableData](/sync/Java/api/MutableData.html) 实例。
 
 ##### 返回值
 
@@ -44,8 +44,8 @@ void onComplete(SyncError error, boolean committed, DataSnapshot currentData);
 
 参数名 | 说明
 --- | ---
-error |[SyncError](/sync/java/api/SyncError.html) 实例，无错误时值为 null，否则返回错误详细信息。
+error |[SyncError](/sync/Java/api/SyncError.html) 实例，无错误时值为 null，否则返回错误详细信息。
 committed |boolean 类型，成功提交返回 true，否则返回 false。
-currentData |[DataSnapshot](/sync/java/api/DataSnapshot.html) 实例，当前节点数据快照。
+currentData |[DataSnapshot](/sync/Java/api/DataSnapshot.html) 实例，当前节点数据快照。
 </br>
 

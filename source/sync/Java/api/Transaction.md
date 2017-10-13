@@ -2,7 +2,7 @@ title:  Transaction
 ---
 事务处理类。
 `WilddogSync` 提供了 `Transaction.Handler` 来提交事务处理，即 `runTransaction()`。
-执行事务时会提交当前数据快照 [MutableData](/sync/java/api/MutableData.html)，并返回一个 `Transaction.Result` 实例。调用 `abort()` 以及 `success()` 方法都会返回 `Transaction.Result` 实例。
+执行事务时会提交当前数据快照 [MutableData](/sync/Java/api/MutableData.html)，并返回一个 `Transaction.Result` 实例。调用 `abort()` 以及 `success()` 方法都会返回 `Transaction.Result` 实例。
 
 ## 方法
 
@@ -41,7 +41,7 @@ static Transaction.Result success(MutableData resultData)
 
 参数名 | 说明
 --- | ---
-resultData |[MutableData](/sync/java/api/MutableData.html) 类型，需要提交的数据。
+resultData |[MutableData](/sync/Java/api/MutableData.html) 类型，需要提交的数据。
 
 ##### 返回值
 

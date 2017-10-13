@@ -27,7 +27,7 @@ SDK 的安装方式:
 ```java
 // 初始化
 WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
-WilddogApp.initializeApp(this, options);
+WilddogApp.initializeApp(options);
 SyncReference ref = WilddogSync.getInstance().getReference();
 ```
 

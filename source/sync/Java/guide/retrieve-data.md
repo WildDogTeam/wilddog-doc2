@@ -136,7 +136,7 @@ Wilddog Sync 支持按键(key)、按值(value)、按节点的优先级(priority)
 ```java
 // 初始化
 WilddogOptions wilddogOptions = new WilddogOptions.Builder().setSyncUrl("https://class-demo.wilddogio.com").build();
-WilddogApp.initializeApp(this,wilddogOptions);
+WilddogApp.initializeApp(wilddogOptions);
 SyncReference ref = WilddogSync.getInstance().getReference("students");
 Query queryRef = ref.orderByChild("height");
 
@@ -164,7 +164,7 @@ queryRef.addChildEventListener(new ChildEventListener() {
 
 ```java
 WilddogOptions wilddogOptions = new WilddogOptions.Builder().setSyncUrl("https://class-demo.wilddogio.com").build();
-WilddogApp.initializeApp(this,wilddogOptions);
+WilddogApp.initializeApp(wilddogOptions);
 SyncReference ref = WilddogSync.getInstance().getReference("students");
 Query queryRef = ref.orderByKey();
 
@@ -192,7 +192,7 @@ queryRef.addChildEventListener(new ChildEventListener() {
 
 ```java
 WilddogOptions wilddogOptions = new WilddogOptions.Builder().setSyncUrl("https://class-demo.wilddogio.com").build();
-WilddogApp.initializeApp(this,wilddogOptions);
+WilddogApp.initializeApp(wilddogOptions);
 SyncReference ref = WilddogSync.getInstance().getReference("scores");
 Query queryRef = ref.orderByValue();
 
