@@ -10,6 +10,19 @@ Room 表示一个多人的视频会话。多个用户可以加入同一个 Room 
 roomInstance=wilddogVideo.room(roomId);
 roomInstance.connect();
 ```
+
+WilddogVideoRoom 提供了海外服务器节点，在获取`WilddogVideoRoom`对象时携带指定的服务器地址：
+
+```javascript
+roomInstance=wilddogVideo.room(roomId,domain);
+roomInstance.connect();
+```
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+ 如需使用海外节点，请联系客服 400-616-0980。
+</blockquote>
+
 ### 离开 WilddogVideoRoom
 
 使用 [disconnect()](/conference/Web/api/wilddogRoom.html#disconnect) 方法离开当前 Room。离开 Room 后将会结束当前音视频通话，停止发布本地媒体流并取消订阅远端媒体流。
