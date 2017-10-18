@@ -13,12 +13,6 @@ title: 更新日志
 
 - 修复ICE状态变化导致的断开连接回调频繁bug。
 
-### v2.1.1 - 2017.09.27
-
-<span class="changelog optimize">优化</span>
-
-- 优化stun和turn服务。
-
 
 ### v2.1.0 - 2017.09.19
 
