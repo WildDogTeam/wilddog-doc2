@@ -9,6 +9,7 @@ title: 快速入门
     <p class="env-title">环境准备</p>
     <ul>
         <li>最低支持 Chrome 22、Firefox 23、Safari 11、Edge 15 等主流浏览器环境</li>
+        <li>生产环境部署必须使用https</li>
     </ul>
 </div>
 
