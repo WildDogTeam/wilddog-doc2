@@ -8,6 +8,7 @@ title: 快速入门
     <p class="env-title">环境准备</p>
     <ul>
         <li> Chrome 49及以后、Firefox 47及以后、Safari 11及以后浏览器 </li>
+        <li> 由于浏览器安全策略的限制，所以必须使用https（本地开发环境例外） </li>
     </ul>
 </div>
 
@@ -55,7 +56,7 @@ WilddogVideoCall SDK 使用 Auth SDK 获取合法的 TOKEN。
 ```javascript
 //初始化 Wilddog Auth
 var config = {
-    authDomain: "<videaAppId>.wilddog.com"
+    authDomain: "<appId>.wilddog.com"
 };
 wilddog.initializeApp(config);
 ```
@@ -68,7 +69,7 @@ wilddog.initializeApp(config);
 // 初始化 WilddogVideoCall 之前，要先经过身份认证。这里采用匿名登录的方式。推荐使用其他登录方式。
 wilddog.auth().signInAnonymously()
     .then(function(user){
-        //认证成功后，初始化 wilddogVideoCall
+        //认证成功后，初始化 WilddogVideoCall
         wilddogVideo.initialize({'appId':<videoAppId>,'token':user.getToken()})
         //获取 `WilddogVideoCall` 实例
         videoInstance = wilddogVideo.call();
@@ -78,6 +79,12 @@ wilddog.auth().signInAnonymously()
     });
 ```
 
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+ videoAppId 为应用实时视频通话标签页中的 videoAppID 字段值，请勿与实时通信引擎 AppID 混淆。
+ videoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
+
+</blockquote>
 
 ## 4. 配置视频通话
 初始化 `WilddogVideoCall SDK` 后，通过 `wilddogVideo.call()` 获取 `WilddogVideoCall` 对象，设置监听用于监听通话请求：

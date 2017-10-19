@@ -30,8 +30,8 @@ wilddog.initializeApp(config);
 wilddog.auth().signInAnonymously()
     .then(function(user){
         //认证成功后，初始化 WilddogVideoRoom
-        wilddogVideo.initialize({'appId':<appId>,'token':user.getToken()});
-        //获取room对象
+        wilddogVideo.initialize({'appId':<videoAppId>,'token':user.getToken()});
+        //获取WilddogVideoRoom实例
         var roomInstance = wilddogVideo.room(roomId);
     }).catch(function (error) {
         // Handle Errors here.
