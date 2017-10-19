@@ -8,7 +8,7 @@ title: 快速入门
     <p class="env-title">环境准备</p>
     <ul>
         <li> Chrome 49及以后、Firefox 47及以后、Safari 11及以后浏览器 </li>
-        <li> 生产环境部署必须使用https </li>
+        <li> 由于浏览器安全策略的限制，所以必须使用https（本地开发环境例外） </li>
     </ul>
 </div>
 
