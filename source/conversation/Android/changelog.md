@@ -3,48 +3,55 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.2.1 - 2017.10.19
+
+<span class="changelog optimize">优化</span>
+
+- 支持 Android SDK API Level 16 以上系统。
+- 增加 vp8/vp9 动态码率支持，优化传输码率。
+
 ### v2.2.0 - 2017.10.12
 
 <span class="changelog optimize">优化</span>
 
-- 产品名称修改为WilddogVideoCall。
+- 产品名称修改为 WilddogVideoCall。
 
 <span class="changelog fix">修复</span>
 
-- 修复ICE状态变化导致的断开连接回调频繁bug。
+- 修复 ICE 状态变化导致的断开连接回调频繁 bug。
 
 
 ### v2.1.0 - 2017.09.19
 
 <span class="changelog add">新增</span>
 
-- 新增WilddogVideoInitializer类用来初始化SDK和设置token。
+- 新增 WilddogVideoInitializer 类用来初始化 SDK 和设置 token。
 
 <span class="changelog optimize">优化</span>
 
-- 优化LocalStream创建方式。
+- 优化 LocalStream 创建方式。
 
 ### v2.0.4 - 2017.09.04
 
 <span class="changelog add">新增</span>
 
-- 新增arm64-v8a,x86,x86_64的video so库文件,以支持不同cpu架构的安卓系统。
+- 新增 arm64-v8a/x86/x86_64 CPU 架构平台支持。
 
 <span class="changelog fix">修复</span>
 
-- 修复切换用户后重新初始化SDK无法收到呼叫的bug。
+- 修复切换用户后重新初始化SDK无法收到呼叫的 bug。
 
 ### v2.0.3 - 2017.08.28
 
 <span class="changelog fix">修复</span>
 
-- 修复呼叫方超时接口不触发的bug。
+- 修复呼叫方超时接口不触发的 bug。
 
 ### v2.0.2 - 2017.08.23
 
 <span class="changelog fix">修复</span>
 
-- 修复被叫方获取主叫方携带信息一直为null的bug。
+- 修复被叫方获取主叫方携带信息一直为 null 的 bug。
 
 ### v2.0.1 - 2017.08.22
 

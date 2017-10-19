@@ -176,7 +176,7 @@ boolean startLocalRecording(File file,WilddogVideoView local, WilddogVideoView r
 
 **说明**
 
-开始多媒体录制,将视频存储到传入的文件对象中,需要用户自己申请读写存储设备的权限。
+开始多媒体录制,将视频存储到传入的文件对象中,需要用户自己申请读写存储设备的权限。视频录制功能支持在Android API level 18及其以上版本使用。
 
 **参数**
 
@@ -206,7 +206,7 @@ void stopLocalRecording()
 
 **说明**
 
-结束多媒体录制。
+结束多媒体录制。视频录制功能支持在Android API level 18及其以上版本使用。
 
 **示例**
 

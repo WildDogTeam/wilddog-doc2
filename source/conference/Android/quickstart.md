@@ -10,7 +10,7 @@ title: 快速入门
     <ul>
         <li>支持 Android Studio 1.4 以上</li>
         <li>支持 JDK 7.0 以上版本</li>
-        <li>支持 Android 手机系统 4.4 以上，即 Android SDK 19 以上版本</li>
+        <li>支持 Android 手机系统 4.1 以上，即 Android SDK 16 以上版本</li>
     </ul>
 </div>
 
