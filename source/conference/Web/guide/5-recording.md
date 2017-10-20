@@ -5,7 +5,7 @@ WilddogVideoRoom SDK 提供服务端视频录制功能。使用视频录制 API 
 ### 开启视频录制
 使用 [startRecording](/conference/Web/api/wilddogRoom.html#startRecording) 方法开启视频录制。
 ```javascript
-room.stopRecording(function(url,error){
+room.startRecording(function(url,error){
 	if(error == null){
     	console.log('开始录制，录制的文件地址：'+ url);
     }

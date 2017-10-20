@@ -166,7 +166,7 @@ roomStream        | 远端媒体流 [RoomStream](/conference/Web/api/roomStream.
 **定义**
 
 ```javascript
-roomInstance.stopRecording(callback);
+roomInstance.startRecording(callback);
 ```
 
 **说明**
