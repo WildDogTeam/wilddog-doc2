@@ -41,7 +41,7 @@ title: 快速入门
 ```ruby
 platform :ios, '8.0'
 target 'your-target-name' do
-  pod 'WilddogVideoCall', '~> 2.2.0'
+  pod 'WilddogVideoCall'
 end
 ```
 
