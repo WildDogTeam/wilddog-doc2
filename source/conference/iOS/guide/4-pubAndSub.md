@@ -34,7 +34,7 @@ title: 发布和订阅
 
 ## 订阅远端媒体流
 
-在新加入一个视频会议，或者视频会议进行中有其他用户加入时，[WDGRoom](/conference/iOS/api/WDGRoom.html) 的代理会通过 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]` 回调方法来通知客户端有远端媒体流可以订阅：
+在新加入一个多人视频通话，或者多人视频通话进行中有其他用户加入时，[WDGRoom](/conference/iOS/api/WDGRoom.html) 的代理会通过 `-[WDGRoomDelegate wilddogRoom:didStreamAdded:]` 回调方法来通知客户端有远端媒体流可以订阅：
 
 ```objectivec
 - (void)wilddogRoom:(WDGRoom *)wilddogRoom didStreamAdded:(WDGRoomStream *)roomStream {
