@@ -89,12 +89,12 @@ Privacy - Microphone Usage Description | String | Your Description
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
- VideoAppId 为应用 `实时视频通话-配置` 标签页中的 VideoAppID 字段值，请勿与应用的 AppID 混淆。
+ VideoAppId 为应用 `实时一对一视频通话-配置` 标签页中的 VideoAppID 字段值，请勿与应用的 AppID 混淆。
  VideoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
 </blockquote>
 
 
-## 5. 配置视频通话
+## 5. 配置一对一视频通话
 
 使用 `+[WDGVideoCall sharedInstance]` 方法获取 [WDGVideoCall](/conversation/iOS/api/WDGVideoCall.html) 单例，设置代理 <[WDGVideoCallDelegate](/conversation/iOS/api/WDGVideoCallDelegate.html)> 用于监听通话请求：
 
@@ -102,7 +102,7 @@ Privacy - Microphone Usage Description | String | Your Description
 [[WDGVideoCall sharedInstance].delegate = self;
 ```
 
-开始视频通话之前，使用 `+[WDGLocalStream localStreamWithOptions:]` 方法创建本地媒体流。
+开始一对一视频通话之前，使用 `+[WDGLocalStream localStreamWithOptions:]` 方法创建本地媒体流。
 
 ```objectivec
 WDGLocalStreamOptions *localStreamOptions = [[WDGLocalStreamOptions alloc] init];
@@ -111,11 +111,11 @@ localStreamOptions.dimension = WDGVideoDimensions360p;
 self.localStream = [WDGLocalStream localStreamWithOptions:localStreamOptions];
 ```
 
-## 6. 开始视频通话
+## 6. 开始一对一视频通话
 
 使用 WilddogAuth 登录成功后，用户会获得唯一的 `uid`，在 WilddogVideoCall SDK 中，使用 `uid` 作为用户的身份标识。
 
-### 6.1 邀请视频通话
+### 6.1 邀请一对一视频通话
 
 使用 `-[WDGVideoCall callWithUid:localStream:data:]` 来发起通话请求：
 
@@ -124,9 +124,9 @@ self.conversation = [self.video callWithUid:@"remote-uid" localStream:self.local
 self.conversation.delegate = self;
 ```
 
-### 6.2 接受视频通话
+### 6.2 接受一对一视频通话
 
-被邀请的用户通过 [WDGVideoCall](/conversation/iOS/api/WDGVideoCall.html) 代理的 `-[WDGVideoCallDelegate wilddogVideoCall:didReceiveCallWithConversation:data:]` 方法收到 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例，使用 `-[WDGConversation acceptWithLocalStream:]` 接收视频通话：
+被邀请的用户通过 [WDGVideoCall](/conversation/iOS/api/WDGVideoCall.html) 代理的 `-[WDGVideoCallDelegate wilddogVideoCall:didReceiveCallWithConversation:data:]` 方法收到 [WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例，使用 `-[WDGConversation acceptWithLocalStream:]` 接收一对一视频通话：
 
 ```objectivec
 - (void)wilddogVideoCall:(WDGVideoCall *)videoCall didReceiveCallWithConversation:(WDGConversation *)conversation data:(NSString *)data {
@@ -137,7 +137,7 @@ self.conversation.delegate = self;
 
 ### 6.3 播放媒体流
 
-视频通话链接成功后，通话双方会通过 [Conversation](/conversation/iOS/api/WDGConversation.html) 代理的 `-[WDGConversation conversation:didReceiveStream:]` 方法收到 [WDGRemoteStream](/conversation/iOS/api/WDGRemoteStream.html) 实例，使用 `-[WDGRemoteStream attach:]` 方法播放远端媒体流：
+一对一视频通话链接成功后，通话双方会通过 [Conversation](/conversation/iOS/api/WDGConversation.html) 代理的 `-[WDGConversation conversation:didReceiveStream:]` 方法收到 [WDGRemoteStream](/conversation/iOS/api/WDGRemoteStream.html) 实例，使用 `-[WDGRemoteStream attach:]` 方法播放远端媒体流：
 
 ```objectivec
 - (void)conversation:(WDGConversation *)conversation didReceiveStream:(WDGRemoteStream *)remoteStream {

@@ -30,7 +30,7 @@ android {
 
 [WilddogVideoCall](/conversation/Android/api/wilddog-video-call.html) 是 WilddogVideoCall SDK 功能的主入口。用户在使用 SDK 之前，要初始化 `WilddogVideoCall` 实例，以连接野狗服务器。
 
-初始化之前，打开控制面板 - 应用 - 视频通话 - 配置，获取 VideoAppID。
+初始化之前，打开控制面板 - 应用 - 实时视频通话 - 配置，获取 VideoAppID。
 
 初始化 `WilddogVideoCall` 之前，要先经过 [野狗身份认证](/auth/Android/index.html)。开发者可以根据需要选择匿名登录、邮箱密码、第三方或自定义认证等方式进行身份认证。
 

@@ -1,7 +1,7 @@
-title: 视频通话
+title: 一对一视频通话
 ---
 
-本篇文档介绍如何建立视频通话。在主叫的一方，这个过程包括发起通话请求，收到回应，关闭通话；在被叫的一方，这个过程包括收到视频通话请求，接受／拒绝通话请求，关闭通话。
+本篇文档介绍如何建立一对一视频通话。在主叫的一方，这个过程包括发起通话请求，收到回应，关闭通话；在被叫的一方，这个过程包括收到一对一视频通话请求，接受／拒绝通话请求，关闭通话。
 
 ### 发起通话请求
 
@@ -11,7 +11,7 @@ title: 视频通话
 * localStream: 通话发起方的本地媒体流；
 * data: 用户自定义信息，可以为空。
 
-调用该方法返回 [Conversation](/conversation/Web/api/conversation.html) 实例，用于控制本次视频通话。
+调用该方法返回 [Conversation](/conversation/Web/api/conversation.html) 实例，用于控制本次一对一视频通话。
 
 ```javascript
 mConversation = video.call(remoteUid,localStream,"userData");
@@ -34,7 +34,7 @@ mConversation.on('stream_received',function(stream){
 videoInstance.on('called',function(incomingConversation){
     incomingConversation.accept(localStream)
         .then(function(conversation){
-            //接受邀请成功，加入视频通话
+            //接受邀请成功，加入一对一视频通话
         });
 })
 ```
@@ -78,7 +78,7 @@ mConversation.on('response',function(callStatus) {
 })
 ```
 
-### 关闭视频通话
+### 关闭一对一视频通话
 
 使用 `close()` 来取消呼叫或者结束通话。
 

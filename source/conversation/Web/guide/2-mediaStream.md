@@ -6,7 +6,7 @@ title: 媒体流
 ## 本地媒体流(LocalStream)
 ### 创建本地媒体流
 
-本地媒体流包含了本地设备所采集的音频、视频信息，是视频通话所需要的基本数据。
+本地媒体流包含了本地设备所采集的音频、视频信息，是一对一视频通话所需要的基本数据。
 使用 [wilddogVideo.createLocalStream(options)](/conversation/Web/api/wilddogVideoInitializer.html#createLocalStream) 方法创建本地媒体流:
 
 ```javascript

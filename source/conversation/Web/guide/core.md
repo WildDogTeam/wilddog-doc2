@@ -4,7 +4,7 @@ title: 基础概念
 
 ### Video
 
-Video 即客户端代理（User Agent, UA），通过 Video实例，客户端可以建立视频通话。
+Video 即客户端代理（User Agent, UA），通过 Video实例，客户端可以建立一对一视频通话。
 
 ### Conversation
 
@@ -12,7 +12,7 @@ Conversation 即一对一视频通话，使用点对点的传输方式，音视�
 
 ### Local Stream
 
-本地媒体流，包括本地音频流和视频流，需要在发起视频通话前进行配置。
+本地媒体流，包括本地音频流和视频流，需要在发起一对一视频通话前进行配置。
 
 ### Remote Stream
 

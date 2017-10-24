@@ -20,12 +20,12 @@ typedef NS_ENUM(NSUInteger, WDGCallStatus) {
 
 **说明**
 
-表示视频通话或会议的连接状态。
+表示一对一视频通话或会议的连接状态。
 
 - `WDGCallStatusAccepted`: 表示视频通话邀请被接受。
-- `WDGCallStatusRejected`: 表示视频通话邀请被拒绝。
+- `WDGCallStatusRejected`: 表示一对一视频通话邀请被拒绝。
 - `WDGCallStatusBusy`: 表示被叫用户正忙。
-- `WDGCallStatusTimeout`: 表示视频通话请求等待超时。
+- `WDGCallStatusTimeout`: 表示一对一视频通话请求等待超时。
 
 </br>
 

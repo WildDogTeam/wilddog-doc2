@@ -81,12 +81,12 @@ wilddog.auth().signInAnonymously()
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
- videoAppId 为应用实时视频通话标签页中的 videoAppID 字段值，请勿与实时通信引擎 AppID 混淆。
+ videoAppId 为应用实时一对一视频通话标签页中的 videoAppID 字段值，请勿与实时通信引擎 AppID 混淆。
  videoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
 
 </blockquote>
 
-## 4. 配置视频通话
+## 4. 配置一对一视频通话
 初始化 `WilddogVideoCall SDK` 后，通过 `wilddogVideo.call()` 获取 `WilddogVideoCall` 对象，设置监听用于监听通话请求：
  
 ```javascript
@@ -100,22 +100,22 @@ videoInstance.on('token_error',function() {
 
 ```
 
-## 5. 开始视频通话
+## 5. 开始一对一视频通话
 
 使用 WilddogAuth 登录成功后，用户会获得唯一的 uid，在 WilddogVideoCall SDK 中，使用 uid 作为用户的身份标识。
 
-### 5.1 邀请视频通话
+### 5.1 邀请一对一视频通话
 
-使用 `call()` 来发起视频通话请求
+使用 `call()` 来发起一对一视频通话请求
 
 ```javascript
 
 mConversation = videoInstance.call(remoteUid,localStream,'conversationDemo');
 ```
 
-### 5.2 接受视频通话
+### 5.2 接受一对一视频通话
 
-被邀请的用户通过 `videoInstance.on('called',callback)` 事件收到 `Conversation` 实例，使用 `accept（）` 方法接收视频通话：
+被邀请的用户通过 `videoInstance.on('called',callback)` 事件收到 `Conversation` 实例，使用 `accept（）` 方法接收一对一视频通话：
 
 ```javascript
 
@@ -128,7 +128,7 @@ videoInstance.on('called',function(conversation){
 
 ### 5.3 播放媒体流 
 
-视频通话链接成功后，通话双方会通过 `mConversation.on('stream_received',callback)` 事件收到 RemoteStream 实例，使用 attach() 方法将远端媒体流放入 `video` 标签中播放：
+一对一视频通话链接成功后，通话双方会通过 `mConversation.on('stream_received',callback)` 事件收到 RemoteStream 实例，使用 attach() 方法将远端媒体流放入 `video` 标签中播放：
 
 ```javascript
 

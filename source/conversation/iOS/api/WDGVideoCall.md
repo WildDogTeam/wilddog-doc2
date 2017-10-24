@@ -1,7 +1,7 @@
 title: WDGVideoCall
 ---
 
-`WDGVideoCall` 是程序的主入口，用于创建并配置本地媒体流，发起视频通话。
+`WDGVideoCall` 是程序的主入口，用于创建并配置本地媒体流，发起一对一视频通话。
 
 ## 属性
 
@@ -15,7 +15,7 @@ title: WDGVideoCall
 
 **说明**
 
-符合 [WDGVideoCallDelegate](/conversation/iOS/api/WDGVideoCallDelegate.html) 协议的代理，用于接收视频通话邀请、在 token 错误时接收错误信息。
+符合 [WDGVideoCallDelegate](/conversation/iOS/api/WDGVideoCallDelegate.html) 协议的代理，用于接收一对一视频通话邀请、在 token 错误时接收错误信息。
 
 </br>
 
@@ -53,7 +53,7 @@ title: WDGVideoCall
 
 **说明**
 
-开启或者重置与视频通话相关的 WebSocket 连接。执行 `- configureWithVideoAppId:token:` 时默认会自动开启 WebSocket 连接。
+开启或者重置与一对一视频通话相关的 WebSocket 连接。执行 `- configureWithVideoAppId:token:` 时默认会自动开启 WebSocket 连接。
 
 </br>
 
@@ -69,7 +69,7 @@ title: WDGVideoCall
 
 **说明**
 
-断开与视频通话相关的 WebSocket 连接。
+断开与一对一视频通话相关的 WebSocket 连接。
 
 </br>
 
@@ -85,7 +85,7 @@ title: WDGVideoCall
 
 **说明**
 
-发起视频通话邀请，需要指定被叫方的 uid，并且添加本地的媒体流。
+发起一对一视频通话邀请，需要指定被叫方的 uid，并且添加本地的媒体流。
 
 **参数**
 
@@ -97,7 +97,7 @@ data              | 随邀请传递的字符串类型的数据，可以为空。
 
 **返回值**
 
-[WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例，代表主叫方创建的视频通话。
+[WDGConversation](/conversation/iOS/api/WDGConversation.html) 实例，代表主叫方创建的一对一视频通话。
 
 </br>
 

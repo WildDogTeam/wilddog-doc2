@@ -1,7 +1,7 @@
 title: WDGConversation
 ---
 
-`WDGConversation` 代表用户参与的视频通话，同一时间只能参与一个视频通话。
+`WDGConversation` 代表用户参与的一对一视频通话，同一时间只能参与一个一对一视频通话。
 
 ## 属性
 
@@ -15,7 +15,7 @@ title: WDGConversation
 
 **说明**
 
-表示视频通话对方的 uid。
+表示一对一视频通话对方的 uid。
 
 </br>
 
@@ -65,7 +65,7 @@ title: WDGConversation
 
 **说明**
 
-接受视频通话邀请，并上传自己的本地媒体流。
+接受一对一视频通话邀请，并上传自己的本地媒体流。
 
 **参数**
 
@@ -87,7 +87,7 @@ localStream       | 表示本地媒体流。请参考 [WDGLocalStream](/conversa
 
 **说明**
 
-拒绝视频通话邀请。
+拒绝一对一视频通话邀请。
 
 </br>
 
@@ -103,7 +103,7 @@ localStream       | 表示本地媒体流。请参考 [WDGLocalStream](/conversa
 
 **说明**
 
-结束当前视频通话。
+结束当前一对一视频通话。
 
 </br>
 

@@ -108,12 +108,12 @@ android {
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
- VIDEO_APP_ID 为应用实时视频通话标签页中的 VideoAppID 字段值，请勿与实时通信引擎 AppID 混淆。
+ VIDEO_APP_ID 为应用实时一对一视频通话标签页中的 VideoAppID 字段值，请勿与实时通信引擎 AppID 混淆。
  VideoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
 
 </blockquote>
 
-## 5. 配置视频通话
+## 5. 配置一对一视频通话
 
 使用 `WilddogVideoCall.getInstance()` 方法获取 [WilddogVideoCall](/conversation/Android/api/wilddog-video-call.html) 单例，设置代理 <[WilddogVideoCall.Listener](/conversation/Android/api/wilddog-video-call-listener.html)> 用于监听通话请求：
 
@@ -131,7 +131,7 @@ android {
             });
 ```
 
-开始视频通话之前，使用 `LocalStream.create()` 方法创建本地媒体流。
+开始一对一视频通话之前，使用 `LocalStream.create()` 方法创建本地媒体流。
 
 ```java
 LocalStreamOptions.Builder builder = new LocalStreamOptions.Builder();
@@ -139,11 +139,11 @@ LocalStreamOptions options = builder.build();
 LocalStream localStream = LocalStream.create(options);
 ```
 
-## 6. 开始视频通话
+## 6. 开始一对一视频通话
 
 使用 WilddogAuth 登录成功后，用户会获得唯一的 `uid`，在 WilddogVideoCall SDK 中，使用 `uid` 作为用户的身份标识。
 
-### 6.1 邀请视频通话
+### 6.1 邀请一对一视频通话
 
 使用 `call()` 来发起通话请求：
 
@@ -151,9 +151,9 @@ LocalStream localStream = LocalStream.create(options);
 mConversation = video.call(remoteUid,localStream,"conversationDemo");
 ```
 
-### 6.2 接受视频通话
+### 6.2 接受一对一视频通话
 
-被邀请的用户通过 [WilddogVideoCall.Listener](/conversation/Android/api/wilddog-video-call-listener.html) 的 `onCalled(Conversation conversation, String s)` 方法收到 [Conversation](/conversation/Android/api/conversation.html) 实例，使用 `accept()` 接收视频通话：
+被邀请的用户通过 [WilddogVideoCall.Listener](/conversation/Android/api/wilddog-video-call-listener.html) 的 `onCalled(Conversation conversation, String s)` 方法收到 [Conversation](/conversation/Android/api/conversation.html) 实例，使用 `accept()` 接收一对一视频通话：
 
 ```java
      video.setListener(new WilddogVideoCall.Listener() {
@@ -172,7 +172,7 @@ mConversation = video.call(remoteUid,localStream,"conversationDemo");
 
 ### 6.3 播放媒体流
 
-视频通话链接成功后，通话双方会通过 [Conversation](/conversation/Android/api/conversation.html) 代理的 `onStreamReceived(RemoteStream remoteStream)` 方法收到 [RemoteStream](/conversation/Android/api/remote-stream.html) 实例，使用 `attach()` 方法播放远端媒体流：
+一对一视频通话链接成功后，通话双方会通过 [Conversation](/conversation/Android/api/conversation.html) 代理的 `onStreamReceived(RemoteStream remoteStream)` 方法收到 [RemoteStream](/conversation/Android/api/remote-stream.html) 实例，使用 `attach()` 方法播放远端媒体流：
 
 ```java
 conversation.setConversationListener(new Conversation.Listener() {

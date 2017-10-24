@@ -50,7 +50,7 @@ void setListener(Listener listener)
 
 | 参数名 | 描述 |
 |---|---|
-|listener|[WilddogVideoCall.Listener](/conversation/Android/api/wilddog-video-call-listener.html),视频通话邀请监听,监听当前邀请状态|
+|listener|[WilddogVideoCall.Listener](/conversation/Android/api/wilddog-video-call-listener.html),一对一视频通话邀请监听,监听当前邀请状态|
 
 **示例**
 
@@ -75,7 +75,7 @@ Conversation call(String uid, LocalStream localStream, String data)
 
 **说明**
 
-呼叫其他人加入视频通话,对方接受邀请将创建一个新视频通话。
+呼叫其他人加入一对一视频通话,对方接受邀请将创建一个新一对一视频通话。
 
 **参数**
 
@@ -131,7 +131,7 @@ void stop()
 
 **说明**
 
-与服务器断开连接，不在收到视频通话邀请。
+与服务器断开连接，不再收到一对一视频通话邀请。
 
 **示例**
 

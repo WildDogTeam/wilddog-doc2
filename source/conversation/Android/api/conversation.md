@@ -1,7 +1,7 @@
 title: Conversation
 -------------------
 
-视频通话类，实现一对一的视频通话功能。
+一对一视频通话类，实现一对一视频通话功能。
 
 ## 属性
 
@@ -15,12 +15,12 @@ String getRemoteUid()
 
 **说明**
 
-获取当前视频通话远端 UID，此 ID 为不重复的字符串。
+获取当前一对一视频通话远端 UID，此 ID 为不重复的字符串。
 
 
 **返回值**
 
-当前视频通话远端 UID。
+当前一对一视频通话远端 UID。
 
 ---
 
@@ -73,7 +73,7 @@ void close()
 
 **说明**
 
-取消或挂断当前视频通话。
+取消或挂断当前一对一视频通话。
 
 
 ---
@@ -88,13 +88,13 @@ void setConversationListener(Conversation.Listener listener)
 
 **说明**
 
-为视频通话设置状态监听,当被邀请者接受或拒绝时会改变视频通话的状态, Wilddog Video SDK 会触发 `Conversation.Listener` 的回调方法通知监听者。
+为一对一视频通话设置状态监听,当被邀请者接受或拒绝时会改变一对一视频通话的状态, Wilddog Video SDK 会触发 `Conversation.Listener` 的回调方法通知监听者。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|listener|视频通话状态监听[Conversation.Listener](/conversation/Android/api/conversation-listener.html),参与者连接成功后会触发 onResponse 事件|
+|listener|一对一视频通话状态监听[Conversation.Listener](/conversation/Android/api/conversation-listener.html),参与者连接成功后会触发 onResponse 事件|
 
 
 **示例**
@@ -136,14 +136,14 @@ void setStatsListener(StatsListener listener)
 
 **说明**
 
-设置视频通话统计监听，用于获取视频流统计数据。
-当视频通话生成统计信息后通过回调通知用户当前通话的统计信息，在连接成功后会生成统计信息（通常有 2-5 秒左右延迟），随后会以 2 秒为间隔不间断的触发回调方法返回统计信息。
+设置一对一视频通话统计监听，用于获取视频流统计数据。
+当一对一视频通话生成统计信息后通过回调通知用户当前通话的统计信息，在连接成功后会生成统计信息（通常有 2-5 秒左右延迟），随后会以 2 秒为间隔不间断的触发回调方法返回统计信息。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|listener|[StatsListener](/conversation/Android/api/stats-listener.html)，视频通话统计监听|
+|listener|[StatsListener](/conversation/Android/api/stats-listener.html)，一对一视频通话统计监听|
 
 
 **示例**

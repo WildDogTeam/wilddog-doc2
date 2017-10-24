@@ -1,7 +1,7 @@
 title: Conversation.Listener
 ---
 
-视频通话状态回调,当视频通话呼叫状态改变和参与者状态改变时会触发回调方法通知使用者视频通话的状态。
+一对一视频通话状态回调,当一对一视频通话呼叫状态改变和参与者状态改变时会触发回调方法通知使用者一对一视频通话的状态。
 
 ## 方法
 
@@ -15,7 +15,7 @@ onCallResponse(CallStatus status)
 
 **说明**
 
-视频通话中呼叫状态变更的回调。
+一对一视频通话中呼叫状态变更的回调。
 
 **参数**
 
@@ -59,13 +59,13 @@ void onError(WilddogVideoError error);
 
 **说明**
 
-视频通话过程中产生的错误,由此接口回调。
+一对一视频通话过程中产生的错误,由此接口回调。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|error|[WilddogVideoError](/video/Android/api/wilddog-video-error.html),视频通话过程中的错误信息|
+|error|[WilddogVideoError](/video/Android/api/wilddog-video-error.html),一对一视频通话过程中的错误信息|
 
 </br>
 

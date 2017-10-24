@@ -15,7 +15,7 @@ void onCalled(Conversation conversation, String data);
 
 **说明**
 
-`WilddogVideoCall` 接收到视频通话呼叫时触发此方法。
+`WilddogVideoCall` 接收到一对一视频通话呼叫时触发此方法。
 
 **参数**
 
@@ -38,7 +38,7 @@ void onTokenError(WilddogVideoError error);
 
 **说明**
 
-视频通话token错误回调,一般由于Token过期等原因导致。
+一对一视频通话token错误回调,一般由于Token过期等原因导致。
 
 **参数**
 

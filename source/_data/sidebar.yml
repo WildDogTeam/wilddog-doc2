@@ -329,7 +329,7 @@ conversation:
       基础概念: /conversation/Web/guide/0-concepts.html
       安装和初始化: /conversation/Web/guide/1-install.html
       媒体流: /conversation/Web/guide/2-mediaStream.html
-      管理视频通话: /conversation/Web/guide/3-conversation.html
+      管理一对一视频通话: /conversation/Web/guide/3-conversation.html
       媒体流统计: /conversation/Web/guide/4-statistics.html
     API 文档:
       WilddogVideoInitializer: /conversation/Web/api/wilddogVideoInitializer.html
@@ -347,7 +347,7 @@ conversation:
       基础概念: /conversation/iOS/guide/0-concepts.html
       安装和初始化: /conversation/iOS/guide/1-install.html
       媒体流: /conversation/iOS/guide/2-mediaStream.html
-      管理视频通话: /conversation/iOS/guide/3-conversationManagement.html
+      管理一对一视频通话: /conversation/iOS/guide/3-conversationManagement.html
       美颜滤镜: /conversation/iOS/guide/4-videoFilter.html
       本地视频录制: /conversation/iOS/guide/5-recording.html
       媒体流统计: /conversation/iOS/guide/6-statistics.html
@@ -377,7 +377,7 @@ conversation:
       基础概念: /conversation/Android/guide/0-concepts.html
       安装和初始化: /conversation/Android/guide/1-install-sdk.html
       媒体流: /conversation/Android/guide/2-mediaStream.html
-      管理视频通话: /conversation/Android/guide/3-conversationManagement.html
+      管理一对一视频通话: /conversation/Android/guide/3-conversationManagement.html
       美颜滤镜: /conversation/Android/guide/4-beauty.html
       本地视频录制: /conversation/Android/guide/5-recording.html
       媒体流统计: /conversation/Android/guide/6-statistics.html
