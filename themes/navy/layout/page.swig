@@ -73,7 +73,7 @@
     </div>
   </div>
 </div>
-<div class="feed-back">
+{# <div class="feed-back">
   <img src="/images/feed-bg.svg" class="feed-bg" alt="">
   <div class="feed-content">
     <div class="feed-text-content clearfix">
@@ -83,5 +83,5 @@
     <a href="https://www.wenjuan.com/s/jQN7Bj/" target='_blank' class="feed-link">参与调研</a>
   </div>
   <span class="close-feed"><img src="/images/close.svg" alt=""></span>
-</div>
+</div> #}
 {{ partial('partial/after_footer') }}
