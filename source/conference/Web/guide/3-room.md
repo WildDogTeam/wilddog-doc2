@@ -1,4 +1,4 @@
-title: 管理多人视频通话
+title: 管理视频会议
 ---
 
 Room 表示一个多人的视频会话。多个用户可以加入同一个 Room 进行音视频通话。
@@ -14,7 +14,7 @@ roomInstance.connect();
 WilddogVideoRoom 提供了海外服务器节点，在获取`WilddogVideoRoom`对象时携带指定的服务器地址：
 
 ```javascript
-roomInstance=wilddogVideo.room(roomId,domain);
+roomInstance=wilddogVideo.room(roomId,url);
 roomInstance.connect();
 ```
 
