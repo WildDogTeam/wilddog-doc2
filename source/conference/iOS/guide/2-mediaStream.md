@@ -7,7 +7,7 @@ title: 媒体流
 
 ### 创建本地媒体流
 
-本地媒体流包含了本地设备所采集的音频、视频信息，是多人视频通话所需要的基本数据。在加入多人视频通话之前，需要创建 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html) 实例：
+本地媒体流包含了本地设备所采集的音频、视频信息，是视频会议所需要的基本数据。在加入视频会议之前，需要创建 [WDGLocalStream](/conference/iOS/api/WDGLocalStream.html) 实例：
 
 ```objectivec
 WDGLocalStream *localStream = [[WDGLocalStream alloc] initWithOptions:options];

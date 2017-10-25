@@ -414,7 +414,7 @@ conference:
       基础概念: /conference/Web/guide/0-concepts.html
       安装和初始化: /conference/Web/guide/1-installSDK.html
       媒体流: /conference/Web/guide/2-mediaStream.html
-      管理多人视频通话: /conference/Web/guide/3-room.html
+      管理视频会议: /conference/Web/guide/3-room.html
       发布和订阅: /conference/Web/guide/4-pubAndSub.html
       媒体流录制: /conference/Web/guide/5-recording.html
     API 文档:
@@ -431,7 +431,7 @@ conference:
       基础概念: /conference/iOS/guide/0-concepts.html
       安装和初始化: /conference/iOS/guide/1-installSDK.html
       媒体流: /conference/iOS/guide/2-mediaStream.html
-      管理多人视频通话: /conference/iOS/guide/3-room.html
+      管理视频会议: /conference/iOS/guide/3-room.html
       发布和订阅: /conference/iOS/guide/4-pubAndSub.html
       媒体流录制: /conference/iOS/guide/5-recording.html
     API 文档:
@@ -453,7 +453,7 @@ conference:
       基础概念: /conference/Android/guide/0-concepts.html
       安装和初始化: /conference/Android/guide/1-installSDK.html
       媒体流: /conference/Android/guide/2-mediaStream.html
-      管理多人视频通话: /conference/Android/guide/3-room.html
+      管理视频会议: /conference/Android/guide/3-room.html
       发布和订阅: /conference/Android/guide/4-pubAndSub.html
       媒体流录制: /conference/Android/guide/5-recording.html
     API 文档:

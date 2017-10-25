@@ -1,9 +1,9 @@
-title: 管理多人视频通话
+title: 管理视频会议
 ---
 
-本篇文档介绍如何创建或加入多人视频通话。
+本篇文档介绍如何创建或加入视频会议。
 
-Room 表示一个多人视频通话。多个用户可以加入同一个 Room 进行音视频通话。
+Room 表示一个多人的视频会议。多个用户可以加入同一个 Room 进行音视频通话。
 
 
 ## 加入 Room
@@ -94,7 +94,7 @@ room.delegate = self;
 
 ### 错误事件
 
-实现代理方法 `-[WDGRoomDelegate wilddogRoom:didFailWithError:]`，当多人视频通话发生错误时，会触发该方法：
+实现代理方法 `-[WDGRoomDelegate wilddogRoom:didFailWithError:]`，当视频会议发生错误时，会触发该方法：
 
 ```objectivec
 - (void)wilddogRoom:(WDGRoom *)wilddogRoom didFailWithError:(NSError *)error {
