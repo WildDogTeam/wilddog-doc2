@@ -113,7 +113,7 @@ $(function() {
         })
     };
 
-    var feedBack = getClass('feed-back')[0];
+    // var feedBack = getClass('feed-back')[0];
     var backTop = document.getElementsByClassName('back-top')[0];
     var scrollStart = 0;
     currentLinkSelect(headings[0]);
@@ -125,11 +125,11 @@ $(function() {
         } else {
             removeClass(backTop, 'back-top-show')
         };
-        if (scrollTop > scrollStart) {
-            addClass(feedBack, 'scrollHide')
-        } else {
-            removeClass(feedBack, 'scrollHide')
-        }
+        // if (scrollTop > scrollStart) {
+        //     addClass(feedBack, 'scrollHide')
+        // } else {
+        //     removeClass(feedBack, 'scrollHide')
+        // }
         scrollStart = scrollTop;
 
         if (scrollTop > currentRangeEnd || scrollTop < currentRangeStart) {

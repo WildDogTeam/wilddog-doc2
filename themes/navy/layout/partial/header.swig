@@ -11,8 +11,8 @@
     <nav id="main-nav">
       <a href="/overview/index.html" class="main-nav-link">概览</a>
       <a href="/sync/Web/index.html" class="main-nav-link">实时通信引擎</a>
-      <a href="/conversation/Web/index.html" class="main-nav-link">视频通话</a>
-      <a href="/conference/Web/index.html" class="main-nav-link">视频会议</a>
+      <a href="/conversation/Web/index.html" class="main-nav-link">一对一视频通话</a>
+      <a href="/conference/Web/index.html" class="main-nav-link">多人视频通话</a>
       <a href="/location/Web/index.html" class="main-nav-link">实时定位</a>
       <a href="/sms/index.html" class="main-nav-link">短信</a>
       <a href="/auth/Web/index.html" class="main-nav-link">身份认证</a>

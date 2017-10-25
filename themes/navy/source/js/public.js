@@ -86,20 +86,20 @@ novice.forEach(function(ele, index) {
     });
 });
 //是否显示底部意见反馈
-var feedBack = getClass('feed-back')[0];
-var showFeedBack = sessionStorage.getItem('sfb');
-if (feedBack) {
-    if (showFeedBack == undefined || showFeedBack == true) {
-        feedBack.style.display = 'block';
-    } else {
-        feedBack.style.display = 'none';
-    }
-    /*用户反馈点击关闭*/
-    getClass('close-feed')[0].addEventListener('click', function() {
-        feedBack.style.display = 'none';
-        sessionStorage.setItem('sfb', false);
-    });
-}
+// var feedBack = getClass('feed-back')[0];
+// var showFeedBack = sessionStorage.getItem('sfb');
+// if (feedBack) {
+//     if (showFeedBack == undefined || showFeedBack == true) {
+//         feedBack.style.display = 'block';
+//     } else {
+//         feedBack.style.display = 'none';
+//     }
+//     /*用户反馈点击关闭*/
+//     getClass('close-feed')[0].addEventListener('click', function() {
+//         feedBack.style.display = 'none';
+//         sessionStorage.setItem('sfb', false);
+//     });
+// }
 //登录信息
 var userProfile = getClass('header-user')[0];
 var loginTab = getClass('header-info')[0];
