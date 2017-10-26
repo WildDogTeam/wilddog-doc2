@@ -29,7 +29,7 @@ title: 快速入门
 ### 2.1 安装 WilddogVideoRoom SDK
 
 **使用 Gradle 安装 WilddogVideoRoom SDK**
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-room-android:<span class="room_android_v">2.0.0-beta</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-video-room-android:<span class="room_android_v">2.1.2</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 ### 2.2 安装 WilddogAuth SDK
 
@@ -37,7 +37,7 @@ Token（身份认证令牌）是用户在 WilddogVideoRoom SDK 中的唯一身�
 WilddogVideoRoom SDK 使用 WilddogAuth SDK 获取合法的 TOKEN。
 
 **使用 Gradle 安装 WilddogAuth SDK**
-<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.6</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
+<figure class="highlight java"><table><tbody><tr><td class="code"><pre><div class="line">dependencies {</div><div class="line">    compile <span class="string">&apos;com.wilddog.client:wilddog-auth-android:<span class="auth_android_v">2.0.7</span>&apos;</span></div><div class="line">}</div></pre></td></tr></tbody></table></figure>
 
 如果出现文件重复导致的编译错误，可以选择在build.grade中添加packagingOptions：
 

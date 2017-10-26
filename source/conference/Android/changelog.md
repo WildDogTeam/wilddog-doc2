@@ -4,6 +4,12 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.1.2 - 2017.10.26
+
+<span class="changelog optimize">修复</span>
+
+- 修复重定向问题。
+
 ### v2.1.1 beta - 2017.10.19
 
 <span class="changelog optimize">优化</span>
