@@ -50,7 +50,7 @@ delegate          | 接收 Room 事件的代理。请参考 [WDGRoomDelegate](/c
 
 ---
 
-### - initWithRoomId: domain: delegate:
+### - initWithRoomId: url: delegate:
 
 **定义**
 
@@ -67,7 +67,7 @@ delegate          | 接收 Room 事件的代理。请参考 [WDGRoomDelegate](/c
 参数名             | 说明
 ------------------|------------------
 roomId            | 字符串类型，代表一个 Room 的唯一标识。
-domain            | 指定服务器的 URL。
+url               | 指定服务器的 URL。
 delegate          | 接收 Room 事件的代理。请参考 [WDGRoomDelegate](/conference/iOS/api/WDGRoomDelegate.html)。
 
 **返回值**
