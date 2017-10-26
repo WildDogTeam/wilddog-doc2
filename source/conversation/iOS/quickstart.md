@@ -89,7 +89,7 @@ Privacy - Microphone Usage Description | String | Your Description
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
- VideoAppId 为应用 `实时一对一视频通话-配置` 标签页中的 VideoAppID 字段值，请勿与应用的 AppID 混淆。
+ VideoAppId 为应用 `实时视频通话-配置` 标签页中的 VideoAppID 字段值，请勿与应用的 AppID 混淆。
  VideoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
 </blockquote>
 

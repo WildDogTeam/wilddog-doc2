@@ -57,12 +57,12 @@ title: wilddogVideo
 
 ---
 
-### room(roomId,domain)
+### room(roomId,url)
 
 **定义**
 
 ```javascript
-	wilddogVideo.room(roomId,domain);
+	wilddogVideo.room(roomId,url);
 ```
 
 **说明**
@@ -76,7 +76,7 @@ title: wilddogVideo
 | 参数名 | 描述 |
 |---|---|
 | roomId | Room的唯一标识。 |
-| domain | 字符串类型，代表连接的服务器海内外节点地址。|
+| url | 字符串类型，代表连接的服务器海内外节点地址。|
 
 **返回值**
 

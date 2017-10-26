@@ -14,7 +14,7 @@ roomInstance.connect();
 WilddogVideoRoom 提供了海外服务器节点，在获取`WilddogVideoRoom`对象时携带指定的服务器地址：
 
 ```javascript
-roomInstance=wilddogVideo.room(roomId,domain);
+roomInstance=wilddogVideo.room(roomId,url);
 roomInstance.connect();
 ```
 
