@@ -4,6 +4,16 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v2.2.1 - 2017.10.27
+
+<span class="changelog add">新增</span>
+- 新增了WilddogVideoCall的npm版本，方便开发者集成
+
+<span class="changelog fix">修复</span>
+- 修复了同时使用`WilddogVideoCall`和`WilddogVideoRoom`时，不能顺利初始化的问题
+
+
+
 ### v2.2.0 - 2017.10.12
 
 <span class="changelog add">新增</span>

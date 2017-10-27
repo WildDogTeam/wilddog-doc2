@@ -3,6 +3,22 @@ title: 更新日志
 
 ## Javascript SDK
 
+
+### v2.1.2 - 2017.10.27
+
+发布为v2.1系列的正式版本
+
+<span class="changelog add">新增</span>
+
+- 新增了WilddogVideoRoom的npm版本，方便开发者集成
+
+<span class="changelog fix">修复</span>
+
+- 修复了同时使用`WilddogVideoCall`和`WilddogVideoRoom`时，不能顺利初始化的问题
+- 修复了firefox能收到流但是黑屏的问题
+- 修复了取消订阅后又重新订阅时，无法正常订阅的问题
+
+
 ### v2.1.0 Beta - 2017.10.12
 
 <span class="changelog add">新增</span>
