@@ -27,19 +27,6 @@ title: 微信公众号登录
 
 3.Wilddog Auth 提供两种方式进行 微信 认证，你可以任选其一：
 
-- popup
-
-```js
-var provider = new wilddog.auth.WeixinmpAuthProvider();
-wilddog.auth().signInWithPopup(provider).then(function (user) {
-   console.log(user);
-}).catch(function (error) {
-    // 错误处理
-    console.log(error);
-    // ...
-});
-```
-
 - redirect
 
 ```js
