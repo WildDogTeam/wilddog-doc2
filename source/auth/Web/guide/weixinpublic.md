@@ -25,7 +25,7 @@ title: 微信公众号登录
 
 ```
 
-3.Wilddog Auth 提供两种方式进行 微信 认证，你可以任选其一：
+3.Wilddog Auth 提供下面方式进行 微信 认证:
 
 - redirect
 
