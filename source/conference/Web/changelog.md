@@ -3,6 +3,11 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v2.1.3 - 2017.11.1
+
+<span class="changelog fix">修复</span>
+
+-修复了WebSocket重连问题
 
 ### v2.1.2 - 2017.10.27
 

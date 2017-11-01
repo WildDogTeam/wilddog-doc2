@@ -4,11 +4,25 @@ title: 更新日志
 
 ## iOS SDK
 
+### v2.2.2 - 2017.11.1
+
+<span class="changelog add">新增</span>
+- 新增显示一对一视频通话类型，表示当前通话类型是P2P或是Relay。
+
+
 ### v2.2.0 - 2017.10.12
 
 <span class="changelog optimize">优化</span>
 
 - 产品名称修改为WilddogVideoCall
+
+
+### v2.1.0 - 2017.09.19
+
+<span class="changelog add">新增</span>
+
+- 新增`WilddogVideoBase`包。
+
 
 ### v2.0.0 - 2017.08.14
 
