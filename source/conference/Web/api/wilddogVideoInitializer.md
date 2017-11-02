@@ -129,3 +129,39 @@ wilddogVideo.createLocalStream({
 </br>
 
 ---
+
+### createScreenStream()
+
+**定义**
+
+```js
+createLocalStream()
+```
+
+**说明**
+
+创建本地桌面或窗口媒体流，用于进行屏幕共享。注意：该媒体流只有视频流，无音频流，且视频流分辨率有窗口大小决定。
+
+**示例**
+
+```js
+//创建本地桌面或窗口媒体流（无声音，固定画质）
+wilddogVideo.createScreenStream()
+    .then(function(screenStream){
+        //获取到 screenStream
+    })
+    .catch(function(err){
+        console.log("Catch error! Error code is " + err);
+    })
+```
+
+</br>
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+chrome 内核浏览器会在页面上方提示下载扩展程序，下载后将文件拖拽到扩展程序管理的界面中，刷新页面即可使用。
+
+</blockquote>
+
+---
