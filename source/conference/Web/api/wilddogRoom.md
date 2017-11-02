@@ -75,7 +75,7 @@ roomInstance.publish(localStream,function(error){
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|-------------
 localStream       | 本地媒体流。[LocalStream](/conference/Web/api/localStream.html)
 
@@ -88,7 +88,7 @@ localStream       | 本地媒体流。[LocalStream](/conference/Web/api/localStr
 **定义**
 
 ```javascript
-roomInstance.unsubscribe(roomStream,function (error) {
+roomInstance.unpublish(roomStream,function (error) {
      if(error == null){
           console.log('unpublish success');
      }
@@ -101,7 +101,7 @@ roomInstance.unsubscribe(roomStream,function (error) {
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
 roomStream       | 远端媒体流。 [RoomStream](/conference/Web/api/roomStream.html)
 
@@ -127,7 +127,7 @@ roomInstance.subscribe(roomStream,function (error) {
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
 roomStream        | 远端媒体流 [RoomStream](/conference/Web/api/roomStream.html)
 
@@ -153,7 +153,7 @@ roomInstance.unsubscribe(roomStream,function (error) {
 
 **参数**
 
-参数名             | 说明 
+参数名             | 说明
 ------------------|------------------
 roomStream        | 远端媒体流 [RoomStream](/conference/Web/api/roomStream.html)
 
