@@ -210,8 +210,11 @@ $(function() {
 
         //room
         var room_web = snap.val().wilddog.room.web;
+        var room_web_preview = snap.val().wilddog.room.web.preview;
         var room_ios = snap.val().wilddog.room.ios;
+        var room_ios_preview = snap.val().wilddog.room.ios.preview;
         var room_android = snap.val().wilddog.room.android;
+        var room_android_preview = snap.val().wilddog.room.android.preview;
 
         //sync
         var sync_c = snap.val().wilddog.sync.c;
@@ -271,8 +274,11 @@ $(function() {
 
         //room_start
         $('.room_web_v').text(room_web.version);
+        $('.room_web_preview_v').text(room_web_preview.version);
         $('.room_ios_v').text(room_ios.version);
+        $('.room_ios_preview_v').text(room_ios_preview.version);
         $('.room_android_v').text(room_android.version);
+        $('.room_android_preview_v').text(room_android_preview.version);
         //room_end
 
         //sync_start
