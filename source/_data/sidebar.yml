@@ -423,7 +423,7 @@ conference:
       LocalStream: /conference/Web/api/localStream.html
       RoomStream: /conference/Web/api/roomStream.html
     更新日志: /conference/Web/changelog.html
-    更新日志: /conference/Web/preview.html
+    预览版说明: /conference/Web/preview.html
 
   iOS:
     概览: /conference/iOS/index.html

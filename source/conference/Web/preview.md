@@ -26,5 +26,5 @@ title: 预览版
 
 <span class="changelog add">新增</span>
 
-- 新增屏幕共享功能，部分浏览器需使用插件，[详见API文档](/conference/Web/api/wilddogVideoInitializer.html)。
+- 新增屏幕共享功能，部分浏览器需使用插件，[详见API文档](/conference/Web/api/wilddogVideoInitializer.html#createScreenStream())。
 - 支持同时发布多个流。
