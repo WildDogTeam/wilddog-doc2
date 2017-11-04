@@ -44,12 +44,11 @@ wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/web/saving-data/wildblog/users/Jobs");
 
 ref.on('value', function(snapshot) {
-    var newPost = snapshot.val();
-    console.log("full_name: " + newPost.full_name);
-    console.log("gender: " + newPost.gender);
-  }, function (error) {
-    console.log(error);
-  }
+  var newPost = snapshot.val();
+  console.log("full_name: " + newPost.full_name);
+  console.log("gender: " + newPost.gender);
+}, function (error) {
+  console.log(error);
 });
 ```
 
