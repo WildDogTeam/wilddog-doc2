@@ -31,3 +31,20 @@ Wliddog Sync 没有对数组的原生支持，但是支持将数组下标作为 
 // 因此当查询时，将返回的是：
 {2: 'c', 4: 'e'}
 ``` 
+
+````javascript
+ref.set(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'])
+ref.once('value', function (snap) {
+  console.log(snap.val()) // ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+})
+ref.update({
+    '2': null,
+    '3': null,
+    '4': null,
+    '5': null,
+    '6': null
+  })
+ref.once('value', function (snap) {
+  console.log(snap.val()) //{0: "a", 1: "b", 7: "h", 8: "i"}
+})
+````
