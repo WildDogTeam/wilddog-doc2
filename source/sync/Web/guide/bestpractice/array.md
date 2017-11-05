@@ -32,7 +32,8 @@ Wliddog Sync 没有对数组的原生支持，但是支持将数组下标作为 
 {2: 'c', 4: 'e'}
 ``` 
 
-````javascript
+例如：
+```js
 ref.set(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'])
 ref.once('value', function (snap) {
   console.log(snap.val()) // ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
