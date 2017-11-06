@@ -9,7 +9,14 @@ title: 更新日志
 
 <span class="changelog optimize">优化</span>
 
-- 优化接入文档部分内容及文案
+- 优化接入文档部分内容及文案。
+
+
+### v2.1.1 Beta - 2017.10.25
+
+<span class="changelog optimize">优化</span>
+
+- 修改了Room的一个初始化方法的名称。
 
 
 ### v2.1.0 Beta - 2017.10.12

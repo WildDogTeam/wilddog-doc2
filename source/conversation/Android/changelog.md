@@ -90,51 +90,6 @@ title: 更新日志
 - 修复特殊情况下视频录制导致崩溃问题
 
 
-### v1.2.4 - 2017.07.31
-
-<span class="changelog optimize">优化</span>
-
-- 优化一对一视频通话初始化逻辑。
-
-<span class="changelog fix">修复</span>
-
-- 修复统计接口导致崩溃问题
-
-
-### v1.2.3 Beta - 2017.07.27
-
-
-<span class="changelog optimize">优化</span>
-
-- 优化邀请逻辑，增加了邀请状态判断，防止出现多次连接的情况。
-- 优化网络请求接口，减少网络请求流量。
-
-<span class="changelog fix">修复</span>
-
-- 修复断网等情况对方无法收到离线通知bug。
-
-
-### v1.2.2 Beta - 2017.07.25
-
-<span class="changelog fix">修复</span>
-
-- 修复信令交换过程中一方退出导致的 NPE 问题。
-
-### v1.2.1 Beta - 2017.07.22
-
-<span class="changelog add">新增</span>
-
-- 新增音频录制功能。
-
-<span class="changelog optimize">优化</span>
-
-- 优化本地视频流录制功能，增强录制功能兼容性。
-
-<span class="changelog fix">修复</span>
-
-- 修复邀请加入会话时一对一视频通话开关判断bug。
-
-
 ### v1.2.0 Beta - 2017.07.14
 
 <span class="changelog add">新增</span>
@@ -148,13 +103,6 @@ title: 更新日志
 - 优化了接口设置以及内部执行逻辑;
 - 优化邀请机制，提高稳定性。
 
-
-### v1.0.2 Beta - 2017.06.20
-
-<span class="changelog optimize">优化</span>
-
-- 优化接口以及内部逻辑控制，提升SDK稳定性。
-- 升级网络通信库为 OKHttp 3.5.0
 
 ### v1.0.0 Beta - 2017.05.25
 
