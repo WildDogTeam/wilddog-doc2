@@ -4,10 +4,16 @@ title: 更新日志
 
 ## iOS SDK
 
-### v2.2.2 - 2017.11.1
+### v2.2.2 - 2017.11.01
 
 <span class="changelog add">新增</span>
 - 新增显示一对一视频通话类型，表示当前通话类型是P2P或是Relay。
+
+
+### v2.2.1 - 2017.10.20
+
+<span class="changelog add">新增</span>
+- 新增支持了模拟器调试。
 
 
 ### v2.2.0 - 2017.10.12
