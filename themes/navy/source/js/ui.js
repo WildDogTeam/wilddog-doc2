@@ -24,12 +24,10 @@ $(function() {
         addClass(headerNavs[2], 'current')
     } else if (type === 'conference') {
         addClass(headerNavs[3], 'current')
-    } else if (type === 'location') {
-        addClass(headerNavs[4], 'current')
     } else if (type === 'sms') {
-        addClass(headerNavs[5], 'current')
+        addClass(headerNavs[4], 'current')
     } else if (type === 'auth') {
-        addClass(headerNavs[6], 'current')
+        addClass(headerNavs[5], 'current')
     }
     // 侧边栏收起
     var sidebarTitle = getClass('sidebar-title');
