@@ -36,34 +36,6 @@ title: 更新日志
 
 - 优化 LocalStream 创建方式。
 
-### v2.0.4 - 2017.09.04
-
-<span class="changelog add">新增</span>
-
-- 新增 arm64-v8a/x86/x86_64 CPU 架构平台支持。
-
-<span class="changelog fix">修复</span>
-
-- 修复切换用户后重新初始化SDK无法收到呼叫的 bug。
-
-### v2.0.3 - 2017.08.28
-
-<span class="changelog fix">修复</span>
-
-- 修复呼叫方超时接口不触发的 bug。
-
-### v2.0.2 - 2017.08.23
-
-<span class="changelog fix">修复</span>
-
-- 修复被叫方获取主叫方携带信息一直为 null 的 bug。
-
-### v2.0.1 - 2017.08.22
-
-<span class="changelog fix">修复</span>
-
-- 修复特殊情况下取消视频导致崩溃问题。
-
 
 ### v2.0.0 - 2017.08.14
 
