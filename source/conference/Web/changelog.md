@@ -3,6 +3,20 @@ title: 更新日志
 
 ## Javascript SDK
 
+
+### v2.2.1 - 2017.11.3
+
+<span class="changelog add">新增</span>
+
+- 新增支持在手机网页中切换手机的前后摄像头
+
+### v2.2.0 - 2017.11.1
+
+<span class="changelog add">新增</span>
+
+- 新增了屏幕共享功能，部分浏览器需使用插件，
+- 新增支持同时发布多个流。
+
 ### v2.1.3 - 2017.11.1
 
 <span class="changelog fix">修复</span>

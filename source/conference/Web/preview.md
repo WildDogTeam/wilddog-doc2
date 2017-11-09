@@ -18,7 +18,7 @@ title: 预览版说明
 
 <span class="changelog fix">修复</span>
 
--修复bug。
+- 修复bug。
 
 ### v2.2.0 - 2017.11.1
 
