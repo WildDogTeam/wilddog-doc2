@@ -229,6 +229,35 @@ room.stopRecording(callback);
 
 ---
 
+### switchCamera
+
+**定义**
+
+```javascript
+roomInstance.switchCamera(localStream, localEl)
+```
+
+**说明**
+
+切换摄像头。比如移动端设备能切换使用前置还是后置摄像头。
+
+**参数**
+
+参数名             | 说明
+------------------|-------------
+localStream       | 本地媒体流。[LocalStream](/conference/Web/api/localStream.html)
+localEl           | 绑定了本地媒体流的`video`页面元素
+
+</br>
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+在多人通话的场景中，由于存在兼容性问题，远端的浏览器只有iOS11和Mac下的的safari、PC下的Firefox能平滑的收到本地切换摄像头后的流。
+
+</blockquote>
+
+
 ## 事件
 
 WilddogVideoRoom 事件用于监听 Room 连接状态以及媒体流变化。
