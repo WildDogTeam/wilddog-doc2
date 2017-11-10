@@ -101,6 +101,8 @@ title: WDGLocalStreamOptions
 
 ```objectivec
 typedef NS_ENUM(NSUInteger, WDGVideoDimensions) {
+    WDGVideoDimensions120p,
+    WDGVideoDimensions240p,
     WDGVideoDimensions360p,
     WDGVideoDimensions480p,
     WDGVideoDimensions720p,
@@ -110,7 +112,9 @@ typedef NS_ENUM(NSUInteger, WDGVideoDimensions) {
 
 视频质量选项。
 
-- `WDGVideoDimensions360p`: 视频尺寸 352x288
+- `WDGVideoDimensions120p`: 视频尺寸 192x144
+- `WDGVideoDimensions240p`: 视频尺寸 352x288
+- `WDGVideoDimensions360p`: 视频尺寸 480x360
 - `WDGVideoDimensions480p`: 视频尺寸 640x480
 - `WDGVideoDimensions720p`: 视频尺寸 1280x720
-- `WDGVideoDimensions1080p`: 暂未支持，若设置为此项，视频尺寸将使用 1920x1080
+- `WDGVideoDimensions1080p`: 暂未支持，若设置为此项，视频尺寸将使用 1280x720
