@@ -4,20 +4,33 @@ title: 更新日志
 ## Javascript SDK
 
 
-### v2.2.1 - 2017.11.3
+### v2.2.2 - 2017.11.09
+
+<span class="changelog add">新增</span>
+- 新增对120p的支持
+
+<span class="changelog optimize">优化</span>
+- 优化了ack和peerconnection的超时处理逻辑
+
+<span class="changelog fix">修复</span>
+- 修复 safari firefox 下分辨率、最大帧率设置不生效的问题
+- 修复了手机网页切换前后摄像头后没有声音的问题
+
+
+### v2.2.1 - 2017.11.03
 
 <span class="changelog add">新增</span>
 
 - 新增支持在手机网页中切换手机的前后摄像头
 
-### v2.2.0 - 2017.11.1
+### v2.2.0 - 2017.11.01
 
 <span class="changelog add">新增</span>
 
 - 新增了屏幕共享功能，部分浏览器需使用插件，
 - 新增支持同时发布多个流。
 
-### v2.1.3 - 2017.11.1
+### v2.1.3 - 2017.11.01
 
 <span class="changelog fix">修复</span>
 

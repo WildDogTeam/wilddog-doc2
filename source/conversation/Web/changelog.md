@@ -4,7 +4,18 @@ title: 更新日志
 
 ## Javascript SDK
 
-### v2.2.2 - 2017.11.1
+
+### v2.3.1 - 2017.11.10
+
+<span class="changelog add">新增</span>
+- 新增对120p、240p的支持
+
+<span class="changelog fix">修复</span>
+- 修复发送邀请超时主动拒绝的bug
+
+
+
+### v2.2.2 - 2017.11.01
 
 <span class="changelog add">新增</span>
 - 新增显示一对一视频通话类型，表示当前通话类型是P2P或是Relay。

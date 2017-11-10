@@ -4,6 +4,17 @@ title: 更新日志
 
 ## iOS SDK
 
+### v2.3.0 - 2017.11.09
+
+<span class="changelog add">新增</span>
+
+- 新增对120p、240p的支持
+
+<span class="changelog optimize">优化</span>
+
+- 升级到 WebRTC M62 版本
+
+
 ### v2.2.2 - 2017.11.01
 
 <span class="changelog add">新增</span>
