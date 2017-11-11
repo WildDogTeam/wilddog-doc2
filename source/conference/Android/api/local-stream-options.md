@@ -13,6 +13,8 @@ title: LocalStreamOptions
 **定义**
 
 ```java
+	DIMENSION_120P,
+	DIMENSION_240P,
 	DIMENSION_360P,
 	DIMENSION_480P,
 	DIMENSION_720P,
@@ -25,7 +27,7 @@ title: LocalStreamOptions
 
 ### captureVideo()
 
-**定义**   
+**定义**
 
 ```java
 boolean captureVideo()
@@ -42,7 +44,7 @@ boolean captureVideo()
 
 ### captureAudio()
 
-**定义**   
+**定义**
 
 ```java
 boolean captureAudio()
@@ -59,7 +61,7 @@ boolean captureAudio()
 
 ### getDimension()
 
-**定义**   
+**定义**
 
 ```java
 Dimension getDimension()
@@ -78,7 +80,7 @@ Dimension getDimension()
 ---
 ### getMaxFps()
 
-**定义**   
+**定义**
 
 ```java
 int getMaxFps()
@@ -90,7 +92,7 @@ int getMaxFps()
 
 **返回值**
 
-当前视频的最大帧率的值,默认为 16fps。
+当前视频的最大帧率的值,默认为 15fps。
 
 </br>
 

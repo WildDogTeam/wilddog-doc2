@@ -1,13 +1,33 @@
 title: LocalStreamOptions
--------------------------
 
-获取多媒体采集参数的对象。
+---
+
+包含了音／视频开关、视频尺寸、最大帧率等选项，用于配置本地媒体流。
+
+## 常量
+
+### Dimension
+
+视频分辨率选项。
+
+**定义**
+
+```java
+	DIMENSION_120P,
+	DIMENSION_240P,
+	DIMENSION_360P,
+	DIMENSION_480P,
+	DIMENSION_720P,
+	DIMENSION_1080P;
+```
+
+
 
 ## 方法
 
 ### captureVideo()
 
-**定义**   
+**定义**
 
 ```java
 boolean captureVideo()
@@ -24,7 +44,7 @@ boolean captureVideo()
 
 ### captureAudio()
 
-**定义**   
+**定义**
 
 ```java
 boolean captureAudio()
@@ -41,7 +61,7 @@ boolean captureAudio()
 
 ### getDimension()
 
-**定义**   
+**定义**
 
 ```java
 Dimension getDimension()
@@ -49,7 +69,7 @@ Dimension getDimension()
 
 **说明**
 
-视频质量选项,默认为480P。
+视频质量选项,默认为 `DIMENSION_480P`。
 
 **返回值**
 
@@ -60,7 +80,7 @@ Dimension getDimension()
 ---
 ### getMaxFps()
 
-**定义**   
+**定义**
 
 ```java
 int getMaxFps()
@@ -72,7 +92,7 @@ int getMaxFps()
 
 **返回值**
 
-当前视频的最大帧率的值。
+当前视频的最大帧率的值,默认为 15fps。
 
 </br>
 

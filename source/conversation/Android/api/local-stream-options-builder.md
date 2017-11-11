@@ -62,7 +62,7 @@ Builder captureAudio(boolean enable)
 **定义**   
 
 ```java
-public Builder dimension(Dimension dimension)
+Builder dimension(Dimension dimension)
 ```
 
 **说明**
@@ -88,7 +88,7 @@ public Builder dimension(Dimension dimension)
 **定义**   
 
 ```java
-void maxFps(int maxFps)
+Builder maxFps(int maxFps)
 ```
 
 **说明**

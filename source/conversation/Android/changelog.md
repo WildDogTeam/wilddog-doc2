@@ -3,6 +3,20 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.3.0 - 2017.11.11
+
+<span class="changelog add">新增</span>
+
+- 新增对120p、240p的支持。
+
+<span class="changelog optimize">优化</span>
+
+- 升级到 WebRTC M62 版本。
+
+<span class="changelog optimize">修复</span>
+
+- 修复创建 LocalStreamOption 设置完最大 fps 无法返回Builder对象bug。
+
 ### v2.2.2 - 2017.11.1
 
 <span class="changelog add">新增</span>
