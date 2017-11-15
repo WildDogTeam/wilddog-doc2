@@ -9,11 +9,10 @@ title: 使用 Server SDK
 ## 安装 Server SDK
 
 首先，你需要在服务器中安装 Server SDK，请参考 [Server SDK(Java) 下载安装](https://www.wilddog.com/download/auth-java-sdk)。
-其中 Server SDK 运行环境为 JDK1.8 以上
+目前有 JDK1.7 及 JDK1.8 两个编译版本。
 
 
-
-## 生成 Custom Token
+ 生成 Custom Token
 
 生成 Custom Token：
 
