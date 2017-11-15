@@ -12,7 +12,7 @@ title: 使用 Server SDK
 目前有 JDK1.7 及 JDK1.8 两个编译版本。
 
 
- 生成 Custom Token
+## 生成 Custom Token
 
 生成 Custom Token：
 
