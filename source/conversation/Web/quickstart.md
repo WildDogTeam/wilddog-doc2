@@ -87,8 +87,7 @@ wilddog.auth().signInAnonymously()
 
 <blockquote class="notice">
   <p><strong>提示：</strong></p>
- videoAppId 为应用实时视频通话标签页中的 videoAppID 字段值，请勿与实时通信引擎 AppID 混淆。
- videoAppID 为 wd 开头的随机字符串，例如：wd1234567890abcdef。
+videoAppId 为应用实时视频通话标签页中的 VideoAppID 字段值，为 wd 开头的随机字符串，例如：wd1234567890abcdef。
 
 </blockquote>
 
