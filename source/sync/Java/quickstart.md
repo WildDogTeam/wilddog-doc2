@@ -5,7 +5,7 @@ title: 快速入门
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-      <li>支持 JDK 7.0 以上版本</li>
+      <li>支持 JDK 8 及以上版本</li>
     </ul>
 </div>
 
@@ -19,9 +19,14 @@ SDK 的安装方式:
 
 * **使用 Maven**
 
-<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-jvm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="sync_java_v">2.0.1</span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
+<figure class="highlight xml"><table><tbody><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.wilddog.client<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wilddog-sync-jvm<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span><span class="sync_java_v">2.0.2</span><span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></tbody></table></figure>
 
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
 
+ 若用户使用的是 JDK 1.7 环境，请参考 [Sync SDK 下载安装](https://www.wilddog.com/download/sync-java-sdk)。
+
+</blockquote>
 ## 3. 创建 Sync 实例
 
 ```java
