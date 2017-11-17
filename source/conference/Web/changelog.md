@@ -4,6 +4,16 @@ title: 更新日志
 ## Javascript SDK
 
 
+### v2.2.3 - 2017.11.17
+
+<span class="changelog add">新增</span>
+- `WilddogVideoRoom`的 `publish` 方法增加codecName参数，可用于配置编解码方式VP8\H.264。
+
+<span class="changelog fix">修复</span>
+- 修复调用本地摄像头时,分辨率过高导致的调用摄像头失败的问题。
+- 修复调用close方法时，关闭本地摄像头时失败的问题。
+
+
 ### v2.2.2 - 2017.11.09
 
 <span class="changelog add">新增</span>

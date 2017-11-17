@@ -42,16 +42,7 @@ Video 提供了 Web、Android、iOS 三端的 SDK，不仅支持三端同时开�
 
 ## 设备和浏览器支持
 
-目前支持设备和浏览器
-1. Chrome 49及以后
-2. Firefox 47及以后
-3. Opera 39及以后
-4. Safari 11及以后
-5. Chrome for Android 5.1
-6. iOS Native Objective-C Compatible
-7. Android Native Java Compatible
-
-或者，点击查看 [WebRTC支持状态](https://caniuse.com/#search=webrtc) 。
+设备支持安卓主流机型，系统支持 `Android 4.1` 以上。
 
 
 ## 帮助与支持

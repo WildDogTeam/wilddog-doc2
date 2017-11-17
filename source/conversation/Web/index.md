@@ -46,16 +46,9 @@ Video 提供了 Web、Android、iOS 三端的 SDK，不仅支持三端同时开�
 
 ## 设备和浏览器支持
 
-目前支持设备和浏览器
-1. Chrome 49及以后
-2. Firefox 47及以后
-3. Opera 39及以后
-4. Safari 11及以后
-5. Chrome for Android 5.1
-6. iOS Native Objective-C Compatible
-7. Android Native Java Compatible
+在PC端，野狗通信云视频通话可支持Chrome官方浏览器、Firefox浏览器、Edge浏览器、Safari 11.0浏览器，以及360浏览器（极速模式）、QQ浏览器、UC浏览器等Chrome内核的浏览器。IE浏览器需要安装插件才能支持。
 
-或者，点击查看 [WebRTC支持状态](http://iswebrtcreadyyet.com/) 。
+在移动端，野狗通信云视频通话可支持Chrome浏览器、Firefox浏览器、Safari 11.0浏览器，以及运行于Android系统的微信和QQ内置浏览器。
 
 
 ## 帮助与支持
