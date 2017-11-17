@@ -62,7 +62,7 @@ WilddogVideoCall SDK 使用 Auth SDK 获取合法的 TOKEN。
 ```javascript
 //初始化 Wilddog Auth
 var config = {
-    authDomain: "<appId>.wilddog.com"
+    authDomain: "<videoAppId>.wilddog.com"
 };
 wilddog.initializeApp(config);
 ```
@@ -94,7 +94,7 @@ wilddog.auth().signInAnonymously()
 
 ## 4. 配置一对一视频通话
 初始化 `WilddogVideoCall SDK` 后，通过 `wilddogVideo.call()` 获取 `WilddogVideoCall` 对象，设置监听用于监听通话请求：
- 
+
 ```javascript
 //监听收到的邀请
 videoInstance.on('called',function(conversation) {
@@ -132,7 +132,7 @@ videoInstance.on('called',function(conversation){
 
 ```
 
-### 5.3 播放媒体流 
+### 5.3 播放媒体流
 
 一对一视频通话链接成功后，通话双方会通过 `mConversation.on('stream_received',callback)` 事件收到 RemoteStream 实例，使用 attach() 方法将远端媒体流放入 `video` 标签中播放：
 

@@ -102,17 +102,17 @@ createLocalStream(options)
 
 | 参数名 | 说明 |
 |---|---|
-| captureAudio | `Boolean` 类型。<br>如果为 `true`，则媒体流中包含声音。<br>如果为 `false`，则媒体流中不包含声音。|
-| captureVideo | `Boolean` 类型。<br>如果为 `true`，则媒体流中包含视频。<br>如果为 `false`，则媒体流中不包含视频。|
-| dimension | `String` 类型。<br>可以设置的值及对应分辨率如下：<br>`120p` - 160X120<br>`240p` - 320X240<br>`360p` - 480X360<br>`480p` - 640X480<br>`720p` - 1280X720<br>`1080p` - 1920X1080 |
-| maxFPS| `Integer` 类型 。 自定义传输视频的最大帧率。|
+| captureAudio |`Boolean` 类型。必选参数<br>如果为 `true`，则媒体流中包含声音。<br>如果为 `false`，则媒体流中不包含声音。|
+| captureVideo |`Boolean` 类型。必选参数<br>如果为 `true`，则媒体流中包含视频。<br>如果为 `false`，则媒体流中不包含视频。|
+| dimension |`String` 类型。类型。必选参数<br>只能设置的值以及对应的分辨率如下：<br>`120p` - 160X120<br>`240p` - 320X240<br>`360p` - 480X360<br>`480p` - 640X480<br>`720p` - 1280X720<br>`1080p` - 1920X1080 |
+| maxFPS|`Integer` 类型。可选参数<br>自定义传输视频的最大帧率，最大值为30。|
 
 </br>
 
 **示例**
 
 ```js
-//创建本地媒体流（有声音，低画质）
+//创建本地媒体流
 wilddogVideo.createLocalStream({
         captureAudio: true,
         captureVideo: true,

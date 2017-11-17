@@ -32,7 +32,7 @@ Token（身份认证令牌）是用户在 WilddogVideoRoom SDK 中的唯一身�
 ```javascript
 // 初始化 WilddogVideoRoom 之前，要先经过身份认证。这里采用匿名登录的方式。
 var config = {
-    authDomain: "<appId>.wilddog.com"
+    authDomain: "<videoAppId>.wilddog.com"
 };
 // 初始化Wilddog auth
 wilddog.initializeApp(config);

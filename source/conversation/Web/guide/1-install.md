@@ -27,7 +27,7 @@ npm install wilddog-video-call --save
 
 ```javascript
 var config = {
-    authDomain: "<appId>.wilddog.com"
+    authDomain: "<videoAppId>.wilddog.com"
 };
 // 初始化Wilddog auth
 wilddog.initializeApp(config);
