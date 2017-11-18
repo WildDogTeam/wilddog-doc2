@@ -43,7 +43,17 @@ WilddogVideoCall 有直接引用和 npm 安装两种方式可供选择。直接�
 **通过 npm 方式引用**
 
 ```
+npm install wilddog-video-base --save
 npm install wilddog-video-call --save
+```
+用法：
+```
+// 准备工作
+var wilddogVideo = require('wilddog-video-base').wilddogVideo;
+var callFactory = require('wilddog-video-call');
+
+wilddogVideo.regService('call', callFactory);
+// To do
 ```
 
 ### 2.2 安装 WilddogAuth SDK

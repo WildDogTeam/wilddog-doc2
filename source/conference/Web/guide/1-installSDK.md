@@ -14,7 +14,17 @@ WilddogVideoRoom 有直接引用和 npm 安装两种方式可供选择。直接�
 
 **通过 npm 方式引用**
 ```
+npm install wilddog-video-base --save
 npm install wilddog-video-room --save
+```
+用法：
+```
+// 准备工作
+var wilddogVideo = require('wilddog-video-base').wilddogVideo;
+var roomFactory = require('wilddog-video-room');
+
+wilddogVideo.regService('room', roomFactory);
+// To do
 ```
 
 #### 获取 Token
