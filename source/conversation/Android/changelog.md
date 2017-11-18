@@ -3,6 +3,13 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.3.1 - 2017.11.18
+
+<span class="changelog optimize">优化</span>
+
+- 提高打洞成功率。
+- 默认开启扬声器。
+
 ### v2.3.0 - 2017.11.11
 
 <span class="changelog add">新增</span>

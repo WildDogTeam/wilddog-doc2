@@ -4,6 +4,16 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.2.1 - 2017.11.18
+
+<span class="changelog add">新增</span>
+
+- 新增 H264 和 vp8 推流选择方式。
+
+<span class="changelog optimize">优化</span>
+
+- 默认开启扬声器。
+
 ### v2.2.0 - 2017.11.11
 
 <span class="changelog add">新增</span>
