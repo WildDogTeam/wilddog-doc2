@@ -5,7 +5,7 @@ title: 更新日志
 ## Javascript SDK
 
 
-### v2.3.1 - 2017.11.18
+### v2.3.2 - 2017.11.18
 
 <span class="changelog optimize">优化</span>
 - 提高P2P连接成功率
