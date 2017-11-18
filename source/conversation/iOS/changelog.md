@@ -4,6 +4,12 @@ title: 更新日志
 
 ## iOS SDK
 
+### v2.3.1 - 2017.11.18
+
+<span class="changelog optimize">优化</span>
+- 改进 iceServers 获取策略，提升连接速度与成功率
+
+
 ### v2.3.0 - 2017.11.09
 
 <span class="changelog add">新增</span>

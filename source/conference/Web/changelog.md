@@ -3,6 +3,15 @@ title: 更新日志
 
 ## Javascript SDK
 
+### v2.2.3 - 2017.11.18
+
+<span class="changelog add">新增</span>
+- 新增支持自定编解码，使用H.264或VP8
+
+<span class="changelog fix">修复</span>
+- 修复调用本地摄像头时，分辨率过高导致的调用摄像头失败的问题。
+- 修复关闭本地摄像头时，偶尔失败的问题。
+
 
 ### v2.2.2 - 2017.11.09
 

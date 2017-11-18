@@ -8,7 +8,7 @@ title: 更新日志
 
 <span class="changelog add">新增</span>
 
-- 新增 H264 和 vp8 推流选择方式。
+- 新增支持选择编解码，使用H264或VP8。
 
 <span class="changelog optimize">优化</span>
 
