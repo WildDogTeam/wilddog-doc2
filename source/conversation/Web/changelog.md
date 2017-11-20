@@ -8,7 +8,7 @@ title: 更新日志
 ### v2.3.2 - 2017.11.18
 
 <span class="changelog optimize">优化</span>
-- 提高P2P连接成功率
+- 优化通话建连逻辑，提高P2P连接成功率
 - 优化媒体流统计接口，适配不同浏览器下的数据
 
 <span class="changelog fix">修复</span>

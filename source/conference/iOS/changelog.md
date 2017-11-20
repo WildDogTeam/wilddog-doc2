@@ -6,10 +6,6 @@ title: 更新日志
 
 ### v2.2.1 - 2017.11.18
 
-<span class="changelog add">新增</span>
-
-- 新增接口支持选择编解码方式，可选使用H.264或VP8。
-
 <span class="changelog optimize">优化</span>
 - 优化超时处理逻辑
 
