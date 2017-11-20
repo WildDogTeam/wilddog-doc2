@@ -8,7 +8,7 @@ title: 更新日志
 
 <span class="changelog add">新增</span>
 
-- 新增支持选择编解码，使用H264或VP8。
+- 新增接口支持选择编解码方式，可选使用H.264或VP8。
 
 <span class="changelog optimize">优化</span>
 
@@ -24,7 +24,7 @@ title: 更新日志
 
 - 升级到 WebRTC M62 版本。
 
-<span class="changelog optimize">修复</span>
+<span class="changelog fix">修复</span>
 
 - 修复创建 LocalStreamOption 设置完最大 fps 无法返回Builder对象bug。
 
@@ -32,7 +32,7 @@ title: 更新日志
 
 发布为v2.1系列的正式版本
 
-<span class="changelog optimize">修复</span>
+<span class="changelog fix">修复</span>
 
 - 修复重定向问题，提高视频通话连通率及稳定性。
 
