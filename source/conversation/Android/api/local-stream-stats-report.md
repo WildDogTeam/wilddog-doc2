@@ -92,4 +92,19 @@ public int getBitsSentRate()
 
 本地视频流发送速率。
 
+---
+
+### getLocalCandidateType()
+
+**定义**   
+
+```java
+public int getLocalCandidateType()
+```
+**说明**
+本地视频流的通话类型。
+
+**返回值**
+
+本地视频流的通话类型。
 

@@ -127,3 +127,19 @@ int getDelay()
 **返回值**
 
 对端视频延迟时间。
+
+---
+
+### getLocalCandidateType()
+
+**定义**   
+
+```java
+public int getRemoteCandidateType()
+```
+**说明**
+对端视频流的通话类型。
+
+**返回值**
+
+对端视频流的通话类型。
