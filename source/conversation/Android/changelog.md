@@ -3,6 +3,13 @@ title: 更新日志
 
 ## Android SDK
 
+### v2.3.2 - 2017.11.22
+
+<span class="changelog fix">修复</span>
+
+- 修复统计接口空指针异常导致的崩溃
+- 修复token校验错误和token过期时反复回调onTokenError方法的错误
+
 ### v2.3.1 - 2017.11.18
 
 <span class="changelog optimize">优化</span>
@@ -20,7 +27,7 @@ title: 更新日志
 
 - 升级到 WebRTC M62 版本。
 
-<span class="changelog optimize">修复</span>
+<span class="changelog fix">修复</span>
 
 - 修复创建 LocalStreamOption 设置完最大 fps 无法返回Builder对象bug。
 

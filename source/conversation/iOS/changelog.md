@@ -4,6 +4,13 @@ title: 更新日志
 
 ## iOS SDK
 
+
+### v2.3.2 - 2017.11.22
+
+<span class="changelog fix">修复</span>
+- 修复偶发的黑屏或客户端卡死的问题
+
+
 ### v2.3.1 - 2017.11.18
 
 <span class="changelog optimize">优化</span>
