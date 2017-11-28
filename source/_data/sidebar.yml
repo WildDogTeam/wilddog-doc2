@@ -422,6 +422,7 @@ conference:
       WilddogVideoRoom: /conference/Web/api/wilddogRoom.html
       LocalStream: /conference/Web/api/localStream.html
       RoomStream: /conference/Web/api/roomStream.html
+      错误码: /conference/Web/api/error-code.html
     更新日志: /conference/Web/changelog.html
     #预览版说明: /conference/Web/preview.html
 
@@ -445,6 +446,7 @@ conference:
       LocalStreamDelegate: /conference/iOS/api/WDGLocalStreamDelegate.html
       RoomStream: /conference/iOS/api/WDGRoomStream.html
       VideoView: /conference/iOS/api/WDGVideoView.html
+      错误码: /conference/iOS/api/error-code.html
     更新日志: /conference/iOS/changelog.html
 
   Android:
@@ -471,6 +473,7 @@ conference:
       WilddogVideoViewLayout: /conference/Android/api/wilddog-video-view-layout.html
       CompleteListener: /conference/Android/api/complete-listener.html
       WilddogVideoError: /conference/Android/api/wilddog-video-error.html
+      错误码: /conference/Android/api/error-code.html
     更新日志: /conference/Android/changelog.html
 
 
