@@ -5,6 +5,19 @@ title: 更新日志
 ## Javascript SDK
 
 
+### v2.3.3 - 2017.11.28
+
+<span class="changelog optimize">优化</span>
+- 优化超时逻辑，WebRTC连接异常退出将触发超时错误。
+- 优化接通前的挂断逻辑，区分超时挂断和主动挂断，超时挂断触发超时错误。
+- 优化重定向机制
+
+<span class="changelog fix">修复</span>
+- 修复token校验错误和token过期时反复触发token_error错误
+- 修复在建立websoket前发送call()方法存在的问题
+
+
+
 ### v2.3.2 - 2017.11.18
 
 <span class="changelog optimize">优化</span>
