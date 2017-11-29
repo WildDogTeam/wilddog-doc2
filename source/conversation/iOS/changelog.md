@@ -5,6 +5,13 @@ title: 更新日志
 ## iOS SDK
 
 
+### v2.3.3 - 2017.11.28
+
+<span class="changelog optimize">优化</span>
+- 优化超时逻辑，WebRTC连接异常退出将触发超时错误。
+- 优化了错误状态反馈。
+
+
 ### v2.3.2 - 2017.11.22
 
 <span class="changelog fix">修复</span>

@@ -40,7 +40,7 @@ roomStream.attach(element)
 
 将远端媒体流绑定到页面中的元素上。
 
-**参数** 
+**参数**
 
 | 参数名 | 说明 |
 |---|---|
@@ -50,7 +50,7 @@ roomStream.attach(element)
 
 ```js
 //将远端的媒体流绑定到id为'remoteStream'的页面元素上
-remoteStream.attach(document.getElementById('remoteStream'));
+roomStream.attach(document.getElementById('remoteStream'));
 ```
 
 </br>
@@ -62,18 +62,24 @@ remoteStream.attach(document.getElementById('remoteStream'));
 **定义**
 
 ```js
-detach()
+detach(element)
 ```
 
 **说明**
 
 将远端媒体流从页面中的元素上解绑。
 
+**参数**
+
+| 参数名 | 说明 |
+|---|---|
+| element | `document.Element` 类型。页面中的元素。 |
+
 **示例**
 
 ```js
 //将远端媒体流从页面中的元素上解绑
-remoteStream.detach();
+roomStream.detach(element);
 ```
 
 </br>
@@ -92,7 +98,7 @@ enableAudio(enabled)
 
 开启或禁用音频。
 
-**参数** 
+**参数**
 
 | 参数名 | 说明 |
 |---|---|
@@ -102,7 +108,7 @@ enableAudio(enabled)
 
 ```js
 //开启远端音频
-remoteStream.enableAudio(true);
+roomStream.enableAudio(true);
 ```
 
 </br>
@@ -121,7 +127,7 @@ enableVideo(enabled)
 
 开启或禁用视频。
 
-**参数** 
+**参数**
 
 | 参数名 | 说明 |
 |---|---|
@@ -131,6 +137,27 @@ enableVideo(enabled)
 
 ```js
 //开启远端视频
-remoteStream.enableVideo(true);
+roomStream.enableVideo(true);
 ```
 </br>
+
+---
+
+### close
+
+**定义**
+
+```js
+close()
+```
+
+**说明**
+
+关闭媒体流，关闭后不能继续使用。
+
+**示例**
+
+```js
+//开启参与者的视频
+roomStream.close();
+```

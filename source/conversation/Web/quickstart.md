@@ -7,7 +7,7 @@ title: 快速入门
 <div class="env">
     <p class="env-title">环境准备</p>
     <ul>
-        <li> Chrome 49及以后、Firefox 47及以后、Safari 11及以后浏览器 </li>
+        <li> 浏览器兼容情况：Chrome 49及以后、Firefox 52及以后、Safari 11、Edge 15及以后，最新的国产浏览器大部分能支持，IE浏览器需要下载插件。</li>
         <li> 由于浏览器安全策略的限制，所以必须使用https（本地开发环境例外） </li>
     </ul>
 </div>

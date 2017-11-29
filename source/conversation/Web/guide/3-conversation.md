@@ -60,19 +60,19 @@ mConversation.reject();
 mConversation.on('response',function(callStatus) {
     switch (callStatus){
         case 'ACCEPTED':
-            Log.d("log","通话被接受");
+            console.log("log","通话被接受");
             break;
         case 'REJECTED':
-            Log.d("log","通话被拒绝");
+            console.log("log","通话被拒绝");
             break;
         case 'BUSY':
-            Log.d("log","正忙");
+            console.log("log","正忙");
             break;
         case 'TIMEOUT':
-            Log.d("log","超时");
+            console.log("log","超时");
             break;
         default:
-            Log.d("log","状态未识别");
+            console.log("log","状态未识别");
             break;
     }
 })

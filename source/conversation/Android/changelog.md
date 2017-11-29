@@ -3,6 +3,17 @@ title: 更新日志
 
 ## Android SDK
 
+
+### v2.3.3 - 2017.11.28
+
+<span class="changelog optimize">优化</span>
+- 优化超时逻辑，WebRTC连接异常退出将触发超时错误。
+- 优化接通前的挂断逻辑，区分超时挂断和主动挂断，超时挂断触发超时错误。
+
+<span class="changelog fix">修复</span>
+- 修复初始化后立即调用call呼叫不成功的问题
+
+
 ### v2.3.2 - 2017.11.22
 
 <span class="changelog fix">修复</span>
@@ -10,12 +21,14 @@ title: 更新日志
 - 修复统计接口空指针异常导致的崩溃
 - 修复token校验错误和token过期时反复回调onTokenError方法的错误
 
+
 ### v2.3.1 - 2017.11.18
 
 <span class="changelog optimize">优化</span>
 
 - 优化通话建连逻辑，提高P2P连接成功率
 - 默认开启扬声器
+
 
 ### v2.3.0 - 2017.11.11
 
@@ -31,10 +44,12 @@ title: 更新日志
 
 - 修复创建 LocalStreamOption 设置完最大 fps 无法返回Builder对象bug。
 
+
 ### v2.2.2 - 2017.11.1
 
 <span class="changelog add">新增</span>
 - 新增显示一对一视频通话类型，表示当前通话类型是P2P或是Relay。
+
 
 ### v2.2.1 - 2017.10.19
 
