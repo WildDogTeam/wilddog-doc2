@@ -1,4 +1,3 @@
-﻿
 title: LocalStream
 ---
 
@@ -16,7 +15,7 @@ attach(element)
 
 将本地媒体流绑定到页面中的元素上。
 
-**参数** 
+**参数**
 
 | 参数名 | 说明 |
 |---|---|
@@ -45,11 +44,17 @@ detach()
 
 将本地媒体流从页面中的元素上解绑。
 
+**参数**
+
+| 参数名 | 说明 |
+|---|---|
+| element | `document.Element` 类型。页面中的元素。 |
+
 **示例**
 
 ```js
 //将本地媒体流从页面中的元素上解绑
-localStream.detach();
+localStream.detach(document.getElementById('localStream'));
 ```
 
 </br>
@@ -68,7 +73,7 @@ enableAudio(enabled)
 
 开启或禁用音频。
 
-**参数** 
+**参数**
 
 | 参数名 | 说明 |
 |---|---|
@@ -97,7 +102,7 @@ enableVideo(enabled)
 
 开启或禁用视频。
 
-**参数** 
+**参数**
 
 | 参数名 | 说明 |
 |---|---|
