@@ -4,6 +4,9 @@ title:  自定义身份认证
 
 本篇文档介绍在 Wilddog Auth 中如何使用自定义身份认证。
 
+## 原理
+
+![](/images/customToken.png)
 
 
 ## 前期准备

@@ -9,7 +9,6 @@ tag: 新手常见
 - C 
 - 嵌入式
 - 小程序
-- Egret
 
 根据具体的产品业务，支持情况有所差别，详情请访问 [SDK 下载页面](https://www.wilddog.com/download/)。
 
