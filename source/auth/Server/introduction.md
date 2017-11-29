@@ -2,6 +2,15 @@
 title: 简介
 ---
 
+野狗提供Java语言的Server SDK。非JAVA后端可以使用Token生成器来生成Custom Token:
+
+* [Php版Token 生成器](https://github.com/WildDogTeam/wilddog-token-generator-php)
+* [Node.js版Token 生成器](https://github.com/WildDogTeam/wilddog-token-generator-node)
+* [Python版Token 生成器](https://github.com/WildDogTeam/wilddog-token-generator-python)
+
+如果你的后端系统非以上语言，也可以使用支持JWT token 的工具按照上述格式来生成Custom Token。
+
+
 本篇文档介绍自定义身份认证中 Server SDK 的作用。
 
 你可以使用 Server SDK 实现自定义身份认证，把野狗服务接入到你的用户系统当中。

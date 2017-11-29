@@ -285,42 +285,6 @@ sync:
       错误码: /sync/微信小程序/api/error-code.html
     更新日志: /sync/Web/changelog.html
 
-  Egret:
-    概览: /sync/Egret/index.html
-    快速入门: /sync/Egret/quickstart.html
-    完整指南:
-      基础概念: /sync/Egret/guide/concept.html
-      数据操作: /sync/Egret/guide/save-data.html
-      事件监听: /sync/Egret/guide/retrieve-data.html
-      离线功能: /sync/Egret/guide/offline-capabilities.html
-      高级特性: /sync/Egret/guide/advance-feature.html
-      Webhook: /sync/Egret/guide/webhook.html
-      最佳实践 :
-        组织数据: /sync/Egret/guide/bestpractice/structure-data.html
-        数组处理: /sync/Egret/guide/bestpractice/array.html
-        离线事件: /sync/Egret/guide/bestpractice/offline.html
-      数据限制 : /sync/Egret/guide/datalimit.html
-    安全性与规则:
-      规则表达式简介: /sync/Egret/rules/introduce.html
-      #指南: /sync/Web/rules/guide.html
-      读写权限控制: /sync/Egret/rules/access.html
-      用户访问控制: /sync/Egret/rules/auth.html
-      数据校验: /sync/Egret/rules/validate.html
-      数据索引: /sync/Egret/rules/index.html
-      API 参考: /sync/Egret/rules/ruleapi.html
-    API 文档:
-      App: /sync/Egret/api/App.html
-      Sync: /sync/Egret/api/Sync.html
-      Reference: /sync/Egret/api/Reference.html
-      Query: /sync/Egret/api/Query.html
-      OnDisconnect: /sync/Egret/api/OnDisconnect.html
-      DataSnapshot: /sync/Egret/api/DataSnapshot.html
-      Promise: /sync/Egret/api/Promise.html
-      Void: /sync/Egret/api/Void.html
-      错误码: /sync/Egret/api/error-code.html
-    更新日志: /sync/Egret/changelog.html
-
-
 conversation:
   Web:
     概览: /conversation/Web/index.html
@@ -692,38 +656,6 @@ auth:
       #Void: /auth/微信小程序/api/Void.html
       #错误码: /auth/微信小程序/api/error-code.html
     #更新日志: /auth/微信小程序/changelog.html
-
-  Egret:
-    概览: /auth/Egret/index.html
-    快速入门: /auth/Egret/quickstart.html
-    完整指南:
-      基础概念: /auth/Egret/guide/concept.html
-      用户管理: /auth/Egret/guide/manageuser.html
-      手机登录: /auth/Egret/guide/phone.html
-      邮箱登录: /auth/Egret/guide/password.html
-      QQ 登录: /auth/Egret/guide/qq.html
-      微信登录: /auth/Egret/guide/weixin.html
-      微信公众号登录: /auth/Egret/guide/weixinpublic.html
-      微博登录: /auth/Egret/guide/weibo.html
-      自定义身份认证: /auth/Egret/guide/custom.html
-      匿名身份认证: /auth/Egret/guide/anonymous.html
-      绑定多种登录方式: /auth/Egret/guide/link.html
-    API 文档:
-      App: /auth/Egret/api/App.html
-      Auth: /auth/Egret/api/Auth.html
-      User: /auth/Egret/api/User.html
-      UserInfo: /auth/Egret/api/UserInfo.html
-      Provider: /auth/Egret/api/Provider.html
-      WilddogAuthProvider: /auth/Egret/api/WilddogAuthProvider.html
-      WeiboAuthProvider: /auth/Egret/api/WeiboAuthProvider.html
-      QQAuthProvider: /auth/Egret/api/QQAuthProvider.html
-      WeixinAuthProvider: /auth/Egret/api/WeixinAuthProvider.html
-      WeixinmpAuthProvider: /auth/Egret/api/WeixinmpAuthProvider.html
-      Credential: /auth/Egret/api/Credential.html
-      Promise: /auth/Egret/api/Promise.html
-      Void: /auth/Egret/api/Void.html
-      错误码: /auth/Egret/api/error-code.html
-    更新日志: /auth/Egret/changelog.html
 
   Server:
     简介: /auth/Server/introduction.html
