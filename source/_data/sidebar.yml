@@ -319,6 +319,7 @@ conversation:
       VideoInitializer: /conversation/iOS/api/WDGVideoInitializer.html
       VideoCall: /conversation/iOS/api/WDGVideoCall.html
       VideoCallDelegate: /conversation/iOS/api/WDGVideoCallDelegate.html
+      VideoCallOptions: /conversation/iOS/api/WDGVideoCallOptions.html
       Conversation: /conversation/iOS/api/WDGConversation.html
       ConversationDelegate: /conversation/iOS/api/WDGConversationDelegate.html
       ConversationStatsDelegate: /conversation/iOS/api/WDGConversationStatsDelegate.html
@@ -330,6 +331,7 @@ conversation:
       VideoView: /conversation/iOS/api/WDGVideoView.html
       LocalStreamStatsReport: /conversation/iOS/api/WDGLocalStreamStatsReport.html
       RemoteStreamStatsReport: /conversation/iOS/api/WDGRemoteStreamStatsReport.html
+      IceTransportPolicy: /conversation/iOS/api/WDGIceTransportPolicy.html
       CallStatus: /conversation/iOS/api/WDGCallStatus.html
       错误码: /conversation/iOS/api/error-code.html
     更新日志: /conversation/iOS/changelog.html

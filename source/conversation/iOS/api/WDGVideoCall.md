@@ -75,12 +75,12 @@ title: WDGVideoCall
 
 ---
 
-### - callWithUid: localStream: data:
+### - callWithUid: localStream: options:
 
 **定义**
 
 ```objectivec
-- (WDGConversation *)callWithUid:(NSString *)uid localStream:(WDGLocalStream *)localStream data:(NSString * _Nullable)data;
+- (WDGConversation *)callWithUid:(NSString *)uid localStream:(WDGLocalStream *)localStream options:(WDGVideoCallOptions * _Nullable)options;
 ```
 
 **说明**
@@ -93,7 +93,7 @@ title: WDGVideoCall
 ------------------|------------------
 uid               | 被叫方的 [User ID](/auth/iOS/api/WDGUserInfo.html#uid)。
 localStream       | 代表主叫方的本地媒体流。请参考 [WDGLocalStream](/conversation/iOS/api/WDGLocalStream.html)。
-data              | 随邀请传递的字符串类型的数据，可以为空。
+options           | 代表呼叫的相关设置，可设置随邀请传递的字符串类型的数据、Relay等，可以为空。参考[WDGVideoCallOptions](/conversation/iOS/api/WDGVideoCallOptions.html)
 
 **返回值**
 
@@ -102,3 +102,5 @@ data              | 随邀请传递的字符串类型的数据，可以为空。
 </br>
 
 ---
+
+
