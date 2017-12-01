@@ -31,7 +31,7 @@ call(remoteUid,localStream,data)
 |---|---|
 | remoteUid  | `String` 类型，用户身份的唯一表示。 |
 | localStream| 本地创建的媒体流对象|
-| data       | 通话时附加信息     |
+| options    | `Object` 类型，可选参数<br>代表呼叫的相关设置，`data`代表需要携带的信息，`iceTransportPolicy`可开启强制Relay。|
 
 **返回值**
 Conversation
@@ -39,7 +39,7 @@ Conversation
 **示例**
 
 ```js
-video.call(uid,localStream,'data');
+video.call(uid,localStream,{'data':'test','iceTransportPolicy':'relay'});
 ```
 
 </br>
