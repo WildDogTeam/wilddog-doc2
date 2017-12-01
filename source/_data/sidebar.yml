@@ -349,8 +349,11 @@ conversation:
       媒体流统计: /conversation/Android/guide/6-statistics.html
     API 文档:
       WilddogVideoInitializer: /conversation/Android/api/wilddog-video-initializer.html
+      
       WilddogVideoCall: /conversation/Android/api/wilddog-video-call.html
       WilddogVideoCall.Listener: /conversation/Android/api/wilddog-video-call-listener.html
+      WilddogVideoCallOption: /conversation/Android/api/wilddog-video-call-option.html
+      WilddogVideoCallOption.Builder: /conversation/Android/api/wilddog-video-call-option-builder.html
       WilddogVideoError: /conversation/Android/api/wilddog-video-error.html
       WilddogVideoView: /conversation/Android/api/wilddog-video-view.html
       WilddogVideoViewLayout: /conversation/Android/api/wilddog-video-view-layout.html
