@@ -63,12 +63,12 @@ void setListener(Listener listener)
 
 ---
 
-###  call(String, LocalStream, String)
+###  call(String, LocalStream, WilddogVideoCallOption)
 
 **定义**   
 
 ```java
-Conversation call(String uid, LocalStream localStream, String data)
+Conversation call(String uid, LocalStream localStream, WilddogVideoCallOption option)
 ```
 
 
@@ -83,17 +83,11 @@ Conversation call(String uid, LocalStream localStream, String data)
 |---|---|
 |uid|String类型,用户身份的唯一标示|
 |localStream|本地创建的媒体流对象|
-|data|通话时附加信息|
+|option|通话时附加信息操作对象|
 
 **返回值**
 
 [Conversation](/conversation/Android/api/conversation.html)
-
-**示例**
-
-```java
-video.call(uid,localStream, "data");
-```
 
 
 ---
