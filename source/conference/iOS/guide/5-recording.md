@@ -36,6 +36,18 @@ bgColor           | NSNumber         | 背景颜色 (十六进制) | 0xffffff
 streams           | NSDictionary     | 媒体流布局         | { "627620748239984100": {"left": 0 , "top": 100, "width": 100, "height": 100, "zOrder": 0-255}
 
 
+对于每路需要录制的流的参数配置:
+
+|选项                                             | 类型 |说明                                |示例|
+|-------------------------------------------------|-----|------------------------------------|---|
+|streamId  | NSString |流ID，在一个room中，每一路流都有一个唯一流ID            |627620748239984100 |
+|left      | NSNumber |此路视频流相对左侧坐标                   |0  |
+|top       | NSNumber |此路视频流相对顶部坐标                   |0  |
+|width     | NSNumber |此路视频宽度                           |100|
+|height    | NSNumber |此路视频高度                           |150|
+|zOrder    | NSNumber |图像叠放层次顺序，高层次将遮挡低层次图像。该值越小，则叠放层次越低，该值越大，则叠放层次越高,从小到大绘制(0-255)  | 8  |
+
+
 ## 结束录制
 
 使用 `-[WDGRoom stopRecordingWithCompletionBlock:]` 方法结束视频录制：

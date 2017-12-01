@@ -192,12 +192,24 @@ roomInstance.startRecording(options,callback) ;
 
 选项               | 类型              | 说明                    | 示例
 ------------------|------------------|------------------|------------------
-fps               | Integer         | 视频帧率 (fps)     | 15
-bitrate           | Integer         | 比特率 (bps)       | 300
-canvasWidth       | Integer         | 视频宽度 (<=1920) | 960
-canvasHeight      | Integer         | 视频高度 (<=1080)  | 640
-bgColor           | Integer         | 背景颜色 (十六进制) | xffffff
-streams           | Object          | 媒体流布局         | { "627620748239984100": {"left": 0 , "top": 100, "width": 300, "height": 300, "zOrder": 0-255}
+fps               | number         | 视频帧率 (fps)     | 15
+bitrate           | number         | 比特率 (bps)       | 300
+canvasWidth       | number         | 视频宽度 (<=1920) | 960
+canvasHeight      | number         | 视频高度 (<=1080)  | 640
+bgColor           | number         | 背景颜色 (十六进制) | xffffff
+streams           | Object         | 媒体流布局         | { "627620748239984100": {"left": 0 , "top": 100, "width": 300, "height": 300, "zOrder": 0-255}
+
+对于每路需要录制的流的参数配置:
+
+|选项                                             | 类型 |说明                                |示例|
+|-------------------------------------------------|-----|------------------------------------|---|
+|streamId  | string |流ID，在一个room中，每一路流都有一个唯一流ID            |627620748239984100 |
+|left      | number |此路视频流相对左侧坐标                   |0  |
+|top       | number |此路视频流相对顶部坐标                   |0  |
+|width     | number |此路视频宽度                           |100|
+|height    | number |此路视频高度                           |150|
+|zOrder    | number |图像叠放层次顺序，高层次将遮挡低层次图像。该值越小，则叠放层次越低，该值越大，则叠放层次越高,从小到大绘制(0-255)  | 8  |
+
 
 **示例**
 

@@ -50,7 +50,7 @@ WilddogRoom SDK 提供服务端视频录制功能。使用视频录制 API 保�
 |RecordOptionKeys.BITRATE           | int    |比特率(bps)              |100         |
 |RecordOptionKeys.CANVAS_WIDTH      | int    |视频宽度(<=1920)         |960         |
 |RecordOptionKeys.CANVAS_HEIGHT     | int    |视频高度(<=1080)         |640         |
-|RecordOptionKeys.BACKGROUD_COLOR   | int    |背景颜色的十六进制码(argb)|0x00ffffff   |
+|RecordOptionKeys.BACKGROUD_COLOR   | int    |背景颜色的十六进制码(argb) |0x00ffffff   |
 |RecordOptionKeys.STREAMS           | Map    |媒体流布局               |streams         |
 
 录制每个流的参数配置:
