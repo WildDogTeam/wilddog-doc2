@@ -69,6 +69,38 @@ title: WDGLocalStreamOptions
 
 ---
 
+### maxBiterateBps
+
+**定义**
+
+```objectivec
+@property (nonatomic, strong) NSNumber *_Nullable maxBitrateBps;
+```
+
+**说明**
+
+表示最大码率，不设置则使用系统默认值。最大值为 2Mbps，且不能小于最小码率。
+
+</br>
+
+---
+
+### maxBiterateBps
+
+**定义**
+
+```objectivec
+@property (nonatomic, strong) NSNumber *_Nullable minBitrateBps;
+```
+
+**说明**
+
+表示最大码率，不设置则使用系统默认值。最小值为 50bps，且不能大于最大码率。
+
+</br>
+
+---
+
 ## 方法
 
 ### - init
