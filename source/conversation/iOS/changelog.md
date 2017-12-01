@@ -5,6 +5,19 @@ title: 更新日志
 ## iOS SDK
 
 
+### v2.4.0 - 2017.12.01
+
+<span class="changelog add">新增</span>
+- 新增自定义设置最大码率和最小码率
+- 新增支持配置服务器中继 `relay` 类型通话
+
+<span class="changelog optimize">优化</span>
+- 切换网络之后的重连机制优化
+
+<span class="changelog deprecated">删除</span>
+- BeautyView不再建议使用
+
+
 ### v2.3.3 - 2017.11.28
 
 <span class="changelog optimize">优化</span>

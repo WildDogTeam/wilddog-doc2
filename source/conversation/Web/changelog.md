@@ -5,6 +5,18 @@ title: 更新日志
 ## Javascript SDK
 
 
+
+### v2.4.0 - 2017.12.01
+
+<span class="changelog add">新增</span>
+- 新增自定义设置最大码率和最小码率
+- 新增支持配置服务器中继 `relay` 类型通话
+
+<span class="changelog optimize">优化</span>
+- 优化ice重启机制
+
+
+
 ### v2.3.3 - 2017.11.28
 
 <span class="changelog optimize">优化</span>

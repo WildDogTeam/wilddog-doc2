@@ -4,6 +4,16 @@ title: 更新日志
 ## iOS SDK
 
 
+### v2.2.2 - 2017.12.01
+
+<span class="changelog add">新增</span>
+- 支持自定义日志打印等级
+
+<span class="changelog fix">修复</span>
+- 修复 `WebSocket` 偶尔断网重连失败
+- 上传错误 `token` 导致的 `WebSocket` 持续重连
+
+
 ### v2.2.1 - 2017.11.18
 
 <span class="changelog optimize">优化</span>

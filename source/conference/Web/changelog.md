@@ -3,6 +3,13 @@ title: 更新日志
 
 ## Javascript SDK
 
+
+### v2.2.5 - 2017.12.01
+
+<span class="changelog add">新增</span>
+- 新增自定义设置最大码率和最小码率
+
+
 ### v2.2.4 - 2017.11.18
 
 <span class="changelog add">新增</span>

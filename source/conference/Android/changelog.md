@@ -4,6 +4,13 @@ title: 更新日志
 
 ## Android SDK
 
+
+### v2.2.2 - 2017.12.01
+
+<span class="changelog optimize">优化</span>
+- 优化超时处理逻辑
+
+
 ### v2.2.1 - 2017.11.18
 
 <span class="changelog add">新增</span>
