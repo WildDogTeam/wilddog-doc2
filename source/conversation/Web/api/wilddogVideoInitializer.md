@@ -68,7 +68,10 @@ createLocalStream(options)
 | captureAudio |`Boolean` 类型。必选参数<br>如果为 `true`，则媒体流中包含声音。<br>如果为 `false`，则媒体流中不包含声音。|
 | captureVideo |`Boolean` 类型。必选参数<br>如果为 `true`，则媒体流中包含视频。<br>如果为 `false`，则媒体流中不包含视频。|
 | dimension |`String` 类型。必选参数<br>只能设置的值以及对应的分辨率如下：<br>`120p` - 160X120<br>`240p` - 320X240<br>`360p` - 480X360<br>`480p` - 640X480<br>`720p` - 1280X720<br>`1080p` - 1920X1080 |
-| maxFPS|`Integer` 类型。可选参数<br>自定义传输视频的最大帧率，默认值为15，最大值为30。|
+| maxFPS|`Number` 类型。可选参数<br>自定义传输视频的最大帧率，默认值为15，最大值为30。|
+| maxBitrateBps|`Number` 类型。可选参数<br>自定义传输视频的最大码率，最大值为2048Kbps。|
+| maxBitrateBps|`Number` 类型。可选参数<br>自定义传输视频的最小码率，最小值为50Kbps。|
+
 
 </br>
 
