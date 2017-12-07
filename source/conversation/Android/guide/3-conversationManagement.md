@@ -6,16 +6,20 @@ title: 管理一对一视频通话
 
 ## 发起通话请求
 
-使用 `call(String remoteUid, LocalStream localStream, String data)` 来发起通话请求，该方法需要传递三个参数：
+使用 `call(String remoteUid, LocalStream localStream, WilddogVideoCallOption option)` 来发起通话请求，该方法需要传递三个参数：
 
 * remoteUid: 通话接收方的 `uid`，`uid` 是 WilddogAuth 为认证用户分配的唯一身份标识；
 * localStream: 通话发起方的本地媒体流；
-* data: 用户自定义信息，可以为空。
+* option: 包括视频通话用户自定义信息、是否强制relay。
 
 调用该方法返回 [Conversation](/conversation/Android/api/conversation.html) 实例，用于控制本次一对一视频通话。
 
 ```java
-mConversation = video.call(remoteUid,localStream,"conversationDemo");
+WilddogVideoCallOption option = new WilddogVideoCallOption.Builder()
+                .iceTransportsPolicy(WilddogVideoCallOption.IceTransportsPolicy.ALL)
+                .data("conversationDemo")
+                .build();
+mConversation = video.call(remoteUid,localStream,option);
 ```
 
 > 注：每个客户端同一时间只能存在一个通话。发起电话请求时，默人会挂断前一次通话。

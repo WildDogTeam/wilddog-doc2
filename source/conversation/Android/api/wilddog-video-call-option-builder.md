@@ -1,7 +1,7 @@
 title: WilddogVideoCallOption.Builder
 -------------------------
 
-设置视频电话相关参数的类。
+设置视频通话相关参数的类。
 
 ## 方法
 
@@ -15,13 +15,13 @@ Builder data(String data)
 
 **说明**
 
-设置需要携带的信息，例如拨打电话的时候可以向对方说“你好”。
+设置需要携带的信息，例如发起通话的时候可以向对方说“你好”。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-|data|携带的信息。|
+|data|携带的自定义信息。|
 
 **返回值**
 
@@ -31,7 +31,7 @@ Builder data(String data)
 
 ---
 
-### iceTransportsType(IceTransportsPolicy)
+### iceTransportsPolicy(IceTransportsPolicy)
 
 **定义**   
 
