@@ -4,6 +4,18 @@ title: 更新日志
 ## Android SDK
 
 
+### v2.4.2 - 2017.12.08
+
+<span class="changelog optimize">优化</span>
+- 根据客户端情况自动优选编解码方式
+
+
+### v2.4.1 - 2017.12.06
+
+<span class="changelog optimize">优化</span>
+- 优化ice重启机制
+
+
 ### v2.4.0 - 2017.12.01
 
 <span class="changelog add">新增</span>

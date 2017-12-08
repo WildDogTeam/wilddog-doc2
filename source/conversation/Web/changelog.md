@@ -5,6 +5,14 @@ title: 更新日志
 ## Javascript SDK
 
 
+### v2.4.1 - 2017.12.08
+
+<span class="changelog optimize">优化</span>
+- 根据客户端情况自动优选编解码方式
+
+<span class="changelog fix">修复</span>
+- 修复了媒体流统计接口延迟信息总为0的问题
+
 
 ### v2.4.0 - 2017.12.01
 

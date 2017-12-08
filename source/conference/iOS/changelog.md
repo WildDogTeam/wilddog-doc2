@@ -4,6 +4,12 @@ title: 更新日志
 ## iOS SDK
 
 
+### v2.2.3 - 2017.12.08
+
+<span class="changelog optimize">优化</span>
+- 兼容 `Mac` 分享的 `IPv6` 网络
+
+
 ### v2.2.2 - 2017.12.01
 
 <span class="changelog add">新增</span>

@@ -4,6 +4,12 @@ title: 更新日志
 ## Javascript SDK
 
 
+### v2.2.6 - 2017.12.08
+
+<span class="changelog add">新增</span>
+- 支持自定义日志打印等级
+
+
 ### v2.2.5 - 2017.12.01
 
 <span class="changelog add">新增</span>

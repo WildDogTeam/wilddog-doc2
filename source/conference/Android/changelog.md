@@ -5,6 +5,18 @@ title: 更新日志
 ## Android SDK
 
 
+### v2.2.3 - 2017.12.08
+
+<span class="changelog optimize">优化</span>
+- `WebSocket` 重连超过30秒将触发超时
+
+<span class="changelog fix">修复</span>
+- 修复了断网重连时重新订阅本地媒体流的问题
+- 修复了 `publish` 成功回调但却无法获取本地流id的问题
+- 修复了使用默认参数无法进行录制的问题
+
+
+
 ### v2.2.2 - 2017.12.01
 
 <span class="changelog optimize">优化</span>

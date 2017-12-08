@@ -5,6 +5,13 @@ title: 更新日志
 ## iOS SDK
 
 
+### v2.4.1 - 2017.12.08
+
+<span class="changelog optimize">优化</span>
+- 根据客户端情况自动优选编解码方式
+- 优化欠费信息提醒
+
+
 ### v2.4.0 - 2017.12.01
 
 <span class="changelog add">新增</span>
