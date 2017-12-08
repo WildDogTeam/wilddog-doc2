@@ -349,7 +349,7 @@ conversation:
       媒体流统计: /conversation/Android/guide/6-statistics.html
     API 文档:
       WilddogVideoInitializer: /conversation/Android/api/wilddog-video-initializer.html
-      
+
       WilddogVideoCall: /conversation/Android/api/wilddog-video-call.html
       WilddogVideoCall.Listener: /conversation/Android/api/wilddog-video-call-listener.html
       WilddogVideoCallOption: /conversation/Android/api/wilddog-video-call-option.html
@@ -387,7 +387,7 @@ conference:
       发布和订阅: /conference/Web/guide/4-pubAndSub.html
       媒体流录制: /conference/Web/guide/5-recording.html
     API 文档:
-      WilddogVideoInitializer: /conference/Web/api/wilddogVideoInitializer.html
+      wilddogVideo: /conference/Web/api/wilddogVideoInitializer.html
       WilddogVideoRoom: /conference/Web/api/wilddogRoom.html
       LocalStream: /conference/Web/api/localStream.html
       RoomStream: /conference/Web/api/roomStream.html

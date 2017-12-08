@@ -29,40 +29,34 @@ title: wilddogVideo
 
 ---
 
-### room(roomId)
+### setLogLevel(level)
 
 **定义**
 
 ```javascript
-	wilddogVideo.room(roomId);
+	wilddogVideo.setLogLevel(level);
 ```
 
 **说明**
 
-使用 roomId 初始化 Room，同时指定接收 Room 事件的监听。
-
-如果 Room 不存在，则服务端创建新 Room；否则加入已有 Room。
+设置日志打印等级。默认为 "WARNING"。
 
 **参数**
 
 | 参数名 | 描述 |
 |---|---|
-| roomId | Room的唯一标识。 |
-
-**返回值**
-
-`WilddogVideoRoom`实例
+| level | 日志等级："OFF"、"ERROR"、"WARNING"、"INFO"、"DEBUG"、"VERBOSE" 。 |
 
 </br>
 
 ---
 
-### room(roomId,url)
+### room(roomId[, url])
 
 **定义**
 
 ```javascript
-	wilddogVideo.room(roomId,url);
+	wilddogVideo.room(roomId[, url]);
 ```
 
 **说明**
