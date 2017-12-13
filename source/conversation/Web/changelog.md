@@ -5,6 +5,14 @@ title: 更新日志
 ## Javascript SDK
 
 
+
+### v2.4.2 - 2017.12.13
+
+<span class="changelog fix">修复</span>
+- 修复了在mac系统中偶发的无法连接WebSocket的问题
+
+
+
 ### v2.4.1 - 2017.12.08
 
 <span class="changelog optimize">优化</span>

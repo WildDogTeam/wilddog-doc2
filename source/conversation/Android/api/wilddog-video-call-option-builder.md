@@ -36,7 +36,7 @@ Builder data(String data)
 **定义**   
 
 ```java
-Builder iceTransportsType(IceTransportsPolicy iceTransportsPolicy)
+Builder iceTransportsPolicy(IceTransportsPolicy iceTransportsPolicy)
 ```
 
 **说明**

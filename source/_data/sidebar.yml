@@ -445,6 +445,11 @@ conference:
       错误码: /conference/Android/api/error-code.html
     更新日志: /conference/Android/changelog.html
 
+  REST:
+    概览: /conference/REST/index.html
+    API 文档:
+      云端截图: /conference/REST/api/snapshot.html
+    更新日志: /conference/REST/changelog.html
 
 location:
   Web:
