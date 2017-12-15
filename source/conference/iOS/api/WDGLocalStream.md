@@ -5,6 +5,22 @@ title: WDGLocalStream
 
 ## 属性
 
+### attributes
+
+**定义**
+
+```objectivec
+@property (nonatomic, strong, readwrite) NSDictionary *_Nullable attributes;
+```
+
+**说明**
+
+媒体流中可携带的自定义信息，字典类型，且 JSON 序列化之后长度不能超过 2k 个字符。
+
+</br>
+
+---
+
 ### delegate
 
 **定义**
