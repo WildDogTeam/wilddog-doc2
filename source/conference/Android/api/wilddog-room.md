@@ -3,6 +3,20 @@ title: WilddogRoom
 
 `WilddogRoom` 是多人视频通话的主入口，表示一个多人的视频会话，多个用户可以加入同一个 Room 进行音视频通话。
 
+## 常量
+
+### CodecType
+
+优先编码选项。
+
+**定义**
+
+```java
+    H264, 
+    VP8
+```
+
+
 ## 属性
 
 ### getRoomId()
@@ -136,6 +150,28 @@ Room 的唯一标识。
 
 ---
 
+### publish(localStream, codecType)
+
+**定义**
+
+```java
+	public void publish(LocalStream localStream, CodecType codecType)
+```
+
+**说明**
+
+发布本地媒体流。发布成功后会触发其他客户端的 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件。
+
+**参数**
+
+|参数名             | 说明 |
+|------------------|------------------|
+|localStream       | 本地媒体流，请参考 [LocalStream](/conference/Android/api/local-stream.html)。|
+|codecType         | 优先编码选项。|
+</br>
+
+---
+
 ### publish(localStream,listener)
 
 **定义**
@@ -153,6 +189,30 @@ Room 的唯一标识。
 |参数名             | 说明 |
 |------------------|------------------|
 |localStream       | 本地媒体流，请参考 [LocalStream](/conference/Android/api/local-stream.html)。|
+|listener          | 发布操作完成执行的回调监听。|
+
+</br>
+
+---
+
+### publish(localStream, codecType, listener)
+
+**定义**
+
+```java
+	public void publish(LocalStream localStream, CodecType codecType, CompleteListener listener)
+```
+
+**说明**
+
+发布本地媒体流，操作完成执行完成回调。发布成功后会触发其他客户端的 [onStreamAdded](/conference/Android/api/wilddog-room-listener.html#onStreamAdded-room-roomStream) 事件。
+
+**参数**
+
+|参数名             | 说明 |
+|------------------|------------------|
+|localStream       | 本地媒体流，请参考 [LocalStream](/conference/Android/api/local-stream.html)。|
+|codecType         | 优先编码选项。|
 |listener          | 发布操作完成执行的回调监听。|
 
 </br>

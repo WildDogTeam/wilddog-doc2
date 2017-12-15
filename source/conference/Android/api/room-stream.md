@@ -78,3 +78,43 @@ public void detach()
 </br>
 
 ---
+
+### setAttributes(attributes)
+
+**定义**
+   
+```java
+public void setAttributes(Map<String, String> attributes)
+```
+**说明**
+
+用户可以在发流之前设置 localStream 的 attributes，远端用户可以在收到的 remoteStream 中拿到。
+注意：remoteStream 设置 attributes 只有本地生效。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+| attributes | key 和 value 都为字符串的 Map。|
+
+</br>
+
+---
+
+### getAttributes()
+
+**定义**
+   
+```java
+public Map<String, String> getAttributes()
+```
+**说明**
+
+得到 remoteStream 的自定义属性，数据类型为 map。
+
+**返回值**
+remoteStream 对应的自定义属性，数据类型为 map。
+
+</br>
+
+---
