@@ -20,3 +20,19 @@ title: WDGRoomStream
 </br>
 
 ---
+
+### attributes
+
+**定义**
+
+```objectivec
+@property (nonatomic, strong, readwrite) NSDictionary *_Nullable attributes;
+```
+
+**说明**
+
+接收到的媒体流中携带的自定义信息，字典类型。
+
+</br>
+
+---
