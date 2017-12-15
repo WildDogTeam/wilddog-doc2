@@ -4,6 +4,18 @@ title: 更新日志
 ## Javascript SDK
 
 
+### v2.2.8 - 2017.12.15
+
+<span class="changelog optimize">优化</span>
+- 支持在 `stream` 中设置自定义属性;
+
+
+### v2.2.7 - 2017.12.14
+
+<span class="changelog fix">修复</span>
+- 修复了 stopRecording() 报错的问题
+
+
 ### v2.2.6 - 2017.12.08
 
 <span class="changelog add">新增</span>

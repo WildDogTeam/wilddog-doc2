@@ -5,6 +5,22 @@ title: 更新日志
 ## Android SDK
 
 
+
+
+### v2.2.5 - 2017.12.15
+
+<span class="changelog optimize">优化</span>
+- 支持在 `stream` 中设置自定义属性
+
+
+
+### v2.2.4 - 2017.12.15
+
+<span class="changelog optimize">优化</span>
+- 提高 `IPv6` 网络支持的通用性
+
+
+
 ### v2.2.3 - 2017.12.08
 
 <span class="changelog optimize">优化</span>

@@ -4,10 +4,19 @@ title: 更新日志
 ## Android SDK
 
 
+
+### v2.4.3 - 2017.12.15
+
+<span class="changelog optimize">优化</span>
+- 支持在 `stream` 中设置自定义属性
+
+
+
 ### v2.4.2 - 2017.12.08
 
 <span class="changelog optimize">优化</span>
 - 根据客户端情况自动优选编解码方式
+
 
 
 ### v2.4.1 - 2017.12.06
@@ -16,11 +25,13 @@ title: 更新日志
 - 优化ice重启机制
 
 
+
 ### v2.4.0 - 2017.12.01
 
 <span class="changelog add">新增</span>
 - 新增自定义设置最大码率和最小码率
 - 新增支持配置服务器中继 `relay` 类型通话
+
 
 
 ### v2.3.3 - 2017.11.28
