@@ -6,6 +6,16 @@ title: 更新日志
 
 
 
+### v2.4.3 - 2017.12.15
+
+<span class="changelog optimize">优化</span>
+- 支持在 `stream` 中设置自定义属性
+
+<span class="changelog fix">修复</span>
+- 修复了 `WebSocket` 建连成功前发送 `call` 无法建立会话的问题
+
+
+
 ### v2.4.2 - 2017.12.13
 
 <span class="changelog fix">修复</span>

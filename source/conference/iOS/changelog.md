@@ -4,10 +4,26 @@ title: 更新日志
 ## iOS SDK
 
 
+
+### v2.2.5 - 2017.12.15
+
+<span class="changelog optimize">优化</span>
+- 支持在 `stream` 中设置自定义属性
+
+
+
+### v2.2.4 - 2017.12.15
+
+<span class="changelog optimize">优化</span>
+- 提高 `IPv6` 网络支持的通用性
+
+
+
 ### v2.2.3 - 2017.12.08
 
 <span class="changelog optimize">优化</span>
 - 兼容 `Mac` 分享的 `IPv6` 网络
+
 
 
 ### v2.2.2 - 2017.12.01
@@ -18,6 +34,7 @@ title: 更新日志
 <span class="changelog fix">修复</span>
 - 修复 `WebSocket` 偶尔断网重连失败
 - 上传错误 `token` 导致的 `WebSocket` 持续重连
+
 
 
 ### v2.2.1 - 2017.11.18

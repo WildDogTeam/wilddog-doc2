@@ -5,11 +5,20 @@ title: 更新日志
 ## iOS SDK
 
 
+
+### v2.4.2 - 2017.12.15
+
+<span class="changelog optimize">优化</span>
+- 支持在 `stream` 中设置自定义属性
+
+
+
 ### v2.4.1 - 2017.12.08
 
 <span class="changelog optimize">优化</span>
 - 根据客户端情况自动优选编解码方式
 - 优化欠费信息提醒
+
 
 
 ### v2.4.0 - 2017.12.01

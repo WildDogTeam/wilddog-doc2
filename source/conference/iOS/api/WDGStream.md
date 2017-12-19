@@ -5,22 +5,6 @@ title: WDGStream
 
 ## 属性
 
-### streamId
-
-**定义**
-
-```objectivec
-@property (nonatomic, retain) NSNumber *streamId;
-```
-
-**说明**
-
-媒体流的唯一标识。
-
-</br>
-
----
-
 ### videoEnabled
 
 **定义**
