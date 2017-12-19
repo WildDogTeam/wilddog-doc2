@@ -1,11 +1,11 @@
-title: WilddogVideoCallOption
+title: WilddogVideoCallOptions
 ---
 
 表示视频通话相关设置项的类。
 
 ## 常量
 
-### IceTransportsPolicy
+### IceTransportPolicy
 
 强制Relay选项。
 
@@ -35,12 +35,12 @@ String getData()
 
 ---
 
-### getIceTransportsPolicy()
+### getIceTransportPolicy()
 
 **定义**
 
 ```java
-IceTransportsPolicy getIceTransportsPolicy()
+IceTransportPolicy getIceTransportPolicy()
 ```
 
 **说明**

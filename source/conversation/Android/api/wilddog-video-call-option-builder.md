@@ -1,4 +1,4 @@
-title: WilddogVideoCallOption.Builder
+title: WilddogVideoCallOptions.Builder
 -------------------------
 
 设置视频通话相关参数的类。
@@ -31,12 +31,12 @@ Builder data(String data)
 
 ---
 
-### iceTransportsPolicy(IceTransportsPolicy)
+### iceTransportsPolicy(IceTransportPolicy)
 
 **定义**   
 
 ```java
-Builder iceTransportsPolicy(IceTransportsPolicy iceTransportsPolicy)
+Builder iceTransportPolicy(IceTransportPolicy iceTransportPolicy)
 ```
 
 **说明**
@@ -47,7 +47,7 @@ Builder iceTransportsPolicy(IceTransportsPolicy iceTransportsPolicy)
 
 | 参数名 | 描述 |
 |---|---|
-|iceTransportsPolicy|通话类型。|
+|iceTransportPolicy|通话类型。|
 
 **返回值**
 

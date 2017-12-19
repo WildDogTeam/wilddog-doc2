@@ -15,8 +15,8 @@ title: 管理一对一视频通话
 调用该方法返回 [Conversation](/conversation/Android/api/conversation.html) 实例，用于控制本次一对一视频通话。
 
 ```java
-WilddogVideoCallOption option = new WilddogVideoCallOption.Builder()
-                .iceTransportsPolicy(WilddogVideoCallOption.IceTransportsPolicy.ALL)
+WilddogVideoCallOptions option = new WilddogVideoCallOptions.Builder()
+                .iceTransportsPolicy(WilddogVideoCallOptions.IceTransportPolicy.ALL)
                 .data("conversationDemo")
                 .build();
 mConversation = video.call(remoteUid,localStream,option);
