@@ -8,7 +8,7 @@ title: 更新日志
 
 <span class="changelog fix">修复</span>
 - 修复了 `safari` 中无法收取纯音频媒体流的问题
-- 修复 `unpublish` 本地流是产生的回调问题
+- 修复 `unpublish` 本地流时产生的回调问题
 
 
 ### v2.2.8 - 2017.12.15
