@@ -11,7 +11,11 @@ title: 基础概念
 
 ## Room Stream
 
-多人视频通话房间中的远端媒体流。有 MCU 和 SFU 两种模式。在 MCU 模式下，所有的远端媒体流在经过服务器混流后，作为一条媒体流传给客户端；在 SFU 模式下，被订阅的媒体流被服务器直接转发给客户端。
+多人视频通话房间中的远端媒体流。
+
+## Video View
+
+使用 VideoView 播放本地／远端视频流，LocalStream 和 RoomStream 只能与 VideoView 绑定来播放。
 
 ## Publish & Subscribe
 

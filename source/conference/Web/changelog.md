@@ -4,6 +4,13 @@ title: 更新日志
 ## Javascript SDK
 
 
+### v2.2.9 - 2017.12.22
+
+<span class="changelog fix">修复</span>
+- 修复了 `safari` 中无法收取纯音频媒体流的问题
+- 修复 `unpublish` 本地流是产生的回调问题
+
+
 ### v2.2.8 - 2017.12.15
 
 <span class="changelog optimize">优化</span>

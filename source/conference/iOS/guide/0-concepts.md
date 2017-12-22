@@ -3,25 +3,20 @@ title: 基础概念
 
 ## Room
 
-表示多人视频通话，以 roomId 为唯一标识。加入多人视频通话后，可以发布／订阅媒体流。
+多人视频通话的房间，包含了发布在房间中的所有媒体流，创建或加入房间后，可以发布／接收媒体流。
 
+## Local Stream
 
-## Stream
+本地媒体流，包括本地音频流和视频流，需要在发起视频通话／接受视频通话邀请前进行配置。
 
-WilddogVideoRoom SDK 用 `Stream` 来表示多人视频通话的参与者。包含 `LocalStream` 和 `RoomStream`:
+## Room Stream
 
-- LocalStream: 本地媒体流。包括音频流和视频流，需要在加入多人视频通话前进行配置。
-- RoomStream: 远端媒体流。其他用户发布的媒体流，从 Room 中获取。
+多人视频通话房间中的远端媒体流。
 
-
-## VideoView
+## Video View
 
 使用 VideoView 播放本地／远端视频流，LocalStream 和 RoomStream 只能与 VideoView 绑定来播放。
 
-
 ## Publish & Subscribe
 
-多人视频通话采用了发布／订阅机制：
-
-- Publish: 用户将本地媒体流发布到 Room 中，发布成功后其他用户将收到通知。
-- Subscribe: 用户从 Room 中获取远端媒体流的信息，需要订阅后，才能接收到媒体数据。
+多人视频通话采用了发布／订阅机制，客户端将自己的媒体流发布到多人视频通话的房间中，并从房间中获取远端媒体流的列表，然后选择订阅远端媒体流。
