@@ -9,7 +9,7 @@ title: REST API
 
 本文档列出的 REST API，则主要用于房间（Room）级别的功能及权限控制。我们将逐渐丰富并完善这些API，包括且不限于以下：
 - 云端截图：已上线，[查看API详情](https://docs.wilddog.com/conference/REST/api/snapshot.html)
-- 媒体插播：开发中，敬请期待
+- 媒体插播：已上线，[查看API详情](https://docs.wilddog.com/conference/REST/api/externalInput.html)
 - 直播推流：开发中，敬请期待
 - 房间管理：开发中，敬请期待
 

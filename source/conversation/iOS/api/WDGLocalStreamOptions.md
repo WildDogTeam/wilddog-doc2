@@ -37,6 +37,22 @@ title: WDGLocalStreamOptions
 
 ---
 
+### defaultPosition
+
+**定义**
+
+```objectivec
+@property(nonatomic, assign) WDGCaptureDevicePosition defaultPosition;
+```
+
+**说明**
+
+控制本地流的初始摄像头朝向。默认使用前置摄像头。
+
+</br>
+
+---
+
 ### dimension
 
 **定义**
@@ -128,6 +144,14 @@ title: WDGLocalStreamOptions
 ### WDGVideoConstraints
 
 **说明**
+视频质量选项。
+
+- `WDGVideoDimensions120p`: 视频尺寸 192x144
+- `WDGVideoDimensions240p`: 视频尺寸 352x288
+- `WDGVideoDimensions360p`: 视频尺寸 480x360
+- `WDGVideoDimensions480p`: 视频尺寸 640x480
+- `WDGVideoDimensions720p`: 视频尺寸 1280x720
+- `WDGVideoDimensions1080p`: 暂未支持，若设置为此项，视频尺寸将使用 1280x720
 
 **定义**
 
@@ -142,11 +166,22 @@ typedef NS_ENUM(NSUInteger, WDGVideoDimensions) {
 };
 ```
 
-视频质量选项。
 
-- `WDGVideoDimensions120p`: 视频尺寸 192x144
-- `WDGVideoDimensions240p`: 视频尺寸 352x288
-- `WDGVideoDimensions360p`: 视频尺寸 480x360
-- `WDGVideoDimensions480p`: 视频尺寸 640x480
-- `WDGVideoDimensions720p`: 视频尺寸 1280x720
-- `WDGVideoDimensions1080p`: 暂未支持，若设置为此项，视频尺寸将使用 1280x720
+
+
+### WDGVideoConstraints
+
+**说明**
+摄像头位置
+
+**定义**
+
+```objectivec
+typedef NS_ENUM(NSUInteger, WDGCaptureDevicePosition) {
+    //前置摄像头
+    WDGCaptureDevicePositionFront,
+    //后置摄像头
+    WDGCaptureDevicePositionBack
+};
+```
+

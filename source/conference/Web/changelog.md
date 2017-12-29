@@ -4,6 +4,14 @@ title: 更新日志
 ## Javascript SDK
 
 
+
+### v2.3.0 - 2017.12.29
+
+<span class="changelog add">新增</span>
+- 数据统计接口
+
+
+
 ### v2.2.9 - 2017.12.22
 
 <span class="changelog fix">修复</span>

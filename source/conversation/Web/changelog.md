@@ -6,10 +6,22 @@ title: 更新日志
 ## Javascript SDK
 
 
+
+### v2.4.5 - 2017.12.29
+
+<span class="changelog add">新增</span>
+- 新增日志系统
+
+<span class="changelog fix">修复</span>
+- 被叫方未接超时的时候报错
+
+
+
 ### v2.4.4 - 2017.12.19
 
 <span class="changelog fix">修复</span>
 - 修复了一个潜在的新旧版本兼容问题
+
 
 
 ### v2.4.3 - 2017.12.15

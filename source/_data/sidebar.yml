@@ -449,6 +449,8 @@ conference:
     概览: /conference/REST/index.html
     API 文档:
       云端截图: /conference/REST/api/snapshot.html
+      媒体插播: /conference/REST/api/externalInput.html
+      错误码: /conference/REST/api/error-code.html
     更新日志: /conference/REST/changelog.html
 
 location:
