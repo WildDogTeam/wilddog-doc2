@@ -83,6 +83,32 @@ Builder dimension(Dimension dimension)
 
 ---
 
+### defaultCameraSource(defaultCameraSource)
+
+**定义**   
+
+```java
+defaultCameraSource(CameraSource defaultCameraSource)
+```
+
+**说明**
+
+设置默认使用摄像头选项,默认为前置。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+|defaultCameraSource|当前使用摄像头。|
+
+**返回值**
+
+当前媒体采集参数构建对象。
+
+</br>
+
+---
+
 ### maxFps(int)
 
 **定义**   

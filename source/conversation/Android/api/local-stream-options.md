@@ -18,9 +18,19 @@ title: LocalStreamOptions
 	DIMENSION_360P,
 	DIMENSION_480P,
 	DIMENSION_720P,
-	DIMENSION_1080P;
+	DIMENSION_1080P,
+	DIMENSION_MAX;
 ```
+### CameraSource
 
+视频分辨率选项。
+
+**定义**
+
+```java
+	BACK_CAMERA,
+	FRONT_CAMERA;
+```
 
 
 ## 方法
@@ -74,6 +84,26 @@ Dimension getDimension()
 **返回值**
 
 当前视频分辨率。
+
+</br>
+
+---
+
+### getDefaultCameraSource()
+
+**定义**
+
+```java
+CameraSource getDefaultCameraSource()
+```
+
+**说明**
+
+摄像头使用选项，默认前置 'FRONT_CAMERA'。
+
+**返回值**
+
+当前使用的摄像头。
 
 </br>
 
