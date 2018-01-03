@@ -23,7 +23,7 @@ title: LocalStreamOptions
 ```
 ### CameraSource
 
-视频分辨率选项。
+摄像头使用选项。
 
 **定义**
 
