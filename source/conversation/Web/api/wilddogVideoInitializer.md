@@ -6,7 +6,7 @@ title: wilddogVideo
 
 ## 方法
 
-### initialize(options)
+### initialize
 
 **定义**
 
@@ -33,7 +33,7 @@ title: wilddogVideo
 
 ---
 
-### call()
+### call
 
 **定义**
 
@@ -54,7 +54,7 @@ title: wilddogVideo
 **定义**
 
 ```js
-createLocalStream(options)
+createLocalStream
 ```
 
 **说明**
@@ -96,7 +96,7 @@ wilddogVideo.createLocalStream({
 
 ---
 
-### setToken(token)
+### setToken
 
 **定义**
 

@@ -37,7 +37,7 @@ remoteStream.attach(document.getElementById('remoteStream'));
 **定义**
 
 ```js
-detach()
+detach(element)
 ```
 
 **说明**

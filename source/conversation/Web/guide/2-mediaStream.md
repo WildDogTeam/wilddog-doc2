@@ -44,7 +44,7 @@ wilddogVideo.createLocalStream(
 
 本地媒体流包括音频和视频。
 
-使用 `localStream.attach()` 方法将媒体流放入video标签：
+使用 `localStream.attach(element)` 方法将媒体流放入video标签：
 
 ```javascript
 localStream.attach(local);
@@ -53,7 +53,7 @@ localStream.attach(local);
 将本地媒体流移出video标签：
 
 ```javascript
-localStream.detach();
+localStream.detach(local);
 ```
 
 可以设定 `enableAudio(enable)` 和 `enableVideo(enable)` 两个方法来控制是否播放音频、视频，默认都为开启。
@@ -72,7 +72,7 @@ localStream.enableAudio(false);
 
 远端媒体流包括音频和视频。
 
-使用 `remoteStream.attach()` 方法将远端媒体流放入video标签：
+使用 `remoteStream.attach(element)` 方法将远端媒体流放入video标签：
 
 ```javascript
 remoteStream.attach(remote);
@@ -81,7 +81,7 @@ remoteStream.attach(remote);
 移出video标签：：
 
 ```javascript
-remoteStream.detach();
+remoteStream.detach(remote);
 ```
 
 可以设置 `enableAudio(enable)` 和 `enableVideo(enable)` 两个方法来控制是否播放音频、视频，默认都为开启。

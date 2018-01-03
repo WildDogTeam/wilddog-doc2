@@ -37,7 +37,7 @@ localStream.attach(document.getElementById('localStream'));
 **定义**
 
 ```js
-detach()
+detach(element)
 ```
 
 **说明**
