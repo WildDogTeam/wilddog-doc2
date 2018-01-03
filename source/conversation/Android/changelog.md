@@ -5,6 +5,17 @@ title: 更新日志
 
 
 
+### v2.4.4 - 2017.12.29
+
+<span class="changelog add">新增</span>
+- 手机摄像头默认配置方法
+- 手机闪光灯等摄像头相关设备的控制方法
+
+<span class="changelog optimize">优化</span>
+- 在更多安卓手机上支持了H.264软解码，提高编解码兼容性
+
+
+
 ### v2.4.3 - 2017.12.15
 
 <span class="changelog optimize">优化</span>

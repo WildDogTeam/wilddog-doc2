@@ -5,22 +5,6 @@ title: WDGLocalStream
 
 ## 属性
 
-### attributes
-
-**定义**
-
-```objectivec
-@property (nonatomic, strong, readwrite) NSDictionary *_Nullable attributes;
-```
-
-**说明**
-
-媒体流中可携带的自定义信息，字典类型，且 JSON 序列化之后长度不能超过 2k 个字符。
-
-</br>
-
----
-
 ### delegate
 
 **定义**
@@ -32,6 +16,23 @@ title: WDGLocalStream
 **说明**
 
 符合 [WDGLocalStreamDelegate](/conversation/iOS/api/WDGLocalStreamDelegate.html) 协议的代理，可以对本地视频流进行处理。
+
+</br>
+
+---
+
+### cameraDevice
+
+**定义**
+
+```objectivec
+@property (nonatomic , strong , readonly) AVCaptureDevice *cameraDevice;
+```
+
+**说明**
+
+当前本地流所使用的摄像头，可以用来控制闪光灯等功能。
+注：使用需要配合“lockForConfiguration”
 
 </br>
 
@@ -93,3 +94,5 @@ options           | `WDGLocalStream` 的配置选项。请参考 [WDGLocalStream
 **说明**
 
 切换摄像头。
+
+

@@ -89,16 +89,3 @@ curl 'https://bt-sh-api.wilddog.com/v2/snapshot?appId=<appId>&roomId=<roomId>&to
 
 
 
-**错误码**
-
-| 错误码 | 简称 | 错误详情 |
-| ------------- | -------------- | ------------ |
-|41200  |Server internal error   |服务端错误      |
-|41201	|Invalid parameter	     |参数不合法      |
-|41202	|Invalid token	         |token 不合法    |
-|41203	|Room not exist	         |指定的 room 不存在|
-|41204	|No stream in this room	 |指定的 room 中不存在视频流|
-|41205	|Frequency exceeded	     |请求频率超限，30s 内只能请求一次|
-|41206	|Server internal error   |服务端错误|
-|41207	|Server internal error   |服务端错误|
-

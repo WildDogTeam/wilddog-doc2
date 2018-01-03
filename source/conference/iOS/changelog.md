@@ -5,6 +5,17 @@ title: 更新日志
 
 
 
+### v2.3.0 - 2017.12.29
+
+<span class="changelog add">新增</span>
+- 手机摄像头默认配置方法
+- 手机闪光灯等摄像头相关设备的控制方法
+- 数据统计接口
+
+<span class="changelog fix">修复</span>
+- iPhoneX,iPhone8,iPadPro等新上市设备在VP8编码下，720P的时候花屏或黑屏的问题
+
+
 ### v2.2.5 - 2017.12.15
 
 <span class="changelog optimize">优化</span>
