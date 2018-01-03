@@ -161,6 +161,52 @@ LocalStream 实例对象。
 
 ---
 
+
+### capturePicture(listener, isMirroring)
+
+**定义**   
+
+```java
+    public void capturePicture(CompleteListener listener, boolean isMirroring)
+```
+
+**说明**
+
+实现对本地流的拍照功能。
+
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+| listener | 拍照完成回调接口。|
+| isMirroring | localview 是否设置了镜像。|
+
+</br>
+
+---
+
+### setFlashMode(flashMode)
+
+**定义**
+   
+```java
+public void setFlashMode(FlashMode flashMode)
+```
+**说明**
+
+设置闪光灯模式。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+| flashMode | 设置闪光灯模式，默认关闭。|
+
+</br>
+
+---
+
 ### attach(videoView)
 
 **定义**
