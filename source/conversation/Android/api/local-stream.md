@@ -162,11 +162,7 @@ LocalStream 实例对象。
 |---|---|
 | listener | 拍照完成回调接口。|
 | isMirroring | localview 是否设置了镜像。|
-**示例**
 
-```java
-    localStream.switchCamera();
-```
 
 </br>
 
