@@ -9,12 +9,14 @@ title: 一对一视频通话
 
 * remoteUid: 通话接收方的 `uid`，`uid` 是 WilddogAuth 为认证用户分配的唯一身份标识；
 * localStream: 通话发起方的本地媒体流；
-* data: 用户自定义信息，可以为空。
+* options: 包括视频通话用户自定义信息、是否强制relay。
 
 调用该方法返回 [Conversation](/conversation/Web/api/conversation.html) 实例，用于控制本次一对一视频通话。
 
 ```javascript
-mConversation = video.call(remoteUid,localStream,"userData");
+//如iceTransportPolicy字段值为relay 则表示开启强制relay
+var options = {'iceTransportPolicy':'','data':'userData'};
+mConversation = videoInstance.call(remoteUid,localStream,options);
 //监听参与者的stream_received事件，将对端的流媒体绑定到页面的video中
 mConversation.on('stream_received',function(stream){
     console.log('Receive stream' + stream);
@@ -44,7 +46,7 @@ videoInstance.on('called',function(incomingConversation){
 使用 `accept(localStream)` 来接受通话请求，该方法需要传入本地媒体流
 
 ```javascript
-mConversation.accept(localStream);
+mConversation.accept(localStream).then(function(conversation) {});
 ```
 
 使用 `reject()` 来拒绝通话请求：

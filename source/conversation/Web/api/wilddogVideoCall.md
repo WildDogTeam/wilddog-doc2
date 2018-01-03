@@ -18,7 +18,7 @@ wilddogVideo是访问WilddogVideoCall SDK的入口。不能直接创建`WilddogV
 **定义**
 
 ```js
-call(remoteUid,localStream,data)
+call(remoteUid,localStream,options)
 ```
 
 **说明**
@@ -31,7 +31,7 @@ call(remoteUid,localStream,data)
 |---|---|
 | remoteUid  | `String` 类型，用户身份的唯一表示。 |
 | localStream| 本地创建的媒体流对象|
-| options    | `Object` 类型，可选参数<br>代表呼叫的相关设置，`data`代表需要携带的信息，`iceTransportPolicy`可开启强制Relay。|
+| options    | `Object` 类型，可选参数<br>代表呼叫的相关设置，`data`代表需要携带的信息，`iceTransportPolicy`可开启强制Relay。如`iceTransportPolicy`字段值为relay，则表示开启强制relay。|
 
 **返回值**
 Conversation
@@ -39,7 +39,7 @@ Conversation
 **示例**
 
 ```js
-video.call(uid,localStream,{'data':'test','iceTransportPolicy':'relay'});
+videoInstance.call(uid,localStream,{'data':'test','iceTransportPolicy':'relay'});
 ```
 
 </br>
@@ -61,7 +61,7 @@ start()
 **示例**
 
 ```js
-video.start();
+videoInstance.start();
 ```
 
 </br>
@@ -83,7 +83,7 @@ stop()
 **示例**
 
 ```js
-video.stop();
+videoInstance.stop();
 ```
 
 </br>
@@ -115,7 +115,7 @@ video.stop();
 
 ```js
 //监听邀请事件
-video.on('called', function(conversation){
+videoInstance.on('called', function(conversation){
     //接受到邀请
     console.log('Accepted an invite from ' + conversation.remoteUid);
 });
@@ -137,7 +137,7 @@ video.on('called', function(conversation){
 
 ```js
 //监听token错误事件
-video.on('token_error', function(error){
+videoInstance.on('token_error', function(error){
     //接受到错误
     console.log('Accepted an error ' + error);
 });

@@ -70,7 +70,7 @@ createLocalStream(options)
 | dimension |`String` 类型。必选参数<br>只能设置的值以及对应的分辨率如下：<br>`120p` - 160X120<br>`240p` - 320X240<br>`360p` - 480X360<br>`480p` - 640X480<br>`720p` - 1280X720<br>`1080p` - 1920X1080 |
 | maxFPS|`Number` 类型。可选参数<br>自定义传输视频的最大帧率，默认值为15，最大值为30。|
 | maxBitrateBps|`Number` 类型。可选参数<br>自定义传输视频的最大码率，最大值为2048Kbps。|
-| maxBitrateBps|`Number` 类型。可选参数<br>自定义传输视频的最小码率，最小值为50Kbps。|
+| mixBitrateBps|`Number` 类型。可选参数<br>自定义传输视频的最小码率，最小值为50Kbps。|
 
 
 </br>

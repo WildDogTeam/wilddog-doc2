@@ -40,7 +40,9 @@ accept(localStream)
 
 ```js
 //接受邀请
-conversation.accept(localStream);
+conversation.accept(localStream).then(function(conversation) {
+  //接受邀请，建立一对一视频通话，获取到Conversation
+});
 ```
 
 </br>

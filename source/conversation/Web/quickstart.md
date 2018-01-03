@@ -107,6 +107,7 @@ videoAppId 为应用实时视频通话标签页中的 VideoAppID 字段值，为
 ```javascript
 //监听收到的邀请
 videoInstance.on('called',function(conversation) {
+  //通过回调函数获取到Conversation对象
   console.log(conversation);
 })
 videoInstance.on('token_error',function() {
@@ -125,7 +126,7 @@ videoInstance.on('token_error',function() {
 
 ```javascript
 
-mConversation = videoInstance.call(remoteUid,localStream,'conversationDemo');
+mConversation = videoInstance.call(remoteUid,localStream,{'data':'userData'});
 ```
 
 ### 5.2 接受一对一视频通话
@@ -136,7 +137,9 @@ mConversation = videoInstance.call(remoteUid,localStream,'conversationDemo');
 
 videoInstance.on('called',function(conversation){
     mConversation = conversation;
-    mConversation.accept();
+    mConversation.accept(localStream).then(function(conversation) {
+      //被叫方获取到的Conversation对象,接受邀请成功，加入一对一视频通话
+    });
 })
 
 ```

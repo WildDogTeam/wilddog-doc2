@@ -22,7 +22,7 @@ WilddogVideoCallOptions option = new WilddogVideoCallOptions.Builder()
 mConversation = video.call(remoteUid,localStream,option);
 ```
 
-> 注：每个客户端同一时间只能存在一个通话。发起电话请求时，默人会挂断前一次通话。
+> 注：每个客户端同一时间只能存在一个通话。发起电话请求时，默认会挂断前一次通话。
 
 ## 收到通话请求
 
