@@ -5,6 +5,13 @@ title: 更新日志
 
 
 
+### v2.4.5 - 2018.01.04
+
+<span class="changelog fix">修复</span>
+- 修复了本地录制功能，在部分手机上没有颜色、没有声音的问题
+
+
+
 ### v2.4.4 - 2017.12.29
 
 <span class="changelog add">新增</span>
