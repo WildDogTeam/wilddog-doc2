@@ -167,7 +167,7 @@ LocalStream 实例对象。
 **定义**   
 
 ```java
-    public void capturePicture(CompleteListener listener, boolean isMirroring)
+    public void capturePicture(CaptureListener listener, boolean isMirroring)
 ```
 
 **说明**
