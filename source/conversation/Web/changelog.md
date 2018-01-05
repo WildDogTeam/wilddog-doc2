@@ -7,6 +7,13 @@ title: 更新日志
 
 
 
+### v2.4.6 - 2018.01.05
+
+<span class="changelog fix">修复</span>
+- 修复了在npm方式下使用时出现的报错
+
+
+
 ### v2.4.5 - 2017.12.29
 
 <span class="changelog add">新增</span>
