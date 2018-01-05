@@ -189,7 +189,7 @@ setAttributes(attributes);
 
 ```js
 //开启参与者的视频
-localStream.setAttributes({id：123456});
+roomStream.setAttributes({id：123456});
 ```
 
 </br>
@@ -212,6 +212,6 @@ getAttributes();
 
 ```js
 //开启参与者的视频
-var atts = localStream.getAttributes();
+var atts = roomStream.getAttributes();
 // atts == {id：123456}  true
 ```
