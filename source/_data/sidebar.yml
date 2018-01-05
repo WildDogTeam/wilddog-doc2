@@ -435,6 +435,7 @@ conference:
       LocalStream: /conference/Android/api/local-stream.html
       LocalStreamOptions: /conference/Android/api/local-stream-options.html
       LocalStream.CameraFrameListener: /conference/Android/api/camera-frame-listener.html
+      LocalStream.CaptureListener: /conference/Android/api/capture-listener.html
       ScalingType: /conference/Android/api/scaling-type.html
       RoomStream: /conference/Android/api/room-stream.html
       RoomStream.Listener: /conference/Android/api/room-stream-listener.html
