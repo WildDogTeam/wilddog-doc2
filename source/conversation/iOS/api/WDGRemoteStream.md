@@ -10,7 +10,7 @@ title: WDGRemoteStream
 **定义**
 
 ```objectivec
-@property (nonatomic, strong, readwrite) NSDictionary *_Nullable attributes;
+@property (nonatomic, strong, readonly) NSDictionary *_Nullable attributes;
 ```
 
 **说明**

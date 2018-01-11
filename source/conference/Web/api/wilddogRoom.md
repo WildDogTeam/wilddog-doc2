@@ -196,7 +196,7 @@ fps               | number         | 视频帧率 (fps)     | 15
 bitrate           | number         | 比特率 (bps)       | 300
 canvasWidth       | number         | 视频宽度 (<=1920) | 960
 canvasHeight      | number         | 视频高度 (<=1080)  | 640
-bgColor           | number         | 背景颜色 (十六进制) | xffffff
+bgColor           | number         | 背景颜色 (十六进制) | 0xffffff
 streams           | Object         | 媒体流布局         | { "627620748239984100": {"left": 0 , "top": 100, "width": 300, "height": 300, "zOrder": 0-255}
 
 对于每路需要录制的流的参数配置:
