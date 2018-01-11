@@ -127,3 +127,42 @@ int getMaxFps()
 </br>
 
 ---
+### getMinBitrateBps()
+
+**定义**
+
+```java
+int getMinBitrateBps()
+```
+
+**说明**
+
+传输视频的最小码率。
+
+**返回值**
+
+当前视频的最小码率的值。
+
+</br>
+
+---
+
+### getMaxBitrateBps()
+
+**定义**
+
+```java
+int getMaxBitrateBps()
+```
+
+**说明**
+
+传输视频的最大码率。
+
+**返回值**
+
+当前视频的最大码率的值。
+
+</br>
+
+---

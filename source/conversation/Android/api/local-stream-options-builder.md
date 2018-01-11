@@ -135,6 +135,59 @@ Builder maxFps(int maxFps)
 
 ---
 
+### minBitrateBps(int)
+
+**定义**   
+
+```java
+Builder minBitrateBps(int minBitrateBps)
+```
+
+**说明**
+
+表示最小码率，不设置则使用系统默认值。最小值为 50bps，且不能大于最大码率。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+|minBitrateBps|最小码率，单位：bps。|
+
+**返回值**
+
+当前媒体采集参数构建对象。
+
+</br>
+
+---
+
+
+### maxBitrateBps(int)
+
+**定义**   
+
+```java
+Builder maxBitrateBps(int maxBitrateBps)
+```
+
+**说明**
+
+表示最大码率，不设置则使用系统默认值。最大值为 2Mbps，且不能小于最小码率。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+|maxBitrateBps|最大码率，单位：bps。|
+
+**返回值**
+
+当前媒体采集参数构建对象。
+
+</br>
+
+---
+
 ### build()
 
 **定义**   
