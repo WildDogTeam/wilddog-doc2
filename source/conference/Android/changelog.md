@@ -5,6 +5,16 @@ title: 更新日志
 ## Android SDK
 
 
+### v2.3.2 - 2018.01.13
+
+<span class="changelog add">新增</span>
+- 新增获取相机状态的方法
+
+<span class="changelog optimize">优化</span>
+- 音频播放默认使用扬声器，插入耳机则自动切换到耳机模式
+
+
+
 ### v2.3.1 - 2018.01.05
 
 <span class="changelog optimize">优化</span>
