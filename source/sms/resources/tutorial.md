@@ -25,7 +25,7 @@ title: 实战教程
 
 ### 2. 账户充值
 
-短信服务需帐户余额大于 5 元才能使用。如余额不足，请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
+如余额不足，请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
 
 ### 3. 配置短信
 #### （1）配置签名

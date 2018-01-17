@@ -4,7 +4,7 @@ title: 通知类短信
 
 ## 准备工作
 - 创建应用。首先，你需要在控制面板中创建应用。请参考 [控制面板-创建应用](/console/creat.html)。
-- 账户充值。短信服务需帐户余额大于 5 元才能使用。如余额不足，请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
+- 账户充值。如余额不足，请进入 [控制面板-财务-充值](https://www.wilddog.com/pay/recharge) 进行充值。
 
 
 

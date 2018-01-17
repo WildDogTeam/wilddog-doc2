@@ -7,7 +7,7 @@ title: 发送验证码短信
 **URL**
 
 ```
-https://sms.wilddog.com/api/v1/{:appId}/code/send
+https://sms.wilddog.com/api/v1/{:SMSAppID}/code/send
 ```
 
 **返回数据格式**
@@ -67,7 +67,7 @@ POST
 **示例代码**
 
 ```
-curl -X POST https://sms.wilddog.com/api/v1/{appId}/code/send -d"signature=$signature&mobile=$mobile&timestamp=$timestamp&templateId=$templateId"
+curl -X POST https://sms.wilddog.com/api/v1/{SMSAppID}/code/send -d"signature=$signature&mobile=$mobile&timestamp=$timestamp&templateId=$templateId"
 ```
 
 

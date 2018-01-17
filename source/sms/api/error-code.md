@@ -3,7 +3,7 @@ title:  错误码
 
 | 错误码 | 简称 | 错误详情 |
 | ------------- | -------------- | ------------ |
-|70001|invalid appId|appId参数无效|
+|70001|invalid appId|SMSAppID参数无效|
 |70002|invalid arguments|请求参数错误|
 |70003|invalid message type|消息类型参数错误|
 |70103|template not exist|模板不存在|
@@ -33,7 +33,6 @@ title:  错误码
 |70230|sms mobiles parse error, please check it|发送推送类短信, 手机号列表解析出错, 请检查格式|
 |70231|sms params parse error, please check it|发送推送类短信, 参数解析出错, 请检查格式|
 |70232|sms params size error, please check it|发送推送类短信, 参数个数错误, 请检查格式|
-|70301|your account must have at least ¥5 to use sms service|帐户余额不足5元，不能开启短信服务|
 |70302|your account rate insufficient balance|帐户余额不足 0 元，不能使用短信服务|
 |70303|your account dose not have enough balance for this api call|帐户余额不足支付本次短信服务|
 |70304|exceeded max api call frequency|发送接口调用频繁,超过每秒 10 次，请稍后重试|

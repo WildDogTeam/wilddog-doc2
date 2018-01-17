@@ -15,7 +15,7 @@ title: 查询发送状态
 **URL**
 
 ```
-https://sms.wilddog.com/api/v2/{:appId}/status
+https://sms.wilddog.com/api/v2/{:SMSAppID}/status
 
 此接口限制每appid每秒调用一次
 ```
@@ -75,7 +75,7 @@ curl -X POST https://sms.wilddog.com/api/v2/myoffice1/send
 **URL**
 
 ```
-https://sms.wilddog.com/api/v1/{:appId}/status
+https://sms.wilddog.com/api/v1/{:SMSAppID}/status
 ```
 
 **返回数据格式**
