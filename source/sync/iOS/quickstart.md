@@ -91,7 +91,7 @@ SDK 的安装方式有两种，你可以任选其一：
 <div class="slide-content slide-content-show">
 ```objectivec
 //初始化 WDGApp
-WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wilddogio.com"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<SyncAppID>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 
 //获取一个指向根节点的 WDGSyncReference 实例    
@@ -101,7 +101,7 @@ WDGSyncReference *ref = [[WDGSync sync] reference];
 <div class="slide-content">
 ```swift
 //初始化 WDGApp
-let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
+let options = WDGOptions.init(syncURL: "https://<SyncAppID>.wilddogio.com")
 WDGApp.configure(with: options)
 
 //获取一个指向根节点的 WDGSyncReference 实例

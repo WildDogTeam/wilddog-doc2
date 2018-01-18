@@ -47,7 +47,7 @@ public static WilddogAuth getInstance(WilddogApp wilddogapp)
 
 参数名 | 描述
 --- | ---
-wilddogapp | 包含特定appId的WilddogApp实例。
+wilddogapp | 包含特定SyncAppID的WilddogApp实例。
 
 **返回值**
 

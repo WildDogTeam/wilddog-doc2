@@ -28,14 +28,14 @@ title: Reference
 
 ```js
 var config = {
-  authDomain: "<appId>.wilddog.com",
+  authDomain: "<SyncAppID>.wilddog.com",
 };
 wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("city");
-// ref 指向 <appId>.wilddogio.com/city
+// ref 指向 <SyncAppID>.wilddogio.com/city
 
 var childRef = wilddog.sync().ref("city").child("Beijing");
-// childRef 指向 <appId>.wilddogio.com/city/Beijing
+// childRef 指向 <SyncAppID>.wilddogio.com/city/Beijing
 ```
 ---
 
@@ -62,17 +62,17 @@ var childRef = wilddog.sync().ref("city").child("Beijing");
 
 ```js
 var config = {
-  authDomain: "<appId>.wilddog.com",
+  authDomain: "<SyncAppID>.wilddog.com",
 };
 wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("city");
-// ref 指向 <appId>.wilddogio.com/city
+// ref 指向 <SyncAppID>.wilddogio.com/city
 
 var childRef = wilddog.sync().ref("city").child("Beijing");
-// childRef 指向 <appId>.wilddogio.com/city/Beijing
+// childRef 指向 <SyncAppID>.wilddogio.com/city/Beijing
 
 var parentRef = childRef.parent();
-// parentRef 指向 <appId>.wilddogio.com/city
+// parentRef 指向 <SyncAppID>.wilddogio.com/city
 ```
 ---
 
@@ -134,12 +134,12 @@ String 当前节点的完整 URL 。
 
 ```js
 var config = {
-  authDomain: "<appId>.wilddog.com",
+  authDomain: "<SyncAppID>.wilddog.com",
 };
 wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("city");
 var url = ref.toString();
-// url == 'https://<appId>.wilddogio.com/city'
+// url == 'https://<SyncAppID>.wilddogio.com/city'
 ```
 ---
 
@@ -300,7 +300,7 @@ wilddog.sync().ref('city').remove()
 wilddog.sync().ref("city").push('chengdu')
     .then(function(newRef){
        // newRef 的地址类似下面：
-       // https://<appId>.wilddogio.com/city/-JmRhjbYk73IFRZ7
+       // https://<SyncAppID>.wilddogio.com/city/-JmRhjbYk73IFRZ7
        console.info(newRef.toString());
     })
     .catch(function(err){

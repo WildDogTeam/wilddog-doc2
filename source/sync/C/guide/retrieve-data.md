@@ -46,8 +46,8 @@ STATIC void onObserverCallback(Wilddog_Node_T *p_snapshot, void* arg, Wilddog_Re
 int main(void){
     Wilddog_T wilddog = 0;
     
-    //<appId>即你应用的 appId，"/Jobs" 为节点的路径
-    wilddog = wilddog_initWithUrl("coaps://<appId>.wilddogio.com/Jobs");
+    //<SyncAppID>即你应用的 SyncAppID，"/Jobs" 为节点的路径
+    wilddog = wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/Jobs");
 
     //注意，这里省略了对wilddog_addObserver返回值的检查
 	wilddog_addObserver(wilddog, WD_ET_VALUECHANGE, onObserverCallback, NULL);
@@ -72,8 +72,8 @@ void onObserverCallback(const char *pdata, int error, void* arg){
 }
 Wilddog *ref = NULL;
 void setup{
-    //<appId>即你应用的 appId，"/Jobs" 为节点的路径
-    ref = new Wilddog("coaps://<appId>.wilddogio.com/Jobs");
+    //<SyncAppID>即你应用的 SyncAppID，"/Jobs" 为节点的路径
+    ref = new Wilddog("coaps://<SyncAppID>.wilddogio.com/Jobs");
     ref->addObserver(WD_ET_VALUECHANGE, onObserverCallback, NULL);
     return;
 }
@@ -106,8 +106,8 @@ void loop(){
 int main(void){
     Wilddog_T wilddog = 0;
     
-    //<appId>即你应用的 appId，"/Jobs" 为节点的路径
-    wilddog = wilddog_initWithUrl("coaps://<appId>.wilddogio.com/Jobs");
+    //<SyncAppID>即你应用的 SyncAppID，"/Jobs" 为节点的路径
+    wilddog = wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/Jobs");
 
     //注意，这里省略了对wilddog_removeObserver返回值的检查
 	wilddog_removeObserver(wilddog, WD_ET_VALUECHANGE);
@@ -124,8 +124,8 @@ int main(void){
 ```Arduino
 Wilddog *ref = NULL;
 void setup{
-    //<appId>即你应用的 appId，"/Jobs" 为节点的路径
-    ref = new Wilddog("coaps://<appId>.wilddogio.com/Jobs");
+    //<SyncAppID>即你应用的 SyncAppID，"/Jobs" 为节点的路径
+    ref = new Wilddog("coaps://<SyncAppID>.wilddogio.com/Jobs");
     ref->removeObserver(WD_ET_VALUECHANGE);
     return;
 }

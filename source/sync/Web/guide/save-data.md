@@ -29,8 +29,8 @@ title:  数据操作
 ```js
 // 初始化
 var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
+  authDomain: "<SyncAppID>.wilddog.com",
+  syncURL: "https://<SyncAppID>.wilddogio.com"
 };
 wilddog.initializeApp(config);
 var ref = wilddog.sync().ref("/web/saving-data/wildblog/users");

@@ -40,7 +40,7 @@ SDK 的安装方式有 2 种：
 
 ```
 // 初始化
-    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog SyncAppID>.wilddogio.com").build();
     WilddogApp.initializeApp(this, options);
 
              SyncReference mWilddogRef = WilddogSync.getInstance().getReference(WILDDOG_URL).child("chat");

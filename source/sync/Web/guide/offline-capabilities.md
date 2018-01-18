@@ -16,8 +16,8 @@ title:  离线功能
 
 ``` js
 var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
+  authDomain: "<SyncAppID>.wilddog.com",
+  syncURL: "https://<SyncAppID>.wilddogio.com"
 };
 wilddog.initializeApp(config);
 var connectedRef = wilddog.sync().ref("/.info/connected");

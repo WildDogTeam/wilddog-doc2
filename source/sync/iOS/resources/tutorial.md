@@ -51,7 +51,7 @@ SDK 的安装方式有两种，你可以任选其一
 ### 2. 初始化
 
 ```objectivec
-//初始化 WDGApp,建议自己创建一个应用，把 danmu 换成你自己的 appID
+//初始化 WDGApp,建议自己创建一个应用，把 danmu 换成你自己的 SyncAppID
 WDGOptions *option = [[WDGOptions allosc] initWithSyncURL:@"https://danmu.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 

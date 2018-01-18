@@ -39,8 +39,8 @@ STATIC void onGetCallback(Wilddog_Node_T *p_snapshot, void* arg, Wilddog_Return_
 int main(void){
     Wilddog_T wilddog = 0;
     
-    //<appId>即你应用的 appId，"/room" 为节点的路径
-    wilddog = wilddog_initWithUrl("coaps://<appId>.wilddogio.com/room");
+    //<SyncAppID>即你应用的 SyncAppID，"/room" 为节点的路径
+    wilddog = wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/room");
 
     //注意，这里省略了对wilddog_getValue返回值的检查
     wilddog_getValue(wilddog, p_head, onGetCallback, NULL);
@@ -66,8 +66,8 @@ void getValueCallBack(const char *pdata, int error, void* arg){
 }
 Wilddog *ref = NULL;
 void setup{
-    //<appId>即你应用的 appId，"/room" 为节点的路径
-    ref = new Wilddog("coaps://<appId>.wilddogio.com/room");
+    //<SyncAppID>即你应用的 SyncAppID，"/room" 为节点的路径
+    ref = new Wilddog("coaps://<SyncAppID>.wilddogio.com/room");
     ref->getValue(getValueCallBack, NULL);
     return;
 }
@@ -113,8 +113,8 @@ int main(void){
     p_node = wilddog_node_createUString("led","on");
     wilddog_node_addChild(p_head, p_node);
     
-    //<appId>即你应用的 appId，"/room" 为 led 节点的上级路径
-    wilddog = wilddog_initWithUrl("coaps://<appId>.wilddogio.com/room");
+    //<SyncAppID>即你应用的 SyncAppID，"/room" 为 led 节点的上级路径
+    wilddog = wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/room");
 
     //注意，这里省略了对wilddog_setValue返回值的检查
     wilddog_setValue(wilddog, p_head, onSetCallback, NULL);
@@ -141,8 +141,8 @@ void setValueCallBack(int error, void* arg){
 }
 Wilddog *ref = NULL;
 void setup{
-    //<appId>即你应用的 appId，"/room" 为 led 节点的上级路径
-    ref = new Wilddog("coaps://<appId>.wilddogio.com/room");
+    //<SyncAppID>即你应用的 SyncAppID，"/room" 为 led 节点的上级路径
+    ref = new Wilddog("coaps://<SyncAppID>.wilddogio.com/room");
     ref->setValue("{\"led\":\"on\"}", setValueCallBack, NULL);
     return;
 }
@@ -194,8 +194,8 @@ int main(void){
     //将节点p_node添加到object中
     wilddog_node_addChild(p_head, p_node);
     
-    //<appId>即你应用的 appId，"/room" 为要追加节点的上级路径
-    wilddog = wilddog_initWithUrl("coaps://<appId>.wilddogio.com/room");
+    //<SyncAppID>即你应用的 SyncAppID，"/room" 为要追加节点的上级路径
+    wilddog = wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/room");
 
     //注意，这里省略了对wilddog_push返回值的检查
     wilddog_push(wilddog, p_head, onPushCallback, NULL);
@@ -226,8 +226,8 @@ void pushValueCallBack(const char *pdata, int error, void* arg){
 }
 Wilddog *ref = NULL;
 void setup{
-    //<appId>即你应用的 appId，"/room" 为要追加节点的上级路径
-    ref = new Wilddog("coaps://<appId>.wilddogio.com/room");
+    //<SyncAppID>即你应用的 SyncAppID，"/room" 为要追加节点的上级路径
+    ref = new Wilddog("coaps://<SyncAppID>.wilddogio.com/room");
     ref->push("{\"led\":\"on\"}", pushValueCallBack, NULL);
     return;
 }
@@ -268,8 +268,8 @@ int main(void){
     BOOL isFinished = FALSE;
     Wilddog_T wilddog;
     
-    //<appId> 为你自己的appId
-    wilddog = wilddog_initWithUrl("coaps://<appid>.wilddogio.com/room");
+    //<SyncAppID> 为你自己的SyncAppID
+    wilddog = wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/room");
 
     //注意，这里省略了对wilddog_removeValue返回值的检查
     wilddog_removeValue(wilddog, onDeleteCallback, NULL);
@@ -292,8 +292,8 @@ void removeValueCallBack(const char *pdata, int error, void* arg){
 }
 Wilddog *ref = NULL;
 void setup{
-    //<appId>即你应用的 appId，"/room" 为要删除节点的路径
-    ref = new Wilddog("coaps://<appId>.wilddogio.com/room");
+    //<SyncAppID>即你应用的 SyncAppID，"/room" 为要删除节点的路径
+    ref = new Wilddog("coaps://<SyncAppID>.wilddogio.com/room");
     ref->removeValue(removeValueCallBack, NULL);
     return;
 }

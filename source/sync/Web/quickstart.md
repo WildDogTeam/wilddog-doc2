@@ -53,7 +53,7 @@ import * as wilddog from 'wilddog'
 
 ```javascript
 var config = {
-  syncURL: "https://<appId>.wilddogio.com" //输入节点 URL
+  syncURL: "https://<SyncAppID>.wilddogio.com" //输入节点 URL
 };
 wilddog.initializeApp(config);
 var ref = wilddog.sync().ref();

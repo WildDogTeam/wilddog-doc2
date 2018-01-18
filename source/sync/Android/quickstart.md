@@ -89,7 +89,7 @@ android {
 
 ```java
 // 初始化
-WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog appId>.wilddogio.com").build();
+WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<wilddog SyncAppID>.wilddogio.com").build();
 WilddogApp.initializeApp(this, options);
 SyncReference ref = WilddogSync.getInstance().getReference();
 ```

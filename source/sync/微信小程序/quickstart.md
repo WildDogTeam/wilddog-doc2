@@ -46,8 +46,8 @@ var wilddog = require('wilddog-weapp-all')
 
 ```
 var config = {
-    syncURL: 'https://<WD-APPID>.wilddogio.com',
-    authDomain: '<WD-APPID>.wilddog.com'
+    syncURL: 'https://<WD-SyncAppID>.wilddogio.com',
+    authDomain: '<WD-SyncAppID>.wilddog.com'
 }
 wilddog.initializeApp(config)
 ```
@@ -64,8 +64,8 @@ return Promise 对象
 
 ```js
 var config = {
-    syncURL: 'https://<WD-APPID>.wilddogio.com',
-    authDomain: '<WD-APPID>.wilddog.com'
+    syncURL: 'https://<WD-SyncAppID>.wilddogio.com',
+    authDomain: '<WD-SyncAppID>.wilddog.com'
 }
 wilddog.initializeApp(config)
 wilddog.auth().signInWeapp(function(err,user){
@@ -99,8 +99,8 @@ app.js
 
 ```js
 var config = {
-    syncURL: 'https://<WD-APPID>.wilddogio.com',
-    authDomain: '<WD-APPID.wilddog.com>'
+    syncURL: 'https://<WD-SyncAppID>.wilddogio.com',
+    authDomain: '<WD-SyncAppID.wilddog.com>'
 }
 App({
     onLaunch:function () {

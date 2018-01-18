@@ -7,11 +7,11 @@ title: App
 
 ```js
 var config = {
-  syncURL: "https://<appId>.wilddogio.com",
+  syncURL: "https://<SyncAppID>.wilddogio.com",
   // 连接方式可选项，如不设置该参数，则默认为 false，连接 WilddogSync 服务器时采用 polling 和 websocket 两种模式
   websocketOnly: false,
   // 若同时使用 Auth SDK ，应设置 authDomain
-  authDomain: "<appId>.wilddog.com"
+  authDomain: "<SyncAppID>.wilddog.com"
 };
 wilddog.initializeApp(config);
 
@@ -32,8 +32,8 @@ wilddog.initializeApp(config);
 var wilddog = wilddog.initializeApp(config);
 // 我们还可以使用不同配置声明多个不同的 App 实例
 var anotherConfig = {
-  synURL: "https://<appId-a>.wilddogio.com",
-  authDomain: "<appId-a>.wilddog.com"，
+  synURL: "https://<SyncAppID-a>.wilddogio.com",
+  authDomain: "<SyncAppID-a>.wilddog.com"，
   websocketOnly: false
 };
 var anotherApp = wilddog.initializeApp(anotherConfig, "ANOTHER_APP");

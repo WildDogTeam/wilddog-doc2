@@ -16,7 +16,7 @@ title:  离线功能
 <div class="slide-content slide-content-show">
 ```objectivec
 //初始化 
-WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wilddogio.com"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<SyncAppID>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 
 //创建一个 WDGSyncReference 实例
@@ -34,7 +34,7 @@ WDGSyncReference *connectedRef = [[WDGSync sync] referenceWithPath:@".info/conne
 <div class="slide-content">
 ```swift
 //初始化 
-let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
+let options = WDGOptions.init(syncURL: "https://<SyncAppID>.wilddogio.com")
 WDGApp.configure(with: options)
 
 //创建一个 WDGSyncReference 实例

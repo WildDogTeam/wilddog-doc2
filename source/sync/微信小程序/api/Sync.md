@@ -58,7 +58,7 @@ mySessionRef.update({
 
 ```js
 var config = {
-  syncURL: "https://<appId>.wilddogio.com"
+  syncURL: "https://<SyncAppID>.wilddogio.com"
 };
 wilddog.initializeApp(config);
 var rootRef = wilddog.sync().ref();

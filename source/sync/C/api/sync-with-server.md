@@ -49,7 +49,7 @@ int main(void){
     //用户自定义参数，这里的用途为：将云端发回的数据clone到本地
     Wilddog_Node_T * p_node = NULL;
 
-    //<url>即希望获取数据的url，如https://<appid>.wilddogio.com/a/b/c
+    //<url>即希望获取数据的url，如https://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对wilddog_getValue返回值的检查
@@ -116,7 +116,7 @@ int main(void){
     //创建一个字符串类型节点，值为 123456，key 为 NULL （这个节点的 key 是当前路径的 key，因此无需设置） 
     p_node = wilddog_node_createUString(NULL,"123456");
 
-    //<url>即希望设置数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望设置数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对wilddog_setValue返回值的检查
@@ -189,7 +189,7 @@ int main(void){
     //将节点p_node添加到object中
     wilddog_node_addChild(p_head, p_node);
     
-    //<url>即希望推送数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望推送数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对wilddog_push返回值的检查
@@ -247,7 +247,7 @@ STATIC void onDeleteCallback(void* arg, Wilddog_Return_T err){
 int main(void){
     Wilddog_T wilddog;
 
-    //<url>即希望删除数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望删除数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对wilddog_removeValue返回值的检查
@@ -304,7 +304,7 @@ int main(void){
     Wilddog_T wilddog = 0;
     STATIC int count = 0;
 
-    //<url>即希望订阅数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望订阅数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对wilddog_addObserver返回值的检查
@@ -363,7 +363,7 @@ int main(void){
     Wilddog_T wilddog = 0;
     STATIC int count = 0;
 
-    //<url>即希望订阅数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望订阅数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对wilddog_addObserver返回值的检查
@@ -399,7 +399,7 @@ int main(void){
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>wilddog_auth 函数需在调用 wilddog_initWithUrl 初始化该 appId 并获取实例后调用，否则将不生效。</li>
+    <li>wilddog_auth 函数需在调用 wilddog_initWithUrl 初始化该 SyncAppID 并获取实例后调用，否则将不生效。</li>
   </ul>
 </blockquote>
 
@@ -417,7 +417,7 @@ Wilddog_Return_T wilddog_auth(Wilddog_Str_T *p_host, u8 *p_auth, int len, onAuth
 
 | 参数名 | 说明 |
 |---|---|
-| p_host | `Wilddog_Str_T` 指针类型。进行 auth 认证的 host 字符串，如 `"<appId>.wilddogio.com"`。 |
+| p_host | `Wilddog_Str_T` 指针类型。进行 auth 认证的 host 字符串，如 `"<SyncAppID>.wilddogio.com"`。 |
 | p_auth | `unsigned char` 指针类型。指向 auth 数据的指针，auth 数据可以使用其他端 SDK 的 token，或者[使用 Server SDK 生成](/auth/Server/server.html)。|
 | len | `int` 类型。auth 数据的长度。 |
 | onAuth | `onAuthFunc` 类型。服务端回应认证或者认证超时触发的回调函数。 |
@@ -453,7 +453,7 @@ wilddog_auth("aaa.wilddogio.com", newToken, strlen(newToken), myOnAuthFunc, NULL
 <blockquote class="warning">
   <p><strong>注意：</strong></p>
   <ul>
-    <li>wilddog_unauth 函数需在调用 wilddog_initWithUrl 初始化该 appId 并获取实例后调用，否则将不生效。</li>
+    <li>wilddog_unauth 函数需在调用 wilddog_initWithUrl 初始化该 SyncAppID 并获取实例后调用，否则将不生效。</li>
   </ul>
 </blockquote>
 
@@ -471,7 +471,7 @@ Wilddog_Return_T wilddog_unauth(Wilddog_Str_T *p_host, onAuthFunc onAuth, void *
 
 | 参数名 | 说明 |
 |---|---|
-| p_host | `Wilddog_Str_T` 指针类型。取消 auth 认证的 host 字符串，如 `"<appId>.wilddogio.com"`。 |
+| p_host | `Wilddog_Str_T` 指针类型。取消 auth 认证的 host 字符串，如 `"<SyncAppID>.wilddogio.com"`。 |
 | onAuth | `onAuthFunc` 类型。服务端回应认证或者认证超时触发的回调函数。 |
 | args | `void` 指针类型。用户给回调函数传入的参数。|
 
@@ -513,8 +513,8 @@ void wilddog_trySync(void)
 
 ```c
 int main(){
-    //初始化实例，<appId> 为你的应用ID，路径为/user/jackxy/device/light/10abcde
-    Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy/device/light/10abcde");
+    //初始化实例，<SyncAppID> 为你的应用ID，路径为/user/jackxy/device/light/10abcde
+    Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy/device/light/10abcde");
     //do something
     ...
     while(1){
@@ -543,8 +543,8 @@ void wilddog_increaseTime(u32 ms)
 
 ```c
 int main(){
-    //初始化实例，<appId> 为你的应用ID，路径为/user/jackxy/device/light/10abcde
-    Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy/device/light/10abcde");
+    //初始化实例，<SyncAppID> 为你的应用ID，路径为/user/jackxy/device/light/10abcde
+    Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy/device/light/10abcde");
     //do something
     ...
     while(1){

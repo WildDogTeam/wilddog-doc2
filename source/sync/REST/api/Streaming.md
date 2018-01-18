@@ -79,14 +79,14 @@ data: {"path": "/c", "data": {"foo": 3, "baz": 4}}
 如：使用 curl 命令开启`SSE`
 
 ```
-curl -X GET -H 'Accept:text/event-stream' 'https://<appId>.wilddogio.com/.json'
+curl -X GET -H 'Accept:text/event-stream' 'https://<SyncAppID>.wilddogio.com/.json'
 
 ```
 
 使用 curl 命令 `put` 数据
 
 ```
-curl -X PUT -d '{"path": "/", "data": {"a": 1, "b": 2}}' 'https://<appId>.wilddogio.com/.json'
+curl -X PUT -d '{"path": "/", "data": {"a": 1, "b": 2}}' 'https://<SyncAppID>.wilddogio.com/.json'
 {"path":"/","data":{"a":1,"b":2}}
 
 ```

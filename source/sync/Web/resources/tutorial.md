@@ -27,7 +27,7 @@ title: 实战教程
 使用写入数据的 API [push()](/sync/Web/guide/save-data.html#追加子节点)，它用来在当前节点下生成随机子节点，以保证 key 的不重复和有序。
 
 ```js
-// 创建数据库引用。最好自己创建一个应用，把 danmu 即 `appId` 换成你自己的
+// 创建数据库引用。最好自己创建一个应用，把 danmu 即 `SyncAppID` 换成你自己的
 var config = {
   authDomain: "danmu.wilddog.com",
   syncURL: "https://danmu.wilddogio.com"

@@ -18,8 +18,8 @@ title:  离线事件
 
 ```
 var config = {
-  authDomain: "<appId>.wilddog.com",
-  syncURL: "https://<appId>.wilddogio.com"
+  authDomain: "<SyncAppID>.wilddog.com",
+  syncURL: "https://<SyncAppID>.wilddogio.com"
 };
 wilddog.initializeApp(config);
 

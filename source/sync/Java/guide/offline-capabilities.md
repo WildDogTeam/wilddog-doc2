@@ -14,7 +14,7 @@ title:  离线功能
 
 ```java
 //初始化
-    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<appId>.wilddogio.com").build();
+    WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<SyncAppID>.wilddogio.com").build();
     WilddogApp.initializeApp(options);
     //创建一个 SyncReference 实例
     SyncReference connectedRef = WilddogSync.getInstance().getReference(".info/connected");
@@ -53,7 +53,7 @@ title:  离线功能
 
 ```java
 //初始化
-WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<appId>.wilddogio.com").build();
+WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<SyncAppID>.wilddogio.com").build();
 WilddogApp.initializeApp(options);
 
 SyncReference presenceRef = WilddogSync.getInstance().getReference("disconnectmessage");

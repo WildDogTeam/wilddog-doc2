@@ -43,7 +43,7 @@ STATIC void on_callback
 }
 
 int main(){
-    Wilddog_T wilddog = wilddog_initWithUrl("coap://<appId>.wilddogio.com/.info/connected");
+    Wilddog_T wilddog = wilddog_initWithUrl("coap://<SyncAppID>.wilddogio.com/.info/connected");
 
     wilddog_addObserver(wilddog,WD_ET_VALUECHANGE, on_callback, NULL);
     while(1){
@@ -90,8 +90,8 @@ int main(void){
     //本地组装节点 "disconnect"，当离线时设置为 "yes"
     p_node = wilddog_node_createUString(NULL,"yes");
 
-    //<appId>即你应用的 appId，"/disconnect" 为节点的路径
-    wilddog = wilddog_initWithUrl("coaps://<appId>.wilddogio.com/disconnect");
+    //<SyncAppID>即你应用的 SyncAppID，"/disconnect" 为节点的路径
+    wilddog = wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/disconnect");
 
     //注意，这里省略了对wilddog_onDisconnectSetValue返回值的检查
     wilddog_onDisconnectSetValue(wilddog, p_node, onSetCallback, NULL);
@@ -117,8 +117,8 @@ int main(void){
     int cnt = 0;
     Wilddog_T wilddog = 0;
 
-    //<appId>即你应用的 appId
-    wilddog = wilddog_initWithUrl("coaps://<appId>.wilddogio.com");
+    //<SyncAppID>即你应用的 SyncAppID
+    wilddog = wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com");
     
     wilddog_goOnline();
     while(1){

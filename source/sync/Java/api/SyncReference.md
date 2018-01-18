@@ -34,9 +34,9 @@ path | `String` path 为相对路径，深层路径多层级间需要使用 "/" 
 ##### 示例
 
 ```java
-WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<appId>.wilddogio.com").build();
+WilddogOptions options = new WilddogOptions.Builder().setSyncUrl("https://<SyncAppID>.wilddogio.com").build();
 WilddogApp.initializeApp(this, options);
-//ref 表示 `https://<appId>.wilddogio.com/test` 节点
+//ref 表示 `https://<SyncAppID>.wilddogio.com/test` 节点
 SyncReference ref = WilddogSync.getInstance().getReference("test");
 
 // 定位到 '/test/a'

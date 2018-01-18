@@ -33,7 +33,7 @@ title:  数据操作
 <div class="slide-content slide-content-show">
 ```objectivec
 // 初始化 
-WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<appId>.wilddogio.com"];
+WDGOptions *option = [[WDGOptions alloc] initWithSyncURL:@"https://<SyncAppID>.wilddogio.com"];
 [WDGApp configureWithOptions:option];
 // 获取一个 WDGSyncReference 实例
 WDGSyncReference *ref = [[WDGSync sync] referenceWithPath:@"/web/saving-data/wildblog/users"];
@@ -50,7 +50,7 @@ WDGSyncReference *usersRef = [ref childWithPath: @"Jobs"];
 <div class="slide-content">
 ```swift 
 //初始化
-let options = WDGOptions.init(syncURL: "https://<appId>.wilddogio.com")
+let options = WDGOptions.init(syncURL: "https://<SyncAppID>.wilddogio.com")
 WDGApp.configure(with: options)
 // 获取一个 WDGSyncReference 实例
 let ref = WDGSync.sync().reference(withPath: "/web/saving-data/wildblog/users")

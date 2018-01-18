@@ -30,7 +30,7 @@ curl 'https://samplechat.wilddogio.com/users/jack/name.json?auth=CREDENTIAL'
 
 ```
 curl -X POST -H "Content-type: application/json;charset=UTF-8" -d '{"token":"<YOUR CUSTOM TOKEN HERE>"}' \
-'https://<appid>.wilddogio.com/.auth/customTokenToIdToken.json'
+'https://<SyncAppID>.wilddogio.com/.auth/customTokenToIdToken.json'
 ```
 
 ##### 返回值

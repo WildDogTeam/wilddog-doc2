@@ -16,7 +16,7 @@ REST API 可以用来查询和更改规则表达式。该操作必须使用应�
 
 
 ```
-curl -X PUT -d '{"rules":{".read":true}}' 'https://<appId>.wilddogio.com/.settings/rules.json?auth=WILDDOG_SECRET'
+curl -X PUT -d '{"rules":{".read":true}}' 'https://<SyncAppID>.wilddogio.com/.settings/rules.json?auth=WILDDOG_SECRET'
 
 ```
 
@@ -30,6 +30,6 @@ curl -X PUT -d '{"rules":{".read":true}}' 'https://<appId>.wilddogio.com/.settin
 
 ##### 示例
 ```
-curl  'https://<appId>.wilddogio.com/.settings/rules.json?auth=WILDDOG_SECRET'
+curl  'https://<SyncAppID>.wilddogio.com/.settings/rules.json?auth=WILDDOG_SECRET'
 
 ```

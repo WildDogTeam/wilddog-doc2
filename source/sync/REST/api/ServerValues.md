@@ -16,7 +16,7 @@ title: Server Values
 
 ```
 curl -X PUT -d '{".sv": "timestamp"}' \
-  'https://<appId>.wilddogio.com/rest/saving-data/alanisawesome/createdAt.json'
+  'https://<SyncAppID>.wilddogio.com/rest/saving-data/alanisawesome/createdAt.json'
 
 ```
 
@@ -30,7 +30,7 @@ curl -X PUT -d '{".sv": "timestamp"}' \
 ##### 示例
 
 ```
-curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
+curl 'https://<SyncAppID>.wilddogio.com/.json?sv=timestamp'
 
 ```
 

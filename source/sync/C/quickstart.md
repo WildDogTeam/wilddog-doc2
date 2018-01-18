@@ -51,7 +51,7 @@ Linux 平台下，编译 SDK 后生成的库文件在 SDK 的 lib 目录下。�
 ## 3. 创建 Sync 引用
 
 ```c
-Wilddog_T ref = wilddog_initWithUrl("https://<appId>.wilddogio.com/users/Jack");
+Wilddog_T ref = wilddog_initWithUrl("https://<SyncAppID>.wilddogio.com/users/Jack");
 ```
 
 <blockquote class="notice">
@@ -79,8 +79,8 @@ void callback(void* arg, Wilddog_Return_T err){
 int main(void){
     //作为设置是否完成的标志为传入回调函数中.
     BOOL isFinish = FALSE;
-    //初始化 Wilddog 引用，需要将 <appId> 修改为你自己的 appId
-    Wilddog_T ref = wilddog_initWithUrl((Wilddog_Str_T*)"https://<appId>.wilddogio.com/users/Jack");
+    //初始化 Wilddog 引用，需要将 <SyncAppID> 修改为你自己的 SyncAppID
+    Wilddog_T ref = wilddog_initWithUrl((Wilddog_Str_T*)"https://<SyncAppID>.wilddogio.com/users/Jack");
     //将Jack节点的值设为"beauty"
     Wilddog_Node_T *node = wilddog_node_createUString(NULL, (Wilddog_Str_T*)"beauty");
     //向云端写入
@@ -117,8 +117,8 @@ void callback(const Wilddog_Node_T* p_snapshot, void* arg, Wilddog_Return_T err)
     return;
 }
 int main(){
-    //初始化Wilddog引用，需要将<appId>修改为你自己的appId
-    Wilddog_T ref = wilddog_initWithUrl((Wilddog_Str_T*)"https://<appId>.wilddogio.com/users/Jack");
+    //初始化Wilddog引用，需要将<SyncAppID>修改为你自己的SyncAppID
+    Wilddog_T ref = wilddog_initWithUrl((Wilddog_Str_T*)"https://<SyncAppID>.wilddogio.com/users/Jack");
     //向云端订阅该节点数据变化
     wilddog_addObserver(ref, WD_ET_VALUECHANGE, callback, NULL);
     while(1){

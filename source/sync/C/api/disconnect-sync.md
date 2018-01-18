@@ -49,7 +49,7 @@ int main(void){
     /* create a node to "wilddog", value is "123456" */
     p_node = wilddog_node_createUString(NULL,"123456");
 
-    //<url>即希望设置数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望设置数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对 wilddog_onDisconnectSetValue 返回值的检查
@@ -110,7 +110,7 @@ int main(void){
     p_node = wilddog_node_createNum("2",1234);
     wilddog_node_addChild(p_head, p_node);
     
-    //<url>即希望推送数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望推送数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对wilddog_onDisconnectPush返回值的检查
@@ -167,7 +167,7 @@ int main(void){
     BOOL isFinished = FALSE;
     Wilddog_T wilddog = 0;
 
-    //<url>即希望删除数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望删除数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对wilddog_onDisconnectRemoveValue返回值的检查
@@ -222,7 +222,7 @@ STATIC void onCancelCallback(void* arg, Wilddog_Return_T err){
 int main(void){
     Wilddog_T wilddog = 0;
 
-    //<url>即希望删除数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望删除数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     //注意，这里省略了对wilddog_cancelDisconnectOperations返回值的检查
@@ -257,7 +257,7 @@ void wilddog_goOffline(void)
 int main(void){
     Wilddog_T wilddog = 0;
 
-    //<url>即希望删除数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望删除数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     wilddog_goOffline();
@@ -286,7 +286,7 @@ void wilddog_goOnline(void)
 int main(void){
     Wilddog_T wilddog = 0;
 
-    //<url>即希望删除数据的url，如coaps://<appid>.wilddogio.com/a/b/c
+    //<url>即希望删除数据的url，如coaps://<SyncAppID>.wilddogio.com/a/b/c
     wilddog = wilddog_initWithUrl(<url>);
 
     wilddog_goOnline();

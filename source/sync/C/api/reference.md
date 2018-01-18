@@ -32,8 +32,8 @@ Wilddog_T wilddog_initWithUrl(Wilddog_Str_T *url)
 
 ```c
 int main(){
-    //初始化实例，<appId> 为你的应用 ID，路径为/user/jackxy/device/light/10abcde
-    Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy/device/light/10abcde");
+    //初始化实例，<SyncAppID> 为你的应用 ID，路径为/user/jackxy/device/light/10abcde
+    Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy/device/light/10abcde");
     //do something
     ...
     //销毁实例
@@ -71,8 +71,8 @@ Wilddog_Return_T wilddog_destroy(Wilddog_T *p_wilddog)
 
 ```c
 int main(){
-    //初始化实例，<appId> 为你的应用 ID，路径为/user/jackxy/device/light/10abcde
-    Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy/device/light/10abcde");
+    //初始化实例，<SyncAppID> 为你的应用 ID，路径为/user/jackxy/device/light/10abcde
+    Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy/device/light/10abcde");
     //do something
     ...
     //销毁实例
@@ -110,7 +110,7 @@ Wilddog_T wilddog_getParent(Wilddog_T wilddog)
 
 ```c
 //获取 /user/jackxy 的 Wilddog Sync 实例
-Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy");
+Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy");
 //获取 /user 的 Wilddog Sync 实例
 Wilddog_T parent = wilddog_getParent(wilddog);
 ```
@@ -145,7 +145,7 @@ Wilddog_T wilddog_getRoot(Wilddog_T wilddog)
 
 ```c
 //获取 /user/jackxy 的 Wilddog Sync 实例
-Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy");
+Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy");
 //获取根路径的 Wilddog Sync 实例
 Wilddog_T root = wilddog_getRoot(wilddog);
 ```
@@ -181,7 +181,7 @@ Wilddog_T wilddog_getChild(Wilddog_T wilddog, Wilddog_Str_T *childName)
 
 ```c
 //获取 /user/jackxy 的 Wilddog Sync 实例
-Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy");
+Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy");
 //获取 /user/jacxy/aaa 的 Wilddog Sync 实例
 Wilddog_T child = wilddog_getChild(wilddog, "aaa");
 ```
@@ -216,7 +216,7 @@ Wilddog_Str_T *wilddog_getKey(Wilddog_T wilddog)
 
 ```c
 //获取 /user/jackxy 的 Wilddog Sync 实例
-Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy");
+Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy");
 //获取Key值（即jackxy）
 Wilddog_Str_T *key = wilddog_getKey(wilddog);
 ```
@@ -251,8 +251,8 @@ Wilddog_Str_T *wilddog_getHost(Wilddog_T wilddog)
 
 ```c
 //获取 /user/jackxy 的 Wilddog Sync 实例
-Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy");
-//获取 host 值（即 "<appId>.wilddogio.com"）
+Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy");
+//获取 host 值（即 "<SyncAppID>.wilddogio.com"）
 Wilddog_Str_T *host = wilddog_getHost(wilddog);
 ```
 
@@ -286,7 +286,7 @@ Wilddog_Str_T *wilddog_getPath(Wilddog_T wilddog)
 
 ```c
 //获取 /user/jackxy 的 Wilddog Sync 实例
-Wilddog_T wilddog=wilddog_initWithUrl("coaps://<appId>.wilddogio.com/user/jackxy");
+Wilddog_T wilddog=wilddog_initWithUrl("coaps://<SyncAppID>.wilddogio.com/user/jackxy");
 //获取 path 值（即 "/user/jackxy" ）
 Wilddog_Str_T *path = wilddog_getPath(wilddog);
 ```

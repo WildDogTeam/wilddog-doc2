@@ -22,7 +22,7 @@ curl 'https://docs-examples.wilddogio.com/rest/saving-data/wdblog/posts.json?pri
 使用`GET`请求获取云端当前时间戳：
 
 ```
-curl 'https://<appId>.wilddogio.com/.json?sv=timestamp'
+curl 'https://<SyncAppID>.wilddogio.com/.json?sv=timestamp'
 
 ```
 
