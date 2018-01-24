@@ -108,3 +108,25 @@ wilddog.sync().goOffline();
 // 当前 app 实例下的所有 Sync 实例都将重连
 wilddog.sync().goOnline();
 ```
+
+---
+
+### enableLogging
+
+##### 定义
+
+`enableLogging(Boolean)`
+
+##### 说明
+
+开启/关闭日志开关。开启后会在 console 中打印出底层接口调用和通讯协议的步骤。
+
+##### 返回值
+
+[Void](Void.html)
+
+##### 示例
+```js
+// 开启 sync 日志开关。
+wilddog.sync().enableLogging(true);
+```
