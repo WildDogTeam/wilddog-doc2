@@ -26,3 +26,25 @@ pixelBuffer       | 当前视频帧。
 </br>
 
 ---
+
+### -outputAudioBuffer:
+
+**定义**
+
+```objectivec
+- (void)outputAudioBuffer:(CMSampleBufferRef)sampleBuffer;
+```
+
+**说明**
+
+通过实现此方法获取本地流的音频流，格式为 `CMSampleBufferRef`。
+
+**参数**
+
+参数名             | 说明
+------------------|------------------
+sampleBuffer      | 当前本地音频流数据。
+
+</br>
+
+---
