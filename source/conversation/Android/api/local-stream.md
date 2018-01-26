@@ -189,6 +189,43 @@ public void setFlashMode(FlashMode flashMode)
 
 ---
 
+### setAudioBufferListener(listener)
+
+**定义**
+   
+```java
+public void setAudioBufferListener(AudioBufferListener listener)
+```
+**说明**
+
+设置本地音频流回调，回调方法中获得本地音频数据。
+
+**参数**
+
+| 参数名 | 描述 |
+|---|---|
+| listener | 本地音频流回调接口。|
+
+</br>
+
+---
+
+### removeAudioBufferListener()
+
+**定义**
+   
+```java
+public void removeAudioBufferListener()
+```
+**说明**
+
+移除本地音频流回调监听。
+
+
+</br>
+
+---
+
 ### attach(videoView)
 
 **定义**
