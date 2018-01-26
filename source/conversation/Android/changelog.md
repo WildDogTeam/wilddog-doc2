@@ -4,6 +4,13 @@ title: 更新日志
 ## Android SDK
 
 
+### v2.4.7 - 2017.01.26
+
+<span class="changelog add">新增</span>
+- 支持获取本地媒体流的音频数据，可用于语音识别
+
+
+
 ### v2.4.6 - 2018.01.13
 
 <span class="changelog add">新增</span>
