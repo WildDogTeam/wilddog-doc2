@@ -4,6 +4,17 @@ title: 更新日志
 ## iOS SDK
 
 
+### v2.3.1 - 2018.02.08
+
+<span class="changelog optimize">优化</span>
+- 支持在 publish 时候选择编码格式
+- 捕获不同的 token 错误类型
+
+<span class="changelog fix">修复</span>
+- 未传参数进行服务端视频录制返回 404 页面的错误
+- 重复订阅／取消订阅同一个流导致崩溃的问题
+
+
 
 ### v2.3.0 - 2017.12.29
 

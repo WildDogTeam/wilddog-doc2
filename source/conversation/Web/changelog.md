@@ -7,6 +7,15 @@ title: 更新日志
 
 
 
+### v2.4.7 - 2018.02.08
+
+<span class="changelog add">新增</span>
+- localStream增加switchCamera方法，同时room.switchCamera提示废弃
+
+<span class="changelog fix">修复</span>
+- 修复了红米手机前置摄像头无法创建视频流的问题
+
+
 ### v2.4.6 - 2018.01.05
 
 <span class="changelog fix">修复</span>

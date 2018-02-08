@@ -6,6 +6,15 @@ title: 更新日志
 
 
 
+
+### v2.4.5 - 2018.02.08
+
+<span class="changelog fix">修复</span>
+- 修复iOS在Connect之前call web会不成功的问题
+- 修复音频录制存在的问题
+
+
+
 ### v2.4.4 - 2017.01.26
 
 <span class="changelog add">新增</span>

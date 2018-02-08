@@ -4,6 +4,18 @@ title: 更新日志
 ## Android SDK
 
 
+### v2.4.8 - 2018.02.08
+
+<span class="changelog fix">修复</span>
+- 控件多次attach后detach失效的问题
+- 部分手机H.264软解的问题
+- 设置fps和统计结果不一致的问题
+- detach或者close之后停在最后一帧的问题 
+
+
+
+
+
 ### v2.4.7 - 2017.01.26
 
 <span class="changelog add">新增</span>
