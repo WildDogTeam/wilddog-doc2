@@ -189,3 +189,44 @@ getAttributes();
 var atts = localStream.getAttributes();
 // atts == {id：123456}  true
 ```
+
+---
+
+### switchCamera
+
+**定义**
+
+```javascript
+roomInstance.switchCamera()
+```
+
+**说明**
+
+切换摄像头。
+
+**返回值**
+
+Promise<isSupportSwitch>
+
+**示例**
+
+```js
+localStream.switchCamera().then(function (isSupportSwitch) {
+    if (isSupportSwitch === true) {
+        // 支持通话中动态切换
+    } else {
+        // 不支持通话中动态切换，需重新发布该流（```roomInstance.unpublish(localStream); roomInstance.publish(localStream)```）
+    }
+}).catch(function () {
+
+})
+```
+
+</br>
+
+<blockquote class="notice">
+  <p><strong>提示：</strong></p>
+
+在多人通话的场景中，由于存在兼容性问题，远端的浏览器只有iOS11和Mac下的的safari、PC下的Firefox能平滑的收到本地切换摄像头后的流。
+
+</blockquote>
