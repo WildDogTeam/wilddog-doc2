@@ -251,7 +251,7 @@ room.stopRecording(callback);
 
 ---
 
-### switchCamera
+<!-- ### switchCamera
 
 **定义**
 
@@ -277,7 +277,7 @@ localEl           | 绑定了本地媒体流的`video`页面元素
 
 在多人通话的场景中，由于存在兼容性问题，远端的浏览器只有iOS11和Mac下的的safari、PC下的Firefox能平滑的收到本地切换摄像头后的流。
 
-</blockquote>
+</blockquote> -->
 
 
 ## 事件

@@ -198,7 +198,7 @@ var atts = localStream.getAttributes();
 **定义**
 
 ```javascript
-roomInstance.switchCamera()
+localStream.switchCamera()
 ```
 
 **说明**
@@ -216,7 +216,9 @@ localStream.switchCamera().then(function (isSupportSwitch) {
     if (isSupportSwitch === true) {
         // 支持通话中动态切换
     } else {
-        // 不支持通话中动态切换，需重新发布该流（```roomInstance.unpublish(localStream); roomInstance.publish(localStream)```）
+        // 不支持通话中动态切换，需重新发布该流
+        roomInstance.unpublish(localStream);
+        roomInstance.publish(localStream);
     }
 }).catch(function () {
 
