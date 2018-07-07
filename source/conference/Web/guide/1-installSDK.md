@@ -57,4 +57,3 @@ wilddog.auth().signInAnonymously()
         console.log(error);
     });
 ```
-```
